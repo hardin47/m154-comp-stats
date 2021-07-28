@@ -14,6 +14,19 @@
       "author": [],
       "contents": "\n\n\n\n",
       "last_modified": "2021-07-28T14:13:16-07:00"
+    },
+    {
+      "path": "notes.html",
+      "title": "Class Notes",
+      "description": "Daily class notes for Math 154, Computational Statistics, Pomona College\n",
+      "author": [
+        {
+          "name": "Jo Hardin",
+          "url": "https://m154-comp-stats.netlify.app/"
+        }
+      ],
+      "contents": "\nClass notes can be found at https://st47s.com/Math154/Notes/.\n\n\n\n\n\n\n\n",
+      "last_modified": "2021-07-28T16:26:56-07:00"
     }
   ],
   "collections": ["posts/posts.json"]
