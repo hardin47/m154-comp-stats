@@ -9,6 +9,8 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Class Notes"
+      href: notes.html
 output: 
   distill::distill_article:
     theme: theme.css   
