@@ -13,4 +13,4 @@ navbar:
       href: notes.html
 output: 
   distill::distill_article:
-    theme: theme.css   
+    css: theme.css   
