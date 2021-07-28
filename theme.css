@@ -83,14 +83,13 @@ d-appendix {
   font-weight: 900;
 }
 
-  customtextFontFamily = "Metropolis"
-  customheadingFontFamily = "Bitter"
   
 /*IMPORT CUSTOM FONTS FROM GOOGLE*/
 /* Import fonts from Google's API */
 @import url('https://fonts.googleapis.com/css2?family=Bitter');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand');
-USE THOSE FONTS THROUGHOUT
+
+/*USE THOSE FONTS THROUGHOUT*/
 /* Use specific font in the body of the text */
 html, body, p {
   
@@ -103,4 +102,8 @@ html, body, p {
   
 }  
 
-
+/* Change appearance of headers */
+h1, h2, h3, h4, h5 {
+  font-family: 'Fira Mono', sans-serif;
+  color: color: #676565;
+}
