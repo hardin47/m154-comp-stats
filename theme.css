@@ -83,3 +83,24 @@ d-appendix {
   font-weight: 900;
 }
 
+  customtextFontFamily = "Metropolis"
+  customheadingFontFamily = "Bitter"
+  
+/*IMPORT CUSTOM FONTS FROM GOOGLE*/
+/* Import fonts from Google's API */
+@import url('https://fonts.googleapis.com/css2?family=Bitter');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand');
+USE THOSE FONTS THROUGHOUT
+/* Use specific font in the body of the text */
+html, body, p {
+  
+  font-family: 'Bitter', 'Quicksand';
+  font-weight: 200;
+  line-height: 1.3; 
+  font-size: 1.0em;
+  color: #333333;
+  font-style: normal;
+  
+}  
+
+
