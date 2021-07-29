@@ -1,8 +1,9 @@
 name: "m154-comp-stats"
 title: "Computational Statistics"
 description: |
-  Computational Statistics
+  Math 154, Computational Statistics, Pomona College
 output_dir: "_site"
+base_url: https://m154-comp-stats.netlify.app/
 navbar:
   right:
     - text: "Home"

@@ -10,9 +10,11 @@ author:
 output: distill::distill_article
 ---
 
-Class notes can be found at http://st47s.com/Math154/Notes/.
+Class notes can be found at [http://st47s.com/Math154/Notes/](http://st47s.com/Math154/Notes/).
 
-```{r layout="l-body-outset", out.extra='style="border: none;"', echo = FALSE}
+<p>   </p>
+
+```{r layout="l-page", out.extra='style="border: none;"', echo = FALSE}
 knitr::include_url("https://st47s.com/Math154/Notes/")
 ```
 

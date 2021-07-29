@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Computational Statistics</title>
+    <link>https://m154-comp-stats.netlify.app/</link>
+    <atom:link href="https://m154-comp-stats.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
+    <description>Math 154, Computational Statistics, Pomona College
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Wed, 28 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Welcome to Computational Statistics</title>
+      <dc:creator>Nora Jones</dc:creator>
+      <link>https://m154-comp-stats.netlify.app/posts/welcome</link>
+      <description>Welcome to our new blog, Computational Statistics. We hope you enjoy 
+reading what we have to say!</description>
+      <guid>https://m154-comp-stats.netlify.app/posts/welcome</guid>
+      <pubDate>Wed, 28 Jul 2021 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

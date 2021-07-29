@@ -4,7 +4,5 @@ description: |
   Some additional details about the blog
 ---
 
-```{r echo = FALSE}
-knitr::include_url("https://st47s.com/Math154/Notes/")
-```
+jyfkhgvkhnv
 
