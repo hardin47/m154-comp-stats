@@ -6,14 +6,14 @@
       "description": "Some additional details about the blog",
       "author": [],
       "contents": "\njyfkhgvkhnv\n\n\n\n",
-      "last_modified": "2021-07-28T17:20:07-07:00"
+      "last_modified": "2021-07-29T08:42:30-07:00"
     },
     {
       "path": "index.html",
       "title": "Computational Statistics",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2021-07-28T17:20:08-07:00"
+      "last_modified": "2021-07-29T08:42:30-07:00"
     },
     {
       "path": "notes.html",
@@ -26,7 +26,7 @@
         }
       ],
       "contents": "\nClass notes can be found at http://st47s.com/Math154/Notes/.\n\n\n\n\n\n\n\n\n\n",
-      "last_modified": "2021-07-28T17:20:08-07:00"
+      "last_modified": "2021-07-29T08:42:31-07:00"
     }
   ],
   "collections": ["posts/posts.json"]

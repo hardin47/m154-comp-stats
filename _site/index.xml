@@ -6,15 +6,20 @@
     <atom:link href="https://m154-comp-stats.netlify.app/index.xml" rel="self" type="application/rss+xml"/>
     <description>Math 154, Computational Statistics, Pomona College
 </description>
+    <image>
+      <title>Computational Statistics</title>
+      <url>https://m154-comp-stats.netlify.app/images/favicon.ico</url>
+      <link>https://m154-comp-stats.netlify.app/</link>
+    </image>
     <generator>Distill</generator>
     <lastBuildDate>Wed, 28 Jul 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Welcome to Computational Statistics</title>
       <dc:creator>Nora Jones</dc:creator>
-      <link>https://m154-comp-stats.netlify.app/posts/welcome</link>
+      <link>https://m154-comp-stats.netlify.app/posts/resources</link>
       <description>Welcome to our new blog, Computational Statistics. We hope you enjoy 
 reading what we have to say!</description>
-      <guid>https://m154-comp-stats.netlify.app/posts/welcome</guid>
+      <guid>https://m154-comp-stats.netlify.app/posts/resources</guid>
       <pubDate>Wed, 28 Jul 2021 00:00:00 +0000</pubDate>
     </item>
   </channel>
