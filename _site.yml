@@ -5,6 +5,9 @@ description: |
 output_dir: "_site"
 base_url: https://m154-comp-stats.netlify.app/
 navbar:
+  logo:
+    image: images/st47s.png
+    href: https://hardin47.netlify.app/
   right:
     - text: "Home"
       href: index.html
