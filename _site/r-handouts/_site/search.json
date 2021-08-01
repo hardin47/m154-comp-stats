@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this blog",
+      "description": "Some additional details about the blog",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-07-30T17:10:02-07:00"
+    },
+    {
+      "path": "index.html",
+      "title": "R handouts",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2021-07-30T17:10:03-07:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}

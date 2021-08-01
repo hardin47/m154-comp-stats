@@ -1,0 +1,18 @@
+---
+title: "Wrangling"
+description: |
+  Data wrangling skills are among the most important to hone.  
+author:
+  - name: Nora Jones
+    url: https://example.com/norajones
+date: 08-01-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+quotes about 80% of work is data wrangling
+
+slides on data wrangling
+
+example R code / sample markdown file?

@@ -1,5 +1,39 @@
 [
   {
+    "path": "posts/2021-08-01-wrangling/",
+    "title": "Wrangling",
+    "description": "Data wrangling skills are among the most important to hone.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2021-08-01",
+    "categories": [],
+    "contents": "\nquotes about 80% of work is data wrangling\nslides on data wrangling\nexample R code / sample markdown file?\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-08-01T14:12:19-07:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2021-07-30-getting-started-with-r-rstudio/",
+    "title": "Getting Started with R + RStudio",
+    "description": "Some resources for starting with R and RStudio.",
+    "author": [
+      {
+        "name": "Jo Hardin",
+        "url": {}
+      }
+    ],
+    "date": "2021-07-30",
+    "categories": [],
+    "contents": "\ninclude some info, maybe a test R file, the video Andrew made, etc.\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-08-01T14:12:23-07:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/resources/",
     "title": "Welcome to Computational Statistics",
     "description": "Welcome to our new blog, Computational Statistics. We hope you enjoy \nreading what we have to say!",
