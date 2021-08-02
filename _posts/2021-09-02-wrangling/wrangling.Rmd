@@ -3,9 +3,10 @@ title: "Wrangling"
 description: |
   Data wrangling skills are among the most important to hone.  
 author:
-  - name: Nora Jones
-    url: https://example.com/norajones
-date: 08-01-2021
+  - name: Jo Hardin
+    url: https://m154-comp-stats.netlify.app/
+date: 09-02-2021
+citation: false
 output:
   distill::distill_article:
     self_contained: false

@@ -1,37 +1,54 @@
 [
   {
-    "path": "posts/2021-08-01-wrangling/",
+    "path": "posts/2021-09-02-wrangling/",
     "title": "Wrangling",
     "description": "Data wrangling skills are among the most important to hone.",
     "author": [
       {
-        "name": "Nora Jones",
-        "url": "https://example.com/norajones"
+        "name": "Jo Hardin",
+        "url": "https://m154-comp-stats.netlify.app/"
       }
     ],
-    "date": "2021-08-01",
+    "date": "2021-09-02",
     "categories": [],
     "contents": "\nquotes about 80% of work is data wrangling\nslides on data wrangling\nexample R code / sample markdown file?\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-08-01T14:12:19-07:00",
+    "last_modified": "2021-08-02T09:44:06-07:00",
     "input_file": {}
   },
   {
-    "path": "posts/2021-07-30-getting-started-with-r-rstudio/",
-    "title": "Getting Started with R + RStudio",
+    "path": "posts/2021-08-31-getting-started-with-r-rstudio/",
+    "title": "1. Getting Started with R + RStudio",
     "description": "Some resources for starting with R and RStudio.",
     "author": [
       {
         "name": "Jo Hardin",
-        "url": {}
+        "url": "https://m154-comp-stats.netlify.app/"
       }
     ],
-    "date": "2021-07-30",
+    "date": "2021-08-31",
     "categories": [],
-    "contents": "\ninclude some info, maybe a test R file, the video Andrew made, etc.\n\n\n\n",
+    "contents": "\ninclude some info, maybe a test R file, the video Andrew made, etc.\nReadings\nThe syllabus\nbook(s)??\nClass notes\nReflection Questions\nSlides\nAdditional Resources\n\n\n\n",
     "preview": {},
-    "last_modified": "2021-08-01T14:12:23-07:00",
+    "last_modified": "2021-08-02T09:43:16-07:00",
     "input_file": {}
+  },
+  {
+    "path": "posts/2021-08-24-syllabus/",
+    "title": "0. Syllabus",
+    "description": "what is this class all about?",
+    "author": [
+      {
+        "name": "Jo Hardin",
+        "url": "https://m154-comp-stats.netlify.app/"
+      }
+    ],
+    "date": "2021-08-24",
+    "categories": [],
+    "contents": "\nComputational Statistics\nMath 154, Fall 2021\nJo Hardin 2351 Estella jo.hardin@pomona.edu\nOffice Hours: TBA, or by appointment\nMentor Sessions:\nTBA\nEstella 1021 (Emmy Noether Room)\nTexts:\nAn Introduction to Statistical Learning; James, Witten, Hastie, Tibshirani (http://www-bcf.usc.edu/~gareth/ISL/)\nRecommended: Modern Data Science with R; Baumer, Kaplan, and Horton (free chapters and other information at: https://github.com/beanumber/mdsr and http://mdsr-book.github.io/)\nRecommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte (http://www.edwardtufte.com/tufte/books_textb)\nWebsite for: Data Science in R: A Case Studies Approach to Computational Reasoning and Problem Solving; Nolan and Temple Lang (http://rdatasciencecases.org/)\nMath 154 Homework Schedule\nMath 154 Semester Project\nMath 154 Class Notes\nImportant Dates:\n10/17/19 Exam 1\n10/25/19 Take home 1 due (on GitHub by midnight)\n11/1/19 Initial Project Proposal due (via email to me by midnight)\n11/8/19 Final Project Proposal due (on GitHub by midnight)\nNovember 14, 4:15-5:30 2019 Data Science Panel\n11/21/19 Project Update due (on GitHub by midnight)\n11/26/19 Take home 2 due (on GitHub by midnight)\n12/5/19 Exam 2\n12/13/19 (Friday) or 12/18/19 (Wednesday) Group Presentations (2-5pm)\n12/18/19 Final write-up due (on GitHub by midnight)\nHandouts:\nBest and most comprehensive Git help: http://happygitwithr.com/\nVersion control with Git: http://swcarpentry.github.io/git-novice/\nMore on Git\nOnline Git book with lots of info: https://git-scm.com/book/en/v2\nR documentation / help\nGreat tutorials through the Coding Club\nGoogle for R http://www.rseek.org/\nHomework:\nHomework will be assigned from the text with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R and posted on GitHub. All homework must be done in R markdown.\nHomework will be due on Thursdays by midnight to GitHub.\nNon-homework activities (e.g., from the text) may be collected and added to your participation grade.\nHW should be turned in to your GitHub repository by Thursday.\nAlways post both a PDF and R Markdown file, unless otherwise requested.\nHW is graded on a scale of 5/4/3/2/1. See the first HW assignment for more information.\n\nHW file should be in the format of: ma154-hw#-lname-fname.pdf\nHW format\nplease be neat and organized which will help me, the grader, and you (in the future) to follow your work.\nwrite your name on your assignment.\nplease include at least the number of the problem, or a summary of the question (which will also be helpful to you in the future to prepare for exams).\nit is strongly recommended that you look through the questions as soon as you get the assignment. This will help you to start thinking how to solve them!\nfor R problems, it is required to use R Markdown\nin case of questions, or if you get stuck please don’t hesitate to email me (though I’m much less sympathetic to such questions if I receive emails within 24 hours of the due date for the assignment).\n\nHW Grading\n\nHomework assignments will be graded out of 5 points, which are based on a combination of accuracy and effort. Below are rough guidelines for grading.\n[5] All problems completed with detailed solutions provided and 75% or more of the problems are fully correct. Additionally, there are no extraneous messages, warnings, or printed lists of numbers.\n[4] All problems completed with detailed solutions and 50-75% correct; OR close to all problems completed and 75%-100% correct. Or all problems are completed and there are extraneous messages, warnings, or printed lists of numbers.\n[3] Close to all problems completed with less than 75% correct.\n[2] More than half but fewer than all problems completed and > 75% correct.\n[1] More than half but fewer than all problems completed and < 75% correct; OR less than half of problems completed.\n[0] No work submitted, OR half or less than half of the problems submitted and without any detail/work shown to explain the solutions. You will get a zero if your file is not compiled and submitted on GitHub.\nProjects:\nThere will be a semester long group project. Your task is to use data to tell us something interesting. This project is deliberately open-ended to allow you to fully explore your creativity. There are three main rules that must be followed: (1) data centered, (2) tell us something, (3) do something new. The project information is available here: Math 154 Semester Project\nComputing:\nGitHub will be used as a way to practice reproducible and collaborative science. There may be a slight learning curve, but knowing Git will be an extremely useful skill as you venture on after this class.\nR will be used for all homework assignments. R is freely available at http://www.r-project.org/ and is already installed on college computers. Additionally, you need to install R Studio in order to use R Markdown, http://rstudio.org/. If you are not already familiar with R, please work through some of the materials provided ASAP.\nYou are welcome to use Pomona’s R Studio server at https://rstudio.campus.pomona.edu/ (or https://rstudio.pomona.edu if you are off campus). If you use the server, you can connect directly to your Git account without installing Git locally on your own computer. [If you are not a Pomona student, you will need to get an account from Pomona’s ITS. Go to ITS, tell them that you are taking a Pomona course, and ask for an account for using RStudio.]\nParticipation:\nThis class will be interactive, and your participation is expected (every day in class). Although notes will be posted, your participation is an integral part of the in-class learning process.\nIn class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]\nFor each midterm, one point will be given for having done the following (before 10/17 and again before 11/26):\nlog on to Piazza (link will be sent via email)\nusing reprex, ask a question about R (can be anonymous to peers, name must be visible to instructor for credit) https://teachdatascience.com/reprex/\nrespond / help a peer who has asked a question about anything (can be anonymous to peers, name must be visible to instructor for credit)\n\n\nCourse Goals:\nto be able to work through the entire computational statistics flow chart as a data analyst.\nto be able to use graphical representations of data to communicate ideas about the data.\nto critically evaluate analyses / graphics of data (typically big data or dynamic data).\nto communicate results effectively.\nAcademic Honesty:\nYou are encouraged to work together on homework assignments. Additionally, the group presentation will require close collaboration with a group of your peers. Everything you turn in must represent your own work. Copying and pasting code (or text) from your colleagues constitutes plagiarism and will not be tolerated. All exams (including take-home) will be closed person. You may not collaborate (discuss, complain, etc.) with other individuals about the exams. Pomona’s academic honesty policy is given below and will be taken seriously.\nPomona College is an academic community, all of whose members are expected to abide by ethical standards both in their conduct and in their exercise of responsibilities toward other members of the community. The college expects students to understand and adhere to basic standards of honesty and academic integrity. These standards include, but are not limited to, the following:\nIn projects and assignments prepared independently, students never represent the ideas or the language of others as their own.\nStudents do not destroy or alter either the work of other students or the educational resources and materials of the College.\nStudents neither give nor receive assistance in examinations.\nStudents do not take unfair advantage of fellow students by representing work completed for one course as original work for another or by deliberately disregarding course rules and regulations.\nIn laboratory or research projects involving the collection of data, students accurately report data observed and do not alter these data for any reason.\n\nAdvice:\nPlease feel free to stop by, email, or call if you have any questions about or difficulty with the material, the computing, the projects, or the course. Come see me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. Enjoy!\nGrading:\n25% Homework 45% Midterms 25% Group Project & Presentation 5% Class Participation\n\n\n\n",
+    "preview": {},
+    "last_modified": "2021-08-02T10:07:41-07:00",
+    "input_file": "syllabus.knit.md"
   },
   {
     "path": "posts/resources/",
