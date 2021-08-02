@@ -11,8 +11,8 @@ navbar:
   right:
     - text: "Home"
       href: index.html
-    - text: "About"
-      href: about.html
+    - text: "Schedule"
+      href: schedule.html
     - text: "Class Notes"
       href: notes.html
     - text: "GitHub"
