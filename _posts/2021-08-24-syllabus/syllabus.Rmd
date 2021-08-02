@@ -58,8 +58,15 @@ Estella 1021 (Emmy Noether Room)
 
 ##### R documentation / help
 
+* interactive tutorials for working through "R for Data Science" at [https://rstudio.cloud/learn/primers](https://rstudio.cloud/learn/primers)
+* for a good start to R in general, check out [https://education.rstudio.com/learn/](https://education.rstudio.com/learn/)
 * Great tutorials through the [Coding Club](https://ourcodingclub.github.io/tutorials/)
 * Google for R [http://www.rseek.org/](http://www.rseek.org/)
+* Incredibly helpful [cheatsheets](https://www.rstudio.com/resources/cheatsheets/) from RStudio.
+   * [data wrangling](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
+   * [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+   * [R Markdown](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
+   * [RStudio IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 
 ### Homework:
 * Homework will be assigned from the text with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R and posted on GitHub. All homework must be done in R markdown.  
