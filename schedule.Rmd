@@ -45,13 +45,13 @@ schedule <- tribble(
   '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-desktop"></i></a>',
   '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-lightbulb"></i></a>',
   '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-laptop"></i></a>',
-  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class=""></i></a>',
+  '<a href="/posts/2021-08-31-getting-started-with-r-rstudio/"><i class="fas fa-book-open"></i></a>',
   "9.2.21", "",
-  '<a href=""><i class="fas fa-book-open"></i></a>',
+  '<a href=""><i class="fas fa-book"></i></a>',
   '<a href=""><i class="fas fa-desktop"></i></a>',
   '<a href=""><i class="fas fa-lightbulb"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  '<a href=""><i class="fas fa-book"></i></a>'
+  '<a href=""><i class="fas fa-book-open"></i></a>'
   )
 
 ```
