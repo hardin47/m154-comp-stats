@@ -39,23 +39,19 @@ library(knitr)
 
 ```{r echo = FALSE}
 schedule <- tribble(
-  ~date, ~topic, ~reading, ~slides, ~example, ~code, ~assignment, ~extra, ~notes,
-  "8.31.21", "Introduction to Computational Statistics",
+  ~date, ~topic, ~notes, ~slides, ~example, ~code, ~content,
+  "8.31.21", "Starting with R + RStudio + Git",
   '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-book"></i></a>',
   '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-desktop"></i></a>',
   '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-lightbulb"></i></a>',
   '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-laptop"></i></a>',
-  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fab fa-github"></i></a>',
-  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-sun"></i></a>',
-  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-book-open"></i></a>',
+  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class=""></i></a>',
   "9.2.21", "",
-  '<a href=""><i class="fas fa-book"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
   '<a href=""><i class="fas fa-desktop"></i></a>',
   '<a href=""><i class="fas fa-lightbulb"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  '<a href=""><i class="fab fa-github"></i></a>',
-  '<a href=""><i class="fas fa-sun"></i></a>',
-  '<a href=""><i class="fas fa-book-open"></i></a>'
+  '<a href=""><i class="fas fa-book"></i></a>'
   )
 
 ```
@@ -64,7 +60,7 @@ schedule <- tribble(
 
 ```{r echo = FALSE}
 schedule %>% 
-  kbl(escape = FALSE, align = c(rep('l',2), rep('c',7))) %>%
+  kbl(escape = FALSE, align = c(rep('l',2), rep('c',5))) %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
   column_spec(4, )
 ```

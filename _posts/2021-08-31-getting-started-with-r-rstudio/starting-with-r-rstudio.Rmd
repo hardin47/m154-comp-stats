@@ -1,7 +1,7 @@
 ---
-title: "1. Getting Started with R + RStudio"
+title: "1. Starting with R + RStudio + Git"
 description: |
-  Some resources for starting with R and RStudio.
+  Some resources for starting with R and RStudio and GitHub.
 author:
   - name: Jo Hardin
     url: https://m154-comp-stats.netlify.app/
