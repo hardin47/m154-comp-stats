@@ -1,5 +1,5 @@
 ---
-title: "1. Starting with R + RStudio + Git"
+title: "1. Start with R + RStudio + Git"
 description: |
   Some resources for starting with R and RStudio and GitHub.
 author:
