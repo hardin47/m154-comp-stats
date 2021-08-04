@@ -12,14 +12,24 @@
       <link>https://m154-comp-stats.netlify.app/</link>
     </image>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 02 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Wrangling</title>
+      <title>3. Wrangling</title>
       <dc:creator>Jo Hardin</dc:creator>
-      <link>https://m154-comp-stats.netlify.app/posts/2021-09-02-wrangling</link>
+      <link>https://m154-comp-stats.netlify.app/posts/2021-09-14-wrangling</link>
       <description>Data wrangling skills are among the most important to hone.</description>
-      <guid>https://m154-comp-stats.netlify.app/posts/2021-09-02-wrangling</guid>
-      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://m154-comp-stats.netlify.app/posts/2021-09-14-wrangling</guid>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://m154-comp-stats.netlify.app/posts/2021-09-14-wrangling/../../images/dplyr_wrangling.png" medium="image" type="image/png" width="1913" height="1530"/>
+    </item>
+    <item>
+      <title>2. Data Viz</title>
+      <dc:creator>Jo Hardin</dc:creator>
+      <link>https://m154-comp-stats.netlify.app/posts/2021-09-07-dataviz</link>
+      <description>A short description of the post.</description>
+      <guid>https://m154-comp-stats.netlify.app/posts/2021-09-07-dataviz</guid>
+      <pubDate>Tue, 07 Sep 2021 00:00:00 +0000</pubDate>
+      <media:content url="https://m154-comp-stats.netlify.app/posts/2021-09-07-dataviz/../../images/ggplot2_masterpiece.png" medium="image" type="image/png" width="2080" height="1566"/>
     </item>
     <item>
       <title>1. Start with R + Git</title>
