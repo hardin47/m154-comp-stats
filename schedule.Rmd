@@ -41,16 +41,16 @@ library(knitr)
 schedule <- tribble(
   ~date, ~topic, ~notes, ~slides, ~example, ~code, ~content,
   "8.31.21", "Starting with R + RStudio + Git",
-  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-book"></i></a>',
+  '<a href="http://st47s.com/Math154/Notes/intro.html" target="_blank"><i class="fas fa-book"></i></a>',
   '<a href="posts/2021-08-31-getting-started-with-r-rstudio/reprodgit" target="_blank"><i class="fas fa-desktop"></i></a>',
-  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-lightbulb"></i></a>',
-  '<a href="http://st47s.com/Math154/Notes/intro.html"><i class="fas fa-laptop"></i></a>',
+  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/someRideas" target="_blank"><i class="fas fa-lightbulb"></i></a>',
+  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/someRideas.Rmd" target="_blank"><i class="fas fa-laptop"></i></a>',
   '<a href="/posts/2021-08-31-getting-started-with-r-rstudio/"><i class="fas fa-book-open"></i></a>',
-  "9.2.21", "",
-  '<a href=""><i class="fas fa-book"></i></a>',
+  "9.7.21", "Data Viz",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
-  '<a href=""><i class="fas fa-lightbulb"></i></a>',
-  '<a href=""><i class="fas fa-laptop"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-book-open"></i></a>'
   )
 
