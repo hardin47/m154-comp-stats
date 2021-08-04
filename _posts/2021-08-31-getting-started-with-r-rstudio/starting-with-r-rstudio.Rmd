@@ -1,7 +1,7 @@
 ---
-title: "1. Start with R + RStudio + Git"
+title: "1. Start with R + Git"
 description: |
-  Some resources for starting with R and RStudio and GitHub.
+  The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub.
 author:
   - name: Jo Hardin
     url: https://m154-comp-stats.netlify.app/
