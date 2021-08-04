@@ -1,0 +1,153 @@
+---
+title: "Working on assignments with GitHub and Gradescope"
+description: |
+  Huge thanks to Ben Wiedermann at HMC for sharing the following.  
+author:
+  - name: Jo Hardin 
+    url: https://m154-comp-stats.netlify.app/
+    affiliation: Pomona College
+    affiliation_url: https://hardin47.netlify.app/
+  - name: original content by Ben Wiedermann
+    affiliation: Harvey Mudd College
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 1
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, 
+                      warning = FALSE, cache = TRUE,
+                      fig.width=10, eval.after = 'fig.cap')
+library(tidyverse)
+library(infer)
+library(broom)
+library(tidymodels)
+library(knitr)
+library(viridis)
+library(patchwork)
+
+library(praise)
+set.seed(4747)
+```
+
+# Working on assignments with GitHub and Gradescope
+
+In Math 154, we will use GitHub + Gradescope to access and submit assignments.  Here is the basic structure of how it will work:
+
+1. Get the assignment materials from GitHub classroom.
+2. Clone the repository to any machine you are using.
+3. Work on the assignment and push back to GitHub.
+4. Submit the assignment on Gradescope.
+
+The following diagram lays out the process, and the rest of the document provides a more detailed set of instructions.
+
+```{r echo = FALSE, fig.cap="Flowchart of assignment process.", fig.alt = "Flowchart demonstrating that assignments are recieved from Git, processed on your computer (iteratively with GitHub), and submitted to Gradescope."}
+include_graphics("images/git-workflow.png")
+```
+
+# Installing R + RStudio + Git
+
+Most importantly, please become familiar with [Happy Git and GitHub with R](https://happygitwithr.com/).  Happy Git with R is an incredibly user friendly resource which includes help for almost every single thing that might happen when getting started.  
+
+<aside>
+[Happy Git with R](https://happygitwithr.com/) is your new best friend.
+</aside>
+
+1. The first step is to install R + RStudio + Git on your machine.  (If you are planning to use Pomona's RStudio server, R + RStudio + Git are all three already installed for you.)
+
+2. Create an account on GitHub (if you already have one,  use it!).
+
+3. Introduce everyone:  R + RStudio (should happen automatically); yourself to GitHub (see https://happygitwithr.com/); RStudio + GitHub (see https://happygitwithr.com/).
+
+4. Follow the rest of the steps that Jenny Bryan spells out in [Happy Git and GitHub with R](https://happygitwithr.com/).
+
+```{r echo = FALSE, fig.cap="The more you read Happy Git with R, the better your life will be.", fig.alt = "Screen shot of the Happy Git with R webpage."}
+include_graphics("images/happygitwithr.png")
+```
+
+# Get the assignment materials from GitHub Classroom
+
+Each assignment will provide a link to GitHub classroom. Click the link.
+
+<aside>
+When you use GitHub classroom for the first time, you'll be asked to authorize GitHub classroom to access your repositories.
+</aside>
+
+The first assignment will be an individual assignment.
+Some other assignments will be paired assignments.
+To accept an individual assignment, click the “Accept this assignment” button.
+
+For all joint assignments, you will need to create a team before you can start.
+
+* If you are working with a partner, create a team name that contains both of your GitHub ids. (If you are working by yourself, use your GitHub id as your team name.)
+
+<aside>
+&#9888; You may need to add a description of the assignment (for example “Lab 2”) to team name. This is because GitHub Classroom does seem to make it easy for some people to work in the same group as a previous assignment while other people form new groups.
+</aside>
+
+```{r echo = FALSE, fig.cap="One partner accepts the assignment and creates the team.", fig.alt = "Screen shot of GitHub showing where to write the new team name including your GitHub id and your partner's GitHub id."}
+include_graphics("images/ben-accept-assignment.png")
+```
+
+The assignment files will be copied as a private repository that you (and your partner) and the course staff have access to.
+
+We will call this version, that lives on your GitHub account the *GitHub fork*.
+
+If you are working with a partner, the person who did *not* create the team and accept the assignment should now click the GitHub classroom link, find the newly created team, and click the Join button.
+
+```{r echo = FALSE, fig.cap="The other partner joins the team.", fig.alt = "Screen shot of GitHub showing how to join the existing team."}
+include_graphics("images/ben-join-team.png")
+```
+
+# Clone the assignment (or project) repository on to your own computer(s)
+
+Once your repository has been created, you should clone the code to whatever computer you are working on.  Just like a Google Doc, you can work on the files from different machines at different times.  Unlike a Google Doc, you'll have to make sure to open the repo (`clone` or `pull` if you've aleady `clone`d) and save the repo (`commit` + `push`) more deliberately.
+
+<aside>
+[Happy Git with R](https://happygitwithr.com/) is your new best friend.
+</aside>
+
+1. Click on the link for the repository.
+
+**picture here**
+
+2. Click the `Clone or download` button and copy the URL.
+
+**picture here**
+
+3. On the cloning machine (e.g., your own compute or the RStudio server), create a new R project with 
+
+**picture here**
+
+# Work on the assignment, push back to GitHub
+
+<aside>
+&#9888; Always start your work session with a pull to the computer you are working on, and end your session with a push back to GitHub.
+</aside>
+
+All of the GitHub interaction will take place through the RStudio IDE.  The two important steps for getting the assignment back to GitHub are:
+
+## `pull`
+
+If you are working with a colleague or on different machines it is so incredibly important to get in the habit of immediately clicking on `pull` when you start your work.  (If you are working alone on a single machine `pull` won't hurt!  You'll just be told that your files are already up to date.)
+
+
+```{r echo = FALSE, fig.cap="Always pull before you start.", fig.alt = "Screen shot of how to pull using the Rstudio IDE."}
+include_graphics("images/pull.png")
+```
+
+## `commit` your work
+
+Wh
+
+```{r echo = FALSE, fig.cap="Always pull before you start.", fig.alt = "Screen shot of how to commit using the Rstudio IDE."}
+include_graphics("images/commit.png")
+```
+
+## `push` your work to GitHub
+
+```{r echo = FALSE, fig.cap="Always pull before you start.", fig.alt = "Screen shot of how to push using the Rstudio IDE."}
+include_graphics("images/push.png")
+```
+
