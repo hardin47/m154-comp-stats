@@ -38,6 +38,48 @@
       "last_modified": "2021-08-04T14:06:01-07:00"
     },
     {
+      "path": "project.html",
+      "title": "Semester Project",
+      "description": "A new article created using the Distill format.\n",
+      "author": [
+        {
+          "name": "Nora Jones",
+          "url": "https://example.com/norajones"
+        }
+      ],
+      "date": "`r Sys.Date()`",
+      "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill for R Markdown at https://rstudio.github.io/distill.\n\n\n\n",
+      "last_modified": "2021-08-04T14:16:57-07:00"
+    },
+    {
+      "path": "roles.html",
+      "title": "Group Dynamic Roles",
+      "description": "A new article created using the Distill format.\n",
+      "author": [
+        {
+          "name": "Nora Jones",
+          "url": "https://example.com/norajones"
+        }
+      ],
+      "date": "`r Sys.Date()`",
+      "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill for R Markdown at https://rstudio.github.io/distill.\n\n\n\n",
+      "last_modified": "2021-08-04T14:16:44-07:00"
+    },
+    {
+      "path": "rubric.html",
+      "title": "Rubric for Semester Project",
+      "description": "A new article created using the Distill format.\n",
+      "author": [
+        {
+          "name": "Nora Jones",
+          "url": "https://example.com/norajones"
+        }
+      ],
+      "date": "`r Sys.Date()`",
+      "contents": "\nDistill is a publication format for scientific and technical writing, native to the web.\nLearn more about using Distill for R Markdown at https://rstudio.github.io/distill.\n\n\n\n",
+      "last_modified": "2021-08-04T14:16:32-07:00"
+    },
+    {
       "path": "schedule.html",
       "title": "Schedule",
       "description": "Schedule for Math 154, Computational Statistics, Fall 2021",

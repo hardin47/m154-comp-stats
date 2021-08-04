@@ -20,6 +20,16 @@ navbar:
       href: schedule.html
     - text: "Class Notes"
       href: notes.html
+    - text: "Project"
+      menu: 
+        - text: "Project Assignment"
+          href: project.html
+        - text: "Group Roles"
+          href: roles.html
+        - text: "Rubric"
+          href: rubric.html
+        - text: "Data Sources"
+          href: https://research.pomona.edu/johardin/datasources/
     - text: "GitHub"
       href: github.html
 output: 
