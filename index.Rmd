@@ -1,5 +1,10 @@
 ---
 title: "Computational Statistics"
 site: distill::distill_website
-listing: posts
+listing: 
+  posts:
+    - 2021-08-24-syllabus
+    - 2021-08-31-getting-started-with-r-rstudio
+    - 2021-09-07-dataviz
+    - 2021-09-14-wrangling
 ---
