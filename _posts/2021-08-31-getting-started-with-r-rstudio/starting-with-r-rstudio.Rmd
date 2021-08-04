@@ -12,6 +12,11 @@ output:
     self_contained: false
 ---
 
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Judge monster confirming that the RStudio monster has reproducible work.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/reproducibility_court.png")
+```
+
+
 include some info, maybe a test R file, the video Andrew made, etc.
 
 ## Readings

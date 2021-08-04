@@ -25,6 +25,12 @@ jo.hardin@pomona.edu
 TBA  
 Estella 1021 (Emmy Noether Room)
 
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters going through the phases of writing code.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/debugging.jpg")
+```
+
+
 #### Texts:  
 
 * An Introduction to Statistical Learning; James, Witten, Hastie, Tibshirani (<a href="http://www-bcf.usc.edu/~gareth/ISL/">http://www-bcf.usc.edu/~gareth/ISL/</a>)  
@@ -60,6 +66,7 @@ Estella 1021 (Emmy Noether Room)
 
 * interactive tutorials for working through "R for Data Science" at [https://rstudio.cloud/learn/primers](https://rstudio.cloud/learn/primers)
 * for a good start to R in general, check out [https://education.rstudio.com/learn/](https://education.rstudio.com/learn/)
+* A fantastic [ggplot2 tutorial](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
 * Great tutorials through the [Coding Club](https://ourcodingclub.github.io/tutorials/)
 * Google for R [http://www.rseek.org/](http://www.rseek.org/)
 * Incredibly helpful [cheatsheets](https://www.rstudio.com/resources/cheatsheets/) from RStudio.
