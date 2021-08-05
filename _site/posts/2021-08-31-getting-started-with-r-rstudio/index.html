@@ -2130,19 +2130,16 @@ d-appendix {
   --title-size:       18px;
   --text-color:       rgba(255, 255, 255, 0.8);
   --text-size:        15px;
-  --hover-color:      white;
+  --hover-color:      black;
   --bkgd-color:       #4d4819;
 }
 
 .distill-site-footer {
   --text-color:       rgba(255, 255, 255, 0.8);
   --text-size:        15px;
-  --hover-color:      white;
+  --hover-color:      black;
   --bkgd-color:       #4d4819;
 }
-
-/*-- Additional custom styles --*/
-/* Add any additional CSS rules below                      */
 
 .distill-site-nav {
   font-family: 'Quicksand';
@@ -2151,6 +2148,64 @@ d-appendix {
   font-size: 20px;
   font-weight: 900;
 }
+
+.distill-site-nav a:hover {
+    color: black;
+  }
+  
+/*-- Dropdown Menu --*/
+
+.nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: #d35836;
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+  
+.nav-dropdown:hover .nav-dropbtn {
+    color: black;
+  }
+  
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: #d35836;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+.nav-dropdown-content a:hover {
+    background-color: #F0EDD1;
+    color: black;
+  }  
+  
+.nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #F0EDD1;
+    white-space: nowrap;
+  }  
+
+/*-- Additional custom styles --*/
+/* Add any additional CSS rules below                      */
 
   
 /*IMPORT CUSTOM FONTS FROM GOOGLE*/
