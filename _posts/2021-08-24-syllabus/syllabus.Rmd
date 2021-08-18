@@ -12,8 +12,8 @@ output:
     self_contained: false
 ---
 
-## Computational Statistics
-### Math 154, Fall 2021
+# Computational Statistics
+## Math 154, Fall 2021
 
 Jo Hardin
 2351 Estella
@@ -31,18 +31,27 @@ knitr::include_graphics("../../images/debugging.jpg")
 ```
 
 
-#### Texts:  
+## Texts:  
 
-* An Introduction to Statistical Learning; James, Witten, Hastie, Tibshirani (<a href="http://www-bcf.usc.edu/~gareth/ISL/">http://www-bcf.usc.edu/~gareth/ISL/</a>)  
-*  Recommended: Modern Data Science with R; Baumer, Kaplan, and Horton&nbsp;(free chapters and other information at:&nbsp;<a href="https://github.com/beanumber/mdsr">https://github.com/beanumber/mdsr</a>&nbsp;and&nbsp;<a href="http://mdsr-book.github.io/">http://mdsr-book.github.io/</a>)  
-* Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte (<a href="http://www.edwardtufte.com/tufte/books_textb">http://www.edwardtufte.com/tufte/books_textb</a>)  
-* Website for: Data Science in R: A Case Studies Approach to Computational Reasoning and Problem Solving; Nolan and Temple Lang (<a href="http://rdatasciencecases.org/">http://rdatasciencecases.org/</a>)
+All resources are freely available.  They also all have print versions which can be purchased.  Using the online version of the books is expected.
 
-* [Math 154 Homework Schedule](/schedule/) 
-* [Math 154 Semester Project](/project/) 
-* [Math 154 Class Notes](/notes/)
+### First section of the course (data science, data viz, wrangling, simulating, permutation tests, bootstrapping, ethics)
 
-#### Important Dates:
+* Content: **Modern Data Science with R**; Baumer, Kaplan, and Horton, <a href="https://mdsr-book.github.io/mdsr2e/">https://mdsr-book.github.io/mdsr2e/</a>
+
+* R resource: **R for Data Science**, Wickham, <a href = "https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a> 
+
+* Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte <a href="http://www.edwardtufte.com/tufte/books_textb">http://www.edwardtufte.com/tufte/books_textb</a> 
+
+### Second section of the course (bootstrapping, knn, trees, bagging, random forests, support vector machines, clustering)
+
+* Content: **An Introduction to Statistical Learning**; James, Witten, Hastie, and Tibshirani <a href="https://www.statlearning.com/">https://www.statlearning.com/</a>
+
+* R resource: **Tidy Modeling with R**; Kuhn and Silge <a href="https://www.tmwr.org/">https://www.tmwr.org/</a>
+
+
+## Important Dates:
+
 * 10/17/19 Exam 1
 * 10/25/19 Take home 1 due (on GitHub by midnight)
 * 11/1/19 Initial Project Proposal due (via email to me by midnight)
@@ -54,7 +63,9 @@ knitr::include_graphics("../../images/debugging.jpg")
 * 12/13/19 (Friday) or 12/18/19 (Wednesday) Group Presentations (2-5pm)
 * 12/18/19 Final write-up due (on GitHub by midnight)
 
-#### Handouts:
+## Links to resources:
+
+### Git resources
 
 * Best and most comprehensive Git help: [http://happygitwithr.com/](http://happygitwithr.com/)
 * Version control with Git: [http://swcarpentry.github.io/git-novice/](http://swcarpentry.github.io/git-novice/)
@@ -62,27 +73,29 @@ knitr::include_graphics("../../images/debugging.jpg")
 * Online Git book with lots of info: [https://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2)
 
 
-##### R documentation / help
+### R resources
 
 * interactive tutorials for working through "R for Data Science" at [https://rstudio.cloud/learn/primers](https://rstudio.cloud/learn/primers)
 * for a good start to R in general, check out [https://education.rstudio.com/learn/](https://education.rstudio.com/learn/)
 * A fantastic [ggplot2 tutorial](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
 * Great tutorials through the [Coding Club](https://ourcodingclub.github.io/tutorials/)
 * Google for R [http://www.rseek.org/](http://www.rseek.org/)
+* some [R ideas](someRideas.html) that I wrote up 
 * Incredibly helpful [cheatsheets](https://www.rstudio.com/resources/cheatsheets/) from RStudio.
    * [data wrangling](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
    * [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
    * [R Markdown](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
    * [RStudio IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 
-### Homework:
-* Homework will be assigned from the text with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R and posted on GitHub. All homework must be done in R markdown.  
+## Homework:
 
-  * Homework will be due on Thursdays by midnight to GitHub. 
+* Homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in RMarkdown and compiled to pdf.  
+
+  * Homework will be due on Thursdays by midnight to GitHub + Gradescope. 
   * Non-homework activities (e.g., from the text) may be collected and added to your participation grade.
-  * HW should be turned in to your GitHub repository by Thursday.
-  * Always post both a PDF and R Markdown file, unless otherwise requested.
-  * HW is graded on a scale of 5/4/3/2/1. See the first HW assignment for more information.</li>
+  * HW should be turned in to your GitHub repository and posted to Gradescope by Thursday.
+  * Always post both a PDF and R Markdown file to GitHub (and a pdf to Gradescope), unless otherwise requested.
+  * HW is graded on a scale of 5/4/3/2/1. See the first HW assignment for more information.
   * HW file should be in the format of: ma154-hw#-lname-fname.pdf
 
 * HW format
@@ -124,24 +137,30 @@ Homework assignments will be graded out of 5 points, which are based on a combin
 * This class will be interactive, and your participation is expected (every day in class). Although notes will be posted, your participation is an integral part of the in-class learning process.
 
 * In class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]
-
-* For each midterm, one point will be given for having done the following (before 10/17 and again before 11/26):
-
-   * log on to Piazza (link will be sent via email)
-   * using `reprex`, ask a question about R (can be anonymous to peers, name must be visible to instructor for credit) [https://teachdatascience.com/reprex/](https://teachdatascience.com/reprex/)
- 	 * respond / help a peer who has asked a question about anything (can be anonymous to peers, name must be visible to instructor for credit)
- 	 
  	 
 ## Course Goals:
 
 * to be able to work through the entire computational statistics flow chart as a data analyst.
 * to be able to use graphical representations of data to communicate ideas about the data.
+* to be able to identify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.
 * to critically evaluate analyses / graphics of data (typically big data or dynamic data).
 * to communicate results effectively.
 
 
-#### Academic Honesty:
-You are encouraged to work together on homework assignments. Additionally, the group presentation will require close collaboration with a group of your peers. Everything you turn in must represent your own work. Copying and pasting code (or text) from your colleagues constitutes plagiarism and will not be tolerated. All exams (including take-home) will be closed person. You may not collaborate (discuss, complain, etc.) with other individuals about the exams. Pomona's academic honesty policy is given below and will be taken seriously.
+## Academic Honesty:
+You are on your honor to present only your work as part of your course  assessments.  Below, I've provided Pomona's academic honesty policy.  But before the policy, I've given some thoughts on cheating which I have taken from Nick Ball's CHEM 147 Collective (thank you, Prof Ball!).  Prof Ball gives us all something to think about when we are learning in a classroom as well as on our journey to become scientists and professionals:
+
+There are many known reasons why we may feel the need to "cheat" on problem sets or exams:
+
+  * An academic environment that values grades above learning.
+  * Financial aid is critical for remaining in school that places undue pressure on maintaining a high GPA.
+  * Navigating school, work, and/or family obligations that  have diverted focus from class.
+  * Challenges balancing coursework and mental health.
+  * Balancing academic, family, peer, or personal issues.
+
+Being accused of cheating – whether it has occurred or not – can be devastating for students. The college requires me to respond to potential academic dishonesty with a process that is very long and damaging. As your instructor, I care about you and want to offer alternatives to prevent us from having to go through this process. If you find yourself in a situation where "cheating" seems like the only option:
+
+**Please come talk to me.  We will figure this out together.**
 
 * Pomona College is an academic community, all of whose members are expected to abide by ethical standards both in their conduct and in their exercise of responsibilities toward other members of the community. The college expects students to understand and adhere to basic standards of honesty and academic integrity. These standards include, but are not limited to, the following:
 
@@ -151,14 +170,14 @@ You are encouraged to work together on homework assignments. Additionally, the g
  	* Students do not take unfair advantage of fellow students by representing work completed for one course as original work for another or by deliberately disregarding course rules and regulations.
  	* In laboratory or research projects involving the collection of data, students accurately report data observed and do not alter these data for any reason.
 
-#### Advice:
+## Advice:
 
-* Please feel free to stop by, email, or call if you have any questions about or difficulty with the material, the computing, the projects, or the course. Come see me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. Enjoy!
+* Please email and / or set up a time to talk if you have any questions about or difficulty with the material, the computing, or the course.  Talk to me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later.  **This semester is going to be fun.**  Let's do it.
 
-#### Grading:
+### Grading:
    
-  25% Homework
- 	45% Midterms
- 	25% Group Project & Presentation
- 	5% Class Participation
+  * 25% Homework
+ 	* 45% Midterms
+ 	* 25% Group Project & Presentation
+ 	* 5% Class Participation
 

@@ -29,7 +29,7 @@ navbar:
         - text: "Rubric"
           href: rubric.html
         - text: "Data Sources"
-          href: https://research.pomona.edu/johardin/datasources/
+          href: https://hardin47.netlify.app/courses/data/
     - text: "GitHub"
       href: github.html
 output: 

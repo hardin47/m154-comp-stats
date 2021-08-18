@@ -17,22 +17,55 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 ```
 
 
-include some info, maybe a test R file, the video Andrew made, etc.
+
+## Agenda
+
+### August 30, 2020
+
+1. Questionnaire
+2. Syllabus & Course Outline
+3. Stitch Fix Algorithm
+4. College Rankings
+5. Can Twitter predict election results?
+
+### September 1, 2020
+
+1. <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
+2. Reproducibility & GitHub
 
 ## Readings
 
-* The syllabus
-* book(s)??
-* Class notes
+* The [syllabus](https://m154-comp-stats.netlify.app/posts/2021-08-24-syllabus/)
+* **Modern Data Science with R** <a href="https://mdsr-book.github.io/mdsr2e/ch-prologue.html" target="_blank">Prologue</a>
+* Class notes <a href = "http://st47s.com/Math154/Notes/intro.html" target= "_blank">Introduction</a>
+
 
 ## Reflection Questions
 
 
 ## Ethics consideration
 
+* Why is it problematic if the analysis isn't reproducible?
+
+* Is every analysis worth doing? (e.g., time to get to work, predicting presidential results, etc.).  Can the *act* of doing the analysis be ethically questionable?
+
 ## Slides
+
+
 
 ## Additional Resources
 
+* <a href = "http://algorithms-tour.stitchfix.com/" target="_blank">Great algorithm for the whole process</a>
 
+* <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
+
+* <a href = "https://www.youtube.com/watch?v=s3JldKoA0zw&feature=youtu.be" target="_blank">Video (less than 2 min) on the strengths of reproducible research</a>
+
+* <a href = "http://www.datasciencecentral.com/profiles/blogs/data-science-wars-r-versus-python" target="_blank">R vs. Python?  (My personal opinion is that neither of the languages is "best".)</a>
+
+* <a href = "https://www.kaggle.com/surveys/2017" target="_blank">2017 Kaggle user survey</a> and <a href = "https://insights.stackoverflow.com/survey/2019" target="_blank"> 2019 Stack Overflow Developer Survey</a>
+
+* <a href = "http://cardiobrief.org/2016/04/06/pnas-paper-by-prominent-cardiologist-and-dean-retracted/" target="_blank">PNAS paper retracted due to problems with figure and reproducibility (April 2016)</a>
+
+* Analysis of Trump’s tweets with evidence that someone else tweets from his account using an iPhone <a href = "http://varianceexplained.org/r/trump-tweets/" target="_blank">part 1</a> and <a href = "http://varianceexplained.org/r/trump-followup/" target="_blank">part 2 </a>
 

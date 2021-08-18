@@ -56,7 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
 code span.cf { color: #007ba5; } /* ControlFlow */
@@ -77,13 +77,14 @@ code span.kw { color: #007ba5; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
 code span.ot { color: #007ba5; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
 <title>Computational Statistics: 0. Syllabus</title>
@@ -125,7 +126,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["syllabus_files/anchor-4.2.2/anchor.min.js","syllabus_files/bowser-1.9.3/bowser.min.js","syllabus_files/distill-2.2.21/template.v2.js","syllabus_files/header-attrs-2.9/header-attrs.js","syllabus_files/jquery-1.11.3/jquery.min.js","syllabus_files/popper-2.6.0/popper.min.js","syllabus_files/tippy-6.2.7/tippy-bundle.umd.min.js","syllabus_files/tippy-6.2.7/tippy-light-border.css","syllabus_files/tippy-6.2.7/tippy.css","syllabus_files/tippy-6.2.7/tippy.umd.min.js","syllabus_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["someRideas.html","syllabus_files/anchor-4.2.2/anchor.min.js","syllabus_files/bowser-1.9.3/bowser.min.js","syllabus_files/distill-2.2.21/template.v2.js","syllabus_files/header-attrs-2.10.3/header-attrs.js","syllabus_files/header-attrs-2.9/header-attrs.js","syllabus_files/jquery-1.11.3/jquery.min.js","syllabus_files/jquery-3.6.0/jquery-3.6.0.js","syllabus_files/jquery-3.6.0/jquery-3.6.0.min.js","syllabus_files/jquery-3.6.0/jquery-3.6.0.min.map","syllabus_files/popper-2.6.0/popper.min.js","syllabus_files/tippy-6.2.7/tippy-bundle.umd.min.js","syllabus_files/tippy-6.2.7/tippy-light-border.css","syllabus_files/tippy-6.2.7/tippy.css","syllabus_files/tippy-6.2.7/tippy.umd.min.js","syllabus_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -471,7 +472,7 @@ d-title {
 
 </style>
 
-<script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
 <link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
 <script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1878,7 +1879,10 @@ function init_distill() {
 
     // hoverable references
     $('span.citation[data-cites]').each(function() {
-      var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+      var refs = $(this).attr('data-cites').split(" ");
+      var refHtml = refs.map(function(ref) {
+        return "<p>" + $('#ref-' + ref).html() + "</p>";
+      }).join("\n");
       window.tippy(this, {
         allowHTML: true,
         content: refHtml,
@@ -2049,8 +2053,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.9/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.10.3/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2241,7 +2245,7 @@ h1, h2, h3, h4, h5 {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"0. Syllabus","description":"what is this class all about?","authors":[{"author":"Jo Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-24T00:00:00.000+00:00","citationText":"Hardin, 2021"}
+{"title":"0. Syllabus","description":"what is this class all about?","authors":[{"author":"Jo Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-24T00:00:00.000-07:00","citationText":"Hardin, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2269,7 +2273,7 @@ Project
 <a href="../../project.html">Project Assignment</a>
 <a href="../../roles.html">Group Roles</a>
 <a href="../../rubric.html">Rubric</a>
-<a href="https://research.pomona.edu/johardin/datasources/">Data Sources</a>
+<a href="https://hardin47.netlify.app/courses/data/">Data Sources</a>
 </div>
 </div>
 <a href="../../github.html">GitHub</a>
@@ -2295,35 +2299,35 @@ Project
 </div>
 
 <div class="d-article">
-<h2 id="computational-statistics">Computational Statistics</h2>
-<h3 id="math-154-fall-2021">Math 154, Fall 2021</h3>
+<h1 id="computational-statistics">Computational Statistics</h1>
+<h2 id="math-154-fall-2021">Math 154, Fall 2021</h2>
 <p>Jo Hardin 2351 Estella <a href="mailto:jo.hardin@pomona.edu" class="email">jo.hardin@pomona.edu</a></p>
 <p><strong>Office Hours: TBA, or by appointment</strong></p>
 <p><strong>Mentor Sessions:</strong><br />
 TBA<br />
 Estella 1021 (Emmy Noether Room)</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="../../images/debugging.jpg" alt="Monsters going through the phases of writing code." width="3364" data-distill-preview=1 />
 <p class="caption">
 Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_horst</span>.
 </p>
 </div>
 </div>
-<h4 id="texts">Texts:</h4>
+<h2 id="texts">Texts:</h2>
+<p>All resources are freely available. They also all have print versions which can be purchased. Using the online version of the books is expected.</p>
+<h3 id="first-section-of-the-course-data-science-data-viz-wrangling-simulating-permutation-tests-bootstrapping-ethics">First section of the course (data science, data viz, wrangling, simulating, permutation tests, bootstrapping, ethics)</h3>
 <ul>
-<li><p>An Introduction to Statistical Learning; James, Witten, Hastie, Tibshirani (<a href="http://www-bcf.usc.edu/~gareth/ISL/">http://www-bcf.usc.edu/~gareth/ISL/</a>)<br />
-</p></li>
-<li><p>Recommended: Modern Data Science with R; Baumer, Kaplan, and Horton (free chapters and other information at: <a href="https://github.com/beanumber/mdsr">https://github.com/beanumber/mdsr</a> and <a href="http://mdsr-book.github.io/">http://mdsr-book.github.io/</a>)<br />
-</p></li>
-<li><p>Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte (<a href="http://www.edwardtufte.com/tufte/books_textb">http://www.edwardtufte.com/tufte/books_textb</a>)<br />
-</p></li>
-<li><p>Website for: Data Science in R: A Case Studies Approach to Computational Reasoning and Problem Solving; Nolan and Temple Lang (<a href="http://rdatasciencecases.org/">http://rdatasciencecases.org/</a>)</p></li>
-<li><p><a href="/schedule/">Math 154 Homework Schedule</a></p></li>
-<li><p><a href="/project/">Math 154 Semester Project</a></p></li>
-<li><p><a href="/notes/">Math 154 Class Notes</a></p></li>
+<li><p>Content: <strong>Modern Data Science with R</strong>; Baumer, Kaplan, and Horton, <a href="https://mdsr-book.github.io/mdsr2e/">https://mdsr-book.github.io/mdsr2e/</a></p></li>
+<li><p>R resource: <strong>R for Data Science</strong>, Wickham, <a href = "https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a></p></li>
+<li><p>Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte <a href="http://www.edwardtufte.com/tufte/books_textb">http://www.edwardtufte.com/tufte/books_textb</a></p></li>
 </ul>
-<h4 id="important-dates">Important Dates:</h4>
+<h3 id="second-section-of-the-course-bootstrapping-knn-trees-bagging-random-forests-support-vector-machines-clustering">Second section of the course (bootstrapping, knn, trees, bagging, random forests, support vector machines, clustering)</h3>
+<ul>
+<li><p>Content: <strong>An Introduction to Statistical Learning</strong>; James, Witten, Hastie, and Tibshirani <a href="https://www.statlearning.com/">https://www.statlearning.com/</a></p></li>
+<li><p>R resource: <strong>Tidy Modeling with R</strong>; Kuhn and Silge <a href="https://www.tmwr.org/">https://www.tmwr.org/</a></p></li>
+</ul>
+<h2 id="important-dates">Important Dates:</h2>
 <ul>
 <li>10/17/19 Exam 1</li>
 <li>10/25/19 Take home 1 due (on GitHub by midnight)</li>
@@ -2336,20 +2340,22 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
 <li>12/13/19 (Friday) or 12/18/19 (Wednesday) Group Presentations (2-5pm)</li>
 <li>12/18/19 Final write-up due (on GitHub by midnight)</li>
 </ul>
-<h4 id="handouts">Handouts:</h4>
+<h2 id="links-to-resources">Links to resources:</h2>
+<h3 id="git-resources">Git resources</h3>
 <ul>
 <li>Best and most comprehensive Git help: <a href="http://happygitwithr.com/">http://happygitwithr.com/</a></li>
 <li>Version control with Git: <a href="http://swcarpentry.github.io/git-novice/">http://swcarpentry.github.io/git-novice/</a></li>
 <li><a href="https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/#2.4.2.">More on Git</a></li>
 <li>Online Git book with lots of info: <a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></li>
 </ul>
-<h5 id="r-documentation-help">R documentation / help</h5>
+<h3 id="r-resources">R resources</h3>
 <ul>
 <li>interactive tutorials for working through “R for Data Science” at <a href="https://rstudio.cloud/learn/primers">https://rstudio.cloud/learn/primers</a></li>
 <li>for a good start to R in general, check out <a href="https://education.rstudio.com/learn/">https://education.rstudio.com/learn/</a></li>
 <li>A fantastic <a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/">ggplot2 tutorial</a></li>
 <li>Great tutorials through the <a href="https://ourcodingclub.github.io/tutorials/">Coding Club</a></li>
 <li>Google for R <a href="http://www.rseek.org/">http://www.rseek.org/</a></li>
+<li>some <a href="someRideas.html">R ideas</a> that I wrote up</li>
 <li>Incredibly helpful <a href="https://www.rstudio.com/resources/cheatsheets/">cheatsheets</a> from RStudio.
 <ul>
 <li><a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">data wrangling</a></li>
@@ -2358,16 +2364,15 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
 <li><a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio IDE</a></li>
 </ul></li>
 </ul>
-<h3 id="homework">Homework:</h3>
+<h2 id="homework">Homework:</h2>
 <ul>
-<li><p>Homework will be assigned from the text with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R and posted on GitHub. All homework must be done in R markdown.</p>
+<li><p>Homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in RMarkdown and compiled to pdf.</p>
 <ul>
-<li>Homework will be due on Thursdays by midnight to GitHub.</li>
+<li>Homework will be due on Thursdays by midnight to GitHub + Gradescope.</li>
 <li>Non-homework activities (e.g., from the text) may be collected and added to your participation grade.</li>
-<li>HW should be turned in to your GitHub repository by Thursday.</li>
-<li>Always post both a PDF and R Markdown file, unless otherwise requested.</li>
-<li>HW is graded on a scale of 5/4/3/2/1. See the first HW assignment for more information.
-</li></li>
+<li>HW should be turned in to your GitHub repository and posted to Gradescope by Thursday.</li>
+<li>Always post both a PDF and R Markdown file to GitHub (and a pdf to Gradescope), unless otherwise requested.</li>
+<li>HW is graded on a scale of 5/4/3/2/1. See the first HW assignment for more information.</li>
 <li>HW file should be in the format of: ma154-hw#-lname-fname.pdf</li>
 </ul></li>
 <li><p>HW format</p>
@@ -2402,24 +2407,27 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
 <ul>
 <li><p>This class will be interactive, and your participation is expected (every day in class). Although notes will be posted, your participation is an integral part of the in-class learning process.</p></li>
 <li><p>In class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]</p></li>
-<li><p>For each midterm, one point will be given for having done the following (before 10/17 and again before 11/26):</p>
-<ul>
-<li>log on to Piazza (link will be sent via email)</li>
-<li>using <code>reprex</code>, ask a question about R (can be anonymous to peers, name must be visible to instructor for credit) <a href="https://teachdatascience.com/reprex/">https://teachdatascience.com/reprex/</a>
-<ul>
-<li>respond / help a peer who has asked a question about anything (can be anonymous to peers, name must be visible to instructor for credit)</li>
-</ul></li>
-</ul></li>
 </ul>
 <h2 id="course-goals">Course Goals:</h2>
 <ul>
 <li>to be able to work through the entire computational statistics flow chart as a data analyst.</li>
 <li>to be able to use graphical representations of data to communicate ideas about the data.</li>
+<li>to be able to identify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.</li>
 <li>to critically evaluate analyses / graphics of data (typically big data or dynamic data).</li>
 <li>to communicate results effectively.</li>
 </ul>
-<h4 id="academic-honesty">Academic Honesty:</h4>
-<p>You are encouraged to work together on homework assignments. Additionally, the group presentation will require close collaboration with a group of your peers. Everything you turn in must represent your own work. Copying and pasting code (or text) from your colleagues constitutes plagiarism and will not be tolerated. All exams (including take-home) will be closed person. You may not collaborate (discuss, complain, etc.) with other individuals about the exams. Pomona’s academic honesty policy is given below and will be taken seriously.</p>
+<h2 id="academic-honesty">Academic Honesty:</h2>
+<p>You are on your honor to present only your work as part of your course assessments. Below, I’ve provided Pomona’s academic honesty policy. But before the policy, I’ve given some thoughts on cheating which I have taken from Nick Ball’s CHEM 147 Collective (thank you, Prof Ball!). Prof Ball gives us all something to think about when we are learning in a classroom as well as on our journey to become scientists and professionals:</p>
+<p>There are many known reasons why we may feel the need to “cheat” on problem sets or exams:</p>
+<ul>
+<li>An academic environment that values grades above learning.</li>
+<li>Financial aid is critical for remaining in school that places undue pressure on maintaining a high GPA.</li>
+<li>Navigating school, work, and/or family obligations that have diverted focus from class.</li>
+<li>Challenges balancing coursework and mental health.</li>
+<li>Balancing academic, family, peer, or personal issues.</li>
+</ul>
+<p>Being accused of cheating – whether it has occurred or not – can be devastating for students. The college requires me to respond to potential academic dishonesty with a process that is very long and damaging. As your instructor, I care about you and want to offer alternatives to prevent us from having to go through this process. If you find yourself in a situation where “cheating” seems like the only option:</p>
+<p><strong>Please come talk to me. We will figure this out together.</strong></p>
 <ul>
 <li><p>Pomona College is an academic community, all of whose members are expected to abide by ethical standards both in their conduct and in their exercise of responsibilities toward other members of the community. The college expects students to understand and adhere to basic standards of honesty and academic integrity. These standards include, but are not limited to, the following:</p></li>
 <li><p>In projects and assignments prepared independently, students never represent the ideas or the language of others as their own.</p>
@@ -2430,12 +2438,19 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
 <li>In laboratory or research projects involving the collection of data, students accurately report data observed and do not alter these data for any reason.</li>
 </ul></li>
 </ul>
-<h4 id="advice">Advice:</h4>
+<h2 id="advice">Advice:</h2>
 <ul>
-<li>Please feel free to stop by, email, or call if you have any questions about or difficulty with the material, the computing, the projects, or the course. Come see me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. Enjoy!</li>
+<li>Please email and / or set up a time to talk if you have any questions about or difficulty with the material, the computing, or the course. Talk to me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. <strong>This semester is going to be fun.</strong> Let’s do it.</li>
 </ul>
-<h4 id="grading">Grading:</h4>
-<p>25% Homework 45% Midterms 25% Group Project &amp; Presentation 5% Class Participation</p>
+<h3 id="grading">Grading:</h3>
+<ul>
+<li>25% Homework
+<ul>
+<li>45% Midterms</li>
+<li>25% Group Project &amp; Presentation</li>
+<li>5% Class Participation</li>
+</ul></li>
+</ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -2455,12 +2470,14 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Source code is available at <a href="https://github.com/hardin47/m154-comp-stats">https://github.com/hardin47/m154-comp-stats</a>, unless otherwise noted. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
 </div>
 <!--/radix_placeholder_appendices-->
-<!--radix_placeholder_navigation_after_body-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<!--radix_placeholder_navigation_after_body--><html><body>
 <div class="distill-site-nav distill-site-footer">
-  <p>© Jo Hardin, 2021 -- jo.hardin@pomona.edu -- <a href="https://hardin47.netlify.app/">https://hardin47.netlify.app/</a></p>
-  <p>Math 154 -- Computational Statistics -- Pomona College, Claremont, CA</p>
+<p>Â© Jo Hardin, 2021 -- jo.hardin@pomona.edu -- <a href="https://hardin47.netlify.app/">https://hardin47.netlify.app/</a></p>
+<p>Math 154 -- Computational Statistics -- Pomona College, Claremont, CA</p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
+</body></html>
 
 
 </body>

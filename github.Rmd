@@ -33,12 +33,19 @@ set.seed(4747)
 
 # Working on assignments with GitHub and Gradescope
 
+
 In Math 154, we will use GitHub + Gradescope to access and submit assignments.  Here is the basic structure of how it will work:
 
 1. Get the assignment materials from GitHub classroom.
 2. Clone the repository to any machine you are using.
 3. Work on the assignment and push back to GitHub.
 4. Submit the assignment on Gradescope.
+
+<aside>
+```{r echo = FALSE, fig.cap="image credit: xkcd", fig.alt = "xkcd comic detailing that Git can be pretty complicated."}
+include_graphics("images/git_2x.png")
+```
+</aside>
 
 The following diagram lays out the process, and the rest of the document provides a more detailed set of instructions.
 
@@ -75,7 +82,7 @@ When you use GitHub classroom for the first time, you'll be asked to authorize G
 </aside>
 
 The first assignment will be an individual assignment.
-Some other assignments will be paired assignments.
+Some other assignments will be paired or group assignments.
 To accept an individual assignment, click the “Accept this assignment” button.
 
 For all joint assignments, you will need to create a team before you can start.
