@@ -37,55 +37,55 @@ All resources are freely available.  They also all have print versions which can
 
 ### First section of the course (data science, data viz, wrangling, simulating, permutation tests, bootstrapping, ethics)
 
-* Content: **Modern Data Science with R**; Baumer, Kaplan, and Horton, <a href="https://mdsr-book.github.io/mdsr2e/">https://mdsr-book.github.io/mdsr2e/</a>
+* Content: **Modern Data Science with R**; Baumer, Kaplan, and Horton, <a href="https://mdsr-book.github.io/mdsr2e/" target="_blank">https://mdsr-book.github.io/mdsr2e/</a>
 
-* R resource: **R for Data Science**, Wickham, <a href = "https://r4ds.had.co.nz/">https://r4ds.had.co.nz/</a> 
+* R resource: **R for Data Science**, Wickham, <a href = "https://r4ds.had.co.nz/" target="_blank">https://r4ds.had.co.nz/</a> 
 
-* Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte <a href="http://www.edwardtufte.com/tufte/books_textb">http://www.edwardtufte.com/tufte/books_textb</a> 
+* Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte <a href="http://www.edwardtufte.com/tufte/books_textb" target="_blank">http://www.edwardtufte.com/tufte/books_textb</a> 
 
 ### Second section of the course (bootstrapping, knn, trees, bagging, random forests, support vector machines, clustering)
 
-* Content: **An Introduction to Statistical Learning**; James, Witten, Hastie, and Tibshirani <a href="https://www.statlearning.com/">https://www.statlearning.com/</a>
+* Content: **An Introduction to Statistical Learning**; James, Witten, Hastie, and Tibshirani <a href="https://www.statlearning.com/" target="_blank">https://www.statlearning.com/</a>
 
-* R resource: **Tidy Modeling with R**; Kuhn and Silge <a href="https://www.tmwr.org/">https://www.tmwr.org/</a>
+* R resource: **Tidy Modeling with R**; Kuhn and Silge <a href="https://www.tmwr.org/" target="_blank">https://www.tmwr.org/</a>
 
 
 ## Important Dates:
 
-* 10/17/19 Exam 1
-* 10/25/19 Take home 1 due (on GitHub by midnight)
-* 11/1/19 Initial Project Proposal due (via email to me by midnight)
-* 11/8/19 Final Project Proposal due (on GitHub by midnight)
-* November 14, 4:15-5:30 2019 Data Science Panel
-* 11/21/19 Project Update due (on GitHub by midnight)
-* 11/26/19 Take home 2 due (on GitHub by midnight)
-* 12/5/19 Exam 2
-* 12/13/19 (Friday) or 12/18/19 (Wednesday) Group Presentations (2-5pm)
-* 12/18/19 Final write-up due (on GitHub by midnight)
+* 10/14 + 15/21 Exam 1 (not during class)
+* 10/22/21 Take home 1 due (on GitHub + Gradescope by midnight)
+* 10/26/21 Initial Project Proposal due (via email to me by midnight)
+* 11/2/21 Final Project Proposal due (on GitHub by midnight)
+* (TBD mid-November) 2021 Data Science Panel
+* 11/19/21 Project Update due (on GitHub by midnight)
+* 11/30/21 Take home 2 due (on GitHub by midnight)
+* 12/2 + 3/21 Exam 2 (not during class)
+* 12/10/21 (Friday) or 12/14/21 (Tuesday) Group Presentations (2-5pm)
+* 12/14/21 Final write-up due (on GitHub by midnight)
 
 ## Links to resources:
 
 ### Git resources
 
-* Best and most comprehensive Git help: [http://happygitwithr.com/](http://happygitwithr.com/)
-* Version control with Git: [http://swcarpentry.github.io/git-novice/](http://swcarpentry.github.io/git-novice/)
-* [More on Git](https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/#2.4.2.)
-* Online Git book with lots of info: [https://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2)
+* Best and most comprehensive Git help: <a href="http://happygitwithr.com/" target="_blank">http://happygitwithr.com/</a>
+* <a href="http://swcarpentry.github.io/git-novice/" target="_blank">Version control with Git</a>
+* <a href="https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/#2.4.2." target="_blank">More on Git</a>
+* <a href="https://git-scm.com/book/en/v2" target="_blank">Online Git book</a> with lots of info
 
 
 ### R resources
 
-* interactive tutorials for working through "R for Data Science" at [https://rstudio.cloud/learn/primers](https://rstudio.cloud/learn/primers)
-* for a good start to R in general, check out [https://education.rstudio.com/learn/](https://education.rstudio.com/learn/)
-* A fantastic [ggplot2 tutorial](https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/)
-* Great tutorials through the [Coding Club](https://ourcodingclub.github.io/tutorials/)
-* Google for R [http://www.rseek.org/](http://www.rseek.org/)
-* some [R ideas](someRideas.html) that I wrote up 
-* Incredibly helpful [cheatsheets](https://www.rstudio.com/resources/cheatsheets/) from RStudio.
-   * [data wrangling](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)
-   * [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
-   * [R Markdown](https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf)
-   * [RStudio IDE](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+* <a href="https://rstudio.cloud/learn/primers" target="_blank">interactive tutorials</a> for working through "R for Data Science"
+* <a href="https://education.rstudio.com/learn/" target="_blank">for a good start</a> to R in general
+* A fantastic <a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/" target="_blank">ggplot2 tutorial</a>
+* Great tutorials through the <a href="https://ourcodingclub.github.io/tutorials/" target="_blank">Coding Club</a>
+* <a href="http://www.rseek.org/" target="_blank">Google for R</a>
+* some <a href = "someRideas.html" target="_blank">R ideas</a> that I wrote up 
+* Incredibly helpful <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">cheatsheets</a> from RStudio.
+   * <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf" target="_blank">data wrangling</a>
+   * <a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf" target="_blank">ggplot2</a>
+   * <a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" target="_blank">R Markdown</a>
+   * <a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf" target="_blank">RStudio IDE</a>
 
 ## Homework:
 
@@ -128,9 +128,9 @@ Homework assignments will be graded out of 5 points, which are based on a combin
 
 * GitHub will be used as a way to practice reproducible and collaborative science. There may be a slight learning curve, but knowing Git will be an extremely useful skill as you venture on after this class.
 
-* R will be used for all homework assignments. R is freely available at [http://www.r-project.org/](http://www.r-project.org/) and is already installed on college computers. Additionally, you need to install R Studio in order to use R Markdown, [http://rstudio.org/](http://rstudio.org/). If you are not already familiar with R, please work through some of the materials provided ASAP. 
+* R will be used for all homework assignments. R is freely available at <a href="http://www.r-project.org/" target="_blank">http://www.r-project.org/</a> and is already installed on college computers. Additionally, you need to install R Studio in order to use R Markdown, <a href="http://rstudio.org/" target="_blank">http://rstudio.org/</a>. If you are not already familiar with R, please work through some of the materials provided ASAP. 
 
-* You are welcome to use Pomona's R Studio server at [https://rstudio.campus.pomona.edu/](https://rstudio.campus.pomona.edu/) (or [https://rstudio.pomona.edu](https://rstudio.pomona.edu) if you are off campus). If you use the server, you can connect directly to your Git account without installing Git locally on your own computer. [If you are not a Pomona student, you will need to get an account from Pomona's ITS. Go to ITS, tell them that you are taking a Pomona course, and ask for an account for using RStudio.]
+* You are welcome to use Pomona's R Studio server at <a href="https://rstudio.campus.pomona.edu/" target="_blank">https://rstudio.campus.pomona.edu/</a> (or <a href="https://rstudio.pomona.edu" target="_blank">https://rstudio.pomona.edu</a> if you are off campus). If you use the server, you can connect directly to your Git account without installing Git locally on your own computer. [If you are not a Pomona student, you will need to get an account from Pomona's ITS. Go to ITS, tell them that you are taking a Pomona course, and ask for an account for using RStudio.]
 
 ## Participation:
 
