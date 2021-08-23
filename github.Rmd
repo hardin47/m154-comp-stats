@@ -195,7 +195,7 @@ include_graphics("images/gradescope-sakai.png")
 2. The first time you submit your repository, you will need to authorize Gradescope to access your git repository. Select the appropriate repository and branch (brank will almost always be `main`).
 
 ```{r echo = FALSE, fig.cap="Submit files directly from GitHub.", fig.alt = "Screen shot of Gradescope instruction to submit via GitHub."}
-include_graphics("images/gradescope-sakai.png")
+include_graphics("images/gradescope-github.png")
 ``` 
 
 3. If this is a pair-programming submission, you will need to associate all team members with the submission. After you upload your files, click "Add Group Member" and add your partner to the submission. Add your team member to your Gradescope submission
