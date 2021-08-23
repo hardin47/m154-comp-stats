@@ -97,9 +97,9 @@ All resources are freely available.  They also all have print versions which can
 
 * Homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in RMarkdown and compiled to pdf.  
 
-  * Homework will be due on Thursdays by midnight to GitHub + Gradescope. 
+  * Homework will be due on Thursdays by 11:59pm to GitHub + Gradescope. 
   * Non-homework activities (e.g., from the text) may be collected and added to your participation grade.
-  * HW should be turned in to your GitHub repository and posted to Gradescope by Thursday.
+  * HW should be turned in to your GitHub repository and posted to Gradescope by Thursday at 11:59pm.
   * Always post both a PDF and R Markdown file to GitHub (and a pdf to Gradescope), unless otherwise requested.
   * HW is graded on a scale of 5/4/3/2/1. See the first HW assignment for more information.
   * HW file should be in the format of: ma154-hw#-lname-fname.pdf
