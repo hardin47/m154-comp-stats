@@ -5,18 +5,14 @@ description: |
 ---
 
 
-Here's your roadmap for the semester!
-
----
-
 ```{r echo = FALSE}
 library(tidyverse)
 library(kableExtra)
 library(knitr)
 ```
 
-
-You should follow this general process each week: 
+Here's your roadmap for the semester!
+Each week, follow the following general process:
 
 - Enjoy the readings <i class="fas fa-book-open"></i>  
 
@@ -25,7 +21,6 @@ You should follow this general process each week:
 - Complete the assignment (see Sakai messages for HW link)  
 
 - Discuss the reflection questions <i class="fas fa-lightbulb" target="_blank"></i> and ethics considerations <i class="fas fa-balance-scale"></i> with your classmates, mentor, and professor  
-
 
 
 
@@ -74,24 +69,28 @@ schedule <- tribble(
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
+  "10.14 + 15.21", "Exam 1", "","","","","", 
   "10.19.21", "ethical issues",
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
+  "10.22.21", "Take home 1", "","","","","",
   "10.26.21", "knn + trees",
   '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
+  "10.26.21", "Initial Project Proposal", "","","","","",
   "11.2.21", "bagging + RF",
   '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
+  "11.2.21", "Final Project Proposal", "","","","","",
   "11.9.21", "support vector machines",
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
@@ -104,6 +103,7 @@ schedule <- tribble(
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
+  "11.19.21", "Project Update", "","","","","",
   "11.23.21", "fantastic extensions",
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
@@ -115,7 +115,11 @@ schedule <- tribble(
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
-  '<a href=""><i class="fas fa-laptop"></i></a>')
+  '<a href=""><i class="fas fa-laptop"></i></a>',
+  "11.30.21", "Take home 2", "","","","","",
+  "12.2 + 3.21", "Exam 2", "","","","","",
+  "12.10 + 14.21", "Group Presentations", "","","","","",
+  "12.14.21", "Final write-up", "","","","","")
 ```
 
 
