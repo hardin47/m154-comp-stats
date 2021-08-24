@@ -30,20 +30,20 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 ### September 16, 2021
 
-## Readings <i class="fas fa-book-open"></i> {#readings}
+## Readings <i class="fas fa-book-open"></i> 
 
 ## Reflection Questions <i class="fas fa-lightbulb" target="_blank"></i> {#questions}
 
 
-## Ethics considerations <i class="fas fa-balance-scale"></i> {#ethics}
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
 
 
-## Slides <i class="fas fa-desktop" target="_blank"></i> {#slides}
+## Slides <i class="fas fa-desktop" target="_blank"></i> 
 
 
 
-## Additional Resources <i class="fas fa-laptop" target="_blank"></i> {#resources}
+## Additional Resources <i class="fas fa-laptop" target="_blank"></i> 
 
 
 
