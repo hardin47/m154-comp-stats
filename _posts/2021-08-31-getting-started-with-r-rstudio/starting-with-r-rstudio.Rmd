@@ -18,9 +18,9 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 
 
-## Agenda
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
 
-### August 30, 2020
+### August 30, 2021
 
 1. Questionnaire
 2. Syllabus & Course Outline
@@ -28,32 +28,33 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 4. College Rankings
 5. Can Twitter predict election results?
 
-### September 1, 2020
+### September 1, 2021 
 
 1. <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
 2. Reproducibility & GitHub
 
-## Readings
+## Readings <i class="fas fa-book-open"></i> {#readings}
 
 * The [syllabus](https://m154-comp-stats.netlify.app/posts/2021-08-24-syllabus/)
 * **Modern Data Science with R** <a href="https://mdsr-book.github.io/mdsr2e/ch-prologue.html" target="_blank">Prologue</a>
 * Class notes <a href = "http://st47s.com/Math154/Notes/intro.html" target= "_blank">Introduction</a>
 
 
-## Reflection Questions
+## Reflection Questions <i class="fas fa-lightbulb" target="_blank"></i> {#questions}
 
 
-## Ethics consideration
+## Ethics considerations <i class="fas fa-balance-scale"></i> {#ethics}
 
 * Why is it problematic if the analysis isn't reproducible?
 
 * Is every analysis worth doing? (e.g., time to get to work, predicting presidential results, etc.).  Can the *act* of doing the analysis be ethically questionable?
 
-## Slides
+## Slides <i class="fas fa-desktop" target="_blank"></i> {#slides}
 
 
+https://github.com/hardin47/m154-comp-stats/blob/master/_posts/2021-08-31-getting-started-with-r-rstudio/someRideas.Rmd
 
-## Additional Resources
+## Additional Resources <i class="fas fa-laptop" target="_blank"></i> {#resources}
 
 * <a href = "http://algorithms-tour.stitchfix.com/" target="_blank">Great algorithm for the whole process</a>
 
@@ -61,7 +62,7 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 * <a href = "https://www.youtube.com/watch?v=s3JldKoA0zw&feature=youtu.be" target="_blank">Video (less than 2 min) on the strengths of reproducible research</a>
 
-* <a href = "http://www.datasciencecentral.com/profiles/blogs/data-science-wars-r-versus-python" target="_blank">R vs. Python?  (My personal opinion is that neither of the languages is "best".)</a>
+* <a href = "https://www.dataquest.io/blog/python-vs-r/" target="_blank">R vs. Python?  (My personal opinion is that neither of the languages is "best".)</a>
 
 * <a href = "https://www.kaggle.com/surveys/2017" target="_blank">2017 Kaggle user survey</a> and <a href = "https://insights.stackoverflow.com/survey/2019" target="_blank"> 2019 Stack Overflow Developer Survey</a>
 

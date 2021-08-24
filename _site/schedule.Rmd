@@ -36,24 +36,116 @@ library(knitr)
 - Complete the [assignments](/post/05-week/#assignments)
   - Especially work on the [project proposal](/#project)
 
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+
+### September 14, 2021
+
+### September 16, 2021
+
+## Readings <i class="fas fa-book-open"></i>
+
+## Reflection Questions <i class="fas fa-lightbulb" target="_blank"></i>
+
+
+## Ethics considerations <i class="fas fa-balance-scale"></i>
+
+
+
+## Slides <i class="fas fa-desktop" target="_blank"></i>
+
+
+
+## Additional Resources <i class="fas fa-laptop" target="_blank"></i>
+
+
 
 ```{r echo = FALSE}
 schedule <- tribble(
-  ~date, ~topic, ~notes, ~slides, ~example, ~code, ~content,
-  "8.31.21", "Starting with R + RStudio + Git",
-  '<a href="http://st47s.com/Math154/Notes/intro.html" target="_blank"><i class="fas fa-book"></i></a>',
-  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/reprodgit" target="_blank"><i class="fas fa-desktop"></i></a>',
-  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/someRideas" target="_blank"><i class="fas fa-lightbulb"></i></a>',
-  '<a href="https://github.com/hardin47/m154-comp-stats/blob/master/_posts/2021-08-31-getting-started-with-r-rstudio/someRideas.Rmd" target="_blank"><i class="fas fa-laptop"></i></a>',
-  '<a href="/posts/2021-08-31-getting-started-with-r-rstudio/"><i class="fas fa-book-open"></i></a>',
-  "9.7.21", "Data Viz",
+  ~date, ~topic, ~readings, ~questions, ~ethics, ~slides, ~resources,
+  "8.31.21", '<a href="posts/2021-08-31-getting-started-with-r-rstudio/" target="_blank">starting with R + RStudio + Git</a>',
+  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/#readings" target="_blank"><i class="fas fa-book-open"></i></a>',
+  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/#questions" target="_blank"><i class="fas fa-lightbulb"></i></a>',
+  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/#ethics" target="_blank"><i class="fas fa-balance-scale"></i></a>',
+  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/#slides" target="_blank"><i class="fas fa-desktop"></i></a>',
+  '<a href="posts/2021-08-31-getting-started-with-r-rstudio/#resources"><i class="fas fa-laptop"></i></a>',
+  "9.7.21", "data viz",
   '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
-  '<a href=""><i class="fas fa-book-open"></i></a>'
-  )
-
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "9.14.21", "wrangling",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "9.21.21", "simulation",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>' , 
+  "9.28.21", "randomization inference",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "10.5.21", "bootstrapping",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "10.12.21", "catch-up + exam",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "10.19.21", "ethical issues",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "10.26.21", "knn + trees",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "11.2.21", "bagging + RF",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "11.9.21", "support vector machines",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "11.16.21", "clustering",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "11.23.21", "fantastic extensions",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>',
+  "11.30.21", "catch-up + exam",
+  '<a href=""><i class="fas fa-book" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-laptop" target="_blank"></i></a>',
+  '<a href=""><i class="fas fa-book-open"></i></a>')
 ```
 
 

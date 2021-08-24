@@ -67,7 +67,7 @@ Most importantly, please become familiar with [Happy Git and GitHub with R](http
 
 3. Introduce everyone:  R + RStudio (should happen automatically); yourself to GitHub (see https://happygitwithr.com/); RStudio + GitHub (see https://happygitwithr.com/).
 
-4. Follow the rest of the steps that Jenny Bryan spells out in [Happy Git and GitHub with R](https://happygitwithr.com/).
+4. Follow the rest of the steps that Jenny Bryan spells out in [Happy Git and GitHub with R](https://happygitwithr.com/).  Most likely, you only need to work through step 12.  Step 15 is detailed below after you have gotten the assignment from GitHub.
 
 ```{r echo = FALSE, fig.cap="The more you read Happy Git with R, the better your life will be.", fig.alt = "Screen shot of the Happy Git with R webpage."}
 include_graphics("images/happygitwithr.png")
@@ -75,7 +75,7 @@ include_graphics("images/happygitwithr.png")
 
 # Get the assignment materials from GitHub Classroom
 
-Each assignment will provide a link to GitHub classroom. Click the link.
+Each assignment will be provided as a link to GitHub classroom. Click the link.  (The link will come to you via an email from Sakai.  If you lose the email, or the email goes to your spam folder, check Sakai messages for the assignment link.)
 
 <aside>
 When you use GitHub classroom for the first time, you'll be asked to authorize GitHub classroom to access your repositories.
