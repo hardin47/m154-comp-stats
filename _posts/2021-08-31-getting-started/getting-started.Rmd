@@ -4,12 +4,11 @@ description: |
   The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub.
 author:
   - name: Jo Hardin
-    url: https://m154-comp-stats.netlify.app/
 date: 08-31-2021
 citation: false
 output:
   distill::distill_article:
-    self_contained: true
+    self_contained: false
 ---
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Judge monster confirming that the RStudio monster has reproducible work.", preview = TRUE, echo = FALSE}
