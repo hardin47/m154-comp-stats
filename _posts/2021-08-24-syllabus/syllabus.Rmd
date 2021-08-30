@@ -19,11 +19,12 @@ Jo Hardin
 2351 Estella
 jo.hardin@pomona.edu
 
-**Office Hours: TBA, or by appointment**
+**Office Hours: Wed 9-11am, Th 1:30-3pm, or by appointment**
 
 **Mentor Sessions:**  
-TBA  
-Estella 1021 (Emmy Noether Room)
+Sun 8-9pm, Wed 8-10pm   
+Estella 1021 (Emmy Noether Room)  
+Mentor: JJ Shankar  
 
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters going through the phases of writing code.", preview = TRUE, echo = FALSE}
@@ -32,10 +33,32 @@ knitr::include_graphics("../../images/debugging.jpg")
 
 ## The course 
 
-Computational Statistics will be an introduction to statistical methods that rely heavily on the use of computers. The course will generally have three parts. The first section will include communicating and working with data in a modern era. This includes data wrangling, data visualization, data ethics, and collaborative research (via GitHub). The second part of the course will focus on traditional statistical inference done through computational methods (e.g., permutation tests and bootstrapping). The last part of the course will focus on machine learning ideas such as classification, clustering, and dimension reduction techniques. Some of the methods were invented before the ubiquitous use of personal computers, but only because the calculus used to solve the problem was relatively straightforward (or because the method wasn’t actually every used). Some of the methods have been developed quite recently.
+Computational Statistics will be an introduction to statistical methods that rely heavily on the use of computers. The course will generally have three parts. The first section will include communicating and working with data in a modern era. This includes data wrangling, data visualization, data ethics, and collaborative research (via GitHub). The second part of the course will focus on traditional statistical inference done through computational methods (e.g., permutation tests and bootstrapping). The last part of the course will focus on machine learning ideas such as classification, clustering, and dimension reduction techniques. Some of the methods were invented before the ubiquitous use of personal computers, but only because the calculus used to solve the problem was relatively straightforward (or because the method wasn't actually every used). Some of the methods have been developed quite recently.
 
 
 **Anonymous Feedback**  As someone who is constantly learning and growing in many ways, I welcome your feedback about the course, the classroom dynamics, or anything else you'd like me to know.  There is a link to an anonymous feedback form on the landing page of our Sakai webpage.  Please provide me with feedback at any time!  
+
+## Course Goals:
+
+* to be able to work through the entire computational statistics flow chart as a data analyst.
+* to be able to use graphical representations of data to communicate ideas about the data.
+* to be able to identify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.
+* to critically evaluate analyses / graphics of data (typically big data or dynamic data).
+* to communicate results effectively.
+
+
+## Diversity and Inclusion Statement 
+(adapted from Monica Linden, Brown University):
+
+In an ideal world, science would be objective. However, much of science is subjective and is historically built on a small subset of privileged voices. In this class, we will make an effort to recognize how science (and statistics!) has played a role in both understanding diversity as well as in promoting systems of power and privilege. I acknowledge that it is possible that there may be both overt and covert biases in the material due to the lens with which it was written, even though the material is primarily of a scientific nature. Integrating a diverse set of experiences is important for a more comprehensive understanding of science. I would like to discuss issues of diversity in statistics as part of the course from time to time.
+
+Please contact me if you have any suggestions to improve the quality of the course materials.
+
+Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities (including race, gender, class, sexuality, religion, ability, etc.) To help accomplish this:
+
+* If you have a name and/or set of pronouns that differ from those that appear in your official records, please let me know!
+* If you feel like your performance in the class is being impacted by your experiences outside of class, please don't hesitate to come and talk with me.  You can also relay information to me via your mentors.  I want to be a resource for you. If you prefer to speak with someone outside of the course, the math liaisons, Dean of Students, or QSC staff are all excellent resources.
+I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.  As a participant in course discussions, you should also strive to honor the diversity of your classmates.
 
 ## Texts:  
 
@@ -100,7 +123,6 @@ All resources are freely available.  They also all have print versions which can
 
 ## Homework:
 
-:::note
 Homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in RMarkdown and compiled to pdf.  
 
   * Homework will be due on Thursdays by 11:59pm to GitHub + Gradescope. 
@@ -130,7 +152,7 @@ Homework assignments will be graded out of 5 points, which are based on a combin
 [2] More than half but fewer than all problems completed and > 75% correct.  
 [1] More than half but fewer than all problems completed and < 75% correct; OR less than half of problems completed.  
 [0] No work submitted, OR half or less than half of the problems submitted and without any detail/work shown to explain the solutions. You will get a zero if your file is not compiled and submitted on GitHub.  
-:::
+
 
 ## Projects:
 
@@ -150,16 +172,7 @@ There will be a semester long group project. Your task is to use data to tell us
 * This class will be interactive, and your participation is expected (every day in class). Although notes will be posted, your participation is an integral part of the in-class learning process.
 
 * In class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]
- 	 
-## Course Goals:
-
-:::note
-* to be able to work through the entire computational statistics flow chart as a data analyst.
-* to be able to use graphical representations of data to communicate ideas about the data.
-* to be able to identify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.
-* to critically evaluate analyses / graphics of data (typically big data or dynamic data).
-* to communicate results effectively.
-:::
+ 	
 
 ## Academic Honesty:
 You are on your honor to present only your work as part of your course  assessments.  Below, I've provided Pomona's academic honesty policy.  But before the policy, I've given some thoughts on cheating which I have taken from Nick Ball's CHEM 147 Collective (thank you, Prof Ball!).  Prof Ball gives us all something to think about when we are learning in a classroom as well as on our journey to become scientists and professionals:

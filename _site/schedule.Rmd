@@ -12,7 +12,7 @@ library(knitr)
 ```
 
 Here's your roadmap for the semester!
-Each week, follow the following general process:
+Each week, follow the general process outlined below:
 
 - Enjoy the readings <i class="fas fa-book-open"></i>  
 
@@ -63,34 +63,34 @@ schedule <- tribble(
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "10.12.21", "catch-up + exam",
+  '<font color = "#114B5F"><b>10.12.21</b></font>', '<font color = "#114B5F"><b>catch-up + exam</b></font>',
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "10.14 + 15.21", "Exam 1", "","","","","", 
+  '<font color = "#114B5F"><b>10.14 + 15.21</b></font>', '<font color = "#114B5F"><b>Exam 1</b></font>', "","","","","", 
   "10.19.21", "ethical issues",
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "10.22.21", "Take home 1", "","","","","",
+  '<font color = "#114B5F"><b>10.22.21</b></font>', '<font color = "#114B5F"><b>Take home 1</b></font>', "","","","","",
   "10.26.21", "knn + trees",
   '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "10.26.21", "Initial Project Proposal", "","","","","",
+  '<font color = "#114B5F"><b>10.26.21</b></font>', '<font color = "#114B5F"><b>Initial Project Proposal</b></font>', "","","","","",
   "11.2.21", "bagging + RF",
   '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "11.2.21", "Final Project Proposal", "","","","","",
+  '<font color = "#114B5F"><b>11.2.21</b></font>', '<font color = "#114B5F"><b>Final Project Proposal</b></font>', "","","","","",
   "11.9.21", "support vector machines",
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
@@ -103,23 +103,23 @@ schedule <- tribble(
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "11.19.21", "Project Update", "","","","","",
+  '<font color = "#114B5F"><b>11.19.21</b></font>', '<font color = "#114B5F"><b>Project Update</b></font>', "","","","","",
   "11.23.21", "fantastic extensions",
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "11.30.21", "catch-up + exam",
+  '<font color = "#114B5F"><b>11.30.21</b></font>', '<font color = "#114B5F"><b>catch-up + exam</b></font>',
     '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  "11.30.21", "Take home 2", "","","","","",
-  "12.2 + 3.21", "Exam 2", "","","","","",
-  "12.10 + 14.21", "Group Presentations", "","","","","",
-  "12.14.21", "Final write-up", "","","","","")
+  '<font color = "#114B5F"><b>11.30.21</b></font>', '<font color = "#114B5F"><b>Take home 2</b></font>', "","","","","",
+  '<font color = "#114B5F"><b>12.2 + 3.21</b></font>', '<font color = "#114B5F"><b>Exam 2</b></font>', "","","","","",
+  '<font color = "#114B5F"><b>12.10 + 14.21</b></font>', '<font color = "#114B5F"><b>Group Presentations</b></font>', "","","","","",
+  '<font color = "#114B5F"><b>12.14.21</b></font>', '<font color = "#114B5F"><b>Final write-up</b></font>', "","","","","")
 ```
 
 
