@@ -17,7 +17,7 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 
 
-## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+## Agenda <i class="fas fa-calendar-alt"></i>
 
 ### August 30, 2021
 
@@ -39,8 +39,15 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 * Class notes <a href = "http://st47s.com/Math154/Notes/intro.html" target= "_blank">Introduction</a>
 
 
-## Reflection Questions <i class="fas fa-lightbulb" target="_blank"></i> 
+## Reflection Questions <i class="fas fa-lightbulb"></i> 
 
+* What can statistics & data science do?  How do they do that?
+
+* What can't statistics & data science do?  Why not?
+
+* What choices were made to collect the Twitter data?
+
+* What choices were made to model the Twitter data?
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
@@ -48,11 +55,13 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 * Is every analysis worth doing? (e.g., time to get to work, predicting presidential results, etc.).  Can the *act* of doing the analysis be ethically questionable?
 
-## Slides <i class="fas fa-desktop" target="_blank"></i>
+## Slides <i class="fas fa-desktop"></i>
 
-<a href = "https://m154-comp-stats.netlify.app/slides/2021-08-31-reprodgit" target = "_blank">In class slides</a> for both 8/31/21 and 9/2/21.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2021-08-31-reprodgit" target = "_blank">In class slides</a> for both 8/31/21 and 9/2/21.
 
-## Additional Resources <i class="fas fa-laptop" target="_blank"></i> 
+* <a href = "https://m154-comp-stats.netlify.app/slides/twitter.pdf" target = "_blank">Twitter activity</a>
+
+## Additional Resources <i class="fas fa-laptop"></i> 
 
 * <a href = "http://algorithms-tour.stitchfix.com/" target="_blank">Great algorithm for the whole process</a>
 
