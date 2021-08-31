@@ -34,7 +34,7 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 ## Readings <i class="fas fa-book-open"></i> 
 
-* The [syllabus](https://m154-comp-stats.netlify.app/posts/2021-08-24-syllabus/)
+* The [syllabus](/syllabus/)
 * **Modern Data Science with R** <a href="https://mdsr-book.github.io/mdsr2e/ch-prologue.html" target="_blank">Prologue</a>
 * Class notes <a href = "http://st47s.com/Math154/Notes/intro.html" target= "_blank">Introduction</a>
 
