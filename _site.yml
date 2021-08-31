@@ -36,6 +36,3 @@ output:
   distill::distill_article:
     css: theme.css
 favicon: images/favicon.ico
-collections:
-  posts:
-    category: true
