@@ -50,7 +50,7 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 ## Slides <i class="fas fa-desktop" target="_blank"></i>
 
-<a href = "https://github.com/hardin47/m154-comp-stats/blob/master/_posts/2021-08-31-getting-started/reprodGit.html" target = "_blank">In class notes</a> for both 8/31/21 and 9/2/21.
+<a href = "https://github.com/hardin47/m154-comp-stats/_posts/2021-08-31-getting-started/reprodGit.html" target = "_blank">In class notes</a> for both 8/31/21 and 9/2/21.
 
 ## Additional Resources <i class="fas fa-laptop" target="_blank"></i> 
 
