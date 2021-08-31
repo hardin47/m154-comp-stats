@@ -42,6 +42,20 @@ Agenda 8/31/21
 6. Twitter
 
 
+Course structure
+=========================
+* weekly HW (to GitHub + Gradescope)
+* two exams + data project
+* in-class activities / clickers
+* ethical considerations
+
+
+Additional details
+=========================
+* Sakai has all the links
+* no computers (tablets fine)
+* semester flexibility -- good communication
+* Discord message board -- post to the entire class
 
 Workflow
 =========================
@@ -61,7 +75,7 @@ knitr::include_graphics("../images/SFalg.jpg")
 http://algorithms-tour.stitchfix.com/
 
 
-What can/can't Data Science Do?
+What can/can't statistics & data science do?
 =========================
 
 * Can model the data at hand!
@@ -75,7 +89,7 @@ Stats / Data Science / Math are not apolitical/agnostic
 
 Source: https://www.politifact.com/truth-o-meter/
 
-```{r, out.width = "800px", echo=FALSE}
+```{r, out.width = "1000px", echo=FALSE}
 knitr::include_graphics("../images/politicalquotes_2021.png") 
 ```
 
@@ -126,7 +140,7 @@ Twitter
 =========================
 
 
-In 2013, DiGrazia et al. published a provocative paper suggesting that polling could now be replaced by analyzing social media data.  They analyzed 406 competitive US congressional races using over 3.5 billion tweets.  In an article in *The Washington Post* one of the co-authors, Rojas, writes: ``Anyone with programming skills can write a program that will harvest tweets, sort them for content and analyze the results.  This can be done with nothing more than a laptop computer." (Rojas, 2013)
+In 2013, DiGrazia et al. published a provocative paper suggesting that polling could now be replaced by analyzing social media data.  They analyzed 406 competitive US congressional races using over 3.5 billion tweets.  In an article in *The Washington Post* one of the co-authors, Rojas, writes: "Anyone with programming skills can write a program that will harvest tweets, sort them for content and analyze the results.  This can be done with nothing more than a laptop computer." (Rojas, 2013)
 
 
 1.  The data come from neither an experiment nor a random sample - there must be careful thought applied to the question of *to whom* the analysis can be generalized.  The data were also scraped from the internet.
@@ -208,7 +222,7 @@ What could be done differently?
 
 * Gelman: Make the data publicly available so that others can try to reproduce the results
 
-
+https://statmodeling.stat.columbia.edu/2013/04/24/the-tweets-votes-curve/
 
 More twitter...
 =========================
@@ -334,14 +348,14 @@ Tools: R & R Studio
 R vs R Studio
 =========================
 
-```{r fig.cap = "Taken from [Modern Drive: An introduction to statistical and data sciences via R](https://ismayc.github.io/moderndiver-book/), by Ismay and Kim", fig.width = 10, fig.align='center', echo=FALSE}
+```{r fig.cap = "Taken from [Modern Drive: An introduction to statistical and data sciences via R](https://ismayc.github.io/moderndiver-book/), by Ismay and Kim", out.width = "800px", fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/RRstudio.jpg")
 ```
 
 R Studio
 =========================
 
-```{r fig.cap = "[Jessica Ward](https://jkrward.github.io/), PhD student at Newcastle University", fig.width=10, fig.align='center', echo=FALSE}
+```{r fig.cap = "[Jessica Ward](https://jkrward.github.io/), PhD student at Newcastle University",out.width = "1000px", fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/cookingRstudio.jpg")
 ```
 
@@ -350,7 +364,7 @@ Tools: GitHub
 
 * You must submit your assignments via GitHub
 * Follow Jenny Bryan's advice on how to get set-up: http://happygitwithr.com/
-* Follow Jacob Fiksel's advice on how to connect to our classroom: https://github.com/jfiksel/github-classroom-for-students
+* Follow course specific advice: https://m154-comp-stats.netlify.app/github.html
 
 Steps for weekly homework
 =========================
