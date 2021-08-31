@@ -19,7 +19,7 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 ## Agenda <i class="fas fa-calendar-alt"></i>
 
-### August 30, 2021
+### August 31, 2021
 
 1. Questionnaire
 2. Syllabus & Course Outline
