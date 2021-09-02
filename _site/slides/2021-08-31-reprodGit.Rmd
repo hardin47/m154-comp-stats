@@ -14,11 +14,11 @@ output:
 
 
 ```{r include=FALSE}
-require(ggplot2)
-require(dplyr)
-require(mosaic)
-require(knitr)
-require(ggthemes)
+library(ggplot2)
+library(dplyr)
+library(mosaic)
+library(knitr)
+library(ggthemes)
 opts_chunk$set(
   message=FALSE,
   warning=FALSE,
@@ -26,8 +26,8 @@ opts_chunk$set(
   cache=TRUE,
   tidy=FALSE
   )
-require(lubridate)
-require(sysfonts)
+library(lubridate)
+library(sysfonts)
 options(width=65)
 ```
 
@@ -40,6 +40,8 @@ Agenda 8/31/21
 4. Stitch Fix
 5. College Rankings
 6. Twitter
+
+Note: before Thursday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.
 
 
 Course structure
@@ -118,7 +120,7 @@ College Rankings (problems)
 
 Gaming the system
 
-> Point by point, senior staff members tackled different criteria, always with an eye to U.S. News’s methodology. Freeland added faculty, for instance, to reduce class size. “We did play other kinds of games,” he says. “You get credit for the number of classes you have under 20 [students], so we lowered our caps on a lot of our classes to 19 just to make sure.” From 1996 to the 2003 edition (released in 2002), Northeastern rose 20 spots. ("14 Reasons Why US News College Rankings are Meaningless")
+> Point by point, senior staff members tackled different criteria, always with an eye to U.S. News’s methodology. Freeland added faculty, for instance, to reduce class size. "We did play other kinds of games," he says. "You get credit for the number of classes you have under 20 [students], so we lowered our caps on a lot of our classes to 19 just to make sure." From 1996 to the 2003 edition (released in 2002), Northeastern rose 20 spots. ("14 Reasons Why US News College Rankings are Meaningless")
 
 
 
@@ -279,11 +281,11 @@ Source: http://news.sciencemag.org/policy/2015/05/science-retracts-gay-marriage-
 
 Example #2
 ==========
-### Seizure study retracted after authors realize data got “terribly mixed”
+### Seizure study retracted after authors realize data got "terribly mixed"
 
 * From the authors of Low Dose Lidocaine for Refractory Seizures in Preterm Neonates:
 
-“The article has been retracted at the request of the authors. After carefully re-examining the data presented in the article, they identified that data of two different hospitals got terribly mixed. The published results cannot be reproduced in accordance with scientific and clinical correctness.”
+"The article has been retracted at the request of the authors. After carefully re-examining the data presented in the article, they identified that data of two different hospitals got terribly mixed. The published results cannot be reproduced in accordance with scientific and clinical correctness."
 
 Source: http://retractionwatch.com/2013/02/01/seizure-study-retracted-after-authors-realize-data-got-terribly-mixed/
 
@@ -305,20 +307,20 @@ Source: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depres
 Reproducible data analysis
 =======================
 
-* Scriptability → R
+* Scriptability → R [in contrast to pull down menus]
 
-* Literate programming → R Markdown
+* Literate programming → R Markdown [in contrast to multiple files]
 
-* Version control → Git / GitHub
+* Version control → Git / GitHub [in contrast to multiple versions]
 
 
  
 
 Scripting and literate programming
 =========================
-### Donald Knuth “Literate Programming (1983)”
+### Donald Knuth "Literate Programming (1983)"
 
-“Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer- what to do, let us concentrate rather on explaining to human beings- what we want a computer to do.”
+"Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer- what to do, let us concentrate rather on explaining to human beings- what we want a computer to do."
 
 * These ideas have been around for years!
 * and tools for putting them to practice have also been around
@@ -343,7 +345,7 @@ Tools: R & R Studio
 * R does the programming
 * R Studio brings everything together
 * You may use Pomona's server: https://rstudio.campus.pomona.edu/ (or https://rstudio.pomona.edu if you are off campus)
-* See course website for getting started: http://research.pomona.edu/johardin/math154f17/
+* See course website for getting started: https://m154-comp-stats.netlify.app/github.html
 
 R vs R Studio
 =========================
@@ -362,7 +364,7 @@ knitr::include_graphics("../images/cookingRstudio.jpg")
 Tools: GitHub
 =========================
 
-* You must submit your assignments via GitHub
+* You must submit your assignments via GitHub + Gradescope
 * Follow Jenny Bryan's advice on how to get set-up: http://happygitwithr.com/
 * Follow course specific advice: https://m154-comp-stats.netlify.app/github.html
 
@@ -407,7 +409,7 @@ NSSD:
 
 2. Name two of Hilary's main hurdles in gathering accurate data.
 
-3. Which is better:  high touch (automatic) or low touch (manual) data collection?  Why?
+3. Which is better:  high touch (manual) or low touch (automatic) data collection?  Why?
 
 4. What additional covariates are needed / desired?  Any problems with them?
 
