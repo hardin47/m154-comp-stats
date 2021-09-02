@@ -65,7 +65,7 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 * <a href = "http://algorithms-tour.stitchfix.com/" target="_blank">Great algorithm for the whole process</a>
 
-* <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
+* <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a>.
 
 * <a href = "https://www.youtube.com/watch?v=s3JldKoA0zw&feature=youtu.be" target="_blank">Video (less than 2 min) on the strengths of reproducible research</a>
 
