@@ -29,7 +29,7 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 Before next Thursday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.
 
-### September 1, 2021 
+### September 2, 2021 
 
 1. Reproducibility & GitHub
 2. <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
