@@ -40,7 +40,7 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 * Tufte (1997) <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
 
-* Wickham (2017) <a href = "https://r4ds.had.co.nz/data-visualisation.html" target = "_blank">Data Visualization> in R for Data Science.
+* Wickham (2017) <a href = "https://r4ds.had.co.nz/data-visualisation.html" target = "_blank">Data Visualization</a> in R for Data Science.
 
 ## Reflection questions <i class="fas fa-lightbulb"></i> 
 
