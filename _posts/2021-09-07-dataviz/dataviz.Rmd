@@ -6,22 +6,58 @@ author:
   - name: Jo Hardin
     url: https://m154-comp-stats.netlify.app/
 date: 09-07-2021
-draft: true
+draft: false
 output:
   distill::distill_article:
     self_contained: false
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
-Distill is a publication format for scientific and technical writing, native to the web.
-
-Learn more about using Distill at <https://rstudio.github.io/distill>.
-
-
-```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters bringing a monster artist different pieces of the plot in order to create a masterpiece.", preview = TRUE, echo = FALSE}
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Three monsters are painting data viz portraits.  Two of the monsters carry boxes labeled `themes` and `geoms`.  All of the data viz portraits look like ggplot figures.", preview = TRUE, echo = FALSE}
 knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 ```
+
+
+
+## Agenda <i class="fas fa-calendar-alt"></i>
+
+### September 7, 2021
+
+1. Cholera: what went (didn't go) well with the graphics?
+2. Challenger: what didn't go (went) well with the graphics?
+3. Thoughts on plotting (with example(s))
+
+* Class discussion will be based on Tufte (1997) <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
+
+* Another great reference is the following text: **Fundamentals of Data Visualization** by Wilke at http://serialmentor.com/dataviz/
+
+### September 9, 2021 
+
+1. Grammar of graphics
+2. ggplot
+
+## Readings <i class="fas fa-book-open"></i> 
+
+* Tufte (1997) <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
+
+* Wickham (2017) <a href = "https://r4ds.had.co.nz/data-visualisation.html" target = "_blank">Data Visualization> in R for Data Science.
+
+## Reflection questions <i class="fas fa-lightbulb"></i> 
+
+* When creating a graph, try to sketch / image the graph before you code it.  What do you want R to do (what is the goal)?  In order to do that, what does R need to know?
+
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+* Does your plot make the comparison of interest: easily? and accurately?
+
+* Did you add alt text to your images (see <a href = "https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81" target = "_blank">Writing Alt Text for Data Visualization</a>)?  
+
+## Slides <i class="fas fa-desktop"></i>
+
+
+
+## Additional Resources <i class="fas fa-laptop"></i> 
+
+
+
+
