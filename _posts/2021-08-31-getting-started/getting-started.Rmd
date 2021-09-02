@@ -27,11 +27,14 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 4. College Rankings
 5. Can Twitter predict election results?
 
+Before next Thursday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.
+
 ### September 1, 2021 
 
 1. Reproducibility & GitHub
 2. <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
 
+Before next Tuesday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
 
 ## Readings <i class="fas fa-book-open"></i> 
 

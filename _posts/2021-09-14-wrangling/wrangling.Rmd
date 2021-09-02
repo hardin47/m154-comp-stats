@@ -1,0 +1,51 @@
+---
+title: "3. Wrangling"
+description: |
+  Data wrangling skills are among the most important to hone.  
+author:
+  - name: Jo Hardin
+    url: https://m154-comp-stats.netlify.app/
+date: 09-14-2021
+citation: false
+draft: true
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+quotes about 80% of work is data wrangling
+
+slides on data wrangling
+
+example R code / sample markdown file?
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters using a lasso on other monsters and their data to indicate wrangling.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/dplyr_wrangling.png")
+```
+
+
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+
+### September 14, 2021
+
+### September 16, 2021
+
+## Readings <i class="fas fa-book-open"></i> 
+
+## Reflection Questions <i class="fas fa-lightbulb" target="_blank"></i> {#questions}
+
+
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+
+
+## Slides <i class="fas fa-desktop" target="_blank"></i> 
+
+
+
+## Additional Resources <i class="fas fa-laptop" target="_blank"></i> 
+
+
+
+
+
