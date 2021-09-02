@@ -67,6 +67,9 @@ Before next Tuesday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/tu
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/twitter.pdf" target = "_blank">Twitter activity</a>
 
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU1_R_sol.pdf" target = "_blank">WU1 - working with R</a>
+
+
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
 * <a href = "http://algorithms-tour.stitchfix.com/" target="_blank">Great algorithm for the whole process</a>
