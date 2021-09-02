@@ -3,4 +3,5 @@ title: "Computational Statistics"
 listing: 
   posts:
    - 2021-08-31-getting-started
+   - 2021-09-07-dataviz
 ---
