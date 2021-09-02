@@ -252,6 +252,8 @@ Agenda  9/2/21
 1. Reproducibility
 2. GitHub
 3. NSSD
+
+Before next Tuesday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
  
 Reproducibility
 ==========
