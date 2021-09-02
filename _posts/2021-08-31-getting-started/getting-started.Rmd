@@ -29,8 +29,9 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 ### September 1, 2021 
 
-1. <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
-2. Reproducibility & GitHub
+1. Reproducibility & GitHub
+2. <a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>
+
 
 ## Readings <i class="fas fa-book-open"></i> 
 
@@ -48,6 +49,8 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 * What choices were made to collect the Twitter data?
 
 * What choices were made to model the Twitter data?
+
+* What are the advantages and disadvantages of high touch versus low touch data?
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
