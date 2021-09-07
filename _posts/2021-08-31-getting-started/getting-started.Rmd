@@ -40,7 +40,7 @@ Before next Tuesday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/tu
 
 * The [syllabus](/syllabus/)
 * **Modern Data Science with R** <a href="https://mdsr-book.github.io/mdsr2e/ch-prologue.html" target="_blank">Prologue</a>
-* Class notes <a href = "http://st47s.com/Math154/Notes/intro.html" target= "_blank">Introduction</a>
+* Class notes: <a href = "http://st47s.com/Math154/Notes/intro.html" target= "_blank">Introduction</a>
 
 
 ## Reflection questions <i class="fas fa-lightbulb"></i> 
