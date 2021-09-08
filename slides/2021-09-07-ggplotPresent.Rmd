@@ -16,6 +16,7 @@ library(mosaic)
 library(knitr)
 library(ggthemes)
 library(here)
+library(flair)
 opts_chunk$set(
   message=FALSE,
   warning=FALSE,
@@ -96,7 +97,7 @@ knitr::include_graphics(here::here("images/TuftestemperatureandOringrelationshi.
 
 # Fonts matter
 
-```{r, out.width = "500px", fig.alt = "image credit: Will Chase RStudio::conf 2020", echo=FALSE}
+```{r, out.width = "500px", fig.alt = "image credit: Will Chase RStudio::conf 2020", echo=FALSE,fig.align = 'center'}
 knitr::include_graphics(here::here("images/fontsmatter.png"))
 ``` 
 
@@ -106,20 +107,20 @@ knitr::include_graphics(here::here("images/fontsmatter.png"))
 
 - Avoid having other graph elements interfere with data
 - Use visually prominent symbols
-- Avoid over-plotting  (One way to avoid over plotting: Jitter the values)
+- Avoid over-plotting  (One way to avoid over plotting: jitter the values)
 - Different values of data may obscure each other
 - Include all or nearly all of the data
 - Fill data region
 
---- 
+---
 
 # Advice on plotting, general
 
-* Eliminate superfluous material
-* Facilitate comparisons
-* Choose the best scale
-* Make the plot data / information rich
-* Use good captions, alt text, conclusions
+- Eliminate superfluous material
+- Facilitate comparisons
+- Choose the best scale
+- Make the plot data / information rich
+- Use good captions, alt text, conclusions
 
 
 ---
@@ -146,48 +147,52 @@ knitr::include_graphics(here::here(c("images/barplot-gif-before.png", "images/ba
 knitr::include_graphics(here::here("images/vacc-case.png"))
 ``` 
 
---- 
+
+---
+
+# Worth a Mention
+
+.pull-left[
+W.E.B. DuBois (1868-1963)
+
+* sociologist
+* data scientist]
+
+.pull-right[
+```{r, out.width = "40%", fig.alt = "image of WEB Dubois", fig.cap = "image credit: wikipedia", echo=FALSE}
+knitr::include_graphics(here::here("images/WEB_DuBois_1918.jpg"))
+``` 
+]
+
+In 1900 Du Bois contributed approximately 60 data visualizations to an exhibit at the Exposition Universelle in Paris, an exhibit designed to illustrate the progress made by African Americans since the end of slavery (only 37 years prior, in 1863).
+
+---
+
+# Beautiful & Informative Graphics
+
+https://drawingmatter.org/w-e-b-du-bois-visionary-infographics/
+
+.pull-left[
+```{r, out.width = "90%", fig.alt = "figures from DuBois's 1900 exhibition", fig.cap = "", echo=FALSE}
+knitr::include_graphics(here::here("images/dubois-graphs1.png"))
+``` 
+]
+.pull-right[
+```{r, out.width = "90%", fig.alt = "figures from DuBois's 1900 exhibition", echo=FALSE}
+knitr::include_graphics(here::here("images/dubois-graphs2.png"))
+``` 
+]
+
+---
 
 # Agenda  9/9/21
 
 1. Grammar of graphics
 2. `ggplot2`
 
-
 ---
 
-# Goals
-
-What I will try to do
-
- * give a tour of `ggplot2`
- 
- * explain how to think about plots the `ggplot2` way
- 
- * prepare/encourage you to learn more later
- 
-What I can't do in one session
-
- * show every bell and whistle
- 
- * make you an expert at using `ggplot2`
- 
-
----
-
-# HELP
-
-1.  One of the best ways to get started with ggplot is to google what you want to do with the word ggplot.  Then look through the images that come up.  More often than not, the associated code is there.  There are also ggplot galleries of images, one of them is here: https://plot.ly/ggplot2/
-
-2. Look at the end of this presentation.  More help options there.
-
-```{r out.width='100%', fig.align='center', echo=FALSE}
-knitr::include_graphics("../images/plotly.png")
-```
-
----
-
-## Pieces of the Graph
+# Grammar of graphics
 
 Yau (2013) gives us nine visual cues, and Wickham (2014) translates them into a language using `ggplot2`.  
 
@@ -212,10 +217,8 @@ Yau (2013) gives us nine visual cues, and Wickham (2014) translates them into a 
 
 ## Pieces of the Graph
 
-Yau (2013) gives us nine visual cues, and Wickham (2014) translates them into a language using `ggplot2`. 
-
 .pull-left[
-Visual Cues:   
+Visual Cues of Yau (2013):   
 **Position** (numerical)  
 **Length** (numerical)  
 **Angle** (numerical)   
@@ -250,6 +253,39 @@ knitr::include_graphics("../images/Yau_order.png")
 ```{r out.width = '100%', fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/Yau_cuestogether.png")
 ```
+
+---
+
+
+# Goals of `ggplot2`
+
+What I will try to do
+
+ * give a tour of `ggplot2`
+ 
+ * explain how to think about plots the `ggplot2` way
+ 
+ * prepare/encourage you to learn more later
+ 
+What I can't do in one session
+
+ * show every bell and whistle
+ 
+ * make you an expert at using `ggplot2`
+ 
+
+---
+
+# Getting help
+
+1.  One of the best ways to get started with ggplot is to google what you want to do with the word ggplot.  Then look through the images that come up.  More often than not, the associated code is there.  There are also ggplot galleries of images, one of them is here: https://plot.ly/ggplot2/
+
+2. Look at the end of this presentation and the syllabus.  More help options there.
+
+```{r out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/plotly.png")
+```
+
 
 ---
 
@@ -377,7 +413,6 @@ Coordinate System?  Scale?
 
 ```{r}
 require(mosaic)
-require(lubridate) # package for working with dates
 data(Births78)     # restore fresh version of Births78
 head(Births78, 3)
 ```
@@ -445,21 +480,25 @@ ggplot(
 ]
 
 .pull-right[
-```{r, eval=FALSE, fig.height=1.5}
+```{r aes-where, eval=FALSE, include = FALSE}
 ggplot(data=Births78, 
        aes(x=date, y=births)) + 
   geom_point() +
   ggtitle("US Births in 1978")
-```
 
-
-
-```{r, eval=FALSE, fig.height=1.5}
 ggplot() +
   geom_point(data=Births78, 
              aes(x=date, y=births)) +
   ggtitle("US Births in 1978")
 ```
+
+```{r echo = FALSE}
+decorate("aes-where", eval = FALSE) %>%
+  flair("data=") %>%
+  flair("aes") %>%
+  knit_print.with_flair()
+```
+
 
 ]
 
@@ -472,9 +511,9 @@ ggplot() +
 .pull-left[
 ```{r, echo=FALSE}
 Births78 <- 
-  Births78 %>% mutate(wday = wday(date, label=TRUE))
+  Births78 %>% mutate(day_of_week = wday(date, label=TRUE))
 ggplot(data=Births78) +
-  geom_point(aes(x=date, y=births, color=wday)) +
+  geom_point(aes(x=date, y=births, color=day_of_week)) +
   ggtitle("US Births in 1978")
 ```
 ]
@@ -497,31 +536,34 @@ the day of the week from a date.
 .pull-left[
 ```{r, echo=FALSE}
 Births78 <- 
-  Births78 %>% mutate(wday = wday(date, label=TRUE))
+  Births78 %>% mutate(day_of_week = wday(date, label=TRUE))
 ggplot(data=Births78) +
-  geom_point(aes(x=date, y=births, color=wday)) +
+  geom_point(aes(x=date, y=births, color=day_of_week)) +
   ggtitle("US Births in 1978")
 ```
 ]
 
 .pull-right[
-```{r}
+```{r week, eval = FALSE, include = FALSE}
 Births78 <-  
   Births78 %>% 
-  mutate(wday = 
+  mutate(day_of_week = 
            wday(date, 
                 label=TRUE))
-```
-
-
-
-```{r, eval=FALSE, fig.height=2.0}
-ggplot(data=Births78) +
-  geom_point(aes(x=date, 
-                 y=births, 
-                 color=wday))+
+Births78 %>%
+ggplot(aes(x=date
+           y=births, 
+           color=day_of_week)) +
+  geom_point() +
   ggtitle("US Births in 1978")
 ```
+
+```{r echo = FALSE}
+decorate("week", eval = FALSE) %>%
+  flair("day_of_week") %>%
+  knit_print.with_flair()
+```
+
 ]
 
 ---
@@ -531,7 +573,7 @@ ggplot(data=Births78) +
 .pull-left[
 ```{r, echo=FALSE}
 ggplot(data=Births78) +
-  geom_line(aes(x=date, y=births, color=wday)) +
+  geom_line(aes(x=date, y=births, color=day_of_week)) +
   ggtitle("US Births in 1978")
 ```
 ]
@@ -542,7 +584,7 @@ ggplot(data=Births78) +
 .pull-left[
 ```{r, echo=FALSE}
 ggplot(data=Births78) +
-  geom_line(aes(x=date, y=births, color=wday)) +
+  geom_line(aes(x=date, y=births, color=day_of_week)) +
   ggtitle("US Births in 1978")
 ```
 ]
@@ -550,12 +592,19 @@ ggplot(data=Births78) +
 .pull-right[
 lines instead of dots!
 
-```{r, eval=FALSE}
-ggplot(data=Births78) +
-  geom_line(aes(x=date, 
-                y=births, 
-                color=wday)) +
+```{r lines, eval=FALSE, include = FALSE}
+Births78 %>%
+  ggplot(aes(x=date, 
+             y=births,
+             color=day_of_week)) +
+  geom_line() +
   ggtitle("US Births in 1978")
+```
+
+```{r echo = FALSE}
+decorate("lines", eval = FALSE) %>%
+  flair("geom_line") %>%
+  knit_print.with_flair()
 ```
 ]
 
@@ -565,7 +614,7 @@ ggplot(data=Births78) +
     
 .pull-left[
 ```{r, echo=FALSE}
-ggplot(data=Births78, aes(x=date, y=births, color=wday)) + 
+ggplot(data=Births78, aes(x=date, y=births, color=day_of_week)) + 
   geom_point() + 
   geom_line()+
   ggtitle("US Births in 1978")
@@ -579,7 +628,7 @@ ggplot(data=Births78, aes(x=date, y=births, color=wday)) +
     
 .pull-left[
 ```{r, echo=FALSE}
-ggplot(data=Births78, aes(x=date, y=births, color=wday)) + 
+ggplot(data=Births78, aes(x=date, y=births, color=day_of_week)) + 
   geom_point() + 
   geom_line()+
   ggtitle("US Births in 1978")
@@ -590,46 +639,27 @@ ggplot(data=Births78, aes(x=date, y=births, color=wday)) +
 Now there are two **layers**: one with points and one with
 lines
 
-```{r, eval=FALSE}
-ggplot(data=Births78, 
-       aes(x=date, y=births, 
-           color=wday)) + 
+```{r pointslines1, eval=FALSE, include = FALSE}
+Births78 %>%
+  ggplot(aes(x=date, 
+             y=births,
+             color=day_of_week)) + 
   geom_point() +  
   geom_line()+
   ggtitle("US Births in 1978")
 ```
 
+```{r echo = FALSE}
+decorate("pointslines1", eval = FALSE) %>%
+  flair("geom_line") %>%
+  flair("geom_point") %>%
+  knit_print.with_flair()
+```
 
  *  The layers are placed one on top of the other:  the points 
 are *below* and the lines are *above*.   
 
  * `data` and `aes` specified in `ggplot()` affect all geoms
-]
-
----
-
-## Alternative Syntax
-    
-.pull-left[
-```{r echo=FALSE}
-Births78 %>% 
-  ggplot(aes(x=date, y=births, color=wday)) + 
-  geom_point() + 
-  geom_line()+
-  ggtitle("US Births in 1978")
-```
-]
-
-.pull-right[
-```{r eval=FALSE}
-Births78 %>% 
-  ggplot(aes(x=date, 
-             y=births, 
-             color=wday)) + 
-  geom_point() + 
-  geom_line()+
-  ggtitle("US Births in 1978")
-```
 ]
 
 
@@ -645,13 +675,21 @@ Births78 %>%
   ggtitle("US Births in 1978") 
 ```
 
---
+---
 
-```{r, echo=FALSE}
+## What does this code do?
+
+```{r navy1, echo=FALSE, include=FALSE}
 Births78 %>% 
   ggplot(aes(x=date, y=births, color="navy")) + 
   geom_point()  +
   ggtitle("US Births in 1978")
+```
+
+```{r echo = FALSE}
+decorate("navy1") %>%
+  flair("color=") %>%
+  knit_print.with_flair()
 ```
 
 This is *mapping* the color aesthetic to a new variable with 
@@ -663,13 +701,19 @@ So all the dots get set to the same color, but it's not navy.
 ## Setting vs. Mapping
 
 If we want to *set* the color to be navy for all of the dots, we do 
-it this way:
+it outside the `aes()` designation:
 
-```{r}
+```{r navy2, echo = FALSE, include = FALSE}
 Births78 %>%
-  ggplot(aes(x=date, y=births)) +   # map these 
-  geom_point(color = "navy")   +     # set this
+  ggplot(aes(x=date, y=births)) +   # map variables 
+  geom_point(color="navy")      +   # set attributes
   ggtitle("US Births in 1978")
+```
+
+```{r echo = FALSE}
+decorate("navy2") %>%
+  flair("color=") %>%
+  knit_print.with_flair()
 ```
 
 * Note that `color = "navy"` is now outside of the aesthetics list.  That's how `ggplot2` distinguishes between mapping and setting.
@@ -682,8 +726,8 @@ Births78 %>%
 ```{r, echo=FALSE}
 Births78 %>%
   ggplot(aes(x=date, y=births)) + 
-  geom_line(aes(color=wday)) +        # map color here
-  geom_point(color="navy")  +          # set color here
+  geom_line(aes(color=day_of_week)) +       
+  geom_point(color="navy")  +          
   ggtitle("US Births in 1978")
 ```
 ]
@@ -697,20 +741,26 @@ Births78 %>%
 Births78 %>%
   ggplot(aes(x=date, 
              y=births)) + 
-  geom_line(aes(color=wday)) +        # map color here
-  geom_point(color="navy") +           # set color here
+  geom_line(aes(color=day_of_week)) +       
+  geom_point(color="navy") +           
   ggtitle("US Births in 1978")
 ```
 ]
 
 .pull-right[
-```{r, eval=FALSE}
+```{r pointslines2, eval=FALSE, include = FALSE}
 Births78 %>%
   ggplot(aes(x=date, 
              y=births)) + 
-  geom_line(aes(color=wday)) +       # map color here
-  geom_point(color="navy")  +         # set color here
+  geom_line(aes(color=day_of_week)) +      
+  geom_point(color="navy")  +         
   ggtitle("US Births in 1978")
+```
+
+```{r echo = FALSE}
+decorate("pointslines2", eval = FALSE) %>%
+  flair("color=") %>%
+  knit_print.with_flair()
 ```
 
 * `ggplot()` establishes the default data and aesthetics
@@ -757,7 +807,7 @@ help pages will tell you their aesthetics, default stats, etc.
 Births78 %>%
   ggplot(aes(x=date, 
              y=births, 
-             fill=wday)) + 
+             fill=day_of_week)) + 
   geom_area()+
   ggtitle("US Births in 1978")
 ```
@@ -770,7 +820,7 @@ Births78 %>%
 .pull-left[
 ```{r, eval=TRUE}
 Births78 %>%
-  ggplot(aes(x=date, y=births, fill=wday)) + 
+  ggplot(aes(x=date, y=births, fill=day_of_week)) + 
   geom_area()+
   ggtitle("US Births in 1978")
 ```
@@ -814,6 +864,11 @@ of three substances.
 head(HELPrct)
 ```
 
+```{r echo = FALSE}
+HELP_data <- left_join(HELPrct, HELPfull, by = c( "id" = "ID")) %>%
+  filter(!is.na(A11E)) %>%
+  mutate(children = ifelse(A11E == 0, "no", "yes"))
+```
 
 ---
 
@@ -821,7 +876,7 @@ head(HELPrct)
 
 .pull-left[
 ```{r echo=FALSE}
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=substance)) + 
   geom_bar()+
   ggtitle("HELP trial")
@@ -830,11 +885,17 @@ HELPrct %>%
 
 .pull-right[
 
-```{r eval=FALSE}
-HELPrct %>% 
+```{r bar, eval=FALSE, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=substance)) + 
   geom_bar()+
   ggtitle("HELP trial")
+```
+
+```{r echo = FALSE}
+decorate("bar", eval = FALSE) %>%
+  flair("geom_bar") %>%
+  knit_print.with_flair()
 ```
 
 * Hmm.  What's up with `y`?
@@ -850,9 +911,9 @@ HELPrct %>%
 
 .pull-left[
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=substance, 
-             fill=sex)) + 
+             fill=children)) + 
   geom_bar()+
   ggtitle("HELP trial")
 ```
@@ -860,13 +921,20 @@ HELPrct %>%
 
 
 .pull-right[
-```{r message=FALSE, warning=FALSE, eval=FALSE}
-HELPrct %>% 
+```{r fill, message=FALSE, warning=FALSE, eval=FALSE, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=substance, 
-             fill=sex)) + 
+             fill=children)) + 
   geom_bar()+
   ggtitle("HELP trial")
 ```
+
+```{r echo = FALSE}
+decorate("fill", eval = FALSE) %>%
+  flair("fill=") %>%
+  knit_print.with_flair()
+```
+
 ]
 
 ---
@@ -875,51 +943,29 @@ HELPrct %>%
 
 .pull-left[
 ```{r message=FALSE, warning=FALSE, echo=FALSE}
-library(scales)
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=substance, 
-             fill=sex)) + 
-  geom_bar() +
-  scale_y_continuous(labels = percent)+
+             fill=children)) + 
+  geom_bar(position="fill") +
+  scale_y_continuous("percent")+
   ggtitle("HELP trial")
 ```
 ]
 
 .pull-right[
-```{r message=FALSE, warning=FALSE, eval=FALSE}
-library(scales)
-HELPrct %>% 
+```{r fill2, message=FALSE, warning=FALSE, eval=FALSE, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=substance, 
-             fill=sex)) + 
-  geom_bar() +
-  scale_y_continuous(labels = percent)+
+             fill=children)) + 
+  geom_bar(position="fill") +
+  ylab("actually, percent")+
   ggtitle("HELP trial")
 ```
-]
 
----
-
-## Who are the people in the study?
-
-.pull-left[
-```{r message=FALSE, warning=FALSE, echo=FALSE}
-HELPrct %>% 
-  ggplot(aes(x=substance, 
-             fill=sex)) + 
-  geom_bar(position="fill") +
-  scale_y_continuous("actually, percent")+
-  ggtitle("HELP trial")
-```
-]
-
-.pull-right[
-```{r message=FALSE, warning=FALSE, eval=FALSE}
-HELPrct %>% 
-  ggplot(aes(x=substance, 
-             fill=sex)) + 
-  geom_bar(position="fill") +
-  scale_y_continuous("actually, percent")+
-  ggtitle("HELP trial")
+```{r echo = FALSE}
+decorate("fill2", eval = FALSE) %>%
+  flair("position=") %>%
+  knit_print.with_flair()
 ```
 ]
 
@@ -930,7 +976,7 @@ HELPrct %>%
 
 .pull-left[
 ```{r, fig.height=1.5, message=TRUE, echo=FALSE}
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_histogram()+
   ggtitle("HELP trial")
@@ -938,11 +984,17 @@ HELPrct %>%
 ]
 
 .pull-right[
-```{r, fig.height=1.5, message=TRUE, eval=FALSE}
-HELPrct %>% 
+```{r hist, fig.height=1.5, message=TRUE, eval=FALSE, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_histogram()+
   ggtitle("HELP trial")
+```
+
+```{r echo = FALSE}
+decorate("hist", eval = FALSE) %>%
+  flair("geom_histogram") %>%
+  knit_print.with_flair()
 ```
 
 Notice the messages
@@ -961,37 +1013,58 @@ really choose our own.
 
 .pull-left[
 ```{r echo=FALSE}
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_histogram(binwidth=2)+
   ggtitle("HELP trial")
 ```
+
+
 ]
 
 .pull-right[
-```{r eval=FALSE}
-HELPrct %>% 
+```{r binwidth, include = FALSE, eval=FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_histogram(binwidth=2)+
   ggtitle("HELP trial")
 ```
+
+```{r echo = FALSE}
+decorate("binwidth", eval = FALSE) %>%
+  flair("binwidth=") %>%
+  knit_print.with_flair()
+```
+
 ]
 ---
 
 ## How old are people in the HELP study? -- Other geoms
      
-```{r, fig.height=1.7}
-HELPrct %>% 
+```{r freqpoly, fig.height=1.7, echo = FALSE, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_freqpoly(binwidth=2)+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
-```{r, fig.height=1.7}
-HELPrct %>% 
+```{r echo = FALSE}
+decorate("freqpoly") %>%
+  flair("geom_freqpoly") %>%
+  knit_print.with_flair()
+```
+
+```{r density, fig.height = 1.7, echo = FALSE, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_density()+
   ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("density") %>%
+  flair("geom_density") %>%
+  knit_print.with_flair()
 ```
 
 ---
@@ -1003,11 +1076,17 @@ Every geom comes with a default stat
 * for simple cases, the stat is `stat_identity()` which does nothing
 * we can mix and match geoms and stats however we like
 
-```{r, fig.height=2.0}
-HELPrct %>% 
+```{r geomline, fig.height=2.0, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_line(stat="density")+
   ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("geomline") %>%
+  flair_lines(3) %>%
+  knit_print.with_flair()
 ```
 
 ---
@@ -1019,46 +1098,70 @@ Every stat comes with a default geom, every geom with a default stat
 * we can specify stats instead of geom, if we prefer
 * we can mix and match geoms and stats however we like
 
-```{r, fig.height=2.0}
-HELPrct %>% 
+```{r statdensity, fig.height=2.0, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   stat_density( geom="line")+
   ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("statdensity") %>%
+  flair_lines(3) %>%
+  knit_print.with_flair()
 ```
 
 ---
 
 ## More combinations
 
-```{r, fig.height=1.7}
-HELPrct %>% 
+```{r pointline, fig.height=1.7, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_point(stat="bin", binwidth=3) + 
   geom_line(stat="bin", binwidth=3)  +
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
----
-
-## More combinations
-
-```{r, fig.height=1.7}
-HELPrct %>% 
-  ggplot(aes(x=age)) + 
-  geom_area(stat="bin", binwidth=3)  +
-  ggtitle("HELP clinical trial at detoxification unit")
+```{r echo = FALSE}
+decorate("pointline") %>%
+  flair_lines(3:4) %>%
+  knit_print.with_flair()
 ```
 
 ---
 
 ## More combinations
 
-```{r fig.height=5}
-HELPrct %>% 
+```{r areabin, fig.height=1.7, include = FALSE}
+HELP_data %>% 
+  ggplot(aes(x=age)) + 
+  geom_area(stat="bin", binwidth=3)  +
+  ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("areabin") %>%
+  flair_lines(3) %>%
+  knit_print.with_flair()
+```
+
+---
+
+## More combinations
+
+```{r pointlinebin, fig.height=5, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=age)) + 
   geom_point(stat="bin", binwidth=3, aes(size=..count..)) +
   geom_line(stat="bin", binwidth=3) +
   ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("pointlinebin") %>%
+  flair_lines(3:4) %>%
+  knit_print.with_flair()
 ```
 
 ---
@@ -1067,7 +1170,7 @@ HELPrct %>%
     
 
 ```{r, fig.height=1.5}
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=i1)) + geom_histogram()+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
@@ -1077,7 +1180,7 @@ HELPrct %>%
 ## How much drinking? (i1)
  
 ```{r, fig.height=1.5}
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=i1)) + geom_density()+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
@@ -1087,7 +1190,7 @@ HELPrct %>%
 ## How much drinking? (i1)
  
 ```{r, fig.height=1.5}
-HELPrct %>% 
+HELP_data %>% 
   ggplot(aes(x=i1)) + geom_area(stat="density")+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
@@ -1096,35 +1199,53 @@ HELPrct %>%
 ---
 
 ## Covariates: Adding in more variables
-   
+  
 
 Using color and linetype:
 
-```{r fig.height = 4}
-HELPrct %>% 
-  ggplot(aes(x=i1, color=substance, linetype=sex)) + 
+```{r colorline, fig.height = 4, include = FALSE}
+HELP_data %>% 
+  ggplot(aes(x=i1, color=substance, linetype=children)) + 
   geom_line(stat="density")+
   ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("colorline") %>%
+  flair("color=") %>%
+  flair("linetype=") %>%
+  knit_print.with_flair()
 ```
 
 ---
 
 ## Using color and facets
 
-```{r, fig.height=1.6}
-HELPrct %>% 
+```{r facetcol, fig.height=1.6, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=i1, color=substance)) + 
-  geom_line(stat="density") + facet_grid( . ~ sex )+
+  geom_line(stat="density") + facet_grid( . ~ children )+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
-```{r, fig.height=1.6}
-HELPrct %>% 
+```{r echo = FALSE}
+decorate("facetcol") %>%
+  flair("facet_grid") %>%
+  knit_print.with_flair()
+```
+
+```{r facetrow, fig.height=1.6, include = FALSE}
+HELP_data %>% 
   ggplot(aes(x=i1, color=substance)) + 
-  geom_line(stat="density") + facet_grid( sex ~ . )+
+  geom_line(stat="density") + facet_grid( children ~ . )+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
+```{r echo = FALSE}
+decorate("facetrow") %>%
+  flair("facet_grid") %>%
+  knit_print.with_flair()
+```
 
 ---
 
@@ -1136,8 +1257,8 @@ The quantitative variable must be `y`, and there must be an
 additional `x` variable. 
 
 ```{r fig.height = 3.5}
-HELPrct %>% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
+HELP_data %>% 
+  ggplot(aes(x=substance, y=age, color=children)) + 
   geom_boxplot()+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
@@ -1151,12 +1272,18 @@ Horizontal boxplots  are obtained by flipping the coordinate system:
 * `coord_flip()` may be used with other plots as well to reverse the roles
 of `x` and `y` on the plot.
 
-```{r fig.height = 3.5}
-HELPrct %>% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
+```{r flip, fig.height = 3.5, include = FALSE}
+HELP_data %>% 
+  ggplot(aes(x=substance, y=age, color=children)) + 
   geom_boxplot() +
   coord_flip()+
   ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("flip") %>%
+  flair("coord_flip()") %>%
+  knit_print.with_flair()
 ```
 
 ---
@@ -1164,15 +1291,19 @@ HELPrct %>%
 ## Axes scaling with boxplots
     
 We can scale the continuous axis
-```{r fig.height = 3.5, warning=FALSE, message=FALSE}
-HELPrct %>% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
+```{r trans, fig.height = 3.5, warning=FALSE, message=FALSE, include = FALSE}
+HELP_data %>% 
+  ggplot(aes(x=substance, y=age, color=children)) + 
   geom_boxplot() +
   coord_trans(y="exp")+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
-
+```{r echo = FALSE}
+decorate("trans") %>%
+  flair("coord_trans") %>%
+  knit_print.with_flair()
+```
 ---
 
 ## Give me some space
@@ -1180,13 +1311,18 @@ HELPrct %>%
 We've triggered a new feature: `dodge` (for dodging things left/right).
 We can control how much if we set the dodge manually.
 
-```{r fig.height=3.5}
-HELPrct %>% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
+```{r space, fig.height=3.5, include = FALSE}
+HELP_data %>% 
+  ggplot(aes(x=substance, y=age, color=children)) + 
   geom_boxplot(position=position_dodge(width=1)) +
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
+```{r echo = FALSE}
+decorate("space") %>%
+  flair_lines(3) %>%
+  knit_print.with_flair()
+```
 
 ---
 
@@ -1195,13 +1331,18 @@ HELPrct %>%
 * Although we can see a generally positive association (as we would 
 expect), the overplotting may be hiding information.
 
-```{r fig.height=3.5}
+```{r facet2, fig.height=3.5, include = FALSE}
 require(NHANES)
 dim(NHANES)
 NHANES %>%  ggplot(aes(x=Height, y=Weight)) +
   geom_point() + facet_grid( Gender ~ PregnantNow )
 ```
 
+```{r echo = FALSE}
+decorate("facet2") %>%
+  flair("facet_grid") %>%
+  knit_print.with_flair()
+```
 
 ---
 
@@ -1209,10 +1350,16 @@ NHANES %>%  ggplot(aes(x=Height, y=Weight)) +
 
 One way to deal with overplotting is to set the opacity low.
 
-```{r fig.height = 3.5}
+```{r alpha,fig.height = 3.5, include = FALSE}
 NHANES %>% 
   ggplot(aes(x=Height, y=Weight)) +
   geom_point(alpha=0.01) + facet_grid( Gender ~ PregnantNow )
+```
+
+```{r echo = FALSE}
+decorate("alpha") %>%
+  flair("alpha=0.01") %>%
+  knit_print.with_flair()
 ```
 
 ---
@@ -1222,34 +1369,65 @@ NHANES %>%
 Alternatively (or simultaneously) we might prefere a different 
 geom altogether.
 
-```{r fig.height = 3.5}
+```{r density2d, fig.height = 3.5, include = FALSE}
 NHANES %>% 
   ggplot(aes(x=Height, y=Weight)) +
   geom_density2d() + facet_grid( Gender ~ PregnantNow )
 ```
 
----
-
-## Multiple layers
-
-```{r fig.height = 3.5}
-ggplot( data=HELPrct, aes(x=sex, y=age)) +
-  geom_boxplot(outlier.size=0) +
-  geom_jitter(alpha=.6) +
-  coord_flip()+
-  ggtitle("HELP clinical trial at detoxification unit")
+```{r echo = FALSE}
+decorate("density2d") %>%
+  flair("geom_density2d()") %>%
+  knit_print.with_flair()
 ```
 
 ---
 
 ## Multiple layers
 
+.pull-left[
 ```{r fig.height = 3.5}
-ggplot( data=HELPrct, aes(x=sex, y=age)) +
+ggplot( data=HELP_data, aes(x=children, y=age)) +
+  geom_boxplot(outlier.size=0) +
+  geom_point(alpha=.6) +
+  coord_flip()+
+  ggtitle("HELP clinical trial at detoxification unit")
+```
+]
+
+.pull-right[
+```{r jitter, fig.height = 3.5, include = FALSE}
+ggplot( data=HELP_data, aes(x=children, y=age)) +
+  geom_boxplot(outlier.size=0) +
+  geom_jitter(alpha=.6, width = 0.1) +
+  coord_flip()+
+  ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("jitter") %>%
+  flair_lines(3) %>%
+  knit_print.with_flair()
+```
+]
+
+
+---
+
+## Multiple layers
+
+```{r jitter2, fig.height = 3.5, include = FALSE}
+ggplot( data=HELP_data, aes(x=children, y=age)) +
   geom_boxplot(outlier.size=0) +
   geom_point(alpha=.6, position=position_jitter(width=.1, height=0)) +
   coord_flip()+
   ggtitle("HELP clinical trial at detoxification unit")
+```
+
+```{r echo = FALSE}
+decorate("jitter2") %>%
+  flair_lines(3) %>%
+  knit_print.with_flair()
 ```
 
 
@@ -1287,9 +1465,9 @@ ggplot(Births78, aes(x=date, y=births)) + geom_point() +
  * transforming axes
  
 ```{r, fig.width=14}
-ggplot( data=HELPrct, aes(x=substance, y=age, color=sex)) +
+ggplot( data=HELP_data, aes(x=substance, y=age, color=children)) +
   geom_boxplot(coef = 10, position=position_dodge()) +
-  geom_point(aes(color=sex, fill=sex), position=position_jitterdodge()) +
+  geom_point(aes(color=children, fill=children), position=position_jitterdodge()) +
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
@@ -1299,10 +1477,10 @@ ggplot( data=HELPrct, aes(x=substance, y=age, color=sex)) +
 ## A little bit of everything
 
 ```{r, fig.width=14}
-ggplot( data=HELPrct, aes(x=substance, y=age, color=sex)) +
+ggplot( data=HELP_data, aes(x=substance, y=age, color=children)) +
   geom_boxplot(coef = 10, position=position_dodge(width=1)) +
-  geom_point(aes(fill=sex), alpha=.5, 
-             position=position_jitterdodge(dodge.width=1)) + 
+  geom_point(aes(fill=children), alpha=.5, 
+             position=position_jitterdodge(dodge.width=1, jitter.width = 0.2)) + 
   facet_wrap(~homeless)+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
@@ -1334,12 +1512,7 @@ copy and paste into another document
 
  * [docs.ggplot2.org/](http://docs.ggplot2.org/)
  
- * Winston Chang's: *R Graphics Cookbook*
-
-
-```{r out.width = '100%', fig.align="center", echo=FALSE}
-knitr::include_graphics("../images/cookbook.png")
-```
+ * [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham and Garrett Grolemund
 
 ---
 
@@ -1357,10 +1530,12 @@ knitr::include_graphics("../images/cookbook.png")
 > `Plotly` is an R package for creating interactive web-based graphs via plotly's JavaScript graphing library, `plotly.js`. The `plotly` R libary contains the `ggplotly` function , which will convert `ggplot2` figures into a Plotly object. Furthermore, you have the option of manipulating the Plotly object with the `style` function.
  
  * https://plot.ly/ggplot2/getting-started/
- 
-Dynamic documents
 
- * combination of `RMarkdown`, `ggvis`, and `shiny`
+
+`gganimate`
+
+* [`gganimate` tutorial](https://gganimate.com/articles/gganimate.html)
+
  
  
  

@@ -100,7 +100,7 @@ Tufte lists two main motivational steps to working with graphics as part of an a
 
 # Fonts matter
 
-&lt;img src="/Users/jsh04747/gitRepos/web stuff/m154-comp-stats/images/fontsmatter.png" title="image credit: Will Chase RStudio::conf 2020" alt="image credit: Will Chase RStudio::conf 2020" width="500px" /&gt;
+&lt;img src="/Users/jsh04747/gitRepos/web stuff/m154-comp-stats/images/fontsmatter.png" title="image credit: Will Chase RStudio::conf 2020" alt="image credit: Will Chase RStudio::conf 2020" width="500px" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -108,20 +108,20 @@ Tufte lists two main motivational steps to working with graphics as part of an a
 
 - Avoid having other graph elements interfere with data
 - Use visually prominent symbols
-- Avoid over-plotting  (One way to avoid over plotting: Jitter the values)
+- Avoid over-plotting  (One way to avoid over plotting: jitter the values)
 - Different values of data may obscure each other
 - Include all or nearly all of the data
 - Fill data region
 
---- 
+---
 
 # Advice on plotting, general
 
-* Eliminate superfluous material
-* Facilitate comparisons
-* Choose the best scale
-* Make the plot data / information rich
-* Use good captions, alt text, conclusions
+- Eliminate superfluous material
+- Facilitate comparisons
+- Choose the best scale
+- Make the plot data / information rich
+- Use good captions, alt text, conclusions
 
 
 ---
@@ -151,46 +151,49 @@ Tufte lists two main motivational steps to working with graphics as part of an a
 &lt;p class="caption"&gt;One in 5,000, NYT, D. Leonhardt 9/7/21; image credit: https://www.nytimes.com/2021/09/07/briefing/risk-breakthrough-infections-delta.html&lt;/p&gt;
 &lt;/div&gt;
 
---- 
+
+---
+
+# Worth a Mention
+
+.pull-left[
+W.E.B. DuBois (1868-1963)
+
+* sociologist
+* data scientist]
+
+.pull-right[
+&lt;div class="figure"&gt;
+&lt;img src="/Users/jsh04747/gitRepos/web stuff/m154-comp-stats/images/WEB_DuBois_1918.jpg" alt="image of WEB Dubois" width="40%" /&gt;
+&lt;p class="caption"&gt;image credit: wikipedia&lt;/p&gt;
+&lt;/div&gt;
+]
+
+In 1900 Du Bois contributed approximately 60 data visualizations to an exhibit at the Exposition Universelle in Paris, an exhibit designed to illustrate the progress made by African Americans since the end of slavery (only 37 years prior, in 1863).
+
+---
+
+# Beautiful &amp; Informative Graphics
+
+https://drawingmatter.org/w-e-b-du-bois-visionary-infographics/
+
+.pull-left[
+&lt;img src="/Users/jsh04747/gitRepos/web stuff/m154-comp-stats/images/dubois-graphs1.png" title="figures from DuBois's 1900 exhibition" alt="figures from DuBois's 1900 exhibition" width="90%" /&gt;
+]
+.pull-right[
+&lt;img src="/Users/jsh04747/gitRepos/web stuff/m154-comp-stats/images/dubois-graphs2.png" title="figures from DuBois's 1900 exhibition" alt="figures from DuBois's 1900 exhibition" width="90%" /&gt;
+]
+
+---
 
 # Agenda  9/9/21
 
 1. Grammar of graphics
 2. `ggplot2`
 
-
 ---
 
-# Goals
-
-What I will try to do
-
- * give a tour of `ggplot2`
- 
- * explain how to think about plots the `ggplot2` way
- 
- * prepare/encourage you to learn more later
- 
-What I can't do in one session
-
- * show every bell and whistle
- 
- * make you an expert at using `ggplot2`
- 
-
----
-
-# HELP
-
-1.  One of the best ways to get started with ggplot is to google what you want to do with the word ggplot.  Then look through the images that come up.  More often than not, the associated code is there.  There are also ggplot galleries of images, one of them is here: https://plot.ly/ggplot2/
-
-2. Look at the end of this presentation.  More help options there.
-
-&lt;img src="../images/plotly.png" width="100%" style="display: block; margin: auto;" /&gt;
-
----
-
-## Pieces of the Graph
+# Grammar of graphics
 
 Yau (2013) gives us nine visual cues, and Wickham (2014) translates them into a language using `ggplot2`.  
 
@@ -215,10 +218,8 @@ Yau (2013) gives us nine visual cues, and Wickham (2014) translates them into a 
 
 ## Pieces of the Graph
 
-Yau (2013) gives us nine visual cues, and Wickham (2014) translates them into a language using `ggplot2`. 
-
 .pull-left[
-Visual Cues:   
+Visual Cues of Yau (2013):   
 **Position** (numerical)  
 **Length** (numerical)  
 **Angle** (numerical)   
@@ -250,47 +251,34 @@ Visual Cues:
 
 ---
 
-## What are the visual cues on this plot?
-    
-.pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
-]
 
-.pull-right[
-*  position
-*  length
-*  shape
-*  area/volume
-*  shade/color
+# Goals of `ggplot2`
 
+What I will try to do
 
+ * give a tour of `ggplot2`
+ 
+ * explain how to think about plots the `ggplot2` way
+ 
+ * prepare/encourage you to learn more later
+ 
+What I can't do in one session
 
-
-Coordinate System?  Scale?
-]
-
+ * show every bell and whistle
+ 
+ * make you an expert at using `ggplot2`
+ 
 
 ---
 
-## What are the visual cues on this plot?
+# Getting help
 
+1.  One of the best ways to get started with ggplot is to google what you want to do with the word ggplot.  Then look through the images that come up.  More often than not, the associated code is there.  There are also ggplot galleries of images, one of them is here: https://plot.ly/ggplot2/
 
+2. Look at the end of this presentation and the syllabus.  More help options there.
 
-.pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
-]
+&lt;img src="../images/plotly.png" width="100%" style="display: block; margin: auto;" /&gt;
 
-.pull-right[
-*  position
-*  length
-*  shape
-*  area/volume
-*  shade/color
-
-
-
-Coordinate System?  Scale?
-]
 
 ---
 
@@ -298,6 +286,50 @@ Coordinate System?  Scale?
     
 .pull-left[
 ![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+*  position
+*  length
+*  shape
+*  area/volume
+*  shade/color
+
+
+
+
+Coordinate System?  Scale?
+]
+
+
+---
+
+## What are the visual cues on this plot?
+
+
+
+.pull-left[
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+*  position
+*  length
+*  shape
+*  area/volume
+*  shade/color
+
+
+
+Coordinate System?  Scale?
+]
+
+---
+
+## What are the visual cues on this plot?
+    
+.pull-left[
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -344,7 +376,6 @@ Coordinate System?  Scale?
 
 ```r
 require(mosaic)
-require(lubridate) # package for working with dates
 data(Births78)     # restore fresh version of Births78
 head(Births78, 3)
 ```
@@ -363,7 +394,7 @@ head(Births78, 3)
 ## How do we make this plot?
    
 .pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -379,7 +410,7 @@ Two Questions:
 ## How do we make this plot?
    
 .pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-21-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -400,27 +431,15 @@ Two Questions:
 ## How do we make this plot?
    
 .pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
 
-```r
-ggplot(data=Births78, 
-       aes(x=date, y=births)) + 
-  geom_point() +
-  ggtitle("US Births in 1978")
-```
 
 
+&lt;code class ='r hljs remark-code'&gt;ggplot(&lt;span style='background-color:#ffff7f'&gt;data=&lt;/span&gt;Births78, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;aes&lt;/span&gt;(x=date, y=births)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point() +&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;br&gt;&lt;br&gt;ggplot() +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(&lt;span style='background-color:#ffff7f'&gt;data=&lt;/span&gt;Births78, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;aes&lt;/span&gt;(x=date, y=births)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;/code&gt;
 
-
-```r
-ggplot() +
-  geom_point(data=Births78, 
-             aes(x=date, y=births)) +
-  ggtitle("US Births in 1978")
-```
 
 ]
 
@@ -431,7 +450,7 @@ ggplot() +
 ## How do we make this plot?
     
 .pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -450,38 +469,17 @@ the day of the week from a date.
 ## How do we make this plot?
     
 .pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
 
-```r
-Births78 &lt;-  
-  Births78 %&gt;% 
-  mutate(wday = 
-           wday(date, 
-                label=TRUE))
-```
 
 
+&lt;code class ='r hljs remark-code'&gt;Births78 &lt;- &amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;Births78 %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(&lt;span style='background-color:#ffff7f'&gt;day_of_week&lt;/span&gt; = &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;wday(date, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;label=TRUE))&lt;br&gt;Births78 %&gt;%&lt;br&gt;ggplot(aes(x=date&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y=births, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;color=&lt;span style='background-color:#ffff7f'&gt;day_of_week&lt;/span&gt;)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point() +&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;/code&gt;
 
-
-```r
-ggplot(data=Births78) +
-  geom_point(aes(x=date, 
-                 y=births, 
-                 color=wday))+
-  ggtitle("US Births in 1978")
-```
 ]
 
----
-
-## How do we make this plot?
-    
-.pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
-]
 ---
 
 ## How do we make this plot?
@@ -489,28 +487,22 @@ ggplot(data=Births78) +
 .pull-left[
 ![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-30-1.png)&lt;!-- --&gt;
 ]
-
-.pull-right[
-lines instead of dots!
-
-
-```r
-ggplot(data=Births78) +
-  geom_line(aes(x=date, 
-                y=births, 
-                color=wday)) +
-  ggtitle("US Births in 1978")
-```
-]
-
 ---
 
 ## How do we make this plot?
     
 .pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-32-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
 ]
 
+.pull-right[
+lines instead of dots!
+
+
+
+
+&lt;code class ='r hljs remark-code'&gt;Births78 %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=date, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y=births,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;color=day_of_week)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_line&lt;/span&gt;() +&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;/code&gt;
+]
 
 ---
 
@@ -520,46 +512,28 @@ ggplot(data=Births78) +
 ![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
 ]
 
+
+---
+
+## How do we make this plot?
+    
+.pull-left[
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
+]
+
 .pull-right[
 Now there are two **layers**: one with points and one with
 lines
 
 
-```r
-ggplot(data=Births78, 
-       aes(x=date, y=births, 
-           color=wday)) + 
-  geom_point() +  
-  geom_line()+
-  ggtitle("US Births in 1978")
-```
 
+
+&lt;code class ='r hljs remark-code'&gt;Births78 %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=date, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y=births,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;color=day_of_week)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_point&lt;/span&gt;() + &amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_line&lt;/span&gt;()+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;/code&gt;
 
  *  The layers are placed one on top of the other:  the points 
 are *below* and the lines are *above*.   
 
  * `data` and `aes` specified in `ggplot()` affect all geoms
-]
-
----
-
-## Alternative Syntax
-    
-.pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
-]
-
-.pull-right[
-
-```r
-Births78 %&gt;% 
-  ggplot(aes(x=date, 
-             y=births, 
-             color=wday)) + 
-  geom_point() + 
-  geom_line()+
-  ggtitle("US Births in 1978")
-```
 ]
 
 
@@ -576,9 +550,17 @@ Births78 %&gt;%
   ggtitle("US Births in 1978") 
 ```
 
---
+---
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+## What does this code do?
+
+
+
+
+&lt;code class ='r hljs remark-code'&gt;Births78 %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=date, y=births, &lt;span style='background-color:#ffff7f'&gt;color=&lt;/span&gt;"navy")) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point() &amp;nbsp;+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-90-1.png)&lt;!-- --&gt;
 
 This is *mapping* the color aesthetic to a new variable with 
 only one value ("navy").  
@@ -589,19 +571,25 @@ So all the dots get set to the same color, but it's not navy.
 ## Setting vs. Mapping
 
 If we want to *set* the color to be navy for all of the dots, we do 
-it this way:
+it outside the `aes()` designation:
 
 
-```r
-Births78 %&gt;%
-  ggplot(aes(x=date, y=births)) +   # map these 
-  geom_point(color = "navy")   +     # set this
-  ggtitle("US Births in 1978")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;Births78 %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=date, y=births)) + &amp;nbsp;&amp;nbsp;# map variables &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(&lt;span style='background-color:#ffff7f'&gt;color=&lt;/span&gt;"navy") &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;+ &amp;nbsp;&amp;nbsp;# set attributes&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-91-1.png)&lt;!-- --&gt;
 
 * Note that `color = "navy"` is now outside of the aesthetics list.  That's how `ggplot2` distinguishes between mapping and setting.
+
+---
+
+## How do we make this plot?
+    
+.pull-left[
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+]
 
 ---
 
@@ -611,24 +599,11 @@ Births78 %&gt;%
 ![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
 ]
 
----
-
-## How do we make this plot?
-    
-.pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
-]
-
 .pull-right[
 
-```r
-Births78 %&gt;%
-  ggplot(aes(x=date, 
-             y=births)) + 
-  geom_line(aes(color=wday)) +       # map color here
-  geom_point(color="navy")  +         # set color here
-  ggtitle("US Births in 1978")
-```
+
+
+&lt;code class ='r hljs remark-code'&gt;Births78 %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=date, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y=births)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_line(aes(&lt;span style='background-color:#ffff7f'&gt;color=&lt;/span&gt;day_of_week)) + &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(&lt;span style='background-color:#ffff7f'&gt;color=&lt;/span&gt;"navy") &amp;nbsp;+ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("US Births in 1978")&lt;/code&gt;
 
 * `ggplot()` establishes the default data and aesthetics
 for the geoms, but each geom may change these defaults.
@@ -718,12 +693,12 @@ help pages will tell you their aesthetics, default stats, etc.
 Births78 %&gt;%
   ggplot(aes(x=date, 
              y=births, 
-             fill=wday)) + 
+             fill=day_of_week)) + 
   geom_area()+
   ggtitle("US Births in 1978")
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
 ]
 
 
@@ -734,12 +709,12 @@ Births78 %&gt;%
 
 ```r
 Births78 %&gt;%
-  ggplot(aes(x=date, y=births, fill=wday)) + 
+  ggplot(aes(x=date, y=births, fill=day_of_week)) + 
   geom_area()+
   ggtitle("US Births in 1978")
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -813,6 +788,7 @@ head(HELPrct)
 ```
 
 
+
 ---
 
 ## Who are the people in the study?
@@ -824,12 +800,9 @@ head(HELPrct)
 .pull-right[
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=substance)) + 
-  geom_bar()+
-  ggtitle("HELP trial")
-```
+
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=substance)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_bar&lt;/span&gt;()+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP trial")&lt;/code&gt;
 
 * Hmm.  What's up with `y`?
 
@@ -849,13 +822,10 @@ HELPrct %&gt;%
 
 .pull-right[
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=substance, 
-             fill=sex)) + 
-  geom_bar()+
-  ggtitle("HELP trial")
-```
+
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=substance, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;fill=&lt;/span&gt;children)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_bar()+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP trial")&lt;/code&gt;
+
 ]
 
 ---
@@ -868,35 +838,9 @@ HELPrct %&gt;%
 
 .pull-right[
 
-```r
-library(scales)
-HELPrct %&gt;% 
-  ggplot(aes(x=substance, 
-             fill=sex)) + 
-  geom_bar() +
-  scale_y_continuous(labels = percent)+
-  ggtitle("HELP trial")
-```
-]
 
----
 
-## Who are the people in the study?
-
-.pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
-]
-
-.pull-right[
-
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=substance, 
-             fill=sex)) + 
-  geom_bar(position="fill") +
-  scale_y_continuous("actually, percent")+
-  ggtitle("HELP trial")
-```
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=substance, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;fill=children)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_bar(&lt;span style='background-color:#ffff7f'&gt;position=&lt;/span&gt;"fill") +&lt;br&gt;&amp;nbsp;&amp;nbsp;ylab("actually, percent")+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP trial")&lt;/code&gt;
 ]
 
 ---
@@ -910,17 +854,14 @@ HELPrct %&gt;%
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_histogram()+
-  ggtitle("HELP trial")
-```
+
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_histogram&lt;/span&gt;()+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP trial")&lt;/code&gt;
 
 Notice the messages
 
@@ -937,41 +878,37 @@ really choose our own.
 ## Setting the binwidth manually
 
 .pull-left[
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+
+
 ]
 
 .pull-right[
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_histogram(binwidth=2)+
-  ggtitle("HELP trial")
-```
+
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_histogram(&lt;span style='background-color:#ffff7f'&gt;binwidth=&lt;/span&gt;2)+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP trial")&lt;/code&gt;
+
 ]
 ---
 
 ## How old are people in the HELP study? -- Other geoms
      
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_freqpoly(binwidth=2)+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
-
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_density()+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_freqpoly&lt;/span&gt;(binwidth=2)+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-61-1.png)&lt;!-- --&gt;
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-98-1.png)&lt;!-- --&gt;
+
+
+
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_density&lt;/span&gt;()+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-99-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -983,14 +920,12 @@ Every geom comes with a default stat
 * we can mix and match geoms and stats however we like
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_line(stat="density")+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-62-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt; &amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_line(stat="density")+&lt;/span&gt;&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-100-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1002,58 +937,48 @@ Every stat comes with a default geom, every geom with a default stat
 * we can mix and match geoms and stats however we like
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  stat_density( geom="line")+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt; &amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;stat_density( geom="line")+&lt;/span&gt;&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-101-1.png)&lt;!-- --&gt;
 
 ---
 
 ## More combinations
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_point(stat="bin", binwidth=3) + 
-  geom_line(stat="bin", binwidth=3)  +
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt; &amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_point(stat="bin", binwidth=3) + &lt;/span&gt;&lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_line(stat="bin", binwidth=3) &amp;nbsp;+&lt;/span&gt;&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-102-1.png)&lt;!-- --&gt;
 
 ---
 
 ## More combinations
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_area(stat="bin", binwidth=3)  +
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt; &amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_area(stat="bin", binwidth=3) &amp;nbsp;+&lt;/span&gt;&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-103-1.png)&lt;!-- --&gt;
 
 ---
 
 ## More combinations
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=age)) + 
-  geom_point(stat="bin", binwidth=3, aes(size=..count..)) +
-  geom_line(stat="bin", binwidth=3) +
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt; &amp;nbsp;ggplot(aes(x=age)) + &lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_point(stat="bin", binwidth=3, aes(size=..count..)) +&lt;/span&gt;&lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_line(stat="bin", binwidth=3) +&lt;/span&gt;&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-104-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1062,81 +987,74 @@ HELPrct %&gt;%
 
 
 ```r
-HELPrct %&gt;% 
+HELP_data %&gt;% 
   ggplot(aes(x=i1)) + geom_histogram()+
+  ggtitle("HELP clinical trial at detoxification unit")
+```
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+
+---
+
+## How much drinking? (i1)
+ 
+
+```r
+HELP_data %&gt;% 
+  ggplot(aes(x=i1)) + geom_density()+
+  ggtitle("HELP clinical trial at detoxification unit")
+```
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
+
+---
+
+## How much drinking? (i1)
+ 
+
+```r
+HELP_data %&gt;% 
+  ggplot(aes(x=i1)) + geom_area(stat="density")+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
 ![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
 
----
-
-## How much drinking? (i1)
- 
-
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=i1)) + geom_density()+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
-
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-68-1.png)&lt;!-- --&gt;
-
----
-
-## How much drinking? (i1)
- 
-
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=i1)) + geom_area(stat="density")+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
-
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
-
 
 ---
 
 ## Covariates: Adding in more variables
-   
+  
 
 Using color and linetype:
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=i1, color=substance, linetype=sex)) + 
-  geom_line(stat="density")+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-70-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=i1, &lt;span style='background-color:#ffff7f'&gt;color=&lt;/span&gt;substance, &lt;span style='background-color:#ffff7f'&gt;linetype=&lt;/span&gt;children)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_line(stat="density")+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-105-1.png)&lt;!-- --&gt;
 
 ---
 
 ## Using color and facets
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=i1, color=substance)) + 
-  geom_line(stat="density") + facet_grid( . ~ sex )+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
-
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=i1, color=substance)) + 
-  geom_line(stat="density") + facet_grid( sex ~ . )+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=i1, color=substance)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_line(stat="density") + &lt;span style='background-color:#ffff7f'&gt;facet_grid&lt;/span&gt;( . ~ children )+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-72-1.png)&lt;!-- --&gt;
 
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-106-1.png)&lt;!-- --&gt;
+
+
+
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=i1, color=substance)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_line(stat="density") + &lt;span style='background-color:#ffff7f'&gt;facet_grid&lt;/span&gt;( children ~ . )+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-107-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1149,13 +1067,13 @@ additional `x` variable.
 
 
 ```r
-HELPrct %&gt;% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
+HELP_data %&gt;% 
+  ggplot(aes(x=substance, y=age, color=children)) + 
   geom_boxplot()+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-73-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1167,15 +1085,12 @@ Horizontal boxplots  are obtained by flipping the coordinate system:
 of `x` and `y` on the plot.
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
-  geom_boxplot() +
-  coord_flip()+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=substance, y=age, color=children)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_boxplot() +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;coord_flip()&lt;/span&gt;+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-108-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1183,17 +1098,12 @@ HELPrct %&gt;%
     
 We can scale the continuous axis
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
-  geom_boxplot() +
-  coord_trans(y="exp")+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
-
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
 
 
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=substance, y=age, color=children)) + &lt;br&gt;&amp;nbsp;&amp;nbsp;geom_boxplot() +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;coord_trans&lt;/span&gt;(y="exp")+&lt;br&gt;&amp;nbsp;&amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-109-1.png)&lt;!-- --&gt;
 ---
 
 ## Give me some space
@@ -1202,15 +1112,12 @@ We've triggered a new feature: `dodge` (for dodging things left/right).
 We can control how much if we set the dodge manually.
 
 
-```r
-HELPrct %&gt;% 
-  ggplot(aes(x=substance, y=age, color=sex)) + 
-  geom_boxplot(position=position_dodge(width=1)) +
-  ggtitle("HELP clinical trial at detoxification unit")
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-76-1.png)&lt;!-- --&gt;
 
+&lt;code class ='r hljs remark-code'&gt;HELP_data %&gt;% &lt;br&gt; &amp;nbsp;ggplot(aes(x=substance, y=age, color=children)) + &lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_boxplot(position=position_dodge(width=1)) +&lt;/span&gt;&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-110-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1220,22 +1127,22 @@ HELPrct %&gt;%
 expect), the overplotting may be hiding information.
 
 
-```r
-require(NHANES)
-dim(NHANES)
-```
+
+
+&lt;code class ='r hljs remark-code'&gt;require(NHANES)&lt;br&gt;dim(NHANES)&lt;/code&gt;
 
 ```
+
 ## [1] 10000    76
+
 ```
 
-```r
-NHANES %&gt;%  ggplot(aes(x=Height, y=Weight)) +
-  geom_point() + facet_grid( Gender ~ PregnantNow )
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-77-1.png)&lt;!-- --&gt;
 
+&lt;code class ='r hljs remark-code'&gt;NHANES %&gt;% &amp;nbsp;ggplot(aes(x=Height, y=Weight)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point() + &lt;span style='background-color:#ffff7f'&gt;facet_grid&lt;/span&gt;( Gender ~ PregnantNow )&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-111-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1244,13 +1151,12 @@ NHANES %&gt;%  ggplot(aes(x=Height, y=Weight)) +
 One way to deal with overplotting is to set the opacity low.
 
 
-```r
-NHANES %&gt;% 
-  ggplot(aes(x=Height, y=Weight)) +
-  geom_point(alpha=0.01) + facet_grid( Gender ~ PregnantNow )
-```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-78-1.png)&lt;!-- --&gt;
+
+&lt;code class ='r hljs remark-code'&gt;NHANES %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=Height, y=Weight)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;geom_point(&lt;span style='background-color:#ffff7f'&gt;alpha=0.01&lt;/span&gt;) + facet_grid( Gender ~ PregnantNow )&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-112-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1260,43 +1166,52 @@ Alternatively (or simultaneously) we might prefere a different
 geom altogether.
 
 
+
+
+&lt;code class ='r hljs remark-code'&gt;NHANES %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;ggplot(aes(x=Height, y=Weight)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom_density2d()&lt;/span&gt; + facet_grid( Gender ~ PregnantNow )&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-113-1.png)&lt;!-- --&gt;
+
+---
+
+## Multiple layers
+
+.pull-left[
+
 ```r
-NHANES %&gt;% 
-  ggplot(aes(x=Height, y=Weight)) +
-  geom_density2d() + facet_grid( Gender ~ PregnantNow )
+ggplot( data=HELP_data, aes(x=children, y=age)) +
+  geom_boxplot(outlier.size=0) +
+  geom_point(alpha=.6) +
+  coord_flip()+
+  ggtitle("HELP clinical trial at detoxification unit")
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-79-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-78-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+
+
+&lt;code class ='r hljs remark-code'&gt;ggplot( data=HELP_data, aes(x=children, y=age)) +&lt;br&gt; &amp;nbsp;geom_boxplot(outlier.size=0) +&lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_jitter(alpha=.6, width = 0.1) +&lt;/span&gt;&lt;br&gt; &amp;nbsp;coord_flip()+&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
+
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-114-1.png)&lt;!-- --&gt;
+]
+
 
 ---
 
 ## Multiple layers
 
 
-```r
-ggplot( data=HELPrct, aes(x=sex, y=age)) +
-  geom_boxplot(outlier.size=0) +
-  geom_jitter(alpha=.6) +
-  coord_flip()+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
-
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-80-1.png)&lt;!-- --&gt;
-
----
-
-## Multiple layers
 
 
-```r
-ggplot( data=HELPrct, aes(x=sex, y=age)) +
-  geom_boxplot(outlier.size=0) +
-  geom_point(alpha=.6, position=position_jitter(width=.1, height=0)) +
-  coord_flip()+
-  ggtitle("HELP clinical trial at detoxification unit")
-```
+&lt;code class ='r hljs remark-code'&gt;ggplot( data=HELP_data, aes(x=children, y=age)) +&lt;br&gt; &amp;nbsp;geom_boxplot(outlier.size=0) +&lt;br&gt;&lt;span style='background-color:#ffff7f'&gt; &amp;nbsp;geom_point(alpha=.6, position=position_jitter(width=.1, height=0)) +&lt;/span&gt;&lt;br&gt; &amp;nbsp;coord_flip()+&lt;br&gt; &amp;nbsp;ggtitle("HELP clinical trial at detoxification unit")&lt;/code&gt;
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-81-1.png)&lt;!-- --&gt;
+
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-115-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1319,7 +1234,7 @@ ggplot(Births78, aes(x=date, y=births)) + geom_point() +
           theme_wsj()
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-82-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-81-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1337,13 +1252,13 @@ ggplot(Births78, aes(x=date, y=births)) + geom_point() +
  
 
 ```r
-ggplot( data=HELPrct, aes(x=substance, y=age, color=sex)) +
+ggplot( data=HELP_data, aes(x=substance, y=age, color=children)) +
   geom_boxplot(coef = 10, position=position_dodge()) +
-  geom_point(aes(color=sex, fill=sex), position=position_jitterdodge()) +
+  geom_point(aes(color=children, fill=children), position=position_jitterdodge()) +
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-83-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-82-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1352,15 +1267,15 @@ ggplot( data=HELPrct, aes(x=substance, y=age, color=sex)) +
 
 
 ```r
-ggplot( data=HELPrct, aes(x=substance, y=age, color=sex)) +
+ggplot( data=HELP_data, aes(x=substance, y=age, color=children)) +
   geom_boxplot(coef = 10, position=position_dodge(width=1)) +
-  geom_point(aes(fill=sex), alpha=.5, 
-             position=position_jitterdodge(dodge.width=1)) + 
+  geom_point(aes(fill=children), alpha=.5, 
+             position=position_jitterdodge(dodge.width=1, jitter.width = 0.2)) + 
   facet_wrap(~homeless)+
   ggtitle("HELP clinical trial at detoxification unit")
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-84-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-83-1.png)&lt;!-- --&gt;
 
 &lt;!--
 ## Some short cuts
@@ -1372,7 +1287,7 @@ ggplot( data=HELPrct, aes(x=substance, y=age, color=sex)) +
 qplot(length, width, data=KidsFeet)
 ```
 
-![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-85-1.png)&lt;!-- --&gt;
+![](2021-09-07-ggplotPresent_files/figure-html/unnamed-chunk-84-1.png)&lt;!-- --&gt;
 
 2. `mplot(dataframe)` provides an interactive plotting tool for 
 both `ggplot2` and `lattice`.
@@ -1393,10 +1308,7 @@ copy and paste into another document
 
  * [docs.ggplot2.org/](http://docs.ggplot2.org/)
  
- * Winston Chang's: *R Graphics Cookbook*
-
-
-&lt;img src="../images/cookbook.png" width="100%" style="display: block; margin: auto;" /&gt;
+ * [R for Data Science](https://r4ds.had.co.nz/) by Hadley Wickham and Garrett Grolemund
 
 ---
 
@@ -1414,10 +1326,12 @@ copy and paste into another document
 &gt; `Plotly` is an R package for creating interactive web-based graphs via plotly's JavaScript graphing library, `plotly.js`. The `plotly` R libary contains the `ggplotly` function , which will convert `ggplot2` figures into a Plotly object. Furthermore, you have the option of manipulating the Plotly object with the `style` function.
  
  * https://plot.ly/ggplot2/getting-started/
- 
-Dynamic documents
 
- * combination of `RMarkdown`, `ggvis`, and `shiny`
+
+`gganimate`
+
+* [`gganimate` tutorial](https://gganimate.com/articles/gganimate.html)
+
  
  
  
