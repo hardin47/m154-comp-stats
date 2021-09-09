@@ -66,7 +66,7 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU2_Tufte.pdf" target = "_blank">WU2 - Tufte</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU3_?_sol.pdf" target = "_blank">WU3 - ??</a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU3_ggplot.pdf" target = "_blank">WU3 - ggplot</a>
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
