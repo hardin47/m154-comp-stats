@@ -293,8 +293,8 @@ knitr::include_graphics("../images/plotly.png")
     
 .pull-left[
 ```{r, echo=FALSE}
-require(mosaic)
-require(mosaicData)
+library(mosaic)
+library(mosaicData)
 SAT %>% subset(frac > 50) %>%
   ggplot(aes(x=state, y= math)) + 
   xlab("state") + theme(axis.text.x = element_text(angle = 45, hjust = 1))+
@@ -323,9 +323,9 @@ Coordinate System?  Scale?
 ## What are the visual cues on this plot?
 
 ```{r echo=FALSE}
-require(mosaic)
-require(lubridate) # package for working with dates
-require(mosaicData)
+library(mosaic)
+library(lubridate) # package for working with dates
+library(mosaicData)
 ```
 
 .pull-left[
@@ -412,7 +412,7 @@ Coordinate System?  Scale?
 ## Set up
 
 ```{r}
-require(mosaic)
+library(mosaic)
 data(Births78)     # restore fresh version of Births78
 head(Births78, 3)
 ```
@@ -1332,7 +1332,7 @@ decorate("space") %>%
 expect), the overplotting may be hiding information.
 
 ```{r facet2, fig.height=3.5, include = FALSE}
-require(NHANES)
+library(NHANES)
 dim(NHANES)
 NHANES %>%  ggplot(aes(x=Height, y=Weight)) +
   geom_point() + facet_grid( Gender ~ PregnantNow )
@@ -1445,7 +1445,7 @@ decorate("jitter2") %>%
  * transforming axes
 
 ```{r, fig.width=14}
-require(ggthemes)
+library(ggthemes)
 ggplot(Births78, aes(x=date, y=births)) + geom_point() + 
           theme_wsj()
 ```
