@@ -375,7 +375,7 @@ Coordinate System?  Scale?
 
 
 ```r
-require(mosaic)
+library(mosaic)
 data(Births78)     # restore fresh version of Births78
 head(Births78, 3)
 ```
@@ -1129,7 +1129,7 @@ expect), the overplotting may be hiding information.
 
 
 
-&lt;code class ='r hljs remark-code'&gt;require(NHANES)&lt;br&gt;dim(NHANES)&lt;/code&gt;
+&lt;code class ='r hljs remark-code'&gt;library(NHANES)&lt;br&gt;dim(NHANES)&lt;/code&gt;
 
 ```
 
@@ -1229,7 +1229,7 @@ ggplot( data=HELP_data, aes(x=children, y=age)) +
 
 
 ```r
-require(ggthemes)
+library(ggthemes)
 ggplot(Births78, aes(x=date, y=births)) + geom_point() + 
           theme_wsj()
 ```
