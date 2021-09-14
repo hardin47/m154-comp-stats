@@ -74,7 +74,7 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2021-09-14-wrangling" target = "_blank">In class slides</a> for both 9/14/21 and 9/16/21.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU2_verbs.pdf" target = "_blank">WU4 - verbs</a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU4_verbs.pdf" target = "_blank">WU4 - verbs</a>
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU5_join.pdf" target = "_blank">WU5 - joining</a>
 
