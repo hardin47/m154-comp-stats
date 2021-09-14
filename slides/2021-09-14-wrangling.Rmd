@@ -70,17 +70,26 @@ knitr::include_graphics("../images/activedutyTidy.png")
 
 ---
 
+## Tidy packages: the tidyverse
+
+
+```{r fig.cap = "image credit: https://www.tidyverse.org/.", fig.alt = "Image of hex stickers for the eight core tidyverse packages including ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/tidyverse.png")
+```
+
+---
+
 ## Reading in data from a file
 
 Hosted online:
 
 ```{r load_from_file, eval = TRUE}
-movies <- read.csv("http://pages.pomona.edu/~jsh04747/courses/math58/Math58Data/movies2.csv")
+movies <- read_csv("http://pages.pomona.edu/~jsh04747/courses/math58/Math58Data/movies2.csv")
 ```
 
 Hosted locally:
 ```{r load_local, eval = FALSE}
-movies <- read.csv("movies2.csv")
+movies <- read_csv("movies2.csv")
 ```
 
 Things to note:
@@ -365,13 +374,75 @@ The pipe syntax (`%>%`) takes a data frame and sends it to the argument of a fun
 
 ---
 
-#### Making a sandwich
+## Mornings
 
-bread <- get_outer(what = bread, from = fridge)
-inside <- 
+```
+step1 <- dress(me, what = sports)  
+step2 <- exercise(step1, how = running)  
+step3 <- eat(step2, choice = cereal)  
+step4 <- dress(step3, what = school)  
+step5 <- commute(step4, transportation = bike)  
+```
+---
+
+## Mornings
+
+```
+commute(dress(eat(exercise(dress(me, what = sports), how = running), choice = cereal), what = school), transportation = bike)
+```
 
 ---
 
+## Morning
+
+(better??)
+
+```
+commute(
+  dress(
+    eat(
+      exercise(
+        dress(me, 
+              what = sports), 
+        how = running), 
+      choice = cereal), 
+    what = school), 
+  transportation = bike)
+```
+
+---
+
+## Mornings
+
+```
+me %>%
+  dress(what = sports) %>%
+  exercise(how = running) %>%
+  eat(choice = cereal) %>%
+  dress(what = school) %>%
+  commute(transportation = bike)
+```
+
+---
+
+## Mornings
+
+```
+me %>%
+  dress(what = sports) %>%
+  exercise(how = running) %>%
+  eat(choice = cereal) %>%
+  dress(what = school) %>%
+  commute(transportation = bike)
+```
+
+The pipe syntax (`%>%`) takes a data frame and sends it to the argument of a function.  The mapping goes to the first available argument in the function.  For example:
+
+`x %>% f(y)` is the same as `f(x, y)`
+
+` y %>% f(x, ., z)` is the same as `f(x,y,z)`
+
+---
 
 #### Little Bunny Foo Foo
 
@@ -455,7 +526,7 @@ The pipe syntax (`%>%`) takes a data frame and sends it to the argument of a fun
 flights2 %>%
   select(tailnum, speed) %>%
   group_by(tailnum) %>% 
-  summarize(count = n(), avg_speed = mean(speed, na.rm = TRUE)) %>%
+  summarize(number = n(), avg_speed = mean(speed, na.rm = TRUE)) %>%
   arrange(desc(avg_speed))
 ```
 
@@ -489,12 +560,12 @@ Say you're curious about the relationship between the number of flights each pla
 ## Practice again
 
 ```{r}
-delay <- flights %>%
+delay_data <- flights %>%
   group_by(tailnum) %>%
-  summarize(count = n(),
+  summarize(number = n(),
             dist = mean(distance, na.rm = TRUE), 
             delay = mean(arr_delay, na.rm = TRUE)) %>%
-  filter(count > 20, dist < 2000)
+  filter(number > 20, dist < 2000)
 ```
 
 
@@ -507,8 +578,8 @@ Say you're curious about the relationship between the number of flights each pla
 .pull-left[ 
 ```{r eval = TRUE, message = FALSE, warning = FALSE, echo = FALSE}
 library(ggplot2)
-ggplot(delay, aes(dist, delay)) +
- geom_point(aes(size = count), alpha = 1/2) +
+ggplot(delay_data, aes(dist, delay)) +
+ geom_point(aes(size = number), alpha = 1/2) +
  geom_smooth() +
  scale_size_area()
 ```
@@ -516,9 +587,9 @@ ggplot(delay, aes(dist, delay)) +
 
 .pull-right[
 ```{r eval = FALSE, message = FALSE, warning = FALSE, echo = TRUE}
-ggplot(delay, 
-       aes(dist, delay)) +
- geom_point(aes(size = count), 
+delay_data %>%
+ ggplot(aes(dist, delay)) +
+ geom_point(aes(size = number), 
             alpha = 1/2) +
  geom_smooth() +
  scale_size_area()
@@ -526,15 +597,22 @@ ggplot(delay,
 When `scale_size_area` is used, the default behavior is to scale the area of points to be proportional to the value.
 ]
 
+---
 
+## Relational data (multiple data frames)
+
+
+```{r out.width = '100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/dplyr-joins.png")
+```
+
+See the [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 
 ---
   
   
-  ## Higher Level Data Verbs 
+## Higher Level Data Verbs 
   
-  Higher level verbs are more complicated verbs which may be important for more sophisticated analyses.  See the RStudio `dplyr` cheat sheet,  https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf}.
-
 
 * <mark>`pivot_longer`</mark> makes many columns into 2 columns: `pivot_longer(data, cols,  names_to = , value_to = )`
 * <mark>`pivot_wider`</mark> makes one column into multiple columns: `pivot_wider(data, names_from = , values_from = )`
@@ -546,20 +624,274 @@ When `scale_size_area` is used, the default behavior is to scale the area of poi
 Good practice:  always specify the `by` argument when joining data frames.
 
 ---
-  
-  ## R examples, higher level verbs
-  
-  <!--
-  In class example on babynames via Nick  http://dtkaplan.github.io/CVC/Summer2015/Learn/BabyNames/WhatHappenedToJane.Rmd   http://dtkaplan.github.io/CVC/Summer2015/Learn/BabyNames/WhatHappenedToJane-answers.pdf
--->
-  
-`tidyr 1.0.0` has just been released!  The new release means that you need to update `tidyr`.  You will know if you have the latest version if the following command works in the console (window below):
-  
-  ```
-?tidyr::pivot_longer
+
+## Women in Science
+
+10 women in science who changed the world (source: Discover Magazine)
+
+```{r include = FALSE}
+library(kableExtra)
+dates <- read_csv("../data/dates.csv")
+professions <- read_csv("../data/professions.csv")
+works <- read_csv("../data/works.csv")
 ```
 
-If you are familiar with `spread` and `gather`, you should acquaint yourself with `pivot_longer()` and `pivot_wider()`.  The idea is to go from very wide data frames to very long data frames and vice versa.
+```{r eval = FALSE, include = FALSE}
+source: https://www.discovermagazine.com/the-sciences/meet-10-women-in-science-who-changed-the-world
+
+From Mine: https://github.com/rstudio-education/datascience-box/tree/master/course-materials/slides/u2-d08-multi-df/data/scientists
+```
+
+
+```{r}
+professions %>%
+  kable()
+```
+
+.footnote[Example from [DataScience in a Box](https://datasciencebox.org/)]
+---
+
+## Inputs
+
+Information on women scientists
+
+.panelset[
+
+.panel[.panel-name[professions]
+```{r}
+professions
+```
+]
+
+.panel[.panel-name[dates]
+```{r}
+dates
+```
+]
+
+.panel[.panel-name[works]
+```{r}
+works
+```
+]
+
+]
+
+---
+
+## Desired output
+
+We'd like to put together the data to look like:
+
+```{r echo=FALSE}
+professions %>%
+  left_join(dates) %>%
+  left_join(works)
+```
+
+
+---
+
+## Inputs, reminder
+
+.pull-left[
+```{r}
+names(professions)
+names(dates)
+names(works)
+```
+]
+.pull-right[
+```{r}
+nrow(professions)
+nrow(dates)
+nrow(works)
+```
+]
+
+---
+
+## Setup
+
+For the next few slides...
+
+.pull-left[
+```{r echo=FALSE}
+x <- tibble(
+  id = c(1, 2, 3),
+  value_x = c("x1", "x2", "x3")
+  )
+```
+```{r}
+x
+```
+]
+.pull-right[
+```{r echo=FALSE}
+y <- tibble(
+  id = c(1, 2, 4),
+  value_y = c("y1", "y2", "y4")
+  )
+```
+```{r}
+y
+```
+]
+
+---
+
+## `left_join()`
+
+.pull-left[
+```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+include_graphics("../images/left-join.gif")
+```
+]
+.pull-right[
+```{r}
+left_join(x, y)
+```
+]
+
+---
+
+## `left_join()`
+
+```{r}
+professions %>%
+  left_join(dates) #<<
+```
+
+---
+
+## `right_join()`
+
+.pull-left[
+```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+include_graphics("../images/right-join.gif")
+```
+]
+.pull-right[
+```{r}
+right_join(x, y)
+```
+]
+
+---
+
+## `right_join()`
+
+
+```{r}
+professions %>%
+  right_join(dates) #<<
+```
+
+---
+
+## `full_join()`
+
+.pull-left[
+```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+include_graphics("../images/full-join.gif")
+```
+]
+.pull-right[
+```{r}
+full_join(x, y)
+```
+]
+
+---
+
+## `full_join()`
+
+```{r}
+dates %>%
+  full_join(works) #<<
+```
+
+---
+
+## `inner_join()`
+
+.pull-left[
+```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+include_graphics("../images/inner-join.gif")
+```
+]
+.pull-right[
+```{r}
+inner_join(x, y)
+```
+]
+
+---
+
+## `inner_join()`
+
+```{r}
+dates %>%
+  inner_join(works) #<<
+```
+
+---
+
+## `semi_join()`
+
+.pull-left[
+```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+include_graphics("../images/semi-join.gif")
+```
+]
+.pull-right[
+```{r}
+semi_join(x, y)
+```
+]
+
+---
+
+## `semi_join()`
+
+```{r}
+dates %>%
+  semi_join(works) #<<
+```
+
+---
+
+## `anti_join()`
+
+.pull-left[
+```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+include_graphics("../images/anti-join.gif")
+```
+]
+.pull-right[
+```{r}
+anti_join(x, y)
+```
+]
+
+---
+
+## `anti_join()`
+
+```{r}
+dates %>%
+  anti_join(works) #<<
+```
+
+---
+
+## Putting it altogether
+
+```{r}
+professions %>%
+  left_join(dates) %>%
+  left_join(works)
+```
 
 
 ---
@@ -570,7 +902,7 @@ If you are familiar with `spread` and `gather`, you should acquaint yourself wit
 
 ```{r message=FALSE}
 library(googlesheets4)
-litF = read_sheet("https://docs.google.com/spreadsheets/d/1hDinTIRHQIaZg1RUn6Z_6mo12PtKwEPFIz_mJVF6P5I/pub?gid=0")
+litF <- read_sheet("https://docs.google.com/spreadsheets/d/1hDinTIRHQIaZg1RUn6Z_6mo12PtKwEPFIz_mJVF6P5I/pub?gid=0")
 
 head(litF)
 ```
@@ -579,10 +911,10 @@ head(litF)
 ### `pivot_longer`
   
 ```{r}
-litF = litF %>% dplyr::select(country=starts_with("Adult"), 
+litF <- litF %>% dplyr::select(country=starts_with("Adult"), 
                               starts_with("1"), starts_with("2")) %>%
-  tidyr::pivot_longer(-country, names_to = "year", 
-                      values_to = "litRateF") %>%
+  tidyr::pivot_longer(cols = -country, 
+                      names_to = "year", values_to = "litRateF") %>%
   dplyr::filter(!is.na(litRateF))
 
 head(litF)
@@ -596,11 +928,11 @@ head(litF)
 The second dataset (GDP) represents country, year, and <mark>gdp</mark> (in fixed 2000 US$).
 
 ```{r message=FALSE}
-GDP = read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
+GDP <- read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
 
-GDP = GDP %>% dplyr::select(country = starts_with("Income"), 
+GDP <- GDP %>% dplyr::select(country = starts_with("Income"), 
                             starts_with("1"), starts_with("2")) %>%
-  tidyr::pivot_longer(-country, names_to = "year", 
+  tidyr::pivot_longer(cols = -country, names_to = "year", 
                       values_to = "gdp") %>%
   dplyr::filter(!is.na(gdp))
 
@@ -663,7 +995,7 @@ If you ever need to understand which join is the right join for you, try to find
 
 ### left
 ```{r}
-litGDPleft = dplyr::left_join(litF, GDP, by=c("country", "year"))
+litGDPleft <- dplyr::left_join(litF, GDP, by=c("country", "year"))
 dim(litGDPleft); sum(is.na(litGDPleft$gdp))
 head(litGDPleft)
 ```
@@ -673,7 +1005,7 @@ head(litGDPleft)
 
 ### right
 ```{r}
-litGDPright = dplyr::right_join(litF, GDP, by=c("country", "year"))
+litGDPright <- dplyr::right_join(litF, GDP, by=c("country", "year"))
 dim(litGDPright); sum(is.na(litGDPright$gdp))
 head(litGDPright)
 ```
@@ -683,7 +1015,7 @@ head(litGDPright)
 
 ### inner
 ```{r}
-litGDPinner = dplyr::inner_join(litF, GDP, by=c("country", "year"))
+litGDPinner <- dplyr::inner_join(litF, GDP, by=c("country", "year"))
 dim(litGDPinner); sum(is.na(litGDPinner$gdp))
 head(litGDPinner)
 ```
@@ -692,7 +1024,7 @@ head(litGDPinner)
 
 ### full
 ```{r}
-litGDPfull = dplyr::full_join(litF, GDP, by=c("country", "year"))
+litGDPfull <- dplyr::full_join(litF, GDP, by=c("country", "year"))
 dim(litGDPfull); sum(is.na(litGDPfull$gdp))
 head(litGDPfull)
 ```

@@ -56,9 +56,11 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 * What are the main data wrangling verbs?
 
-* How do you distinguish the different `join_` functions?
+* How do you distinguish the different `_join` functions?
 
-* 
+* Are the `_join` keys formatted in the same way across the two datasets?
+
+* Are the data recorded in the same way (e.g., is age birthday or age at recording?) ?
 
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
