@@ -302,7 +302,8 @@ As well as selecting from the set of existing columns, it's often useful to add
 new columns that are functions of existing columns. This is the job of `mutate()`:
 
 ```{r}
-mutate(flights, gain = arr_delay - dep_delay)
+select(mutate(flights, gain = dep_delay - arr_delay), 
+       flight, dep_delay, arr_delay, gain)
 ```
 
 ---
@@ -333,7 +334,7 @@ sample_n(flights, 10)
 
 ```{r}
 flights2 <- mutate(flights, speed = distance/(air_time/60))
-speed <- select(flights2, tailnum, speed)
+speed_data <- select(flights2, tailnum, speed)
 ```
 
 ---
@@ -349,7 +350,7 @@ speed <- select(flights2, tailnum, speed)
 Find the fastest airplanes in the bunch, measured as the average speed per airplane.
 
 ```{r}
-by_tailnum <- group_by(speed, tailnum)
+by_tailnum <- group_by(speed_data, tailnum)
 avg_speed <- summarize(by_tailnum, 
                        count = n(), 
                        avg_speed = mean(speed, na.rm = TRUE))
@@ -703,16 +704,17 @@ professions %>%
 
 .pull-left[
 ```{r}
-names(professions)
-names(dates)
-names(works)
+nrow(professions)
+nrow(dates)
+nrow(works)
 ```
 ]
 .pull-right[
 ```{r}
-nrow(professions)
-nrow(dates)
-nrow(works)
+names(professions)
+names(dates)
+names(works)
+
 ```
 ]
 
