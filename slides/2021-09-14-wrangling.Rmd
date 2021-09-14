@@ -248,8 +248,7 @@ filter(flights, distance > 2000 | air_time > 5*60)
 
 ## `arrange()`
 
-`arrange()` works similarly to `filter()` except that instead of filtering or 
-selecting rows, it reorders them. It takes a data frame, and a set of column 
+`arrange()` reorders the rows: It takes a data frame, and a set of column 
 names (or more complicated expressions) to order by. If you provide more than 
 one column name, each additional column will be used to break ties in the values
 of preceding columns:
