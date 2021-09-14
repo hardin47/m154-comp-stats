@@ -13,11 +13,14 @@ output:
     self_contained: false
 ---
 
+```{r include = FALSE, eval = FALSE}
 quotes about 80% of work is data wrangling
 
 slides on data wrangling
 
 example R code / sample markdown file?
+```
+
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters using a lasso on other monsters and their data to indicate wrangling.", preview = TRUE, echo = FALSE}
 knitr::include_graphics("../../images/dplyr_wrangling.png")
