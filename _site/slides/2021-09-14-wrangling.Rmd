@@ -601,7 +601,7 @@ When `scale_size_area` is used, the default behavior is to scale the area of poi
 ## Relational data (multiple data frames)
 
 
-```{r out.width = '100%', fig.align='center', echo=FALSE}
+```{r out.width = '70%', fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/dplyr-joins.png")
 ```
 
@@ -612,9 +612,6 @@ See the [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
   
 ## Higher Level Data Verbs 
   
-
-* <mark>`pivot_longer`</mark> makes many columns into 2 columns: `pivot_longer(data, cols,  names_to = , value_to = )`
-* <mark>`pivot_wider`</mark> makes one column into multiple columns: `pivot_wider(data, names_from = , values_from = )`
 * <mark>`left_join`</mark> returns all rows from the left table, and any rows with matching keys from the right table.
 * <mark>`inner_join`</mark> returns only the rows in which the left table have matching keys in the right table (i.e., matching rows in both sets).
 * <mark>`full_join`</mark> returns all rows from both tables, join records from the left which have matching keys in the right table.
@@ -622,13 +619,17 @@ See the [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 
 Good practice:  always specify the `by` argument when joining data frames.
 
+
+Thursday:
+* <mark>`pivot_longer`</mark> makes many columns into 2 columns: `pivot_longer(data, cols,  names_to = , value_to = )`
+* <mark>`pivot_wider`</mark> makes one column into multiple columns: `pivot_wider(data, names_from = , values_from = )`
 ---
 
 ## Women in Science
 
 10 women in science who changed the world (source: Discover Magazine)
 
-```{r include = FALSE}
+```{r echo = FALSE}
 library(kableExtra)
 dates <- read_csv("../data/dates.csv")
 professions <- read_csv("../data/professions.csv")
@@ -642,7 +643,7 @@ From Mine: https://github.com/rstudio-education/datascience-box/tree/master/cour
 ```
 
 
-```{r}
+```{r echo = FALSE}
 professions %>%
   kable()
 ```
@@ -651,6 +652,13 @@ professions %>%
 ---
 
 ## Inputs
+
+```{r echo = FALSE}
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+```
+
 
 Information on women scientists
 
