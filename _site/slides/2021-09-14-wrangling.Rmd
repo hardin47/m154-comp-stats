@@ -1085,6 +1085,8 @@ The `map` functions are *named* by the **output** the produce.  For example:
 knitr::include_graphics("../images/purrr_map.png")
 ```
 ]
+
+
 Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
 
 ---
@@ -1102,7 +1104,7 @@ a_list <- list(a_number = 5,
                                                b = c("q", "b", "z"), 
                                                c = c("bananas", "are", "so very great")))
 
-print(a_list)
+a_list
 ```
 
 ---
@@ -1153,6 +1155,7 @@ data.frame(a = 2, b = 5, c = 10) %>%
   map_df(~{.x + 10})
 ```
 
+---
 ### Shorthand in more complex settings
 
 ```{r}

@@ -441,16 +441,16 @@ sample_n(flights, 10)
 ## # A tibble: 10 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     3     6      935            935         0     1302           1247
-##  2  2013    10     7      928            930        -2     1217           1245
-##  3  2013     8    24      811            800        11      935            938
-##  4  2013     4    15      910            910         0     1103           1110
-##  5  2013     2    23      829            835        -6     1130           1134
-##  6  2013     4     6     1054           1100        -6     1200           1210
-##  7  2013     4    11     1601           1605        -4     1922           1924
-##  8  2013     9    18      740            655        45      843            809
-##  9  2013    12    23     1633           1540        53     2013           1910
-## 10  2013     8    14     1422           1420         2     1549           1553
+##  1  2013     2     9       NA            805        NA       NA           1112
+##  2  2013     5    24     1941           1855        46     2245           2220
+##  3  2013     5     6     2138           2040        58      113             38
+##  4  2013     7    15     1821           1825        -4     2052           2032
+##  5  2013    11    17     1151           1200        -9     1246           1309
+##  6  2013    12    29     1548           1538        10     1753           1741
+##  7  2013     3    17      827            830        -3     1025           1015
+##  8  2013     2    19     1612           1529        43     1713           1642
+##  9  2013     7     8      559            605        -6      846            905
+## 10  2013     3     5      745            600       105     1006            825
 ## # … with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 ## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
@@ -1784,6 +1784,8 @@ The `map` functions are *named* by the **output** the produce.  For example:
 .pull-right[
 &lt;img src="../images/purrr_map.png" width="90%" style="display: block; margin: auto;" /&gt;
 ]
+
+
 Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
 
 ---
@@ -1802,7 +1804,7 @@ a_list &lt;- list(a_number = 5,
                                                b = c("q", "b", "z"), 
                                                c = c("bananas", "are", "so very great")))
 
-print(a_list)
+a_list
 ```
 
 ```
@@ -1908,6 +1910,7 @@ data.frame(a = 2, b = 5, c = 10) %&gt;%
 ## 1    12    15    20
 ```
 
+---
 ### Shorthand in more complex settings
 
 
@@ -2054,7 +2057,7 @@ minute(rightnow)
 ```
 
 ```
-## [1] 1
+## [1] 24
 ```
 
 ```r
