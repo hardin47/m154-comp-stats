@@ -39,15 +39,14 @@ http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html
 
 ---
 
-# Agenda  9/7/21
+# Agenda  9/14/21
 
 1. Tidy data
 2. Data verbs
-3. Relational data
 
 ---
 
-# Part I: The data
+# The data
 
 
 ## What does a data set *look like*?
@@ -203,6 +202,7 @@ For all flights on January 1st:
 ```{r message = FALSE, warning = FALSE}
 filter(flights, month == 1, day == 1)
 ```
+
 ---
 
 ## Constructing filters
@@ -599,6 +599,16 @@ When `scale_size_area` is used, the default behavior is to scale the area of poi
 
 ---
 
+# Agenda  9/16/21
+
+
+1. Relational data (`_join`)
+2. `pivot`ing
+3. `map`ping
+4. **lubridate**
+
+---
+
 ## Relational data (multiple data frames)
 
 
@@ -611,7 +621,7 @@ See the [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 ---
   
   
-## Higher Level Data Verbs 
+## Joining two (or more) dataframes:
   
 * <mark>`left_join`</mark> returns all rows from the left table, and any rows with matching keys from the right table.
 * <mark>`inner_join`</mark> returns only the rows in which the left table have matching keys in the right table (i.e., matching rows in both sets).
@@ -621,9 +631,7 @@ See the [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 Good practice:  always specify the `by` argument when joining data frames.
 
 
-Thursday:
-* <mark>`pivot_longer`</mark> makes many columns into 2 columns: `pivot_longer(data, cols,  names_to = , value_to = )`
-* <mark>`pivot_wider`</mark> makes one column into multiple columns: `pivot_wider(data, names_from = , values_from = )`
+
 ---
 
 ## Women in Science
@@ -693,8 +701,8 @@ We'd like to put together the data to look like:
 
 ```{r echo=FALSE}
 professions %>%
-  left_join(dates) %>%
-  left_join(works)
+  left_join(dates, by = "name") %>%
+  left_join(works, by = "name")
 ```
 
 
@@ -758,7 +766,7 @@ include_graphics("../images/left-join.gif")
 ]
 .pull-right[
 ```{r}
-left_join(x, y)
+left_join(x, y, by = "id")
 ```
 ]
 
@@ -768,7 +776,7 @@ left_join(x, y)
 
 ```{r}
 professions %>%
-  left_join(dates) #<<
+  left_join(dates, by = "name") #<<
 ```
 
 ---
@@ -782,7 +790,7 @@ include_graphics("../images/right-join.gif")
 ]
 .pull-right[
 ```{r}
-right_join(x, y)
+right_join(x, y, by = "id")
 ```
 ]
 
@@ -793,7 +801,7 @@ right_join(x, y)
 
 ```{r}
 professions %>%
-  right_join(dates) #<<
+  right_join(dates, by = "name") #<<
 ```
 
 ---
@@ -807,7 +815,7 @@ include_graphics("../images/full-join.gif")
 ]
 .pull-right[
 ```{r}
-full_join(x, y)
+full_join(x, y, by = "id")
 ```
 ]
 
@@ -817,7 +825,7 @@ full_join(x, y)
 
 ```{r}
 dates %>%
-  full_join(works) #<<
+  full_join(works, by = "name") #<<
 ```
 
 ---
@@ -831,7 +839,7 @@ include_graphics("../images/inner-join.gif")
 ]
 .pull-right[
 ```{r}
-inner_join(x, y)
+inner_join(x, y, by = "id")
 ```
 ]
 
@@ -841,7 +849,7 @@ inner_join(x, y)
 
 ```{r}
 dates %>%
-  inner_join(works) #<<
+  inner_join(works, by = "name") #<<
 ```
 
 ---
@@ -855,7 +863,7 @@ include_graphics("../images/semi-join.gif")
 ]
 .pull-right[
 ```{r}
-semi_join(x, y)
+semi_join(x, y, by = "id")
 ```
 ]
 
@@ -865,7 +873,7 @@ semi_join(x, y)
 
 ```{r}
 dates %>%
-  semi_join(works) #<<
+  semi_join(works, by = "name") #<<
 ```
 
 ---
@@ -879,7 +887,7 @@ include_graphics("../images/anti-join.gif")
 ]
 .pull-right[
 ```{r}
-anti_join(x, y)
+anti_join(x, y, by = "id")
 ```
 ]
 
@@ -889,7 +897,7 @@ anti_join(x, y)
 
 ```{r}
 dates %>%
-  anti_join(works) #<<
+  anti_join(works, by = "name") #<<
 ```
 
 ---
@@ -898,10 +906,21 @@ dates %>%
 
 ```{r}
 professions %>%
-  left_join(dates) %>%
-  left_join(works)
+  left_join(dates, by = "name") %>%
+  left_join(works, by = "name")
 ```
 
+
+---
+
+### From wide to long and long to wide
+
+* <mark>`pivot_longer()`</mark> makes the dataframe "longer" -- many columns into a few columns (more rows): `pivot_longer(data, cols,  names_to = , value_to = )`
+* <mark>`pivot_wider()`</mark> makes the dataframe "wider" -- a few columns into many columns (fewer rows): `pivot_wider(data, names_from = , values_from = )`
+
+```{r out.width = '47%', fig.align='center', echo=FALSE, fig.show='hold'}
+knitr::include_graphics(c("../images/pivotlonger.png", "../images/pivotwider.png"))
+```
 
 ---
   
@@ -911,6 +930,7 @@ professions %>%
 
 ```{r message=FALSE}
 library(googlesheets4)
+gs4_deauth()
 litF <- read_sheet("https://docs.google.com/spreadsheets/d/1hDinTIRHQIaZg1RUn6Z_6mo12PtKwEPFIz_mJVF6P5I/pub?gid=0")
 
 head(litF)
@@ -920,13 +940,13 @@ head(litF)
 ### `pivot_longer`
   
 ```{r}
-litF <- litF %>% dplyr::select(country=starts_with("Adult"), 
+litF <- litF %>% select(country=starts_with("Adult"), 
                               starts_with("1"), starts_with("2")) %>%
-  tidyr::pivot_longer(cols = -country, 
+  pivot_longer(cols = -country, 
                       names_to = "year", values_to = "litRateF") %>%
-  dplyr::filter(!is.na(litRateF))
+  filter(!is.na(litRateF))
 
-head(litF)
+litF
 ```
 
 
@@ -939,13 +959,13 @@ The second dataset (GDP) represents country, year, and <mark>gdp</mark> (in fixe
 ```{r message=FALSE}
 GDP <- read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
 
-GDP <- GDP %>% dplyr::select(country = starts_with("Income"), 
+GDP <- GDP %>% select(country = starts_with("Income"), 
                             starts_with("1"), starts_with("2")) %>%
-  tidyr::pivot_longer(cols = -country, names_to = "year", 
+  pivot_longer(cols = -country, names_to = "year", 
                       values_to = "gdp") %>%
-  dplyr::filter(!is.na(gdp))
+  filter(!is.na(gdp))
 
-dplyr::glimpse(GDP)
+GDP
 ```
 
 
@@ -958,20 +978,23 @@ dplyr::glimpse(GDP)
 ```{r}
 library(babynames)
 
-head(babynames,3)
+babynames
+```
 
-babynames %>% dplyr::select(-prop) %>%
-  tidyr::pivot_wider(names_from = sex, values_from = n) %>% 
-  head(3)
+---
+
+```{r}
+babynames %>% select(-prop) %>%
+  pivot_wider(names_from = sex, values_from = n) 
 ```
 
 ---
   
 ```{r}
 babynames %>% 
-  dplyr::select(-prop) %>% 
-  tidyr::pivot_wider(names_from = sex, values_from = n) %>%
-  dplyr::filter(!is.na(F) & !is.na(M)) %>%
+  select(-prop) %>% 
+  pivot_wider(names_from = sex, values_from = n) %>%
+  filter(!is.na(F), !is.na(M)) %>%
   arrange(desc(year), desc(M))
 ```
 
@@ -979,16 +1002,59 @@ babynames %>%
   
 ```{r}
 babynames %>% 
-  tidyr::pivot_wider(names_from = sex, values_from = n) %>%
+  pivot_wider(names_from = sex, values_from = n) %>%
   mutate(maxcount = pmax(F,M, na.rm = TRUE)) %>%
   arrange(desc(maxcount))
 ```
 
 ---
 
+
+
+
+## Practice `litF` and `GDP` from Gapminder.
+
+### left
+```{r}
+litGDPleft <- left_join(litF, GDP, by=c("country", "year"))
+dim(litGDPleft)
+litGDPleft
+```
+
+
+---
+
+### right
+```{r}
+litGDPright <- right_join(litF, GDP, by=c("country", "year"))
+dim(litGDPright)
+litGDPright
+```
+
+
+---
+
+### inner
+```{r}
+litGDPinner <- inner_join(litF, GDP, by=c("country", "year"))
+dim(litGDPinner)
+litGDPinner
+```
+
+---
+
+### full
+```{r}
+litGDPfull <- full_join(litF, GDP, by=c("country", "year"))
+dim(litGDPfull)
+litGDPfull
+```
+---
+ 
+
 ## `join` to **merge** two datasets
 
-```{r out.width = '100%', fig.align='center', echo=FALSE}
+```{r out.width = '90%', fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/join.png")
 ```
 
@@ -998,47 +1064,116 @@ If you ever need to understand which join is the right join for you, try to find
 
 ---
 
+## **purrr** for functional programming
 
+.pull-left[
+The `map` functions are *named* by the **output** the produce.  For example: 
 
-`litF` and `GDP` from Gapminder.
+* `map(.x, .f)` is the main mapping function and returns a list
 
-### left
+* `map_df(.x, .f)` returns a data frame
+
+* `map_dbl(.x, .f)` returns a numeric (double) vector
+
+* `map_chr(.x, .f)` returns a character vector
+
+* `map_lgl(.x, .f)` returns a logical vector
+]
+
+.pull-right[
+```{r out.width = '90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/purrr_map.png")
+```
+]
+Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
+
+---
+
+### Input
+
+The **input** to a `map` function is always either a *vector* (like a column), a *list* (which can be non-rectangular), or a *dataframe* (like a rectangle).
+
+A list is a way to hold things which might be very different in shape:
+
 ```{r}
-litGDPleft <- dplyr::left_join(litF, GDP, by=c("country", "year"))
-dim(litGDPleft); sum(is.na(litGDPleft$gdp))
-head(litGDPleft)
+a_list <- list(a_number = 5,
+                      a_vector = c("a", "b", "c"),
+                      a_dataframe = data.frame(a = 1:3, 
+                                               b = c("q", "b", "z"), 
+                                               c = c("bananas", "are", "so very great")))
+
+print(a_list)
+```
+
+---
+
+###  Output
+
+
+```{r}
+add_ten <- function(x) {
+  return(x + 10)
+  }
+```
+
+We can `map()` the `add_ten()` function across a vector.  Note that the output is a list (the default).
+
+```{r}
+library(tidyverse)
+map(.x = c(2, 5, 10),
+    .f = add_ten)
+```
+
+---
+
+###  Output & Input
+
+What if we use a different type of input?  The default behavior is to still return a list!
+
+```{r}
+data.frame(a = 2, b = 5, c = 10) %>%
+  map(add_ten)
+```
+
+What if we want a different type of output?  We use a different `map()` function, `map_df()`, for example.
+
+```{r}
+data.frame(a = 2, b = 5, c = 10) %>%
+  map_df(add_ten)
+```
+
+---
+
+### Shorthand
+
+Shorthand lets us get away from pre-defining the function (which will be useful).  Use the tilde `~` to indicate that you have a function: 
+
+```{r}
+data.frame(a = 2, b = 5, c = 10) %>%
+  map_df(~{.x + 10})
+```
+
+### Shorthand in more complex settings
+
+```{r}
+library(palmerpenguins)
+library(broom)
+
+penguins %>%
+  split(.$species) %>%
+  map(~ lm(body_mass_g ~ flipper_length_mm, data = .x)) %>%
+  map_df(tidy)  # map(tidy)
+
+penguins %>%
+  group_by(species) %>%
+  group_map(~lm(body_mass_g ~ flipper_length_mm, data = .x)) %>%
+  map(tidy)  # map_df(tidy)
 ```
 
 
 ---
 
-### right
-```{r}
-litGDPright <- dplyr::right_join(litF, GDP, by=c("country", "year"))
-dim(litGDPright); sum(is.na(litGDPright$gdp))
-head(litGDPright)
-```
 
-
----
-
-### inner
-```{r}
-litGDPinner <- dplyr::inner_join(litF, GDP, by=c("country", "year"))
-dim(litGDPinner); sum(is.na(litGDPinner$gdp))
-head(litGDPinner)
-```
-
----
-
-### full
-```{r}
-litGDPfull <- dplyr::full_join(litF, GDP, by=c("country", "year"))
-dim(litGDPfull); sum(is.na(litGDPfull$gdp))
-head(litGDPfull)
-```
----
- 
 ## `lubridate`
   
 `lubridate` is a another R package meant for data wrangling!  
@@ -1101,7 +1236,7 @@ wday(rightnow, label=TRUE)
 ## But how do I create a date object?
 
 ```{r}
-jan31 <- ymd("2013-01-31")
+jan31 <- ymd("2021-01-31")
 jan31 + months(0:11)
 
 floor_date(jan31, "month") + months(0:11) + days(31)
@@ -1128,8 +1263,7 @@ flightsWK <- flights %>%
           whichweek = week(ymdday)) 
 
 flightsWK %>% select(year, month, day, ymdday, weekdy, whichweek, 
-                     dep_time, arr_time, air_time) %>%
-  head()
+                     dep_time, arr_time, air_time) 
 ```
 
 ---
@@ -1144,7 +1278,7 @@ Step 1.  Copy code onto the clipboard
 
 Step 2.  Type `reprex()` into the Console
 
-Step 3.  Look at the Viewer to the right.  Copy the Viewer output into GitHub, Piazza, an email, stackexchange, etc.
+Step 3.  Look at the Viewer to the right.  Copy the Viewer output into GitHub, Piazza, Discord, an email, stackexchange, etc.
 
 ---
 
@@ -1159,7 +1293,7 @@ multiple lines of code:
 
 ```
 reprex({
-  jan31 <- ymd("2013-01-31")
+  jan31 <- ymd("2021-01-31")
   jan31 + months(0:11) + days(31)
 })
 ```
@@ -1167,7 +1301,7 @@ reprex({
 ```
 reprex({
   library(lubridate)
-  jan31 <- ymd("2013-01-31")
+  jan31 <- ymd("2021-01-31")
   jan31 + months(0:11) + days(31)
 })
 ```

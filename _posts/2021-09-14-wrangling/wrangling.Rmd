@@ -33,14 +33,15 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 1. Tidy data
 2. Data verbs
-3. Relational data
+
 
 
 ### September 16, 2021
 
-1. `pivot`ing
-2. `map`ping
-3. **lubridate**
+1. Relational data (`_join`)
+2. `pivot`ing
+3. `map`ping
+4. **lubridate**
 
 ## Readings <i class="fas fa-book-open"></i> 
 
@@ -52,22 +53,20 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
-* How and why is `%>%` used?
+* How and why is `%>%` used?  And how is it different from the layering symbol `+` we use in `ggplot()`?
 
 * What are the main data wrangling verbs?
 
-* How do you distinguish the different `_join` functions?
+* How do you distinguish the different `_join` functions?  Are the `_join` keys formatted in the same way across the two datasets?  Are the data recorded in the same way (e.g., is age birthday or age at recording?) ?
 
-* Are the `_join` keys formatted in the same way across the two datasets?
+* What are some of the ways to distinguish a data verb from a typical function?
 
-* Are the data recorded in the same way (e.g., is age birthday or age at recording?) ?
 
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
 * What is Jan 31 plus one month?  And why does it matter that **every** analysis we do is a series of decisions?  Keeping in mind that each of us might make a different decision, and all decisions have consequences.
 
-* 
 
 ## Slides <i class="fas fa-desktop"></i> 
 

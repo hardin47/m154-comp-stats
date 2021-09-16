@@ -4,7 +4,7 @@
     <title>Working with Data in R</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jo Hardin" />
-    <script src="2021-09-14-wrangling_files/header-attrs-2.10.3/header-attrs.js"></script>
+    <script src="2021-09-14-wrangling_files/header-attrs-2.11.1/header-attrs.js"></script>
     <link href="2021-09-14-wrangling_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="2021-09-14-wrangling_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link href="2021-09-14-wrangling_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -37,15 +37,14 @@ http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html
 
 ---
 
-# Agenda  9/7/21
+# Agenda  9/14/21
 
 1. Tidy data
 2. Data verbs
-3. Relational data
 
 ---
 
-# Part I: The data
+# The data
 
 
 ## What does a data set *look like*?
@@ -250,6 +249,7 @@ filter(flights, month == 1, day == 1)
 ## #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;,
 ## #   distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
 ```
+
 ---
 
 ## Constructing filters
@@ -441,16 +441,16 @@ sample_n(flights, 10)
 ## # A tibble: 10 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013    10    25      852            850         2     1137           1141
-##  2  2013     8     5     1037           1030         7     1401           1350
-##  3  2013     4    22     1453           1442        11     2034           1749
-##  4  2013     5     2     1400           1358         2     1728           1715
-##  5  2013     4    16     1458           1435        23     1749           1738
-##  6  2013     7    15     1201           1210        -9     1431           1500
-##  7  2013     8    24     1927           1930        -3     2129           2154
-##  8  2013     8    18     2344           2130       134      221             14
-##  9  2013     4    11     1220           1210        10     1504           1450
-## 10  2013     9     1     1253           1300        -7     1424           1450
+##  1  2013     3     6      935            935         0     1302           1247
+##  2  2013    10     7      928            930        -2     1217           1245
+##  3  2013     8    24      811            800        11      935            938
+##  4  2013     4    15      910            910         0     1103           1110
+##  5  2013     2    23      829            835        -6     1130           1134
+##  6  2013     4     6     1054           1100        -6     1200           1210
+##  7  2013     4    11     1601           1605        -4     1922           1924
+##  8  2013     9    18      740            655        45      843            809
+##  9  2013    12    23     1633           1540        53     2013           1910
+## 10  2013     8    14     1422           1420         2     1549           1553
 ## # … with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 ## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
@@ -793,6 +793,16 @@ When `scale_size_area` is used, the default behavior is to scale the area of poi
 
 ---
 
+# Agenda  9/16/21
+
+
+1. Relational data (`_join`)
+2. `pivot`ing
+3. `map`ping
+4. **lubridate**
+
+---
+
 ## Relational data (multiple data frames)
 
 
@@ -803,7 +813,7 @@ See the [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 ---
   
   
-## Higher Level Data Verbs 
+## Joining two (or more) dataframes:
   
 * &lt;mark&gt;`left_join`&lt;/mark&gt; returns all rows from the left table, and any rows with matching keys from the right table.
 * &lt;mark&gt;`inner_join`&lt;/mark&gt; returns only the rows in which the left table have matching keys in the right table (i.e., matching rows in both sets).
@@ -813,9 +823,7 @@ See the [RStudio cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
 Good practice:  always specify the `by` argument when joining data frames.
 
 
-Thursday:
-* &lt;mark&gt;`pivot_longer`&lt;/mark&gt; makes many columns into 2 columns: `pivot_longer(data, cols,  names_to = , value_to = )`
-* &lt;mark&gt;`pivot_wider`&lt;/mark&gt; makes one column into multiple columns: `pivot_wider(data, names_from = , values_from = )`
+
 ---
 
 ## Women in Science
@@ -942,17 +950,17 @@ works
 
 ```
 ## # A tibble: 9 × 2
-##   name            known_for                                                     
-##   &lt;chr&gt;           &lt;chr&gt;                                                         
-## 1 Ada Lovelace    first computer algorithm                                      
-## 2 Marie Curie     theory of radioactivity,  discovery of elements polonium and …
-## 3 Janaki Ammal    hybrid species, biodiversity protection                       
-## 4 Chien-Shiung Wu confim and refine theory of radioactive beta decy, Wu experim…
-## 5 Katherine John… calculations of orbital mechanics critical to sending the fir…
-## 6 Vera Rubin      existence of dark matter                                      
-## 7 Gladys West     mathematical modeling of the shape of the Earth which served …
-## 8 Flossie Wong-S… first scientist to clone HIV and create a map of its genes wh…
-## 9 Jennifer Doudna one of the primary developers of CRISPR, a ground-breaking te…
+##   name               known_for                                                  
+##   &lt;chr&gt;              &lt;chr&gt;                                                      
+## 1 Ada Lovelace       first computer algorithm                                   
+## 2 Marie Curie        theory of radioactivity,  discovery of elements polonium a…
+## 3 Janaki Ammal       hybrid species, biodiversity protection                    
+## 4 Chien-Shiung Wu    confim and refine theory of radioactive beta decy, Wu expe…
+## 5 Katherine Johnson  calculations of orbital mechanics critical to sending the …
+## 6 Vera Rubin         existence of dark matter                                   
+## 7 Gladys West        mathematical modeling of the shape of the Earth which serv…
+## 8 Flossie Wong-Staal first scientist to clone HIV and create a map of its genes…
+## 9 Jennifer Doudna    one of the primary developers of CRISPR, a ground-breaking…
 ```
 ]
 
@@ -967,18 +975,18 @@ We'd like to put together the data to look like:
 
 ```
 ## # A tibble: 10 × 5
-##    name      profession        birth_year death_year known_for                  
-##    &lt;chr&gt;     &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                      
-##  1 Ada Love… Mathematician             NA         NA first computer algorithm   
-##  2 Marie Cu… Physicist and Ch…         NA         NA theory of radioactivity,  …
-##  3 Janaki A… Botanist                1897       1984 hybrid species, biodiversi…
-##  4 Chien-Sh… Physicist               1912       1997 confim and refine theory o…
-##  5 Katherin… Mathematician           1918       2020 calculations of orbital me…
-##  6 Rosalind… Chemist                 1920       1958 &lt;NA&gt;                       
-##  7 Vera Rub… Astronomer              1928       2016 existence of dark matter   
-##  8 Gladys W… Mathematician           1930         NA mathematical modeling of t…
-##  9 Flossie … Virologist and M…       1947         NA first scientist to clone H…
-## 10 Jennifer… Biochemist              1964         NA one of the primary develop…
+##    name               profession      birth_year death_year known_for           
+##    &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;               
+##  1 Ada Lovelace       Mathematician           NA         NA first computer algo…
+##  2 Marie Curie        Physicist and …         NA         NA theory of radioacti…
+##  3 Janaki Ammal       Botanist              1897       1984 hybrid species, bio…
+##  4 Chien-Shiung Wu    Physicist             1912       1997 confim and refine t…
+##  5 Katherine Johnson  Mathematician         1918       2020 calculations of orb…
+##  6 Rosalind Franklin  Chemist               1920       1958 &lt;NA&gt;                
+##  7 Vera Rubin         Astronomer            1928       2016 existence of dark m…
+##  8 Gladys West        Mathematician         1930         NA mathematical modeli…
+##  9 Flossie Wong-Staal Virologist and…       1947         NA first scientist to …
+## 10 Jennifer Doudna    Biochemist            1964         NA one of the primary …
 ```
 
 
@@ -1088,7 +1096,7 @@ y
 .pull-right[
 
 ```r
-left_join(x, y)
+left_join(x, y, by = "id")
 ```
 
 ```
@@ -1108,7 +1116,7 @@ left_join(x, y)
 
 ```r
 professions %&gt;%
-  left_join(dates) #&lt;&lt;
+  left_join(dates, by = "name") #&lt;&lt;
 ```
 
 ```
@@ -1137,7 +1145,7 @@ professions %&gt;%
 .pull-right[
 
 ```r
-right_join(x, y)
+right_join(x, y, by = "id")
 ```
 
 ```
@@ -1158,7 +1166,7 @@ right_join(x, y)
 
 ```r
 professions %&gt;%
-  right_join(dates) #&lt;&lt;
+  right_join(dates, by = "name") #&lt;&lt;
 ```
 
 ```
@@ -1185,7 +1193,7 @@ professions %&gt;%
 .pull-right[
 
 ```r
-full_join(x, y)
+full_join(x, y, by = "id")
 ```
 
 ```
@@ -1206,23 +1214,23 @@ full_join(x, y)
 
 ```r
 dates %&gt;%
-  full_join(works) #&lt;&lt;
+  full_join(works, by = "name") #&lt;&lt;
 ```
 
 ```
 ## # A tibble: 10 × 4
-##    name         birth_year death_year known_for                                 
-##    &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                                     
-##  1 Janaki Ammal       1897       1984 hybrid species, biodiversity protection   
-##  2 Chien-Shiun…       1912       1997 confim and refine theory of radioactive b…
-##  3 Katherine J…       1918       2020 calculations of orbital mechanics critica…
-##  4 Rosalind Fr…       1920       1958 &lt;NA&gt;                                      
-##  5 Vera Rubin         1928       2016 existence of dark matter                  
-##  6 Gladys West        1930         NA mathematical modeling of the shape of the…
-##  7 Flossie Won…       1947         NA first scientist to clone HIV and create a…
-##  8 Jennifer Do…       1964         NA one of the primary developers of CRISPR, …
-##  9 Ada Lovelace         NA         NA first computer algorithm                  
-## 10 Marie Curie          NA         NA theory of radioactivity,  discovery of el…
+##    name               birth_year death_year known_for                           
+##    &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                               
+##  1 Janaki Ammal             1897       1984 hybrid species, biodiversity protec…
+##  2 Chien-Shiung Wu          1912       1997 confim and refine theory of radioac…
+##  3 Katherine Johnson        1918       2020 calculations of orbital mechanics c…
+##  4 Rosalind Franklin        1920       1958 &lt;NA&gt;                                
+##  5 Vera Rubin               1928       2016 existence of dark matter            
+##  6 Gladys West              1930         NA mathematical modeling of the shape …
+##  7 Flossie Wong-Staal       1947         NA first scientist to clone HIV and cr…
+##  8 Jennifer Doudna          1964         NA one of the primary developers of CR…
+##  9 Ada Lovelace               NA         NA first computer algorithm            
+## 10 Marie Curie                NA         NA theory of radioactivity,  discovery…
 ```
 
 ---
@@ -1235,7 +1243,7 @@ dates %&gt;%
 .pull-right[
 
 ```r
-inner_join(x, y)
+inner_join(x, y, by = "id")
 ```
 
 ```
@@ -1254,20 +1262,20 @@ inner_join(x, y)
 
 ```r
 dates %&gt;%
-  inner_join(works) #&lt;&lt;
+  inner_join(works, by = "name") #&lt;&lt;
 ```
 
 ```
 ## # A tibble: 7 × 4
-##   name         birth_year death_year known_for                                  
-##   &lt;chr&gt;             &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                                      
-## 1 Janaki Ammal       1897       1984 hybrid species, biodiversity protection    
-## 2 Chien-Shiun…       1912       1997 confim and refine theory of radioactive be…
-## 3 Katherine J…       1918       2020 calculations of orbital mechanics critical…
-## 4 Vera Rubin         1928       2016 existence of dark matter                   
-## 5 Gladys West        1930         NA mathematical modeling of the shape of the …
-## 6 Flossie Won…       1947         NA first scientist to clone HIV and create a …
-## 7 Jennifer Do…       1964         NA one of the primary developers of CRISPR, a…
+##   name               birth_year death_year known_for                            
+##   &lt;chr&gt;                   &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                                
+## 1 Janaki Ammal             1897       1984 hybrid species, biodiversity protect…
+## 2 Chien-Shiung Wu          1912       1997 confim and refine theory of radioact…
+## 3 Katherine Johnson        1918       2020 calculations of orbital mechanics cr…
+## 4 Vera Rubin               1928       2016 existence of dark matter             
+## 5 Gladys West              1930         NA mathematical modeling of the shape o…
+## 6 Flossie Wong-Staal       1947         NA first scientist to clone HIV and cre…
+## 7 Jennifer Doudna          1964         NA one of the primary developers of CRI…
 ```
 
 ---
@@ -1280,7 +1288,7 @@ dates %&gt;%
 .pull-right[
 
 ```r
-semi_join(x, y)
+semi_join(x, y, by = "id")
 ```
 
 ```
@@ -1299,7 +1307,7 @@ semi_join(x, y)
 
 ```r
 dates %&gt;%
-  semi_join(works) #&lt;&lt;
+  semi_join(works, by = "name") #&lt;&lt;
 ```
 
 ```
@@ -1325,7 +1333,7 @@ dates %&gt;%
 .pull-right[
 
 ```r
-anti_join(x, y)
+anti_join(x, y, by = "id")
 ```
 
 ```
@@ -1343,7 +1351,7 @@ anti_join(x, y)
 
 ```r
 dates %&gt;%
-  anti_join(works) #&lt;&lt;
+  anti_join(works, by = "name") #&lt;&lt;
 ```
 
 ```
@@ -1360,26 +1368,35 @@ dates %&gt;%
 
 ```r
 professions %&gt;%
-  left_join(dates) %&gt;%
-  left_join(works)
+  left_join(dates, by = "name") %&gt;%
+  left_join(works, by = "name")
 ```
 
 ```
 ## # A tibble: 10 × 5
-##    name      profession        birth_year death_year known_for                  
-##    &lt;chr&gt;     &lt;chr&gt;                  &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                      
-##  1 Ada Love… Mathematician             NA         NA first computer algorithm   
-##  2 Marie Cu… Physicist and Ch…         NA         NA theory of radioactivity,  …
-##  3 Janaki A… Botanist                1897       1984 hybrid species, biodiversi…
-##  4 Chien-Sh… Physicist               1912       1997 confim and refine theory o…
-##  5 Katherin… Mathematician           1918       2020 calculations of orbital me…
-##  6 Rosalind… Chemist                 1920       1958 &lt;NA&gt;                       
-##  7 Vera Rub… Astronomer              1928       2016 existence of dark matter   
-##  8 Gladys W… Mathematician           1930         NA mathematical modeling of t…
-##  9 Flossie … Virologist and M…       1947         NA first scientist to clone H…
-## 10 Jennifer… Biochemist              1964         NA one of the primary develop…
+##    name               profession      birth_year death_year known_for           
+##    &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;               
+##  1 Ada Lovelace       Mathematician           NA         NA first computer algo…
+##  2 Marie Curie        Physicist and …         NA         NA theory of radioacti…
+##  3 Janaki Ammal       Botanist              1897       1984 hybrid species, bio…
+##  4 Chien-Shiung Wu    Physicist             1912       1997 confim and refine t…
+##  5 Katherine Johnson  Mathematician         1918       2020 calculations of orb…
+##  6 Rosalind Franklin  Chemist               1920       1958 &lt;NA&gt;                
+##  7 Vera Rubin         Astronomer            1928       2016 existence of dark m…
+##  8 Gladys West        Mathematician         1930         NA mathematical modeli…
+##  9 Flossie Wong-Staal Virologist and…       1947         NA first scientist to …
+## 10 Jennifer Doudna    Biochemist            1964         NA one of the primary …
 ```
 
+
+---
+
+### From wide to long and long to wide
+
+* &lt;mark&gt;`pivot_longer()`&lt;/mark&gt; makes the dataframe "longer" -- many columns into a few columns (more rows): `pivot_longer(data, cols,  names_to = , value_to = )`
+* &lt;mark&gt;`pivot_wider()`&lt;/mark&gt; makes the dataframe "wider" -- a few columns into many columns (fewer rows): `pivot_wider(data, names_from = , values_from = )`
+
+&lt;img src="../images/pivotlonger.png" width="47%" style="display: block; margin: auto;" /&gt;&lt;img src="../images/pivotwider.png" width="47%" style="display: block; margin: auto;" /&gt;
 
 ---
   
@@ -1390,6 +1407,7 @@ professions %&gt;%
 
 ```r
 library(googlesheets4)
+gs4_deauth()
 litF &lt;- read_sheet("https://docs.google.com/spreadsheets/d/1hDinTIRHQIaZg1RUn6Z_6mo12PtKwEPFIz_mJVF6P5I/pub?gid=0")
 
 head(litF)
@@ -1418,25 +1436,30 @@ head(litF)
   
 
 ```r
-litF &lt;- litF %&gt;% dplyr::select(country=starts_with("Adult"), 
+litF &lt;- litF %&gt;% select(country=starts_with("Adult"), 
                               starts_with("1"), starts_with("2")) %&gt;%
-  tidyr::pivot_longer(cols = -country, 
+  pivot_longer(cols = -country, 
                       names_to = "year", values_to = "litRateF") %&gt;%
-  dplyr::filter(!is.na(litRateF))
+  filter(!is.na(litRateF))
 
-head(litF)
+litF
 ```
 
 ```
-## # A tibble: 6 × 3
-##   country     year  litRateF
-##   &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt;
-## 1 Afghanistan 1979      4.99
-## 2 Afghanistan 2011     13   
-## 3 Albania     2001     98.3 
-## 4 Albania     2008     94.7 
-## 5 Albania     2011     95.7 
-## 6 Algeria     1987     35.8
+## # A tibble: 571 × 3
+##    country     year  litRateF
+##    &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt;
+##  1 Afghanistan 1979      4.99
+##  2 Afghanistan 2011     13   
+##  3 Albania     2001     98.3 
+##  4 Albania     2008     94.7 
+##  5 Albania     2011     95.7 
+##  6 Algeria     1987     35.8 
+##  7 Algeria     2002     60.1 
+##  8 Algeria     2006     63.9 
+##  9 Angola      2001     54.2 
+## 10 Angola      2011     58.6 
+## # … with 561 more rows
 ```
 
 
@@ -1450,21 +1473,30 @@ The second dataset (GDP) represents country, year, and &lt;mark&gt;gdp&lt;/mark&
 ```r
 GDP &lt;- read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
 
-GDP &lt;- GDP %&gt;% dplyr::select(country = starts_with("Income"), 
+GDP &lt;- GDP %&gt;% select(country = starts_with("Income"), 
                             starts_with("1"), starts_with("2")) %&gt;%
-  tidyr::pivot_longer(cols = -country, names_to = "year", 
+  pivot_longer(cols = -country, names_to = "year", 
                       values_to = "gdp") %&gt;%
-  dplyr::filter(!is.na(gdp))
+  filter(!is.na(gdp))
 
-dplyr::glimpse(GDP)
+GDP
 ```
 
 ```
-## Rows: 7,988
-## Columns: 3
-## $ country &lt;chr&gt; "Albania", "Albania", "Albania", "Albania", "Albania", "Albani…
-## $ year    &lt;chr&gt; "1980", "1981", "1982", "1983", "1984", "1985", "1986", "1987"…
-## $ gdp     &lt;dbl&gt; 1060.6846, 1099.5127, 1110.5123, 1101.3357, 1065.2353, 1059.86…
+## # A tibble: 7,988 × 3
+##    country year    gdp
+##    &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
+##  1 Albania 1980  1061.
+##  2 Albania 1981  1100.
+##  3 Albania 1982  1111.
+##  4 Albania 1983  1101.
+##  5 Albania 1984  1065.
+##  6 Albania 1985  1060.
+##  7 Albania 1986  1092.
+##  8 Albania 1987  1054.
+##  9 Albania 1988  1014.
+## 10 Albania 1989  1092.
+## # … with 7,978 more rows
 ```
 
 
@@ -1478,31 +1510,49 @@ dplyr::glimpse(GDP)
 ```r
 library(babynames)
 
-head(babynames,3)
+babynames
 ```
 
 ```
-## # A tibble: 3 × 5
-##    year sex   name      n   prop
-##   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt;
-## 1  1880 F     Mary   7065 0.0724
-## 2  1880 F     Anna   2604 0.0267
-## 3  1880 F     Emma   2003 0.0205
+## # A tibble: 1,924,665 × 5
+##     year sex   name          n   prop
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;
+##  1  1880 F     Mary       7065 0.0724
+##  2  1880 F     Anna       2604 0.0267
+##  3  1880 F     Emma       2003 0.0205
+##  4  1880 F     Elizabeth  1939 0.0199
+##  5  1880 F     Minnie     1746 0.0179
+##  6  1880 F     Margaret   1578 0.0162
+##  7  1880 F     Ida        1472 0.0151
+##  8  1880 F     Alice      1414 0.0145
+##  9  1880 F     Bertha     1320 0.0135
+## 10  1880 F     Sarah      1288 0.0132
+## # … with 1,924,655 more rows
 ```
+
+---
+
 
 ```r
-babynames %&gt;% dplyr::select(-prop) %&gt;%
-  tidyr::pivot_wider(names_from = sex, values_from = n) %&gt;% 
-  head(3)
+babynames %&gt;% select(-prop) %&gt;%
+  pivot_wider(names_from = sex, values_from = n) 
 ```
 
 ```
-## # A tibble: 3 × 4
-##    year name      F     M
-##   &lt;dbl&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt;
-## 1  1880 Mary   7065    27
-## 2  1880 Anna   2604    12
-## 3  1880 Emma   2003    10
+## # A tibble: 1,756,284 × 4
+##     year name          F     M
+##    &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt; &lt;int&gt;
+##  1  1880 Mary       7065    27
+##  2  1880 Anna       2604    12
+##  3  1880 Emma       2003    10
+##  4  1880 Elizabeth  1939     9
+##  5  1880 Minnie     1746     9
+##  6  1880 Margaret   1578    NA
+##  7  1880 Ida        1472     8
+##  8  1880 Alice      1414    NA
+##  9  1880 Bertha     1320    NA
+## 10  1880 Sarah      1288    NA
+## # … with 1,756,274 more rows
 ```
 
 ---
@@ -1510,9 +1560,9 @@ babynames %&gt;% dplyr::select(-prop) %&gt;%
 
 ```r
 babynames %&gt;% 
-  dplyr::select(-prop) %&gt;% 
-  tidyr::pivot_wider(names_from = sex, values_from = n) %&gt;%
-  dplyr::filter(!is.na(F) &amp; !is.na(M)) %&gt;%
+  select(-prop) %&gt;% 
+  pivot_wider(names_from = sex, values_from = n) %&gt;%
+  filter(!is.na(F), !is.na(M)) %&gt;%
   arrange(desc(year), desc(M))
 ```
 
@@ -1538,7 +1588,7 @@ babynames %&gt;%
 
 ```r
 babynames %&gt;% 
-  tidyr::pivot_wider(names_from = sex, values_from = n) %&gt;%
+  pivot_wider(names_from = sex, values_from = n) %&gt;%
   mutate(maxcount = pmax(F,M, na.rm = TRUE)) %&gt;%
   arrange(desc(maxcount))
 ```
@@ -1562,49 +1612,41 @@ babynames %&gt;%
 
 ---
 
-## `join` to **merge** two datasets
-
-&lt;img src="../images/join.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 
 
-If you ever need to understand which join is the right join for you, try to find an image that will lay out what the function is doing.  I found this one that is quite good and is taken from Statistics Globe blog: https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti
-
----
-
-
-
-`litF` and `GDP` from Gapminder.
+## Practice `litF` and `GDP` from Gapminder.
 
 ### left
 
 ```r
-litGDPleft &lt;- dplyr::left_join(litF, GDP, by=c("country", "year"))
-dim(litGDPleft); sum(is.na(litGDPleft$gdp))
+litGDPleft &lt;- left_join(litF, GDP, by=c("country", "year"))
+dim(litGDPleft)
 ```
 
 ```
 ## [1] 571   4
 ```
 
-```
-## [1] 66
-```
-
 ```r
-head(litGDPleft)
+litGDPleft
 ```
 
 ```
-## # A tibble: 6 × 4
-##   country     year  litRateF   gdp
-##   &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
-## 1 Afghanistan 1979      4.99   NA 
-## 2 Afghanistan 2011     13      NA 
-## 3 Albania     2001     98.3  1282.
-## 4 Albania     2008     94.7  1804.
-## 5 Albania     2011     95.7  1966.
-## 6 Algeria     1987     35.8  1902.
+## # A tibble: 571 × 4
+##    country     year  litRateF   gdp
+##    &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1 Afghanistan 1979      4.99   NA 
+##  2 Afghanistan 2011     13      NA 
+##  3 Albania     2001     98.3  1282.
+##  4 Albania     2008     94.7  1804.
+##  5 Albania     2011     95.7  1966.
+##  6 Algeria     1987     35.8  1902.
+##  7 Algeria     2002     60.1  1872.
+##  8 Algeria     2006     63.9  2125.
+##  9 Angola      2001     54.2   298.
+## 10 Angola      2011     58.6   630.
+## # … with 561 more rows
 ```
 
 
@@ -1613,32 +1655,33 @@ head(litGDPleft)
 ### right
 
 ```r
-litGDPright &lt;- dplyr::right_join(litF, GDP, by=c("country", "year"))
-dim(litGDPright); sum(is.na(litGDPright$gdp))
+litGDPright &lt;- right_join(litF, GDP, by=c("country", "year"))
+dim(litGDPright)
 ```
 
 ```
 ## [1] 7988    4
 ```
 
-```
-## [1] 0
-```
-
 ```r
-head(litGDPright)
+litGDPright
 ```
 
 ```
-## # A tibble: 6 × 4
-##   country year  litRateF   gdp
-##   &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
-## 1 Albania 2001      98.3 1282.
-## 2 Albania 2008      94.7 1804.
-## 3 Albania 2011      95.7 1966.
-## 4 Algeria 1987      35.8 1902.
-## 5 Algeria 2002      60.1 1872.
-## 6 Algeria 2006      63.9 2125.
+## # A tibble: 7,988 × 4
+##    country             year  litRateF   gdp
+##    &lt;chr&gt;               &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1 Albania             2001      98.3 1282.
+##  2 Albania             2008      94.7 1804.
+##  3 Albania             2011      95.7 1966.
+##  4 Algeria             1987      35.8 1902.
+##  5 Algeria             2002      60.1 1872.
+##  6 Algeria             2006      63.9 2125.
+##  7 Angola              2001      54.2  298.
+##  8 Angola              2011      58.6  630.
+##  9 Antigua and Barbuda 2001      99.4 9640.
+## 10 Antigua and Barbuda 2011      99.4 9978.
+## # … with 7,978 more rows
 ```
 
 
@@ -1647,32 +1690,33 @@ head(litGDPright)
 ### inner
 
 ```r
-litGDPinner &lt;- dplyr::inner_join(litF, GDP, by=c("country", "year"))
-dim(litGDPinner); sum(is.na(litGDPinner$gdp))
+litGDPinner &lt;- inner_join(litF, GDP, by=c("country", "year"))
+dim(litGDPinner)
 ```
 
 ```
 ## [1] 505   4
 ```
 
-```
-## [1] 0
-```
-
 ```r
-head(litGDPinner)
+litGDPinner
 ```
 
 ```
-## # A tibble: 6 × 4
-##   country year  litRateF   gdp
-##   &lt;chr&gt;   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
-## 1 Albania 2001      98.3 1282.
-## 2 Albania 2008      94.7 1804.
-## 3 Albania 2011      95.7 1966.
-## 4 Algeria 1987      35.8 1902.
-## 5 Algeria 2002      60.1 1872.
-## 6 Algeria 2006      63.9 2125.
+## # A tibble: 505 × 4
+##    country             year  litRateF   gdp
+##    &lt;chr&gt;               &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1 Albania             2001      98.3 1282.
+##  2 Albania             2008      94.7 1804.
+##  3 Albania             2011      95.7 1966.
+##  4 Algeria             1987      35.8 1902.
+##  5 Algeria             2002      60.1 1872.
+##  6 Algeria             2006      63.9 2125.
+##  7 Angola              2001      54.2  298.
+##  8 Angola              2011      58.6  630.
+##  9 Antigua and Barbuda 2001      99.4 9640.
+## 10 Antigua and Barbuda 2011      99.4 9978.
+## # … with 495 more rows
 ```
 
 ---
@@ -1680,35 +1724,249 @@ head(litGDPinner)
 ### full
 
 ```r
-litGDPfull &lt;- dplyr::full_join(litF, GDP, by=c("country", "year"))
-dim(litGDPfull); sum(is.na(litGDPfull$gdp))
+litGDPfull &lt;- full_join(litF, GDP, by=c("country", "year"))
+dim(litGDPfull)
 ```
 
 ```
 ## [1] 8054    4
 ```
 
-```
-## [1] 66
-```
-
 ```r
-head(litGDPfull)
+litGDPfull
 ```
 
 ```
-## # A tibble: 6 × 4
-##   country     year  litRateF   gdp
-##   &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
-## 1 Afghanistan 1979      4.99   NA 
-## 2 Afghanistan 2011     13      NA 
-## 3 Albania     2001     98.3  1282.
-## 4 Albania     2008     94.7  1804.
-## 5 Albania     2011     95.7  1966.
-## 6 Algeria     1987     35.8  1902.
+## # A tibble: 8,054 × 4
+##    country     year  litRateF   gdp
+##    &lt;chr&gt;       &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1 Afghanistan 1979      4.99   NA 
+##  2 Afghanistan 2011     13      NA 
+##  3 Albania     2001     98.3  1282.
+##  4 Albania     2008     94.7  1804.
+##  5 Albania     2011     95.7  1966.
+##  6 Algeria     1987     35.8  1902.
+##  7 Algeria     2002     60.1  1872.
+##  8 Algeria     2006     63.9  2125.
+##  9 Angola      2001     54.2   298.
+## 10 Angola      2011     58.6   630.
+## # … with 8,044 more rows
 ```
 ---
  
+
+## `join` to **merge** two datasets
+
+&lt;img src="../images/join.png" width="90%" style="display: block; margin: auto;" /&gt;
+
+
+
+If you ever need to understand which join is the right join for you, try to find an image that will lay out what the function is doing.  I found this one that is quite good and is taken from Statistics Globe blog: https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti
+
+---
+
+## **purrr** for functional programming
+
+.pull-left[
+The `map` functions are *named* by the **output** the produce.  For example: 
+
+* `map(.x, .f)` is the main mapping function and returns a list
+
+* `map_df(.x, .f)` returns a data frame
+
+* `map_dbl(.x, .f)` returns a numeric (double) vector
+
+* `map_chr(.x, .f)` returns a character vector
+
+* `map_lgl(.x, .f)` returns a logical vector
+]
+
+.pull-right[
+&lt;img src="../images/purrr_map.png" width="90%" style="display: block; margin: auto;" /&gt;
+]
+Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
+
+---
+
+### Input
+
+The **input** to a `map` function is always either a *vector* (like a column), a *list* (which can be non-rectangular), or a *dataframe* (like a rectangle).
+
+A list is a way to hold things which might be very different in shape:
+
+
+```r
+a_list &lt;- list(a_number = 5,
+                      a_vector = c("a", "b", "c"),
+                      a_dataframe = data.frame(a = 1:3, 
+                                               b = c("q", "b", "z"), 
+                                               c = c("bananas", "are", "so very great")))
+
+print(a_list)
+```
+
+```
+## $a_number
+## [1] 5
+## 
+## $a_vector
+## [1] "a" "b" "c"
+## 
+## $a_dataframe
+##   a b             c
+## 1 1 q       bananas
+## 2 2 b           are
+## 3 3 z so very great
+```
+
+---
+
+###  Output
+
+
+
+```r
+add_ten &lt;- function(x) {
+  return(x + 10)
+  }
+```
+
+We can `map()` the `add_ten()` function across a vector.  Note that the output is a list (the default).
+
+
+```r
+library(tidyverse)
+map(.x = c(2, 5, 10),
+    .f = add_ten)
+```
+
+```
+## [[1]]
+## [1] 12
+## 
+## [[2]]
+## [1] 15
+## 
+## [[3]]
+## [1] 20
+```
+
+---
+
+###  Output &amp; Input
+
+What if we use a different type of input?  The default behavior is to still return a list!
+
+
+```r
+data.frame(a = 2, b = 5, c = 10) %&gt;%
+  map(add_ten)
+```
+
+```
+## $a
+## [1] 12
+## 
+## $b
+## [1] 15
+## 
+## $c
+## [1] 20
+```
+
+What if we want a different type of output?  We use a different `map()` function, `map_df()`, for example.
+
+
+```r
+data.frame(a = 2, b = 5, c = 10) %&gt;%
+  map_df(add_ten)
+```
+
+```
+## # A tibble: 1 × 3
+##       a     b     c
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    12    15    20
+```
+
+---
+
+### Shorthand
+
+Shorthand lets us get away from pre-defining the function (which will be useful).  Use the tilde `~` to indicate that you have a function: 
+
+
+```r
+data.frame(a = 2, b = 5, c = 10) %&gt;%
+  map_df(~{.x + 10})
+```
+
+```
+## # A tibble: 1 × 3
+##       a     b     c
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    12    15    20
+```
+
+### Shorthand in more complex settings
+
+
+```r
+library(palmerpenguins)
+library(broom)
+
+penguins %&gt;%
+  split(.$species) %&gt;%
+  map(~ lm(body_mass_g ~ flipper_length_mm, data = .x)) %&gt;%
+  map_df(tidy)  # map(tidy)
+```
+
+```
+## # A tibble: 6 × 5
+##   term              estimate std.error statistic  p.value
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)        -2536.     965.       -2.63 9.48e- 3
+## 2 flipper_length_mm     32.8      5.08      6.47 1.34e- 9
+## 3 (Intercept)        -3037.     997.       -3.05 3.33e- 3
+## 4 flipper_length_mm     34.6      5.09      6.79 3.75e- 9
+## 5 (Intercept)        -6787.    1093.       -6.21 7.65e- 9
+## 6 flipper_length_mm     54.6      5.03     10.9  1.33e-19
+```
+
+```r
+penguins %&gt;%
+  group_by(species) %&gt;%
+  group_map(~lm(body_mass_g ~ flipper_length_mm, data = .x)) %&gt;%
+  map(tidy)  # map_df(tidy)
+```
+
+```
+## [[1]]
+## # A tibble: 2 × 5
+##   term              estimate std.error statistic       p.value
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+## 1 (Intercept)        -2536.     965.       -2.63 0.00948      
+## 2 flipper_length_mm     32.8      5.08      6.47 0.00000000134
+## 
+## [[2]]
+## # A tibble: 2 × 5
+##   term              estimate std.error statistic       p.value
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+## 1 (Intercept)        -3037.     997.       -3.05 0.00333      
+## 2 flipper_length_mm     34.6      5.09      6.79 0.00000000375
+## 
+## [[3]]
+## # A tibble: 2 × 5
+##   term              estimate std.error statistic  p.value
+##   &lt;chr&gt;                &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)        -6787.    1093.       -6.21 7.65e- 9
+## 2 flipper_length_mm     54.6      5.03     10.9  1.33e-19
+```
+
+
+---
+
+
 ## `lubridate`
   
 `lubridate` is a another R package meant for data wrangling!  
@@ -1751,7 +2009,7 @@ day(rightnow)
 ```
 
 ```
-## [1] 14
+## [1] 16
 ```
 
 ```r
@@ -1796,7 +2054,7 @@ minute(rightnow)
 ```
 
 ```
-## [1] 57
+## [1] 1
 ```
 
 ```r
@@ -1804,7 +2062,7 @@ hour(rightnow)
 ```
 
 ```
-## [1] 8
+## [1] 9
 ```
 
 ```r
@@ -1812,7 +2070,7 @@ yday(rightnow)
 ```
 
 ```
-## [1] 257
+## [1] 259
 ```
 
 ```r
@@ -1820,7 +2078,7 @@ mday(rightnow)
 ```
 
 ```
-## [1] 14
+## [1] 16
 ```
 
 ```r
@@ -1828,7 +2086,7 @@ wday(rightnow, label=FALSE)
 ```
 
 ```
-## [1] 3
+## [1] 5
 ```
 
 ```r
@@ -1836,7 +2094,7 @@ wday(rightnow, label=TRUE)
 ```
 
 ```
-## [1] Tue
+## [1] Thu
 ## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat
 ```
 
@@ -1846,14 +2104,14 @@ wday(rightnow, label=TRUE)
 
 
 ```r
-jan31 &lt;- ymd("2013-01-31")
+jan31 &lt;- ymd("2021-01-31")
 jan31 + months(0:11)
 ```
 
 ```
-##  [1] "2013-01-31" NA           "2013-03-31" NA           "2013-05-31"
-##  [6] NA           "2013-07-31" "2013-08-31" NA           "2013-10-31"
-## [11] NA           "2013-12-31"
+##  [1] "2021-01-31" NA           "2021-03-31" NA           "2021-05-31"
+##  [6] NA           "2021-07-31" "2021-08-31" NA           "2021-10-31"
+## [11] NA           "2021-12-31"
 ```
 
 ```r
@@ -1861,9 +2119,9 @@ floor_date(jan31, "month") + months(0:11) + days(31)
 ```
 
 ```
-##  [1] "2013-02-01" "2013-03-04" "2013-04-01" "2013-05-02" "2013-06-01"
-##  [6] "2013-07-02" "2013-08-01" "2013-09-01" "2013-10-02" "2013-11-01"
-## [11] "2013-12-02" "2014-01-01"
+##  [1] "2021-02-01" "2021-03-04" "2021-04-01" "2021-05-02" "2021-06-01"
+##  [6] "2021-07-02" "2021-08-01" "2021-09-01" "2021-10-02" "2021-11-01"
+## [11] "2021-12-02" "2022-01-01"
 ```
 
 ```r
@@ -1871,9 +2129,9 @@ jan31 + months(0:11) + days(31)
 ```
 
 ```
-##  [1] "2013-03-03" NA           "2013-05-01" NA           "2013-07-01"
-##  [6] NA           "2013-08-31" "2013-10-01" NA           "2013-12-01"
-## [11] NA           "2014-01-31"
+##  [1] "2021-03-03" NA           "2021-05-01" NA           "2021-07-01"
+##  [6] NA           "2021-08-31" "2021-10-01" NA           "2021-12-01"
+## [11] NA           "2022-01-31"
 ```
 
 ```r
@@ -1881,9 +2139,9 @@ jan31 %m+% months(0:11)
 ```
 
 ```
-##  [1] "2013-01-31" "2013-02-28" "2013-03-31" "2013-04-30" "2013-05-31"
-##  [6] "2013-06-30" "2013-07-31" "2013-08-31" "2013-09-30" "2013-10-31"
-## [11] "2013-11-30" "2013-12-31"
+##  [1] "2021-01-31" "2021-02-28" "2021-03-31" "2021-04-30" "2021-05-31"
+##  [6] "2021-06-30" "2021-07-31" "2021-08-31" "2021-09-30" "2021-10-31"
+## [11] "2021-11-30" "2021-12-31"
 ```
 
 ---
@@ -1914,20 +2172,24 @@ flightsWK &lt;- flights %&gt;%
           whichweek = week(ymdday)) 
 
 flightsWK %&gt;% select(year, month, day, ymdday, weekdy, whichweek, 
-                     dep_time, arr_time, air_time) %&gt;%
-  head()
+                     dep_time, arr_time, air_time) 
 ```
 
 ```
-## # A tibble: 6 × 9
-##    year month   day ymdday     weekdy whichweek dep_time arr_time air_time
-##   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;date&gt;     &lt;ord&gt;      &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;    &lt;dbl&gt;
-## 1  2013     1     1 2013-01-01 Tue            1      517      830      227
-## 2  2013     1     1 2013-01-01 Tue            1      533      850      227
-## 3  2013     1     1 2013-01-01 Tue            1      542      923      160
-## 4  2013     1     1 2013-01-01 Tue            1      544     1004      183
-## 5  2013     1     1 2013-01-01 Tue            1      554      812      116
-## 6  2013     1     1 2013-01-01 Tue            1      554      740      150
+## # A tibble: 336,776 × 9
+##     year month   day ymdday     weekdy whichweek dep_time arr_time air_time
+##    &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;date&gt;     &lt;ord&gt;      &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;    &lt;dbl&gt;
+##  1  2013     1     1 2013-01-01 Tue            1      517      830      227
+##  2  2013     1     1 2013-01-01 Tue            1      533      850      227
+##  3  2013     1     1 2013-01-01 Tue            1      542      923      160
+##  4  2013     1     1 2013-01-01 Tue            1      544     1004      183
+##  5  2013     1     1 2013-01-01 Tue            1      554      812      116
+##  6  2013     1     1 2013-01-01 Tue            1      554      740      150
+##  7  2013     1     1 2013-01-01 Tue            1      555      913      158
+##  8  2013     1     1 2013-01-01 Tue            1      557      709       53
+##  9  2013     1     1 2013-01-01 Tue            1      557      838      140
+## 10  2013     1     1 2013-01-01 Tue            1      558      753      138
+## # … with 336,766 more rows
 ```
 
 ---
@@ -1942,7 +2204,7 @@ Step 1.  Copy code onto the clipboard
 
 Step 2.  Type `reprex()` into the Console
 
-Step 3.  Look at the Viewer to the right.  Copy the Viewer output into GitHub, Piazza, an email, stackexchange, etc.
+Step 3.  Look at the Viewer to the right.  Copy the Viewer output into GitHub, Piazza, Discord, an email, stackexchange, etc.
 
 ---
 
@@ -1957,7 +2219,7 @@ multiple lines of code:
 
 ```
 reprex({
-  jan31 &lt;- ymd("2013-01-31")
+  jan31 &lt;- ymd("2021-01-31")
   jan31 + months(0:11) + days(31)
 })
 ```
@@ -1965,7 +2227,7 @@ reprex({
 ```
 reprex({
   library(lubridate)
-  jan31 &lt;- ymd("2013-01-31")
+  jan31 &lt;- ymd("2021-01-31")
   jan31 + months(0:11) + days(31)
 })
 ```
