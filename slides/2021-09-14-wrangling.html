@@ -441,16 +441,16 @@ sample_n(flights, 10)
 ## # A tibble: 10 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2013     2     9       NA            805        NA       NA           1112
-##  2  2013     5    24     1941           1855        46     2245           2220
-##  3  2013     5     6     2138           2040        58      113             38
-##  4  2013     7    15     1821           1825        -4     2052           2032
-##  5  2013    11    17     1151           1200        -9     1246           1309
-##  6  2013    12    29     1548           1538        10     1753           1741
-##  7  2013     3    17      827            830        -3     1025           1015
-##  8  2013     2    19     1612           1529        43     1713           1642
-##  9  2013     7     8      559            605        -6      846            905
-## 10  2013     3     5      745            600       105     1006            825
+##  1  2013     6     9     1056           1105        -9     1407           1418
+##  2  2013    11    18     1751           1755        -4     1930           1930
+##  3  2013    11    17     1100           1105        -5     1206           1215
+##  4  2013     5    18     1122           1131        -9     1429           1444
+##  5  2013     6    14      705            705         0      955           1004
+##  6  2013     9     2     2153           2129        24     2313           2236
+##  7  2013    12    20     1820           1800        20     2014           1945
+##  8  2013     3     4     2041           2010        31     2329           2325
+##  9  2013     8     7      602            605        -3      747            749
+## 10  2013     7    29     1758           1800        -2     1904           1915
 ## # … with 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
 ## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
 ## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;
@@ -886,7 +886,7 @@ Good practice:  always specify the `by` argument when joining data frames.
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-.footnote[Example from [DataScience in a Box](https://datasciencebox.org/)]
+.footnote[Example and gifs from [DataScience in a Box](https://datasciencebox.org/)]
 ---
 
 ## Inputs
@@ -2012,7 +2012,7 @@ day(rightnow)
 ```
 
 ```
-## [1] 16
+## [1] 17
 ```
 
 ```r
@@ -2020,7 +2020,7 @@ week(rightnow)
 ```
 
 ```
-## [1] 37
+## [1] 38
 ```
 
 ```r
@@ -2057,7 +2057,7 @@ minute(rightnow)
 ```
 
 ```
-## [1] 24
+## [1] 0
 ```
 
 ```r
@@ -2065,7 +2065,7 @@ hour(rightnow)
 ```
 
 ```
-## [1] 9
+## [1] 8
 ```
 
 ```r
@@ -2073,7 +2073,7 @@ yday(rightnow)
 ```
 
 ```
-## [1] 259
+## [1] 260
 ```
 
 ```r
@@ -2081,7 +2081,7 @@ mday(rightnow)
 ```
 
 ```
-## [1] 16
+## [1] 17
 ```
 
 ```r
@@ -2089,7 +2089,7 @@ wday(rightnow, label=FALSE)
 ```
 
 ```
-## [1] 5
+## [1] 6
 ```
 
 ```r
@@ -2097,7 +2097,7 @@ wday(rightnow, label=TRUE)
 ```
 
 ```
-## [1] Thu
+## [1] Fri
 ## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat
 ```
 

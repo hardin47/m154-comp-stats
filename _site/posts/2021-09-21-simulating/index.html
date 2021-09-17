@@ -87,50 +87,50 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Computational Statistics: 1. Start with R + Git</title>
+<title>Computational Statistics: 4. Simulating</title>
 
-<meta property="description" itemprop="description" content="The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub."/>
+<meta property="description" itemprop="description" content="Simulating scenarios, simulating datasets, simulating data."/>
 
-<link rel="canonical" href="https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/"/>
+<link rel="canonical" href="https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 <link rel="icon" type="image/vnd.microsoft.icon" href="../../images/favicon.ico"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-08-31"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-08-31"/>
-<meta name="article:author" content="Jo Hardin"/>
+<meta property="article:published" itemprop="datePublished" content="2021-09-21"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-09-21"/>
+<meta name="article:author" content="Johanna Hardin"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Computational Statistics: 1. Start with R + Git"/>
+<meta property="og:title" content="Computational Statistics: 4. Simulating"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub."/>
-<meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/"/>
-<meta property="og:image" content="https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/../../images/reproducibility_court.png"/>
-<meta property="og:image:width" content="4678"/>
-<meta property="og:image:height" content="2814"/>
+<meta property="og:description" content="Simulating scenarios, simulating datasets, simulating data."/>
+<meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/"/>
+<meta property="og:image" content="https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/../../images/purrr_cat.png"/>
+<meta property="og:image:width" content="4358"/>
+<meta property="og:image:height" content="3264"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Computational Statistics"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Computational Statistics: 1. Start with R + Git"/>
-<meta property="twitter:description" content="The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub."/>
-<meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/"/>
-<meta property="twitter:image" content="https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/../../images/reproducibility_court.png"/>
-<meta property="twitter:image:width" content="4678"/>
-<meta property="twitter:image:height" content="2814"/>
+<meta property="twitter:title" content="Computational Statistics: 4. Simulating"/>
+<meta property="twitter:description" content="Simulating scenarios, simulating datasets, simulating data."/>
+<meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/"/>
+<meta property="twitter:image" content="https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/../../images/purrr_cat.png"/>
+<meta property="twitter:image:width" content="4358"/>
+<meta property="twitter:image:height" content="3264"/>
 <meta property="twitter:site" content="@jo_hardin47"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["1. Start with R + Git"]},{"type":"character","attributes":{},"value":["The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Jo Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["08-31-2021"]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["4. Simulating"]},{"type":"character","attributes":{},"value":["Simulating scenarios, simulating datasets, simulating data."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Johanna Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-09-21"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["getting-started_files/anchor-4.2.2/anchor.min.js","getting-started_files/bowser-1.9.3/bowser.min.js","getting-started_files/distill-2.2.21/template.v2.js","getting-started_files/header-attrs-2.10.3/header-attrs.js","getting-started_files/header-attrs-2.11.1/header-attrs.js","getting-started_files/jquery-3.6.0/jquery-3.6.0.js","getting-started_files/jquery-3.6.0/jquery-3.6.0.min.js","getting-started_files/jquery-3.6.0/jquery-3.6.0.min.map","getting-started_files/popper-2.6.0/popper.min.js","getting-started_files/tippy-6.2.7/tippy-bundle.umd.min.js","getting-started_files/tippy-6.2.7/tippy-light-border.css","getting-started_files/tippy-6.2.7/tippy.css","getting-started_files/tippy-6.2.7/tippy.umd.min.js","getting-started_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"NULL"}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2249,7 +2249,7 @@ h1, h2, h3, h4, h5 {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"1. Start with R + Git","description":"The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub.","authors":[{"author":"Jo Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-08-31T00:00:00.000-07:00","citationText":"Hardin, 2021"}
+{"title":"4. Simulating","description":"Simulating scenarios, simulating datasets, simulating data.","authors":[{"author":"Johanna Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-09-21T00:00:00.000-07:00","citationText":"Hardin, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2290,77 +2290,62 @@ Project
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>1. Start with R + Git</h1>
+<h1>4. Simulating</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>The importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub.</p></p>
+<p><p>Simulating scenarios, simulating datasets, simulating data.</p></p>
 </div>
 
 <div class="d-byline">
-  Jo Hardin <a href="https://m154-comp-stats.netlify.app/" class="uri">https://m154-comp-stats.netlify.app/</a> 
+  Johanna Hardin <a href="https://m154-comp-stats.netlify.app/" class="uri">https://m154-comp-stats.netlify.app/</a> 
   
-<br/>08-31-2021
+<br/>2021-09-21
 </div>
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
-<img src="../../images/reproducibility_court.png" alt="Judge monster confirming that the RStudio monster has reproducible work." width="2339" data-distill-preview=1 />
+<img src="../../images/purrr_cat.png" alt="Monsters using a lasso on other monsters and their data to indicate wrangling." width="2179" data-distill-preview=1 />
 <p class="caption">
 Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_horst</span>.
 </p>
 </div>
 </div>
-<h2 id="agenda">Agenda <i class="fas fa-calendar-alt"></i></h2>
-<h3 id="august-31-2021">August 31, 2021</h3>
+<h2 id="agenda">Agenda <i class="fas fa-calendar-alt" target="_blank"></i></h2>
+<h3 id="september-21-2021">September 21, 2021</h3>
 <ol type="1">
-<li>Questionnaire</li>
-<li>Syllabus &amp; Course Outline</li>
-<li>Stitch Fix Algorithm</li>
-<li>College Rankings</li>
-<li>Can Twitter predict election results?</li>
+<li>Why simulate?</li>
+<li>What makes a good simulation?</li>
+<li>Examples</li>
 </ol>
-<p>Before next Thursday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.</p>
-<h3 id="september-2-2021">September 2, 2021</h3>
+<h3 id="september-23-2021">September 23, 2021</h3>
 <ol type="1">
-<li>Reproducibility &amp; GitHub</li>
-<li><a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a></li>
+<li>Bias in modeling</li>
+<li>Simulating statistical inference</li>
 </ol>
-<p>Before next Tuesday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>. (Use Google to find it.)</p>
 <h2 id="readings">Readings <i class="fas fa-book-open"></i></h2>
 <ul>
-<li>The <a href="/syllabus/">syllabus</a></li>
-<li><strong>Modern Data Science with R</strong> <a href="https://mdsr-book.github.io/mdsr2e/ch-prologue.html" target="_blank">Prologue</a></li>
-<li>Class notes: <a href = "http://st47s.com/Math154/Notes/intro.html" target= "_blank">Introduction</a></li>
+<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/sims.html" target= "_blank">Simulating</a></p></li>
+<li><p>Baumer, Horton, and Kaplan (2021), <a href = "https://r4ds.had.co.nz/transform.html" target = "_blank">Iteration (Chp 7)</a> in Modern Data Science for R.</p></li>
 </ul>
 <h2 id="reflection-questions">Reflection questions <i class="fas fa-lightbulb"></i></h2>
 <ul>
-<li><p>What can statistics &amp; data science do? How do they do that?</p></li>
-<li><p>What can’t statistics &amp; data science do? Why not?</p></li>
-<li><p>What choices were made to collect the Twitter data?</p></li>
-<li><p>What choices were made to model the Twitter data?</p></li>
-<li><p>What are the advantages and disadvantages of high touch versus low touch data?</p></li>
+<li>What are some reasons to simulate?</li>
+<li>What makes a good simulation?</li>
 </ul>
 <h2 id="ethics-considerations">Ethics considerations <i class="fas fa-balance-scale"></i></h2>
 <ul>
-<li><p>Why is it problematic if the analysis isn’t reproducible?</p></li>
-<li><p>Is every analysis worth doing? (e.g., time to get to work, predicting presidential results, etc.). Can the <em>act</em> of doing the analysis be ethically questionable?</p></li>
+<li>How can we use simulations to understand algorithmic bias or other types of problems in modeling?</li>
 </ul>
 <h2 id="slides">Slides <i class="fas fa-desktop"></i></h2>
 <ul>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-08-31-reprodgit" target = "_blank">In class slides</a> for both 8/31/21 and 9/2/21.</p></li>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/twitter.pdf" target = "_blank">Twitter activity</a></p></li>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU1_R_sol.pdf" target = "_blank">WU1 - working with R</a></p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-09-21-simulating" target = "_blank">In class slides</a> for both 9/21/21 and 9/23/21.</p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU6_.pdf" target = "_blank">WU6 - </a></p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU7_.pdf" target = "_blank">WU7 - </a></p></li>
 </ul>
 <h2 id="additional-resources">Additional Resources <i class="fas fa-laptop"></i></h2>
 <ul>
-<li><p><a href = "http://algorithms-tour.stitchfix.com/" target="_blank">Great algorithm for the whole process</a></p></li>
-<li><p><a href = "https://simplystatistics.org/2019/01/09/how-data-scientists-think-a-mini-case-study/" target="_blank">Design Challenge (Not So Standard Deviations)</a>, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a>.</p></li>
-<li><p><a href = "https://www.youtube.com/watch?v=s3JldKoA0zw&feature=youtu.be" target="_blank">Video (less than 2 min) on the strengths of reproducible research</a></p></li>
-<li><p><a href = "https://www.dataquest.io/blog/python-vs-r/" target="_blank">R vs. Python? (My personal opinion is that neither of the languages is “best”.)</a></p></li>
-<li><p><a href = "https://www.kaggle.com/surveys/2017" target="_blank">2017 Kaggle user survey</a> and <a href = "https://insights.stackoverflow.com/survey/2019" target="_blank"> 2019 Stack Overflow Developer Survey</a></p></li>
-<li><p><a href = "http://cardiobrief.org/2016/04/06/pnas-paper-by-prominent-cardiologist-and-dean-retracted/" target="_blank">PNAS paper retracted due to problems with figure and reproducibility (April 2016)</a></p></li>
-<li><p>Analysis of Trump’s tweets with evidence that someone else tweets from his account using an iPhone <a href = "http://varianceexplained.org/r/trump-tweets/" target="_blank">part 1</a> and <a href = "http://varianceexplained.org/r/trump-followup/" target="_blank">part 2 </a></p></li>
+<li>RStudio <a href = "https://www.rstudio.com/resources/cheatsheets/" target = "_blank">cheatsheets</a> – there is one on <strong>purrr</strong>!</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

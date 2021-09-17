@@ -657,7 +657,7 @@ professions %>%
   kable()
 ```
 
-.footnote[Example from [DataScience in a Box](https://datasciencebox.org/)]
+.footnote[Example and gifs from [DataScience in a Box](https://datasciencebox.org/)]
 ---
 
 ## Inputs
