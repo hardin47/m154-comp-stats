@@ -23,7 +23,6 @@ opts_chunk$set(
   message=FALSE,
   warning=FALSE,
   size='small',
-  cache=TRUE,
   tidy=FALSE
   )
 library(lubridate)

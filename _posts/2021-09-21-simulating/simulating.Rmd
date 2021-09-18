@@ -15,7 +15,7 @@ output:
 
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters using a lasso on other monsters and their data to indicate wrangling.", preview = TRUE, echo = FALSE}
-knitr::include_graphics("../../images/purrr_cat.png")
+knitr::include_graphics("../../images/map_frosting.png")
 ```
 
 
@@ -65,9 +65,11 @@ knitr::include_graphics("../../images/purrr_cat.png")
 
 * RStudio <a href = "https://www.rstudio.com/resources/cheatsheets/" target = "_blank">cheatsheets</a> -- there is one on **purrr**!
 
+* Simulating who would be in the [first GOP debate](http://www.nytimes.com/interactive/2015/07/21/upshot/election-2015-the-first-gop-debate-and-the-role-of-chance.html)  (NYT 7/29/15)
 
+* Blog by Aaron Roth, [Algorithmic Unfairness Without Any Bias Baked In](http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html).  
 
-
+* [Simulating linear models](http://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm) from the ISCAM applets.
 
 
 
