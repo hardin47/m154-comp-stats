@@ -1,7 +1,7 @@
 ---
-title: "Simulating (probabilities, pigs, Blackjack)"
+title: "Simulating: scenarios, datasets, random variables"
 author: "Jo Hardin"
-date: "September 21, 2021"
+date: "September 21 & 23, 2021"
 output:
   xaringan::moon_reader:
     nature:
@@ -24,12 +24,22 @@ options(digits=3)
 ```
 
 
+---
+
+# Agenda  9/21/21
+
+1. Why simulate?
+2. What makes a good simulation
+3. Examples
+
+---
+
 ##  What can simulation tell us?
 
 * 2016:  10 of the 16 Republican presidential candidates were allowed into the first debate using an average of the five most recent major national polls.
 
 ```{r out.width = '100%', fig.align='center', echo=FALSE}
-knitr::include_graphics("./images/GOPdebate.jpg")
+knitr::include_graphics("../images/GOPdebate.jpg")
 ```
 
 Simulating who would be in the [first GOP debate](http://www.nytimes.com/interactive/2015/07/21/upshot/election-2015-the-first-gop-debate-and-the-role-of-chance.html) 
@@ -48,47 +58,66 @@ The goal of simulating a complicated model is not only to create a program which
 
 
 
-## A few important R functions (ifelse)
+## Aside: a few important R functions (`ifelse()`)
 ```{r}
-temp <- c(-2:2); temp
-ifelse(temp >=0, temp, -temp)  # absolute value
+data.frame(value = c(-2:2)) %>%
+  mutate(abs_value = ifelse(value >=0, value, -value))  # absolute value
 ```
 
 ---
 
-## A few important R functions (ifelse)
+## Aside: a few important R functions (`case_when()`)
 ```{r}
 set.seed(4747)
 diamonds %>% select(carat, cut, color, price) %>%
   sample_n(20) %>%
-  mutate(price_cat = ifelse(price > 10000, "expensive",
-                            ifelse( price > 1500, "medium", "cheap")))
-
+  mutate(price_cat = case_when(
+    price > 10000 ~ "expensive",
+    price > 1500 ~ "medium", 
+    TRUE ~ "inexpensive"))
 ```
 
 ---
 
-## A few important R functions (and/or)
+## Aside: a few important R functions (`set.seed()`)
+
+What if we want to be able to generate the **same** random numbers (here on the interval from 0 to 1) over and over?
+
 ```{r}
+set.seed(4747)
+runif(4) # random uniform numbers
+
+set.seed(123)
+runif(4) # random uniform numbers
+
+set.seed(4747)
+runif(4) # random uniform numbers
+```
+
+
+---
+
+```{r eval = FALSE, include = FALSE, echo = FALSE}
+## Aside: a few important R functions (and/or)
+    ```{r}
 diamonds %>% 
   select(carat, cut, color, clarity, price) %>% 
   head(3)
-```
+     ```
 
---
 ```{r}
 (diamonds$color == "E" & diamonds$cut == "Premium") %>% head()
 
 (diamonds$color == "E" | diamonds$cut == "Premium") %>% head()
-```
----
+  ```
 
-## A few important R functions (and/or)
+
+## Aside: a few important R functions (and/or)
 ```{r}
 diamonds %>% 
   select(carat, cut, color, clarity, price) %>% 
   head(3)
-```
+  ```
 
 ```{r}
 # first element ONLY
@@ -96,8 +125,10 @@ diamonds %>%
 
 # first element ONLY
 (diamonds$color == "E" || diamonds$cut == "Premium") 
+   ```
 ```
----
+
+
 
 
 ## Small simulation problem
@@ -106,20 +137,25 @@ Estimate $E(X)$ where $X=\max \{ k: \sum_{i=1}^k U_i < 1 \}$ and $U_i$ are unifo
 --
 
 ```{r}
-k <- 0; sumU <- 0
-while(sumU < 1) {
-  sumU <- sumU + runif(1)
-  k <- k+1
+set.seed(4747)
+sum_unif <- function(sumU, k){
+  while(sumU < 1) {
+    sumU <- sumU + runif(1)
+    k <- k+1
 }
-k-1; sumU
+  return(c(k, sumU))
+}
+
+sum_unif(0,0)
 ```
 
 ---
 
 ## Small simulation problem
+
 Estimate $E(X)$ where $X=\max \{ k: \sum_{i=1}^k U_i < 1 \}$ and $U_i$ are uniform(0,1).
 
-```{r}
+```{r echo = FALSE, include = FALSE, eval = FALSE}
 set.seed(4747)
 allk <- c()
 for(i in 1:1000){
@@ -130,6 +166,14 @@ for(i in 1:1000){
   allk <- c(allk, k-1) }
 mean(allk)
 ```
+
+
+```{r}
+set.seed(4747)
+
+
+```
+
 
 ---
 
@@ -148,7 +192,7 @@ mean(allk)
 A game by Winning Moves (previously Hasboro) involving rolling pigs
 
 ```{r out.width = '100%', fig.align='center', echo=FALSE}
-knitr::include_graphics("./images/Pass the Pigs Points.png")
+knitr::include_graphics("../images/Pass the Pigs Points.png")
 ```
 
 ---
@@ -172,7 +216,7 @@ What is your best strategy for winning???
 
 
 ```{r out.width = '100%', fig.align='center', echo=FALSE}
-knitr::include_graphics("./images/Blackjack_game_1.png")
+knitr::include_graphics("../images/Blackjack_game_1.png")
 ```
 
 ---

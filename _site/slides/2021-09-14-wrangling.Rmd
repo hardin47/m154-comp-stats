@@ -776,7 +776,7 @@ left_join(x, y, by = "id")
 
 ```{r}
 professions %>%
-  left_join(dates, by = "name") #<<
+  left_join(dates, by = "name") 
 ```
 
 ---
@@ -801,7 +801,7 @@ right_join(x, y, by = "id")
 
 ```{r}
 professions %>%
-  right_join(dates, by = "name") #<<
+  right_join(dates, by = "name") 
 ```
 
 ---
@@ -825,7 +825,7 @@ full_join(x, y, by = "id")
 
 ```{r}
 dates %>%
-  full_join(works, by = "name") #<<
+  full_join(works, by = "name") 
 ```
 
 ---
@@ -849,7 +849,7 @@ inner_join(x, y, by = "id")
 
 ```{r}
 dates %>%
-  inner_join(works, by = "name") #<<
+  inner_join(works, by = "name") 
 ```
 
 ---
@@ -873,7 +873,7 @@ semi_join(x, y, by = "id")
 
 ```{r}
 dates %>%
-  semi_join(works, by = "name") #<<
+  semi_join(works, by = "name") 
 ```
 
 ---
@@ -897,7 +897,7 @@ anti_join(x, y, by = "id")
 
 ```{r}
 dates %>%
-  anti_join(works, by = "name") #<<
+  anti_join(works, by = "name") 
 ```
 
 ---

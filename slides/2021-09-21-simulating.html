@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Simulating: scenarios, datasets, random variables</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jo Hardin" />
+    <script src="2021-09-21-simulating_files/header-attrs-2.11.1/header-attrs.js"></script>
+    <link href="2021-09-21-simulating_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="2021-09-21-simulating_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: right, top, my-title, title-slide
+
+# Simulating: scenarios, datasets, random variables
+### Jo Hardin
+### September 21 &amp; 23, 2021
+
+---
+
+
+
+
+
+---
+
+# Agenda  9/21/21
+
+1. Why simulate?
+2. What makes a good simulation
+3. Examples
+
+---
+
+##  What can simulation tell us?
+
+* 2016:  10 of the 16 Republican presidential candidates were allowed into the first debate using an average of the five most recent major national polls.
+
+&lt;img src="../images/GOPdebate.jpg" width="100%" style="display: block; margin: auto;" /&gt;
+
+Simulating who would be in the [first GOP debate](http://www.nytimes.com/interactive/2015/07/21/upshot/election-2015-the-first-gop-debate-and-the-role-of-chance.html) 
+
+---
+
+### Goals of Simulating Complicated Models
+
+The goal of simulating a complicated model is not only to create a program which will provide the desired results.  We also hope to be able to code such that:
+
+1. The problem is broken down into small pieces
+2. The problem has checks in it to see what works (run the lines *inside* the if statements!)
+3. Simple code is best
+
+---
+
+
+
+## Aside: a few important R functions (ifelse)
+
+```r
+data.frame(value = c(-2:2)) %&gt;%
+  mutate(abs_value = ifelse(value &gt;=0, value, -value))  # absolute value
+```
+
+```
+##   value abs_value
+## 1    -2         2
+## 2    -1         1
+## 3     0         0
+## 4     1         1
+## 5     2         2
+```
+
+---
+
+## Aside: a few important R functions (case_when)
+
+```r
+set.seed(4747)
+diamonds %&gt;% select(carat, cut, color, price) %&gt;%
+  sample_n(20) %&gt;%
+  mutate(price_cat = case_when(
+    price &gt; 10000 ~ "expensive",
+    price &gt; 1500 ~ "medium", 
+    TRUE ~ "inexpensive"))
+```
+
+```
+## # A tibble: 20 × 5
+##    carat cut       color price price_cat  
+##    &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;int&gt; &lt;chr&gt;      
+##  1  1.23 Very Good F     10276 expensive  
+##  2  0.35 Premium   H       706 inexpensive
+##  3  0.7  Good      E      2782 medium     
+##  4  0.4  Ideal     D      1637 medium     
+##  5  0.53 Ideal     G      1255 inexpensive
+##  6  2.22 Ideal     G     14637 expensive  
+##  7  0.3  Ideal     G       878 inexpensive
+##  8  1.05 Ideal     H      4223 medium     
+##  9  0.53 Premium   E      1654 medium     
+## 10  1.7  Ideal     H      7068 medium     
+## 11  0.31 Good      E       698 inexpensive
+## 12  0.31 Ideal     F       840 inexpensive
+## 13  1.03 Ideal     H      4900 medium     
+## 14  0.31 Premium   G       698 inexpensive
+## 15  1.56 Premium   G      8858 medium     
+## 16  1.71 Premium   G     11032 expensive  
+## 17  1    Good      E      5345 medium     
+## 18  1.86 Ideal     J     10312 expensive  
+## 19  1.08 Very Good E      3726 medium     
+## 20  0.31 Premium   E       698 inexpensive
+```
+
+---
+
+
+    
+    ```r
+    diamonds %&gt;% 
+      select(carat, cut, color, clarity, price) %&gt;% 
+      head(3)
+    ```
+    
+    ```
+    ## # A tibble: 3 × 5
+    ##   carat cut     color clarity price
+    ##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;int&gt;
+    ## 1  0.23 Ideal   E     SI2       326
+    ## 2  0.21 Premium E     SI1       326
+    ## 3  0.23 Good    E     VS1       327
+    ```
+
+
+```r
+(diamonds$color == "E" &amp; diamonds$cut == "Premium") %&gt;% head()
+```
+
+```
+## [1] FALSE  TRUE FALSE FALSE FALSE FALSE
+```
+
+```r
+(diamonds$color == "E" | diamonds$cut == "Premium") %&gt;% head()
+```
+
+```
+## [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+```
+
+
+## Aside: a few important R functions (and/or)
+
+```r
+diamonds %&gt;% 
+  select(carat, cut, color, clarity, price) %&gt;% 
+  head(3)
+```
+
+```
+## # A tibble: 3 × 5
+##   carat cut     color clarity price
+##   &lt;dbl&gt; &lt;ord&gt;   &lt;ord&gt; &lt;ord&gt;   &lt;int&gt;
+## 1  0.23 Ideal   E     SI2       326
+## 2  0.21 Premium E     SI1       326
+## 3  0.23 Good    E     VS1       327
+```
+
+
+```r
+# first element ONLY
+(diamonds$color == "E" &amp;&amp; diamonds$cut == "Premium") 
+```
+
+```
+## [1] FALSE
+```
+
+```r
+# first element ONLY
+(diamonds$color == "E" || diamonds$cut == "Premium") 
+```
+
+```
+## [1] TRUE
+```
+```
+
+
+
+
+## Small simulation problem
+Estimate `\(E(X)\)` where `\(X=\max \{ k: \sum_{i=1}^k U_i &lt; 1 \}\)` and `\(U_i\)` are uniform(0,1).
+
+--
+
+
+```r
+set.seed(4747)
+sum_unif &lt;- function(sumU, k){
+while(sumU &lt; 1) {
+  sumU &lt;- sumU + runif(1)
+  k &lt;- k+1
+}
+  return(c(k, sumU))
+}
+
+sum_unif(0,0)
+```
+
+```
+## [1] 3.00 1.05
+```
+
+---
+
+## Small simulation problem
+
+Estimate `\(E(X)\)` where `\(X=\max \{ k: \sum_{i=1}^k U_i &lt; 1 \}\)` and `\(U_i\)` are uniform(0,1).
+
+
+```r
+set.seed(4747)
+allk &lt;- c()
+for(i in 1:1000){
+  k &lt;- 0; sumU &lt;- 0  
+  while(sumU &lt; 1) {
+    sumU &lt;- sumU + runif(1)
+    k &lt;- k+1 }
+  allk &lt;- c(allk, k-1) }
+mean(allk)
+```
+
+```
+## [1] 1.74
+```
+
+---
+
+
+
+## Thoughts on simulating
+
+* how to break down problem into small steps
+* check to see what works
+* simple is better
+
+---
+
+
+## Pass the Pigs
+A game by Winning Moves (previously Hasboro) involving rolling pigs
+
+&lt;img src="../images/Pass the Pigs Points.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## Pig Rules
+
+- Roll pigs, accumulate points
+- Stop if you want or if you Pig Out (no Oinker)
+- First player to 100 points wins
+
+What is your best strategy for winning???
+
+---
+
+## Basic Blackjack
+
+* Card game, goal: sum cards as close to 21 without going over
+* A few nuances to card value (e.g., Ace can be 1 or 11)
+* Start with 2 cards, build up one card at a time
+* Lots of different strategies (also based on dealer's cards)
+
+
+&lt;img src="../images/Blackjack_game_1.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+---
+
+## What do we need to simulate poker?
+
+&gt; - set-up of cards, dealing, hands
+&gt; - "score" (both sum of cards and payout)
+&gt; - strategies
+&gt; - result of strategies (summary of outcomes)
+
+---
+
+## Source
+
+* Example and code come from **Data Science in R: a case studies approach to computational reasoning and problem solving** by Nolan and Temple Lang.
+* Chapter 9 *Simulating Blackjack* by Hadley Wickham
+* All R code is online at [http://rdatasciencecases.org/](http://rdatasciencecases.org/)
+* Link is also on the HW4 assignment
+
+---
+
+## Setting up the Game in R
+
+
+```r
+deck = rep(c(1:10, 10, 10, 10), 4)
+
+shuffle_decks = function(ndecks){sample(rep(deck, ndecks))}
+
+head(shuffle_decks(4), 10)
+```
+
+```
+##  [1]  3  6  4  4 10  8  4  6  1  3
+```
+
+---
+
+## Outcome of cards in hand
+
+```r
+handValue = function(cards) {
+  value = sum(cards)
+  value
+       # Check for an Ace and change value if it doesn't bust
+  if (any(cards == 1) &amp;&amp; value &lt;= 11) 
+    value = value + 10
+  
+       # Check bust (set to 0); check Blackjack (set to 21.5)
+  if(value &gt; 21)  
+    0 
+  else if (value == 21 &amp;&amp; length(cards) == 2)  
+    21.5 # Blackjack
+  else 
+    value
+}
+handValue(c(10,4))
+```
+
+```
+## [1] 14
+```
+
+---
+
+## $ of cards in hand
+
+```r
+winnings = function(dealer, players) {
+  if (dealer &gt; 21) {  # Dealer=Blackjack, ties players with Blackjack
+    -1 * (players &lt;= 21)
+  } else if (dealer == 0) { # Dealer busts - all non-busted players win
+    1.5 * (players &gt; 21) +
+      1 * (players &lt;= 21 &amp; players &gt; 0) +
+     -1 * (players == 0) 
+  } else {            # Dealer 21 or below, all players &gt; dealer win
+    1.5 * (players &gt; 21) +  
+      1 * (players &lt;= 21 &amp; players &gt; dealer) +
+     -1 * (players &lt;= 21 &amp; players &lt; dealer) 
+  }
+}
+winnings(17,c(20, 21.5, 14, 0, 21))
+```
+
+```
+## [1]  1.0  1.5 -1.0 -1.0  1.0
+```
+
+---
+
+## Better $ of cards in hand
+
+```r
+winnings = function(dealer, players){
+  (players &gt; dealer &amp; players &gt; 21) * 1.5 + # Blackjack
+  (players &gt; dealer &amp; players &lt;= 21) * 1 +  # win
+  (players &lt; dealer | players == 0) * -1    # lose
+}
+
+winnings(17,c(20, 21.5, 14, 0, 21))
+```
+
+```
+## [1]  1.0  1.5 -1.0 -1.0  1.0
+```
+
+```r
+winnings(21.5,c(20, 21.5, 14, 0, 21))
+```
+
+```
+## [1] -1  0 -1 -1 -1
+```
+
+---
+
+## How well does `handValue` work?
+
+```r
+test_cards = list( c(10, 1), c(10, 5, 6), c(10, 1, 1), 
+                   c(7, 6, 1, 5), c(3, 6, 1, 1), 
+                   c(2, 3, 4, 10), c(5, 1, 9, 1, 1),
+                   c(5, 10, 7), c(10, 9, 1, 1, 1)) 
+
+test_cards_val = c(21.5, 21, 12, 19, 21, 19, 17, 0, 0)
+sapply(test_cards, handValue)  # apply the function handValue to test_cards
+```
+
+```
+## [1] 21.5 21.0 12.0 19.0 21.0 19.0 17.0  0.0  0.0
+```
+
+```r
+identical(test_cards_val, sapply(test_cards, handValue))
+```
+
+```
+## [1] TRUE
+```
+
+---
+
+## Testing winnings (create known)
+
+```r
+test_vals = c(0, 16, 19, 20, 21, 21.5)
+
+testWinnings =
+  matrix(c( -1,  1,  1,  1,  1, 1.5,
+            -1,  0,  1,  1,  1, 1.5,
+            -1, -1,  0,  1,  1, 1.5,
+            -1, -1, -1,  0,  1, 1.5,
+            -1, -1, -1, -1,  0, 1.5,
+            -1, -1, -1, -1, -1, 0), 
+         nrow = length(test_vals), byrow = TRUE)
+dimnames(testWinnings) = list(dealer = test_vals, 
+                              player = test_vals)
+
+testWinnings
+```
+
+```
+##       player
+## dealer  0 16 19 20 21 21.5
+##   0    -1  1  1  1  1  1.5
+##   16   -1  0  1  1  1  1.5
+##   19   -1 -1  0  1  1  1.5
+##   20   -1 -1 -1  0  1  1.5
+##   21   -1 -1 -1 -1  0  1.5
+##   21.5 -1 -1 -1 -1 -1  0.0
+```
+
+---
+
+## Does `winnings` work?
+
+```r
+check = testWinnings  # make the matrix the right size
+check[] = NA  # make all entries NA
+ 
+for(i in seq_along(test_vals)) {
+  for(j in seq_along(test_vals)) {
+    check[i, j] = winnings(test_vals[i], test_vals[j])
+  }
+}
+
+identical(check, testWinnings)
+```
+
+```
+## [1] TRUE
+```
+
+---
+
+## Function for getting more cards 
+
+```r
+shoe = function(m = 1) sample(deck, m, replace = TRUE)
+
+new_hand = function(shoe, cards = shoe(2), bet = 1) {
+  list(bet = bet, shoe = shoe, cards = cards)
+}
+myCards = new_hand(shoe, bet = 7)
+myCards
+```
+
+```
+## $bet
+## [1] 7
+## 
+## $shoe
+## function(m = 1) sample(deck, m, replace = TRUE)
+## 
+## $cards
+## [1] 10  4
+```
+
+---
+
+## First action: hit
+receive another card
+
+```r
+hit = function(hand) {
+  hand$cards = c(hand$cards, hand$shoe(1))
+  hand
+}
+
+hit(myCards)$cards
+```
+
+```
+## [1] 10  4  3
+```
+
+---
+
+## Second action: stand 
+stay with current cards
+
+```r
+stand = function(hand) hand
+
+stand(myCards)$cards
+```
+
+```
+## [1] 10  4
+```
+
+---
+
+## Third action: double down
+double the bet after receiving exactly one more card
+
+```r
+dd =  function(hand) {
+  hand$bet = hand$bet * 2
+  hand = hit(hand)
+  stand(hand)
+}
+
+dd(myCards)$cards
+```
+
+```
+## [1] 10  4 10
+```
+
+---
+
+## Fourth action: split a pair
+create two different hands from initial hand with two cards of the same value
+
+
+```r
+splitPair = function(hand) {
+  list( new_hand(hand$shoe, 
+             cards = c(hand$cards[1], hand$shoe(1)),
+             bet = hand$bet),
+        new_hand(hand$shoe, 
+             cards = c(hand$cards[2], hand$shoe(1)),
+             bet = hand$bet))   }
+splitHand = splitPair(myCards)
+```
+
+---  
+
+## Results of splitting
+(can we always split?)
+
+```r
+splitHand[[1]]$cards
+```
+
+```
+## [1] 10  4
+```
+
+```r
+splitHand[[2]]$cards
+```
+
+```
+## [1] 4 9
+```
+
+---
+
+## Let's play!  Not yet automated...
+
+```r
+set.seed(470); dealer = new_hand(shoe); player = new_hand(shoe); 
+dealer$cards[1]
+```
+
+```
+## [1] 2
+```
+
+```r
+player$cards; player = hit(player); player$cards
+```
+
+```
+## [1]  5 10
+```
+
+```
+## [1]  5 10  9
+```
+
+```r
+dealer$cards; dealer = hit(dealer); dealer$cards
+```
+
+```
+## [1] 2 3
+```
+
+```
+## [1] 2 3 3
+```
+
+---
+
+## Who won?
+
+```r
+dealer$cards; player$cards
+```
+
+```
+## [1] 2 3 3
+```
+
+```
+## [1]  5 10  9
+```
+
+```r
+handValue(dealer$cards); handValue(player$cards)
+```
+
+```
+## [1] 8
+```
+
+```
+## [1] 0
+```
+
+```r
+winnings(handValue(dealer$cards), handValue(player$cards))
+```
+
+```
+## [1] -1
+```
+
+---
+
+##  Simply strategy
+recall the handValue function -- what if player busts?
+
+```r
+strategy_simple = function(mine, dealerFaceUp) {
+  if (handValue(dealerFaceUp) &gt; 6 &amp;&amp; handValue(mine) &lt; 17) 
+     "H" 
+  else 
+     "S"
+}
+```
+
+---
+
+## Better simple strategy
+
+```r
+strategy_simple = function(mine, dealerFaceUp) {
+  if (handValue(mine) == 0) return("S")
+  if (handValue(dealerFaceUp) &gt; 6 &amp;&amp; handValue(mine) &lt; 17) 
+     "H" 
+  else 
+     "S"
+}
+```
+
+---
+
+##  Dealer
+The dealer gets cards regardless of what the player does
+
+```r
+dealer_cards = function(shoe) {
+  cards = shoe(2)
+  while(handValue(cards) &lt; 17 &amp;&amp; handValue(cards) &gt; 0) {
+    cards = c(cards, shoe(1))
+  }
+  cards
+}
+
+dealer_cards(shoe)
+```
+
+```
+## [1] 5 9 1 8
+```
+
+```r
+dealer_cards(shoe)
+```
+
+```
+## [1]  4  4  7 10
+```
+
+---
+
+## Playing a hand
+
+```r
+play_hand = function(shoe, strategy, 
+                      hand = new_hand(shoe), 
+                      dealer = dealer_cards(shoe)) {
+  
+  face_up_card = dealer[1]
+  
+  action = strategy(hand$cards, face_up_card)
+  while(action != "S" &amp;&amp; handValue(hand$cards) != 0) {
+    if (action == "H") {
+      hand = hit(hand)
+      action = strategy(hand$cards, face_up_card)
+    } else {
+      stop("Unknown action: should be one of S, H")
+    }
+  }  
+
+  winnings(handValue(dealer), handValue(hand$cards)) * hand$bet
+}
+```
+
+---
+
+## Play a few hands
+
+```r
+play_hand(shoe, strategy_simple)
+```
+
+```
+## [1] 0
+```
+
+```r
+play_hand(shoe, strategy_simple)
+```
+
+```
+## [1] -1
+```
+
+```r
+play_hand(shoe, strategy_simple, new_hand(shoe, bet=7))
+```
+
+```
+## [1] 0
+```
+
+```r
+play_hand(shoe, strategy_simple, new_hand(shoe, bet=7))
+```
+
+```
+## [1] 7
+```
+
+---
+
+## Repeated games
+
+To repeat the game, we simply repeat the `play_hand` function and keep track of the dollars gained or lost.
+
+
+```r
+reps=10
+money=20
+for(i in 1:reps){
+  money &lt;- money + play_hand(shoe, strategy_simple)
+  print(money)}
+```
+
+```
+## [1] 19
+## [1] 20
+## [1] 19
+## [1] 18
+## [1] 19.5
+## [1] 18.5
+## [1] 20
+## [1] 19
+## [1] 18
+## [1] 19.5
+```
+
+&lt;!--
+---
+
+## Generating U[0,1] variables
+
+
+```r
+ a=31541435235; b=23462146143; m=423514351351
+
+xval=47; reps=10000; unif.val = c()
+
+for(i in 1:reps){   xval = (a*xval + b) %% m
+  unif.val = c(unif.val, xval/m)   }
+```
+
+---
+
+## Plot of U[0,1] values
+
+```r
+data.frame(uniformRVs = unif.val) %&gt;%
+  ggplot(aes(x = uniformRVs)) + geom_histogram(bins = 25)
+```
+
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
+
+---
+
+## Generating random Weibull(2,1) variables
+
+
+```r
+unifdata = runif(10000,0,1)
+weib1data = sqrt(-log(1-unifdata))
+weib2data = rweibull(10000,2,1)
+
+weibdata &lt;- data.frame(weibull = c(weib1data, weib2data),
+                       sim.method = c(rep("InvTrans", 10000), 
+                                      rep("rweibull", 10000)))
+```
+
+---
+
+## Plot of Weibull data
+
+```r
+ggplot(weibdata, aes(x = weibull)) + geom_histogram(bins = 25) + 
+  facet_grid(~sim.method)
+```
+
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
+
+--&gt;
+
+
+---
+
+## Bias in a model
+
+```
+talent ~ Normal (100, 15)
+grades ~ Normal (talent, 15)
+SAT ~ Normal (talent, 15)
+```
+
+College wants to admit students with 
+&gt; `talent &gt; 115` 
+
+... but they only have access to `grades` and `SAT` which are noisy estimates of `talent`.
+
+The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [Algorithmic Unfairness Without Any Bias Baked In](http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html).  
+
+---
+
+## Plan for accepting students
+
+* Run a regression on a training dataset (`talent` is known for existing students)
+* Find a model which predicts `talent` based on `grades` and `SAT`
+* Choose students for whom predicted `talent` is above 115
+
+---
+
+##  Flaw in the plan ...
+
+* there are two populations of students, the Reds and Blues. 
+* Reds are the majority population (99%), and Blues are a small minority population (1%) 
+* the Reds and the Blues are no different when it comes to talent: they both have the same talent distribution, as described above. 
+* there is no bias baked into the grading or the exams: both the Reds and the Blues also have exactly the same grade and exam score distributions
+
+--
+
+&gt; But there is one difference: the Blues have more money than the Reds, so they each take the **SAT twice**, and report only the highest of the two scores to the college. This results in a small but noticeable bump in their average SAT scores, compared to the Reds.
+
+---
+
+##  Key aspect:
+
+&gt; The value of `SAT` means something different for the Reds versus the Blues
+
+(They have different feature distributions.)
+
+---
+
+##  Let's see what happens ...
+
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+
+---
+
+## Two models:
+
+
+```
+## # A tibble: 3 × 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)   33.2     0.154        216.       0
+## 2 SAT            0.334   0.00151      221.       0
+## 3 grades         0.334   0.00151      221.       0
+```
+
+```
+## # A tibble: 3 × 5
+##   term        estimate std.error statistic   p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)   25.8      1.57        16.5 3.56e- 54
+## 2 SAT            0.401    0.0152      26.4 5.03e-117
+## 3 grades         0.305    0.0141      21.7 7.13e- 86
+```
+
+---
+
+## New data
+
+* Generate new data and use the two models above. 
+
+* How well do the models accurately predict if the student has `talent` &gt; 115?
+
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+
+---
+
+## New data
+
+.pull-left[
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+]
+
+
+.pull-right[
+
+```
+## # A tibble: 2 × 5
+##   color   tpr    fpr   fnr error
+##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 blue  0.548 0.0320 0.452 0.098
+## 2 red   0.506 0.0382 0.494 0.111
+```
+
+]
+
+---
+
+## **TWO** models doesn't seem right????
+
+What if we fit only one model to the entire dataset?
+
+Afterall, there are laws against using protected classes to make decisions (housing, jobs, money loans, college, etc.)
+
+
+```
+## # A tibble: 3 × 5
+##   term        estimate std.error statistic p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+## 1 (Intercept)   33.2     0.153        217.       0
+## 2 SAT            0.334   0.00150      222.       0
+## 3 grades         0.334   0.00150      223.       0
+```
+---
+
+## How do the error rates change?
+
+.pull-left[
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+
+```
+## # A tibble: 2 × 5
+##   color   tpr    fpr   fnr error
+##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 blue  0.656 0.0534 0.344 0.099
+## 2 red   0.505 0.0378 0.495 0.111
+```
+]
+---
+
+##  What did we learn?
+
+&gt; with two populations that have different feature distributions, learning a single classifier (that is prohibited from discriminating based on population) will fit the bigger of the two populations
+
+* depending on the nature of the distribution difference, this can be either to the benefit or the detriment of the minority population
+
+* no explicit human bias, either on the part of the algorithm designer or the data gathering process
+
+* the problem is exacerbated if we artificially force the algorithm to be group blind
+
+* well intentioned "fairness" regulations prohibiting decision makers form taking sensitive attributes into account can actually make things less fair and less accurate at the same time
+
+---
+
+## Sensitivity of CI to tech conditions
+
+Consider the following set up (as in the WU):
+
+
+
+
+```r
+set.seed(4747)
+beta2.in &lt;- c()
+beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
+n&lt;- 100; reps=10000
+
+
+  x1 &lt;- rep(c(0,1), each=n/2)
+  x2 &lt;- runif(n, min=-1, max=1)
+  y &lt;- beta0 + beta1*x1 + beta2*x2 + rnorm(n, mean=0, sd = 1)
+```
+
+---
+
+## Plot of data
+
+```r
+data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
+  ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se=FALSE) 
+```
+
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
+
+
+---
+
+## Capture the slope parameter?
+
+* We know the truth (!!!!!)
+* We can create a CI for the parameter given the data set
+* Is the parameter in the interval?
+* Should it always be in the interval?  How often?
+
+
+See: http://www.rossmanchance.com/applets/RegShuffle.htm
+
+---
+
+## Running a linear model
+
+
+```r
+CI &lt;- lm(y~x1+x2) %&gt;% tidy(conf.int=TRUE) %&gt;% data.frame()
+
+CI
+```
+
+```
+##          term estimate std.error statistic  p.value conf.low conf.high
+## 1 (Intercept)   -1.065     0.151     -7.05 2.60e-10   -1.364    -0.765
+## 2          x1    0.532     0.212      2.51 1.37e-02    0.111     0.953
+## 3          x2    1.499     0.196      7.64 1.59e-11    1.109     1.889
+```
+
+```r
+between(beta2, CI[3,6], CI[3,7])
+```
+
+```
+## [1] TRUE
+```
+
+---
+
+## What happens to the CI of coefficients in repeated samples? (eq var)
+
+```r
+beta2.in &lt;- c()
+beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
+n &lt;- 100; reps &lt;- 10000
+
+set.seed(4747)
+for(i in 1:reps){
+  x1 &lt;- rep(c(0,1), each=n/2)
+  x2 &lt;- runif(n, min=-1, max=1)
+  y &lt;- beta0 + beta1*x1 + beta2*x2 + rnorm(n, mean=0, sd = 1)
+
+  CI &lt;- lm(y~x1+x2) %&gt;% tidy(conf.int=TRUE) %&gt;% data.frame()
+  
+  beta2.in &lt;- c(beta2.in, between(beta2, CI[3,6], CI[3,7]))
+}
+
+# coverage rate of the CI is given by:
+sum(beta2.in)/reps
+```
+
+```
+## [1] 0.952
+```
+
+---
+
+## Sensitivity of CI to tech conditions
+
+Consider the following set up (note the difference in variability):
+
+
+```r
+set.seed(470)
+beta0 &lt;- -1
+beta1 &lt;- 0.5
+beta2 &lt;- 1.5
+n &lt;- 100
+reps &lt;- 10000
+
+  x1 &lt;- rep(c(0,1), each=n/2)
+  x2 &lt;- runif(n, min=-1, max=1)
+  y &lt;- beta0 + beta1*x1 + beta2*x2 + 
+             rnorm(n, mean=0, sd = 1 + x1 + 10*abs(x2))
+```
+
+---
+
+## Plot of data
+
+```r
+data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
+  ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se=FALSE)
+```
+
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
+
+---
+
+## What happens to the CI of coefficients in repeated samples? (uneq var)
+
+```r
+beta2.in &lt;- c()
+beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
+n &lt;- 100; reps &lt;- 10000
+
+set.seed(4747)
+for(i in 1:reps){
+  x1 &lt;- rep(c(0,1), each=n/2)
+  x2 &lt;- runif(n, min=-1, max=1)
+  y &lt;- beta0 + beta1*x1 + beta2*x2 + 
+             rnorm(n, mean=0, sd = 1 + x1 + 10*abs(x2))
+
+  CI &lt;- lm(y~x1+x2) %&gt;% broom::tidy(conf.int=TRUE) %&gt;% data.frame()
+  
+  beta2.in &lt;- c(beta2.in, between(beta2, CI[3,6], CI[3,7]))
+}
+
+# coverage rate of the CI is given by:
+sum(beta2.in)/reps
+```
+
+```
+## [1] 0.872
+```
+
+---
+
+## Equal variance: type I error?
+ 
+
+```r
+set.seed(4747)
+pvals &lt;- c()
+reps &lt;- 10000
+for(i in 1:reps){
+  x1 &lt;- rnorm(10, mean=47, sd=1)
+  x2 &lt;- rnorm(10, mean=47, sd=1)
+  pvals &lt;- c(pvals, t.test(x1,x2, var.equal=TRUE)$p.value) }
+
+sum(pvals &lt; .05)/reps
+```
+
+```
+## [1] 0.0484
+```
+
+---
+
+## Unequal variance: type I error?
+ 
+
+```r
+pvals &lt;- c()
+reps &lt;- 10000
+for(i in 1:reps){
+  x1 &lt;- rnorm(10, mean=47, sd=1)
+  x2 &lt;- rnorm(10, mean=47, sd=100)
+  pvals &lt;- c(pvals, t.test(x1,x2, var.equal=TRUE)$p.value) }
+
+sum(pvals &lt; .05)/reps
+```
+
+```
+## [1] 0.0673
+```
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightlines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
