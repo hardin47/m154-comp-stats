@@ -80,6 +80,36 @@ diamonds %>% select(carat, cut, color, price) %>%
     TRUE ~ "inexpensive"))
 ```
 
+
+---
+
+## Aside: a few R functions (`sample()`)
+
+When simulating, it's important to understand the difference between *sampling*, *shuffling*,  and *resampling*.  We'll use the function `sample()` to do all three:
+
+```{r}
+# shuffle
+alph <- letters[1:10];alph
+
+sample(alph, 5, replace = FALSE) # sample (from a population)
+
+sample(alph, 20, replace = TRUE) # sample (from a population)
+
+sample(alph, replace = FALSE)  # shuffle
+
+sample(alph, replace = TRUE)  # resampling
+```
+
+---
+
+## Why?
+
+Three simulating methods are used for different purposes:
+
+1. Monte Carlo methods - use *sampling* repeated sampling from populations with known (either via data or via populations) characteristics.
+2. Randomization / Permutation methods - use *shuffling* (sampling without replacement) to test hypotheses of "no effect".
+3. Bootstrap methods - use *resampling* (sampling with replacement) to establish confidence intervals.
+
 ---
 
 ## Aside: a few R functions (`set.seed()`)
@@ -101,8 +131,7 @@ runif(4) # random uniform numbers
 
 ## Aside: a few R functions (`rep()`, `seq()`)
 
-Both functions create vectors.  One with repeated values, the other with a sequence of values.  Try different inputs to the functions to see what you get!
-
+Output is a vector; `rep ()`has repeated values, `seq()` for a sequence.
 ```{r}
 rep(c("a", "b", "c"), times = 2)
 
@@ -113,8 +142,8 @@ rep(c("a", "b", "c"), each = 2)
 seq(2, 9, by = pi)
 
 seq(47, 40, by = -4)
-
 ```
+
 
 ---
 
@@ -218,7 +247,8 @@ sim_k_max <- data.frame(row_id = seq(1, reps, 1)) %>%
   mutate(max_for_EX = map(row_id, sum_unif)) %>%
   unnest(max_for_EX) %>%
   mutate(output = rep(c("k", "sum"), reps)) %>%
-  pivot_wider(id_cols = row_id, names_from = output, values_from = max_for_EX) 
+  pivot_wider(id_cols = row_id, names_from = output, 
+              values_from = max_for_EX) 
 ```
 ]
 
@@ -289,14 +319,9 @@ knitr::include_graphics("../images/Blackjack_game_1.png")
 > - strategies
 > - result of strategies (summary of outcomes)
 
----
 
-## Source
+.footnote[Example and code come from **Data Science in R: a case studies approach to computational reasoning and problem solving** by Nolan and Temple Lang, chapter 9 *Simulating Blackjack* by Hadley Wickham. R code online at [http://rdatasciencecases.org/](http://rdatasciencecases.org/).]
 
-* Example and code come from **Data Science in R: a case studies approach to computational reasoning and problem solving** by Nolan and Temple Lang.
-* Chapter 9 *Simulating Blackjack* by Hadley Wickham
-* All R code is online at [http://rdatasciencecases.org/](http://rdatasciencecases.org/)
-* Link is also on the HW4 assignment
 
 ---
 
@@ -381,10 +406,9 @@ sapply(test_cards, handValue)  # apply the function handValue to test_cards
 identical(test_cards_val, sapply(test_cards, handValue))
 ```
 
----
 
+```{r eval = FALSE, include = FALSE}
 ## Testing winnings (create known)
-```{r}
 test_vals = c(0, 16, 19, 20, 21, 21.5)
 
 testWinnings =
@@ -401,10 +425,10 @@ dimnames(testWinnings) = list(dealer = test_vals,
 testWinnings
 ```
 
----
 
+```{r eval = FALSE, include = FALSE}
 ## Does `winnings` work?
-```{r}
+
 check = testWinnings  # make the matrix the right size
 check[] = NA  # make all entries NA
  
@@ -440,7 +464,7 @@ hit = function(hand) {
   hand
 }
 
-hit(myCards) %>% select(cards)
+hit(myCards)$cards
 ```
 
 ---
@@ -483,7 +507,9 @@ splitPair = function(hand) {
 splitHand = splitPair(myCards)
 ```
 
----  
+
+---
+
 
 ## Results of splitting
 (can we always split?)
@@ -598,19 +624,41 @@ play_hand(shoe, strategy_simple, new_hand(shoe, bet=7))
 To repeat the game, we simply repeat the `play_hand` function and keep track of the dollars gained or lost.
 
 ```{r}
-reps=10
-money=20
-for(i in 1:reps){
-  money <- money + play_hand(shoe, strategy_simple)
-  print(money)}
+set.seed(4747)
+reps <- 10
+money <- 20
+
+map_dbl(1:reps, ~ play_hand(shoe, strategy_simple)) %>%
+  accumulate(`+`) + 20
 ```
 
-<!--
----
 
+```{r eval = FALSE, include = FALSE}
+play_hand_2 <- function(.x, shoe, strategy, 
+                      hand = new_hand(shoe), 
+                      dealer = dealer_cards(shoe)) {
+  
+  face_up_card <- dealer[1]
+  
+  action <- strategy(hand$cards, face_up_card)
+  while(action != "S" && handValue(hand$cards) != 0) {
+    if (action == "H") {
+      hand = hit(hand)
+      action = strategy(hand$cards, face_up_card)
+    } else {
+      stop("Unknown action: should be one of S, H")
+    }
+  }  
+
+  winnings(handValue(dealer), handValue(hand$cards)) * hand$bet
+}
+
+play_hand_2()
+```
+
+
+```{r eval = FALSE, include = FALSE}
 ## Generating U[0,1] variables
-
-```{r}
  a=31541435235; b=23462146143; m=423514351351
 
 xval=47; reps=10000; unif.val = c()
@@ -619,19 +667,17 @@ for(i in 1:reps){   xval = (a*xval + b) %% m
   unif.val = c(unif.val, xval/m)   }
 ```
 
----
 
+```{r eval = FALSE, include = FALSE}
 ## Plot of U[0,1] values
-```{r}
 data.frame(uniformRVs = unif.val) %>%
   ggplot(aes(x = uniformRVs)) + geom_histogram(bins = 25)
 ```
 
----
 
+
+```{r eval = FALSE, include = FALSE}
 ## Generating random Weibull(2,1) variables
-
-```{r}
 unifdata = runif(10000,0,1)
 weib1data = sqrt(-log(1-unifdata))
 weib2data = rweibull(10000,2,1)
@@ -642,15 +688,13 @@ weibdata <- data.frame(weibull = c(weib1data, weib2data),
 
 ```
 
----
 
+```{r eval = FALSE, include = FALSE}
 ## Plot of Weibull data
-```{r}
 ggplot(weibdata, aes(x = weibull)) + geom_histogram(bins = 25) + 
   facet_grid(~sim.method)
 ```
 
--->
 
 
 ---
@@ -912,14 +956,13 @@ library(broom)
 
 ```{r}
 set.seed(4747)
-beta2.in <- c()
 beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
-n<- 100; reps=10000
+n_obs <- 100; reps <- 10000
 
 
   x1 <- rep(c(0,1), each=n/2)
   x2 <- runif(n, min=-1, max=1)
-  y <- beta0 + beta1*x1 + beta2*x2 + rnorm(n, mean=0, sd = 1)
+  y <- beta0 + beta1*x1 + beta2*x2 + rnorm(n_obs, mean=0, sd = 1)
 ```
 
 ---
@@ -952,32 +995,49 @@ See: http://www.rossmanchance.com/applets/RegShuffle.htm
 ```{r}
 CI <- lm(y~x1+x2) %>% tidy(conf.int=TRUE) %>% data.frame()
 
-CI
-between(beta2, CI[3,6], CI[3,7])
+CI %>%
+  filter(term == "x2") %>%
+  select(term, estimate, conf.low, conf.high) %>%
+  mutate(inside = between(beta2, conf.low, conf.high))
 ```
 
 ---
 
 ## What happens to the CI of coefficients in repeated samples? (eq var)
 ```{r}
-beta2.in <- c()
-beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
-n <- 100; reps <- 10000
+eqvar_data <- 
+  data.frame(row_id = seq(1, n_obs, 1)) %>%
+  slice(rep(row_id, each = reps)) %>%
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c(0,1), each = n()/2),
+    x2 = runif(n(), min = -1, max = 1),
+    y = beta0 + beta1*x1 + beta2*x2 + rnorm(n(), mean = 0, sd = 1)
+  ) %>%
+  arrange(sim_id, row_id) %>%
+  group_by(sim_id) %>%
+  nest()
 
-set.seed(4747)
-for(i in 1:reps){
-  x1 <- rep(c(0,1), each=n/2)
-  x2 <- runif(n, min=-1, max=1)
-  y <- beta0 + beta1*x1 + beta2*x2 + rnorm(n, mean=0, sd = 1)
+eqvar_data
+``` 
 
-  CI <- lm(y~x1+x2) %>% tidy(conf.int=TRUE) %>% data.frame()
-  
-  beta2.in <- c(beta2.in, between(beta2, CI[3,6], CI[3,7]))
+---
+
+```{r}
+beta_coef <- function(df){
+  lm(y ~ x1 + x2, data = df) %>%
+    tidy(conf.int = TRUE) %>%
+    filter(term == "x2") %>%
+    select(estimate, conf.low, conf.high) 
 }
 
-# coverage rate of the CI is given by:
-sum(beta2.in)/reps
-``` 
+eqvar_data %>% 
+  mutate(b2_vals = map(data, beta_coef)) %>%
+  select(b2_vals) %>% 
+  unnest(b2_vals) %>%
+  summarize(capture = between(beta2, conf.low, conf.high)) %>%
+  summarize(capture_rate = sum(capture)/reps)
+```
 
 ---
 
@@ -1013,24 +1073,26 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
 
 ## What happens to the CI of coefficients in repeated samples? (uneq var)
 ```{r}
-beta2.in <- c()
-beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
-n <- 100; reps <- 10000
+uneqvar_data <- 
+  data.frame(row_id = seq(1, n_obs, 1)) %>%
+  slice(rep(row_id, each = reps)) %>%
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c(0,1), each = n()/2),
+    x2 = runif(n(), min = -1, max = 1),
+    y = beta0 + beta1*x1 + beta2*x2 + 
+              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))
+  ) %>%
+  arrange(sim_id, row_id) %>%
+  group_by(sim_id) %>%
+  nest()
 
-set.seed(4747)
-for(i in 1:reps){
-  x1 <- rep(c(0,1), each=n/2)
-  x2 <- runif(n, min=-1, max=1)
-  y <- beta0 + beta1*x1 + beta2*x2 + 
-             rnorm(n, mean=0, sd = 1 + x1 + 10*abs(x2))
-
-  CI <- lm(y~x1+x2) %>% broom::tidy(conf.int=TRUE) %>% data.frame()
-  
-  beta2.in <- c(beta2.in, between(beta2, CI[3,6], CI[3,7]))
-}
-
-# coverage rate of the CI is given by:
-sum(beta2.in)/reps
+uneqvar_data %>% 
+  mutate(b2_vals = map(data, beta_coef)) %>%
+  select(b2_vals) %>% 
+  unnest(b2_vals) %>%
+  summarize(capture = between(beta2, conf.low, conf.high)) %>%
+  summarize(capture_rate = sum(capture)/reps)
 ``` 
 
 ---

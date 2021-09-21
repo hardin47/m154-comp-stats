@@ -56,7 +56,7 @@ knitr::include_graphics("../../images/map_frosting.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2021-09-21-simulating" target = "_blank">In class slides</a> for both 9/21/21 and 9/23/21.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU6_.pdf" target = "_blank">WU6 - </a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU6_sim.pdf" target = "_blank">WU6 - Simulating</a>
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU7_simCI.pdf" target = "_blank">WU7 - Simulating CIs</a>
 

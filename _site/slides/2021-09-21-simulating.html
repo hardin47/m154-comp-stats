@@ -111,6 +111,66 @@ diamonds %&gt;% select(carat, cut, color, price) %&gt;%
 ## 20  0.31 Premium   E       698 inexpensive
 ```
 
+
+---
+
+## Aside: a few R functions (`sample()`)
+
+When simulating, it's important to understand the difference between *sampling*, *shuffling*,  and *resampling*.  We'll use the function `sample()` to do all three:
+
+
+```r
+# shuffle
+alph &lt;- letters[1:10];alph
+```
+
+```
+##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+```
+
+```r
+sample(alph, 5, replace = FALSE) # sample (from a population)
+```
+
+```
+## [1] "g" "b" "e" "f" "h"
+```
+
+```r
+sample(alph, 20, replace = TRUE) # sample (from a population)
+```
+
+```
+##  [1] "j" "g" "i" "a" "g" "e" "a" "g" "c" "e" "j" "i" "d" "a" "d" "b" "j" "h" "a"
+## [20] "e"
+```
+
+```r
+sample(alph, replace = FALSE)  # shuffle
+```
+
+```
+##  [1] "i" "h" "b" "g" "a" "f" "j" "d" "e" "c"
+```
+
+```r
+sample(alph, replace = TRUE)  # resampling
+```
+
+```
+##  [1] "b" "d" "c" "f" "e" "j" "j" "e" "a" "c"
+```
+
+---
+
+## Why?
+
+Three simulating methods are used for different purposes:
+
+1. Monte Carlo methods - use *sampling* repeated sampling from populations with known (either via data or via populations) characteristics.
+2. Randomization / Permutation methods - use *shuffling* (sampling without replacement) to test hypotheses of "no effect".
+3. Bootstrap methods - use *resampling* (sampling with replacement) to establish confidence intervals.
+
 ---
 
 ## Aside: a few R functions (`set.seed()`)
@@ -149,8 +209,7 @@ runif(4) # random uniform numbers
 
 ## Aside: a few R functions (`rep()`, `seq()`)
 
-Both functions create vectors.  One with repeated values, the other with a sequence of values.  Try different inputs to the functions to see what you get!
-
+Output is a vector; `rep ()`has repeated values, `seq()` for a sequence.
 
 ```r
 rep(c("a", "b", "c"), times = 2)
@@ -191,6 +250,7 @@ seq(47, 40, by = -4)
 ```
 ## [1] 47 43
 ```
+
 
 ---
 
@@ -262,7 +322,8 @@ sim_k_max &lt;- data.frame(row_id = seq(1, reps, 1)) %&gt;%
   mutate(max_for_EX = map(row_id, sum_unif)) %&gt;%
   unnest(max_for_EX) %&gt;%
   mutate(output = rep(c("k", "sum"), reps)) %&gt;%
-  pivot_wider(id_cols = row_id, names_from = output, values_from = max_for_EX) 
+  pivot_wider(id_cols = row_id, names_from = output, 
+              values_from = max_for_EX) 
 ```
 ]
 
@@ -355,14 +416,9 @@ What is your best strategy for winning???
 &gt; - strategies
 &gt; - result of strategies (summary of outcomes)
 
----
 
-## Source
+.footnote[Example and code come from **Data Science in R: a case studies approach to computational reasoning and problem solving** by Nolan and Temple Lang, chapter 9 *Simulating Blackjack* by Hadley Wickham. R code online at [http://rdatasciencecases.org/](http://rdatasciencecases.org/).]
 
-* Example and code come from **Data Science in R: a case studies approach to computational reasoning and problem solving** by Nolan and Temple Lang.
-* Chapter 9 *Simulating Blackjack* by Hadley Wickham
-* All R code is online at [http://rdatasciencecases.org/](http://rdatasciencecases.org/)
-* Link is also on the HW4 assignment
 
 ---
 
@@ -485,58 +541,11 @@ identical(test_cards_val, sapply(test_cards, handValue))
 ## [1] TRUE
 ```
 
----
 
-## Testing winnings (create known)
 
-```r
-test_vals = c(0, 16, 19, 20, 21, 21.5)
 
-testWinnings =
-  matrix(c( -1,  1,  1,  1,  1, 1.5,
-            -1,  0,  1,  1,  1, 1.5,
-            -1, -1,  0,  1,  1, 1.5,
-            -1, -1, -1,  0,  1, 1.5,
-            -1, -1, -1, -1,  0, 1.5,
-            -1, -1, -1, -1, -1, 0), 
-         nrow = length(test_vals), byrow = TRUE)
-dimnames(testWinnings) = list(dealer = test_vals, 
-                              player = test_vals)
 
-testWinnings
-```
 
-```
-##       player
-## dealer  0 16 19 20 21 21.5
-##   0    -1  1  1  1  1  1.5
-##   16   -1  0  1  1  1  1.5
-##   19   -1 -1  0  1  1  1.5
-##   20   -1 -1 -1  0  1  1.5
-##   21   -1 -1 -1 -1  0  1.5
-##   21.5 -1 -1 -1 -1 -1  0.0
-```
-
----
-
-## Does `winnings` work?
-
-```r
-check = testWinnings  # make the matrix the right size
-check[] = NA  # make all entries NA
- 
-for(i in seq_along(test_vals)) {
-  for(j in seq_along(test_vals)) {
-    check[i, j] = winnings(test_vals[i], test_vals[j])
-  }
-}
-
-identical(check, testWinnings)
-```
-
-```
-## [1] TRUE
-```
 
 ---
 
@@ -632,7 +641,9 @@ splitPair = function(hand) {
 splitHand = splitPair(myCards)
 ```
 
----  
+
+---
+
 
 ## Results of splitting
 (can we always split?)
@@ -852,79 +863,34 @@ To repeat the game, we simply repeat the `play_hand` function and keep track of 
 
 
 ```r
-reps=10
-money=20
-for(i in 1:reps){
-  money &lt;- money + play_hand(shoe, strategy_simple)
-  print(money)}
+set.seed(4747)
+reps &lt;- 10
+money &lt;- 20
+
+map_dbl(1:reps, ~ play_hand(shoe, strategy_simple)) %&gt;%
+  accumulate(`+`) + 20
 ```
 
 ```
-## [1] 19
-## [1] 20
-## [1] 19
-## [1] 18
-## [1] 19.5
-## [1] 18.5
-## [1] 20
-## [1] 19
-## [1] 18
-## [1] 19.5
+##  [1] 21 20 19 18 18 19 20 21 20 19
 ```
 
-&lt;!--
----
-
-## Generating U[0,1] variables
 
 
-```r
- a=31541435235; b=23462146143; m=423514351351
-
-xval=47; reps=10000; unif.val = c()
-
-for(i in 1:reps){   xval = (a*xval + b) %% m
-  unif.val = c(unif.val, xval/m)   }
-```
-
----
-
-## Plot of U[0,1] values
-
-```r
-data.frame(uniformRVs = unif.val) %&gt;%
-  ggplot(aes(x = uniformRVs)) + geom_histogram(bins = 25)
-```
-
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
-
----
-
-## Generating random Weibull(2,1) variables
 
 
-```r
-unifdata = runif(10000,0,1)
-weib1data = sqrt(-log(1-unifdata))
-weib2data = rweibull(10000,2,1)
 
-weibdata &lt;- data.frame(weibull = c(weib1data, weib2data),
-                       sim.method = c(rep("InvTrans", 10000), 
-                                      rep("rweibull", 10000)))
-```
 
----
 
-## Plot of Weibull data
 
-```r
-ggplot(weibdata, aes(x = weibull)) + geom_histogram(bins = 25) + 
-  facet_grid(~sim.method)
-```
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
 
---&gt;
+
+
+
+
+
+
 
 
 ---
@@ -977,7 +943,7 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 
 ##  Let's see what happens ...
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -988,18 +954,18 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 ## # A tibble: 3 × 5
 ##   term        estimate std.error statistic p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)   33.2     0.154        216.       0
-## 2 SAT            0.334   0.00151      221.       0
-## 3 grades         0.334   0.00151      221.       0
+## 1 (Intercept)   33.3     0.152        218.       0
+## 2 SAT            0.333   0.00150      222.       0
+## 3 grades         0.335   0.00150      223.       0
 ```
 
 ```
 ## # A tibble: 3 × 5
 ##   term        estimate std.error statistic   p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)   25.8      1.57        16.5 3.56e- 54
-## 2 SAT            0.401    0.0152      26.4 5.03e-117
-## 3 grades         0.305    0.0141      21.7 7.13e- 86
+## 1 (Intercept)   26.0      1.54        16.9 2.99e- 56
+## 2 SAT            0.420    0.0156      26.9 1.38e-120
+## 3 grades         0.285    0.0139      20.5 4.71e- 78
 ```
 
 ---
@@ -1010,14 +976,14 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 
 * How well do the models accurately predict if the student has `talent` &gt; 115?
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
 
 ---
 
 ## New data
 
 .pull-left[
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
 ]
 
 
@@ -1027,8 +993,8 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 ## # A tibble: 2 × 5
 ##   color   tpr    fpr   fnr error
 ##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 blue  0.548 0.0320 0.452 0.098
-## 2 red   0.506 0.0382 0.494 0.111
+## 1 blue  0.471 0.0463 0.529 0.122
+## 2 red   0.499 0.0375 0.501 0.111
 ```
 
 ]
@@ -1046,16 +1012,16 @@ Afterall, there are laws against using protected classes to make decisions (hous
 ## # A tibble: 3 × 5
 ##   term        estimate std.error statistic p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)   33.2     0.153        217.       0
-## 2 SAT            0.334   0.00150      222.       0
-## 3 grades         0.334   0.00150      223.       0
+## 1 (Intercept)   33.2     0.152        219.       0
+## 2 SAT            0.333   0.00149      223.       0
+## 3 grades         0.335   0.00149      224.       0
 ```
 ---
 
 ## How do the error rates change?
 
 .pull-left[
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -1064,8 +1030,8 @@ Afterall, there are laws against using protected classes to make decisions (hous
 ## # A tibble: 2 × 5
 ##   color   tpr    fpr   fnr error
 ##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 blue  0.656 0.0534 0.344 0.099
-## 2 red   0.505 0.0378 0.495 0.111
+## 1 blue  0.611 0.0795 0.389 0.128
+## 2 red   0.498 0.0371 0.502 0.111
 ```
 ]
 ---
@@ -1093,14 +1059,13 @@ Consider the following set up (as in the WU):
 
 ```r
 set.seed(4747)
-beta2.in &lt;- c()
 beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
-n&lt;- 100; reps=10000
+n_obs &lt;- 100; reps &lt;- 10000
 
 
   x1 &lt;- rep(c(0,1), each=n/2)
   x2 &lt;- runif(n, min=-1, max=1)
-  y &lt;- beta0 + beta1*x1 + beta2*x2 + rnorm(n, mean=0, sd = 1)
+  y &lt;- beta0 + beta1*x1 + beta2*x2 + rnorm(n_obs, mean=0, sd = 1)
 ```
 
 ---
@@ -1114,7 +1079,7 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
   geom_smooth(method = "lm", se=FALSE) 
 ```
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1137,22 +1102,15 @@ See: http://www.rossmanchance.com/applets/RegShuffle.htm
 ```r
 CI &lt;- lm(y~x1+x2) %&gt;% tidy(conf.int=TRUE) %&gt;% data.frame()
 
-CI
+CI %&gt;%
+  filter(term == "x2") %&gt;%
+  select(term, estimate, conf.low, conf.high) %&gt;%
+  mutate(inside = between(beta2, conf.low, conf.high))
 ```
 
 ```
-##          term estimate std.error statistic  p.value conf.low conf.high
-## 1 (Intercept)   -1.065     0.151     -7.05 2.60e-10   -1.364    -0.765
-## 2          x1    0.532     0.212      2.51 1.37e-02    0.111     0.953
-## 3          x2    1.499     0.196      7.64 1.59e-11    1.109     1.889
-```
-
-```r
-between(beta2, CI[3,6], CI[3,7])
-```
-
-```
-## [1] TRUE
+##   term estimate conf.low conf.high inside
+## 1   x2     1.49     1.47       1.5  FALSE
 ```
 
 ---
@@ -1160,27 +1118,64 @@ between(beta2, CI[3,6], CI[3,7])
 ## What happens to the CI of coefficients in repeated samples? (eq var)
 
 ```r
-beta2.in &lt;- c()
-beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
-n &lt;- 100; reps &lt;- 10000
+eqvar_data &lt;- 
+  data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
+  slice(rep(row_id, each = reps)) %&gt;%
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c(0,1), each = n()/2),
+    x2 = runif(n(), min = -1, max = 1),
+    y = beta0 + beta1*x1 + beta2*x2 + rnorm(n(), mean = 0, sd = 1)
+  ) %&gt;%
+  arrange(sim_id, row_id) %&gt;%
+  group_by(sim_id) %&gt;%
+  nest()
 
-set.seed(4747)
-for(i in 1:reps){
-  x1 &lt;- rep(c(0,1), each=n/2)
-  x2 &lt;- runif(n, min=-1, max=1)
-  y &lt;- beta0 + beta1*x1 + beta2*x2 + rnorm(n, mean=0, sd = 1)
+eqvar_data
+```
 
-  CI &lt;- lm(y~x1+x2) %&gt;% tidy(conf.int=TRUE) %&gt;% data.frame()
-  
-  beta2.in &lt;- c(beta2.in, between(beta2, CI[3,6], CI[3,7]))
+```
+## # A tibble: 10,000 × 2
+## # Groups:   sim_id [10,000]
+##    sim_id data              
+##     &lt;int&gt; &lt;list&gt;            
+##  1      1 &lt;tibble [100 × 4]&gt;
+##  2      2 &lt;tibble [100 × 4]&gt;
+##  3      3 &lt;tibble [100 × 4]&gt;
+##  4      4 &lt;tibble [100 × 4]&gt;
+##  5      5 &lt;tibble [100 × 4]&gt;
+##  6      6 &lt;tibble [100 × 4]&gt;
+##  7      7 &lt;tibble [100 × 4]&gt;
+##  8      8 &lt;tibble [100 × 4]&gt;
+##  9      9 &lt;tibble [100 × 4]&gt;
+## 10     10 &lt;tibble [100 × 4]&gt;
+## # … with 9,990 more rows
+```
+
+---
+
+
+```r
+beta_coef &lt;- function(df){
+  lm(y ~ x1 + x2, data = df) %&gt;%
+    tidy(conf.int = TRUE) %&gt;%
+    filter(term == "x2") %&gt;%
+    select(estimate, conf.low, conf.high) 
 }
 
-# coverage rate of the CI is given by:
-sum(beta2.in)/reps
+eqvar_data %&gt;% 
+  mutate(b2_vals = map(data, beta_coef)) %&gt;%
+  select(b2_vals) %&gt;% 
+  unnest(b2_vals) %&gt;%
+  summarize(capture = between(beta2, conf.low, conf.high)) %&gt;%
+  summarize(capture_rate = sum(capture)/reps)
 ```
 
 ```
-## [1] 0.952
+## # A tibble: 1 × 1
+##   capture_rate
+##          &lt;dbl&gt;
+## 1        0.954
 ```
 
 ---
@@ -1215,35 +1210,40 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
   geom_smooth(method = "lm", se=FALSE)
 ```
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
 
 ---
 
 ## What happens to the CI of coefficients in repeated samples? (uneq var)
 
 ```r
-beta2.in &lt;- c()
-beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
-n &lt;- 100; reps &lt;- 10000
+uneqvar_data &lt;- 
+  data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
+  slice(rep(row_id, each = reps)) %&gt;%
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c(0,1), each = n()/2),
+    x2 = runif(n(), min = -1, max = 1),
+    y = beta0 + beta1*x1 + beta2*x2 + 
+              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))
+  ) %&gt;%
+  arrange(sim_id, row_id) %&gt;%
+  group_by(sim_id) %&gt;%
+  nest()
 
-set.seed(4747)
-for(i in 1:reps){
-  x1 &lt;- rep(c(0,1), each=n/2)
-  x2 &lt;- runif(n, min=-1, max=1)
-  y &lt;- beta0 + beta1*x1 + beta2*x2 + 
-             rnorm(n, mean=0, sd = 1 + x1 + 10*abs(x2))
-
-  CI &lt;- lm(y~x1+x2) %&gt;% broom::tidy(conf.int=TRUE) %&gt;% data.frame()
-  
-  beta2.in &lt;- c(beta2.in, between(beta2, CI[3,6], CI[3,7]))
-}
-
-# coverage rate of the CI is given by:
-sum(beta2.in)/reps
+uneqvar_data %&gt;% 
+  mutate(b2_vals = map(data, beta_coef)) %&gt;%
+  select(b2_vals) %&gt;% 
+  unnest(b2_vals) %&gt;%
+  summarize(capture = between(beta2, conf.low, conf.high)) %&gt;%
+  summarize(capture_rate = sum(capture)/reps)
 ```
 
 ```
-## [1] 0.872
+## # A tibble: 1 × 1
+##   capture_rate
+##          &lt;dbl&gt;
+## 1        0.869
 ```
 
 ---
