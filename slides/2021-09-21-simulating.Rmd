@@ -85,19 +85,18 @@ diamonds %>% select(carat, cut, color, price) %>%
 
 ## Aside: a few R functions (`sample()`)
 
-When simulating, it's important to understand the difference between *sampling*, *shuffling*,  and *resampling*.  We'll use the function `sample()` to do all three:
+*sampling*, *shuffling*,  and *resampling*: `sample()` 
 
 ```{r}
-# shuffle
-alph <- letters[1:10];alph
+alph <- letters[1:10]
 
 sample(alph, 5, replace = FALSE) # sample (from a population)
 
-sample(alph, 20, replace = TRUE) # sample (from a population)
+sample(alph, 15, replace = TRUE) # sample (from a population)
 
 sample(alph, replace = FALSE)  # shuffle
 
-sample(alph, replace = TRUE)  # resampling
+sample(alph, replace = TRUE)  # resample
 ```
 
 ---
@@ -107,7 +106,11 @@ sample(alph, replace = TRUE)  # resampling
 Three simulating methods are used for different purposes:
 
 1. Monte Carlo methods - use *sampling* repeated sampling from populations with known (either via data or via populations) characteristics.
+
+
 2. Randomization / Permutation methods - use *shuffling* (sampling without replacement) to test hypotheses of "no effect".
+
+
 3. Bootstrap methods - use *resampling* (sampling with replacement) to establish confidence intervals.
 
 ---

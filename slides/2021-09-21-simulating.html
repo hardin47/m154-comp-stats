@@ -116,19 +116,12 @@ diamonds %&gt;% select(carat, cut, color, price) %&gt;%
 
 ## Aside: a few R functions (`sample()`)
 
-When simulating, it's important to understand the difference between *sampling*, *shuffling*,  and *resampling*.  We'll use the function `sample()` to do all three:
+*sampling*, *shuffling*,  and *resampling*: `sample()` 
 
 
 ```r
-# shuffle
-alph &lt;- letters[1:10];alph
-```
+alph &lt;- letters[1:10]
 
-```
-##  [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
-```
-
-```r
 sample(alph, 5, replace = FALSE) # sample (from a population)
 ```
 
@@ -137,12 +130,11 @@ sample(alph, 5, replace = FALSE) # sample (from a population)
 ```
 
 ```r
-sample(alph, 20, replace = TRUE) # sample (from a population)
+sample(alph, 15, replace = TRUE) # sample (from a population)
 ```
 
 ```
-##  [1] "j" "g" "i" "a" "g" "e" "a" "g" "c" "e" "j" "i" "d" "a" "d" "b" "j" "h" "a"
-## [20] "e"
+##  [1] "j" "g" "i" "a" "g" "e" "a" "g" "c" "e" "j" "i" "d" "a" "d"
 ```
 
 ```r
@@ -150,15 +142,15 @@ sample(alph, replace = FALSE)  # shuffle
 ```
 
 ```
-##  [1] "i" "h" "b" "g" "a" "f" "j" "d" "e" "c"
+##  [1] "b" "h" "f" "i" "a" "d" "j" "c" "g" "e"
 ```
 
 ```r
-sample(alph, replace = TRUE)  # resampling
+sample(alph, replace = TRUE)  # resample
 ```
 
 ```
-##  [1] "b" "d" "c" "f" "e" "j" "j" "e" "a" "c"
+##  [1] "i" "h" "j" "i" "i" "f" "b" "f" "b" "d"
 ```
 
 ---
