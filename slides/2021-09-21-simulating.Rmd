@@ -94,9 +94,9 @@ sample(alph, 5, replace = FALSE) # sample (from a population)
 
 sample(alph, 15, replace = TRUE) # sample (from a population)
 
-sample(alph, replace = FALSE)  # shuffle
+sample(alph, 10, replace = FALSE)  # shuffle
 
-sample(alph, replace = TRUE)  # resample
+sample(alph, 10, replace = TRUE)  # resample
 ```
 
 ---
@@ -121,13 +121,13 @@ What if we want to be able to generate the **same** random numbers (here on the 
 
 ```{r}
 set.seed(4747)
-runif(4) # random uniform numbers
+runif(4, 0, 1) # random uniform numbers
 
 set.seed(123)
-runif(4) # random uniform numbers
+runif(4, 0, 1) # random uniform numbers
 
 set.seed(4747)
-runif(4) # random uniform numbers
+runif(4, 0, 1) # random uniform numbers
 ```
 
 ---
@@ -198,12 +198,38 @@ sum_unif <- function(.x){
     sumU <- sumU + runif(1)
     k <- k+1
 }
-  return(c(k, sumU))
+  return(c(k-1, sumU))
 }
 
 set.seed(4747)
 sum_unif()
 ```
+---
+
+## **purrr** for functional programming
+
+.pull-left[
+Recall the `map` functions which are *named* by the **output** the produce.  For example: 
+
+* `map(.x, .f)` is the main mapping function and returns a list
+
+* `map_df(.x, .f)` returns a data frame
+
+* `map_dbl(.x, .f)` returns a numeric (double) vector
+
+* `map_chr(.x, .f)` returns a character vector
+
+* `map_lgl(.x, .f)` returns a logical vector
+]
+
+.pull-right[
+```{r out.width = '90%', fig.align='center', echo=FALSE, fig.cap = "From Advanced R by Wickham. https://adv-r.hadley.nz/functionals.html"}
+knitr::include_graphics("../images/purrr_map.png")
+```
+]
+
+
+Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
 
 ---
 
@@ -237,7 +263,7 @@ sum_unif <- function(.x){
     sumU <- sumU + runif(1)
     k <- k+1
 }
-  return(c(k, sumU))
+  return(c(k-1, sumU))
 }
 ```
 ]

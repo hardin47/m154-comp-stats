@@ -138,7 +138,7 @@ sample(alph, 15, replace = TRUE) # sample (from a population)
 ```
 
 ```r
-sample(alph, replace = FALSE)  # shuffle
+sample(alph, 10, replace = FALSE)  # shuffle
 ```
 
 ```
@@ -146,7 +146,7 @@ sample(alph, replace = FALSE)  # shuffle
 ```
 
 ```r
-sample(alph, replace = TRUE)  # resample
+sample(alph, 10, replace = TRUE)  # resample
 ```
 
 ```
@@ -160,7 +160,11 @@ sample(alph, replace = TRUE)  # resample
 Three simulating methods are used for different purposes:
 
 1. Monte Carlo methods - use *sampling* repeated sampling from populations with known (either via data or via populations) characteristics.
+
+
 2. Randomization / Permutation methods - use *shuffling* (sampling without replacement) to test hypotheses of "no effect".
+
+
 3. Bootstrap methods - use *resampling* (sampling with replacement) to establish confidence intervals.
 
 ---
@@ -172,7 +176,7 @@ What if we want to be able to generate the **same** random numbers (here on the 
 
 ```r
 set.seed(4747)
-runif(4) # random uniform numbers
+runif(4, 0, 1) # random uniform numbers
 ```
 
 ```
@@ -181,7 +185,7 @@ runif(4) # random uniform numbers
 
 ```r
 set.seed(123)
-runif(4) # random uniform numbers
+runif(4, 0, 1) # random uniform numbers
 ```
 
 ```
@@ -190,7 +194,7 @@ runif(4) # random uniform numbers
 
 ```r
 set.seed(4747)
-runif(4) # random uniform numbers
+runif(4, 0, 1) # random uniform numbers
 ```
 
 ```
@@ -266,7 +270,7 @@ sum_unif &lt;- function(.x){
     sumU &lt;- sumU + runif(1)
     k &lt;- k+1
 }
-  return(c(k, sumU))
+  return(c(k-1, sumU))
 }
 
 set.seed(4747)
@@ -274,8 +278,35 @@ sum_unif()
 ```
 
 ```
-## [1] 3.00 1.05
+## [1] 2.00 1.05
 ```
+---
+
+## **purrr** for functional programming
+
+.pull-left[
+Recall the `map` functions which are *named* by the **output** the produce.  For example: 
+
+* `map(.x, .f)` is the main mapping function and returns a list
+
+* `map_df(.x, .f)` returns a data frame
+
+* `map_dbl(.x, .f)` returns a numeric (double) vector
+
+* `map_chr(.x, .f)` returns a character vector
+
+* `map_lgl(.x, .f)` returns a logical vector
+]
+
+.pull-right[
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/purrr_map.png" alt="From Advanced R by Wickham. https://adv-r.hadley.nz/functionals.html" width="90%" /&gt;
+&lt;p class="caption"&gt;From Advanced R by Wickham. https://adv-r.hadley.nz/functionals.html&lt;/p&gt;
+&lt;/div&gt;
+]
+
+
+Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
 
 ---
 
@@ -300,7 +331,7 @@ sum_unif &lt;- function(.x){
     sumU &lt;- sumU + runif(1)
     k &lt;- k+1
 }
-  return(c(k, sumU))
+  return(c(k-1, sumU))
 }
 ```
 ]
@@ -329,16 +360,16 @@ sim_k_max
 ## # A tibble: 1,000 × 3
 ##    row_id     k   sum
 ##     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-##  1      1     3  1.05
-##  2      2     3  1.68
-##  3      3     2  1.39
-##  4      4     2  1.47
-##  5      5     3  1.03
-##  6      6     2  1.45
-##  7      7     2  1.41
-##  8      8     2  1.83
-##  9      9     2  1.17
-## 10     10     3  1.42
+##  1      1     2  1.05
+##  2      2     2  1.68
+##  3      3     1  1.39
+##  4      4     1  1.47
+##  5      5     2  1.03
+##  6      6     1  1.45
+##  7      7     1  1.41
+##  8      8     1  1.83
+##  9      9     1  1.17
+## 10     10     2  1.42
 ## # … with 990 more rows
 ```
 ]
@@ -354,7 +385,7 @@ sim_k_max %&gt;%
 ## # A tibble: 1 × 1
 ##      EX
 ##   &lt;dbl&gt;
-## 1  2.74
+## 1  1.74
 ```
 ]
 
@@ -935,7 +966,7 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 
 ##  Let's see what happens ...
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-45-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -968,14 +999,14 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 
 * How well do the models accurately predict if the student has `talent` &gt; 115?
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
 
 ---
 
 ## New data
 
 .pull-left[
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
 ]
 
 
@@ -1013,7 +1044,7 @@ Afterall, there are laws against using protected classes to make decisions (hous
 ## How do the error rates change?
 
 .pull-left[
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -1071,7 +1102,7 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
   geom_smooth(method = "lm", se=FALSE) 
 ```
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1202,7 +1233,7 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
   geom_smooth(method = "lm", se=FALSE)
 ```
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
 
 ---
 
