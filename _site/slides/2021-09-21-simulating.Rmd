@@ -842,7 +842,7 @@ blue.lm %>% broom::tidy()
 
 * Generate new data and use the **two** models above, separately. 
 
-* How well do the models accurately predict if the student has `talent` > 115?
+* How well do the models predict if a student has `talent` > 115?
 
 ```{r echo=FALSE}
 set.seed(470)
@@ -1075,6 +1075,7 @@ See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/20
 
 ```{r}
 CI <- lm(y~x1+x2) %>% tidy(conf.int=TRUE) %>% data.frame()
+CI
 
 CI %>%
   filter(term == "x2") %>%
@@ -1125,7 +1126,7 @@ eqvar_data %>%
 
 Consider the following set up (note the difference in variability):
 
-```{r}
+```{r unequal-ci-1, eval=FALSE, include = FALSE}
 set.seed(470)
 beta0 <- -1
 beta1 <- 0.5
@@ -1137,6 +1138,12 @@ reps <- 1000
   x2 <- runif(n, min=-1, max=1)
   y <- beta0 + beta1*x1 + beta2*x2 + 
              rnorm(n, mean=0, sd = 1 + x1 + 10*abs(x2))
+```
+
+```{r echo = FALSE}
+decorate("unequal-ci-1", eval = TRUE) %>%
+  flair("sd = 1 + x1 + 10*abs(x2)") %>%
+  knit_print.with_flair()
 ```
 
 ---
@@ -1154,6 +1161,11 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
 ---
 
 ## What happens to the CI of coefficients in repeated samples? (uneq var)
+```{r echo = FALSE}
+set.seed(47)
+```
+
+
 ```{r unequal-ci, eval=FALSE, include = FALSE}
 uneqvar_data <- data.frame(row_id = seq(1, n_obs, 1)) %>%
   slice(rep(row_id, each = reps)) %>%
@@ -1170,13 +1182,63 @@ uneqvar_data %>%
   select(b2_vals) %>% unnest(b2_vals) %>%
   summarize(capture = between(beta2, conf.low, conf.high)) %>%
   summarize(capture_rate = sum(capture)/reps)
-``` 
+```
 
 ```{r echo = FALSE}
 decorate("unequal-ci", eval = TRUE) %>%
   flair("sd = 1 + x1 + 10*abs(x2)") %>%
   knit_print.with_flair()
 ```
+
+
+
+---
+
+## All together
+
+.panelset[
+
+.panel[.panel-name[coef function]
+```{r}
+beta_coef <- function(df){
+  lm(y ~ x1 + x2, data = df) %>%
+    tidy(conf.int = TRUE) %>%
+    filter(term == "x2") %>%
+    select(estimate, conf.low, conf.high, p.value) 
+}
+```
+]
+
+.panel[.panel-name[generate data]
+```{r echo = FALSE}
+set.seed(47)
+```
+```{r}
+uneqvar_data <- 
+  data.frame(row_id = seq(1, n_obs, 1)) %>%
+  slice(rep(row_id, each = reps)) %>%
+  mutate(sim_id = rep(1:reps, n_obs), 
+         x1 = rep(c(0,1), each = n()/2),
+         x2 = runif(n(), min = -1, max = 1),
+         y = beta0 + beta1*x1 + beta2*x2 + 
+              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))  ) %>%
+  arrange(sim_id, row_id) %>%
+  group_by(sim_id) %>% 
+  nest() 
+```
+]
+
+
+.panel[.panel-name[capture rate]
+```{r}
+uneqvar_data %>% 
+  mutate(b2_vals = map(data, beta_coef)) %>%
+  select(b2_vals) %>% unnest(b2_vals) %>%
+  summarize(capture = between(beta2, conf.low, conf.high)) %>%
+  summarize(capture_rate = sum(capture)/reps)
+```
+]
+]
 
 ---
 

@@ -46,10 +46,15 @@ knitr::include_graphics("../../images/map_frosting.png")
 
 * What are some reasons to simulate?
 * What makes a good simulation?
+* What does "90%" mean when describing a 90% confidence interval?   (That is, 90% of what?)
+* What does a type I error rate mean when doing hypothesis testing?  (That is, rate of what?)
+* The p-value is the probability of obtaining the observed data or more extreme if the null hypothesis is true.  If probability is interpreted in the long-run-frequency definition, what is happening repeatedly  so as to conceptualize the probability of something happening?
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
 * How can we use simulations to understand algorithmic bias or other types of problems in modeling?
+
+* What does it mean for two different populations to have different feature distributions?
 
 ## Slides <i class="fas fa-desktop"></i> 
 

@@ -1007,7 +1007,7 @@ Blue model (SAT is max score of two):
 
 * Generate new data and use the **two** models above, separately. 
 
-* How well do the models accurately predict if the student has `talent` &gt; 115?
+* How well do the models predict if a student has `talent` &gt; 115?
 
 ![](2021-09-21-simulating_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
 
@@ -1152,7 +1152,17 @@ See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/20
 
 ```r
 CI &lt;- lm(y~x1+x2) %&gt;% tidy(conf.int=TRUE) %&gt;% data.frame()
+CI
+```
 
+```
+##          term estimate std.error statistic  p.value conf.low conf.high
+## 1 (Intercept)   -1.065     0.151     -7.05 2.60e-10   -1.364    -0.765
+## 2          x1    0.532     0.212      2.51 1.37e-02    0.111     0.953
+## 3          x2    1.499     0.196      7.64 1.59e-11    1.109     1.889
+```
+
+```r
 CI %&gt;%
   filter(term == "x2") %&gt;%
   select(term, estimate, conf.low, conf.high) %&gt;%
@@ -1235,19 +1245,9 @@ eqvar_data %&gt;%
 Consider the following set up (note the difference in variability):
 
 
-```r
-set.seed(470)
-beta0 &lt;- -1
-beta1 &lt;- 0.5
-beta2 &lt;- 1.5
-n &lt;- 100
-reps &lt;- 1000
 
-  x1 &lt;- rep(c(0,1), each=n/2)
-  x2 &lt;- runif(n, min=-1, max=1)
-  y &lt;- beta0 + beta1*x1 + beta2*x2 + 
-             rnorm(n, mean=0, sd = 1 + x1 + 10*abs(x2))
-```
+
+&lt;code class ='r hljs remark-code'&gt;set.seed(470)&lt;br&gt;beta0 &lt;- -1&lt;br&gt;beta1 &lt;- 0.5&lt;br&gt;beta2 &lt;- 1.5&lt;br&gt;n &lt;- 100&lt;br&gt;reps &lt;- 1000&lt;br&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;x1 &lt;- rep(c(0,1), each=n/2)&lt;br&gt;&amp;nbsp;&amp;nbsp;x2 &lt;- runif(n, min=-1, max=1)&lt;br&gt;&amp;nbsp;&amp;nbsp;y &lt;- beta0 + beta1*x1 + beta2*x2 + &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rnorm(n, mean=0, &lt;span style='background-color:#ffff7f'&gt;sd = 1 + x1 + 10*abs(x2)&lt;/span&gt;)&lt;/code&gt;
 
 ---
 
@@ -1260,6 +1260,9 @@ reps &lt;- 1000
 
 
 
+
+
+
 &lt;code class ='r hljs remark-code'&gt;uneqvar_data &lt;- data.frame(row_id = seq(1, n_obs, 1)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;slice(rep(row_id, each = reps)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(sim_id = rep(1:reps, n_obs), &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x1 = rep(c(0,1), each = n()/2),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x2 = runif(n(), min = -1, max = 1),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y = beta0 + beta1*x1 + beta2*x2 + &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rnorm(n(), mean = 0, &lt;span style='background-color:#ffff7f'&gt;sd = 1 + x1 + 10*abs(x2)&lt;/span&gt;) &amp;nbsp;) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;arrange(sim_id, row_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;group_by(sim_id) %&gt;% nest() &lt;br&gt;&lt;br&gt;uneqvar_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(b2_vals = map(data, beta_coef)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;select(b2_vals) %&gt;% unnest(b2_vals) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(capture = between(beta2, conf.low, conf.high)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(capture_rate = sum(capture)/reps)&lt;/code&gt;
 
 ```
@@ -1267,9 +1270,67 @@ reps &lt;- 1000
 ## # A tibble: 1 × 1
 ##   capture_rate
 ##          &lt;dbl&gt;
-## 1        0.861
+## 1        0.877
 
 ```
+
+
+
+---
+
+## All together
+
+.panelset[
+
+.panel[.panel-name[coef function]
+
+```r
+beta_coef &lt;- function(df){
+  lm(y ~ x1 + x2, data = df) %&gt;%
+    tidy(conf.int = TRUE) %&gt;%
+    filter(term == "x2") %&gt;%
+    select(estimate, conf.low, conf.high, p.value) 
+}
+```
+]
+
+.panel[.panel-name[generate data]
+
+
+```r
+uneqvar_data &lt;- 
+  data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
+  slice(rep(row_id, each = reps)) %&gt;%
+  mutate(sim_id = rep(1:reps, n_obs), 
+         x1 = rep(c(0,1), each = n()/2),
+         x2 = runif(n(), min = -1, max = 1),
+         y = beta0 + beta1*x1 + beta2*x2 + 
+              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))  ) %&gt;%
+  arrange(sim_id, row_id) %&gt;%
+  group_by(sim_id) %&gt;% 
+  nest() 
+```
+]
+
+
+.panel[.panel-name[capture rate]
+
+```r
+uneqvar_data %&gt;% 
+  mutate(b2_vals = map(data, beta_coef)) %&gt;%
+  select(b2_vals) %&gt;% unnest(b2_vals) %&gt;%
+  summarize(capture = between(beta2, conf.low, conf.high)) %&gt;%
+  summarize(capture_rate = sum(capture)/reps)
+```
+
+```
+## # A tibble: 1 × 1
+##   capture_rate
+##          &lt;dbl&gt;
+## 1        0.877
+```
+]
+]
 
 ---
 
