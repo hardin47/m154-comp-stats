@@ -13,6 +13,8 @@ output:
 library(tidyverse)
 library(broom)
 library(knitr)
+library(flair)
+library(ggthemes)
 opts_chunk$set(
   message=FALSE,
   warning=FALSE,
@@ -826,11 +828,11 @@ blue.lm = college.data %>%
 ```
 
 Red model (SAT taken once):
-```{r}
+```{r echo = FALSE}
 red.lm %>% broom::tidy()
 ```
-Blud model (SAT is max score of two):
-```{r}
+Blue model (SAT is max score of two):
+```{r echo = FALSE}
 blue.lm %>% broom::tidy()
 ```
 
@@ -976,7 +978,7 @@ error.rates
 ```
 
 Two separate models:
-```{r}
+```{r echo = FALSE}
 new.college.data.2mod <- new.college.data %>% 
   mutate(fp = ifelse(talent < 115 & predicted > 115, 1, 0),
          tp = ifelse(talent > 115 & predicted > 115, 1, 0),
@@ -1034,7 +1036,7 @@ library(broom)
 ```{r}
 set.seed(4747)
 beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
-n_obs <- 100; reps <- 10000
+n_obs <- 100; reps <- 1000
 
 
   x1 <- rep(c(0,1), each=n_obs/2)
@@ -1045,11 +1047,13 @@ n_obs <- 100; reps <- 10000
 ---
 
 ## Plot of data
-```{r}
+```{r echo = FALSE}
 data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
   ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
   geom_point() +
-  geom_smooth(method = "lm", se=FALSE) 
+  geom_smooth(method = "lm", se=FALSE) + 
+  scale_colour_tableau("Color Blind") +
+  guides(color=guide_legend(title="group"))
 ```
 
 
@@ -1063,7 +1067,7 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
 * Should it always be in the interval?  How often?
 
 
-See: http://www.rossmanchance.com/applets/RegShuffle.htm
+See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm)
 
 ---
 
@@ -1082,8 +1086,7 @@ CI %>%
 
 ## What happens to the CI of coefficients in repeated samples? (eq var)
 ```{r}
-eqvar_data <- 
-  data.frame(row_id = seq(1, n_obs, 1)) %>%
+eqvar_data <- data.frame(row_id = seq(1, n_obs, 1)) %>%
   slice(rep(row_id, each = reps)) %>%
   mutate(
     sim_id = rep(1:reps, n_obs),
@@ -1105,7 +1108,7 @@ beta_coef <- function(df){
   lm(y ~ x1 + x2, data = df) %>%
     tidy(conf.int = TRUE) %>%
     filter(term == "x2") %>%
-    select(estimate, conf.low, conf.high) 
+    select(estimate, conf.low, conf.high, p.value) 
 }
 
 eqvar_data %>% 
@@ -1128,7 +1131,7 @@ beta0 <- -1
 beta1 <- 0.5
 beta2 <- 1.5
 n <- 100
-reps <- 10000
+reps <- 1000
 
   x1 <- rep(c(0,1), each=n/2)
   x2 <- runif(n, min=-1, max=1)
@@ -1139,67 +1142,148 @@ reps <- 10000
 ---
 
 ## Plot of data
-```{r}
+```{r echo = FALSE}
 data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
   ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
   geom_point() +
-  geom_smooth(method = "lm", se=FALSE)
+  geom_smooth(method = "lm", se=FALSE) + 
+  scale_colour_tableau("Color Blind") +
+  guides(color=guide_legend(title="group"))
 ```
 
 ---
 
 ## What happens to the CI of coefficients in repeated samples? (uneq var)
-```{r}
-uneqvar_data <- 
-  data.frame(row_id = seq(1, n_obs, 1)) %>%
+```{r unequal-ci, eval=FALSE, include = FALSE}
+uneqvar_data <- data.frame(row_id = seq(1, n_obs, 1)) %>%
   slice(rep(row_id, each = reps)) %>%
-  mutate(
-    sim_id = rep(1:reps, n_obs),
-    x1 = rep(c(0,1), each = n()/2),
-    x2 = runif(n(), min = -1, max = 1),
-    y = beta0 + beta1*x1 + beta2*x2 + 
-              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))
-  ) %>%
+  mutate(sim_id = rep(1:reps, n_obs), 
+         x1 = rep(c(0,1), each = n()/2),
+         x2 = runif(n(), min = -1, max = 1),
+         y = beta0 + beta1*x1 + beta2*x2 + 
+              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))  ) %>%
   arrange(sim_id, row_id) %>%
-  group_by(sim_id) %>%
-  nest()
+  group_by(sim_id) %>% nest() 
 
 uneqvar_data %>% 
   mutate(b2_vals = map(data, beta_coef)) %>%
-  select(b2_vals) %>% 
-  unnest(b2_vals) %>%
+  select(b2_vals) %>% unnest(b2_vals) %>%
   summarize(capture = between(beta2, conf.low, conf.high)) %>%
   summarize(capture_rate = sum(capture)/reps)
 ``` 
 
+```{r echo = FALSE}
+decorate("unequal-ci", eval = TRUE) %>%
+  flair("sd = 1 + x1 + 10*abs(x2)") %>%
+  knit_print.with_flair()
+```
+
 ---
 
 ## Equal variance: type I error?
- 
-```{r}
-set.seed(4747)
-pvals <- c()
-reps <- 10000
-for(i in 1:reps){
-  x1 <- rnorm(10, mean=47, sd=1)
-  x2 <- rnorm(10, mean=47, sd=1)
-  pvals <- c(pvals, t.test(x1,x2, var.equal=TRUE)$p.value) }
 
-sum(pvals < .05)/reps
+We can also consider the type I errors associated with the two data configurations.  With equal variance, the type I error rate is close to what we'd expect, 5%.
+
+.panelset[
+
+.panel[.panel-name[t-test function]
+```{r}
+t_test_pval <- function(df){
+  t.test(y ~ x1, data = df, var.equal = TRUE) %>%
+    tidy() %>%
+    select(estimate, p.value) 
+}
 ```
+]
+
+.panel[.panel-name[generate data]
+```{r}
+set.seed(470)
+reps <- 1000
+n_obs <- 20
+null_data <- 
+  data.frame(row_id = seq(1, n_obs, 1)) %>%
+  slice(rep(row_id, each = reps)) %>%
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c("group1", "group2"), each = n()/2),
+    y = rnorm(n(), mean = 10, 
+               sd = rep(c(1,1), each = n()/2))
+  ) %>%
+  arrange(sim_id, row_id) %>%
+  group_by(sim_id) %>%
+  nest()
+```
+]
+
+.panel[.panel-name[summarize p-values]
+```{r}
+null_data %>% 
+  mutate(t_vals = map(data,t_test_pval)) %>%
+  select(t_vals) %>% 
+  unnest(t_vals) %>%
+  ungroup(sim_id) %>%
+  summarize(type1error_rate = sum(p.value < 0.05)/reps)
+```
+]
+
+]
 
 ---
 
 ## Unequal variance: type I error?
- 
-```{r}
-pvals <- c()
-reps <- 10000
-for(i in 1:reps){
-  x1 <- rnorm(10, mean=47, sd=1)
-  x2 <- rnorm(10, mean=47, sd=100)
-  pvals <- c(pvals, t.test(x1,x2, var.equal=TRUE)$p.value) }
 
-sum(pvals < .05)/reps
+With unequal variance, the type I error rate is much higher than we set.  We set the the type I error rate to be 5%, but the simulated rate was 6.36%.
+
+.panelset[
+
+.panel[.panel-name[t-test function]
+```{r}
+t_test_pval <- function(df){
+  t.test(y ~ x1, data = df, var.equal = TRUE) %>%
+    tidy() %>%
+    select(estimate, p.value) 
+}
 ```
+]
+
+.panel[.panel-name[generate data]
+```{r unequal-ttest, eval = FALSE, include = FALSE}
+set.seed(470)
+reps <- 1000
+n_obs <- 20
+null_data <- 
+  data.frame(row_id = seq(1, n_obs, 1)) %>%
+  slice(rep(row_id, each = reps)) %>%
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c("group1", "group2"), each = n()/2),
+    y = rnorm(n(), mean = 10, 
+               sd = rep(c(1,100), each = n()/2))
+  ) %>%
+  arrange(sim_id, row_id) %>%
+  group_by(sim_id) %>%
+  nest()
+```
+
+```{r echo = FALSE}
+decorate("unequal-ttest", eval = TRUE) %>%
+  flair("sd = rep(c(1,100), each = n()/2)") %>%
+  knit_print.with_flair()
+```
+
+]
+
+.panel[.panel-name[summarize p-values]
+```{r}
+null_data %>% 
+  mutate(t_vals = map(data,t_test_pval)) %>%
+  select(t_vals) %>% 
+  unnest(t_vals) %>%
+  ungroup(sim_id) %>%
+  summarize(type1error_rate = sum(p.value < 0.05)/reps)
+```
+]
+
+]
 

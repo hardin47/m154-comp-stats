@@ -982,10 +982,6 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 
 Red model (SAT taken once):
 
-```r
-red.lm %&gt;% broom::tidy()
-```
-
 ```
 ## # A tibble: 3 × 5
 ##   term        estimate std.error statistic p.value
@@ -994,11 +990,7 @@ red.lm %&gt;% broom::tidy()
 ## 2 SAT            0.334   0.00149      224.       0
 ## 3 grades         0.334   0.00149      225.       0
 ```
-Blud model (SAT is max score of two):
-
-```r
-blue.lm %&gt;% broom::tidy()
-```
+Blue model (SAT is max score of two):
 
 ```
 ## # A tibble: 3 × 5
@@ -1081,23 +1073,6 @@ One model:
 
 Two separate models:
 
-```r
-new.college.data.2mod &lt;- new.college.data %&gt;% 
-  mutate(fp = ifelse(talent &lt; 115 &amp; predicted &gt; 115, 1, 0),
-         tp = ifelse(talent &gt; 115 &amp; predicted &gt; 115, 1, 0),
-         fn = ifelse(talent &gt; 115 &amp; predicted &lt; 115, 1, 0),
-         tn = ifelse(talent &lt; 115 &amp; predicted &lt; 115, 1, 0))
-
-error.rates &lt;- new.college.data.2mod %&gt;% group_by(color) %&gt;%
-  summarize(tpr = sum(tp) / (sum(tp) + sum(fn)),
-            fpr = sum(fp) / (sum(fp) + sum(tn)),
-            fnr = sum(fn) / (sum(fn) + sum(tp)),
-            #fdr = sum(fp) / (sum(fp) + sum(tp)),
-            error = (sum(fp) + sum(fn)) / (sum(fp) + sum(tp) + sum(fn) + sum(tn) ))
-
-error.rates
-```
-
 ```
 ## # A tibble: 2 × 5
 ##   color   tpr    fpr   fnr error
@@ -1144,25 +1119,17 @@ Consider the following set up (as in the WU):
 ```r
 set.seed(4747)
 beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
-n_obs &lt;- 100; reps &lt;- 10000
+n_obs &lt;- 100; reps &lt;- 1000
 
 
-  x1 &lt;- rep(c(0,1), each=n/2)
-  x2 &lt;- runif(n, min=-1, max=1)
+  x1 &lt;- rep(c(0,1), each=n_obs/2)
+  x2 &lt;- runif(n_obs, min=-1, max=1)
   y &lt;- beta0 + beta1*x1 + beta2*x2 + rnorm(n_obs, mean=0, sd = 1)
 ```
 
 ---
 
 ## Plot of data
-
-```r
-data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
-  ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
-  geom_point() +
-  geom_smooth(method = "lm", se=FALSE) 
-```
-
 ![](2021-09-21-simulating_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
 
 
@@ -1176,7 +1143,7 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
 * Should it always be in the interval?  How often?
 
 
-See: http://www.rossmanchance.com/applets/RegShuffle.htm
+See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm)
 
 ---
 
@@ -1194,7 +1161,7 @@ CI %&gt;%
 
 ```
 ##   term estimate conf.low conf.high inside
-## 1   x2     1.49     1.47       1.5  FALSE
+## 1   x2      1.5     1.11      1.89   TRUE
 ```
 
 ---
@@ -1202,8 +1169,7 @@ CI %&gt;%
 ## What happens to the CI of coefficients in repeated samples? (eq var)
 
 ```r
-eqvar_data &lt;- 
-  data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
+eqvar_data &lt;- data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
   slice(rep(row_id, each = reps)) %&gt;%
   mutate(
     sim_id = rep(1:reps, n_obs),
@@ -1219,8 +1185,8 @@ eqvar_data
 ```
 
 ```
-## # A tibble: 10,000 × 2
-## # Groups:   sim_id [10,000]
+## # A tibble: 1,000 × 2
+## # Groups:   sim_id [1,000]
 ##    sim_id data              
 ##     &lt;int&gt; &lt;list&gt;            
 ##  1      1 &lt;tibble [100 × 4]&gt;
@@ -1233,7 +1199,7 @@ eqvar_data
 ##  8      8 &lt;tibble [100 × 4]&gt;
 ##  9      9 &lt;tibble [100 × 4]&gt;
 ## 10     10 &lt;tibble [100 × 4]&gt;
-## # … with 9,990 more rows
+## # … with 990 more rows
 ```
 
 ---
@@ -1244,7 +1210,7 @@ beta_coef &lt;- function(df){
   lm(y ~ x1 + x2, data = df) %&gt;%
     tidy(conf.int = TRUE) %&gt;%
     filter(term == "x2") %&gt;%
-    select(estimate, conf.low, conf.high) 
+    select(estimate, conf.low, conf.high, p.value) 
 }
 
 eqvar_data %&gt;% 
@@ -1259,7 +1225,7 @@ eqvar_data %&gt;%
 ## # A tibble: 1 × 1
 ##   capture_rate
 ##          &lt;dbl&gt;
-## 1        0.954
+## 1         0.95
 ```
 
 ---
@@ -1275,7 +1241,7 @@ beta0 &lt;- -1
 beta1 &lt;- 0.5
 beta2 &lt;- 1.5
 n &lt;- 100
-reps &lt;- 10000
+reps &lt;- 1000
 
   x1 &lt;- rep(c(0,1), each=n/2)
   x2 &lt;- runif(n, min=-1, max=1)
@@ -1286,90 +1252,133 @@ reps &lt;- 10000
 ---
 
 ## Plot of data
-
-```r
-data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
-  ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
-  geom_point() +
-  geom_smooth(method = "lm", se=FALSE)
-```
-
 ![](2021-09-21-simulating_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
 
 ---
 
 ## What happens to the CI of coefficients in repeated samples? (uneq var)
 
-```r
-uneqvar_data &lt;- 
-  data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
-  slice(rep(row_id, each = reps)) %&gt;%
-  mutate(
-    sim_id = rep(1:reps, n_obs),
-    x1 = rep(c(0,1), each = n()/2),
-    x2 = runif(n(), min = -1, max = 1),
-    y = beta0 + beta1*x1 + beta2*x2 + 
-              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))
-  ) %&gt;%
-  arrange(sim_id, row_id) %&gt;%
-  group_by(sim_id) %&gt;%
-  nest()
 
-uneqvar_data %&gt;% 
-  mutate(b2_vals = map(data, beta_coef)) %&gt;%
-  select(b2_vals) %&gt;% 
-  unnest(b2_vals) %&gt;%
-  summarize(capture = between(beta2, conf.low, conf.high)) %&gt;%
-  summarize(capture_rate = sum(capture)/reps)
-```
+
+&lt;code class ='r hljs remark-code'&gt;uneqvar_data &lt;- data.frame(row_id = seq(1, n_obs, 1)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;slice(rep(row_id, each = reps)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(sim_id = rep(1:reps, n_obs), &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x1 = rep(c(0,1), each = n()/2),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x2 = runif(n(), min = -1, max = 1),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y = beta0 + beta1*x1 + beta2*x2 + &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rnorm(n(), mean = 0, &lt;span style='background-color:#ffff7f'&gt;sd = 1 + x1 + 10*abs(x2)&lt;/span&gt;) &amp;nbsp;) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;arrange(sim_id, row_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;group_by(sim_id) %&gt;% nest() &lt;br&gt;&lt;br&gt;uneqvar_data %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(b2_vals = map(data, beta_coef)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;select(b2_vals) %&gt;% unnest(b2_vals) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(capture = between(beta2, conf.low, conf.high)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(capture_rate = sum(capture)/reps)&lt;/code&gt;
 
 ```
+
 ## # A tibble: 1 × 1
 ##   capture_rate
 ##          &lt;dbl&gt;
-## 1        0.869
+## 1        0.861
+
 ```
 
 ---
 
 ## Equal variance: type I error?
- 
+
+We can also consider the type I errors associated with the two data configurations.  With equal variance, the type I error rate is close to what we'd expect, 5%.
+
+.panelset[
+
+.panel[.panel-name[t-test function]
 
 ```r
-set.seed(4747)
-pvals &lt;- c()
-reps &lt;- 10000
-for(i in 1:reps){
-  x1 &lt;- rnorm(10, mean=47, sd=1)
-  x2 &lt;- rnorm(10, mean=47, sd=1)
-  pvals &lt;- c(pvals, t.test(x1,x2, var.equal=TRUE)$p.value) }
+t_test_pval &lt;- function(df){
+  t.test(y ~ x1, data = df, var.equal = TRUE) %&gt;%
+    tidy() %&gt;%
+    select(estimate, p.value) 
+}
+```
+]
 
-sum(pvals &lt; .05)/reps
+.panel[.panel-name[generate data]
+
+```r
+set.seed(470)
+reps &lt;- 1000
+n_obs &lt;- 20
+null_data &lt;- 
+  data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
+  slice(rep(row_id, each = reps)) %&gt;%
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c("group1", "group2"), each = n()/2),
+    y = rnorm(n(), mean = 10, 
+               sd = rep(c(1,1), each = n()/2))
+  ) %&gt;%
+  arrange(sim_id, row_id) %&gt;%
+  group_by(sim_id) %&gt;%
+  nest()
+```
+]
+
+.panel[.panel-name[summarize p-values]
+
+```r
+null_data %&gt;% 
+  mutate(t_vals = map(data,t_test_pval)) %&gt;%
+  select(t_vals) %&gt;% 
+  unnest(t_vals) %&gt;%
+  ungroup(sim_id) %&gt;%
+  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)
 ```
 
 ```
-## [1] 0.0484
+## # A tibble: 1 × 1
+##   type1error_rate
+##             &lt;dbl&gt;
+## 1           0.045
 ```
+]
+
+]
 
 ---
 
 ## Unequal variance: type I error?
- 
+
+With unequal variance, the type I error rate is much higher than we set.  We set the the type I error rate to be 5%, but the simulated rate was 6.36%.
+
+.panelset[
+
+.panel[.panel-name[t-test function]
 
 ```r
-pvals &lt;- c()
-reps &lt;- 10000
-for(i in 1:reps){
-  x1 &lt;- rnorm(10, mean=47, sd=1)
-  x2 &lt;- rnorm(10, mean=47, sd=100)
-  pvals &lt;- c(pvals, t.test(x1,x2, var.equal=TRUE)$p.value) }
+t_test_pval &lt;- function(df){
+  t.test(y ~ x1, data = df, var.equal = TRUE) %&gt;%
+    tidy() %&gt;%
+    select(estimate, p.value) 
+}
+```
+]
 
-sum(pvals &lt; .05)/reps
+.panel[.panel-name[generate data]
+
+
+
+&lt;code class ='r hljs remark-code'&gt;set.seed(470)&lt;br&gt;reps &lt;- 1000&lt;br&gt;n_obs &lt;- 20&lt;br&gt;null_data &lt;- &lt;br&gt;&amp;nbsp;&amp;nbsp;data.frame(row_id = seq(1, n_obs, 1)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;slice(rep(row_id, each = reps)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sim_id = rep(1:reps, n_obs),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x1 = rep(c("group1", "group2"), each = n()/2),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y = rnorm(n(), mean = 10, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;sd = rep(c(1,100), each = n()/2)&lt;/span&gt;)&lt;br&gt;&amp;nbsp;&amp;nbsp;) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;arrange(sim_id, row_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;group_by(sim_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;nest()&lt;/code&gt;
+
+]
+
+.panel[.panel-name[summarize p-values]
+
+```r
+null_data %&gt;% 
+  mutate(t_vals = map(data,t_test_pval)) %&gt;%
+  select(t_vals) %&gt;% 
+  unnest(t_vals) %&gt;%
+  ungroup(sim_id) %&gt;%
+  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)
 ```
 
 ```
-## [1] 0.0673
+## # A tibble: 1 × 1
+##   type1error_rate
+##             &lt;dbl&gt;
+## 1           0.057
 ```
+]
+
+]
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
