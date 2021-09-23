@@ -786,9 +786,9 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 
 ```{r echo=FALSE}
 set.seed(470)
-n = 100000
-n.red = n*0.99
-n.blue = n*0.01
+n_obs <- 100000
+n.red <- n_obs*0.99
+n.blue <- n_obs*0.01
 reds <- rnorm(n.red, mean = 100, sd = 15)
 blues <- rnorm(n.blue, mean = 100, sd = 15)
 
@@ -1034,7 +1034,7 @@ library(broom)
 ```
 
 ```{r}
-set.seed(4747)
+set.seed(470)
 beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
 n_obs <- 100; reps <- 1000
 
@@ -1053,7 +1053,8 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
   geom_point() +
   geom_smooth(method = "lm", se=FALSE) + 
   scale_colour_tableau("Color Blind") +
-  guides(color=guide_legend(title="group"))
+  guides(color=guide_legend(title="x1 value")) +
+  xlab("x2 value") + ylab("y value")
 ```
 
 
@@ -1061,10 +1062,11 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
 
 ## Capture the slope parameter?
 
-* We know the truth (!!!!!)
-* We can create a CI for the parameter given the data set
-* Is the parameter in the interval?
-* Should it always be in the interval?  How often?
+* We know the truth (!!!!!)  
+* We can create a single CI for the parameter given a single data set  
+* Is the parameter in the interval?  
+* Should it always be in the interval?  How often should it be?  
+* Repeat the process to see whether the confidence interval captures the parameter at the claimed rate.  
 
 
 See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm)
@@ -1131,13 +1133,13 @@ set.seed(470)
 beta0 <- -1
 beta1 <- 0.5
 beta2 <- 1.5
-n <- 100
+n_obs <- 100
 reps <- 1000
 
-  x1 <- rep(c(0,1), each=n/2)
-  x2 <- runif(n, min=-1, max=1)
+  x1 <- rep(c(0,1), each=n_obs/2)
+  x2 <- runif(n_obs, min=-1, max=1)
   y <- beta0 + beta1*x1 + beta2*x2 + 
-             rnorm(n, mean=0, sd = 1 + x1 + 10*abs(x2))
+             rnorm(n_obs, mean=0, sd = 1 + x1 + 10*abs(x2))
 ```
 
 ```{r echo = FALSE}
@@ -1155,7 +1157,8 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
   geom_point() +
   geom_smooth(method = "lm", se=FALSE) + 
   scale_colour_tableau("Color Blind") +
-  guides(color=guide_legend(title="group"))
+  guides(color=guide_legend(title="x1 value")) +
+  xlab("x2 value") + ylab("y value")
 ```
 
 ---
@@ -1263,7 +1266,7 @@ t_test_pval <- function(df){
 set.seed(470)
 reps <- 1000
 n_obs <- 20
-null_data <- 
+null_data_equal <- 
   data.frame(row_id = seq(1, n_obs, 1)) %>%
   slice(rep(row_id, each = reps)) %>%
   mutate(
@@ -1280,7 +1283,7 @@ null_data <-
 
 .panel[.panel-name[summarize p-values]
 ```{r}
-null_data %>% 
+null_data_equal %>% 
   mutate(t_vals = map(data,t_test_pval)) %>%
   select(t_vals) %>% 
   unnest(t_vals) %>%
@@ -1314,7 +1317,7 @@ t_test_pval <- function(df){
 set.seed(470)
 reps <- 1000
 n_obs <- 20
-null_data <- 
+null_data_unequal <- 
   data.frame(row_id = seq(1, n_obs, 1)) %>%
   slice(rep(row_id, each = reps)) %>%
   mutate(
@@ -1338,7 +1341,7 @@ decorate("unequal-ttest", eval = TRUE) %>%
 
 .panel[.panel-name[summarize p-values]
 ```{r}
-null_data %>% 
+null_data_unequal %>% 
   mutate(t_vals = map(data,t_test_pval)) %>%
   select(t_vals) %>% 
   unnest(t_vals) %>%

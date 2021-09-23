@@ -1117,7 +1117,7 @@ Consider the following set up (as in the WU):
 
 
 ```r
-set.seed(4747)
+set.seed(470)
 beta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5
 n_obs &lt;- 100; reps &lt;- 1000
 
@@ -1137,10 +1137,11 @@ n_obs &lt;- 100; reps &lt;- 1000
 
 ## Capture the slope parameter?
 
-* We know the truth (!!!!!)
-* We can create a CI for the parameter given the data set
-* Is the parameter in the interval?
-* Should it always be in the interval?  How often?
+* We know the truth (!!!!!)  
+* We can create a single CI for the parameter given a single data set  
+* Is the parameter in the interval?  
+* Should it always be in the interval?  How often should it be?  
+* Repeat the process to see whether the confidence interval captures the parameter at the claimed rate.  
 
 
 See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm)
@@ -1157,9 +1158,9 @@ CI
 
 ```
 ##          term estimate std.error statistic  p.value conf.low conf.high
-## 1 (Intercept)   -1.065     0.151     -7.05 2.60e-10   -1.364    -0.765
-## 2          x1    0.532     0.212      2.51 1.37e-02    0.111     0.953
-## 3          x2    1.499     0.196      7.64 1.59e-11    1.109     1.889
+## 1 (Intercept)   -0.950     0.148     -6.41 5.39e-09   -1.244    -0.656
+## 2          x1    0.259     0.210      1.23 2.20e-01   -0.158     0.677
+## 3          x2    1.401     0.194      7.21 1.24e-10    1.015     1.787
 ```
 
 ```r
@@ -1171,7 +1172,7 @@ CI %&gt;%
 
 ```
 ##   term estimate conf.low conf.high inside
-## 1   x2      1.5     1.11      1.89   TRUE
+## 1   x2      1.4     1.02      1.79   TRUE
 ```
 
 ---
@@ -1235,7 +1236,7 @@ eqvar_data %&gt;%
 ## # A tibble: 1 × 1
 ##   capture_rate
 ##          &lt;dbl&gt;
-## 1         0.95
+## 1        0.955
 ```
 
 ---
@@ -1247,7 +1248,7 @@ Consider the following set up (note the difference in variability):
 
 
 
-&lt;code class ='r hljs remark-code'&gt;set.seed(470)&lt;br&gt;beta0 &lt;- -1&lt;br&gt;beta1 &lt;- 0.5&lt;br&gt;beta2 &lt;- 1.5&lt;br&gt;n &lt;- 100&lt;br&gt;reps &lt;- 1000&lt;br&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;x1 &lt;- rep(c(0,1), each=n/2)&lt;br&gt;&amp;nbsp;&amp;nbsp;x2 &lt;- runif(n, min=-1, max=1)&lt;br&gt;&amp;nbsp;&amp;nbsp;y &lt;- beta0 + beta1*x1 + beta2*x2 + &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rnorm(n, mean=0, &lt;span style='background-color:#ffff7f'&gt;sd = 1 + x1 + 10*abs(x2)&lt;/span&gt;)&lt;/code&gt;
+&lt;code class ='r hljs remark-code'&gt;set.seed(470)&lt;br&gt;beta0 &lt;- -1&lt;br&gt;beta1 &lt;- 0.5&lt;br&gt;beta2 &lt;- 1.5&lt;br&gt;n_obs &lt;- 100&lt;br&gt;reps &lt;- 1000&lt;br&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;x1 &lt;- rep(c(0,1), each=n_obs/2)&lt;br&gt;&amp;nbsp;&amp;nbsp;x2 &lt;- runif(n_obs, min=-1, max=1)&lt;br&gt;&amp;nbsp;&amp;nbsp;y &lt;- beta0 + beta1*x1 + beta2*x2 + &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;rnorm(n_obs, mean=0, &lt;span style='background-color:#ffff7f'&gt;sd = 1 + x1 + 10*abs(x2)&lt;/span&gt;)&lt;/code&gt;
 
 ---
 
@@ -1357,7 +1358,7 @@ t_test_pval &lt;- function(df){
 set.seed(470)
 reps &lt;- 1000
 n_obs &lt;- 20
-null_data &lt;- 
+null_data_equal &lt;- 
   data.frame(row_id = seq(1, n_obs, 1)) %&gt;%
   slice(rep(row_id, each = reps)) %&gt;%
   mutate(
@@ -1375,7 +1376,7 @@ null_data &lt;-
 .panel[.panel-name[summarize p-values]
 
 ```r
-null_data %&gt;% 
+null_data_equal %&gt;% 
   mutate(t_vals = map(data,t_test_pval)) %&gt;%
   select(t_vals) %&gt;% 
   unnest(t_vals) %&gt;%
@@ -1416,14 +1417,14 @@ t_test_pval &lt;- function(df){
 
 
 
-&lt;code class ='r hljs remark-code'&gt;set.seed(470)&lt;br&gt;reps &lt;- 1000&lt;br&gt;n_obs &lt;- 20&lt;br&gt;null_data &lt;- &lt;br&gt;&amp;nbsp;&amp;nbsp;data.frame(row_id = seq(1, n_obs, 1)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;slice(rep(row_id, each = reps)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sim_id = rep(1:reps, n_obs),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x1 = rep(c("group1", "group2"), each = n()/2),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y = rnorm(n(), mean = 10, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;sd = rep(c(1,100), each = n()/2)&lt;/span&gt;)&lt;br&gt;&amp;nbsp;&amp;nbsp;) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;arrange(sim_id, row_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;group_by(sim_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;nest()&lt;/code&gt;
+&lt;code class ='r hljs remark-code'&gt;set.seed(470)&lt;br&gt;reps &lt;- 1000&lt;br&gt;n_obs &lt;- 20&lt;br&gt;null_data_unequal &lt;- &lt;br&gt;&amp;nbsp;&amp;nbsp;data.frame(row_id = seq(1, n_obs, 1)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;slice(rep(row_id, each = reps)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;sim_id = rep(1:reps, n_obs),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;x1 = rep(c("group1", "group2"), each = n()/2),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;y = rnorm(n(), mean = 10, &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;sd = rep(c(1,100), each = n()/2)&lt;/span&gt;)&lt;br&gt;&amp;nbsp;&amp;nbsp;) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;arrange(sim_id, row_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;group_by(sim_id) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;nest()&lt;/code&gt;
 
 ]
 
 .panel[.panel-name[summarize p-values]
 
 ```r
-null_data %&gt;% 
+null_data_unequal %&gt;% 
   mutate(t_vals = map(data,t_test_pval)) %&gt;%
   select(t_vals) %&gt;% 
   unnest(t_vals) %&gt;%
