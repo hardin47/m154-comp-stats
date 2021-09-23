@@ -306,7 +306,7 @@ Recall the `map` functions which are *named* by the **output** the produce.  For
 ]
 
 
-Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
+The first argument is the data object and the second object is the function to iteratively apply.
 
 ---
 
@@ -915,6 +915,12 @@ map_dbl(1:reps, ~ play_hand(shoe, strategy_simple)) %&gt;%
 
 
 
+---
+
+# Agenda  9/23/21
+
+1. Bias in modeling
+2. Simulating statistical inference
 
 ---
 
@@ -973,40 +979,52 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 ## Two models:
 
 
+
+Red model (SAT taken once):
+
+```r
+red.lm %&gt;% broom::tidy()
+```
+
 ```
 ## # A tibble: 3 × 5
 ##   term        estimate std.error statistic p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)   33.3     0.152        218.       0
-## 2 SAT            0.333   0.00150      222.       0
-## 3 grades         0.335   0.00150      223.       0
+## 1 (Intercept)   33.2     0.152        218.       0
+## 2 SAT            0.334   0.00149      224.       0
+## 3 grades         0.334   0.00149      225.       0
+```
+Blud model (SAT is max score of two):
+
+```r
+blue.lm %&gt;% broom::tidy()
 ```
 
 ```
 ## # A tibble: 3 × 5
 ##   term        estimate std.error statistic   p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)   26.0      1.54        16.9 2.99e- 56
-## 2 SAT            0.420    0.0156      26.9 1.38e-120
-## 3 grades         0.285    0.0139      20.5 4.71e- 78
+## 1 (Intercept)   25.3      1.60        15.8 2.04e- 50
+## 2 SAT            0.432    0.0161      26.7 3.35e-119
+## 3 grades         0.277    0.0154      18.0 6.83e- 63
 ```
 
 ---
 
 ## New data
 
-* Generate new data and use the two models above. 
+* Generate new data and use the **two** models above, separately. 
 
 * How well do the models accurately predict if the student has `talent` &gt; 115?
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-47-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-49-1.png)&lt;!-- --&gt;
 
 ---
 
 ## New data
 
 .pull-left[
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
 ]
 
 
@@ -1016,8 +1034,8 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 ## # A tibble: 2 × 5
 ##   color   tpr    fpr   fnr error
 ##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 blue  0.471 0.0463 0.529 0.122
-## 2 red   0.499 0.0375 0.501 0.111
+## 1 blue  0.482 0.0371 0.518 0.103
+## 2 red   0.503 0.0378 0.497 0.111
 ```
 
 ]
@@ -1035,27 +1053,60 @@ Afterall, there are laws against using protected classes to make decisions (hous
 ## # A tibble: 3 × 5
 ##   term        estimate std.error statistic p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-## 1 (Intercept)   33.2     0.152        219.       0
-## 2 SAT            0.333   0.00149      223.       0
-## 3 grades         0.335   0.00149      224.       0
+## 1 (Intercept)   33.1     0.151        219.       0
+## 2 SAT            0.334   0.00148      225.       0
+## 3 grades         0.334   0.00148      226.       0
 ```
+
+(The coefficients kinda look like the red model...)
 ---
 
 ## How do the error rates change?
 
 .pull-left[
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
+
+One model:
 
 ```
 ## # A tibble: 2 × 5
 ##   color   tpr    fpr   fnr error
 ##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 blue  0.611 0.0795 0.389 0.128
-## 2 red   0.498 0.0371 0.502 0.111
+## 1 blue  0.584 0.0660 0.416 0.114
+## 2 red   0.502 0.0375 0.498 0.111
 ```
+
+Two separate models:
+
+```r
+new.college.data.2mod &lt;- new.college.data %&gt;% 
+  mutate(fp = ifelse(talent &lt; 115 &amp; predicted &gt; 115, 1, 0),
+         tp = ifelse(talent &gt; 115 &amp; predicted &gt; 115, 1, 0),
+         fn = ifelse(talent &gt; 115 &amp; predicted &lt; 115, 1, 0),
+         tn = ifelse(talent &lt; 115 &amp; predicted &lt; 115, 1, 0))
+
+error.rates &lt;- new.college.data.2mod %&gt;% group_by(color) %&gt;%
+  summarize(tpr = sum(tp) / (sum(tp) + sum(fn)),
+            fpr = sum(fp) / (sum(fp) + sum(tn)),
+            fnr = sum(fn) / (sum(fn) + sum(tp)),
+            #fdr = sum(fp) / (sum(fp) + sum(tp)),
+            error = (sum(fp) + sum(fn)) / (sum(fp) + sum(tp) + sum(fn) + sum(tn) ))
+
+error.rates
+```
+
+```
+## # A tibble: 2 × 5
+##   color   tpr    fpr   fnr error
+##   &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 blue  0.482 0.0371 0.518 0.103
+## 2 red   0.503 0.0378 0.497 0.111
+```
+
+
 ]
 ---
 
@@ -1063,13 +1114,23 @@ Afterall, there are laws against using protected classes to make decisions (hous
 
 &gt; with two populations that have different feature distributions, learning a single classifier (that is prohibited from discriminating based on population) will fit the bigger of the two populations
 
-* depending on the nature of the distribution difference, this can be either to the benefit or the detriment of the minority population
+* depending on the nature of the distribution difference, it can be either to the benefit or the detriment of the minority population
 
 * no explicit human bias, either on the part of the algorithm designer or the data gathering process
 
 * the problem is exacerbated if we artificially force the algorithm to be group blind
 
 * well intentioned "fairness" regulations prohibiting decision makers form taking sensitive attributes into account can actually make things less fair and less accurate at the same time
+
+---
+
+## Simulate?
+
+* different varying proportions
+* effect due to variability
+* effect due to SAT coefficient
+* different number of times the blues get to take the test
+* etc.
 
 ---
 
@@ -1102,7 +1163,7 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
   geom_smooth(method = "lm", se=FALSE) 
 ```
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1233,7 +1294,7 @@ data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %&gt;%
   geom_smooth(method = "lm", se=FALSE)
 ```
 
-![](2021-09-21-simulating_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
+![](2021-09-21-simulating_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
 
 ---
 

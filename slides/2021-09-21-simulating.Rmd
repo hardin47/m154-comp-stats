@@ -229,7 +229,7 @@ knitr::include_graphics("../images/purrr_map.png")
 ]
 
 
-Note that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object.
+The first argument is the data object and the second object is the function to iteratively apply.
 
 ---
 
@@ -725,6 +725,12 @@ ggplot(weibdata, aes(x = weibull)) + geom_histogram(bins = 25) +
 ```
 
 
+---
+
+# Agenda  9/23/21
+
+1. Bias in modeling
+2. Simulating statistical inference
 
 ---
 
@@ -777,6 +783,7 @@ The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [A
 ##  Let's see what happens ...
 
 ```{r echo=FALSE}
+set.seed(470)
 n = 100000
 n.red = n*0.99
 n.blue = n*0.01
@@ -816,8 +823,14 @@ red.lm = college.data %>%
 blue.lm = college.data %>%
   dplyr::filter(color == "blue") %>%
   lm(talent ~ SAT + grades, data = .)
+```
 
+Red model (SAT taken once):
+```{r}
 red.lm %>% broom::tidy()
+```
+Blud model (SAT is max score of two):
+```{r}
 blue.lm %>% broom::tidy()
 ```
 
@@ -825,11 +838,12 @@ blue.lm %>% broom::tidy()
 
 ## New data
 
-* Generate new data and use the two models above. 
+* Generate new data and use the **two** models above, separately. 
 
 * How well do the models accurately predict if the student has `talent` > 115?
 
 ```{r echo=FALSE}
+set.seed(470)
 new.reds <- rnorm(n.red, mean = 100, sd = 15)
 new.blues <- rnorm(n.blue, mean = 100, sd = 15)
 
@@ -916,6 +930,8 @@ global.lm = college.data %>%
 
 global.lm %>% broom::tidy()
 ```
+
+(The coefficients kinda look like the red model...)
 ---
 
 ## How do the error rates change?
@@ -940,14 +956,16 @@ ggplot(new.college.data, aes(x = talent,
 ]
 
 .pull-right[
+
+One model:
 ```{r echo = FALSE}
-new.college.data <- new.college.data %>% 
+new.college.data.glb <- new.college.data %>% 
   mutate(fp = ifelse(talent < 115 & global.predicted > 115, 1, 0),
          tp = ifelse(talent > 115 & global.predicted > 115, 1, 0),
          fn = ifelse(talent > 115 & global.predicted < 115, 1, 0),
          tn = ifelse(talent < 115 & global.predicted < 115, 1, 0))
 
-error.rates <- new.college.data %>% group_by(color) %>%
+error.rates <- new.college.data.glb %>% group_by(color) %>%
   summarize(tpr = sum(tp) / (sum(tp) + sum(fn)),
             fpr = sum(fp) / (sum(fp) + sum(tn)),
             fnr = sum(fn) / (sum(fn) + sum(tp)),
@@ -956,6 +974,26 @@ error.rates <- new.college.data %>% group_by(color) %>%
 
 error.rates
 ```
+
+Two separate models:
+```{r}
+new.college.data.2mod <- new.college.data %>% 
+  mutate(fp = ifelse(talent < 115 & predicted > 115, 1, 0),
+         tp = ifelse(talent > 115 & predicted > 115, 1, 0),
+         fn = ifelse(talent > 115 & predicted < 115, 1, 0),
+         tn = ifelse(talent < 115 & predicted < 115, 1, 0))
+
+error.rates <- new.college.data.2mod %>% group_by(color) %>%
+  summarize(tpr = sum(tp) / (sum(tp) + sum(fn)),
+            fpr = sum(fp) / (sum(fp) + sum(tn)),
+            fnr = sum(fn) / (sum(fn) + sum(tp)),
+            #fdr = sum(fp) / (sum(fp) + sum(tp)),
+            error = (sum(fp) + sum(fn)) / (sum(fp) + sum(tp) + sum(fn) + sum(tn) ))
+
+error.rates
+```
+
+
 ]
 ---
 
@@ -963,13 +1001,23 @@ error.rates
 
 > with two populations that have different feature distributions, learning a single classifier (that is prohibited from discriminating based on population) will fit the bigger of the two populations
 
-* depending on the nature of the distribution difference, this can be either to the benefit or the detriment of the minority population
+* depending on the nature of the distribution difference, it can be either to the benefit or the detriment of the minority population
 
 * no explicit human bias, either on the part of the algorithm designer or the data gathering process
 
 * the problem is exacerbated if we artificially force the algorithm to be group blind
 
 * well intentioned "fairness" regulations prohibiting decision makers form taking sensitive attributes into account can actually make things less fair and less accurate at the same time
+
+---
+
+## Simulate?
+
+* different varying proportions
+* effect due to variability
+* effect due to SAT coefficient
+* different number of times the blues get to take the test
+* etc.
 
 ---
 
@@ -989,8 +1037,8 @@ beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
 n_obs <- 100; reps <- 10000
 
 
-  x1 <- rep(c(0,1), each=n/2)
-  x2 <- runif(n, min=-1, max=1)
+  x1 <- rep(c(0,1), each=n_obs/2)
+  x2 <- runif(n_obs, min=-1, max=1)
   y <- beta0 + beta1*x1 + beta2*x2 + rnorm(n_obs, mean=0, sd = 1)
 ```
 
