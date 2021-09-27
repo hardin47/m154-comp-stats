@@ -6,4 +6,5 @@ listing:
    - 2021-09-07-dataviz
    - 2021-09-14-wrangling
    - 2021-09-21-simulating
+   - 2021-09-28-permutation
 ---
