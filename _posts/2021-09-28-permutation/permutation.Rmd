@@ -50,6 +50,17 @@ knitr::include_graphics("../../images/not_normal.png")
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
+* What is a test statistic?
+
+* What is a p-value?
+
+* Why for a two sample comparison is it okay to use $\overline{Y}_A - \overline{Y}_B$ for a test statistic in a permutation test, but for a t-test the test statistic is necessarily $t^* = \frac{\overline{Y}_A - \overline{Y}_B}{\sqrt{s^2_A/n_A + s^2_B/n_B}}$  (that is, divided by a measure of variability)?
+
+* What does "exchangeability" mean (as a technical condition) when discussing permutation tests?
+
+* What is the difference between a permutation test and a randomization test?  Are there times when doing a randomization test is possible?
+
+
 
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
@@ -61,7 +72,7 @@ knitr::include_graphics("../../images/not_normal.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2021-09-28-permutations" target = "_blank">In class slides</a> for both 9/28/21 and 9/30/21.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU8_.pdf" target = "_blank">WU8 - </a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU8_HT.pdf" target = "_blank">WU8 - HT logic</a>
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU9_.pdf" target = "_blank">WU9 - </a>
 

@@ -28,8 +28,14 @@ options(digits=3)
 
 ```
 
----
 
+# Agenda  9/28/21
+
+1. Review: logic of hypothesis testing
+2. Logic of permutation tests
+3. Examples - 2 samples and beyond
+
+---
 
 ##  Consider the NHANES dataset.
 
@@ -214,6 +220,15 @@ SSB_perm_val %>%
   ylab("") + xlab("Permuted SSB Test Statistics")
 ```
 
+
+---
+
+# Agenda  9/30/21
+
+1. R code, examples
+2. Assumptions, exchangeability, random structure
+3. Different statistics within the permutation test
+4. Permutation vs. Randomization tests (Binomial)
 
 ---
 
