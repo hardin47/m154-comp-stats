@@ -66,16 +66,16 @@ Are the differences in means simply due to random chance??
 
 ## Income and Health
 
-```{r warning=FALSE}
+```{r warning=FALSE, out.width = "80%"}
 NHANES %>% filter(!is.na(HealthGen)& !is.na(HHIncomeMid)) %>% 
 ggplot(aes(x=HealthGen, y=HHIncomeMid)) + geom_boxplot()
 ```
 
 ---
 
-## Differences in Health
+## Differences in Income ($)
 
-```{r}
+```{r echo = FALSE}
 diff.mat = data.frame(matrix(ncol=5, nrow=5))
 names(diff.mat) = NH.means$HealthGen
 rownames(diff.mat) = NH.means$HealthGen
@@ -103,7 +103,7 @@ $$SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2$$
 
 ```{r}
 NHANES %>% select(HHIncomeMid, HealthGen) %>% 
-  filter(!is.na(HealthGen)& !is.na(HHIncomeMid)) %>% head()
+  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))
 
 ```
 
@@ -111,7 +111,8 @@ NHANES %>% select(HHIncomeMid, HealthGen) %>%
 
 ## Creating a test statistic
 ```{r}
-GM = mean(NHANES$HHIncomeMid, na.rm=TRUE); GM
+GM = NHANES %>% summarize(mean(HHIncomeMid, na.rm=TRUE)) %>% pull(); GM
+
 NH.means
 ```
 
@@ -120,10 +121,10 @@ NH.means
 ## Creating a test statistic
 
 ```{r}
-NH.means$IncMean - GM
-(NH.means$IncMean - GM)^2
-NH.means$count
-NH.means$count * (NH.means$IncMean - GM)^2
+NH.means %>% select(IncMean) %>% pull() - GM
+(NH.means %>% select(IncMean) %>% pull() - GM)^2
+NH.means %>% select(count) %>% pull()
+NH.means %>% select(count) %>% pull() * (NH.means %>% select(IncMean) %>% pull() - GM)^2
 ```
 
 ---
@@ -132,7 +133,7 @@ NH.means$count * (NH.means$IncMean - GM)^2
 
 $$SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2$$
 ```{r}
-sum(NH.means$count * (NH.means$IncMean - GM)^2)
+sum(NH.means %>% select(count) %>% pull() * (NH.means %>% select(IncMean) %>% pull() - GM)^2)
 ```
 
 
@@ -145,8 +146,7 @@ sum(NH.means$count * (NH.means$IncMean - GM)^2)
 NHANES %>% 
   filter(!is.na(HealthGen)& !is.na(HHIncomeMid)) %>%
   mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE)) %>%
-  select(HealthGen, HHIncomeMid, IncomePerm) %>%
-  head()
+  select(HealthGen, HHIncomeMid, IncomePerm) 
 ```
 
 
@@ -169,18 +169,21 @@ NHANES %>%
 ## Lots of times...
 
 ```{r}
-reps = 1000
-SSB <- 
-  unlist(replicate(reps, 
-     NHANES %>% 
+reps <- 1000
+
+SSB_perm_func <- function(.x){
+  NHANES %>% 
         filter(!is.na(HealthGen)& !is.na(HHIncomeMid)) %>%
         mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE)) %>%
         group_by(HealthGen) %>% 
         summarize(IncMeanP = mean(IncomePerm), count=n()) %>%
-        summarize(teststat = sum(count*(IncMeanP - GM)^2))
-      ))
+        summarize(teststat = sum(count*(IncMeanP - GM)^2)) 
+}
 
-head(SSB)
+SSB_perm_val <- map_dfr(1:reps, SSB_perm_func)
+
+SSB_perm_val
+
 ```
 
 ---
@@ -189,14 +192,14 @@ head(SSB)
 
 
 ```{r}
-obsSSB <- NHANES %>%
+SSB_obs <- NHANES %>%
   filter(!is.na(HealthGen) & !is.na(HHIncomeMid)) %>% 
   group_by(HealthGen) %>% 
   summarize(IncMean = mean(HHIncomeMid), count=n()) %>%
-  summarize(obs.teststat = sum(count*(IncMean - GM)^2))
+  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) 
 
-obsSSB
-sum(SSB>obsSSB) / reps
+SSB_obs 
+sum(SSB_perm_val %>% pull() > SSB_obs %>% pull() ) / reps
 ```
 
 ---
@@ -204,7 +207,11 @@ sum(SSB>obsSSB) / reps
 ## Compared to the observed test statistic
 
 ```{r}
-hist(SSB, xlim=c(0, 6e+11)); abline(v=obsSSB)
+SSB_perm_val %>%
+  ggplot(aes(x = teststat)) +
+  geom_histogram() + 
+  geom_vline(data = SSB_obs, aes(xintercept = obs_teststat), color = "red") +
+  ylab("") + xlab("Permuted SSB Test Statistics")
 ```
 
 

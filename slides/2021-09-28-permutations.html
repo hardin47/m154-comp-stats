@@ -98,24 +98,12 @@ NHANES %&gt;% filter(!is.na(HealthGen)&amp; !is.na(HHIncomeMid)) %&gt;%
 ggplot(aes(x=HealthGen, y=HHIncomeMid)) + geom_boxplot()
 ```
 
-![](2021-09-28-permutations_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+&lt;img src="2021-09-28-permutations_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
 
 ---
 
-## Differences in Health
+## Differences in Income ($)
 
-
-```r
-diff.mat = data.frame(matrix(ncol=5, nrow=5))
-names(diff.mat) = NH.means$HealthGen
-rownames(diff.mat) = NH.means$HealthGen
-
-for(i in 1:5){
-  for(j in 1:5){
-    diff.mat[i,j] = NH.means$IncMean[i] - NH.means$IncMean[j]   }}
-
-diff.mat
-```
 
 ```
 ##           Excellent  Vgood   Good  Fair  Poor
@@ -143,19 +131,24 @@ We can measure the overall differences as the amount of variability between each
 
 ```r
 NHANES %&gt;% select(HHIncomeMid, HealthGen) %&gt;% 
-  filter(!is.na(HealthGen)&amp; !is.na(HHIncomeMid)) %&gt;% head()
+  filter(!is.na(HealthGen)&amp; !is.na(HHIncomeMid))
 ```
 
 ```
-## # A tibble: 6 × 2
-##   HHIncomeMid HealthGen
-##         &lt;int&gt; &lt;fct&gt;    
-## 1       30000 Good     
-## 2       30000 Good     
-## 3       30000 Good     
-## 4       40000 Good     
-## 5       87500 Vgood    
-## 6       87500 Vgood
+## # A tibble: 6,966 × 2
+##    HHIncomeMid HealthGen
+##          &lt;int&gt; &lt;fct&gt;    
+##  1       30000 Good     
+##  2       30000 Good     
+##  3       30000 Good     
+##  4       40000 Good     
+##  5       87500 Vgood    
+##  6       87500 Vgood    
+##  7       87500 Vgood    
+##  8       30000 Vgood    
+##  9      100000 Vgood    
+## 10       70000 Fair     
+## # … with 6,956 more rows
 ```
 
 ---
@@ -163,7 +156,7 @@ NHANES %&gt;% select(HHIncomeMid, HealthGen) %&gt;%
 ## Creating a test statistic
 
 ```r
-GM = mean(NHANES$HHIncomeMid, na.rm=TRUE); GM
+GM = NHANES %&gt;% summarize(mean(HHIncomeMid, na.rm=TRUE)) %&gt;% pull(); GM
 ```
 
 ```
@@ -191,7 +184,7 @@ NH.means
 
 
 ```r
-NH.means$IncMean - GM
+NH.means %&gt;% select(IncMean) %&gt;% pull() - GM
 ```
 
 ```
@@ -199,7 +192,7 @@ NH.means$IncMean - GM
 ```
 
 ```r
-(NH.means$IncMean - GM)^2
+(NH.means %&gt;% select(IncMean) %&gt;% pull() - GM)^2
 ```
 
 ```
@@ -207,7 +200,7 @@ NH.means$IncMean - GM
 ```
 
 ```r
-NH.means$count
+NH.means %&gt;% select(count) %&gt;% pull()
 ```
 
 ```
@@ -215,7 +208,7 @@ NH.means$count
 ```
 
 ```r
-NH.means$count * (NH.means$IncMean - GM)^2
+NH.means %&gt;% select(count) %&gt;% pull() * (NH.means %&gt;% select(IncMean) %&gt;% pull() - GM)^2
 ```
 
 ```
@@ -229,7 +222,7 @@ NH.means$count * (NH.means$IncMean - GM)^2
 `$$SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2$$`
 
 ```r
-sum(NH.means$count * (NH.means$IncMean - GM)^2)
+sum(NH.means %&gt;% select(count) %&gt;% pull() * (NH.means %&gt;% select(IncMean) %&gt;% pull() - GM)^2)
 ```
 
 ```
@@ -247,20 +240,24 @@ sum(NH.means$count * (NH.means$IncMean - GM)^2)
 NHANES %&gt;% 
   filter(!is.na(HealthGen)&amp; !is.na(HHIncomeMid)) %&gt;%
   mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE)) %&gt;%
-  select(HealthGen, HHIncomeMid, IncomePerm) %&gt;%
-  head()
+  select(HealthGen, HHIncomeMid, IncomePerm) 
 ```
 
 ```
-## # A tibble: 6 × 3
-##   HealthGen HHIncomeMid IncomePerm
-##   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;
-## 1 Good            30000     100000
-## 2 Good            30000      50000
-## 3 Good            30000      22500
-## 4 Good            40000       7500
-## 5 Vgood           87500     100000
-## 6 Vgood           87500      87500
+## # A tibble: 6,966 × 3
+##    HealthGen HHIncomeMid IncomePerm
+##    &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;
+##  1 Good            30000      60000
+##  2 Good            30000      60000
+##  3 Good            30000      87500
+##  4 Good            40000     100000
+##  5 Vgood           87500      50000
+##  6 Vgood           87500      40000
+##  7 Vgood           87500      87500
+##  8 Vgood           30000      12500
+##  9 Vgood          100000      40000
+## 10 Fair            70000      87500
+## # … with 6,956 more rows
 ```
 
 
@@ -291,23 +288,37 @@ NHANES %&gt;%
 
 
 ```r
-reps = 1000
-SSB &lt;- 
-  unlist(replicate(reps, 
-     NHANES %&gt;% 
+reps &lt;- 1000
+
+SSB_perm_func &lt;- function(.x){
+  NHANES %&gt;% 
         filter(!is.na(HealthGen)&amp; !is.na(HHIncomeMid)) %&gt;%
         mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE)) %&gt;%
         group_by(HealthGen) %&gt;% 
         summarize(IncMeanP = mean(IncomePerm), count=n()) %&gt;%
-        summarize(teststat = sum(count*(IncMeanP - GM)^2))
-      ))
+        summarize(teststat = sum(count*(IncMeanP - GM)^2)) 
+}
 
-head(SSB)
+SSB_perm_val &lt;- map_dfr(1:reps, SSB_perm_func)
+
+SSB_perm_val
 ```
 
 ```
-## teststat teststat teststat teststat teststat teststat 
-## 1.56e+10 1.60e+10 1.35e+10 1.28e+10 1.30e+10 1.26e+10
+## # A tibble: 1,000 × 1
+##        teststat
+##           &lt;dbl&gt;
+##  1 15558101722.
+##  2 16043464541.
+##  3 13479105192.
+##  4 12751834446.
+##  5 12969481403.
+##  6 12574155002.
+##  7 17025427397.
+##  8 15218082491.
+##  9 17741088638.
+## 10 14550341129.
+## # … with 990 more rows
 ```
 
 ---
@@ -317,24 +328,24 @@ head(SSB)
 
 
 ```r
-obsSSB &lt;- NHANES %&gt;%
+SSB_obs &lt;- NHANES %&gt;%
   filter(!is.na(HealthGen) &amp; !is.na(HHIncomeMid)) %&gt;% 
   group_by(HealthGen) %&gt;% 
   summarize(IncMean = mean(HHIncomeMid), count=n()) %&gt;%
-  summarize(obs.teststat = sum(count*(IncMean - GM)^2))
+  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) 
 
-obsSSB
+SSB_obs 
 ```
 
 ```
 ## # A tibble: 1 × 1
-##    obs.teststat
+##    obs_teststat
 ##           &lt;dbl&gt;
 ## 1 488767088754.
 ```
 
 ```r
-sum(SSB&gt;obsSSB) / reps
+sum(SSB_perm_val %&gt;% pull() &gt; SSB_obs %&gt;% pull() ) / reps
 ```
 
 ```
@@ -347,7 +358,11 @@ sum(SSB&gt;obsSSB) / reps
 
 
 ```r
-hist(SSB, xlim=c(0, 6e+11)); abline(v=obsSSB)
+SSB_perm_val %&gt;%
+  ggplot(aes(x = teststat)) +
+  geom_histogram() + 
+  geom_vline(data = SSB_obs, aes(xintercept = obs_teststat), color = "red") +
+  ylab("") + xlab("Permuted SSB Test Statistics")
 ```
 
 ![](2021-09-28-permutations_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
