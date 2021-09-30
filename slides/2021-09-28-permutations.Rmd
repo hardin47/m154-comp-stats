@@ -254,7 +254,8 @@ SSB_perm_val %>%
 
 1. Conditions, exchangeability, random structure
 2. Different statistics within the permutation test
-3. Permutation vs. Randomization tests (Binomial)
+3. Power
+4. Permutation vs. Randomization tests (Binomial)
 
 ---
 

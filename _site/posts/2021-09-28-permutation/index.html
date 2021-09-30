@@ -2320,9 +2320,9 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
 </ol>
 <h3 id="september-30-2021">September 30, 2021</h3>
 <ol type="1">
-<li>R code, examples</li>
 <li>Conditions, exchangeability, random structure</li>
 <li>Different statistics within the permutation test</li>
+<li>Power</li>
 <li>Permutation vs. Randomization tests (Binomial)</li>
 </ol>
 <h2 id="readings">Readings <i class="fas fa-book-open"></i></h2>
@@ -2334,11 +2334,16 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
 <ul>
 <li><p>What is a test statistic?</p></li>
 <li><p>What is a p-value?</p></li>
-<li><p>Why for a two sample comparison is it okay to use <span class="math inline">\(\overline{Y}_A - \overline{Y}_B\)</span> for a test statistic in a permutation test, but for a t-test the test statistic is necessarily <span class="math inline">\(t^* = \frac{\overline{Y}_A - \overline{Y}_B}{\sqrt{s^2_A/n_A + s^2_B/n_B}}\)</span> (that is, divided by a measure of variability)?</p></li>
+<li><p>Why for a two sample comparison (treatment A vs treatment B) is it okay to use <span class="math inline">\(\overline{X}_A - \overline{X}_B\)</span> for a test statistic in a permutation test, but for a t-test the test statistic is necessarily <span class="math inline">\(t^* = \frac{\overline{X}_A - \overline{X}_B}{\sqrt{s^2_A/n_A + s^2_B/n_B}}\)</span> (that is, divided by a measure of variability)?</p></li>
+<li><p>How do you know what to permute in order to create a null sampling distribution?</p></li>
 <li><p>What does “exchangeability” mean (as a technical condition) when discussing permutation tests?</p></li>
 <li><p>What is the difference between a permutation test and a randomization test? Are there times when doing a randomization test is possible?</p></li>
 </ul>
 <h2 id="ethics-considerations">Ethics considerations <i class="fas fa-balance-scale"></i></h2>
+<ul>
+<li><p>In a permutation test, sometimes there are many test statistics to choose from (which address the same hypotheses). Why wouldn’t you want to try them all and choose the one that gives you the highest level of significance?</p></li>
+<li></li>
+</ul>
 <h2 id="slides">Slides <i class="fas fa-desktop"></i></h2>
 <ul>
 <li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-09-28-permutations" target = "_blank">In class slides</a> for both 9/28/21 and 9/30/21.</p></li>

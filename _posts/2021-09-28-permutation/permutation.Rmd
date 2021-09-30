@@ -32,9 +32,9 @@ knitr::include_graphics("../../images/not_normal.png")
 
 ### September 30, 2021
 
-1. R code, examples
-2. Conditions, exchangeability, random structure
-3. Different statistics within the permutation test
+1. Conditions, exchangeability, random structure
+2. Different statistics within the permutation test
+3. Power
 4. Permutation vs. Randomization tests (Binomial)
 
 
@@ -54,18 +54,20 @@ knitr::include_graphics("../../images/not_normal.png")
 
 * What is a p-value?
 
-* Why for a two sample comparison is it okay to use $\overline{Y}_A - \overline{Y}_B$ for a test statistic in a permutation test, but for a t-test the test statistic is necessarily $t^* = \frac{\overline{Y}_A - \overline{Y}_B}{\sqrt{s^2_A/n_A + s^2_B/n_B}}$  (that is, divided by a measure of variability)?
+* Why for a two sample comparison (treatment A vs treatment B) is it okay to use $\overline{X}_A - \overline{X}_B$ for a test statistic in a permutation test, but for a t-test the test statistic is necessarily $t^* = \frac{\overline{X}_A - \overline{X}_B}{\sqrt{s^2_A/n_A + s^2_B/n_B}}$  (that is, divided by a measure of variability)?
+
+* How do you know what to permute in order to create a null sampling distribution?
 
 * What does "exchangeability" mean (as a technical condition) when discussing permutation tests?
 
 * What is the difference between a permutation test and a randomization test?  Are there times when doing a randomization test is possible?
 
 
-
-
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
+* In a permutation test, sometimes there are many test statistics to choose from (which address the same hypotheses).  Why wouldn't you want to try them all and choose the one that gives you the highest level of significance?
 
+* 
 
 ## Slides <i class="fas fa-desktop"></i> 
 
