@@ -62,12 +62,14 @@ knitr::include_graphics("../../images/not_normal.png")
 
 * What is the difference between a permutation test and a randomization test?  Are there times when doing a randomization test is possible?
 
+* What is power?  What are type I and type II errors?
+
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
 * In a permutation test, sometimes there are many test statistics to choose from (which address the same hypotheses).  Why wouldn't you want to try them all and choose the one that gives you the highest level of significance?
 
-* 
+* When is it acceptable to claim that the resulting "significant" outcome is actually a causal relationship (and not just an association)?
 
 ## Slides <i class="fas fa-desktop"></i> 
 
@@ -81,11 +83,14 @@ knitr::include_graphics("../../images/not_normal.png")
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
 
-* Applets:
+* Rossman & Chance applets:
    - <a href = "http://www.rossmanchance.com/applets/2021/twopopmodels/TwoPopModels.html?population=model" target = "_blank">analytic test of 2 means</a>  (t-test)
    - <a href = "http://www.rossmanchance.com/applets/2021/anovashuffle/AnovaShuffle.htm?hideExtras=2" target = "_blank">permutation test of 2 means</a>
    - <a href = "http://www.rossmanchance.com/applets/AnovaSim.html" target = "_blank">analytic test of many means</a> (ANOVA)
    - <a href = "http://www.rossmanchance.com/applets/2021/comparegroups/CompareGroups.html" target = "_blank">permutation test of many means</a>
+   - <a href = "http://www.rossmanchance.com/applets/2021/confsim/ConfSim.html" target = "_blank">confidence intervals</a>
+   - <a href = "http://www.rossmanchance.com/applets/2021/power/power.html" target = "_blank">power</a>   
+   - <a href = "http://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm" target = "_blank">linear models</a>   
    
 * <a href = "https://www.youtube.com/watch?v=5Dnw46eC-0o" target = "_blank">Statistics without the agonizing pain</a> - John Rauser at Strata + Hadoop 2014
 
@@ -94,7 +99,6 @@ knitr::include_graphics("../../images/not_normal.png")
 
 * RStudio <a href = "https://www.rstudio.com/resources/cheatsheets/" target = "_blank">cheatsheets</a> -- there is one on **purrr**!
 
-* [Simulating linear models](http://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm) from the ISCAM applets.
 
 
 
