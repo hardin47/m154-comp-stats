@@ -30,6 +30,30 @@ class: right, top, my-title, title-slide
 
 ---
 
+## Logic of hypothesis tests
+
+1. Choose a statistic that measures the effect 
+
+2. Construct the sampling distribution under `\(H_0\)`
+
+3. Locate the observed statistic in the null sampling distribution
+
+4. **p-value**  is the probability of the observed data or more extreme if the null hypothesis is true
+
+---
+
+## Logic of permutation tests
+
+1. Choose a test statistic
+
+2. Shuffle the data (force the null hypothesis to be true)
+
+3. Create a null sampling distribution of the test statistic (under `\(H_0\)`)
+
+4. Find the observed test statistic on the null sampling distribution and compute the p-value (observed data or more extreme).  The p-value can be one or two-sided.
+
+---
+
 ##  Consider the NHANES dataset.
 
 - Income 
@@ -104,7 +128,7 @@ NHANES %&gt;% filter(!is.na(HealthGen)&amp; !is.na(HHIncomeMid)) %&gt;%
 ggplot(aes(x=HealthGen, y=HHIncomeMid)) + geom_boxplot()
 ```
 
-&lt;img src="2021-09-28-permutations_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
+&lt;img src="2021-09-28-permutations_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -162,7 +186,8 @@ NHANES %&gt;% select(HHIncomeMid, HealthGen) %&gt;%
 ## Creating a test statistic
 
 ```r
-GM = NHANES %&gt;% summarize(mean(HHIncomeMid, na.rm=TRUE)) %&gt;% pull(); GM
+GM = NHANES %&gt;% summarize(mean(HHIncomeMid, na.rm=TRUE)) %&gt;% pull()
+GM
 ```
 
 ```
@@ -214,7 +239,8 @@ NH.means %&gt;% select(count) %&gt;% pull()
 ```
 
 ```r
-NH.means %&gt;% select(count) %&gt;% pull() * (NH.means %&gt;% select(IncMean) %&gt;% pull() - GM)^2
+NH.means %&gt;% select(count) %&gt;% pull() * 
+  (NH.means %&gt;% select(IncMean) %&gt;% pull() - GM)^2
 ```
 
 ```
@@ -228,7 +254,8 @@ NH.means %&gt;% select(count) %&gt;% pull() * (NH.means %&gt;% select(IncMean) %
 `$$SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2$$`
 
 ```r
-sum(NH.means %&gt;% select(count) %&gt;% pull() * (NH.means %&gt;% select(IncMean) %&gt;% pull() - GM)^2)
+sum(NH.means %&gt;% select(count) %&gt;% pull() * 
+      (NH.means %&gt;% select(IncMean) %&gt;% pull() - GM)^2)
 ```
 
 ```
@@ -362,26 +389,36 @@ sum(SSB_perm_val %&gt;% pull() &gt; SSB_obs %&gt;% pull() ) / reps
 
 ## Compared to the observed test statistic
 
-
-```r
-SSB_perm_val %&gt;%
-  ggplot(aes(x = teststat)) +
-  geom_histogram() + 
-  geom_vline(data = SSB_obs, aes(xintercept = obs_teststat), color = "red") +
-  ylab("") + xlab("Permuted SSB Test Statistics")
-```
-
-![](2021-09-28-permutations_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+&lt;img src="2021-09-28-permutations_files/figure-html/unnamed-chunk-14-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
 # Agenda  9/30/21
 
-1. R code, examples
-2. Assumptions, exchangeability, random structure
-3. Different statistics within the permutation test
-4. Permutation vs. Randomization tests (Binomial)
+1. Conditions, exchangeability, random structure
+2. Different statistics within the permutation test
+3. Permutation vs. Randomization tests (Binomial)
+
+---
+
+## Exchangeability
+
+&gt; *If the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.*
+
+typically, 
+
+`$$H_0: F_1(x) = F_2(x)$$`
+
+(there are no distributional or parametric conditions)
+
+---
+
+## Probability as measured by what?
+
+* **Random Sample** The concept of a p-value usually comes from the idea of taking a sample from a population and comparing it to a sampling distribution (from many many random samples).
+
+* **Randomized Experiment** The p-value represents the observed data compared to the treatment variable being allocated to the groups "by chance."
 
 ---
 
@@ -390,13 +427,6 @@ SSB_perm_val %&gt;%
 *The Economist*, Sep 21, 2017 
 
 &lt;img src="../images/genderbias2a.png" width="100%" style="display: block; margin: auto;" /&gt;&lt;img src="../images/genderbias2b.png" width="100%" style="display: block; margin: auto;" /&gt;
-
----
-
-&lt;img src="../images/genderbias.png" width="100%" style="display: block; margin: auto;" /&gt;
-
-
-
 
 
 ---
@@ -411,7 +441,7 @@ SSB_perm_val %&gt;%
 
 
 &lt;img src="../images/genderbias3a.png" width="100%" style="display: block; margin: auto;" /&gt;
-
+*Innovative Higher Education*, **40**, pages 291–303 (2015).
 ---
 
 ## Gender bias in teaching evaluations
@@ -429,18 +459,19 @@ SSB_perm_val %&gt;%
 
 
 
-&lt;img src="2021-09-28-permutations_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="2021-09-28-permutations_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
 
 ##  Analysis goal
 
-Want to know if the score for the **perceived** gender is different.
+Want to know if the population average score for the **perceived** gender is different.
 
 
 `$$H_0:  \mu_{ID.Female} = \mu_{ID.Male}$$`
 
+&gt; Although for the permutation test, under the null hypothesis not only are the means of the population distributions the same, but the variance and all other aspects of the distributions across perceived gender.
 
 ---
 
@@ -511,28 +542,37 @@ macnell %&gt;%
 
 Conceptually, there are two levels of randomization:
 
-1. `\(N_m\)` students are randomly assigned to the male instructor and the remaining `\(N_f\)` get the female instructor.
+1. `\(N_m\)` students are randomly assigned to the male instructor and `\(N_f\)` are assigned to the female instructor.
 
-2.  Of the `\(N_j\)` assigned to instructor `\(j\)`, `\(N_{jm}\)` are told that the instructor is male, for `\(j=1,2\)`.
+2.  Of the `\(N_j\)` assigned to instructor `\(j\)`, `\(N_{jm}\)` are told that the instructor is male, and `\(N_{jf}\)` are told that the instructor is female for `\(j=m,f\)`.
 
+
+```r
+macnell %&gt;%
+  group_by(tagender, taidgender) %&gt;%
+  summarize(n())
+```
+
+```
+## # A tibble: 4 × 3
+## # Groups:   tagender [2]
+##   tagender taidgender `n()`
+##      &lt;int&gt;      &lt;int&gt; &lt;int&gt;
+## 1        0          0    11
+## 2        0          1    12
+## 3        1          0    13
+## 4        1          1    11
+```
+---
 
 **Stratified two-sample test:**
 
-* For each instructor, permute *perceived* gender assignments.
+* **For each instructor**, permute *perceived* gender assignments.
 * Use difference in mean ratings for female-identified vs male-identified instructors.
 
 ---
 
 ## MacNell Data with permutation
-
-
-
-
-```r
-decorate("mac1") %&gt;%
-  flair("group_by(tagender)") %&gt;%
-  knit_print.with_flair()
-```
 
 
 
@@ -568,16 +608,6 @@ decorate("mac1") %&gt;%
 
 
 
-```r
-decorate("mac2") %&gt;%  
-  flair("group_by(tagender)") %&gt;%
-  flair("group_by(permTAID)") %&gt;%
-  knit_print.with_flair()
-```
-
-
-
-
 &lt;code class ='r hljs remark-code'&gt;macnell %&gt;% &lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;group_by(tagender)&lt;/span&gt; %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(permTAID = sample(taidgender, replace=FALSE)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ungroup(tagender) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;group_by(permTAID)&lt;/span&gt; %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(pmeans = mean(overall, na.rm=TRUE)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(diff(pmeans))&lt;/code&gt;
 
 ```
@@ -595,56 +625,58 @@ decorate("mac2") %&gt;%
 ## MacNell Data with permutation
 
 
-
-
 ```r
-decorate("mac3") %&gt;%
-  flair("replicate(5") %&gt;%
-  knit_print.with_flair()
-```
-
-
-
-
-&lt;code class ='r hljs remark-code'&gt;&lt;span style='background-color:#ffff7f'&gt;replicate(5&lt;/span&gt;,&lt;br&gt;&amp;nbsp;&amp;nbsp;macnell %&gt;% group_by(tagender) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;mutate(permTAID = sample(taidgender, replace=FALSE)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;ungroup(tagender) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;group_by(permTAID) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(pmeans = mean(overall, na.rm=TRUE)) %&gt;%&lt;br&gt;&amp;nbsp;&amp;nbsp;summarize(diff(pmeans)))&lt;/code&gt;
-
-```
-
-## $`diff(pmeans)`
-## [1] 0.277
-## 
-## $`diff(pmeans)`
-## [1] -0.468
-## 
-## $`diff(pmeans)`
-## [1] 0.18
-## 
-## $`diff(pmeans)`
-## [1] -0.00216
-## 
-## $`diff(pmeans)`
-## [1] 0.184
-
-```
-
----
-
-## MacNell Data with permutation
-
-
-```r
-set.seed(47)
-reps = 10000
-ov.stats &lt;- replicate(reps,
+diff_means_func &lt;- function(.x){
   macnell %&gt;% group_by(tagender) %&gt;%
   mutate(permTAID = sample(taidgender, replace=FALSE)) %&gt;%
   ungroup(tagender) %&gt;%
   group_by(permTAID) %&gt;%
   summarize(pmeans = mean(overall, na.rm=TRUE)) %&gt;%
-  summarize(diff(pmeans))
-  )
+  summarize(diff_mean = diff(pmeans))
+  }
 
-ov.stats &lt;- unlist(ov.stats)
+map_df(1:5, diff_means_func)
+```
+
+```
+## # A tibble: 5 × 1
+##   diff_mean
+##       &lt;dbl&gt;
+## 1   0.277  
+## 2  -0.468  
+## 3   0.180  
+## 4  -0.00216
+## 5   0.184
+```
+
+
+---
+
+## Observed vs. Permuted statistic
+
+
+```r
+# observed
+macnell %&gt;% 
+  group_by(taidgender) %&gt;%
+  summarize(pmeans = mean(overall, na.rm=TRUE)) %&gt;%
+  summarize(diff_mean = diff(pmeans))
+```
+
+```
+## # A tibble: 1 × 1
+##   diff_mean
+##       &lt;dbl&gt;
+## 1     0.474
+```
+
+
+
+```r
+# permuted
+set.seed(47)
+reps = 1000
+perm_diff_means &lt;- map_df(1:reps, diff_means_func)
 ```
 
 ---
@@ -660,83 +692,28 @@ permutation sampling distribution:
 .pull-right[
 
 ```r
-# brute force permuation
-2*sum(ov.stats &gt; 0.47) / reps
+# permutation p-value
+perm_diff_means %&gt;%
+  summarize(p_val = 
+      sum(diff_mean &gt; 0.474) / 
+      reps)
 ```
 
 ```
-## [1] 0.113
+## # A tibble: 1 × 1
+##   p_val
+##   &lt;dbl&gt;
+## 1 0.048
 ```
 ]
 ---
 
-## MacNell Data with different permutation tests
 
 
 
-```r
-macnell %&gt;% group_by(taidgender) %&gt;%
-  summarize(means = mean(overall, na.rm=TRUE)) %&gt;%
-  summarize(diff(means))
-```
-
-```
-## # A tibble: 1 × 1
-##   `diff(means)`
-##           &lt;dbl&gt;
-## 1         0.474
-```
-
-```r
-macnell %&gt;% group_by(taidgender) %&gt;%
-  summarize(means = mean(overall, na.rm=TRUE), 
-            vars = var(overall, na.rm = TRUE), ns = n() ) %&gt;%
-  summarize((means[1] - means[2])/ sqrt(vars[1]/ns[1] + vars[2]/ns[2]))
-```
-
-```
-## # A tibble: 1 × 1
-##   `(means[1] - means[2])/sqrt(vars[1]/ns[1] + vars[2]/ns[2])`
-##                                                         &lt;dbl&gt;
-## 1                                                       -1.59
-```
 
 
----
 
-## MacNell Data with different permutation tests
-
-
-```r
-# brute force permuation
-2*sum(ov.stats &gt; 0.47) / reps
-```
-
-```
-## [1] 0.113
-```
-
-```r
-# mean(x) - mean(y)
-t2p(0.47, distr1, alternative="two-sided")
-```
-
-```
-## Two-sided 
-##      0.13
-```
-
-```r
-# t permutation
-t2p(-1.56, distr2, alternative="two-sided")
-```
-
-```
-## Two-sided 
-##    0.0978
-```
-
----
 
 ## MacNell results
 

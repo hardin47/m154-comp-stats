@@ -1034,7 +1034,7 @@ library(broom)
 ```
 
 ```{r}
-set.seed(470)
+set.seed(474)
 beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
 n_obs <- 100; reps <- 1000
 
@@ -1048,10 +1048,11 @@ n_obs <- 100; reps <- 1000
 
 ## Plot of data
 ```{r echo = FALSE}
-data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
-  ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
+lm(y ~ x1 + x2) %>%
+  augment() %>%
+  ggplot(aes(x=x2, y = y, color=as.factor(x1))) + 
   geom_point() +
-  geom_smooth(method = "lm", se=FALSE) + 
+  geom_line(aes(y = .fitted)) +
   scale_colour_tableau("Color Blind") +
   guides(color=guide_legend(title="x1 value")) +
   xlab("x2 value") + ylab("y value")
@@ -1152,10 +1153,12 @@ decorate("unequal-ci-1", eval = TRUE) %>%
 
 ## Plot of data
 ```{r echo = FALSE}
-data.frame(x1value = as.factor(x1),x2value = x2,yvalue = y) %>%
-  ggplot(aes(x=x2value, y = yvalue, color=x1value)) + 
+lm(y ~ x1 + x2) %>%
+  augment() %>%
+  arrange(x2) %>%
+  ggplot(aes(x=x2, y = y, color=as.factor(x1))) + 
   geom_point() +
-  geom_smooth(method = "lm", se=FALSE) + 
+  geom_line(aes(y = .fitted)) +
   scale_colour_tableau("Color Blind") +
   guides(color=guide_legend(title="x1 value")) +
   xlab("x2 value") + ylab("y value")

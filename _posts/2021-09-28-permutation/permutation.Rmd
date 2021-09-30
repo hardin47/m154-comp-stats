@@ -33,7 +33,7 @@ knitr::include_graphics("../../images/not_normal.png")
 ### September 30, 2021
 
 1. R code, examples
-2. Assumptions, exchangeability, random structure
+2. Conditions, exchangeability, random structure
 3. Different statistics within the permutation test
 4. Permutation vs. Randomization tests (Binomial)
 
@@ -74,11 +74,17 @@ knitr::include_graphics("../../images/not_normal.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU8_HT.pdf" target = "_blank">WU8 - HT logic</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU9_.pdf" target = "_blank">WU9 - </a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU9_permute.pdf" target = "_blank">WU9 - Permuting</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
 
+* Applets:
+   - <a href = "http://www.rossmanchance.com/applets/2021/twopopmodels/TwoPopModels.html?population=model" target = "_blank">analytic test of 2 means</a>  (t-test)
+   - <a href = "http://www.rossmanchance.com/applets/2021/anovashuffle/AnovaShuffle.htm?hideExtras=2" target = "_blank">permutation test of 2 means</a>
+   - <a href = "http://www.rossmanchance.com/applets/AnovaSim.html" target = "_blank">analytic test of many means</a> (ANOVA)
+   - <a href = "http://www.rossmanchance.com/applets/2021/comparegroups/CompareGroups.html" target = "_blank">permutation test of many means</a>
+   
 * <a href = "https://www.youtube.com/watch?v=5Dnw46eC-0o" target = "_blank">Statistics without the agonizing pain</a> - John Rauser at Strata + Hadoop 2014
 
 
