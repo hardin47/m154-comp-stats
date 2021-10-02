@@ -141,7 +141,7 @@ NHANES %>% select(HHIncomeMid, HealthGen) %>%
 
 ## Creating a test statistic
 ```{r}
-GM = NHANES %>% summarize(mean(HHIncomeMid, na.rm=TRUE)) %>% pull()
+GM <- NHANES %>% summarize(mean(HHIncomeMid, na.rm=TRUE)) %>% pull()
 GM
 
 NH.means
