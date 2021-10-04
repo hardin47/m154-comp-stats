@@ -14,7 +14,7 @@ output:
 ---
 
 
-```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters using a lasso on other monsters and their data to indicate wrangling.", preview = TRUE, echo = FALSE}
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Two distributions, one is normal and the other is bimodal.", preview = TRUE, echo = FALSE}
 knitr::include_graphics("../../images/not_normal.png")
 ```
 

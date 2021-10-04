@@ -1,0 +1,60 @@
+---
+title: "7. First half review"
+description: |
+  Resources for review of the first half of the semester.
+author:
+  - name: Johanna Hardin
+    url: https://m154-comp-stats.netlify.app/  
+date: 2021-10-05
+citation: false
+draft: false
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "A dotplot with sunglasses and a mustache.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/debugging.jpg")
+```
+
+
+
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+
+### October 12, 2021
+
+0. Finish bootstrapping
+1. Q & A
+
+
+### October 14, 2021
+
+1. Office hours during class
+2. Exam some time on Thursday or Friday
+
+
+## Readings <i class="fas fa-book-open"></i> 
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_SampleQ1_f21.pdf" target = "_blank">Sample questions</a>
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/iClickMath154_f21_to_post.docx" target = "_blank">Clicker questions</a>
+
+## Reflection questions <i class="fas fa-lightbulb"></i>
+
+
+
+
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+
+
+## Slides <i class="fas fa-desktop"></i> 
+
+
+
+## Additional Resources <i class="fas fa-laptop"></i> 
+
+
+
+
