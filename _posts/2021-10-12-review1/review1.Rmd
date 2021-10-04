@@ -5,7 +5,7 @@ description: |
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
-date: 2021-10-05
+date: 2020-10-05
 citation: false
 draft: false
 output:
@@ -14,7 +14,7 @@ output:
 ---
 
 
-```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "A dotplot with sunglasses and a mustache.", preview = TRUE, echo = FALSE}
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "A dotplot with sunglasses and a mustache.", preview = TRUE, echo = FALSE, eval = FALSE}
 knitr::include_graphics("../../images/debugging.jpg")
 ```
 
