@@ -1,7 +1,7 @@
 ---
 title: "6. Bootstrapping"
 description: |
-  The sample as a proxy for the unknown population.  Sample from the proxy population (i.e., the sample) to generate a sampling distribution.  Bootstrap.
+  The sample as a proxy for the unknown population.  Sample from said proxy population (i.e., the sample) to generate a sampling distribution.  Bootstrap.
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
@@ -14,7 +14,7 @@ output:
 ---
 
 
-```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "A dotplot with sunglasses and a mustache.", preview = TRUE, echo = FALSE, eval = FALSE}
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "A dotplot with sunglasses and a mustache.", preview = TRUE, echo = FALSE}
 knitr::include_graphics("../../images/dotplot.png")
 ```
 

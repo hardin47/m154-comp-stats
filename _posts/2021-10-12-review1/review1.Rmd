@@ -5,7 +5,7 @@ description: |
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
-date: 2020-10-05
+date: 2020-10-12
 citation: false
 draft: false
 output:

@@ -24,7 +24,86 @@ class: right, top, my-title, title-slide
 
 ## Why bootstrap?
 
-Motivation:  to estimate the variability of a statistic (*not* dependent on `\(H_0\)` being true).
+Motivation:  
+
+&gt; to estimate the variability and distribution of a statistic in repeated samples of size `\(n\)` (*not* dependent on `\(H_0\)` being true).
+
+---
+
+## Variability
+
+* standard deviation of the **data**: `\(s = \sqrt{\frac{X_i - \overline{X}}{n-1}}\)`
+
+* standard error of the **statistic**: depends...
+
+---
+
+## Basic Notation
+
+(n.b., we don't ever do what is on this slide)
+
+Let `\(\theta\)` be the parameter of interest, and let `\(\hat{\theta}\)` be the estimate of `\(\theta\)`.  If we could, we'd take many samples of size `\(n\)` from the population to create a **sampling distribution** for `\(\hat{\theta}\)`.  Consider taking `\(B\)` random samples from the population.
+
+`\begin{align}
+\hat{\theta}(\cdot) = \frac{1}{B} \sum_{i=1}^B \hat{\theta}_i
+\end{align}`
+is the best guess for `\(\theta\)`.  If `\(\hat{\theta}\)` is very different from `\(\theta\)`, we would call it **biased**.
+`\begin{align}
+SE(\hat{\theta}) &amp;= \bigg[ \frac{1}{B-1} \sum_{i=1}^B(\hat{\theta}_i - \hat{\theta}(\cdot))^2 \bigg]^{1/2}\\
+q_1 &amp;= [0.25 B] \ \ \ \ \hat{\theta}^{(q_1)} = \mbox{25}\% \mbox{ cutoff}\\
+q_3 &amp;= [0.75 B] \ \ \ \ \hat{\theta}^{(q_3)} = \mbox{75}\% \mbox{ cutoff}\\
+\end{align}`
+
+---
+
+## Ideally
+
+(we never do this)
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/BSlogic.png" alt="From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig" width="100%" /&gt;
+&lt;p class="caption"&gt;From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Bootstrap Procedure
+
+1. Resample data **with replacement** from the original sample.
+2. Calculate the statistic of interest for each resample.
+3. Repeat 1. and 2. `\(B\)` times.
+4. Use the bootstrap distribution for inference.
+
+---
+
+## Bootstrap Notation
+
+(n.b., bootstrapping is the process on this slide)
+
+Take many ( `\(B\)` ) resamples of size `\(n\)` from the sample to create a bootstrap distribution for `\(\hat{\theta}^*\)` (instead of the sampling distribution for `\(\hat{\theta}\)`).
+
+Let `\(\hat{\theta}^*(b)\)` be the calculated statistic of interest for the `\(b^{th}\)` bootstrap sample.  The best guess for `\(\theta\)` is:
+`\begin{align}
+\hat{\theta}^* = \frac{1}{B} \sum_{b=1}^B \hat{\theta}^*(b)
+\end{align}`
+(if `\(\hat{\theta}^*\)` is very different from `\(\hat{\theta}\)`, we call it biased.)  And the estimated value for the standard error of the estimate is
+`\begin{align}
+\hat{SE}^* = \bigg[ \frac{1}{B-1} \sum_{b=1}^B ( \hat{\theta}^*(b) - \hat{\theta}^*)^2 \bigg]^{1/2}
+\end{align}`
+
+---
+
+## What do we get?
+
+
+Just like repeatedly taking samples from the population, taking resamples from the sample allows us to characterize the bootstrap distribution which approximates the sampling distribution.  The bootstrap distribution approximates the **shape, spread, &amp; bias** of the actual sampling distribution.
+
+---
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/BShesterberg1.png" alt="From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig.  The left image represents the mean with n=50.  The center image represents the mean with n=9.  The right image represents the median with n=15." width="30%" /&gt;&lt;img src="../images/BShesterberg2.png" alt="From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig.  The left image represents the mean with n=50.  The center image represents the mean with n=9.  The right image represents the median with n=15." width="30%" /&gt;&lt;img src="../images/BShesterberg3.png" alt="From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig.  The left image represents the mean with n=50.  The center image represents the mean with n=9.  The right image represents the median with n=15." width="30%" /&gt;
+&lt;p class="caption"&gt;From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig.  The left image represents the mean with n=50.  The center image represents the mean with n=9.  The right image represents the median with n=15.&lt;/p&gt;
+&lt;/div&gt;
 
 ---
 
@@ -43,27 +122,24 @@ Motivation:  to estimate the variability of a statistic (*not* dependent on `\(H
 
 ```r
 heroin &lt;- readr::read_table2("http://www.rossmanchance.com/iscam2/data/heroin.txt")
-names(heroin)
+heroin
 ```
 
 ```
-## [1] "id"     "clinic" "status" "times"  "prison" "dose"
-```
-
-```r
-head(heroin)
-```
-
-```
-## # A tibble: 6 × 6
-##      id clinic status times prison  dose
-##   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-## 1     1      1      1   428      0    50
-## 2     2      1      1   275      1    55
-## 3     3      1      1   262      0    55
-## 4     4      1      1   183      0    30
-## 5     5      1      1   259      1    65
-## 6     6      1      1   714      0    55
+## # A tibble: 238 × 6
+##       id clinic status times prison  dose
+##    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1     1      1      1   428      0    50
+##  2     2      1      1   275      1    55
+##  3     3      1      1   262      0    55
+##  4     4      1      1   183      0    30
+##  5     5      1      1   259      1    65
+##  6     6      1      1   714      0    55
+##  7     7      1      1   438      1    65
+##  8     8      1      0   796      1    60
+##  9     9      1      1   892      0    50
+## 10    10      1      1   393      1    65
+## # … with 228 more rows
 ```
 
 ---
@@ -71,11 +147,12 @@ head(heroin)
 ## Observed Test Statistic(s)
 
 ```r
-obs.stat&lt;-heroin %&gt;% 
+obs_med&lt;-heroin %&gt;% 
   summarize(medtime = median(times)) %&gt;% pull()
-obs.stat2&lt;-heroin %&gt;% 
+obs_tr_mean&lt;-heroin %&gt;% 
   summarize(tmeantime = mean(times, trim=0.25)) %&gt;% pull()
-obs.stat
+
+obs_med
 ```
 
 ```
@@ -83,7 +160,7 @@ obs.stat
 ```
 
 ```r
-obs.stat2
+obs_tr_mean
 ```
 
 ```
@@ -97,57 +174,57 @@ obs.stat2
 
 ```r
 set.seed(4747)
-heroin.rs&lt;-heroin %&gt;% sample_frac(size=1, replace=TRUE)
 
-heroin.rs %&gt;% 
-  summarize(medtime = median(times)) %&gt;% pull()
-```
-
-```
-## [1] 368
-```
-
-```r
-heroin.rs %&gt;% 
-  summarize(tmeantime = mean(times, trim=0.25)) %&gt;% pull()
+heroin %&gt;% sample_frac(size=1, replace=TRUE) %&gt;%
+  summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25))
 ```
 
 ```
-## [1] 372
+## # A tibble: 1 × 2
+##   boot_med boot_tr_mean
+##      &lt;dbl&gt;        &lt;dbl&gt;
+## 1      368         372.
 ```
 
 ---
 
 
 ##  Need to bootstrap a lot of times...
-Bootstrapping with `map`ping.  [The package `boot` will do it for you!]
+Bootstrapping with `map`ping. 
 
 
 
 
 ```r
-for(i in 1:reps1){ 
-	heroin.rs&lt;-heroin %&gt;% sample_frac(size=1, replace=TRUE)
-	test.stat&lt;-c(test.stat,heroin.rs %&gt;% 
-	               summarize(medtime = median(times)) %&gt;% pull())
-	test.stat2&lt;-c(test.stat2,heroin.rs %&gt;% 
-	                summarize(tmeantime = mean(times, trim=0.25)) %&gt;% pull())
+boot_stat_func &lt;- function(df = heroin){ 
+	df %&gt;% 
+    sample_frac(size=1, replace=TRUE) %&gt;%
+    summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25))}
 
-	test.stat.rs&lt;-c()
-	test.stat2.rs&lt;-c()
-
-	for(j in 1:reps2){
-	heroin.rsrs&lt;-heroin.rs %&gt;% sample_frac(size=1, replace=TRUE)
-	test.stat.rs&lt;-c(test.stat.rs,
-	                heroin.rsrs %&gt;% 
-	                  summarize(medtime = median(times)) %&gt;% pull())
-	test.stat2.rs&lt;-c(test.stat2.rs,
-	                 heroin.rsrs %&gt;% 
-	                   summarize(tmeantime = mean(times, trim=0.25)) %&gt;% pull())
-	}
-	sd.test.stat&lt;-c(sd.test.stat,sd(test.stat.rs))
-	sd.test.stat2&lt;-c(sd.test.stat2,sd(test.stat2.rs))
+boot_1_func &lt;- function(df = heroin){
+  df %&gt;% 
+    sample_frac(size=1, replace=TRUE)
 }
+
+boot_2_func &lt;- function(df, reps){
+  df %&gt;%
+    summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25)) %&gt;%
+    cbind(map_df(1:reps, ~df %&gt;% 
+             sample_frac(size=1, replace=TRUE) %&gt;%
+             summarize(boot_2_med = median(times), 
+                       boot_2_tr_mean = mean(times, trim = 0.25))))
+}
+```
+
+
+```r
+#n_rep1 &lt;-5
+#n_rep2 &lt;- 3
+results &lt;- data.frame(set = 1:n_rep1) %&gt;%
+  mutate(first_boot = map(1:n_rep1, ~boot_1_func())) %&gt;%
+  mutate(second_boot = map(first_boot, boot_2_func, reps = n_rep2)) %&gt;%
+  unnest(second_boot) %&gt;%
+  unnest(first_boot)
 ```
 
 
@@ -157,7 +234,7 @@ for(i in 1:reps1){
 
 ## What do the **data** distributions look like?
 
-![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-7-2.png)&lt;!-- --&gt;
+![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-10-2.png)&lt;!-- --&gt;
 
 
 ---
@@ -167,149 +244,29 @@ for(i in 1:reps1){
 Both the median and the trimmed mean are symmetric and bell-shaped.  
 
 .pull-left[
-![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
-![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 ]
----
-
-## OR using the built in functions
-
-```r
-sampletmean &lt;- function(x,d,trimperc){
-  return(mean(x[d], trim=trimperc))
-}
-set.seed(4747)
-bs.tmean.resamps &lt;- boot(heroin$times,
-                         sampletmean, reps1, trimperc=.25)
-```
-
----
-
-## What does the boot output look like?
-
-```r
-# bs.tmean.resamps &lt;- boot(heroin$times,sampletmean, reps1, trimperc=.25)
-str(bs.tmean.resamps)
-```
-
-```
-## List of 11
-##  $ t0       : num 378
-##  $ t        : num [1:1000, 1] 364 377 372 392 349 ...
-##  $ R        : num 1000
-##  $ data     : num [1:238] 428 275 262 183 259 714 438 796 892 393 ...
-##  $ seed     : int [1:626] 10403 624 -1645349161 -2081516244 1489809469 823736794 -755145325 950390200 -1779428263 1453445190 ...
-##  $ statistic:function (x, d, trimperc)  
-##   ..- attr(*, "srcref")= 'srcref' int [1:8] 1 16 3 1 16 1 1 3
-##   .. ..- attr(*, "srcfile")=Classes 'srcfilecopy', 'srcfile' &lt;environment: 0x7f7eba511c40&gt; 
-##  $ sim      : chr "ordinary"
-##  $ call     : language boot(data = heroin$times, statistic = sampletmean, R = reps1,      trimperc = 0.25)
-##  $ stype    : chr "i"
-##  $ strata   : num [1:238] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ weights  : num [1:238] 0.0042 0.0042 0.0042 0.0042 0.0042 ...
-##  - attr(*, "class")= chr "boot"
-##  - attr(*, "boot_type")= chr "boot"
-```
-
----
-
-## What does the boot output look like?
 
 
 
-```r
-samplemed &lt;- function(x,d){
-  return(median(x[d]))
-}
-set.seed(4747)
-bs.med.resamps &lt;- boot(heroin$times,
-                       samplemed, reps1)
-bs.med.resamps
-```
-
-```
-## 
-## ORDINARY NONPARAMETRIC BOOTSTRAP
-## 
-## 
-## Call:
-## boot(data = heroin$times, statistic = samplemed, R = reps1)
-## 
-## 
-## Bootstrap Statistics :
-##     original  bias    std. error
-## t1*      368    7.64        32.2
-```
-
----
-
-## SE of median
-
-Whew!  They are very close (one using for loops, one using the boot function).
 
 
-```r
-sd(test.stat)  # SE of median
-```
-
-```
-## [1] 33
-```
-
-```r
-bs.med.resamps
-```
-
-```
-## 
-## ORDINARY NONPARAMETRIC BOOTSTRAP
-## 
-## 
-## Call:
-## boot(data = heroin$times, statistic = samplemed, R = reps1)
-## 
-## 
-## Bootstrap Statistics :
-##     original  bias    std. error
-## t1*      368    7.64        32.2
-```
-
----
-
-## SE of trimmed mean
-
-Whew!  They are very close (one using for loops, one using the boot function).
 
 
-```r
-sd(test.stat2)  # SE of trimmed mean
-```
 
-```
-## [1] 23.2
-```
 
-```r
-bs.tmean.resamps
-```
 
-```
-## 
-## ORDINARY NONPARAMETRIC BOOTSTRAP
-## 
-## 
-## Call:
-## boot(data = heroin$times, statistic = sampletmean, R = reps1, 
-##     trimperc = 0.25)
-## 
-## 
-## Bootstrap Statistics :
-##     original  bias    std. error
-## t1*      378   0.635        22.3
-```
+
+
+
+
+
+
+
 
 ---
 
@@ -318,52 +275,10 @@ bs.tmean.resamps
 .pull-left[
 Without built in functions
 
-```r
-obs.stat + 
-  qnorm(c(.025,.975))*
-  sd(test.stat)
-```
-
-```
-## [1] 303 432
-```
-
-```r
-obs.stat2 + 
-  qnorm(c(.025,.975))*
-  sd(test.stat2)
-```
-
-```
-## [1] 333 424
-```
 ]
 
 .pull-right[
-With built in functions
 
-```r
-se.bs &lt;- sd(bs.med.resamps$t)
-se.bs2 &lt;- sd(bs.tmean.resamps$t)
-
-obs.stat + 
-  qnorm(c(0.025,.975))*
-  se.bs
-```
-
-```
-## [1] 304 431
-```
-
-```r
-obs.stat2 + 
-  qnorm(c(0.025,.975))*
-  se.bs2 
-```
-
-```
-## [1] 335 422
-```
 ]
 
 ---
@@ -374,234 +289,41 @@ obs.stat2 +
 .pull-left[
 Without built in functions
 
-```r
-quantile(test.stat, c(.025, .975))
-```
-
-```
-##  2.5% 97.5% 
-##   320   452
-```
-
-```r
-quantile(test.stat2, c(.025, .975))
-```
-
-```
-##  2.5% 97.5% 
-##   334   425
-```
 ]
 
 .pull-right[
-With built in functions
 
-```r
-quantile(bs.med.resamps$t, c(.025, .975))
-```
-
-```
-##  2.5% 97.5% 
-##   320   452
-```
-
-```r
-quantile(bs.tmean.resamps$t, c(.025, .975))
-```
-
-```
-##  2.5% 97.5% 
-##   334   423
-```
 ]
----
 
-### With built in functions more directly
 
-```r
-boot.ci(bs.med.resamps, type="perc")
-```
-
-```
-## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
-## Based on 1000 bootstrap replicates
-## 
-## CALL : 
-## boot.ci(boot.out = bs.med.resamps, type = "perc")
-## 
-## Intervals : 
-## Level     Percentile     
-## 95%   (320, 452 )  
-## Calculations and Intervals on Original Scale
-```
-
-```r
-boot.ci(bs.tmean.resamps, type="perc")
-```
-
-```
-## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
-## Based on 1000 bootstrap replicates
-## 
-## CALL : 
-## boot.ci(boot.out = bs.tmean.resamps, type = "perc")
-## 
-## Intervals : 
-## Level     Percentile     
-## 95%   (334, 423 )  
-## Calculations and Intervals on Original Scale
-```
 
 ---
 
 ## 95% Bootstrap-t CI
 
-### Without built in functions
 
 Note that the t-value is needed (which requires a different SE for each bootstrap sample).
 
 
-```r
-t.hat&lt;-(test.stat - obs.stat)/sd.test.stat
-t.hat2&lt;-(test.stat2 - obs.stat2)/sd.test.stat2
 
-t.hat.95 = quantile(t.hat, c(.025,.975))
-t.hat2.95 = quantile(t.hat2, c(.025,.975))
 
-obs.stat + t.hat.95*sd(test.stat)
-```
 
-```
-##  2.5% 97.5% 
-##   310   443
-```
 
-```r
-obs.stat2 + t.hat2.95*sd(test.stat2) 
-```
 
-```
-##  2.5% 97.5% 
-##   332   425
-```
 
----
 
-### With built in functions
 
-Trimmed mean:
 
-```r
-sampletmean2 &lt;- function(x, d, R2, trimperc) {
-   boot.samp = x[d]  # boostrapped sample
-   m.bs = mean(boot.samp, trim=trimperc)  # bootstrapped mean
-   v.bs = var(boot(boot.samp, sampletmean, R2, trim=trimperc)$t)
-   return(c(m.bs, v.bs))  
-   # boot expects the statistic to be the 1st and the var to be the 2nd
-}
-set.seed(4747)
-bs.tmean.reresamps &lt;- boot(heroin$times, sampletmean2, R=reps1, R2=reps2, trimperc=.25)
-```
-
----
-
-### With built in functions
-
-Median:
-
-```r
-samplemed2 &lt;- function(x, d, R2) {
-   boot.samp = x[d]  # boostrapped sample
-   m.bs = median(boot.samp)  # bootstrapped mean
-   v.bs = var(boot(boot.samp, samplemed, R2)$t)
-   return(c(m.bs, v.bs))  
-   # boot expects the statistic to be the 1st and the var to be the 2nd
-}
-set.seed(4747)
-bs.med.reresamps &lt;- boot(heroin$times, samplemed2, R=reps1, R2=reps2)
-```
-
----
-The confidence intervals (BS-t intervals, called "studentized"):
-
-```r
-boot.ci(bs.med.reresamps, type="stud")
-```
-
-```
-## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
-## Based on 1000 bootstrap replicates
-## 
-## CALL : 
-## boot.ci(boot.out = bs.med.reresamps, type = "stud")
-## 
-## Intervals : 
-## Level    Studentized     
-## 95%   (295, 420 )  
-## Calculations and Intervals on Original Scale
-```
-
-```r
-boot.ci(bs.tmean.reresamps, type="stud")
-```
-
-```
-## BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
-## Based on 1000 bootstrap replicates
-## 
-## CALL : 
-## boot.ci(boot.out = bs.tmean.reresamps, type = "stud")
-## 
-## Intervals : 
-## Level    Studentized     
-## 95%   (335, 422 )  
-## Calculations and Intervals on Original Scale
-```
 
 ---
 
 ## 95% BCa interval (not responsible for BCa)
 
-### With built in functions
 
-```r
-boot.ci(bs.med.reresamps, type="bca")
-boot.ci(bs.tmean.reresamps, type="bca")
-```
 
 
 ### Without built in functions
 
-```r
-test.stat.jk&lt;-c()
-test.stat2.jk&lt;-c()
-
-set.seed(4747)
-for(i in 1:length(heroin$times)){
-
-	test.stat.jk&lt;-c(test.stat.jk,median(heroin$times[-i]))
-	 test.stat2.jk&lt;-c(test.stat2.jk,mean(heroin$times[-i],trim=.25))
-}
-
-zo.hat&lt;-qnorm(sum(test.stat&lt;obs.stat)/reps1,0,1)
-a.hat&lt;- sum((mean(test.stat.jk) - test.stat.jk)^3)/
-                 (6*(sum((mean(test.stat.jk)-test.stat.jk)^2)^1.5))
-
-zo.hat2&lt;- qnorm(sum(test.stat2&lt; obs.stat2)/reps1,0,1)
-a.hat2&lt;- sum((mean(test.stat2.jk) - test.stat2.jk)^3)/
-                 (6*(sum((mean(test.stat2.jk)-test.stat2.jk)^2)^1.5))
-
-alpha1.bca&lt;-pnorm(zo.hat + (zo.hat + qnorm(.975))/(1 - a.hat*(zo.hat + qnorm(.975))))
-alpha2.bca&lt;-pnorm(zo.hat + (zo.hat + qnorm(.025))/(1 - a.hat*(zo.hat + qnorm(.025))))
-
-
-alpha1.bca2&lt;-pnorm(zo.hat2 + (zo.hat2 + qnorm(.975))/(1 - a.hat2*(zo.hat2 + qnorm(.975))))
-alpha2.bca2&lt;-pnorm(zo.hat2 + (zo.hat2 + qnorm(.025))/(1 - a.hat2*(zo.hat2 + qnorm(.025))))
-
-
-c(sort(test.stat)[ceiling(reps1*alpha2.bca)],sort(test.stat)[ceiling(reps1*alpha1.bca)])
-c(sort(test.stat2)[ceiling(reps1*alpha2.bca2)],sort(test.stat2)[ceiling(reps1*alpha1.bca2)])
-```
 
 ---
 
