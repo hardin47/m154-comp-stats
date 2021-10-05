@@ -7,6 +7,8 @@
     <script src="2021-10-05-bootstrap_files/header-attrs-2.11.1/header-attrs.js"></script>
     <link href="2021-10-05-bootstrap_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="2021-10-05-bootstrap_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="2021-10-05-bootstrap_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="2021-10-05-bootstrap_files/panelset-0.2.6/panelset.js"></script>
   </head>
   <body>
     <textarea id="source">
@@ -21,6 +23,16 @@ class: right, top, my-title, title-slide
 
 
 
+
+
+# Agenda 10/5/21
+
+0. Finish power in the permutation test context
+1. Review: logic of confidence intervals
+2. Logic of bootstrapping (resample from the sample *with* replacement)
+3. BS SE of a statistic
+
+---
 
 ## Why bootstrap?
 
@@ -61,7 +73,7 @@ q_3 &amp;= [0.75 B] \ \ \ \ \hat{\theta}^{(q_3)} = \mbox{75}\% \mbox{ cutoff}\\
 (we never do this)
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="../images/BSlogic.png" alt="From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig" width="100%" /&gt;
+&lt;img src="../images/BSlogic.png" alt="From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig" width="60%" /&gt;
 &lt;p class="caption"&gt;From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig&lt;/p&gt;
 &lt;/div&gt;
 
@@ -96,7 +108,9 @@ Let `\(\hat{\theta}^*(b)\)` be the calculated statistic of interest for the `\(b
 ## What do we get?
 
 
-Just like repeatedly taking samples from the population, taking resamples from the sample allows us to characterize the bootstrap distribution which approximates the sampling distribution.  The bootstrap distribution approximates the **shape, spread, &amp; bias** of the actual sampling distribution.
+Just like repeatedly taking samples from the population, taking resamples from the sample allows us to characterize the bootstrap distribution which approximates the sampling distribution.  
+
+&gt; The bootstrap distribution approximates the **shape, spread, &amp; bias** of the true sampling distribution.
 
 ---
 
@@ -108,9 +122,9 @@ Just like repeatedly taking samples from the population, taking resamples from t
 ---
 
 ## Example
-- Hesketh and Everitt (2000) report on a study by Caplehorn and Bell (1991) that investigated the times that heroin addicts remained in a clinic for methadone maintenance treatment.  
+- Hesketh and Everitt (2000) report on a study by Caplehorn and Bell (1991) that investigated the time (days) spent in a clinic for methadone maintenance treatment for people addicted to heroin.  
 
-- The data include the amount of time that the subjects stayed in the facility until treatment was terminated (column 4). 
+- The data include the amount of time that the subjects stayed in the facility until treatment was terminated. 
 
 - For about 37% of the subjects, the study ended while they were still the in clinic (status=0).  
 
@@ -118,27 +132,22 @@ Just like repeatedly taking samples from the population, taking resamples from t
 
 ---
 
-## Reading in the data
-
-```r
-heroin &lt;- readr::read_table2("http://www.rossmanchance.com/iscam2/data/heroin.txt")
-heroin
-```
+## The data
 
 ```
-## # A tibble: 238 × 6
-##       id clinic status times prison  dose
-##    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-##  1     1      1      1   428      0    50
-##  2     2      1      1   275      1    55
-##  3     3      1      1   262      0    55
-##  4     4      1      1   183      0    30
-##  5     5      1      1   259      1    65
-##  6     6      1      1   714      0    55
-##  7     7      1      1   438      1    65
-##  8     8      1      0   796      1    60
-##  9     9      1      1   892      0    50
-## 10    10      1      1   393      1    65
+## # A tibble: 238 × 5
+##       id clinic status times  dose
+##    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     1      1      1   428    50
+##  2     2      1      1   275    55
+##  3     3      1      1   262    55
+##  4     4      1      1   183    30
+##  5     5      1      1   259    65
+##  6     6      1      1   714    55
+##  7     7      1      1   438    65
+##  8     8      1      0   796    60
+##  9     9      1      1   892    50
+## 10    10      1      1   393    65
 ## # … with 228 more rows
 ```
 
@@ -147,24 +156,16 @@ heroin
 ## Observed Test Statistic(s)
 
 ```r
-obs_med&lt;-heroin %&gt;% 
-  summarize(medtime = median(times)) %&gt;% pull()
-obs_tr_mean&lt;-heroin %&gt;% 
-  summarize(tmeantime = mean(times, trim=0.25)) %&gt;% pull()
-
-obs_med
+heroin %&gt;%
+  summarize(obs_med = median(times), 
+            obs_tr_mean = mean(times, trim = 0.25))
 ```
 
 ```
-## [1] 368
-```
-
-```r
-obs_tr_mean
-```
-
-```
-## [1] 378
+## # A tibble: 1 × 2
+##   obs_med obs_tr_mean
+##     &lt;dbl&gt;       &lt;dbl&gt;
+## 1    368.        378.
 ```
 
 ---
@@ -175,8 +176,10 @@ obs_tr_mean
 ```r
 set.seed(4747)
 
-heroin %&gt;% sample_frac(size=1, replace=TRUE) %&gt;%
-  summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25))
+heroin %&gt;% 
+  sample_frac(size=1, replace=TRUE) %&gt;%
+  summarize(boot_med = median(times), 
+            boot_tr_mean = mean(times, trim = 0.25))
 ```
 
 ```
@@ -190,8 +193,76 @@ heroin %&gt;% sample_frac(size=1, replace=TRUE) %&gt;%
 
 
 ##  Need to bootstrap a lot of times...
-Bootstrapping with `map`ping. 
+Bootstrapping with `map`. 
 
+.panelset[
+
+.panel[.panel-name[set variables]
+
+```r
+n_rep1 &lt;- 100
+n_rep2 &lt;- 20
+set.seed(4747)
+```
+]
+
+.panel[.panel-name[boot stat function]
+
+```r
+boot_stat_func &lt;- function(df = heroin){ 
+	df %&gt;% 
+    sample_frac(size=1, replace=TRUE) %&gt;%
+    summarize(boot_med = median(times), 
+              boot_tr_mean = mean(times, trim = 0.25))}
+```
+]
+
+.panel[.panel-name[resample function]
+
+```r
+boot_1_func &lt;- function(df = heroin){
+  df %&gt;% 
+    sample_frac(size=1, replace=TRUE)
+}
+```
+]
+
+]
+
+
+---
+
+
+## What do the **data** distributions look like?
+
+![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-11-2.png)&lt;!-- --&gt;
+
+
+---
+
+## What do the **sampling** distributions look like?
+
+Both the median and the trimmed mean are reasonably symmetric and bell-shaped.  
+
+.pull-left[
+![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+]
+
+---
+
+# Agenda 10/7/21
+
+
+1. Normal CI using BS SE
+2. Bootstrap-t (studentized) CIs 
+3. Percentile CIs
+4. properties / advantages / disadvantages
+
+---
 
 
 
@@ -232,24 +303,6 @@ results &lt;- data.frame(set = 1:n_rep1) %&gt;%
 
 
 
-## What do the **data** distributions look like?
-
-![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-10-2.png)&lt;!-- --&gt;
-
-
----
-
-## What do the **sampling** distributions look like?
-
-Both the median and the trimmed mean are symmetric and bell-shaped.  
-
-.pull-left[
-![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
-]
-
-.pull-right[
-![](2021-10-05-bootstrap_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
-]
 
 
 

@@ -62,7 +62,7 @@ knitr::include_graphics("../../images/dotplot.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2021-10-05-bootstrap" target = "_blank">In class slides</a> for both 10/5/21 and 10/7/21.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU10_.pdf" target = "_blank">WU10 -</a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU10_SE.pdf" target = "_blank">WU10 - standard errors</a>
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU11_.pdf" target = "_blank">WU11 - </a>
 

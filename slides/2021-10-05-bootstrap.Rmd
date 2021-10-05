@@ -27,6 +27,20 @@ require(sysfonts)
 options(width=65, digits=3)
 ```
 
+```{r echo = FALSE}
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+```
+
+# Agenda 10/5/21
+
+0. Finish power in the permutation test context
+1. Review: logic of confidence intervals
+2. Logic of bootstrapping (resample from the sample *with* replacement)
+3. BS SE of a statistic
+
+---
 
 ## Why bootstrap?
 
@@ -66,7 +80,7 @@ q_3 &= [0.75 B] \ \ \ \ \hat{\theta}^{(q_3)} = \mbox{75}\% \mbox{ cutoff}\\
 
 (we never do this)
 
-```{r out.width='100%', fig.align="center",  echo=FALSE, fig.cap = "From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig"}
+```{r out.width='60%', fig.align="center",  echo=FALSE, fig.cap = "From Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by  Moore, McCabe, and Craig"}
 knitr::include_graphics("../images/BSlogic.png")
 ```
 
@@ -101,7 +115,9 @@ Let $\hat{\theta}^*(b)$ be the calculated statistic of interest for the $b^{th}$
 ## What do we get?
 
 
-Just like repeatedly taking samples from the population, taking resamples from the sample allows us to characterize the bootstrap distribution which approximates the sampling distribution.  The bootstrap distribution approximates the **shape, spread, & bias** of the actual sampling distribution.
+Just like repeatedly taking samples from the population, taking resamples from the sample allows us to characterize the bootstrap distribution which approximates the sampling distribution.  
+
+> The bootstrap distribution approximates the **shape, spread, & bias** of the true sampling distribution.
 
 ---
 
@@ -114,9 +130,9 @@ knitr::include_graphics(c("../images/BShesterberg1.png",
 ---
 
 ## Example
-- Hesketh and Everitt (2000) report on a study by Caplehorn and Bell (1991) that investigated the times that heroin addicts remained in a clinic for methadone maintenance treatment.  
+- Hesketh and Everitt (2000) report on a study by Caplehorn and Bell (1991) that investigated the time (days) spent in a clinic for methadone maintenance treatment for people addicted to heroin.  
 
-- The data include the amount of time that the subjects stayed in the facility until treatment was terminated (column 4). 
+- The data include the amount of time that the subjects stayed in the facility until treatment was terminated. 
 
 - For about 37% of the subjects, the study ended while they were still the in clinic (status=0).  
 
@@ -124,23 +140,21 @@ knitr::include_graphics(c("../images/BShesterberg1.png",
 
 ---
 
-## Reading in the data
-```{r}
+## The data
+```{r echo = FALSE}
 heroin <- readr::read_table2("http://www.rossmanchance.com/iscam2/data/heroin.txt")
-heroin
+heroin %>%
+  select(-prison)
 ```
 
 ---
 
 ## Observed Test Statistic(s)
 ```{r}
-obs_med<-heroin %>% 
-  summarize(medtime = median(times)) %>% pull()
-obs_tr_mean<-heroin %>% 
-  summarize(tmeantime = mean(times, trim=0.25)) %>% pull()
+heroin %>%
+  summarize(obs_med = median(times), 
+            obs_tr_mean = mean(times, trim = 0.25))
 
-obs_med
-obs_tr_mean
 ```
 
 ---
@@ -150,8 +164,10 @@ obs_tr_mean
 ```{r}
 set.seed(4747)
 
-heroin %>% sample_frac(size=1, replace=TRUE) %>%
-  summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25))
+heroin %>% 
+  sample_frac(size=1, replace=TRUE) %>%
+  summarize(boot_med = median(times), 
+            boot_tr_mean = mean(times, trim = 0.25))
 
 ```
 
@@ -159,13 +175,104 @@ heroin %>% sample_frac(size=1, replace=TRUE) %>%
 
 
 ##  Need to bootstrap a lot of times...
-Bootstrapping with `map`ping. 
+Bootstrapping with `map`. 
 
-```{r echo=FALSE}
+.panelset[
+
+.panel[.panel-name[set variables]
+```{r}
 n_rep1 <- 100
 n_rep2 <- 20
 set.seed(4747)
 ```
+]
+
+.panel[.panel-name[boot stat function]
+```{r}
+boot_stat_func <- function(df = heroin){ 
+	df %>% 
+    sample_frac(size=1, replace=TRUE) %>%
+    summarize(boot_med = median(times), 
+              boot_tr_mean = mean(times, trim = 0.25))}
+```
+]
+
+.panel[.panel-name[resample function]
+```{r}
+boot_1_func <- function(df = heroin){
+  df %>% 
+    sample_frac(size=1, replace=TRUE)
+}
+```
+]
+
+]
+
+
+---
+
+
+## What do the **data** distributions look like?
+
+```{r echo=FALSE, fig.width=4}
+heroin %>% 
+  ggplot(aes(x=times)) + ylab("") +
+  geom_histogram(bins=30) + 
+  ggtitle("original sample")
+
+heroin %>%
+  boot_1_func() %>%
+  ggplot(aes(x=times)) + ylab("") +
+  geom_histogram(bins=30) + 
+  ggtitle("one bootstrap resample")
+```
+
+
+---
+
+## What do the **sampling** distributions look like?
+
+Both the median and the trimmed mean are reasonably symmetric and bell-shaped.  
+
+.pull-left[
+```{r echo=FALSE, fig.width=4, fig.height=6}
+bs_stats <- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+
+ggplot(bs_stats, aes(x=boot_med)) + 
+  geom_histogram(bins=20) + 
+  ggtitle("dist of median") +  ylab("") +
+  xlim(c(300, 475)) +
+  geom_vline(aes(xintercept = mean(boot_med))) 
+  #xlab(paste("mean=",round(mean(boot_med),2),";
+  #           SE=", round(sd(boot_med),2)))
+```
+]
+
+.pull-right[
+```{r echo=FALSE, fig.width=4, fig.height=6}
+ggplot(bs_stats, aes(x=boot_tr_mean)) + 
+  geom_histogram(bins=20) + 
+  ggtitle("dist of trimmed mean") +  ylab("") +
+  xlim(c(300, 475)) +
+  geom_vline(aes(xintercept = mean(boot_med))) 
+  #xlab(paste("mean=",round(mean(boot_tr_mean),2),";
+  #           SE=", round(sd(boot_tr_mean),2)))
+
+```
+]
+
+---
+
+# Agenda 10/7/21
+
+
+1. Normal CI using BS SE
+2. Bootstrap-t (studentized) CIs 
+3. Percentile CIs
+4. properties / advantages / disadvantages
+
+---
+
 
 ```{r}
 boot_stat_func <- function(df = heroin){ 
@@ -203,52 +310,6 @@ results <- data.frame(set = 1:n_rep1) %>%
 
 
 
-## What do the **data** distributions look like?
-
-```{r echo=FALSE, fig.width=4}
-heroin %>% 
-  ggplot(aes(x=times)) + 
-  geom_histogram(bins=30) + 
-  ggtitle("original sample")
-
-heroin %>%
-  boot_1_func() %>%
-  ggplot(aes(x=times)) + 
-  geom_histogram(bins=30) + 
-  ggtitle("one bootstrap resample")
-```
-
-
----
-
-## What do the **sampling** distributions look like?
-
-Both the median and the trimmed mean are symmetric and bell-shaped.  
-
-.pull-left[
-```{r echo=FALSE, fig.width=4, fig.height=6}
-bs_stats <- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
-
-ggplot(bs_stats, aes(x=boot_med)) + 
-  geom_histogram(bins=20) + 
-  ggtitle("dist of median") +  
-  geom_vline(aes(xintercept = mean(boot_med))) 
-  #xlab(paste("mean=",round(mean(boot_med),2),";
-  #           SE=", round(sd(boot_med),2)))
-```
-]
-
-.pull-right[
-```{r echo=FALSE, fig.width=4, fig.height=6}
-ggplot(bs_stats, aes(x=boot_tr_mean)) + 
-  geom_histogram(bins=20) + 
-  ggtitle("dist of trimmed mean") +  
-  geom_vline(aes(xintercept = mean(boot_med))) 
-  #xlab(paste("mean=",round(mean(boot_tr_mean),2),";
-  #           SE=", round(sd(boot_tr_mean),2)))
-
-```
-]
 
 ```{r include = FALSE, eval = FALSE}
 ## OR using the built in functions
