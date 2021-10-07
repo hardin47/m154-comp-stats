@@ -11,20 +11,23 @@ output:
 
 ```{r include=FALSE}
 library(tidyverse)
-require(mosaic)
-require(boot)
-require(ggthemes)
-require(knitr)
+library(mosaic)
+library(boot)
+library(ggthemes)
+library(knitr)
+library(skimr)
 opts_chunk$set(
   message=FALSE,
   warning=FALSE,
-  size='small',
-  cache=TRUE,
-  tidy=FALSE
+  size='tiny',
+  tidy=FALSE,
+  digits = 7,
+  pillar.sigfig = 7,
+  pillar.subtle = FALSE
   )
-require(lubridate)
-require(sysfonts)
-options(width=65, digits=3)
+library(lubridate)
+library(sysfonts)
+options(width=65)
 ```
 
 ```{r echo = FALSE}
@@ -55,6 +58,17 @@ Motivation:
 * standard deviation of the **data**: $s = \sqrt{\frac{\sum_{i=1}^n(X_i - \overline{X})^2}{n-1}}$
 
 * standard error of the **statistic**: depends...
+
+
+---
+## Intuitive understanding
+
+See in the applets for an intuitive understanding of both confidence intervals and boostrapping:
+
+* <a href = "http://www.lock5stat.com/StatKey/" target = "_blank">StatKey applets</a> which demonstrate bootstrapping.
+
+* <a href = "http://www.rossmanchance.com/applets/ConfSim.html" target = "_blank">Confidence interval logic</a> from the Rossman & Chance applets.
+
 
 ---
 
@@ -206,6 +220,12 @@ boot_1_func <- function(df = heroin){
 ```
 ]
 
+.panel[.panel-name[bootstrapping]
+```{r}
+map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+```
+]
+
 ]
 
 
@@ -236,9 +256,9 @@ Both the median and the trimmed mean are reasonably symmetric and bell-shaped.
 
 .pull-left[
 ```{r echo=FALSE, fig.width=4, fig.height=6}
-bs_stats <- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+boot_stats <- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
 
-ggplot(bs_stats, aes(x=boot_med)) + 
+ggplot(boot_stats, aes(x=boot_med)) + 
   geom_histogram(bins=20) + 
   ggtitle("dist of median") +  ylab("") +
   xlim(c(300, 475)) +
@@ -250,7 +270,7 @@ ggplot(bs_stats, aes(x=boot_med)) +
 
 .pull-right[
 ```{r echo=FALSE, fig.width=4, fig.height=6}
-ggplot(bs_stats, aes(x=boot_tr_mean)) + 
+ggplot(boot_stats, aes(x=boot_tr_mean)) + 
   geom_histogram(bins=20) + 
   ggtitle("dist of trimmed mean") +  ylab("") +
   xlim(c(300, 475)) +
@@ -273,264 +293,252 @@ ggplot(bs_stats, aes(x=boot_tr_mean)) +
 
 ---
 
+## Technical derivations
 
+See in class notes on [bootstrapping](http://st47s.com/Math154/Notes/boot.html) for the technical details on how to create different bootstrap intervals.
+
+---
+
+## Bootstrapping with `map`
+
+.panelset[
+
+.panel[.panel-name[set variables]
+```{r}
+n_rep1 <- 100
+set.seed(4747)
+```
+]
+
+.panel[.panel-name[boot stat function]
 ```{r}
 boot_stat_func <- function(df = heroin){ 
 	df %>% 
     sample_frac(size=1, replace=TRUE) %>%
-    summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25))}
-
-boot_1_func <- function(df = heroin){
-  df %>% 
-    sample_frac(size=1, replace=TRUE)
-}
-
-boot_2_func <- function(df, reps){
-  df %>%
-    summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25)) %>%
-    cbind(map_df(1:reps, ~df %>% 
-             sample_frac(size=1, replace=TRUE) %>%
-             summarize(boot_2_med = median(times), 
-                       boot_2_tr_mean = mean(times, trim = 0.25))))
-}
+    summarize(boot_med = median(times), 
+              boot_tr_mean = mean(times, trim = 0.25))}
 ```
+]
 
+
+.panel[.panel-name[bootstrap!]
 ```{r}
-#n_rep1 <-5
-#n_rep2 <- 3
-results <- data.frame(set = 1:n_rep1) %>%
-  mutate(first_boot = map(1:n_rep1, ~boot_1_func())) %>%
-  mutate(second_boot = map(first_boot, boot_2_func, reps = n_rep2)) %>%
-  unnest(second_boot) %>%
-  unnest(first_boot)
+boot_stats <- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+
+boot_stats
 ```
 
+]
+
+]
 
 ---
 
-
-
-
-```{r include = FALSE, eval = FALSE}
-## OR using the built in functions
-sampletmean <- function(x,d,trimperc){
-  return(mean(x[d], trim=trimperc))
-}
-set.seed(4747)
-bs.tmean.resamps <- boot(heroin$times,
-                         sampletmean, reps1, trimperc=.25)
-```
-
-```{r include = FALSE, eval = FALSE}
-## What does the boot output look like?
-# bs.tmean.resamps <- boot(heroin$times,sampletmean, reps1, trimperc=.25)
-str(bs.tmean.resamps)
-```
-
-
-
-```{r include = FALSE, eval = FALSE}
-## What does the boot output look like?
-
-samplemed <- function(x,d){
-  return(median(x[d]))
-}
-set.seed(4747)
-bs.med.resamps <- boot(heroin$times,
-                       samplemed, reps1)
-bs.med.resamps
-```
-
-
-
-
-```{r include = FALSE, eval = FALSE}
-## SE of median
-Whew!  They are very close (one using for loops, one using the boot function).
-
-
-sd(test.stat)  # SE of median
-
-bs.med.resamps
-```
-
-
-
-```{r include = FALSE, eval = FALSE}
-## SE of trimmed mean
-
-Whew!  They are very close (one using for loops, one using the boot function).
-
-sd(test.stat2)  # SE of trimmed mean
-
-bs.tmean.resamps
-```
-
----
 
 ## 95% normal CI with BS SE
 
-.pull-left[
-Without built in functions
-```{r include = FALSE, eval = FALSE}
-bs_stats + 
-  qnorm(c(.025,.975))*
-  sd(test.stat)
-obs.stat2 + 
-  qnorm(c(.025,.975))*
-  sd(test.stat2)
+```{r}
+boot_stats %>%
+  summarize(theta1 = mean(boot_med), theta2 = mean(boot_tr_mean), 
+            SE1 = sd(boot_med), SE2 = sd(boot_tr_mean)) %>%
+  mutate(low_med = theta1 + qnorm(0.025)*SE1, 
+         up_med = theta1 + qnorm(0.975) *SE1,
+         low_tr_mean = theta2 + qnorm(0.025)*SE2, 
+         up_tr_mean = theta2 + qnorm(0.975) *SE2)
 ```
-]
-
-.pull-right[
-```{r include = FALSE, eval = FALSE}
-With built in functions
-se.bs <- sd(bs.med.resamps$t)
-se.bs2 <- sd(bs.tmean.resamps$t)
-
-obs.stat + 
-  qnorm(c(0.025,.975))*
-  se.bs
-
-obs.stat2 + 
-  qnorm(c(0.025,.975))*
-  se.bs2 
-```
-]
 
 ---
 
 
 ## 95% Percentile CI
 
-.pull-left[
-Without built in functions
-```{r include = FALSE, eval = FALSE}
-quantile(test.stat, c(.025, .975))
-quantile(test.stat2, c(.025, .975))
-```
-]
-
-.pull-right[
-```{r include = FALSE, eval = FALSE}
-With built in functions
-quantile(bs.med.resamps$t, c(.025, .975))
-quantile(bs.tmean.resamps$t, c(.025, .975))
-```
-]
-
-```{r include = FALSE, eval = FALSE}
-### With built in functions more directly
-boot.ci(bs.med.resamps, type="perc")
-boot.ci(bs.tmean.resamps, type="perc")
+```{r}
+boot_stats %>%
+  summarize(perc_CI_med = quantile(boot_med, c(0.025, 0.975)), 
+            perc_CI_tr_mean = quantile(boot_tr_mean, c(0.025, 0.975)), 
+            q = c(0.025, 0.975))
 ```
 
 ---
+
+## Double bootstrapping with `map`
+
+.panelset[
+
+.panel[.panel-name[set variables]
+```{r}
+n_rep1 <- 100
+n_rep2 <- 20
+set.seed(4747)
+```
+]
+
+.panel[.panel-name[boot stat function]
+```{r}
+boot_stat_func <- function(df = heroin){ 
+	df %>% 
+    sample_frac(size=1, replace=TRUE) %>%
+    summarize(boot_med = median(times), 
+              boot_tr_mean = mean(times, trim = 0.25))}
+```
+]
+
+.panel[.panel-name[resample function]
+```{r}
+boot_1_func <- function(df = heroin){
+  df %>% 
+    sample_frac(size=1, replace=TRUE)
+}
+```
+]
+
+.panel[.panel-name[re-resample function]
+```{r}
+boot_2_func <- function(df, reps){
+  resample2 <- 1:reps
+  df %>%
+    summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25)) %>%
+    cbind(resample2, map_df(resample2, ~df %>% 
+             sample_frac(size=1, replace=TRUE) %>%
+             summarize(boot_2_med = median(times), 
+                       boot_2_tr_mean = mean(times, trim = 0.25)))) %>%
+    select(resample2, everything())
+}
+```
+]
+
+.panel[.panel-name[double bootstrap!]
+```{r}
+boot_2_stats <- data.frame(resample1 = 1:n_rep1) %>%
+  mutate(first_boot = map(1:n_rep1, ~boot_1_func())) %>%
+  mutate(second_boot = map(first_boot, boot_2_func, reps = n_rep2)) 
+```
+
+```{r eval = FALSE, include = FALSE}
+boot_2_stats #%>%
+  #unnest(second_boot) %>%
+  #unnest(first_boot)
+```
+
+]
+
+]
+
+
+---
+
+## Summarizing the double bootstrap
+
+.panelset[
+
+.panel[.panel-name[results]
+```{r}
+boot_2_stats %>%
+  unnest(second_boot) %>%
+  unnest(first_boot) 
+```
+]
+
+.panel[.panel-name[summary for resample 1]
+```{r eval = FALSE}
+boot_2_stats %>%
+  unnest(second_boot) %>%
+  unnest(first_boot) %>%
+  filter(resample1 == 1) 
+```
+
+```{r echo = FALSE}
+boot_2_stats %>%
+  unnest(second_boot) %>%
+  unnest(first_boot) %>%
+  select(resample1, resample2, everything() ) %>%
+  filter(resample1 == 1) %>%
+  select(boot_med, boot_tr_mean, boot_2_med, boot_2_tr_mean) %>%
+  skim_without_charts() %>% as_tibble() %>% 
+  select(skim_variable, numeric.mean, numeric.sd, numeric.p50)
+```
+]
+
+
+.panel[.panel-name[summary for all resamples]
+
+```{r}
+boot_t_stats <- boot_2_stats %>%
+  unnest(second_boot) %>%
+  unnest(first_boot) %>%
+  group_by(resample1) %>%
+  summarize(boot_sd_med = sd(boot_2_med),
+            boot_sd_tr_mean = sd(boot_2_tr_mean),
+            boot_med = mean(boot_med),  # doesn't do anything, just copies over
+            boot_tr_mean = mean(boot_tr_mean))  %>% # the variables into the output
+  mutate(boot_t_med = (boot_med - mean(boot_med)) / boot_sd_med,
+            boot_t_tr_mean = (boot_tr_mean - mean(boot_tr_mean)) / boot_sd_tr_mean)
+
+  
+boot_t_stats
+
+```
+
+]
+]
+
+
+
+---
+
+
 
 ## 95% Bootstrap-t CI
 
 
 Note that the t-value is needed (which requires a different SE for each bootstrap sample).
 
-```{r include = FALSE, eval = FALSE}
-t.hat<-(test.stat - obs.stat)/sd.test.stat
-t.hat2<-(test.stat2 - obs.stat2)/sd.test.stat2
+.panelset[
 
-t.hat.95 = quantile(t.hat, c(.025,.975))
-t.hat2.95 = quantile(t.hat2, c(.025,.975))
-
-obs.stat + t.hat.95*sd(test.stat)
-
-obs.stat2 + t.hat2.95*sd(test.stat2) 
+.panel[.panel-name[t-values]
+```{r}
+boot_t_stats %>%
+  select(boot_t_med, boot_t_tr_mean)
 ```
+]
 
+.panel[.panel-name[multipliers]
+```{r}
+boot_q <- boot_t_stats %>%
+  select(boot_t_med, boot_t_tr_mean) %>%
+  summarize(q_t_med = quantile(boot_t_med, c(0.025, 0.975)), 
+            q_t_tr_mean = quantile(boot_t_tr_mean, c(0.025, 0.975)),
+            q = c(0.025, 0.975))
 
-```{r include = FALSE, eval = FALSE}
-### With built in functions
-
-Trimmed mean:
-
-  
-sampletmean2 <- function(x, d, R2, trimperc) {
-   boot.samp = x[d]  # boostrapped sample
-   m.bs = mean(boot.samp, trim=trimperc)  # bootstrapped mean
-   v.bs = var(boot(boot.samp, sampletmean, R2, trim=trimperc)$t)
-   return(c(m.bs, v.bs))  
-   # boot expects the statistic to be the 1st and the var to be the 2nd
-}
-set.seed(4747)
-bs.tmean.reresamps <- boot(heroin$times, sampletmean2, R=reps1, R2=reps2, trimperc=.25)
+boot_q
 ```
+]
 
 
-```{r include = FALSE, eval = FALSE}
-### With built in functions
+.panel[.panel-name[pull numbers]
+```{r}
+boot_q_med <- boot_q %>% select(q_t_med) %>% pull()
+boot_q_med
 
-Median:
+boot_q_tr_mean <- boot_q %>% select(q_t_tr_mean) %>% pull()
+boot_q_tr_mean
 
-  
-samplemed2 <- function(x, d, R2) {
-   boot.samp = x[d]  # boostrapped sample
-   m.bs = median(boot.samp)  # bootstrapped mean
-   v.bs = var(boot(boot.samp, samplemed, R2)$t)
-   return(c(m.bs, v.bs))  
-   # boot expects the statistic to be the 1st and the var to be the 2nd
-}
-set.seed(4747)
-bs.med.reresamps <- boot(heroin$times, samplemed2, R=reps1, R2=reps2)
 ```
+]
 
+.panel[.panel-name[BS-t CI]
+```{r}
+boot_t_stats %>%
+  summarize(boot_t_CI_med = mean(boot_med) + 
+                                  boot_q_med*sd(boot_med),
+            boot_t_CI_tr_mean = mean(boot_tr_mean) + 
+                                  boot_q_tr_mean * sd(boot_tr_mean),
+            q = c(0.025, 0.975))
 
-```{r include = FALSE, eval = FALSE}
-The confidence intervals (BS-t intervals, called "studentized"):
-
-  boot.ci(bs.med.reresamps, type="stud")
-boot.ci(bs.tmean.reresamps, type="stud")
 ```
+]
 
----
-
-## 95% BCa interval (not responsible for BCa)
-
-```{r include = FALSE, eval = FALSE}
-### With built in functions
-
-boot.ci(bs.med.reresamps, type="bca")
-boot.ci(bs.tmean.reresamps, type="bca")
-```
-
-
-### Without built in functions
-```{r include = FALSE, eval = FALSE}
-test.stat.jk<-c()
-test.stat2.jk<-c()
-
-set.seed(4747)
-for(i in 1:length(heroin$times)){
-
-	test.stat.jk<-c(test.stat.jk,median(heroin$times[-i]))
-	 test.stat2.jk<-c(test.stat2.jk,mean(heroin$times[-i],trim=.25))
-}
-
-zo.hat<-qnorm(sum(test.stat<obs.stat)/reps1,0,1)
-a.hat<- sum((mean(test.stat.jk) - test.stat.jk)^3)/
-                 (6*(sum((mean(test.stat.jk)-test.stat.jk)^2)^1.5))
-
-zo.hat2<- qnorm(sum(test.stat2< obs.stat2)/reps1,0,1)
-a.hat2<- sum((mean(test.stat2.jk) - test.stat2.jk)^3)/
-                 (6*(sum((mean(test.stat2.jk)-test.stat2.jk)^2)^1.5))
-
-alpha1.bca<-pnorm(zo.hat + (zo.hat + qnorm(.975))/(1 - a.hat*(zo.hat + qnorm(.975))))
-alpha2.bca<-pnorm(zo.hat + (zo.hat + qnorm(.025))/(1 - a.hat*(zo.hat + qnorm(.025))))
-
-
-alpha1.bca2<-pnorm(zo.hat2 + (zo.hat2 + qnorm(.975))/(1 - a.hat2*(zo.hat2 + qnorm(.975))))
-alpha2.bca2<-pnorm(zo.hat2 + (zo.hat2 + qnorm(.025))/(1 - a.hat2*(zo.hat2 + qnorm(.025))))
-
-
-c(sort(test.stat)[ceiling(reps1*alpha2.bca)],sort(test.stat)[ceiling(reps1*alpha1.bca)])
-c(sort(test.stat2)[ceiling(reps1*alpha2.bca2)],sort(test.stat2)[ceiling(reps1*alpha1.bca2)])
-```
+]
 
 ---
 
@@ -539,12 +547,11 @@ c(sort(test.stat2)[ceiling(reps1*alpha2.bca2)],sort(test.stat2)[ceiling(reps1*al
 The first three columns  correspond to the CIs for the true median of the survival times.  The second three columns correspond to the CIs for the true trimmed mean of the survival times.
 
 
-CI | lower | observed | upper | lower | observed | upper
+CI | lower | obs Med | upper | lower | obs Tr Mean | upper
 --- | ----- | ----- | ----- | ----- | ------ | -------- | 
-Percentile | 321.00 | 367.50| 452.00 | 339.38 | 378.30 | 423.46
-CI w BS SE | 306.33 | 367.50|428.67 | 335.21 | 378.30 | 421.39
-BS-t | 294.98 | 367.50|418.00 | 334.28 | 378.30 | 418.09
-BCa | 317.00 | 367.50|444.00 | 338.29 | 378.30 | 422.43
+Percentile | 321 | 367.50| 453 | 335 | 378.30 | 420
+w BS SE | 315| 367.50| 431 | 336 | 378.30 | 419
+BS-t | 309 | 367.50| 425 | 331 | 378.30 | 421
 
 
 
