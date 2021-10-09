@@ -20,14 +20,13 @@ opts_chunk$set(
   message=FALSE,
   warning=FALSE,
   size='tiny',
-  tidy=FALSE,
-  digits = 7,
-  pillar.sigfig = 7,
-  pillar.subtle = FALSE
+  tidy=FALSE)
+options(
+  digits = 5,
+  pillar.sigfig = 5
   )
 library(lubridate)
 library(sysfonts)
-options(width=65)
 ```
 
 ```{r echo = FALSE}
@@ -203,17 +202,21 @@ set.seed(4747)
 
 .panel[.panel-name[boot stat function]
 ```{r}
-boot_stat_func <- function(df = heroin){ 
+boot_stat_func <- function(df){ 
 	df %>% 
+    mutate(obs_med = median(times),
+           obs_tr_mean = mean(times, trim = 0.25)) %>%
     sample_frac(size=1, replace=TRUE) %>%
     summarize(boot_med = median(times), 
-              boot_tr_mean = mean(times, trim = 0.25))}
+              boot_tr_mean = mean(times, trim = 0.25),
+              obs_med = mean(obs_med),
+              obs_tr_mean = mean(obs_tr_mean))}
 ```
 ]
 
 .panel[.panel-name[resample function]
 ```{r}
-boot_1_func <- function(df = heroin){
+boot_1_func <- function(df){
   df %>% 
     sample_frac(size=1, replace=TRUE)
 }
@@ -222,7 +225,7 @@ boot_1_func <- function(df = heroin){
 
 .panel[.panel-name[bootstrapping]
 ```{r}
-map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+map_df(1:n_rep1, ~boot_stat_func(df = heroin))
 ```
 ]
 
@@ -256,7 +259,7 @@ Both the median and the trimmed mean are reasonably symmetric and bell-shaped.
 
 .pull-left[
 ```{r echo=FALSE, fig.width=4, fig.height=6}
-boot_stats <- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+boot_stats <- map_df(1:n_rep1, ~boot_stat_func(df = heroin))
 
 ggplot(boot_stats, aes(x=boot_med)) + 
   geom_histogram(bins=20) + 
@@ -312,18 +315,22 @@ set.seed(4747)
 
 .panel[.panel-name[boot stat function]
 ```{r}
-boot_stat_func <- function(df = heroin){ 
+boot_stat_func <- function(df){ 
 	df %>% 
+    mutate(obs_med = median(times),
+           obs_tr_mean = mean(times, trim = 0.24)) %>%
     sample_frac(size=1, replace=TRUE) %>%
     summarize(boot_med = median(times), 
-              boot_tr_mean = mean(times, trim = 0.25))}
+              boot_tr_mean = mean(times, trim = 0.25),
+              obs_med = mean(obs_med),
+              obs_tr_mean = mean(obs_tr_mean))}
 ```
 ]
 
 
 .panel[.panel-name[bootstrap!]
 ```{r}
-boot_stats <- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+boot_stats <- map_df(1:n_rep1, ~boot_stat_func(df = heroin))
 
 boot_stats
 ```
@@ -339,12 +346,10 @@ boot_stats
 
 ```{r}
 boot_stats %>%
-  summarize(theta1 = mean(boot_med), theta2 = mean(boot_tr_mean), 
-            SE1 = sd(boot_med), SE2 = sd(boot_tr_mean)) %>%
-  mutate(low_med = theta1 + qnorm(0.025)*SE1, 
-         up_med = theta1 + qnorm(0.975) *SE1,
-         low_tr_mean = theta2 + qnorm(0.025)*SE2, 
-         up_tr_mean = theta2 + qnorm(0.975) *SE2)
+  summarize(low_med = mean(obs_med) + qnorm(0.025) * sd(boot_med), 
+         up_med = mean(obs_med) + qnorm(0.975) * sd(boot_med),
+         low_tr_mean = mean(obs_tr_mean) + qnorm(0.025) * sd(boot_tr_mean), 
+         up_tr_mean = mean(obs_tr_mean) + qnorm(0.975) * sd(boot_tr_mean))
 ```
 
 ---
@@ -375,17 +380,21 @@ set.seed(4747)
 
 .panel[.panel-name[boot stat function]
 ```{r}
-boot_stat_func <- function(df = heroin){ 
+boot_stat_func <- function(df){ 
 	df %>% 
+    mutate(obs_med = median(times),
+           obs_tr_mean = mean(times, trim = 0.24)) %>%
     sample_frac(size=1, replace=TRUE) %>%
     summarize(boot_med = median(times), 
-              boot_tr_mean = mean(times, trim = 0.25))}
+              boot_tr_mean = mean(times, trim = 0.25),
+              obs_med = mean(obs_med),
+              obs_tr_mean = mean(obs_tr_mean))}
 ```
 ]
 
 .panel[.panel-name[resample function]
 ```{r}
-boot_1_func <- function(df = heroin){
+boot_1_func <- function(df){
   df %>% 
     sample_frac(size=1, replace=TRUE)
 }
@@ -410,7 +419,7 @@ boot_2_func <- function(df, reps){
 .panel[.panel-name[double bootstrap!]
 ```{r}
 boot_2_stats <- data.frame(resample1 = 1:n_rep1) %>%
-  mutate(first_boot = map(1:n_rep1, ~boot_1_func())) %>%
+  mutate(first_boot = map(1:n_rep1, ~boot_1_func(df = heroin))) %>%
   mutate(second_boot = map(first_boot, boot_2_func, reps = n_rep2)) 
 ```
 
@@ -549,9 +558,9 @@ The first three columns  correspond to the CIs for the true median of the surviv
 
 CI | lower | obs Med | upper | lower | obs Tr Mean | upper
 --- | ----- | ----- | ----- | ----- | ------ | -------- | 
-Percentile | 321 | 367.50| 453 | 335 | 378.30 | 420
-w BS SE | 315| 367.50| 431 | 336 | 378.30 | 419
-BS-t | 309 | 367.50| 425 | 331 | 378.30 | 421
+Percentile | 321 | 367.50| 434.58 | 334.86 | 378.30 | 429.77
+w BS SE | 309.98 | 367.50| 425.01 | 336.90 | 378.30 | 419.77
+BS-t | 309.30 | 367.50| 425.31 | 331.02 | 378.30 | 421.17
 
 
 

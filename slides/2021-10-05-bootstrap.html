@@ -176,7 +176,7 @@ heroin %&gt;%
 ## # A tibble: 1 × 2
 ##   obs_med obs_tr_mean
 ##     &lt;dbl&gt;       &lt;dbl&gt;
-## 1    368.        378.
+## 1   367.5       378.3
 ```
 
 ---
@@ -197,7 +197,7 @@ heroin %&gt;%
 ## # A tibble: 1 × 2
 ##   boot_med boot_tr_mean
 ##      &lt;dbl&gt;        &lt;dbl&gt;
-## 1      368         372.
+## 1      368       372.26
 ```
 
 ---
@@ -220,18 +220,22 @@ set.seed(4747)
 .panel[.panel-name[boot stat function]
 
 ```r
-boot_stat_func &lt;- function(df = heroin){ 
+boot_stat_func &lt;- function(df){ 
 	df %&gt;% 
+    mutate(obs_med = median(times),
+           obs_tr_mean = mean(times, trim = 0.25)) %&gt;%
     sample_frac(size=1, replace=TRUE) %&gt;%
     summarize(boot_med = median(times), 
-              boot_tr_mean = mean(times, trim = 0.25))}
+              boot_tr_mean = mean(times, trim = 0.25),
+              obs_med = mean(obs_med),
+              obs_tr_mean = mean(obs_tr_mean))}
 ```
 ]
 
 .panel[.panel-name[resample function]
 
 ```r
-boot_1_func &lt;- function(df = heroin){
+boot_1_func &lt;- function(df){
   df %&gt;% 
     sample_frac(size=1, replace=TRUE)
 }
@@ -241,23 +245,23 @@ boot_1_func &lt;- function(df = heroin){
 .panel[.panel-name[bootstrapping]
 
 ```r
-map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+map_df(1:n_rep1, ~boot_stat_func(df = heroin))
 ```
 
 ```
-## # A tibble: 100 × 2
-##    boot_med boot_tr_mean
-##       &lt;dbl&gt;        &lt;dbl&gt;
-##  1     368          372.
-##  2     358          363.
-##  3     431          421.
-##  4     332.         350.
-##  5     310.         331.
-##  6     376          382.
-##  7     366          365.
-##  8     378.         382.
-##  9     394          386.
-## 10     392.         402.
+## # A tibble: 100 × 4
+##    boot_med boot_tr_mean obs_med obs_tr_mean
+##       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+##  1    368         372.26   367.5       378.3
+##  2    358         362.78   367.5       378.3
+##  3    431         420.62   367.5       378.3
+##  4    331.5       349.62   367.5       378.3
+##  5    310.5       330.78   367.5       378.3
+##  6    376         382.3    367.5       378.3
+##  7    366         365.02   367.5       378.3
+##  8    378.5       381.9    367.5       378.3
+##  9    394         386.1    367.5       378.3
+## 10    391.5       402.38   367.5       378.3
 ## # … with 90 more rows
 ```
 ]
@@ -320,11 +324,15 @@ set.seed(4747)
 .panel[.panel-name[boot stat function]
 
 ```r
-boot_stat_func &lt;- function(df = heroin){ 
+boot_stat_func &lt;- function(df){ 
 	df %&gt;% 
+    mutate(obs_med = median(times),
+           obs_tr_mean = mean(times, trim = 0.24)) %&gt;%
     sample_frac(size=1, replace=TRUE) %&gt;%
     summarize(boot_med = median(times), 
-              boot_tr_mean = mean(times, trim = 0.25))}
+              boot_tr_mean = mean(times, trim = 0.25),
+              obs_med = mean(obs_med),
+              obs_tr_mean = mean(obs_tr_mean))}
 ```
 ]
 
@@ -332,25 +340,25 @@ boot_stat_func &lt;- function(df = heroin){
 .panel[.panel-name[bootstrap!]
 
 ```r
-boot_stats &lt;- map_df(1:n_rep1, ~boot_stat_func(), df = heroin)
+boot_stats &lt;- map_df(1:n_rep1, ~boot_stat_func(df = heroin))
 
 boot_stats
 ```
 
 ```
-## # A tibble: 100 × 2
-##    boot_med boot_tr_mean
-##       &lt;dbl&gt;        &lt;dbl&gt;
-##  1     368          372.
-##  2     358          363.
-##  3     431          421.
-##  4     332.         350.
-##  5     310.         331.
-##  6     376          382.
-##  7     366          365.
-##  8     378.         382.
-##  9     394          386.
-## 10     392.         402.
+## # A tibble: 100 × 4
+##    boot_med boot_tr_mean obs_med obs_tr_mean
+##       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;
+##  1    368         372.26   367.5      378.33
+##  2    358         362.78   367.5      378.33
+##  3    431         420.62   367.5      378.33
+##  4    331.5       349.62   367.5      378.33
+##  5    310.5       330.78   367.5      378.33
+##  6    376         382.3    367.5      378.33
+##  7    366         365.02   367.5      378.33
+##  8    378.5       381.9    367.5      378.33
+##  9    394         386.1    367.5      378.33
+## 10    391.5       402.38   367.5      378.33
 ## # … with 90 more rows
 ```
 
@@ -366,19 +374,17 @@ boot_stats
 
 ```r
 boot_stats %&gt;%
-  summarize(theta1 = mean(boot_med), theta2 = mean(boot_tr_mean), 
-            SE1 = sd(boot_med), SE2 = sd(boot_tr_mean)) %&gt;%
-  mutate(low_med = theta1 + qnorm(0.025)*SE1, 
-         up_med = theta1 + qnorm(0.975) *SE1,
-         low_tr_mean = theta2 + qnorm(0.025)*SE2, 
-         up_tr_mean = theta2 + qnorm(0.975) *SE2)
+  summarize(low_med = mean(obs_med) + qnorm(0.025) * sd(boot_med), 
+         up_med = mean(obs_med) + qnorm(0.975) * sd(boot_med),
+         low_tr_mean = mean(obs_tr_mean) + qnorm(0.025) * sd(boot_tr_mean), 
+         up_tr_mean = mean(obs_tr_mean) + qnorm(0.975) * sd(boot_tr_mean))
 ```
 
 ```
-## # A tibble: 1 × 8
-##   theta1 theta2   SE1   SE2 low_med up_med low_tr_mean up_tr_mean
-##    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
-## 1    373   378.  29.3  21.1    315.   431.        336.       419.
+## # A tibble: 1 × 4
+##   low_med up_med low_tr_mean up_tr_mean
+##     &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+## 1  309.99 425.01      336.90     419.77
 ```
 
 ---
@@ -398,8 +404,8 @@ boot_stats %&gt;%
 ## # A tibble: 2 × 3
 ##   perc_CI_med perc_CI_tr_mean     q
 ##         &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;
-## 1        321             335. 0.025
-## 2        435.            420. 0.975
+## 1      321             334.86 0.025
+## 2      434.58          419.77 0.975
 ```
 
 ---
@@ -420,18 +426,22 @@ set.seed(4747)
 .panel[.panel-name[boot stat function]
 
 ```r
-boot_stat_func &lt;- function(df = heroin){ 
+boot_stat_func &lt;- function(df){ 
 	df %&gt;% 
+    mutate(obs_med = median(times),
+           obs_tr_mean = mean(times, trim = 0.24)) %&gt;%
     sample_frac(size=1, replace=TRUE) %&gt;%
     summarize(boot_med = median(times), 
-              boot_tr_mean = mean(times, trim = 0.25))}
+              boot_tr_mean = mean(times, trim = 0.25),
+              obs_med = mean(obs_med),
+              obs_tr_mean = mean(obs_tr_mean))}
 ```
 ]
 
 .panel[.panel-name[resample function]
 
 ```r
-boot_1_func &lt;- function(df = heroin){
+boot_1_func &lt;- function(df){
   df %&gt;% 
     sample_frac(size=1, replace=TRUE)
 }
@@ -458,7 +468,7 @@ boot_2_func &lt;- function(df, reps){
 
 ```r
 boot_2_stats &lt;- data.frame(resample1 = 1:n_rep1) %&gt;%
-  mutate(first_boot = map(1:n_rep1, ~boot_1_func())) %&gt;%
+  mutate(first_boot = map(1:n_rep1, ~boot_1_func(df = heroin))) %&gt;%
   mutate(second_boot = map(first_boot, boot_2_func, reps = n_rep2)) 
 ```
 
@@ -485,21 +495,20 @@ boot_2_stats %&gt;%
 
 ```
 ## # A tibble: 476,000 × 12
-##    resample1    id clinic status times prison  dose resample2
-##        &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;
-##  1         1   257      1      1   204      0    50         1
-##  2         1   230      1      0    28      0    50         1
-##  3         1   229      1      1   216      0    50         1
-##  4         1   186      2      0   683      0   100         1
-##  5         1   119      2      0   684      0    65         1
-##  6         1    73      1      0   405      0    80         1
-##  7         1    41      1      1   550      1    60         1
-##  8         1    75      1      0   905      0    80         1
-##  9         1    68      1      0   439      0    80         1
-## 10         1   224      1      1   546      1    50         1
-## # … with 475,990 more rows, and 4 more variables:
-## #   boot_med &lt;dbl&gt;, boot_tr_mean &lt;dbl&gt;, boot_2_med &lt;dbl&gt;,
-## #   boot_2_tr_mean &lt;dbl&gt;
+##    resample1    id clinic status times prison  dose resample2 boot_med
+##        &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;
+##  1         1   257      1      1   204      0    50         1      368
+##  2         1   230      1      0    28      0    50         1      368
+##  3         1   229      1      1   216      0    50         1      368
+##  4         1   186      2      0   683      0   100         1      368
+##  5         1   119      2      0   684      0    65         1      368
+##  6         1    73      1      0   405      0    80         1      368
+##  7         1    41      1      1   550      1    60         1      368
+##  8         1    75      1      0   905      0    80         1      368
+##  9         1    68      1      0   439      0    80         1      368
+## 10         1   224      1      1   546      1    50         1      368
+## # … with 475,990 more rows, and 3 more variables: boot_tr_mean &lt;dbl&gt;,
+## #   boot_2_med &lt;dbl&gt;, boot_2_tr_mean &lt;dbl&gt;
 ```
 ]
 
@@ -517,10 +526,10 @@ boot_2_stats %&gt;%
 ## # A tibble: 4 × 4
 ##   skim_variable  numeric.mean numeric.sd numeric.p50
 ##   &lt;chr&gt;                 &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
-## 1 boot_med               368         0          368 
-## 2 boot_tr_mean           372.        0          372.
-## 3 boot_2_med             365.       32.5        367.
-## 4 boot_2_tr_mean         368.       21.5        367.
+## 1 boot_med             368         0          368   
+## 2 boot_tr_mean         372.26      0          372.26
+## 3 boot_2_med           364.75     32.538      367.25
+## 4 boot_2_tr_mean       367.94     21.516      366.74
 ```
 ]
 
@@ -546,20 +555,19 @@ boot_t_stats
 
 ```
 ## # A tibble: 100 × 7
-##    resample1 boot_sd_med boot_sd_tr_mean boot_med boot_tr_mean
-##        &lt;int&gt;       &lt;dbl&gt;           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;
-##  1         1        32.5            21.5     368          372.
-##  2         2        24.2            18.8     358          363.
-##  3         3        32.0            21.1     431          421.
-##  4         4        49.1            34.0     332.         350.
-##  5         5        22.7            13.4     310.         331.
-##  6         6        20.3            19.9     376          382.
-##  7         7        35.3            22.1     366          365.
-##  8         8        15.0            16.4     378.         382.
-##  9         9        27.6            20.9     394          386.
-## 10        10        38.5            19.6     392.         402.
-## # … with 90 more rows, and 2 more variables: boot_t_med &lt;dbl&gt;,
-## #   boot_t_tr_mean &lt;dbl&gt;
+##    resample1 boot_sd_med boot_sd_tr_mean boot_med boot_tr_mean boot_t_med
+##        &lt;int&gt;       &lt;dbl&gt;           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;
+##  1         1      32.538          21.516    368         372.26   -0.15367
+##  2         2      24.219          18.789    358         362.78   -0.61934
+##  3         3      32.007          21.129    431         420.62    1.8121 
+##  4         4      49.141          33.982    331.5       349.62   -0.84452
+##  5         5      22.705          13.374    310.5       330.78   -2.7527 
+##  6         6      20.264          19.908    376         382.3     0.14804
+##  7         7      35.345          22.086    366         365.02   -0.19805
+##  8         8      14.993          16.412    378.5       381.9     0.36683
+##  9         9      27.584          20.857    394         386.1     0.76131
+## 10        10      38.452          19.621    391.5       402.38    0.48111
+## # … with 90 more rows, and 1 more variable: boot_t_tr_mean &lt;dbl&gt;
 ```
 
 ]
@@ -589,16 +597,16 @@ boot_t_stats %&gt;%
 ## # A tibble: 100 × 2
 ##    boot_t_med boot_t_tr_mean
 ##         &lt;dbl&gt;          &lt;dbl&gt;
-##  1     -0.154         -0.249
-##  2     -0.619         -0.790
-##  3      1.81           2.04 
-##  4     -0.845         -0.824
-##  5     -2.75          -3.50 
-##  6      0.148          0.235
-##  7     -0.198         -0.570
-##  8      0.367          0.261
-##  9      0.761          0.406
-## 10      0.481          1.26 
+##  1   -0.15367       -0.24930
+##  2   -0.61934       -0.78976
+##  3    1.8121         2.0353 
+##  4   -0.84452       -0.82389
+##  5   -2.7527        -3.5024 
+##  6    0.14804        0.23497
+##  7   -0.19805       -0.57037
+##  8    0.36683        0.26065
+##  9    0.76131        0.40646
+## 10    0.48111        1.2616 
 ## # … with 90 more rows
 ```
 ]
@@ -619,8 +627,8 @@ boot_q
 ## # A tibble: 2 × 3
 ##   q_t_med q_t_tr_mean     q
 ##     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;
-## 1   -2.17       -2.20 0.025
-## 2    1.78        2.06 0.975
+## 1 -2.1709     -2.2041 0.025
+## 2  1.7827      2.0599 0.975
 ```
 ]
 
@@ -633,8 +641,8 @@ boot_q_med
 ```
 
 ```
-##      2.5%     97.5% 
-## -2.170931  1.782708
+##    2.5%   97.5% 
+## -2.1709  1.7827
 ```
 
 ```r
@@ -643,8 +651,8 @@ boot_q_tr_mean
 ```
 
 ```
-##      2.5%     97.5% 
-## -2.204115  2.059893
+##    2.5%   97.5% 
+## -2.2041  2.0599
 ```
 ]
 
@@ -663,8 +671,8 @@ boot_t_stats %&gt;%
 ## # A tibble: 2 × 3
 ##   boot_t_CI_med boot_t_CI_tr_mean     q
 ##           &lt;dbl&gt;             &lt;dbl&gt; &lt;dbl&gt;
-## 1          309.              331. 0.025
-## 2          425.              421. 0.975
+## 1        309.30            331.03 0.025
+## 2        425.31            421.17 0.975
 ```
 ]
 
@@ -679,9 +687,9 @@ The first three columns  correspond to the CIs for the true median of the surviv
 
 CI | lower | obs Med | upper | lower | obs Tr Mean | upper
 --- | ----- | ----- | ----- | ----- | ------ | -------- | 
-Percentile | 321 | 367.50| 453 | 335 | 378.30 | 420
-w BS SE | 315| 367.50| 431 | 336 | 378.30 | 419
-BS-t | 309 | 367.50| 425 | 331 | 378.30 | 421
+Percentile | 321 | 367.50| 434.58 | 334.86 | 378.30 | 429.77
+w BS SE | 309.98 | 367.50| 425.01 | 336.90 | 378.30 | 419.77
+BS-t | 309.30 | 367.50| 425.31 | 331.02 | 378.30 | 421.17
 
 
 
