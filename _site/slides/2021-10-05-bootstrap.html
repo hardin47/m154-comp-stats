@@ -693,9 +693,9 @@ BS-t | 309.30 | 367.50| 425.31 | 331.02 | 378.30 | 421.17
 
 ---
 
-## What makes an confidence interval procedure good?
+## What makes a confidence interval procedure good?
 
-1. That it captures the true parameter in $1-\alpha$100% of the datasets.
+1. That it captures the true parameter in `\(1-\alpha \cdot\)` 100% of the datasets.
 
 2. That it produces narrow intervals.
 
@@ -705,8 +705,8 @@ BS-t | 309.30 | 367.50| 425.31 | 331.02 | 378.30 | 421.17
 
 | CI 	| Symmetric 	| Range Resp 	| Trans Resp 	| Accuracy 	| Normal Samp Dist? 	| Other 	|
 |:-----:	|:---------:	|:----------:	|:----------:	|:--------------:	|:-----------------:	|------------------------------------	|
-| BootSE 	| Yes 	| No 	| No 	| `\(1^{st}\)` order 	| Yes 	| param assump `\(F(\hat{\theta})\)` 	|
-| BS-t 	| No 	| No 	| No 	| `\(2^{nd}\)` order 	| Yes/No 	| computer intensive 	|
+| Boot SE 	| Yes 	| No 	| No 	| `\(1^{st}\)` order 	| Yes 	| param assump `\(F(\hat{\theta})\)` 	|
+| Boot-t 	| No 	| No 	| No 	| `\(2^{nd}\)` order 	| Yes/No 	| computer intensive 	|
 | perc 	| No 	| Yes 	| Yes 	| `\(1^{st}\)` order 	| No 	| small `\(n \rightarrow\)` low accuracy 	|
 | BCa 	| No 	| Yes 	| Yes 	| `\(2^{nd}\)` order 	| No 	| limited param assump 	|
 
