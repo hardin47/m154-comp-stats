@@ -691,8 +691,24 @@ Percentile | 321 | 367.50| 434.58 | 334.86 | 378.30 | 429.77
 w BS SE | 309.98 | 367.50| 425.01 | 336.90 | 378.30 | 419.77
 BS-t | 309.30 | 367.50| 425.31 | 331.02 | 378.30 | 421.17
 
+---
 
+## What makes an confidence interval procedure good?
 
+1. That it captures the true parameter in $1-\alpha$100% of the datasets.
+
+2. That it produces narrow intervals.
+
+---
+
+## What else about intervals?
+
+| CI 	| Symmetric 	| Range Resp 	| Trans Resp 	| Accuracy 	| Normal Samp Dist? 	| Other 	|
+|:-----:	|:---------:	|:----------:	|:----------:	|:--------------:	|:-----------------:	|------------------------------------	|
+| BootSE 	| Yes 	| No 	| No 	| `\(1^{st}\)` order 	| Yes 	| param assump `\(F(\hat{\theta})\)` 	|
+| BS-t 	| No 	| No 	| No 	| `\(2^{nd}\)` order 	| Yes/No 	| computer intensive 	|
+| perc 	| No 	| Yes 	| Yes 	| `\(1^{st}\)` order 	| No 	| small `\(n \rightarrow\)` low accuracy 	|
+| BCa 	| No 	| Yes 	| Yes 	| `\(2^{nd}\)` order 	| No 	| limited param assump 	|
 
 
 
