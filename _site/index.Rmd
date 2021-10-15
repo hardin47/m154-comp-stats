@@ -77,7 +77,7 @@ schedule <- tribble(
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
-  '<font color = "#114B5F"><b>10.22.21</b></font>', '<font color = "#114B5F"><b>Take home 1</b></font>', "","","","","",
+  '<font color = "#114B5F"><b>10.24.21</b></font>', '<font color = "#114B5F"><b>Take home 1</b></font>', "","","","","",
   "10.26.21", "knn + trees",
   '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',

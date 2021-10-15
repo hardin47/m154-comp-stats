@@ -82,7 +82,7 @@ All resources are freely available.  They also all have print versions which can
 
 :::note
 * 10/14 + 15/21 Exam 1 (not during class) 
-* 10/22/21 Take home 1 due (on GitHub + Gradescope by midnight) 
+* 10/24/21 Take home 1 due (on GitHub + Gradescope by midnight) 
 * 10/26/21 Initial Project Proposal due (via email to me by midnight) 
 * 11/2/21 Final Project Proposal due (on GitHub by midnight) 
 * (TBD mid-November) 2021 Data Science Panel 

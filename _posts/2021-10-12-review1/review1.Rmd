@@ -32,6 +32,7 @@ knitr::include_graphics("../../images/debugging.jpg")
 
 1. Office hours during class
 2. Exam some time on Thursday or Friday
+3. Take home due Sunday, October 24, 11:59pm
 
 
 ## Readings <i class="fas fa-book-open"></i> 
