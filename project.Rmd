@@ -1,7 +1,7 @@
 ---
 title: "Semester Project"
 description: |
-  More soon
+  The best part of the semester -- the awesome data-based group project!
 output: distill::distill_article
 ---
 
@@ -28,31 +28,28 @@ Your task is to use data to tell us something interesting. This project is delib
 1. Your project must be centered around data. Preferably, you will work with large, complex, and/or messy data. The more challenging your data set is, the better. Two things that will make your project more ambitious (and more interesting) are:  
    * Combining two or more data sets that are not obviously related. For example, in the tweets predicting elections paper from the first day of class, the researchers had to combine data from Twitter that had nothing to do with politics with a data set of congressional districts, and both data sets had to be spatially-aware, since the merging was done according to the geographical location of the tweet.  
    * Accessing a live data stream. There are many APIs on the Internet that allow you to access data that changes on a continual basis. This is in contrast to static data that was collected at some point in time and does not change. If your project can respond dynamically to a live data stream, then this will make it more interesting.  
-
 Please note that neither of the above stipulations are requirements – they are merely examples of two considerations that may make your data more challenging to work with – and thus your project more ambitious.
 
-2. Your project must tell us something. We've seen a range of projects / analyses over the course of the semester. On one extreme are visualization projects (like Snow's cholera map) that involve virtually no statistical analysis. On the other extreme are data mining projects like the KDD cup or Kaggle competitions, which involve no visualization. Your project can be anywhere on this spectrum, but expectations may be different depending on where you are on the scale. An example of a project that doesn't tell us anything, would be something that downloads a single data source and summarizes it, with some perfunctory visualization. Make sure that your project is thought-provoking and has some underlying meaning!
+2. Your project must tell us something. We've seen a range of projects / analyses over the course of the semester. On one extreme are visualization projects (like Snow's cholera map) that involve virtually no statistical analysis. On the other extreme are data mining projects like the KDD cup or Kaggle competitions, which involve very little visualization. Your project can be anywhere on this spectrum, but expectations may be different depending on where you are on the scale. An example of a project that doesn't tell us anything, would be something that downloads a single data source and summarizes it, with some perfunctory visualization. Make sure that your project is thought-provoking and has some underlying meaning!
 
 3. To get an A, you must show something beyond what we've done in class. Some examples:
 Use a new data mining technique (e.g., an artificial neural network, näive Bayes classifier)
 Use a new programming technology (e.g., Python, MapReduce, shell scripting...  should be new to you!)  
-  * Use a new visualization technology (e.g., Inkscape, Illustrator, Shiny, Processing)  
-  * Use a new live data source or API (e.g., Flickr, Facebook, <a href = "https://github.com/amrrs/coinmarketcapr" target = "_blank">CoinMarketCap</a>) [Note: just downloading a new data set in a flat file does not count!]  
-  * Use a new data format (e.g., XML, HDF5, JSON)  
-  * Compare two datasets (e.g., <a href = "https://github.com/rundel/Dennys_LaQuinta_Chance" target = "_blank">La Quinta vs. Dennys</a>!)  
-
+   * Use a new visualization technology (e.g., Inkscape, Illustrator, Shiny, Processing)  
+   * Use a new live data source or API (e.g., Flickr, Facebook, <a href = "https://github.com/amrrs/coinmarketcapr" target = "_blank">CoinMarketCap</a>) [Note: just downloading a new data set in a flat file does not count!]  
+   * Use a new data format (e.g., XML, HDF5, JSON)  
+   * Compare two datasets (e.g., <a href = "https://github.com/rundel/Dennys_LaQuinta_Chance" target = "_blank">La Quinta vs. Dennys</a>!)   
 Also, domain knowledge does not count here, so your outside knowledge of protein folding makes for a great motivation, but it doesn't count as something extra.
 
 4. At some point in the project, you should give an analysis/discussion of where the data came from and what/who it represents.
 
-5. Last, you must address any ethical considerations that came about during the project.  How were you or weren't you able to address the ethical issues that came up?
+5. Last, you must address any ethical considerations that came about during the project.  How were you or weren't you able to address the ethical issues that came up?    
+In addition to the examples you have seen over the course of the semester (and previous project links given at the bottom of this page), here are some generic ideas:  
 
-In addition to the examples you have seen over the course of the semester (and previous project links given at the bottom of this page), here are some generic ideas:
-
-  * Compete (strongly) in a past KDD cup or Kaggle competition    
-  * Create a GoogleMaps mash-up  
-  * Write an `R` package that provides an API to an online data set  
-  * Create a Shiny application that helps a Pomona professor analyze her data  
+   * Compete (strongly) in a past KDD cup or Kaggle competition    
+   * Create a GoogleMaps mash-up  
+   * Write an `R` package that provides an API to an online data set  
+   * Create a Shiny application that helps a Pomona professor analyze their data  
 
 
 ### General Rules
@@ -222,7 +219,7 @@ Your project will be evaluated based on the following criteria:
 * Design: How well were the graphical elements of the project designed? Were they clunky or elegant? Was a truly original view of the data presented? Were any interactive elements usable?
 * Meaning/Analysis: Did we learn anything meaningful from this project? Are the chosen analyses appropriate for the variables/relationships under investigation, and are the assumptions underlying these analyses met? Are the analyses carried out correctly? Did the group make appropriate conclusions from the analyses, and are these conclusions justified?
 * Write-Up: How effectively does the write-up communicate the goals, procedures, and results of the study? Are the claims adequately supported? Does the writing style enhance what the group is trying to communicate? How well is it edited? Are the statistical claims justified? Are text and analyses effectively interwoven? Clear writing, correct spelling, and good grammar are important.
-* Oral Presentation: How effectively does the oral presentation communicate the goals, procedures, and results of the study? Do the slides help to illustrate the points being made by the speaker without distracting the audience? Do the presenters seem to be well-rehearsed? Did they properly budget their time? Does she appear to be confident in what she is saying? Are her arguments persuasive?
+* Oral Presentation: How effectively does the oral presentation communicate the goals, procedures, and results of the study? Do the slides help to illustrate the points being made by the speaker without distracting the audience? Do the presenters seem to be well-rehearsed? Did they properly budget their time? Do they appear to be confident in what they are saying? Are her arguments persuasive?
 
 ## Presentation Evaluation
 
