@@ -9,4 +9,5 @@ listing:
    - 2021-09-28-permutation
    - 2021-10-05-bootstrap
    - 2021-10-12-review1
+   - 2021-10-21-recipes
 ---
