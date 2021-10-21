@@ -39,9 +39,32 @@ knitr::include_graphics("../../images/recipes.png")
 
 * Why is it important to do feature engineering for variables in a model?
 
+* How is data separated in order to work with independent information (hint: two ways)?
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
+* There are two ways that laws are enforced (both equally important):
+
+   1. disparate treatment $\rightarrow$ means that the differential treatment is intentional
+
+   2. disparate impact $\rightarrow$ means that the differential treatment is unintentional or implicit (some examples include advancing mortgage credit, employment selection, predictive policing)
+
+* Anti-discrimination Laws 
+
+    * Civil Rights Acts of 1964 and 1991
+    * Americans with Disabilities Act
+    * Genetic Information Nondiscrimination Act
+    * Equal Credit Opportunity Act
+    * Fair Housing Act 
+
+
+* Questions to ask yourself in every single data analysis you perform (taken from <a href = "https://dssg.uchicago.edu/" target = "_blank">Data Science for Social Good</a> at the University of Chicago):
+
+  * What biases may exist in the data you've been given?  How can you find out?
+  * How will your choices with tuning parameters affect different populations represented in the data?
+  * How do you know you aren't getting the right answer to the    wrong question?
+  * How would you justify what you'd built to someone whose welfare is made worse off by the implementation of your algorithm?
+  * See the slides on bias in modeling (9/23/21) for times when there are no inherent biases but the structure of the data create unequal model results.
 
 ## Slides <i class="fas fa-desktop"></i> 
 
@@ -56,7 +79,21 @@ knitr::include_graphics("../../images/recipes.png")
 
 * <a href = "https://juliasilge.com/" target = "_blank">Julia Silge's blog</a> is full of complete **tidymodels** examples and screencasts.
 
+* Alexandria Ocasio-Cortez, Jan 22, 2019  <a href = "http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html" target = "_blank">MLK event with Ta-Nehisi Coates</a>
 
+* S. Barocas and A. Selbst, "Big Data's Disparate Impact", *California Law Review, 671*, 2016.
+
+* <a href = "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing/" target = "_blank">Machine Bias</a> in *Pro Publica* by Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner, May 23, 2016 
+
+* <a href = "https://www.ajlunited.org/" target = "_blank">Algorithmic Justice League</a> is a collective that aims to:
+
+   * Highlight algorithmic bias through media, art, and science
+
+   * Provide space for people to voice concerns and experiences with coded bias
+
+   * Develop practices for accountability during design, development, and deployment of coded systems
+
+   * Joy Buolamwini -- <a href = "https://www.youtube.com/embed/QxuyfWoVV98" target = "_blank">AI, Ain't I A Woman?</a>
 
 
 

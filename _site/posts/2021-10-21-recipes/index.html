@@ -2315,8 +2315,32 @@ Project
 <ul>
 <li><p>What is the process for building a model using <strong>tidymodels</strong>?</p></li>
 <li><p>Why is it important to do feature engineering for variables in a model?</p></li>
+<li><p>How is data separated in order to work with independent information (hint: two ways)?</p></li>
 </ul>
 <h2 id="ethics-considerations">Ethics considerations <i class="fas fa-balance-scale"></i></h2>
+<ul>
+<li><p>There are two ways that laws are enforced (both equally important):</p>
+<ol type="1">
+<li><p>disparate treatment <span class="math inline">\(\rightarrow\)</span> means that the differential treatment is intentional</p></li>
+<li><p>disparate impact <span class="math inline">\(\rightarrow\)</span> means that the differential treatment is unintentional or implicit (some examples include advancing mortgage credit, employment selection, predictive policing)</p></li>
+</ol></li>
+<li><p>Anti-discrimination Laws</p>
+<ul>
+<li>Civil Rights Acts of 1964 and 1991</li>
+<li>Americans with Disabilities Act</li>
+<li>Genetic Information Nondiscrimination Act</li>
+<li>Equal Credit Opportunity Act</li>
+<li>Fair Housing Act</li>
+</ul></li>
+<li><p>Questions to ask yourself in every single data analysis you perform (taken from <a href = "https://dssg.uchicago.edu/" target = "_blank">Data Science for Social Good</a> at the University of Chicago):</p>
+<ul>
+<li>What biases may exist in the data you’ve been given? How can you find out?</li>
+<li>How will your choices with tuning parameters affect different populations represented in the data?</li>
+<li>How do you know you aren’t getting the right answer to the wrong question?</li>
+<li>How would you justify what you’d built to someone whose welfare is made worse off by the implementation of your algorithm?</li>
+<li>See the slides on bias in modeling (9/23/21) for times when there are no inherent biases but the structure of the data create unequal model results.</li>
+</ul></li>
+</ul>
 <h2 id="slides">Slides <i class="fas fa-desktop"></i></h2>
 <ul>
 <li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-10-21-recipes" target = "_blank">In class slides</a> for 10/21/21.</p></li>
@@ -2324,7 +2348,17 @@ Project
 </ul>
 <h2 id="additional-resources">Additional Resources <i class="fas fa-laptop"></i></h2>
 <ul>
-<li><a href = "https://juliasilge.com/" target = "_blank">Julia Silge’s blog</a> is full of complete <strong>tidymodels</strong> examples and screencasts.</li>
+<li><p><a href = "https://juliasilge.com/" target = "_blank">Julia Silge’s blog</a> is full of complete <strong>tidymodels</strong> examples and screencasts.</p></li>
+<li><p>Alexandria Ocasio-Cortez, Jan 22, 2019 <a href = "http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html" target = "_blank">MLK event with Ta-Nehisi Coates</a></p></li>
+<li><p>S. Barocas and A. Selbst, “Big Data’s Disparate Impact”, <em>California Law Review, 671</em>, 2016.</p></li>
+<li><p><a href = "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing/" target = "_blank">Machine Bias</a> in <em>Pro Publica</em> by Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner, May 23, 2016</p></li>
+<li><p><a href = "https://www.ajlunited.org/" target = "_blank">Algorithmic Justice League</a> is a collective that aims to:</p>
+<ul>
+<li><p>Highlight algorithmic bias through media, art, and science</p></li>
+<li><p>Provide space for people to voice concerns and experiences with coded bias</p></li>
+<li><p>Develop practices for accountability during design, development, and deployment of coded systems</p></li>
+<li><p>Joy Buolamwini – <a href = "https://www.youtube.com/embed/QxuyfWoVV98" target = "_blank">AI, Ain’t I A Woman?</a></p></li>
+</ul></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
@@ -2334,6 +2368,15 @@ Project
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
