@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Using Recipes</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jo Hardin" />
+    <meta name="date" content="2021-10-21" />
+    <script src="2021-10-21-recipes_files/header-attrs-2.11.1/header-attrs.js"></script>
+    <link href="2021-10-21-recipes_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="2021-10-21-recipes_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="2021-10-21-recipes_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="2021-10-21-recipes_files/panelset-0.2.6/panelset.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: right, top, my-title, title-slide
+
+# Using Recipes
+### Jo Hardin
+### October 21, 2021
+
+---
+
+
+
+
+
+
+# Agenda 10/21/21
+
+1. What needs to be done to the data?
+2. `tidymodels` syntax for recipes
+   a. recipe / feature engineering
+   b. model
+   c. workflow
+   d. fit
+   e. validate
+3. Example
+
+---
+
+## Modeling
+
+
+```r
+library(tidymodels)
+```
+
+
+&lt;img src="../images/process.png" width="2947" /&gt;
+
+---
+
+## Motivation
+
+&lt;img src="../images/garbage.png" width="2371" /&gt;
+---
+
+
+## `tidymodels` syntax
+
+1. partition the data
+2. build a recipe
+3. select a model
+4. create a workflow
+5. fit the model  
+6. (validate the model)
+
+
+---
+
+## partition the data
+
+Put the testing data in your pocket (keep it secret from R!!)
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/testtrain.png" alt="Image credit: Julia Silge" width="2843" /&gt;
+&lt;p class="caption"&gt;Image credit: Julia Silge&lt;/p&gt;
+&lt;/div&gt;
+---
+
+## partition the data
+
+
+
+```r
+library(tidymodels)
+library(palmerpenguins)
+
+set.seed(47)
+penguin_split &lt;- initial_split(penguins)
+penguin_train &lt;- training(penguin_split)
+penguin_test &lt;- testing(penguin_split)
+```
+
+---
+# build a recipe
+
+1. Start the `recipe()`
+2. Define the **variables** involved
+3. Describe preprocessing **step-by-step**
+
+---
+
+# feature engineering
+
+&gt; feature engineering is the process of transforming raw data into features (variables) that are better predictors (for the model at hand) of the 
+
+* create new variables (e.g., combine levels -&gt; from state to region)
+* transform variable (e.g., log, polar coordinates)
+* continuous variables -&gt; discrete (e.g., binning)
+* numerical categorical data -&gt; factors / character strings (one hot encoding)
+* time -&gt; discretized time
+* missing values -&gt; imputed
+* NA -&gt; level
+* continuous variables -&gt; center &amp; scale ("normalize")
+
+
+
+---
+
+
+# `step_` functions
+
+For more information: https://recipes.tidymodels.org/reference/index.html
+
+
+```r
+apropos("^step_")
+```
+
+```
+##  [1] "step_arrange"       "step_bagimpute"     "step_bin2factor"   
+##  [4] "step_BoxCox"        "step_bs"            "step_center"       
+##  [7] "step_classdist"     "step_corr"          "step_count"        
+## [10] "step_cut"           "step_date"          "step_depth"        
+## [13] "step_discretize"    "step_downsample"    "step_dummy"        
+## [16] "step_factor2string" "step_filter"        "step_geodist"      
+## [19] "step_holiday"       "step_hyperbolic"    "step_ica"          
+## [22] "step_impute_bag"    "step_impute_knn"    "step_impute_linear"
+## [25] "step_impute_lower"  "step_impute_mean"   "step_impute_median"
+## [28] "step_impute_mode"   "step_impute_roll"   "step_indicate_na"  
+## [31] "step_integer"       "step_interact"      "step_intercept"    
+## [34] "step_inverse"       "step_invlogit"      "step_isomap"       
+## [37] "step_knnimpute"     "step_kpca"          "step_kpca_poly"    
+## [40] "step_kpca_rbf"      "step_lag"           "step_lincomb"      
+## [43] "step_log"           "step_logit"         "step_lowerimpute"  
+## [46] "step_meanimpute"    "step_medianimpute"  "step_modeimpute"   
+## [49] "step_mutate"        "step_mutate_at"     "step_naomit"       
+## [52] "step_nnmf"          "step_normalize"     "step_novel"        
+## [55] "step_ns"            "step_num2factor"    "step_nzv"          
+## [58] "step_ordinalscore"  "step_other"         "step_pca"          
+## [61] "step_pls"           "step_poly"          "step_profile"      
+## [64] "step_range"         "step_ratio"         "step_regex"        
+## [67] "step_relevel"       "step_relu"          "step_rename"       
+## [70] "step_rename_at"     "step_rm"            "step_rollimpute"   
+## [73] "step_sample"        "step_scale"         "step_select"       
+## [76] "step_shuffle"       "step_slice"         "step_spatialsign"  
+## [79] "step_sqrt"          "step_string2factor" "step_unknown"      
+## [82] "step_unorder"       "step_upsample"      "step_window"       
+## [85] "step_YeoJohnson"    "step_zv"
+```
+
+---
+
+## the data: penguins
+
+&lt;div class="figure" style="text-align: right"&gt;
+&lt;img src="../images/penguins.png" alt="Image credit: Alison Hill" width="30%" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+
+```r
+penguins
+```
+
+```
+## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7               181        3750
+##  2 Adelie  Torgersen           39.5          17.4               186        3800
+##  3 Adelie  Torgersen           40.3          18                 195        3250
+##  4 Adelie  Torgersen           NA            NA                  NA          NA
+##  5 Adelie  Torgersen           36.7          19.3               193        3450
+##  6 Adelie  Torgersen           39.3          20.6               190        3650
+##  7 Adelie  Torgersen           38.9          17.8               181        3625
+##  8 Adelie  Torgersen           39.2          19.6               195        4675
+##  9 Adelie  Torgersen           34.1          18.1               193        3475
+## 10 Adelie  Torgersen           42            20.2               190        4250
+## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+
+
+---
+
+
+## recipe
+
+
+```r
+penguin_recipe &lt;-
+  recipe(body_mass_g ~ species + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm + sex + year,
+         data = penguin_train) %&gt;%
+  step_mutate(year = as.factor(year)) %&gt;%
+  step_unknown(sex, new_level = "unknown") %&gt;%
+  step_relevel(sex, ref_level = "female") %&gt;%
+  update_role(island, new_role = "id variable")
+```
+
+
+
+```r
+summary(penguin_recipe)
+```
+
+```
+## # A tibble: 8 × 4
+##   variable          type    role        source  
+##   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   
+## 1 species           nominal predictor   original
+## 2 island            nominal id variable original
+## 3 bill_length_mm    numeric predictor   original
+## 4 bill_depth_mm     numeric predictor   original
+## 5 flipper_length_mm numeric predictor   original
+## 6 sex               nominal predictor   original
+## 7 year              numeric predictor   original
+## 8 body_mass_g       numeric outcome     original
+```
+
+
+
+---
+
+## model
+
+To specify a model:
+
+1. pick a **model**
+2. set the **mode** (regression vs classification, if needed)
+3. set the **engine**
+
+
+```r
+penguin_lm &lt;- linear_reg() %&gt;%
+  set_engine("lm")
+```
+
+
+```r
+penguin_lm
+```
+
+```
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
+```
+
+---
+### engines
+
+
+```r
+show_engines("nearest_neighbor")
+```
+
+```
+## # A tibble: 2 × 2
+##   engine mode          
+##   &lt;chr&gt;  &lt;chr&gt;         
+## 1 kknn   classification
+## 2 kknn   regression
+```
+
+```r
+show_engines("decision_tree")
+```
+
+```
+## # A tibble: 5 × 2
+##   engine mode          
+##   &lt;chr&gt;  &lt;chr&gt;         
+## 1 rpart  classification
+## 2 rpart  regression    
+## 3 C5.0   classification
+## 4 spark  classification
+## 5 spark  regression
+```
+
+---
+### engines
+
+
+```r
+show_engines("rand_forest")
+```
+
+```
+## # A tibble: 6 × 2
+##   engine       mode          
+##   &lt;chr&gt;        &lt;chr&gt;         
+## 1 ranger       classification
+## 2 ranger       regression    
+## 3 randomForest classification
+## 4 randomForest regression    
+## 5 spark        classification
+## 6 spark        regression
+```
+
+---
+### engines
+
+
+```r
+show_engines("svm_poly")
+```
+
+```
+## # A tibble: 2 × 2
+##   engine  mode          
+##   &lt;chr&gt;   &lt;chr&gt;         
+## 1 kernlab classification
+## 2 kernlab regression
+```
+
+```r
+show_engines("svm_rbf")
+```
+
+```
+## # A tibble: 4 × 2
+##   engine    mode          
+##   &lt;chr&gt;     &lt;chr&gt;         
+## 1 kernlab   classification
+## 2 kernlab   regression    
+## 3 liquidSVM classification
+## 4 liquidSVM regression
+```
+
+---
+### engines
+
+
+```r
+show_engines("linear_reg")
+```
+
+```
+## # A tibble: 5 × 2
+##   engine mode      
+##   &lt;chr&gt;  &lt;chr&gt;     
+## 1 lm     regression
+## 2 glmnet regression
+## 3 stan   regression
+## 4 spark  regression
+## 5 keras  regression
+```
+
+---
+
+## workflow
+
+
+```r
+penguin_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_lm) %&gt;%
+  add_recipe(penguin_recipe)
+```
+
+
+```r
+penguin_wflow
+```
+
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: linear_reg()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_mutate()
+## • step_unknown()
+## • step_relevel()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
+```
+
+
+---
+
+## fit
+
+
+
+```r
+penguin_fit &lt;- penguin_wflow %&gt;%
+  fit(data = penguin_train)
+```
+
+
+
+```r
+penguin_fit %&gt;% tidy()
+```
+
+```
+## # A tibble: 10 × 5
+##    term               estimate std.error statistic    p.value
+##    &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 (Intercept)       -2417.5    664.73    -3.6368  3.3624e- 4
+##  2 speciesChinstrap   -208.39    92.899   -2.2432  2.5776e- 2
+##  3 speciesGentoo       984.90   152.04     6.4781  5.0203e-10
+##  4 bill_length_mm       13.531    8.2871   1.6328  1.0378e- 1
+##  5 bill_depth_mm        80.899   22.112    3.6586  3.1028e- 4
+##  6 flipper_length_mm    20.771    3.6200   5.7378  2.8080e- 8
+##  7 sexmale             350.57    52.597    6.6651  1.7239e-10
+##  8 sexunknown           47.576  103.32     0.46049 6.4557e- 1
+##  9 year2008            -24.774   47.511   -0.52145 6.0252e- 1
+## 10 year2009            -61.895   46.008   -1.3453  1.7976e- 1
+```
+
+---
+
+## model parameters
+
+* Some model parameters are tuned from the data (some aren't).
+  - linear model coefficients are optimized (not tuned)
+  - k-nn value of "k" is tuned
+
+* If the model is tuned using the data, the same data **cannot** be used to assess the model.
+
+* With Cross Validation, you iteratively put data in your pocket.
+
+* For example, keep 1/5 of the data in your pocket, build the model on the remaining 4/5 of the data.
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide2.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide3.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide4.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide5.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide6.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide7.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide8.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide9.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide10.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide11.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+---
+
+## model parameters
+
+* Some model parameters are tuned from the data (some aren't).
+  - linear model coefficients are optimized (not tuned)
+  - k-nn value of "k" is tuned
+
+* If the model is tuned using the data, the same data **cannot** be used to assess the model.
+
+* With Cross Validation, you iteratively put data in your pocket.
+
+* For example, keep 1/5 of the data in your pocket, build the model on the remaining 4/5 of the data.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightlines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

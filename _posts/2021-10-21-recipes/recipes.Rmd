@@ -13,12 +13,6 @@ output:
     self_contained: false
 ---
 
-
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters going through the steps of data pre-processing which is vitally important to do before modeling the data.", preview = TRUE, echo = FALSE, eval = FALSE}
 knitr::include_graphics("../../images/recipes.png")
 ```
@@ -31,9 +25,8 @@ knitr::include_graphics("../../images/recipes.png")
 ### October 21, 2021
 
 1. What needs to be done to the data?
-2. R syntax for recipes
-3. Examples
-
+2. `tidymodels` syntax for recipes
+3. Example
 
 
 ## Readings <i class="fas fa-book-open"></i> 
@@ -42,7 +35,9 @@ knitr::include_graphics("../../images/recipes.png")
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
+* What is the process for building a model using **tidymodels**?
 
+* Why is it important to do feature engineering for variables in a model?
 
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
@@ -53,13 +48,13 @@ knitr::include_graphics("../../images/recipes.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2021-10-21-recipes" target = "_blank">In class slides</a> for 10/21/21.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU12_.pdf" target = "_blank">WU12 - </a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU12_FE.pdf" target = "_blank">WU12 - feature engineering</a>
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
 
-
+* <a href = "https://juliasilge.com/" target = "_blank">Julia Silge's blog</a> is full of complete **tidymodels** examples and screencasts.
 
 
 
