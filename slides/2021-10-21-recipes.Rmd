@@ -29,12 +29,12 @@ xaringanExtra::use_panelset()
 # Agenda 10/21/21
 
 1. What needs to be done to the data?
-2. `tidymodels` syntax for recipes
-   a. recipe / feature engineering
-   b. model
-   c. workflow
-   d. fit
-   e. validate
+2. `tidymodels` syntax for recipes  
+   a. recipe / feature engineering  
+   b. model  
+   c. workflow  
+   d. fit  
+   e. validate  
 3. Example
 
 ---
