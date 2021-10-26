@@ -327,8 +327,7 @@ knitr::include_graphics("../images/CV/Slide11.png")
 
 ## Cross validation
 
-Randomly split the training data into V
-distinct blocks of roughly equal size.
+Randomly split the training data into V distinct blocks of roughly equal size.
 
 * leave out the first block of analysis data and fit a model.
 * the model is used to predict the held-out block of assessment data.
@@ -360,12 +359,12 @@ k_grid
 
 .panel[.panel-name[tune wkflow]
 ```{r}
-penguin_knn <- nearest_neighbor(neighbors = tune()) %>%
+penguin_knn_tune <- nearest_neighbor(neighbors = tune()) %>%
   set_engine("kknn") %>%
   set_mode("classification")
 
-penguin_knn_wflow <- workflow() %>%
-  add_model(penguin_knn) %>%
+penguin_knn_wflow_tune <- workflow() %>%
+  add_model(penguin_knn_tune) %>%
   add_recipe(penguin_knn_recipe)
 ```
 ]
@@ -373,7 +372,7 @@ penguin_knn_wflow <- workflow() %>%
 
 .panel[.panel-name[tuning]
 ```{r}
-penguin_knn_wflow %>%
+penguin_knn_wflow_tune %>%
   tune_grid(resamples = penguin_vfold, 
            grid = k_grid) %>%
   collect_metrics() %>%
@@ -388,6 +387,7 @@ penguin_knn_wflow %>%
 
 ##  We choose $k$ = 9 !
 
+### 6. Validate the model
 
 .panelset[
 
@@ -406,22 +406,22 @@ summary(penguin_knn_recipe)
 
 .panel[.panel-name[model]
 ```{r}
-penguin_knn <- nearest_neighbor(neighbors = 9) %>%
+penguin_knn_final <- nearest_neighbor(neighbors = 9) %>%
   set_engine("kknn") %>%
   set_mode("classification")
 
-penguin_knn
+penguin_knn_final
 ```
 ]
 
 .panel[.panel-name[workflow]
 
 ```{r}
-penguin_knn_wflow <- workflow() %>%
-  add_model(penguin_knn) %>%
+penguin_knn_wflow_final <- workflow() %>%
+  add_model(penguin_knn_final) %>%
   add_recipe(penguin_knn_recipe)
 
-penguin_knn_wflow
+penguin_knn_wflow_final
 ```
 ]
 

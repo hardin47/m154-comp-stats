@@ -436,8 +436,7 @@ The red observations are used to fit the model, the black observations are used 
 
 ## Cross validation
 
-Randomly split the training data into V
-distinct blocks of roughly equal size.
+Randomly split the training data into V distinct blocks of roughly equal size.
 
 * leave out the first block of analysis data and fit a model.
 * the model is used to predict the held-out block of assessment data.
@@ -480,12 +479,12 @@ k_grid
 .panel[.panel-name[tune wkflow]
 
 ```r
-penguin_knn &lt;- nearest_neighbor(neighbors = tune()) %&gt;%
+penguin_knn_tune &lt;- nearest_neighbor(neighbors = tune()) %&gt;%
   set_engine("kknn") %&gt;%
   set_mode("classification")
 
-penguin_knn_wflow &lt;- workflow() %&gt;%
-  add_model(penguin_knn) %&gt;%
+penguin_knn_wflow_tune &lt;- workflow() %&gt;%
+  add_model(penguin_knn_tune) %&gt;%
   add_recipe(penguin_knn_recipe)
 ```
 ]
@@ -494,7 +493,7 @@ penguin_knn_wflow &lt;- workflow() %&gt;%
 .panel[.panel-name[tuning]
 
 ```r
-penguin_knn_wflow %&gt;%
+penguin_knn_wflow_tune %&gt;%
   tune_grid(resamples = penguin_vfold, 
            grid = k_grid) %&gt;%
   collect_metrics() %&gt;%
@@ -519,6 +518,7 @@ penguin_knn_wflow %&gt;%
 
 ##  We choose `\(k\)` = 9 !
 
+### 6. Validate the model
 
 .panelset[
 
@@ -551,11 +551,11 @@ summary(penguin_knn_recipe)
 .panel[.panel-name[model]
 
 ```r
-penguin_knn &lt;- nearest_neighbor(neighbors = 9) %&gt;%
+penguin_knn_final &lt;- nearest_neighbor(neighbors = 9) %&gt;%
   set_engine("kknn") %&gt;%
   set_mode("classification")
 
-penguin_knn
+penguin_knn_final
 ```
 
 ```
@@ -572,11 +572,11 @@ penguin_knn
 
 
 ```r
-penguin_knn_wflow &lt;- workflow() %&gt;%
-  add_model(penguin_knn) %&gt;%
+penguin_knn_wflow_final &lt;- workflow() %&gt;%
+  add_model(penguin_knn_final) %&gt;%
   add_recipe(penguin_knn_recipe)
 
-penguin_knn_wflow
+penguin_knn_wflow_final
 ```
 
 ```
@@ -621,7 +621,7 @@ penguin_knn_fit %&gt;%
 ## # A tibble: 1 × 3
 ##   .metric  .estimator .estimate
 ##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
-## 1 accuracy multiclass   0.97674
+## 1 accuracy multiclass   0.98837
 ```
 ]
 
