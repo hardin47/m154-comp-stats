@@ -1,0 +1,91 @@
+---
+title: "9. k-NN + trees"
+description: |
+  $k$-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods 
+author:
+  - name: Johanna Hardin
+    url: https://m154-comp-stats.netlify.app/  
+date: 2021-10-21
+citation: false
+draft: false
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+
+
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+
+### October 26, 2021
+
+1. Redux - model process
+2. $k$-Nearest Neighbors
+3. Cross Validation
+4. Example
+
+### October 28, 2021
+
+1. Decision Trees
+2. Example
+
+## Readings <i class="fas fa-book-open"></i> 
+
+* Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#knn" target= "_blank">k nearest neighbors</a>
+
+* Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#cart" target= "_blank">decision trees</a>
+
+* Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">k Nearest Neighbors (section 3.5) </a> Introduction to Statistical Learning.
+
+* Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">the basics of decision trees (section 8.1) </a> Introduction to Statistical Learning.
+
+
+* Max Kuhn and Julia Silge (2021), <a href = "https://www.tmwr.org/" target = "_blank">Tidy Modeling with R</a>
+
+## Reflection questions <i class="fas fa-lightbulb"></i>
+
+* What is the "$k$" in $k$-Nearest Neighbors?
+
+* Why do most implementations of $k$-NN prefer odd values of k?
+
+* How does $k$-NN make predictions on test data?
+
+* Can $k$-NN be used for both classification and regression or only one of the two tasks?
+
+* Can you use categorical / character predictors with $k$-NN?
+
+* How is $k$ chosen?
+
+* What are the advantages of the $k$-NN algorithm?
+
+* What are the disadvantages of the $k$-NN algorithm?
+
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+* What type of feature engineering is required for $k$-NN?
+
+* Why is it recommended that $k$-NN not be used on large datasets?
+
+* (For a given $k$) why does $k$-NN use more computation time to test than to train?  [n.b., the opposite is true for the majority of classificiation and regression algorithms.]
+
+## Slides <i class="fas fa-desktop"></i> 
+
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/2021-10-26-knn" target = "_blank">In class slides knn</a> for 10/26/21.
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/2021-10-26-knn" target = "_blank">In class slides trees</a> for 10/28/21.
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU13_knn.pdf" target = "_blank">WU13 - k-NN</a>
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU14_trees.pdf" target = "_blank">WU14 - trees</a>
+
+## Additional Resources <i class="fas fa-laptop"></i> 
+
+
+* <a href = "http://fivethirtyeight.com/datalab/why-the-bronx-really-burned/" target = "_blank">Why the Bronx really burned</a> -- "adjusting" data to give the wrong information.  FiveThirtyEight, Jody Avirgan, 10/29/2015.
+
+> With the help of the Rand Corp., the city tried to measure fire response times, identify redundancies in service, and close or re-allocate fire stations accordingly. What resulted, though, was a perfect storm of bad data: The methodology was flawed, the analysis was rife with biases, and the results were interpreted in a way that stacked the deck against poorer neighborhoods. The slower response times allowed smaller fires to rage uncontrolled in the city’s most vulnerable communities.
+
+* <a href = "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target = "_blank">SF vs. NYC housing</a> -- a great example of a classification tree.
+

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>k Nearest Neighbors</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jo Hardin" />
+    <meta name="date" content="2021-10-26" />
+    <script src="2021-10-26-knn_files/header-attrs-2.11.1/header-attrs.js"></script>
+    <link href="2021-10-26-knn_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="2021-10-26-knn_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="2021-10-26-knn_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="2021-10-26-knn_files/panelset-0.2.6/panelset.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: right, top, my-title, title-slide
+
+# k Nearest Neighbors
+### Jo Hardin
+### October 26, 2021
+
+---
+
+
+
+
+
+
+# Agenda 10/26/21
+
+1. Redux - model process
+2. `\(k\)`-Nearest Neighbors
+3. cross validation
+
+---
+
+## `tidymodels` syntax
+
+1. partition the data
+2. build a recipe
+3. select a model
+4. create a workflow
+5. fit the model  
+6. validate the model
+
+
+---
+## All together
+
+
+
+.panelset[
+
+.panel[.panel-name[recipe]
+
+```r
+penguin_lm_recipe &lt;-
+  recipe(body_mass_g ~ species + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm + sex + year,
+         data = penguin_train) %&gt;%
+  step_mutate(year = as.factor(year)) %&gt;%
+  step_unknown(sex, new_level = "unknown") %&gt;%
+  step_relevel(sex, ref_level = "female") %&gt;%
+  update_role(island, new_role = "id variable")
+
+summary(penguin_lm_recipe)
+```
+
+```
+## # A tibble: 8 × 4
+##   variable          type    role        source  
+##   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   
+## 1 species           nominal predictor   original
+## 2 island            nominal id variable original
+## 3 bill_length_mm    numeric predictor   original
+## 4 bill_depth_mm     numeric predictor   original
+## 5 flipper_length_mm numeric predictor   original
+## 6 sex               nominal predictor   original
+## 7 year              numeric predictor   original
+## 8 body_mass_g       numeric outcome     original
+```
+]
+
+.panel[.panel-name[model]
+
+```r
+penguin_lm &lt;- linear_reg() %&gt;%
+  set_engine("lm")
+
+penguin_lm
+```
+
+```
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
+```
+]
+
+.panel[.panel-name[workflow]
+
+
+```r
+penguin_lm_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_lm) %&gt;%
+  add_recipe(penguin_lm_recipe)
+
+penguin_lm_wflow
+```
+
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: linear_reg()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_mutate()
+## • step_unknown()
+## • step_relevel()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
+```
+]
+
+.panel[.panel-name[fit]
+
+```r
+penguin_lm_fit &lt;- penguin_lm_wflow %&gt;%
+  fit(data = penguin_train)
+
+penguin_lm_fit %&gt;% tidy()
+```
+
+```
+## # A tibble: 10 × 5
+##    term               estimate std.error statistic    p.value
+##    &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 (Intercept)       -2417.5    664.73    -3.6368  3.3624e- 4
+##  2 speciesChinstrap   -208.39    92.899   -2.2432  2.5776e- 2
+##  3 speciesGentoo       984.90   152.04     6.4781  5.0203e-10
+##  4 bill_length_mm       13.531    8.2871   1.6328  1.0378e- 1
+##  5 bill_depth_mm        80.899   22.112    3.6586  3.1028e- 4
+##  6 flipper_length_mm    20.771    3.6200   5.7378  2.8080e- 8
+##  7 sexmale             350.57    52.597    6.6651  1.7239e-10
+##  8 sexunknown           47.576  103.32     0.46049 6.4557e- 1
+##  9 year2008            -24.774   47.511   -0.52145 6.0252e- 1
+## 10 year2009            -61.895   46.008   -1.3453  1.7976e- 1
+```
+]
+
+]
+
+
+---
+
+## model parameters
+
+* Some model parameters are tuned from the data (some aren't).
+  - linear model coefficients are optimized (not tuned)
+  - `\(k\)`-nn value of `\(k\)` is tuned
+
+* If the model is tuned using the data, the same data **cannot** be used to assess the model.
+
+* With Cross Validation, you iteratively put data in your pocket.
+
+* For example, keep 1/5 of the data in your pocket, build the model on the remaining 4/5 of the data.
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide2.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide3.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide4.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide5.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide6.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide7.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide8.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide9.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide10.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Cross validation
+### for tuning parameters
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/CV/Slide11.png" alt="Image credit: Alison Hill" width="3999" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+---
+
+## model parameters
+
+* Some model parameters are tuned from the data (some aren't).
+  - linear model coefficients are optimized (not tuned)
+  - `\(k\)`-NN value of `\(k\)` is tuned
+
+* If the model is tuned using the data, the same data **cannot** be used to assess the model.
+
+* With Cross Validation, you iteratively put data in your pocket.
+
+* For example, keep 1/5 of the data in your pocket, build the model on the remaining 4/5 of the data.
+
+---
+
+## `\(k\)`-Nearest Neighbors
+
+The `\(k\)`-Nearest Neighbor algorithm does exactly what it sounds like it does.  
+
+* user decides on the integer value for `\(k\)`
+
+* a point is classified to be in the group for which the majority of the `\(k\)` closest points in the training data.
+
+---
+
+##  `\(k\)`-NN visually
+
+Consider a population, a training set, and a decision boundary:
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/knnmodel.jpg" alt="Population structure is shown as 2D concentric rings.  Dataset is given by a sample of points from the rings.  Decision boundary is a jagged space roughy approximating the concentric rings." width="80%" /&gt;
+&lt;p class="caption"&gt;image credit: Ricardo Gutierrez-Osuna&lt;/p&gt;
+&lt;/div&gt;
+
+
+---
+
+## `\(k\)`-NN visually
+
+Choosing `\(k\)` accurately is one of the most important aspects of the algorithm.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/knnK.jpg" alt="For each of k = 1, 5, 20, the resulting decision boundary is shown.  Certainly with k=20 the decision boundary does not approximate the population." width="80%" /&gt;
+&lt;p class="caption"&gt;image credit: Ricardo Gutierrez-Osuna&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## `\(k\)`-NN to predict penguin species
+
+.panelset[
+
+.panel[.panel-name[recipe]
+
+```r
+penguin_knn_recipe &lt;-
+  recipe(species ~ body_mass_g + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm,
+         data = penguin_train) %&gt;%
+  update_role(island, new_role = "id variable") %&gt;%
+  step_normalize(all_predictors())
+
+summary(penguin_knn_recipe)
+```
+
+```
+## # A tibble: 6 × 4
+##   variable          type    role        source  
+##   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   
+## 1 body_mass_g       numeric predictor   original
+## 2 island            nominal id variable original
+## 3 bill_length_mm    numeric predictor   original
+## 4 bill_depth_mm     numeric predictor   original
+## 5 flipper_length_mm numeric predictor   original
+## 6 species           nominal outcome     original
+```
+]
+
+.panel[.panel-name[model]
+
+```r
+penguin_knn &lt;- nearest_neighbor() %&gt;%
+  set_engine("kknn") %&gt;%
+  set_mode("classification")
+
+penguin_knn
+```
+
+```
+## K-Nearest Neighbor Model Specification (classification)
+## 
+## Computational engine: kknn
+```
+]
+
+.panel[.panel-name[workflow]
+
+
+```r
+penguin_knn_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_knn) %&gt;%
+  add_recipe(penguin_knn_recipe)
+
+penguin_knn_wflow
+```
+
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: nearest_neighbor()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 1 Recipe Step
+## 
+## • step_normalize()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## K-Nearest Neighbor Model Specification (classification)
+## 
+## Computational engine: kknn
+```
+]
+
+.panel[.panel-name[fit]
+
+```r
+penguin_knn_fit &lt;- penguin_knn_wflow %&gt;%
+  fit(data = penguin_train)
+```
+]
+
+.panel[.panel-name[predict]
+
+```r
+penguin_knn_fit %&gt;% 
+  predict(new_data = penguin_test) %&gt;%
+  cbind(penguin_test) %&gt;%
+  metrics(truth = species, estimate = .pred_class) %&gt;%
+  filter(.metric == "accuracy")
+```
+
+```
+## # A tibble: 1 × 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy multiclass   0.98837
+```
+]
+
+]
+
+
+---
+
+##  what is `\(k\)` ???
+
+It turns out that the default value for `\(k\)` in the **kknn** engine is 7.  Is 7 best?
+
+
+#### Cross Validation!!!
+
+The red observations are used to fit the model, the black observations are used to assess the model.
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/CV/Slide11.png" alt="Image credit: Alison Hill" width="60%" /&gt;
+&lt;p class="caption"&gt;Image credit: Alison Hill&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Cross validation
+
+Randomly split the training data into V
+distinct blocks of roughly equal size.
+
+* leave out the first block of analysis data and fit a model.
+* the model is used to predict the held-out block of assessment data.
+* continue the process until all V assessment blocks have been predicted
+
+The final performance is based on the hold-out predictions by averaging the statistics from the V blocks.
+
+---
+
+##  Extending the modeling process
+
+
+.panelset[
+
+.panel[.panel-name[creating folds]
+
+```r
+set.seed(470)
+penguin_vfold &lt;- vfold_cv(penguin_train,
+                          v = 3, strata = species)
+```
+]
+
+.panel[.panel-name[k]
+
+```r
+k_grid &lt;- data.frame(neighbors = seq(1, 15, by = 4))
+k_grid
+```
+
+```
+##   neighbors
+## 1         1
+## 2         5
+## 3         9
+## 4        13
+```
+]
+
+.panel[.panel-name[tune wkflow]
+
+```r
+penguin_knn &lt;- nearest_neighbor(neighbors = tune()) %&gt;%
+  set_engine("kknn") %&gt;%
+  set_mode("classification")
+
+penguin_knn_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_knn) %&gt;%
+  add_recipe(penguin_knn_recipe)
+```
+]
+
+
+.panel[.panel-name[tuning]
+
+```r
+penguin_knn_wflow %&gt;%
+  tune_grid(resamples = penguin_vfold, 
+           grid = k_grid) %&gt;%
+  collect_metrics() %&gt;%
+  filter(.metric == "accuracy")
+```
+
+```
+## # A tibble: 4 × 7
+##   neighbors .metric  .estimator    mean     n     std_err .config             
+##       &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;       &lt;dbl&gt; &lt;chr&gt;               
+## 1         1 accuracy multiclass 0.97106     2 0.0059476   Preprocessor1_Model1
+## 2         5 accuracy multiclass 0.97688     2 0.00013365  Preprocessor1_Model2
+## 3         9 accuracy multiclass 0.98844     2 0.000066827 Preprocessor1_Model3
+## 4        13 accuracy multiclass 0.98269     2 0.0056803   Preprocessor1_Model4
+```
+
+]
+
+]
+
+---
+
+##  We choose `\(k\)` = 9 !
+
+
+.panelset[
+
+.panel[.panel-name[recipe]
+
+```r
+penguin_knn_recipe &lt;-
+  recipe(species ~ body_mass_g + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm,
+         data = penguin_train) %&gt;%
+  update_role(island, new_role = "id variable") %&gt;%
+  step_normalize(all_predictors())
+
+summary(penguin_knn_recipe)
+```
+
+```
+## # A tibble: 6 × 4
+##   variable          type    role        source  
+##   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   
+## 1 body_mass_g       numeric predictor   original
+## 2 island            nominal id variable original
+## 3 bill_length_mm    numeric predictor   original
+## 4 bill_depth_mm     numeric predictor   original
+## 5 flipper_length_mm numeric predictor   original
+## 6 species           nominal outcome     original
+```
+]
+
+.panel[.panel-name[model]
+
+```r
+penguin_knn &lt;- nearest_neighbor(neighbors = 9) %&gt;%
+  set_engine("kknn") %&gt;%
+  set_mode("classification")
+
+penguin_knn
+```
+
+```
+## K-Nearest Neighbor Model Specification (classification)
+## 
+## Main Arguments:
+##   neighbors = 9
+## 
+## Computational engine: kknn
+```
+]
+
+.panel[.panel-name[workflow]
+
+
+```r
+penguin_knn_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_knn) %&gt;%
+  add_recipe(penguin_knn_recipe)
+
+penguin_knn_wflow
+```
+
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: nearest_neighbor()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 1 Recipe Step
+## 
+## • step_normalize()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## K-Nearest Neighbor Model Specification (classification)
+## 
+## Main Arguments:
+##   neighbors = 9
+## 
+## Computational engine: kknn
+```
+]
+
+.panel[.panel-name[fit]
+
+```r
+penguin_knn_fit &lt;- penguin_knn_wflow %&gt;%
+  fit(data = penguin_train)
+```
+]
+
+.panel[.panel-name[predict]
+
+```r
+penguin_knn_fit %&gt;% 
+  predict(new_data = penguin_test) %&gt;%
+  cbind(penguin_test) %&gt;%
+  metrics(truth = species, estimate = .pred_class) %&gt;%
+  filter(.metric == "accuracy")
+```
+
+```
+## # A tibble: 1 × 3
+##   .metric  .estimator .estimate
+##   &lt;chr&gt;    &lt;chr&gt;          &lt;dbl&gt;
+## 1 accuracy multiclass   0.97674
+```
+]
+
+]
+
+
+---
+
+## Reflecting on Model Building
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/modelbuild1.png" alt="Image credit: https://www.tmwr.org/" width="2176" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.tmwr.org/&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Reflecting on Model Building
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/modelbuild2.png" alt="Image credit: https://www.tmwr.org/" width="2067" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.tmwr.org/&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+---
+
+## Reflecting on Model Building
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/modelbuild3.png" alt="Image credit: https://www.tmwr.org/" width="70%" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.tmwr.org/&lt;/p&gt;
+&lt;/div&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightlines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

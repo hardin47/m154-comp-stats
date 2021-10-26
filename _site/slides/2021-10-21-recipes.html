@@ -428,6 +428,116 @@ penguin_fit %&gt;% tidy()
 ```
 
 ---
+## entire process
+
+.panelset[
+
+.panel[.panel-name[recipe]
+
+```r
+penguin_recipe &lt;-
+  recipe(body_mass_g ~ species + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm + sex + year,
+         data = penguin_train) %&gt;%
+  step_mutate(year = as.factor(year)) %&gt;%
+  step_unknown(sex, new_level = "unknown") %&gt;%
+  step_relevel(sex, ref_level = "female") %&gt;%
+  update_role(island, new_role = "id variable")
+
+summary(penguin_recipe)
+```
+
+```
+## # A tibble: 8 × 4
+##   variable          type    role        source  
+##   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;   
+## 1 species           nominal predictor   original
+## 2 island            nominal id variable original
+## 3 bill_length_mm    numeric predictor   original
+## 4 bill_depth_mm     numeric predictor   original
+## 5 flipper_length_mm numeric predictor   original
+## 6 sex               nominal predictor   original
+## 7 year              numeric predictor   original
+## 8 body_mass_g       numeric outcome     original
+```
+]
+
+.panel[.panel-name[model]
+
+```r
+penguin_lm &lt;- linear_reg() %&gt;%
+  set_engine("lm")
+
+penguin_lm
+```
+
+```
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
+```
+]
+
+.panel[.panel-name[workflow]
+
+
+```r
+penguin_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_lm) %&gt;%
+  add_recipe(penguin_recipe)
+
+penguin_wflow
+```
+
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: linear_reg()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_mutate()
+## • step_unknown()
+## • step_relevel()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Linear Regression Model Specification (regression)
+## 
+## Computational engine: lm
+```
+]
+
+.panel[.panel-name[fit]
+
+```r
+penguin_fit &lt;- penguin_wflow %&gt;%
+  fit(data = penguin_train)
+
+penguin_fit %&gt;% tidy()
+```
+
+```
+## # A tibble: 10 × 5
+##    term               estimate std.error statistic    p.value
+##    &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 (Intercept)       -2417.5    664.73    -3.6368  3.3624e- 4
+##  2 speciesChinstrap   -208.39    92.899   -2.2432  2.5776e- 2
+##  3 speciesGentoo       984.90   152.04     6.4781  5.0203e-10
+##  4 bill_length_mm       13.531    8.2871   1.6328  1.0378e- 1
+##  5 bill_depth_mm        80.899   22.112    3.6586  3.1028e- 4
+##  6 flipper_length_mm    20.771    3.6200   5.7378  2.8080e- 8
+##  7 sexmale             350.57    52.597    6.6651  1.7239e-10
+##  8 sexunknown           47.576  103.32     0.46049 6.4557e- 1
+##  9 year2008            -24.774   47.511   -0.52145 6.0252e- 1
+## 10 year2009            -61.895   46.008   -1.3453  1.7976e- 1
+```
+]
+
+]
+
+
+---
 
 ## model parameters
 

@@ -1,0 +1,474 @@
+---
+title: "k Nearest Neighbors"
+author: "Jo Hardin"
+date: "October 26, 2021"
+output:
+  xaringan::moon_reader:
+    nature:
+      highlightlines: true
+      titleSlideClass: ["right", "top", "my-title"]
+---
+
+```{r include=FALSE}
+library(tidymodels)
+knitr::opts_chunk$set(
+  message=FALSE,
+  warning=FALSE)
+options(
+  digits = 5,
+  pillar.sigfig = 5
+  )
+```
+
+```{r echo = FALSE}
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+```
+
+# Agenda 10/26/21
+
+1. Redux - model process
+2. $k$-Nearest Neighbors
+3. cross validation
+
+---
+
+## `tidymodels` syntax
+
+1. partition the data
+2. build a recipe
+3. select a model
+4. create a workflow
+5. fit the model  
+6. validate the model
+
+
+---
+## All together
+
+```{r echo = FALSE}
+library(tidymodels)
+library(palmerpenguins)
+
+set.seed(47)
+penguin_split <- initial_split(penguins)
+penguin_train <- training(penguin_split)
+penguin_test <- testing(penguin_split)
+```
+
+.panelset[
+
+.panel[.panel-name[recipe]
+```{r}
+penguin_lm_recipe <-
+  recipe(body_mass_g ~ species + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm + sex + year,
+         data = penguin_train) %>%
+  step_mutate(year = as.factor(year)) %>%
+  step_unknown(sex, new_level = "unknown") %>%
+  step_relevel(sex, ref_level = "female") %>%
+  update_role(island, new_role = "id variable")
+
+summary(penguin_lm_recipe)
+```
+]
+
+.panel[.panel-name[model]
+```{r}
+penguin_lm <- linear_reg() %>%
+  set_engine("lm")
+
+penguin_lm
+```
+]
+
+.panel[.panel-name[workflow]
+
+```{r}
+penguin_lm_wflow <- workflow() %>%
+  add_model(penguin_lm) %>%
+  add_recipe(penguin_lm_recipe)
+
+penguin_lm_wflow
+```
+]
+
+.panel[.panel-name[fit]
+```{r}
+penguin_lm_fit <- penguin_lm_wflow %>%
+  fit(data = penguin_train)
+
+penguin_lm_fit %>% tidy()
+```
+]
+
+]
+
+
+---
+
+## model parameters
+
+* Some model parameters are tuned from the data (some aren't).
+  - linear model coefficients are optimized (not tuned)
+  - $k$-nn value of $k$ is tuned
+
+* If the model is tuned using the data, the same data **cannot** be used to assess the model.
+
+* With Cross Validation, you iteratively put data in your pocket.
+
+* For example, keep 1/5 of the data in your pocket, build the model on the remaining 4/5 of the data.
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide2.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide3.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide4.png")
+```
+
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide5.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide6.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide7.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide8.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide9.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide10.png")
+```
+
+---
+## Cross validation
+### for tuning parameters
+
+```{r echo = FALSE, fig.cap = "Image credit: Alison Hill"}
+knitr::include_graphics("../images/CV/Slide11.png")
+```
+
+
+
+---
+
+## model parameters
+
+* Some model parameters are tuned from the data (some aren't).
+  - linear model coefficients are optimized (not tuned)
+  - $k$-NN value of $k$ is tuned
+
+* If the model is tuned using the data, the same data **cannot** be used to assess the model.
+
+* With Cross Validation, you iteratively put data in your pocket.
+
+* For example, keep 1/5 of the data in your pocket, build the model on the remaining 4/5 of the data.
+
+---
+
+## $k$-Nearest Neighbors
+
+The $k$-Nearest Neighbor algorithm does exactly what it sounds like it does.  
+
+* user decides on the integer value for $k$
+
+* a point is classified to be in the group for which the majority of the $k$ closest points in the training data.
+
+---
+
+##  $k$-NN visually
+
+Consider a population, a training set, and a decision boundary:
+
+```{r fig.cap = "image credit: Ricardo Gutierrez-Osuna", fig.alt = "Population structure is shown as 2D concentric rings.  Dataset is given by a sample of points from the rings.  Decision boundary is a jagged space roughy approximating the concentric rings.", out.width='80%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/knnmodel.jpg")
+```
+
+
+---
+
+## $k$-NN visually
+
+Choosing $k$ accurately is one of the most important aspects of the algorithm.
+
+```{r fig.cap = "image credit: Ricardo Gutierrez-Osuna", fig.alt = "For each of k = 1, 5, 20, the resulting decision boundary is shown.  Certainly with k=20 the decision boundary does not approximate the population.", out.width='80%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/knnK.jpg")
+```
+
+---
+
+## $k$-NN to predict penguin species
+
+.panelset[
+
+.panel[.panel-name[recipe]
+```{r}
+penguin_knn_recipe <-
+  recipe(species ~ body_mass_g + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm,
+         data = penguin_train) %>%
+  update_role(island, new_role = "id variable") %>%
+  step_normalize(all_predictors())
+
+summary(penguin_knn_recipe)
+```
+]
+
+.panel[.panel-name[model]
+```{r}
+penguin_knn <- nearest_neighbor() %>%
+  set_engine("kknn") %>%
+  set_mode("classification")
+
+penguin_knn
+```
+]
+
+.panel[.panel-name[workflow]
+
+```{r}
+penguin_knn_wflow <- workflow() %>%
+  add_model(penguin_knn) %>%
+  add_recipe(penguin_knn_recipe)
+
+penguin_knn_wflow
+```
+]
+
+.panel[.panel-name[fit]
+```{r}
+penguin_knn_fit <- penguin_knn_wflow %>%
+  fit(data = penguin_train)
+```
+]
+
+.panel[.panel-name[predict]
+```{r}
+penguin_knn_fit %>% 
+  predict(new_data = penguin_test) %>%
+  cbind(penguin_test) %>%
+  metrics(truth = species, estimate = .pred_class) %>%
+  filter(.metric == "accuracy")
+```
+]
+
+]
+
+
+---
+
+##  what is $k$ ???
+
+It turns out that the default value for $k$ in the **kknn** engine is 7.  Is 7 best?
+
+
+#### Cross Validation!!!
+
+The red observations are used to fit the model, the black observations are used to assess the model.
+
+```{r echo = FALSE, fig.align = 'center', fig.cap = "Image credit: Alison Hill", out.width="60%"}
+knitr::include_graphics("../images/CV/Slide11.png")
+```
+
+---
+
+## Cross validation
+
+Randomly split the training data into V
+distinct blocks of roughly equal size.
+
+* leave out the first block of analysis data and fit a model.
+* the model is used to predict the held-out block of assessment data.
+* continue the process until all V assessment blocks have been predicted
+
+The final performance is based on the hold-out predictions by averaging the statistics from the V blocks.
+
+---
+
+##  Extending the modeling process
+
+
+.panelset[
+
+.panel[.panel-name[creating folds]
+```{r}
+set.seed(470)
+penguin_vfold <- vfold_cv(penguin_train,
+                          v = 3, strata = species)
+```
+]
+
+.panel[.panel-name[k]
+```{r}
+k_grid <- data.frame(neighbors = seq(1, 15, by = 4))
+k_grid
+```
+]
+
+.panel[.panel-name[tune wkflow]
+```{r}
+penguin_knn <- nearest_neighbor(neighbors = tune()) %>%
+  set_engine("kknn") %>%
+  set_mode("classification")
+
+penguin_knn_wflow <- workflow() %>%
+  add_model(penguin_knn) %>%
+  add_recipe(penguin_knn_recipe)
+```
+]
+
+
+.panel[.panel-name[tuning]
+```{r}
+penguin_knn_wflow %>%
+  tune_grid(resamples = penguin_vfold, 
+           grid = k_grid) %>%
+  collect_metrics() %>%
+  filter(.metric == "accuracy")
+```
+
+]
+
+]
+
+---
+
+##  We choose $k$ = 9 !
+
+
+.panelset[
+
+.panel[.panel-name[recipe]
+```{r}
+penguin_knn_recipe <-
+  recipe(species ~ body_mass_g + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm,
+         data = penguin_train) %>%
+  update_role(island, new_role = "id variable") %>%
+  step_normalize(all_predictors())
+
+summary(penguin_knn_recipe)
+```
+]
+
+.panel[.panel-name[model]
+```{r}
+penguin_knn <- nearest_neighbor(neighbors = 9) %>%
+  set_engine("kknn") %>%
+  set_mode("classification")
+
+penguin_knn
+```
+]
+
+.panel[.panel-name[workflow]
+
+```{r}
+penguin_knn_wflow <- workflow() %>%
+  add_model(penguin_knn) %>%
+  add_recipe(penguin_knn_recipe)
+
+penguin_knn_wflow
+```
+]
+
+.panel[.panel-name[fit]
+```{r}
+penguin_knn_fit <- penguin_knn_wflow %>%
+  fit(data = penguin_train)
+```
+]
+
+.panel[.panel-name[predict]
+```{r}
+penguin_knn_fit %>% 
+  predict(new_data = penguin_test) %>%
+  cbind(penguin_test) %>%
+  metrics(truth = species, estimate = .pred_class) %>%
+  filter(.metric == "accuracy")
+```
+]
+
+]
+
+
+---
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild1.png")
+```
+
+---
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild2.png")
+```
+
+
+
+---
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/", out.width = "70%", fig.align='center'}
+knitr::include_graphics("../images/modelbuild3.png")
+```
+
+

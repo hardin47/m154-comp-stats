@@ -87,11 +87,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Computational Statistics: 8. Recipes</title>
+<title>Computational Statistics: 9. k-NN + trees</title>
 
-<meta property="description" itemprop="description" content="And old adage says: garbage in, garbage out.  Here we avoid garbage in."/>
+<meta property="description" itemprop="description" content="$k$-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods"/>
 
-<link rel="canonical" href="https://m154-comp-stats.netlify.app/posts/2021-10-21-recipes/"/>
+<link rel="canonical" href="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 <link rel="icon" type="image/vnd.microsoft.icon" href="../../images/favicon.ico"/>
 
@@ -101,30 +101,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="article:author" content="Johanna Hardin"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Computational Statistics: 8. Recipes"/>
+<meta property="og:title" content="Computational Statistics: 9. k-NN + trees"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="And old adage says: garbage in, garbage out.  Here we avoid garbage in."/>
-<meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-21-recipes/"/>
+<meta property="og:description" content="$k$-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods"/>
+<meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Computational Statistics"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Computational Statistics: 8. Recipes"/>
-<meta property="twitter:description" content="And old adage says: garbage in, garbage out.  Here we avoid garbage in."/>
-<meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-21-recipes/"/>
+<meta property="twitter:title" content="Computational Statistics: 9. k-NN + trees"/>
+<meta property="twitter:description" content="$k$-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods"/>
+<meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
 <meta property="twitter:site" content="@jo_hardin47"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["8. Recipes"]},{"type":"character","attributes":{},"value":["And old adage says: garbage in, garbage out.  Here we avoid garbage in."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Johanna Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-10-21"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-10-21-recipes/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-10-21-recipes/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["9. k-NN + trees"]},{"type":"character","attributes":{},"value":["$k$-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Johanna Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-10-21"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["recipes_files/anchor-4.2.2/anchor.min.js","recipes_files/bowser-1.9.3/bowser.min.js","recipes_files/distill-2.2.21/template.v2.js","recipes_files/header-attrs-2.11.1/header-attrs.js","recipes_files/jquery-3.6.0/jquery-3.6.0.js","recipes_files/jquery-3.6.0/jquery-3.6.0.min.js","recipes_files/jquery-3.6.0/jquery-3.6.0.min.map","recipes_files/popper-2.6.0/popper.min.js","recipes_files/tippy-6.2.7/tippy-bundle.umd.min.js","recipes_files/tippy-6.2.7/tippy-light-border.css","recipes_files/tippy-6.2.7/tippy.css","recipes_files/tippy-6.2.7/tippy.umd.min.js","recipes_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["knn-trees_files/anchor-4.2.2/anchor.min.js","knn-trees_files/bowser-1.9.3/bowser.min.js","knn-trees_files/distill-2.2.21/template.v2.js","knn-trees_files/header-attrs-2.11.1/header-attrs.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.map","knn-trees_files/popper-2.6.0/popper.min.js","knn-trees_files/tippy-6.2.7/tippy-bundle.umd.min.js","knn-trees_files/tippy-6.2.7/tippy-light-border.css","knn-trees_files/tippy-6.2.7/tippy.css","knn-trees_files/tippy-6.2.7/tippy.umd.min.js","knn-trees_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2243,7 +2243,7 @@ h1, h2, h3, h4, h5 {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"8. Recipes","description":"And old adage says: garbage in, garbage out.  Here we avoid garbage in.","authors":[{"author":"Johanna Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-21T00:00:00.000-07:00","citationText":"Hardin, 2021"}
+{"title":"9. k-NN + trees","description":"$k$-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods","authors":[{"author":"Johanna Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-21T00:00:00.000-07:00","citationText":"Hardin, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2284,10 +2284,10 @@ Project
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>8. Recipes</h1>
+<h1>9. k-NN + trees</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>And old adage says: garbage in, garbage out. Here we avoid garbage in.</p></p>
+<p><p><span class="math inline">\(k\)</span>-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. trees represent a set of methods</p></p>
 </div>
 
 <div class="d-byline">
@@ -2297,69 +2297,60 @@ Project
 </div>
 
 <div class="d-article">
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
 <h2 id="agenda">Agenda <i class="fas fa-calendar-alt" target="_blank"></i></h2>
-<h3 id="october-21-2021">October 21, 2021</h3>
+<h3 id="october-26-2021">October 26, 2021</h3>
 <ol type="1">
-<li>What needs to be done to the data?</li>
-<li><code>tidymodels</code> syntax for recipes</li>
+<li>Redux - model process</li>
+<li><span class="math inline">\(k\)</span>-Nearest Neighbors</li>
+<li>Cross Validation</li>
+<li>Example</li>
+</ol>
+<h3 id="october-28-2021">October 28, 2021</h3>
+<ol type="1">
+<li>Decision Trees</li>
 <li>Example</li>
 </ol>
 <h2 id="readings">Readings <i class="fas fa-book-open"></i></h2>
 <ul>
-<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#model-building-process" target= "_blank">k nearest neighbors</a></p></li>
+<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#knn" target= "_blank">k nearest neighbors</a></p></li>
+<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#cart" target= "_blank">decision trees</a></p></li>
+<li><p>Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">k Nearest Neighbors (section 3.5) </a> Introduction to Statistical Learning.</p></li>
+<li><p>Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">the basics of decision trees (section 8.1) </a> Introduction to Statistical Learning.</p></li>
 <li><p>Max Kuhn and Julia Silge (2021), <a href = "https://www.tmwr.org/" target = "_blank">Tidy Modeling with R</a></p></li>
 </ul>
 <h2 id="reflection-questions">Reflection questions <i class="fas fa-lightbulb"></i></h2>
 <ul>
-<li><p>What is the process for building a model using <strong>tidymodels</strong>?</p></li>
-<li><p>Why is it important to do feature engineering for variables in a model?</p></li>
-<li><p>How is data separated in order to work with independent information (hint: two ways)?</p></li>
+<li><p>What is the “<span class="math inline">\(k\)</span>” in <span class="math inline">\(k\)</span>-Nearest Neighbors?</p></li>
+<li><p>Why do most implementations of <span class="math inline">\(k\)</span>-NN prefer odd values of k?</p></li>
+<li><p>How does <span class="math inline">\(k\)</span>-NN make predictions on test data?</p></li>
+<li><p>Can <span class="math inline">\(k\)</span>-NN be used for both classification and regression or only one of the two tasks?</p></li>
+<li><p>Can you use categorical / character predictors with <span class="math inline">\(k\)</span>-NN?</p></li>
+<li><p>How is <span class="math inline">\(k\)</span> chosen?</p></li>
+<li><p>What are the advantages of the <span class="math inline">\(k\)</span>-NN algorithm?</p></li>
+<li><p>What are the disadvantages of the <span class="math inline">\(k\)</span>-NN algorithm?</p></li>
 </ul>
 <h2 id="ethics-considerations">Ethics considerations <i class="fas fa-balance-scale"></i></h2>
 <ul>
-<li><p>There are two ways that laws are enforced (both equally important):</p>
-<ol type="1">
-<li><p>disparate treatment <span class="math inline">\(\rightarrow\)</span> means that the differential treatment is intentional</p></li>
-<li><p>disparate impact <span class="math inline">\(\rightarrow\)</span> means that the differential treatment is unintentional or implicit (some examples include advancing mortgage credit, employment selection, predictive policing)</p></li>
-</ol></li>
-<li><p>Anti-discrimination Laws</p>
-<ul>
-<li>Civil Rights Acts of 1964 and 1991</li>
-<li>Americans with Disabilities Act</li>
-<li>Genetic Information Nondiscrimination Act</li>
-<li>Equal Credit Opportunity Act</li>
-<li>Fair Housing Act</li>
-</ul></li>
-<li><p>Questions to ask yourself in every single data analysis you perform (taken from <a href = "https://dssg.uchicago.edu/" target = "_blank">Data Science for Social Good</a> at the University of Chicago):</p>
-<ul>
-<li>What biases may exist in the data you’ve been given? How can you find out?</li>
-<li>How will your choices with tuning parameters affect different populations represented in the data?</li>
-<li>How do you know you aren’t getting the right answer to the wrong question?</li>
-<li>How would you justify what you’d built to someone whose welfare is made worse off by the implementation of your algorithm?</li>
-<li>See the slides on bias in modeling (9/23/21) for times when there are no inherent biases but the structure of the data create unequal model results.</li>
-</ul></li>
+<li><p>What type of feature engineering is required for <span class="math inline">\(k\)</span>-NN?</p></li>
+<li><p>Why is it recommended that <span class="math inline">\(k\)</span>-NN not be used on large datasets?</p></li>
+<li><p>(For a given <span class="math inline">\(k\)</span>) why does <span class="math inline">\(k\)</span>-NN use more computation time to test than to train? [n.b., the opposite is true for the majority of classificiation and regression algorithms.]</p></li>
 </ul>
 <h2 id="slides">Slides <i class="fas fa-desktop"></i></h2>
 <ul>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-10-21-recipes" target = "_blank">In class slides</a> for 10/21/21.</p></li>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU12_FE.pdf" target = "_blank">WU12 - feature engineering</a></p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-10-26-knn" target = "_blank">In class slides knn</a> for 10/26/21.</p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-10-26-knn" target = "_blank">In class slides trees</a> for 10/28/21.</p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU13_knn.pdf" target = "_blank">WU13 - k-NN</a></p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU14_trees.pdf" target = "_blank">WU14 - trees</a></p></li>
 </ul>
 <h2 id="additional-resources">Additional Resources <i class="fas fa-laptop"></i></h2>
 <ul>
-<li><p><a href = "https://juliasilge.com/" target = "_blank">Julia Silge’s blog</a> is full of complete <strong>tidymodels</strong> examples and screencasts.</p></li>
-<li><p>Alexandria Ocasio-Cortez, Jan 22, 2019 <a href = "http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html" target = "_blank">MLK event with Ta-Nehisi Coates</a></p></li>
-<li><p>S. Barocas and A. Selbst, “Big Data’s Disparate Impact”, <em>California Law Review, 671</em>, 2016.</p></li>
-<li><p><a href = "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing/" target = "_blank">Machine Bias</a> in <em>Pro Publica</em> by Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner, May 23, 2016</p></li>
-<li><p><a href = "https://www.ajlunited.org/" target = "_blank">Algorithmic Justice League</a> is a collective that aims to:</p>
+<li><a href = "http://fivethirtyeight.com/datalab/why-the-bronx-really-burned/" target = "_blank">Why the Bronx really burned</a> – “adjusting” data to give the wrong information. FiveThirtyEight, Jody Avirgan, 10/29/2015.</li>
+</ul>
+<blockquote>
+<p>With the help of the Rand Corp., the city tried to measure fire response times, identify redundancies in service, and close or re-allocate fire stations accordingly. What resulted, though, was a perfect storm of bad data: The methodology was flawed, the analysis was rife with biases, and the results were interpreted in a way that stacked the deck against poorer neighborhoods. The slower response times allowed smaller fires to rage uncontrolled in the city’s most vulnerable communities.</p>
+</blockquote>
 <ul>
-<li><p>Highlight algorithmic bias through media, art, and science</p></li>
-<li><p>Provide space for people to voice concerns and experiences with coded bias</p></li>
-<li><p>Develop practices for accountability during design, development, and deployment of coded systems</p></li>
-<li><p>Joy Buolamwini – <a href = "https://www.youtube.com/embed/QxuyfWoVV98" target = "_blank">AI, Ain’t I A Woman?</a></p></li>
-</ul></li>
+<li><a href = "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target = "_blank">SF vs. NYC housing</a> – a great example of a classification tree.</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
