@@ -225,7 +225,9 @@ The $k$-Nearest Neighbor algorithm does exactly what it sounds like it does.
 
 * user decides on the integer value for $k$
 
-* a point is classified to be in the group for which the majority of the $k$ closest points in the training data.
+* user decides on a distance metric (most $k$-NN algorithms default to Euclidean distance)
+
+* a point is classified to be in the same group as the majority of the $k$ **closest** points in the training data.
 
 ---
 
@@ -331,9 +333,11 @@ Randomly split the training data into V distinct blocks of roughly equal size.
 
 * leave out the first block of analysis data and fit a model.
 * the model is used to predict the held-out block of assessment data.
-* continue the process until all V assessment blocks have been predicted
+* continue the process until all V assessment blocks have been predicted.
 
-The final performance is based on the hold-out predictions by averaging the statistics from the V blocks.
+The tuned parameter is usually chosen to be the one which produces the best performance averaged across the V blocks.
+
+The final performance is usually based on the test data.
 
 ---
 
@@ -427,14 +431,14 @@ penguin_knn_wflow_final
 
 .panel[.panel-name[fit]
 ```{r}
-penguin_knn_fit <- penguin_knn_wflow %>%
+penguin_knn_fit_final <- penguin_knn_wflow_final %>%
   fit(data = penguin_train)
 ```
 ]
 
 .panel[.panel-name[predict]
 ```{r}
-penguin_knn_fit %>% 
+penguin_knn_fit_final %>% 
   predict(new_data = penguin_test) %>%
   cbind(penguin_test) %>%
   metrics(truth = species, estimate = .pred_class) %>%
@@ -444,6 +448,25 @@ penguin_knn_fit %>%
 
 ]
 
+---
+
+##  We choose $k$ = 9 !
+
+### 6. Validate the model
+
+Huh.  Seems like $k=9$ didn't do as well as $k=7$ (the value we tried at the very beginning before cross validating).
+
+Well, it turns out, that's the nature of variability, randomness, and model building.
+
+We don't know truth, and we won't every find a perfect model.
+
+---
+
+## Bias-Variance Tradeoff
+
+```{r fig.cap = "Test and training error as a function of model complexity.  Note that the error goes down monotonically only for the training data.  Be careful not to overfit!!  image credit: ISLR", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/varbias.png")
+```
 
 ---
 
