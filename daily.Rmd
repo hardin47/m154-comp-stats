@@ -10,4 +10,5 @@ listing:
    - 2021-10-05-bootstrap
    - 2021-10-12-review1
    - 2021-10-21-recipes
+   - 2021-10-26-knn-trees
 ---
