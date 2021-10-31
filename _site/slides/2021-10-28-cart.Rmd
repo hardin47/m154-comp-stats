@@ -52,7 +52,7 @@ xaringanExtra::use_panelset()
 knitr::include_graphics("../images/sfnyc.png")
 ```
 
-Yee and  Chu created a step-by-step build of a recursive binary tree to model the differences between homes in SF and homes in NYC.
+Yee and  Chu created a step-by-step build of a recursive binary tree to model the differences between homes in SF and homes in NYC.  http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
 
 ---
 ## Classification and Regression Trees (CART)
@@ -334,18 +334,26 @@ fancyRpartPlot(
 
 .panelset[
 
+.panel[.panel-name[new recipe]
+```{r}
+penguin_cart_tune_recipe <-
+  recipe(sex ~ body_mass_g + bill_length_mm + species,
+         data = penguin_train)  
+```
+]
+
 .panel[.panel-name[creating folds]
 ```{r}
 set.seed(470)
 penguin_vfold <- vfold_cv(penguin_train,
-                          v = 5, strata = species)
+                          v = 5, strata = sex)
 ```
 ]
 
 .panel[.panel-name[k]
 ```{r}
-cart_grid <- expand.grid(cost_complexity = seq(0, 5, by = 0.5),
-                        tree_depth = seq(1, 10, by = 0.5))
+cart_grid <- expand.grid(cost_complexity = seq(0, 0.5, by = 0.1),
+                        tree_depth = seq(2, 10, by = 2))
 cart_grid
 
 ```
@@ -361,22 +369,50 @@ penguin_cart_tune <-
 
 penguin_cart_wflow_tune <- workflow() %>%
   add_model(penguin_cart_tune) %>%
-  add_recipe(penguin_cart_recipe)
+  add_recipe(penguin_cart_tune_recipe)
 ```
 ]
 
 .panel[.panel-name[tuning]
 ```{r}
-penguin_cart_wflow_tune %>%
+penguin_tuned <- penguin_cart_wflow_tune %>%
   tune_grid(resamples = penguin_vfold, 
-           grid = cart_grid) %>%
-  collect_metrics() %>%
+           grid = cart_grid) 
+
+penguin_tuned %>% collect_metrics() %>%
   filter(.metric == "accuracy")
 ```
 
 ]
 
 ]
+
+---
+
+###  Parameter choice
+
+```{r fig.height = 3.5, fig.align='center'}
+penguin_tuned %>%
+  autoplot(metric = "accuracy")
+
+penguin_tuned %>% 
+  select_best("accuracy")
+```
+
+---
+
+# Best model
+
+```{r}
+penguin_best <- finalize_model(
+  penguin_cart_tune,
+  select_best(penguin_tuned, "accuracy"))
+
+workflow() %>%
+  add_model(penguin_best) %>%
+  add_recipe(penguin_cart_tune_recipe) %>%
+  fit(data = penguin_train)
+```
 
 
 ---
