@@ -72,154 +72,91 @@ Bagging = **B**ootstrap **Agg**regating.
    
 Bagging can be applied to any classifier to reduce variability.
 
-<p style = "color:red">Recall that the variance of the sample mean is variance of data / n.  So we've seen the idea that averaging an outcome gives reduced variability.</p>
+<p style = "color:purple">Recall that the variance of the sample mean is variance of data / n.  So we've seen the idea that averaging an outcome gives reduced variability.</p>
 
 ---
 
 ## Bagging Models
 
+```{r fig.cap = "Image credit: https://www.pluralsight.com/guides/ensemble-methods:-bagging-versus-boosting", out.width='70%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/bagging.png")
+```
+
 ---
 
 ## Bagging Trees
 
---
+```{r fig.cap = "Image credit: https://www.analyticsvidhya.com/blog/2021/05/bagging-25-questions-to-test-your-skills-on-random-forest-algorithm/", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/baggedtree.png")
+```
+
+---
+
+******
+**Algorithm**:  Bagging Forest
+
+******
+1. Resample (bootstrap) *cases* (observational units, not variables).  
+2. Build a tree on each new set of (bootstrapped) training observations.
+3. Average (regression) or majority vote (classification).
+4. Note that for every bootstrap sample, approximately 2/3 of the observations will be chosen and 1/3 of them will not be chosen.
+
+
+******
+
+---
+
+### Observations not in a given tree
+
+
+P(observation $i$ is not in the bootstrap sample) = $\bigg(1 - \frac{1}{n} \bigg)^n$
+
+
+$$\lim_{n \rightarrow \infty} \bigg(1 - \frac{1}{n} \bigg)^n = \frac{1}{e} \approx \frac{1}{3}$$
+
+---
 
 ## OOB Error
----
 
-## Minimize heterogeneity
+**Out of Bag**
 
-For every observation that falls into the region $R_m$, 
+with bagging, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error. It is estimated internally **for free**!!!
 
-prediction = the mean of the response values for observations in $R_m$.  
+* Each tree is constructed using a different bootstrap sample 
 
-$\Rightarrow$ Minimize Residual Sum of Squares (RSS): 
-$$RSS = \sum_{m=1}^{|T|} \sum_{i \in R_m} (y_i - \overline{y}_{R_m})^2$$
-where $\overline{y}_{R_m}$ is the mean response for observations within the $m$th region.
+* Put all of the cases left out in the construction of the $b^{th}$ tree down the $b^{th}$ tree to get a classification. 
 
----
-
-## Recursive binary splitting
-
-Select the predictor $X_j$ and the cutpoint $s$ such that splitting the predictor space into the regions $\{X | X_j< s\}$ and $\{X | X_j \geq s\}$ lead to the greatest reduction in RSS.
-
-For any $j$ and $s$, define the pair of half-planes to be
-$$R_1(j,s) = \{X | X_j < s\} \mbox{ and } R_2(j,s) = \{X | X_j \geq s\}$$
-Find the value of $j$ and $s$ that minimize the equation:
-$$\sum_{i:x_i \in R_1(j,s)} (y_i - \overline{y}_{R_1})^2 + \sum_{i:x_i \in R_2(j,s)} (y_i - \overline{y}_{R_2})^2$$
-
-where $\overline{y}_{R_1}$ is the mean response for observations in $R_1(j,s)$ and $\overline{y}_{R_2}$ is the mean response observations in $R_2(j,s)$.
-
+* At the end of the run, 
+   - take $j$ to be the class that got most of the votes every time case $i$ was oob. 
+   - The proportion of times that $j$ is not equal to the true class of n averaged over all cases is the **oob error**. 
 
 ---
 
-##  Trees in action
+Let the OOB prediction for the $i^{th}$ observation to be  $\hat{y}_{(-i)}$
 
-```{r fig.cap = "", out.width='100%', fig.align='center', echo=FALSE}
-knitr::include_graphics("../images/decisiontrees.gif")
-```
+\begin{eqnarray*}
+\mbox{OOB}_{\mbox{error}} &=& \frac{1}{n} \sum_{i=1}^n \textrm{I} (y_i \ne \hat{y}_{(-i)}) \ \ \ \ \ \ \ \  \mbox{classification}\\
+\mbox{OOB}_{\mbox{error}} &=& \frac{1}{n} \sum_{i=1}^n  (y_i - \hat{y}_{(-i)})^2  \ \ \ \ \ \ \ \ \mbox{regression}\\
+\end{eqnarray*}
 
-
----
-
-## Measures of impurity
-
-$\hat{p}_{mk}$ = proportion of observations in the $m$th region from the $k$th class. 
-
-* *classification error rate* = fraction of observations in the node & not in the most common class: 
-
-$$E_m = 1 - \max_k(\hat{p}_{mk})$$
- 
-* *Gini index* 
-$$G_m= \sum_{k=1}^K \hat{p}_{mk}(1-\hat{p}_{mk})$$
-
-* *cross-entropy* 
-$$D_m = - \sum_{k=1}^K \hat{p}_{mk} \log \hat{p}_{mk}$$
-(Gini index & cross-entropy will both take on a value near zero if the $\hat{p}_{mk}$ values are all near zero or all near one.)
-
----
-
-## Recursive binary splitting
-
-For any $j$ and $s$, define the pair of half-planes to be
-$$R_1(j,s) = \{X | X_j < s\} \mbox{ and } R_2(j,s) = \{X | X_j \geq s\}$$
-
-Seek the value of $j$ and $s$ that minimize the equation:
-\begin{align}
-& \sum_{i:x_i \in R_1(j,s)} \sum_{k=1}^K \hat{p}_{{R_1}k}(1-\hat{p}_{{R_1}k}) + \sum_{i:x_i \in R_2(j,s)} \sum_{k=1}^K \hat{p}_{{R_2}k}(1-\hat{p}_{{R_2}k})\\
-\\
-\mbox{equivalently:    } & \\
-& n_{R_1} \sum_{k=1}^K \hat{p}_{{R_1}k}(1-\hat{p}_{{R_1}k}) + n_{R_2} \sum_{k=1}^K \hat{p}_{{R_2}k}(1-\hat{p}_{{R_2}k})\\
-\end{align}
-
----
-
-## Stopping
-
-We can always make the tree more "pure" by continuing the split.
-
-> Too many splits will overfit the model to the training data!
-
-Ways to control:
-
-* `cost_complexity`
-* `tree_depth`
-* `min_n`
-
-Overfitting: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/
-
----
-
-## Cost complexity
-
-There is a cost to having a larger (more complex!) tree. 
-
-Define the cost complexity criterion, $\alpha > 0:$
-\begin{align}
-\mbox{numerical: } C_\alpha(T) &= \sum_{m=1}^{|T|} \sum_{i \in R_m} (y_i - \overline{y}_{R_m})^2 + \alpha \cdot |T|\\
-\mbox{categorical: } C_\alpha(T) &= \sum_{m=1}^{|T|} \sum_{i \in R_m} I(y_i \ne k(m)) + \alpha \cdot |T|
-\end{align}
-where $k(m)$ is the class with the majority of observations in node $m$ and $|T|$ is the number of terminal nodes in the tree.
-
-
-* $\alpha$ small:  If $\alpha$ is set to be small, we are saying that the risk is more worrisome than the complexity and larger trees are favored because they reduce the risk.
-* $\alpha$ large:  If $\alpha$ is set to be large, then the complexity of the tree is more worrisome and smaller trees are favored.
-
----
-
-## In practice
-
-Consider $\alpha$ increasing.  As $\alpha$ gets bigger, the "best" tree will be smaller.  
-
-The test error will not be monotonically related to the size of the training tree.
-
-
-```{r  out.width='80%', fig.align='center', echo=FALSE}
-knitr::include_graphics("../images/treealpha.jpg")
-```
+| obs 	| tree1 	| tree2 	| tree3 	| tree4 	| $\cdots$ 	| tree100 	| average 	|
+|:---:	|:-----:	|:-----:	|:-----:	|:-----:	|:--------:	|:-------:	|:---------------:	|
+| 1 	|  	| X 	| X 	|  	|  	|  	| $\sum(pred)/38$ 	|
+| 2 	| X 	|  	|  	|  	|  	|  	| $\sum(pred)/30$ 	|
+| 3 	|  	|  	|  	| X 	|  	| X 	| $\sum(pred)/33$ 	|
+| 4 	| X 	|  	|  	|  	|  	|  	| $\sum(pred)/32$ 	|
+| 5 	| X 	|  	|  	|  	|  	|  	| $\sum(pred)/39$ 	|
+| 6 	|  	|  	| X 	|  	|  	| X 	| $\sum(pred)/29$ 	|
+| 7 	|  	|  	|  	|  	|  	| X 	| $\sum(pred)/29$ 	|
+| 8 	|  	|  	| X 	| X 	|  	| X 	| $\sum(pred)/31$ 	|
+| 9 	|  	|  	|  	| X 	|  	|  	| $\sum(pred)/36$ 	|
 
 
 ---
 
-## CART algorithm
-
-******
-**Algorithm**:  Building a Regression Tree
-
-******
-1.  Use recursive binary splitting to grow a large tree on the training data, stopping only when each terminal node has fewer than some minimum number of observations.
-2.  Apply cost complexity pruning to the large tree in order to obtain a sequence of best subtrees, as a function of $\alpha$.
-3. Use $V$-fold cross-validation to choose $\alpha$.  That is, divide the training observations into $V$ folds.  For each $v=1, 2, \ldots, V$:
-    a. Repeat Steps 1 and 2 on all but the $v$th fold of the training data.
-    b. Evaluate the mean squared prediction error on the data in the left-out $k$th fold, as a function of $\alpha$.
-    For each value of $\alpha$, average the prediction error (either misclassification or RSS), and pick $\alpha$ to minimize the average error.
-4. Return the subtree from Step 2 that corresponds to the chosen value of $\alpha$.
-
-******
-
 
 ---
-## CART example w defaults
+## Bagging example w defaults
 
 ```{r echo = FALSE}
 library(tidymodels)
@@ -235,43 +172,46 @@ penguin_test <- testing(penguin_split)
 
 .panel[.panel-name[recipe]
 ```{r}
-penguin_cart_recipe <-
-  recipe(species ~ . ,
+penguin_bag_recipe <-
+  recipe(body_mass_g ~ . ,
          data = penguin_train) %>%
   step_unknown(sex, new_level = "unknown") %>%
-  step_mutate(year = as.factor(year)) 
+  step_mutate(year = as.factor(year)) %>%
+  step_naomit(all_predictors(), body_mass_g)
 
-summary(penguin_cart_recipe)
+summary(penguin_bag_recipe)
 ```
 ]
 
 .panel[.panel-name[model]
 ```{r}
-penguin_cart <- decision_tree() %>%
-  set_engine("rpart") %>%
-  set_mode("classification")
+num_trees <- 500
+penguin_bag <- rand_forest(mtry = 7,
+                           trees = num_trees) %>%
+  set_engine("randomForest") %>%
+  set_mode("regression")
 
-penguin_cart
+penguin_bag
 ```
 ]
 
 .panel[.panel-name[workflow]
 
 ```{r}
-penguin_cart_wflow <- workflow() %>%
-  add_model(penguin_cart) %>%
-  add_recipe(penguin_cart_recipe)
+penguin_bag_wflow <- workflow() %>%
+  add_model(penguin_bag) %>%
+  add_recipe(penguin_bag_recipe)
 
-penguin_cart_wflow
+penguin_bag_wflow
 ```
 ]
 
 .panel[.panel-name[fit]
 ```{r}
-penguin_cart_fit <- penguin_cart_wflow %>%
+penguin_bag_fit <- penguin_bag_wflow %>%
   fit(data = penguin_train)
 
-penguin_cart_fit 
+penguin_bag_fit 
 ```
 ]
 
@@ -279,7 +219,7 @@ penguin_cart_fit
 
 ---
 
-##  Plotting the tree (not tidy)
+##  Plotting the OOB (not tidy)
 
 
 .panelset[
@@ -287,27 +227,35 @@ penguin_cart_fit
 .panel[.panel-name[plot 1]
 .pull-left[
 ```{r eval = FALSE}
-library(rpart.plot)
-penguins_cart_plot <- 
-  penguin_cart_fit %>%
-  extract_fit_parsnip()
+rsq <- penguin_bag_fit %>%
+  extract_fit_parsnip() %>%
+  pluck("fit") %>%
+  pluck("rsq")  # or mse
 
-rpart.plot(
-  penguins_cart_plot$fit,
-  roundint = FALSE)  
+data.frame(
+  trees = 1:num_trees, 
+  rsq = rsq) %>%
+  ggplot() + 
+  geom_line(
+    aes(x = trees, y = rsq)) +
+  ylab("") + 
+  xlab("Number of Trees") + 
+  ggtitle("OOB R-squared")
 ```
 ]
 
 .pull-right[
 ```{r echo = FALSE}
-library(rpart.plot)
-penguins_cart_plot <- 
-  penguin_cart_fit %>%
-  extract_fit_parsnip()
+rsq <- penguin_bag_fit %>%
+  extract_fit_parsnip() %>%
+  pluck("fit") %>%
+  pluck("rsq")  # or mse
 
-rpart.plot(
-  penguins_cart_plot$fit,
-  roundint = FALSE)  
+data.frame(trees = 1:num_trees, rsq = rsq) %>%
+  ggplot() + 
+  geom_line(aes(x = trees, y = rsq)) +
+  ylab("") + xlab("Number of Trees") + 
+  ggtitle("OOB R-squared")
 ```
 ]
 ]
@@ -315,29 +263,37 @@ rpart.plot(
 .panel[.panel-name[plot 2]
 .pull-left[
 ```{r eval = FALSE}
-library(rattle)
-penguins_cart_plot <- 
-  penguin_cart_fit %>%
-  extract_fit_parsnip()
+rsq <- penguin_bag_fit %>%
+  extract_fit_parsnip() %>%
+  pluck("fit") %>%
+  pluck("mse")
 
-fancyRpartPlot(
-  penguins_cart_plot$fit,
-  sub = NULL,
-  palettes = "RdPu")
+data.frame(
+  trees = 1:num_trees, 
+  rsq = rsq) %>%
+  ggplot() + 
+  geom_line(
+    aes(x = trees, y = rsq)) +
+  ylab("") + 
+  xlab("Number of Trees") + 
+  ggtitle("OOB MSE")
 ```
 ]
 
 .pull-right[
 ```{r echo = FALSE}
-library(rattle)
-penguins_cart_plot <- 
-  penguin_cart_fit %>%
-  extract_fit_parsnip()
+rsq <- penguin_bag_fit %>%
+  extract_fit_parsnip() %>%
+  pluck("fit") %>%
+  pluck("mse")  
 
-fancyRpartPlot(
-  penguins_cart_plot$fit,
-  sub = NULL,
-  palettes = "RdPu")  # change the color 
+data.frame(
+  trees = 1:num_trees, 
+  rsq = rsq) %>%
+  ggplot() + 
+  geom_line(aes(x = trees, y = rsq)) +
+  ylab("") + xlab("Number of Trees") + 
+  ggtitle("OOB MSE")
 ```
 
 ]
@@ -345,99 +301,15 @@ fancyRpartPlot(
 ]
 
 ]
-
----
-## CART example w CV
-
-
-.panelset[
-
-.panel[.panel-name[new recipe]
-```{r}
-penguin_cart_tune_recipe <-
-  recipe(sex ~ body_mass_g + bill_length_mm + species,
-         data = penguin_train)  
-```
-]
-
-.panel[.panel-name[creating folds]
-```{r}
-set.seed(470)
-penguin_vfold <- vfold_cv(penguin_train,
-                          v = 5, strata = sex)
-```
-]
-
-.panel[.panel-name[k]
-```{r}
-cart_grid <- expand.grid(cost_complexity = seq(0, 0.5, by = 0.1),
-                        tree_depth = seq(2, 10, by = 2))
-cart_grid
-
-```
-]
-
-.panel[.panel-name[tune wkflow]
-```{r}
-penguin_cart_tune <- 
-  decision_tree(cost_complexity = tune(),
-                tree_depth = tune()) %>%
-  set_engine("rpart") %>%
-  set_mode("classification")
-
-penguin_cart_wflow_tune <- workflow() %>%
-  add_model(penguin_cart_tune) %>%
-  add_recipe(penguin_cart_tune_recipe)
-```
-]
-
-.panel[.panel-name[tuning]
-```{r}
-penguin_tuned <- penguin_cart_wflow_tune %>%
-  tune_grid(resamples = penguin_vfold, 
-           grid = cart_grid) 
-
-penguin_tuned %>% collect_metrics() %>%
-  filter(.metric == "accuracy")
-```
-
-]
-
-]
-
----
-
-###  Parameter choice
-
-```{r fig.height = 3.5, fig.align='center'}
-penguin_tuned %>%
-  autoplot(metric = "accuracy")
-
-penguin_tuned %>% 
-  select_best("accuracy")
-```
-
----
-
-# Best model
-
-```{r}
-penguin_best <- finalize_model(
-  penguin_cart_tune,
-  select_best(penguin_tuned, "accuracy"))
-
-workflow() %>%
-  add_model(penguin_best) %>%
-  add_recipe(penguin_cart_tune_recipe) %>%
-  fit(data = penguin_train)
-```
-
----
 
 # Agenda 11/04/21
 
 1. Random Forests
 2. Example
+
+---
+## Random Forests
+
 
 ---
 

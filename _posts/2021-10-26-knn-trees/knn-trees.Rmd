@@ -45,29 +45,32 @@ output:
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
-* What is the "$k$" in $k$-Nearest Neighbors?
+* What is the "$k$" in $k$-Nearest Neighbors?  What does CART stand for?
 
 * Why do most implementations of $k$-NN prefer odd values of k?
 
-* How does $k$-NN make predictions on test data?
+* How does $k$-NN / CART make predictions on test data?
 
-* Can $k$-NN be used for both classification and regression or only one of the two tasks?
+* Can $k$-NN / CART be used for both classification and regression or only one of the two tasks?
 
-* Can you use categorical / character predictors with $k$-NN?
+* Can you use categorical / character predictors with $k$-NN / CART?
 
-* How is $k$ chosen?
+* How is $k$ / tree depth chosen?
 
-* What are the advantages of the $k$-NN algorithm?
+* What does it mean for CART to be high variance?  How do the bias and variance change for different values of $k$ in $k$-NN?
 
-* What are the disadvantages of the $k$-NN algorithm?
+* What are the advantages of the $k$-NN / CART algorithm?
+
+* What are the disadvantages of the $k$-NN / CART algorithm?
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
-* What type of feature engineering is required for $k$-NN?
+* What type of feature engineering is required for $k$-NN / CART?
 
 * Why is it recommended that $k$-NN not be used on large datasets?
 
 * (For a given $k$) why does $k$-NN use more computation time to test than to train?  [n.b., the opposite is true for the majority of classificiation and regression algorithms.]
+
 
 ## Slides <i class="fas fa-desktop"></i> 
 

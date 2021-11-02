@@ -87,11 +87,11 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Computational Statistics: 9. k-NN + trees</title>
+<title>Computational Statistics: 10. Random Forests</title>
 
-<meta property="description" itemprop="description" content="k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space."/>
+<meta property="description" itemprop="description" content="A short description of the post."/>
 
-<link rel="canonical" href="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
+<link rel="canonical" href="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 <link rel="icon" type="image/vnd.microsoft.icon" href="../../images/favicon.ico"/>
 
@@ -101,30 +101,30 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta name="article:author" content="Johanna Hardin"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Computational Statistics: 9. k-NN + trees"/>
+<meta property="og:title" content="Computational Statistics: 10. Random Forests"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space."/>
-<meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
+<meta property="og:description" content="A short description of the post."/>
+<meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Computational Statistics"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Computational Statistics: 9. k-NN + trees"/>
-<meta property="twitter:description" content="k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space."/>
-<meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
+<meta property="twitter:title" content="Computational Statistics: 10. Random Forests"/>
+<meta property="twitter:description" content="A short description of the post."/>
+<meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"/>
 <meta property="twitter:site" content="@jo_hardin47"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["9. k-NN + trees"]},{"type":"character","attributes":{},"value":["k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Johanna Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-10-21"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["10. Random Forests"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Johanna Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-10-21"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["knn-trees_files/anchor-4.2.2/anchor.min.js","knn-trees_files/bowser-1.9.3/bowser.min.js","knn-trees_files/distill-2.2.21/template.v2.js","knn-trees_files/header-attrs-2.11.1/header-attrs.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.map","knn-trees_files/popper-2.6.0/popper.min.js","knn-trees_files/tippy-6.2.7/tippy-bundle.umd.min.js","knn-trees_files/tippy-6.2.7/tippy-light-border.css","knn-trees_files/tippy-6.2.7/tippy.css","knn-trees_files/tippy-6.2.7/tippy.umd.min.js","knn-trees_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"NULL"}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2243,7 +2243,7 @@ h1, h2, h3, h4, h5 {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"9. k-NN + trees","description":"k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space.","authors":[{"author":"Johanna Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-21T00:00:00.000-07:00","citationText":"Hardin, 2021"}
+{"title":"10. Random Forests","description":"A short description of the post.","authors":[{"author":"Johanna Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-21T00:00:00.000-07:00","citationText":"Hardin, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2284,10 +2284,10 @@ Project
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>9. k-NN + trees</h1>
+<h1>10. Random Forests</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space.</p></p>
+<p><p>A short description of the post.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2298,60 +2298,50 @@ Project
 
 <div class="d-article">
 <h2 id="agenda">Agenda <i class="fas fa-calendar-alt" target="_blank"></i></h2>
-<h3 id="october-26-2021">October 26, 2021</h3>
+<h3 id="november-2-2021">November 2, 2021</h3>
 <ol type="1">
-<li>Redux - model process</li>
-<li><span class="math inline">\(k\)</span>-Nearest Neighbors</li>
-<li>Cross Validation</li>
-<li>Example</li>
+<li>Redux - CART</li>
+<li>bagging process</li>
+<li>bagging error rate (OOB error)</li>
 </ol>
-<h3 id="october-28-2021">October 28, 2021</h3>
+<h3 id="november-4-2021">November 4, 2021</h3>
 <ol type="1">
-<li>Decision Trees</li>
+<li>Random Forests</li>
 <li>Example</li>
 </ol>
 <h2 id="readings">Readings <i class="fas fa-book-open"></i></h2>
 <ul>
-<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#knn" target= "_blank">k nearest neighbors</a></p></li>
-<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#cart" target= "_blank">decision trees</a></p></li>
-<li><p>Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">k Nearest Neighbors (section 3.5) </a> Introduction to Statistical Learning.</p></li>
-<li><p>Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">the basics of decision trees (section 8.1) </a> Introduction to Statistical Learning.</p></li>
+<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#bagging" target= "_blank">k bagging</a></p></li>
+<li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#rf" target= "_blank">random forests</a></p></li>
+<li><p>Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">bagging &amp; random forests (section 8.2) </a> Introduction to Statistical Learning.</p></li>
 <li><p>Max Kuhn and Julia Silge (2021), <a href = "https://www.tmwr.org/" target = "_blank">Tidy Modeling with R</a></p></li>
 </ul>
 <h2 id="reflection-questions">Reflection questions <i class="fas fa-lightbulb"></i></h2>
 <ul>
-<li><p>What is the “<span class="math inline">\(k\)</span>” in <span class="math inline">\(k\)</span>-Nearest Neighbors? What does CART stand for?</p></li>
-<li><p>Why do most implementations of <span class="math inline">\(k\)</span>-NN prefer odd values of k?</p></li>
-<li><p>How does <span class="math inline">\(k\)</span>-NN / CART make predictions on test data?</p></li>
-<li><p>Can <span class="math inline">\(k\)</span>-NN / CART be used for both classification and regression or only one of the two tasks?</p></li>
-<li><p>Can you use categorical / character predictors with <span class="math inline">\(k\)</span>-NN / CART?</p></li>
-<li><p>How is <span class="math inline">\(k\)</span> / tree depth chosen?</p></li>
-<li><p>What does it mean for CART to be high variance? How do the bias and variance change for different values of <span class="math inline">\(k\)</span> in <span class="math inline">\(k\)</span>-NN?</p></li>
-<li><p>What are the advantages of the <span class="math inline">\(k\)</span>-NN / CART algorithm?</p></li>
-<li><p>What are the disadvantages of the <span class="math inline">\(k\)</span>-NN / CART algorithm?</p></li>
+<li><p>How does bagging improve on a single tree? How does tuning <code>mtry</code> improve on a single tree?</p></li>
+<li><p>How do Random Forests make predictions on test data?</p></li>
+<li><p>Can Random Forests be used for both classification and regression or only one of the two tasks?</p></li>
+<li><p>Can you use categorical / character predictors with Random Forests?</p></li>
+<li><p>How are <code>mtry</code> and the number of trees chosen?</p></li>
+<li><p>How do the bias and variance change for different values of <code>mtry</code> and number of trees?</p></li>
+<li><p>What are the advantages of the Random Forests algorithm?</p></li>
+<li><p>What are the disadvantages of the Random Forest algorithm?</p></li>
 </ul>
 <h2 id="ethics-considerations">Ethics considerations <i class="fas fa-balance-scale"></i></h2>
 <ul>
-<li><p>What type of feature engineering is required for <span class="math inline">\(k\)</span>-NN / CART?</p></li>
-<li><p>Why is it recommended that <span class="math inline">\(k\)</span>-NN not be used on large datasets?</p></li>
-<li><p>(For a given <span class="math inline">\(k\)</span>) why does <span class="math inline">\(k\)</span>-NN use more computation time to test than to train? [n.b., the opposite is true for the majority of classificiation and regression algorithms.]</p></li>
+<li><p>What type of feature engineering is required for Random Forests?</p></li>
+<li><p>Do Random Forests produce a closed form “model” that can be written down or visualized and handed to a client?</p></li>
 </ul>
 <h2 id="slides">Slides <i class="fas fa-desktop"></i></h2>
 <ul>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-10-26-knn" target = "_blank">In class slides - knn</a> for 10/26/21.</p></li>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-10-28-cart" target = "_blank">In class slides - decision trees</a> for 10/28/21.</p></li>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU13_knn.pdf" target = "_blank">WU13 - k-NN</a></p></li>
-<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU14_trees.pdf" target = "_blank">WU14 - trees</a></p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/2021-11-02-rf" target = "_blank">In class slides - bagging &amp; random forests</a> for 11/2/21 and 11/4/21.</p></li>
+<li><p>From last week: <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU13_knn.pdf" target = "_blank">WU13 - k-NN</a></p></li>
+<li><p><a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU15_rd.pdf" target = "_blank">WU15 - random forests</a></p></li>
 </ul>
 <h2 id="additional-resources">Additional Resources <i class="fas fa-laptop"></i></h2>
 <ul>
-<li><a href = "http://fivethirtyeight.com/datalab/why-the-bronx-really-burned/" target = "_blank">Why the Bronx really burned</a> – “adjusting” data to give the wrong information. FiveThirtyEight, Jody Avirgan, 10/29/2015.</li>
-</ul>
-<blockquote>
-<p>With the help of the Rand Corp., the city tried to measure fire response times, identify redundancies in service, and close or re-allocate fire stations accordingly. What resulted, though, was a perfect storm of bad data: The methodology was flawed, the analysis was rife with biases, and the results were interpreted in a way that stacked the deck against poorer neighborhoods. The slower response times allowed smaller fires to rage uncontrolled in the city’s most vulnerable communities.</p>
-</blockquote>
-<ul>
-<li><a href = "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target = "_blank">SF vs. NYC housing</a> – a great example of a classification tree.</li>
+<li><p><a href = "http://www.wired.com/2008/06/pb-theory/" target = "_blank">The end of science (???)</a> “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete”, <em>Science</em>, June 23, 2008.</p></li>
+<li><p><a href = "http://simplystatistics.org/2014/05/22/10-things-statistics-taught-us-about-big-data-analysis/" target = "_blank">Maybe not so fast.</a> “10 things statistics taught us about big data analysis”, Jeff Leek, May 22, 2014.</p></li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
@@ -2361,15 +2351,6 @@ Project
 <div class="d-appendix">
 </div>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

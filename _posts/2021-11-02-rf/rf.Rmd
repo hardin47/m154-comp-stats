@@ -42,8 +42,27 @@ output:
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
+* How does bagging improve on a single tree?  How does tuning `mtry` improve on a single tree?
+
+* How do Random Forests make predictions on test data?
+
+* Can Random Forests be used for both classification and regression or only one of the two tasks?
+
+* Can you use categorical / character predictors with Random Forests?
+
+* How are `mtry` and the number of trees chosen?
+
+* How do the bias and variance change for different values of `mtry` and number of trees?
+
+* What are the advantages of the Random Forests algorithm?
+
+* What are the disadvantages of the Random Forest algorithm?
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+* What type of feature engineering is required for Random Forests?
+
+* Do Random Forests produce a closed form "model" that can be written down or visualized and handed to a client?
 
 
 ## Slides <i class="fas fa-desktop"></i> 
@@ -59,7 +78,6 @@ output:
 
 * <a href = "http://www.wired.com/2008/06/pb-theory/" target = "_blank">The end of science (???)</a> "The End of Theory: The Data Deluge Makes the Scientific Method Obsolete", *Science*, June 23, 2008.
 
-* <a href = "http://simplystatistics.org/2014/05/22/10-things-statistics-taught-us-about-big-data-analysis/
-" target = "_blank">Maybe not so fast.</a> "10 things statistics taught us about big data analysis", Jeff Leek, May 22, 2014.
+* <a href = "http://simplystatistics.org/2014/05/22/10-things-statistics-taught-us-about-big-data-analysis/" target = "_blank">Maybe not so fast.</a> "10 things statistics taught us about big data analysis", Jeff Leek, May 22, 2014.
 
 

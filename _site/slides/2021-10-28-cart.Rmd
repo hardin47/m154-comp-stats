@@ -257,6 +257,16 @@ penguin_cart_fit
 ```
 ]
 
+.panel[.panel-name[pred]
+```{r}
+penguin_cart_fit %>%
+  predict(new_data = penguin_train) %>%
+  cbind(penguin_train) %>%
+  select(.pred_class, species) %>%
+  table()
+```
+]
+
 ]
 
 ---
@@ -414,6 +424,20 @@ workflow() %>%
   fit(data = penguin_train)
 ```
 
+---
+
+## Best Model Predictions
+
+```{r}
+workflow() %>%
+  add_model(penguin_best) %>%
+  add_recipe(penguin_cart_tune_recipe) %>%
+  fit(data = penguin_train) %>%
+  predict(new_data = penguin_test) %>%
+  cbind(penguin_test) %>%
+  select(.pred_class, sex) %>%
+  table()
+```
 
 ---
 

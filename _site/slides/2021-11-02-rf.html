@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Bagging and Random Forests</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jo Hardin" />
+    <script src="2021-11-02-rf_files/header-attrs-2.11.1/header-attrs.js"></script>
+    <link href="2021-11-02-rf_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="2021-11-02-rf_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="2021-11-02-rf_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="2021-11-02-rf_files/panelset-0.2.6/panelset.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: right, top, my-title, title-slide
+
+# Bagging and Random Forests
+### Jo Hardin
+### November 2 &amp; 4, 2021
+
+---
+
+
+
+
+
+
+# Agenda 11/02/21
+
+1. Redux - CART
+2. bagging process
+3. bagging error rate (OOB error)
+
+---
+
+## `tidymodels` syntax
+
+1. partition the data
+2. build a recipe
+3. select a model
+4. create a workflow
+5. fit the model  
+6. validate the model
+
+---
+
+## Random Forests
+
+&gt; Random forests are an ensemble learning method for classification (and regression) that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes output by individual trees -- [Wikipedia](http://en.wikipedia.org/wiki/Random_forest)
+
+---
+
+## Why a forest instead of a tree?
+
+* Trees suffer from very **high variance**
+
+* Two datasets will provide extremely different trees
+
+* To reduce variability, fit many trees and aggregate the predictions.
+
+* No longer reporting the tree structure, now reporting the predicted values (with hopes that predictions from one dataset will be similar to predictions from another dataset).
+
+---
+## Bagging
+
+Bagging = **B**ootstrap **Agg**regating. 
+
+* multiple models aggregate together will produce a smoother model fit and better balance between 
+   - bias in the fit
+   - variance in the fit.  
+   
+Bagging can be applied to any classifier to reduce variability.
+
+&lt;p style = "color:purple"&gt;Recall that the variance of the sample mean is variance of data / n.  So we've seen the idea that averaging an outcome gives reduced variability.&lt;/p&gt;
+
+---
+
+## Bagging Models
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/bagging.png" alt="Image credit: https://www.pluralsight.com/guides/ensemble-methods:-bagging-versus-boosting" width="70%" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.pluralsight.com/guides/ensemble-methods:-bagging-versus-boosting&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Bagging Trees
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/baggedtree.png" alt="Image credit: https://www.analyticsvidhya.com/blog/2021/05/bagging-25-questions-to-test-your-skills-on-random-forest-algorithm/" width="90%" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.analyticsvidhya.com/blog/2021/05/bagging-25-questions-to-test-your-skills-on-random-forest-algorithm/&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+******
+**Algorithm**:  Bagging Forest
+
+******
+1. Resample (bootstrap) *cases* (observational units, not variables).  
+2. Build a tree on each new set of (bootstrapped) training observations.
+3. Average (regression) or majority vote (classification).
+4. Note that for every bootstrap sample, approximately 2/3 of the observations will be chosen and 1/3 of them will not be chosen.
+
+
+******
+
+---
+
+### Observations not in a given tree
+
+
+P(observation `\(i\)` is not in the bootstrap sample) = `\(\bigg(1 - \frac{1}{n} \bigg)^n\)`
+
+
+`$$\lim_{n \rightarrow \infty} \bigg(1 - \frac{1}{n} \bigg)^n = \frac{1}{e} \approx \frac{1}{3}$$`
+
+---
+
+## OOB Error
+
+**Out of Bag**
+
+with bagging, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error. It is estimated internally **for free**!!!
+
+* Each tree is constructed using a different bootstrap sample 
+
+* Put all of the cases left out in the construction of the `\(b^{th}\)` tree down the `\(b^{th}\)` tree to get a classification. 
+
+* At the end of the run, 
+   - take `\(j\)` to be the class that got most of the votes every time case `\(i\)` was oob. 
+   - The proportion of times that `\(j\)` is not equal to the true class of n averaged over all cases is the **oob error**. 
+
+---
+
+Let the OOB prediction for the `\(i^{th}\)` observation to be  `\(\hat{y}_{(-i)}\)`
+
+`\begin{eqnarray*}
+\mbox{OOB}_{\mbox{error}} &amp;=&amp; \frac{1}{n} \sum_{i=1}^n \textrm{I} (y_i \ne \hat{y}_{(-i)}) \ \ \ \ \ \ \ \  \mbox{classification}\\
+\mbox{OOB}_{\mbox{error}} &amp;=&amp; \frac{1}{n} \sum_{i=1}^n  (y_i - \hat{y}_{(-i)})^2  \ \ \ \ \ \ \ \ \mbox{regression}\\
+\end{eqnarray*}`
+
+| obs 	| tree1 	| tree2 	| tree3 	| tree4 	| `\(\cdots\)` 	| tree100 	| average 	|
+|:---:	|:-----:	|:-----:	|:-----:	|:-----:	|:--------:	|:-------:	|:---------------:	|
+| 1 	|  	| X 	| X 	|  	|  	|  	| `\(\sum(pred)/38\)` 	|
+| 2 	| X 	|  	|  	|  	|  	|  	| `\(\sum(pred)/30\)` 	|
+| 3 	|  	|  	|  	| X 	|  	| X 	| `\(\sum(pred)/33\)` 	|
+| 4 	| X 	|  	|  	|  	|  	|  	| `\(\sum(pred)/32\)` 	|
+| 5 	| X 	|  	|  	|  	|  	|  	| `\(\sum(pred)/39\)` 	|
+| 6 	|  	|  	| X 	|  	|  	| X 	| `\(\sum(pred)/29\)` 	|
+| 7 	|  	|  	|  	|  	|  	| X 	| `\(\sum(pred)/29\)` 	|
+| 8 	|  	|  	| X 	| X 	|  	| X 	| `\(\sum(pred)/31\)` 	|
+| 9 	|  	|  	|  	| X 	|  	|  	| `\(\sum(pred)/36\)` 	|
+
+
+---
+
+
+---
+## Bagging example w defaults
+
+
+
+.panelset[
+
+.panel[.panel-name[recipe]
+
+```r
+penguin_bag_recipe &lt;-
+  recipe(body_mass_g ~ . ,
+         data = penguin_train) %&gt;%
+  step_unknown(sex, new_level = "unknown") %&gt;%
+  step_mutate(year = as.factor(year)) %&gt;%
+  step_naomit(all_predictors(), body_mass_g)
+
+summary(penguin_bag_recipe)
+```
+
+```
+## # A tibble: 8 × 4
+##   variable          type    role      source  
+##   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   
+## 1 species           nominal predictor original
+## 2 island            nominal predictor original
+## 3 bill_length_mm    numeric predictor original
+## 4 bill_depth_mm     numeric predictor original
+## 5 flipper_length_mm numeric predictor original
+## 6 sex               nominal predictor original
+## 7 year              numeric predictor original
+## 8 body_mass_g       numeric outcome   original
+```
+]
+
+.panel[.panel-name[model]
+
+```r
+num_trees &lt;- 500
+penguin_bag &lt;- rand_forest(mtry = 7,
+                           trees = num_trees) %&gt;%
+  set_engine("randomForest") %&gt;%
+  set_mode("regression")
+
+penguin_bag
+```
+
+```
+## Random Forest Model Specification (regression)
+## 
+## Main Arguments:
+##   mtry = 7
+##   trees = num_trees
+## 
+## Computational engine: randomForest
+```
+]
+
+.panel[.panel-name[workflow]
+
+
+```r
+penguin_bag_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_bag) %&gt;%
+  add_recipe(penguin_bag_recipe)
+
+penguin_bag_wflow
+```
+
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: rand_forest()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_unknown()
+## • step_mutate()
+## • step_naomit()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Random Forest Model Specification (regression)
+## 
+## Main Arguments:
+##   mtry = 7
+##   trees = num_trees
+## 
+## Computational engine: randomForest
+```
+]
+
+.panel[.panel-name[fit]
+
+```r
+penguin_bag_fit &lt;- penguin_bag_wflow %&gt;%
+  fit(data = penguin_train)
+
+penguin_bag_fit 
+```
+
+```
+## ══ Workflow [trained] ══════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: rand_forest()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_unknown()
+## • step_mutate()
+## • step_naomit()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## 
+## Call:
+##  randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x)) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 7
+## 
+##           Mean of squared residuals: 92247
+##                     % Var explained: 85.06
+```
+]
+
+]
+
+---
+
+##  Plotting the OOB (not tidy)
+
+
+.panelset[
+
+.panel[.panel-name[plot 1]
+.pull-left[
+
+```r
+rsq &lt;- penguin_bag_fit %&gt;%
+  extract_fit_parsnip() %&gt;%
+  pluck("fit") %&gt;%
+  pluck("rsq")  # or mse
+
+data.frame(
+  trees = 1:num_trees, 
+  rsq = rsq) %&gt;%
+  ggplot() + 
+  geom_line(
+    aes(x = trees, y = rsq)) +
+  ylab("") + 
+  xlab("Number of Trees") + 
+  ggtitle("OOB R-squared")
+```
+]
+
+.pull-right[
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+]
+]
+
+.panel[.panel-name[plot 2]
+.pull-left[
+
+```r
+rsq &lt;- penguin_bag_fit %&gt;%
+  extract_fit_parsnip() %&gt;%
+  pluck("fit") %&gt;%
+  pluck("mse")
+
+data.frame(
+  trees = 1:num_trees, 
+  rsq = rsq) %&gt;%
+  ggplot() + 
+  geom_line(
+    aes(x = trees, y = rsq)) +
+  ylab("") + 
+  xlab("Number of Trees") + 
+  ggtitle("OOB MSE")
+```
+]
+
+.pull-right[
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+
+]
+
+]
+
+]
+
+# Agenda 11/04/21
+
+1. Random Forests
+2. Example
+
+---
+## Random Forests
+
+
+---
+
+## Bias-Variance Tradeoff
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/varbias.png" alt="Test and training error as a function of model complexity.  Note that the error goes down monotonically only for the training data.  Be careful not to overfit!!  image credit: ISLR" width="90%" /&gt;
+&lt;p class="caption"&gt;Test and training error as a function of model complexity.  Note that the error goes down monotonically only for the training data.  Be careful not to overfit!!  image credit: ISLR&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Reflecting on Model Building
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/modelbuild1.png" alt="Image credit: https://www.tmwr.org/" width="2176" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.tmwr.org/&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## Reflecting on Model Building
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/modelbuild2.png" alt="Image credit: https://www.tmwr.org/" width="2067" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.tmwr.org/&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+---
+
+## Reflecting on Model Building
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/modelbuild3.png" alt="Image credit: https://www.tmwr.org/" width="70%" /&gt;
+&lt;p class="caption"&gt;Image credit: https://www.tmwr.org/&lt;/p&gt;
+&lt;/div&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightlines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

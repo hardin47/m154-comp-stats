@@ -313,6 +313,25 @@ penguin_cart_fit
 ```
 ]
 
+.panel[.panel-name[pred]
+
+```r
+penguin_cart_fit %&gt;%
+  predict(new_data = penguin_train) %&gt;%
+  cbind(penguin_train) %&gt;%
+  select(.pred_class, species) %&gt;%
+  table()
+```
+
+```
+##            species
+## .pred_class Adelie Chinstrap Gentoo
+##   Adelie       115         3      0
+##   Chinstrap      4        46      3
+##   Gentoo         0         0     87
+```
+]
+
 ]
 
 ---
@@ -338,7 +357,7 @@ rpart.plot(
 ]
 
 .pull-right[
-![](2021-10-28-cart_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+![](2021-10-28-cart_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 ]
 ]
 
@@ -359,7 +378,7 @@ fancyRpartPlot(
 ]
 
 .pull-right[
-![](2021-10-28-cart_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](2021-10-28-cart_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 ]
 
@@ -491,7 +510,7 @@ penguin_tuned %&gt;%
   autoplot(metric = "accuracy")
 ```
 
-&lt;img src="2021-10-28-cart_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="2021-10-28-cart_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
 
 ```r
 penguin_tuned %&gt;% 
@@ -558,6 +577,28 @@ workflow() %&gt;%
 ##       15) body_mass_g&gt;=3962.5 37   1 male (0.027027 0.972973) *
 ```
 
+---
+
+## Best Model Predictions
+
+
+```r
+workflow() %&gt;%
+  add_model(penguin_best) %&gt;%
+  add_recipe(penguin_cart_tune_recipe) %&gt;%
+  fit(data = penguin_train) %&gt;%
+  predict(new_data = penguin_test) %&gt;%
+  cbind(penguin_test) %&gt;%
+  select(.pred_class, sex) %&gt;%
+  table()
+```
+
+```
+##            sex
+## .pred_class female male
+##      female     26    5
+##      male        7   47
+```
 
 ---
 
