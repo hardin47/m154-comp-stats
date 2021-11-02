@@ -179,7 +179,18 @@ The test error will not be monotonically related to the size of the training tre
 ```{r  out.width='80%', fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/treealpha.jpg")
 ```
+---
 
+## A note on $\alpha$
+
+In the text (*Introduction to Statistical Learning*) and almost everywhere else you might look, the cost complexity is defined as in previous slides.
+
+However, you might notice that in R the `cost_complexity` value is typically less than 1.  From what I can tell, the value of the function that is being minimized in R is the **average** of the squared errors and the missclassification **rate**.
+
+\begin{align}
+\mbox{numerical: } C_\alpha(T) &= \frac{1}{n}\sum_{m=1}^{|T|} \sum_{i \in R_m} (y_i - \overline{y}_{R_m})^2 + \alpha \cdot |T|\\
+\mbox{categorical: } C_\alpha(T) &= \frac{1}{n}\sum_{m=1}^{|T|} \sum_{i \in R_m} I(y_i \ne k(m)) + \alpha \cdot |T|
+\end{align}
 
 ---
 
@@ -360,12 +371,13 @@ penguin_vfold <- vfold_cv(penguin_train,
 ```
 ]
 
-.panel[.panel-name[k]
+.panel[.panel-name[alpha]
 ```{r}
-cart_grid <- expand.grid(cost_complexity = seq(0, 0.5, by = 0.1),
-                        tree_depth = seq(2, 10, by = 2))
-cart_grid
+cart_grid <- expand.grid(
+  cost_complexity = c(0, 10^(seq(-5,-1,1))),
+  tree_depth = seq(1,6, by = 1))
 
+cart_grid
 ```
 ]
 
@@ -396,6 +408,7 @@ penguin_tuned %>% collect_metrics() %>%
 ]
 
 ]
+
 
 ---
 
@@ -438,6 +451,45 @@ workflow() %>%
   select(.pred_class, sex) %>%
   table()
 ```
+---
+
+## Best Model Predictions
+
+.pull-left[
+```{r eval = FALSE}
+library(rpart.plot)
+penguins_cart_plot <- 
+workflow() %>%
+  add_model(penguin_best) %>%
+  add_recipe(penguin_cart_tune_recipe) %>%
+  fit(data = penguin_train) %>%
+  extract_fit_parsnip()
+
+rpart.plot(
+  penguins_cart_plot$fit,
+  roundint = FALSE) 
+```
+
+]
+
+.pull-right[
+```{r echo = FALSE}
+library(rpart.plot)
+penguins_cart_plot <- 
+workflow() %>%
+  add_model(penguin_best) %>%
+  add_recipe(penguin_cart_tune_recipe) %>%
+  fit(data = penguin_train) %>%
+  extract_fit_parsnip()
+
+rpart.plot(
+  penguins_cart_plot$fit,
+  roundint = FALSE) 
+```
+
+]
+
+
 
 ---
 

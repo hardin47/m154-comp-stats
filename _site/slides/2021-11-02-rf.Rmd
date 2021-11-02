@@ -153,9 +153,6 @@ Let the OOB prediction for the $i^{th}$ observation to be  $\hat{y}_{(-i)}$
 
 
 ---
-
-
----
 ## Bagging example w defaults
 
 ```{r echo = FALSE}
@@ -188,7 +185,7 @@ summary(penguin_bag_recipe)
 num_trees <- 500
 penguin_bag <- rand_forest(mtry = 7,
                            trees = num_trees) %>%
-  set_engine("randomForest") %>%
+  set_engine("randomForest", oob.error = TRUE) %>%
   set_mode("regression")
 
 penguin_bag
@@ -207,8 +204,19 @@ penguin_bag_wflow
 ]
 
 .panel[.panel-name[fit]
-```{r}
-penguin_bag_fit <- penguin_bag_wflow %>%
+.pull-left[
+```{r eval = FALSE}
+penguin_bag_fit <- 
+  penguin_bag_wflow %>%
+  fit(data = penguin_train)
+
+penguin_bag_fit 
+```
+]
+.pull-right[
+```{r echo = FALSE}
+penguin_bag_fit <- 
+  penguin_bag_wflow %>%
   fit(data = penguin_train)
 
 penguin_bag_fit 
@@ -216,6 +224,20 @@ penguin_bag_fit
 ]
 
 ]
+
+
+]
+
+---
+
+#### Fit again
+```{r echo = FALSE}
+penguin_bag_fit <- 
+  penguin_bag_wflow %>%
+  fit(data = penguin_train)
+
+penguin_bag_fit 
+```
 
 ---
 
@@ -230,7 +252,8 @@ penguin_bag_fit
 rsq <- penguin_bag_fit %>%
   extract_fit_parsnip() %>%
   pluck("fit") %>%
-  pluck("rsq")  # or mse
+  pluck("rsq")
+
 
 data.frame(
   trees = 1:num_trees, 
@@ -263,14 +286,14 @@ data.frame(trees = 1:num_trees, rsq = rsq) %>%
 .panel[.panel-name[plot 2]
 .pull-left[
 ```{r eval = FALSE}
-rsq <- penguin_bag_fit %>%
+MSE <- penguin_bag_fit %>%
   extract_fit_parsnip() %>%
   pluck("fit") %>%
   pluck("mse")
 
 data.frame(
   trees = 1:num_trees, 
-  rsq = rsq) %>%
+  rsq = MSE) %>%
   ggplot() + 
   geom_line(
     aes(x = trees, y = rsq)) +
@@ -282,14 +305,14 @@ data.frame(
 
 .pull-right[
 ```{r echo = FALSE}
-rsq <- penguin_bag_fit %>%
+MSE <- penguin_bag_fit %>%
   extract_fit_parsnip() %>%
   pluck("fit") %>%
   pluck("mse")  
 
 data.frame(
   trees = 1:num_trees, 
-  rsq = rsq) %>%
+  MSE = MSE) %>%
   ggplot() + 
   geom_line(aes(x = trees, y = rsq)) +
   ylab("") + xlab("Number of Trees") + 
@@ -301,6 +324,8 @@ data.frame(
 ]
 
 ]
+
+---
 
 # Agenda 11/04/21
 

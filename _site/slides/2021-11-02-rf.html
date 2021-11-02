@@ -154,9 +154,6 @@ Let the OOB prediction for the `\(i^{th}\)` observation to be  `\(\hat{y}_{(-i)}
 
 
 ---
-
-
----
 ## Bagging example w defaults
 
 
@@ -197,7 +194,7 @@ summary(penguin_bag_recipe)
 num_trees &lt;- 500
 penguin_bag &lt;- rand_forest(mtry = 7,
                            trees = num_trees) %&gt;%
-  set_engine("randomForest") %&gt;%
+  set_engine("randomForest", oob.error = TRUE) %&gt;%
   set_mode("regression")
 
 penguin_bag
@@ -209,6 +206,9 @@ penguin_bag
 ## Main Arguments:
 ##   mtry = 7
 ##   trees = num_trees
+## 
+## Engine-Specific Arguments:
+##   oob.error = TRUE
 ## 
 ## Computational engine: randomForest
 ```
@@ -244,18 +244,25 @@ penguin_bag_wflow
 ##   mtry = 7
 ##   trees = num_trees
 ## 
+## Engine-Specific Arguments:
+##   oob.error = TRUE
+## 
 ## Computational engine: randomForest
 ```
 ]
 
 .panel[.panel-name[fit]
+.pull-left[
 
 ```r
-penguin_bag_fit &lt;- penguin_bag_wflow %&gt;%
+penguin_bag_fit &lt;- 
+  penguin_bag_wflow %&gt;%
   fit(data = penguin_train)
 
 penguin_bag_fit 
 ```
+]
+.pull-right[
 
 ```
 ## ══ Workflow [trained] ══════════════════════════════════════════════════════════
@@ -272,7 +279,7 @@ penguin_bag_fit
 ## ── Model ───────────────────────────────────────────────────────────────────────
 ## 
 ## Call:
-##  randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x)) 
+##  randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x), oob.error = ~TRUE) 
 ##                Type of random forest: regression
 ##                      Number of trees: 500
 ## No. of variables tried at each split: 7
@@ -283,6 +290,37 @@ penguin_bag_fit
 ]
 
 ]
+
+
+]
+
+---
+
+#### Fit again
+
+```
+## ══ Workflow [trained] ══════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: rand_forest()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 3 Recipe Steps
+## 
+## • step_unknown()
+## • step_mutate()
+## • step_naomit()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## 
+## Call:
+##  randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x), oob.error = ~TRUE) 
+##                Type of random forest: regression
+##                      Number of trees: 500
+## No. of variables tried at each split: 7
+## 
+##           Mean of squared residuals: 92406
+##                     % Var explained: 85.03
+```
 
 ---
 
@@ -298,7 +336,8 @@ penguin_bag_fit
 rsq &lt;- penguin_bag_fit %&gt;%
   extract_fit_parsnip() %&gt;%
   pluck("fit") %&gt;%
-  pluck("rsq")  # or mse
+  pluck("rsq")
+
 
 data.frame(
   trees = 1:num_trees, 
@@ -313,7 +352,7 @@ data.frame(
 ]
 
 .pull-right[
-![](2021-11-02-rf_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
 ]
 ]
 
@@ -321,14 +360,14 @@ data.frame(
 .pull-left[
 
 ```r
-rsq &lt;- penguin_bag_fit %&gt;%
+MSE &lt;- penguin_bag_fit %&gt;%
   extract_fit_parsnip() %&gt;%
   pluck("fit") %&gt;%
   pluck("mse")
 
 data.frame(
   trees = 1:num_trees, 
-  rsq = rsq) %&gt;%
+  rsq = MSE) %&gt;%
   ggplot() + 
   geom_line(
     aes(x = trees, y = rsq)) +
@@ -339,13 +378,15 @@ data.frame(
 ]
 
 .pull-right[
-![](2021-11-02-rf_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 
 ]
 
 ]
 
 ]
+
+---
 
 # Agenda 11/04/21
 
