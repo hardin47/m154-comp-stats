@@ -30,7 +30,7 @@ output:
 
 ## Readings <i class="fas fa-book-open"></i> 
 
-* Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#bagging" target= "_blank">k bagging</a>
+* Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#bagging" target= "_blank">bagging</a>
 
 * Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#rf" target= "_blank">random forests</a>
 
