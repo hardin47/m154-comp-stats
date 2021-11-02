@@ -64,6 +64,7 @@ output:
 
 * Do Random Forests produce a closed form "model" that can be written down or visualized and handed to a client?
 
+* If the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?
 
 ## Slides <i class="fas fa-desktop"></i> 
 

@@ -69,7 +69,9 @@ output:
 
 * Why is it recommended that $k$-NN not be used on large datasets?
 
-* (For a given $k$) why does $k$-NN use more computation time to test than to train?  [n.b., the opposite is true for the majority of classificiation and regression algorithms.]
+* (For a given $k$) why does $k$-NN use more computation time to test than to train?  [n.b., the opposite is true for the majority of classification and regression algorithms.]
+
+* If the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?
 
 
 ## Slides <i class="fas fa-desktop"></i> 
