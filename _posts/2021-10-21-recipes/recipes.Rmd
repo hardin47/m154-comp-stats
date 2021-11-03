@@ -13,8 +13,8 @@ output:
     self_contained: false
 ---
 
-```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "", preview = TRUE, echo = FALSE, eval = FALSE}
-knitr::include_graphics("../../images/.png")
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/recipes.png")
 ```
 
 

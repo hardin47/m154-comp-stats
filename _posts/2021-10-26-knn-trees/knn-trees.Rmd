@@ -13,7 +13,9 @@ output:
     self_contained: false
 ---
 
-
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Predicting dragon weight from one continuous variable (height) and one categorical variable (whether or not the dragon is spotted).", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/dragon_predict_mlr.png")
+```
 
 
 ## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>

@@ -105,14 +105,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space."/>
 <meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
+<meta property="og:image" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/../../images/dragon_predict_mlr.png"/>
+<meta property="og:image:width" content="2156"/>
+<meta property="og:image:height" content="1463"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Computational Statistics"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="Computational Statistics: 9. k-NN + trees"/>
 <meta property="twitter:description" content="k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.  trees represent a set of methods where prediction is based on majority vote or average outcome based on a partition of the predictor space."/>
 <meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/"/>
+<meta property="twitter:image" content="https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/../../images/dragon_predict_mlr.png"/>
+<meta property="twitter:image:width" content="2156"/>
+<meta property="twitter:image:height" content="1463"/>
 <meta property="twitter:site" content="@jo_hardin47"/>
 
 <!--/radix_placeholder_meta_tags-->
@@ -124,7 +130,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["knn-trees_files/anchor-4.2.2/anchor.min.js","knn-trees_files/bowser-1.9.3/bowser.min.js","knn-trees_files/distill-2.2.21/template.v2.js","knn-trees_files/header-attrs-2.11.1/header-attrs.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.map","knn-trees_files/popper-2.6.0/popper.min.js","knn-trees_files/tippy-6.2.7/tippy-bundle.umd.min.js","knn-trees_files/tippy-6.2.7/tippy-light-border.css","knn-trees_files/tippy-6.2.7/tippy.css","knn-trees_files/tippy-6.2.7/tippy.umd.min.js","knn-trees_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["knn-trees_files/anchor-4.2.2/anchor.min.js","knn-trees_files/bowser-1.9.3/bowser.min.js","knn-trees_files/distill-2.2.21/template.v2.js","knn-trees_files/header-attrs-2.11.1/header-attrs.js","knn-trees_files/header-attrs-2.11.3/header-attrs.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.js","knn-trees_files/jquery-3.6.0/jquery-3.6.0.min.map","knn-trees_files/popper-2.6.0/popper.min.js","knn-trees_files/tippy-6.2.7/tippy-bundle.umd.min.js","knn-trees_files/tippy-6.2.7/tippy-light-border.css","knn-trees_files/tippy-6.2.7/tippy.css","knn-trees_files/tippy-6.2.7/tippy.umd.min.js","knn-trees_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2297,6 +2303,14 @@ Project
 </div>
 
 <div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="../../images/dragon_predict_mlr.png" alt="Predicting dragon weight from one continuous variable (height) and one categorical variable (whether or not the dragon is spotted)." width="1078" data-distill-preview=1 />
+<p class="caption">
+Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_horst</span>.
+</p>
+</div>
+</div>
 <h2 id="agenda">Agenda <i class="fas fa-calendar-alt" target="_blank"></i></h2>
 <h3 id="october-26-2021">October 26, 2021</h3>
 <ol type="1">

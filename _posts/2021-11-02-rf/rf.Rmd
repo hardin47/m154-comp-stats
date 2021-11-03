@@ -1,7 +1,7 @@
 ---
 title: "10. Random Forests"
 description: |
-  Many trees make a forest.
+  Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias tradeoff.
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
@@ -13,7 +13,9 @@ output:
     self_contained: false
 ---
 
-
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Cars at a starting line ready to race: set your engine.  Just like with predictive models we start by setting the model engine.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/parsnip.png")
+```
 
 ## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
 

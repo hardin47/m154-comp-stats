@@ -89,7 +89,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
 <title>Computational Statistics: 10. Random Forests</title>
 
-<meta property="description" itemprop="description" content="Many trees make a forest."/>
+<meta property="description" itemprop="description" content="Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias tradeoff."/>
 
 <link rel="canonical" href="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
@@ -103,28 +103,34 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Computational Statistics: 10. Random Forests"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Many trees make a forest."/>
+<meta property="og:description" content="Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias tradeoff."/>
 <meta property="og:url" content="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"/>
+<meta property="og:image" content="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/../../images/parsnip.png"/>
+<meta property="og:image:width" content="6569"/>
+<meta property="og:image:height" content="4086"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Computational Statistics"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
-<meta property="twitter:card" content="summary"/>
+<meta property="twitter:card" content="summary_large_image"/>
 <meta property="twitter:title" content="Computational Statistics: 10. Random Forests"/>
-<meta property="twitter:description" content="Many trees make a forest."/>
+<meta property="twitter:description" content="Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias tradeoff."/>
 <meta property="twitter:url" content="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"/>
+<meta property="twitter:image" content="https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/../../images/parsnip.png"/>
+<meta property="twitter:image:width" content="6569"/>
+<meta property="twitter:image:height" content="4086"/>
 <meta property="twitter:site" content="@jo_hardin47"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["10. Random Forests"]},{"type":"character","attributes":{},"value":["Many trees make a forest."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Johanna Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-10-21"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","citation","draft","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["10. Random Forests"]},{"type":"character","attributes":{},"value":["Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias tradeoff."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Johanna Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["2021-10-21"]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["rf_files/anchor-4.2.2/anchor.min.js","rf_files/bowser-1.9.3/bowser.min.js","rf_files/distill-2.2.21/template.v2.js","rf_files/header-attrs-2.11.1/header-attrs.js","rf_files/jquery-3.6.0/jquery-3.6.0.js","rf_files/jquery-3.6.0/jquery-3.6.0.min.js","rf_files/jquery-3.6.0/jquery-3.6.0.min.map","rf_files/popper-2.6.0/popper.min.js","rf_files/tippy-6.2.7/tippy-bundle.umd.min.js","rf_files/tippy-6.2.7/tippy-light-border.css","rf_files/tippy-6.2.7/tippy.css","rf_files/tippy-6.2.7/tippy.umd.min.js","rf_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["rf_files/anchor-4.2.2/anchor.min.js","rf_files/bowser-1.9.3/bowser.min.js","rf_files/distill-2.2.21/template.v2.js","rf_files/header-attrs-2.11.1/header-attrs.js","rf_files/header-attrs-2.11.3/header-attrs.js","rf_files/jquery-3.6.0/jquery-3.6.0.js","rf_files/jquery-3.6.0/jquery-3.6.0.min.js","rf_files/jquery-3.6.0/jquery-3.6.0.min.map","rf_files/popper-2.6.0/popper.min.js","rf_files/tippy-6.2.7/tippy-bundle.umd.min.js","rf_files/tippy-6.2.7/tippy-light-border.css","rf_files/tippy-6.2.7/tippy.css","rf_files/tippy-6.2.7/tippy.umd.min.js","rf_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2243,7 +2249,7 @@ h1, h2, h3, h4, h5 {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"10. Random Forests","description":"Many trees make a forest.","authors":[{"author":"Johanna Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-21T00:00:00.000-07:00","citationText":"Hardin, 2021"}
+{"title":"10. Random Forests","description":"Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias tradeoff.","authors":[{"author":"Johanna Hardin","authorURL":"https://m154-comp-stats.netlify.app/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-10-21T00:00:00.000-07:00","citationText":"Hardin, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2287,7 +2293,7 @@ Project
 <h1>10. Random Forests</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Many trees make a forest.</p></p>
+<p><p>Many trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias tradeoff.</p></p>
 </div>
 
 <div class="d-byline">
@@ -2297,6 +2303,14 @@ Project
 </div>
 
 <div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="../../images/parsnip.png" alt="Cars at a starting line ready to race: set your engine.  Just like with predictive models we start by setting the model engine." width="3284" data-distill-preview=1 />
+<p class="caption">
+Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_horst</span>.
+</p>
+</div>
+</div>
 <h2 id="agenda">Agenda <i class="fas fa-calendar-alt" target="_blank"></i></h2>
 <h3 id="november-2-2021">November 2, 2021</h3>
 <ol type="1">
