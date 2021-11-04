@@ -73,7 +73,7 @@ knitr::include_graphics("../../images/parsnip.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2021-11-02-rf" target = "_blank">In class slides - bagging & random forests</a> for 11/2/21 and 11/4/21.
 
-* From last week: <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU134_cart.pdf" target = "_blank">WU14 - CART</a>
+* From last week: <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU14_cart.pdf" target = "_blank">WU14 - CART</a>
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU15_bag.pdf" target = "_blank">WU15 - Bagging</a>
 
