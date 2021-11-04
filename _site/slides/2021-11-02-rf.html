@@ -4,7 +4,7 @@
     <title>Bagging and Random Forests</title>
     <meta charset="utf-8" />
     <meta name="author" content="Jo Hardin" />
-    <script src="2021-11-02-rf_files/header-attrs-2.11.1/header-attrs.js"></script>
+    <script src="2021-11-02-rf_files/header-attrs-2.11.3/header-attrs.js"></script>
     <link href="2021-11-02-rf_files/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="2021-11-02-rf_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link href="2021-11-02-rf_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
@@ -395,6 +395,327 @@ data.frame(
 
 ---
 ## Random Forests
+
+* Many trees
+  - bootstrap the data before building each tree
+  - for best split look only at a random `\(m\)` varaibles (different `\(m\)` variables per split)
+  
+* Tuning:  look at OOB predictions -- either average or majority vote
+
+* Testing:  test data will be (average or majority vote) prediction for all the trees.
+
+---
+
+
+******
+**Algorithm**:  Random Forest
+
+******
+1. Bootstrap sample from the training set.
+2. Grow an un-pruned tree on the bootstrap sample.
+* *At each split*, select `\(m\)` variables and determine the best split using only the `\(m\)` predictors.
+* Do *not* prune the tree.  Save the tree as is!
+3. Repeat steps 1-2 for many many trees.
+4. For each tree grown on a bootstrap sample, predict the OOB samples.  For each tree grown, `\(~1/3\)` of the training samples won't be in the bootstrap sample -- those are called out of bootstrap (OOB) samples.  OOB samples can be used as *test* data to estimate the error rate of the tree.
+5. Combine the OOB predictions to create the "out-of-bag" error rate (either majority vote or average of predictions / class probabilities).
+6. All trees together represent the *model* that is used for new predictions (either majority vote or average).
+
+******
+
+---
+
+## Variable Importance
+
+&gt; importance = decrease in node impurity resulting from splits over that variable, averaged over all trees.
+
+
+* For each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).  
+
+* **Permute** the `\(j^{th}\)` variable and recalculate the oob prediction error.  
+
+* The difference between the two oob errors are averaged over all trees (for the `\(j^{th}\)` variable) and normalized to give the importance for the `\(j^{th}\)` variable.
+
+
+---
+
+## RF technical details
+
+* unfortunately, **tidymodels** currently does not have an OOB option for model tuning (e.g., to find `mtry`)
+
+* unlike `num_trees`, `mtry` is not calculated "as you go along"
+
+* cross validation will be used to find the optimal value of `mtry`
+
+---
+
+## RF example w CV tuning
+
+
+
+.panelset[
+
+.panel[.panel-name[recipe]
+
+```r
+penguin_rf_recipe &lt;-
+  recipe(body_mass_g ~ . ,
+         data = penguin_train) %&gt;%
+  step_unknown(sex, new_level = "unknown") %&gt;%
+  step_mutate(year = as.factor(year)) 
+
+summary(penguin_rf_recipe)
+```
+
+```
+## # A tibble: 8 × 4
+##   variable          type    role      source  
+##   &lt;chr&gt;             &lt;chr&gt;   &lt;chr&gt;     &lt;chr&gt;   
+## 1 species           nominal predictor original
+## 2 island            nominal predictor original
+## 3 bill_length_mm    numeric predictor original
+## 4 bill_depth_mm     numeric predictor original
+## 5 flipper_length_mm numeric predictor original
+## 6 sex               nominal predictor original
+## 7 year              numeric predictor original
+## 8 body_mass_g       numeric outcome   original
+```
+]
+
+.panel[.panel-name[model]
+
+```r
+penguin_rf &lt;- rand_forest(mtry = tune(),
+                           trees = tune()) %&gt;%
+  set_engine("ranger", importance = "permutation") %&gt;%
+  set_mode("regression")
+
+penguin_rf
+```
+
+```
+## Random Forest Model Specification (regression)
+## 
+## Main Arguments:
+##   mtry = tune()
+##   trees = tune()
+## 
+## Engine-Specific Arguments:
+##   importance = permutation
+## 
+## Computational engine: ranger
+```
+]
+
+.panel[.panel-name[workflow]
+
+
+```r
+penguin_rf_wflow &lt;- workflow() %&gt;%
+  add_model(penguin_rf) %&gt;%
+  add_recipe(penguin_rf_recipe)
+
+penguin_rf_wflow
+```
+
+```
+## ══ Workflow ════════════════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: rand_forest()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 2 Recipe Steps
+## 
+## • step_unknown()
+## • step_mutate()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Random Forest Model Specification (regression)
+## 
+## Main Arguments:
+##   mtry = tune()
+##   trees = tune()
+## 
+## Engine-Specific Arguments:
+##   importance = permutation
+## 
+## Computational engine: ranger
+```
+]
+
+.panel[.panel-name[CV]
+
+```r
+set.seed(234)
+penguin_folds &lt;- vfold_cv(penguin_train,
+                          v = 4)
+```
+]
+
+.panel[.panel-name[param]
+
+```r
+penguin_grid &lt;- grid_regular(mtry(range = c(2,7)),
+                             trees(range = c(50,500)),
+                             levels = 5)
+
+penguin_grid
+```
+
+```
+## # A tibble: 25 × 2
+##     mtry trees
+##    &lt;int&gt; &lt;int&gt;
+##  1     2    50
+##  2     3    50
+##  3     4    50
+##  4     5    50
+##  5     7    50
+##  6     2   162
+##  7     3   162
+##  8     4   162
+##  9     5   162
+## 10     7   162
+## # … with 15 more rows
+```
+]
+
+.panel[.panel-name[tune]
+
+```r
+penguin_rf_tune &lt;- 
+  penguin_rf_wflow %&gt;%
+  tune_grid(resamples = penguin_folds,
+            grid = penguin_grid)
+
+penguin_rf_tune 
+```
+
+```
+## # Tuning results
+## # 4-fold cross-validation 
+## # A tibble: 4 × 4
+##   splits           id    .metrics          .notes          
+##   &lt;list&gt;           &lt;chr&gt; &lt;list&gt;            &lt;list&gt;          
+## 1 &lt;split [186/63]&gt; Fold1 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 1]&gt;
+## 2 &lt;split [187/62]&gt; Fold2 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 1]&gt;
+## 3 &lt;split [187/62]&gt; Fold3 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 1]&gt;
+## 4 &lt;split [187/62]&gt; Fold4 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 1]&gt;
+```
+
+]
+
+
+]
+
+---
+##  RF model output
+
+
+```r
+penguin_rf_tune %&gt;%
+  collect_metrics() %&gt;%
+  filter(.metric == "rmse") %&gt;%
+  ggplot() + 
+  geom_line(aes(x = trees, y = mean, color = as.factor(mtry)))
+```
+
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+
+---
+
+## RF Final model
+
+
+```r
+penguin_rf_best &lt;- finalize_model(
+  penguin_rf,
+  select_best(penguin_rf_tune, "rmse"))
+
+penguin_rf_best
+```
+
+```
+## Random Forest Model Specification (regression)
+## 
+## Main Arguments:
+##   mtry = 2
+##   trees = 387
+## 
+## Engine-Specific Arguments:
+##   importance = permutation
+## 
+## Computational engine: ranger
+```
+
+```r
+penguin_rf_final &lt;-
+  workflow() %&gt;%
+  add_model(penguin_rf_best) %&gt;%
+  add_recipe(penguin_rf_recipe) %&gt;%
+  fit(data = penguin_train)
+
+penguin_rf_final
+```
+
+```
+## ══ Workflow [trained] ══════════════════════════════════════════════════════════
+## Preprocessor: Recipe
+## Model: rand_forest()
+## 
+## ── Preprocessor ────────────────────────────────────────────────────────────────
+## 2 Recipe Steps
+## 
+## • step_unknown()
+## • step_mutate()
+## 
+## ── Model ───────────────────────────────────────────────────────────────────────
+## Ranger result
+## 
+## Call:
+##  ranger::ranger(x = maybe_data_frame(x), y = y, mtry = min_cols(~2L,      x), num.trees = ~387L, importance = ~"permutation", num.threads = 1,      verbose = FALSE, seed = sample.int(10^5, 1)) 
+## 
+## Type:                             Regression 
+## Number of trees:                  387 
+## Sample size:                      249 
+## Number of independent variables:  7 
+## Mtry:                             2 
+## Target node size:                 5 
+## Variable importance mode:         permutation 
+## Splitrule:                        variance 
+## OOB prediction error (MSE):       84057 
+## R squared (OOB):                  0.86361
+```
+
+---
+
+# VIP 
+
+
+```r
+library(vip)
+
+penguin_rf_final %&gt;%
+  extract_fit_parsnip() %&gt;%
+  vip(geom = "point")
+```
+
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+
+---
+
+## Test predictions
+
+
+```r
+penguin_rf_final %&gt;%
+  predict(new_data = penguin_test) %&gt;%
+  cbind(penguin_test) %&gt;%
+  ggplot() +
+  geom_point(aes(x = body_mass_g, y = .pred)) + 
+  geom_abline(intercept = 0, slope = 1)
+```
+
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
 
 
 ---
