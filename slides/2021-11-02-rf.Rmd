@@ -449,7 +449,7 @@ penguin_folds <- vfold_cv(penguin_train,
 .panel[.panel-name[param]
 ```{r}
 penguin_grid <- grid_regular(mtry(range = c(2,7)),
-                             trees(range = c(50,500)),
+                             trees(range = c(1,500)),
                              levels = 5)
 
 penguin_grid
@@ -528,6 +528,24 @@ penguin_rf_final %>%
   geom_abline(intercept = 0, slope = 1)
 ```
 
+---
+
+## Model choices
+
+|  $\mbox{  }$ 	| $\mbox{  }$	|
+|---------------------------------------------	|-------------------------------	|
+| * explanatory variable choice 	| * $k$ ($k$-NN) 	|
+| * number of explanatory variables 	| * distance measure 	|
+| * functions/transformation of explanatory 	| * V (CV) 	|
+| * transformation of response 	| * CV `set.seed` 	|
+| * response:continuous vs. categorical 	| * $\alpha$ prune 	|
+| * how missing data is dealt with 	| * maxdepth prune 	|
+| * train/test split (`set.seed`) 	| * prune or not 	|
+| * train/test proportion 	| * gini / entropy (split) 	|
+| * type of classification model 	| * \# trees / \# BS samples 	|
+| * use of cost complexity / parameter 	| * grid search etc. for tuning 	|
+| * majority / average prob (tree error rate) 	| * value(s) of `mtry` 	|
+| * accuracy vs sensitivity vs specificity 	| * OOB vs CV for tuning 	|
 
 ---
 
