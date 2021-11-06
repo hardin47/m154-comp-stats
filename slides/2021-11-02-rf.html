@@ -367,10 +367,10 @@ MSE &lt;- penguin_bag_fit %&gt;%
 
 data.frame(
   trees = 1:num_trees, 
-  rsq = MSE) %&gt;%
+  MSE = MSE) %&gt;%
   ggplot() + 
   geom_line(
-    aes(x = trees, y = rsq)) +
+    aes(x = trees, y = MSE)) +
   ylab("") + 
   xlab("Number of Trees") + 
   ggtitle("OOB MSE")
@@ -623,6 +623,19 @@ penguin_rf_tune %&gt;%
 
 ---
 
+## RF model output - take two
+
+
+```r
+penguin_rf_tune %&gt;%
+  autoplot()
+```
+
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+
+
+---
+
 ## RF Final model
 
 
@@ -653,7 +666,14 @@ penguin_rf_final &lt;-
   add_model(penguin_rf_best) %&gt;%
   add_recipe(penguin_rf_recipe) %&gt;%
   fit(data = penguin_train)
+```
 
+---
+
+## RF Final model
+
+
+```r
 penguin_rf_final
 ```
 
@@ -699,7 +719,7 @@ penguin_rf_final %&gt;%
   vip(geom = "point")
 ```
 
-![](2021-11-02-rf_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -715,7 +735,7 @@ penguin_rf_final %&gt;%
   geom_abline(intercept = 0, slope = 1)
 ```
 
-![](2021-11-02-rf_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+![](2021-11-02-rf_files/figure-html/unnamed-chunk-28-1.png)&lt;!-- --&gt;
 
 ---
 

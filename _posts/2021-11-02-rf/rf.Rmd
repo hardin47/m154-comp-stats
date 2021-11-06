@@ -1,7 +1,7 @@
 ---
 title: "10. Random Forests"
 description: |
-  Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias tradeoff.
+  Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias trade-off.
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
@@ -83,4 +83,6 @@ knitr::include_graphics("../../images/parsnip.png")
 
 * <a href = "http://simplystatistics.org/2014/05/22/10-things-statistics-taught-us-about-big-data-analysis/" target = "_blank">Maybe not so fast.</a> "10 things statistics taught us about big data analysis", Jeff Leek, May 22, 2014.
 
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/sf-trees-random-tuning/" target_"blank">Tuning Random Forest parameters</a>
 
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/water-sources/" target_"blank">Predicting water sources with Random Forests</a>

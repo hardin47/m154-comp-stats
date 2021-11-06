@@ -293,10 +293,10 @@ MSE <- penguin_bag_fit %>%
 
 data.frame(
   trees = 1:num_trees, 
-  rsq = MSE) %>%
+  MSE = MSE) %>%
   ggplot() + 
   geom_line(
-    aes(x = trees, y = rsq)) +
+    aes(x = trees, y = MSE)) +
   ylab("") + 
   xlab("Number of Trees") + 
   ggtitle("OOB MSE")
@@ -314,7 +314,7 @@ data.frame(
   trees = 1:num_trees, 
   MSE = MSE) %>%
   ggplot() + 
-  geom_line(aes(x = trees, y = rsq)) +
+  geom_line(aes(x = trees, y = MSE)) +
   ylab("") + xlab("Number of Trees") + 
   ggtitle("OOB MSE")
 ```
@@ -484,6 +484,16 @@ penguin_rf_tune %>%
 
 ---
 
+## RF model output - take two
+
+```{r}
+penguin_rf_tune %>%
+  autoplot()
+```
+
+
+---
+
 ## RF Final model
 
 ```{r}
@@ -499,7 +509,13 @@ penguin_rf_final <-
   add_model(penguin_rf_best) %>%
   add_recipe(penguin_rf_recipe) %>%
   fit(data = penguin_train)
+```
 
+---
+
+## RF Final model
+
+```{r}
 penguin_rf_final
 ```
 
