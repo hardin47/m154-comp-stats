@@ -43,6 +43,13 @@ knitr::include_graphics("../../images/monster_support.jpg")
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
+* How is an SVM built (how do we find the model)?
+
+* Why is it often advantageous to transform the data into a higher dimensional space?
+
+* What is the kernel trick and how is it related to the SVM decision rule?
+
+* Can SVMs work on data that are not linearly separable (even in high dimensions)?  How?
 
 * What are the advantages of the SVM algorithm?
 
@@ -70,3 +77,12 @@ knitr::include_graphics("../../images/monster_support.jpg")
 * <a href = "http://simplystatistics.org/2013/08/01/the-roc-curves-of-science/" target = "_blank">ROC curve of science</a>
 
 * <a href = "https://www.tidymodels.org/learn/work/tune-svm/" target = "_blank">Tidymodels SVM vignette</a>
+
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/hawaii-post-offices/" target_"blank">SVMs to predict if a post office is in Hawaii</a>
+
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/netflix-titles/" target_"blank">SVMs to predict Netflix shows as TV or movies</a>
+
+
+
+
+

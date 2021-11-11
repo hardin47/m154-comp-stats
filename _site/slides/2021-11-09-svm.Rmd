@@ -1,0 +1,365 @@
+---
+title: "Support Vector Machines"
+author: "Jo Hardin"
+date: "November 9 & 11, 2021"
+output:
+  xaringan::moon_reader:
+    nature:
+      highlightlines: true
+      titleSlideClass: ["right", "top", "my-title"]
+---
+
+```{r include=FALSE}
+library(tidymodels)
+knitr::opts_chunk$set(
+  message=FALSE,
+  warning=FALSE)
+options(
+  digits = 5,
+  pillar.sigfig = 5
+  )
+```
+
+```{r echo = FALSE}
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+```
+
+# Agenda 11/09/21
+
+1. linearly separable
+2. dot products
+3. support vector formulation
+
+---
+
+## `tidymodels` syntax
+
+1. partition the data
+2. build a recipe
+3. select a model
+4. create a workflow
+5. fit the model  
+6. validate the model
+
+---
+
+## Support Vector Machines
+
+> SVMs create both linear and non-linear decision boundaries.  They are incredibly efficient because of the **kernel trick** which allows the computation to be done in a high dimension.
+
+---
+
+## Deriving SVM formulation
+
+$\rightarrow$ see class notes for all technical details
+
+* Mathematics of the optimization to find the widest linear boundary in a space where the two groups are completely separable.
+
+* Note from derivation: both the optimization and the application are based on dot products.
+
+* Transform the data to a higher space so that the points are linearly separable.  Perform SVM in that space.
+
+* Recognize that "performing SVM in higher space" is exactly equivalent to using a kernel in the original dimension.
+
+* Allow for points to cross the boundary using soft margins.
+
+---
+
+# Agenda 11/11/21
+
+1. not linearly separable (SVM)
+2. kernels (SVM)
+3. support vector formulation
+
+---
+
+******
+**Algorithm**:   Support Vector Machine
+
+******
+1. Using cross validation, find values of $C, \gamma, d, r$, etc.  (and the kernel function!)
+2. Using Lagrange multipliers (read: the computer), solve for $\alpha_i$ and $b$.
+3.  Classify an unknown observation (${\bf u}$) as "positive" if:
+$$\sum \alpha_i y_i \phi({\bf x}_i) \cdot \phi({\bf u}) + b  = \sum \alpha_i y_i K({\bf x}_i, {\bf u}) + b \geq 0$$
+
+******
+
+---
+---
+
+## SVM example w defaults
+
+```{r echo = FALSE}
+library(tidymodels)
+library(palmerpenguins)
+
+penguins <- penguins %>%
+  drop_na()
+
+set.seed(47)
+penguin_split <- initial_split(penguins)
+penguin_train <- training(penguin_split)
+penguin_test <- testing(penguin_split)
+```
+
+.panelset[
+
+.panel[.panel-name[recipe]
+```{r}
+penguin_svm_recipe <-
+  recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +
+           body_mass_g, data = penguin_train) %>%
+  step_normalize(all_predictors())
+
+summary(penguin_svm_recipe)
+```
+]
+
+.panel[.panel-name[model]
+```{r}
+penguin_svm_lin <- svm_linear() %>%
+  set_engine("LiblineaR") %>%
+  set_mode("classification")
+
+penguin_svm_lin
+```
+]
+
+.panel[.panel-name[workflow]
+
+```{r}
+penguin_svm_lin_wflow <- workflow() %>%
+  add_model(penguin_svm_lin) %>%
+  add_recipe(penguin_svm_recipe)
+
+penguin_svm_lin_wflow
+```
+]
+
+.panel[.panel-name[fit]
+.pull-left[
+```{r eval = FALSE}
+penguin_svm_lin_fit <- 
+  penguin_svm_lin_wflow %>%
+  fit(data = penguin_train)
+
+penguin_svm_lin_fit 
+```
+]
+.pull-right[
+```{r echo = FALSE}
+penguin_svm_lin_fit <- 
+  penguin_svm_lin_wflow %>%
+  fit(data = penguin_train)
+
+penguin_svm_lin_fit 
+```
+]
+
+]
+
+
+]
+
+---
+
+#### Fit again
+```{r echo = FALSE}
+penguin_svm_lin_fit 
+```
+
+---
+
+## SVM example w CV tuning (RBF kernel)
+
+.panelset[
+
+.panel[.panel-name[recipe]
+```{r}
+penguin_svm_recipe <-
+  recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +
+           body_mass_g, data = penguin_train) %>%
+  step_normalize(all_predictors())
+
+summary(penguin_svm_recipe)
+```
+]
+
+.panel[.panel-name[model]
+```{r}
+penguin_svm_rbf <- svm_rbf(cost = tune(),
+                           rbf_sigma = tune()) %>%
+  set_engine("kernlab") %>%
+  set_mode("classification")
+
+penguin_svm_rbf
+```
+]
+
+.panel[.panel-name[workflow]
+
+```{r}
+penguin_svm_rbf_wflow <- workflow() %>%
+  add_model(penguin_svm_rbf) %>%
+  add_recipe(penguin_svm_recipe)
+
+penguin_svm_rbf_wflow
+```
+]
+
+.panel[.panel-name[CV]
+```{r}
+set.seed(234)
+penguin_folds <- vfold_cv(penguin_train,
+                          v = 4)
+```
+]
+
+.panel[.panel-name[param]
+```{r}
+# the tuned parameters also have default values you can use
+penguin_grid <- grid_regular(cost(),
+                             rbf_sigma(),
+                             levels = 8)
+
+penguin_grid
+```
+]
+
+.panel[.panel-name[tune]
+```{r}
+# this takes a few minutes
+penguin_svm_rbf_tune <- 
+  penguin_svm_rbf_wflow %>%
+  tune_grid(resamples = penguin_folds,
+            grid = penguin_grid)
+
+penguin_svm_rbf_tune 
+```
+
+]
+
+
+]
+
+---
+##  SVM model output
+
+```{r fig.height = 5}
+penguin_svm_rbf_tune %>%
+  collect_metrics() %>%
+  filter(.metric == "accuracy") %>%
+  ggplot() + 
+  geom_line(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +
+  labs(color = "Cost")
+```
+
+---
+
+## SVM model output - take two
+
+```{r}
+penguin_svm_rbf_tune %>%
+  autoplot()
+```
+
+
+---
+
+## SVM Final model
+
+```{r}
+penguin_svm_rbf_best <- finalize_model(
+  penguin_svm_rbf,
+  select_best(penguin_svm_rbf_tune, "accuracy"))
+
+penguin_svm_rbf_best
+
+
+penguin_svm_rbf_final <-
+  workflow() %>%
+  add_model(penguin_svm_rbf_best) %>%
+  add_recipe(penguin_svm_recipe) %>%
+  fit(data = penguin_train)
+```
+
+---
+
+## SVM Final model
+
+```{r}
+penguin_svm_rbf_final
+```
+
+---
+
+## Test predictions
+
+```{r fig.height = 5}
+penguin_svm_rbf_final %>%
+  predict(new_data = penguin_test) %>%
+  cbind(penguin_test) %>%
+  select(sex, .pred_class) %>%
+  table()
+```
+
+```{r fig.height = 5}
+penguin_svm_rbf_final %>%
+  predict(new_data = penguin_test) %>%
+  cbind(penguin_test) %>%
+  conf_mat(sex, .pred_class)
+```
+
+---
+
+## Other measures
+
+```{r fig.height = 5}
+# https://yardstick.tidymodels.org/articles/metric-types.html
+class_metrics <- metric_set(accuracy, sensitivity, 
+                            specificity, f_meas)
+
+penguin_svm_rbf_final %>%
+  predict(new_data = penguin_test) %>%
+  cbind(penguin_test) %>%
+  class_metrics(truth = sex, estimate = .pred_class)
+```
+
+
+---
+
+## Bias-Variance Tradeoff
+
+```{r fig.cap = "Test and training error as a function of model complexity.  Note that the error goes down monotonically only for the training data.  Be careful not to overfit!!  image credit: ISLR", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/varbias.png")
+```
+
+---
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild1.png")
+```
+
+---
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild2.png")
+```
+
+
+
+---
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/", out.width = "70%", fig.align='center'}
+knitr::include_graphics("../images/modelbuild3.png")
+```
+
+
