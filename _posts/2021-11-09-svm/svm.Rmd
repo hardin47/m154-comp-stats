@@ -78,9 +78,9 @@ knitr::include_graphics("../../images/monster_support.jpg")
 
 * <a href = "https://www.tidymodels.org/learn/work/tune-svm/" target = "_blank">Tidymodels SVM vignette</a>
 
-* Julia Silge's blog <a href = "https://juliasilge.com/blog/hawaii-post-offices/" target_"blank">SVMs to predict if a post office is in Hawaii</a>
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/hawaii-post-offices/" target = "_blank">SVMs to predict if a post office is in Hawaii</a>
 
-* Julia Silge's blog <a href = "https://juliasilge.com/blog/netflix-titles/" target_"blank">SVMs to predict Netflix shows as TV or movies</a>
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/netflix-titles/" target = "_blank">SVMs to predict Netflix shows as TV or movies</a>
 
 
 

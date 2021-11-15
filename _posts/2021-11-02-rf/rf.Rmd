@@ -44,7 +44,7 @@ knitr::include_graphics("../../images/parsnip.png")
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
-* How does bagging improve on a single tree?  How does tuning `mtry` improve on a single tree?
+* How does bagging improve on a single tree?  How does tuning `mtry` (with aggregation) improve on a single tree?  (That is, what advantage do forests have over single trees.)
 
 * How do Random Forests make predictions on test data?
 
