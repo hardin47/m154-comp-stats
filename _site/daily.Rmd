@@ -13,4 +13,7 @@ listing:
    - 2021-10-26-knn-trees
    - 2021-11-02-rf
    - 2021-11-09-svm
+   - 2021-11-18-clustering
+   - 2021-11-30-review2
+   - 2021-12-07-extensions
 ---

@@ -1,0 +1,30 @@
+---
+title: "14. Awesome extensions"
+description: |
+  So many topics, so little time.  A short survey on some of the many many topics we could have covered but didn't.
+author:
+  - name: Johanna Hardin
+    url: https://m154-comp-stats.netlify.app/  
+date: 2021-12-07
+citation: false
+draft: false
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "As a demonstration of principal component analysis, a shark needs a linear transformation to eat as much krill as possible.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/whalekrill.png" )
+```
+
+
+
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+
+### December 7, 2021
+
+
+
