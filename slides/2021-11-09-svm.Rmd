@@ -253,6 +253,7 @@ penguin_svm_rbf_tune %>%
   filter(.metric == "accuracy") %>%
   ggplot() + 
   geom_line(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +
+  geom_point(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +
   labs(color = "Cost")
 ```
 
