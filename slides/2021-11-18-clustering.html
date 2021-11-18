@@ -77,8 +77,8 @@ https://www.naftaliharris.com/blog/visualizing-k-means-clustering/
 
 ******
 1. Randomly assign a number, from 1 to `\(k\)`, to each of the observations.  These serve as initial cluster assignments for the observations.
-2. Iterate until the cluster assignments stop changing:
-    (a) For each of the `\(k\)` clusters, compute the cluster centroid. The `\(k^{th}\)` cluster centroid is the vector of the `\(p\)` feature means for the observations in the `\(k^{th}\)` cluster.
+2. Iterate until the cluster assignments stop changing:  
+    (a) For each of the `\(k\)` clusters, compute the cluster centroid. The `\(k^{th}\)` cluster centroid is the vector of the `\(p\)` feature means for the observations in the `\(k^{th}\)` cluster.  
     (b) Assign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance).
 3.  Ties?  Do something consistent:  for example, leave in the current cluster.
 
