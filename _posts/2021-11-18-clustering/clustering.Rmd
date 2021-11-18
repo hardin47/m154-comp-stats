@@ -29,7 +29,7 @@ knitr::include_graphics("../../images/kmeans_5.jpg")
 1. k-means clustering
 2. k-medoid clustering
 
-### November 20, 2021
+### November 23, 2021
 
 1. hierarchical clustering
 
@@ -42,14 +42,25 @@ knitr::include_graphics("../../images/kmeans_5.jpg")
 
 ## Reflection questions <i class="fas fa-lightbulb"></i>
 
+* Why does the plot of within-cluster sum of squares vs. $k$ make an elbow-shape (hint: think about $k$ as it ranges from 1 to $n)?$
 
+* How are the centers of the clusters in $k$-means calculated?  What about in $k$-medoids?
+
+* Will a different initialization of the cluster centers always produce the same cluster output?
 
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
+* What type of feature engineering is required for $k$-means / hierarchical clustering?
 
+* How do you (can you?) know if your clustering has uncovered any real patterns in the data?
 
 ## Slides <i class="fas fa-desktop"></i> 
 
+* <a href = "https://m154-comp-stats.netlify.app/slides/2021-11-18-clustering" target = "_blank">In class slides - clustering</a> for 11/18/21 and 11/23/21.
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU19_kmeans.pdf" target = "_blank">WU19 - k-means clustering</a>
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU20_hclust.pdf" target = "_blank">WU20 - hierarchical clustering</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

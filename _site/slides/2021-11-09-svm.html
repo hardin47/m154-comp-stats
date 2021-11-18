@@ -415,10 +415,14 @@ penguin_svm_rbf_tune %&gt;%
   filter(.metric == "accuracy") %&gt;%
   ggplot() + 
   geom_line(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +
-  labs(color = "Cost")
+  geom_point(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +
+  labs(color = "Cost") +
+  scale_x_continuous(trans='log10')
 ```
 
 ![](2021-11-09-svm_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+
+
 
 ---
 
@@ -427,10 +431,18 @@ penguin_svm_rbf_tune %&gt;%
 
 ```r
 penguin_svm_rbf_tune %&gt;%
-  autoplot()
+  collect_metrics() %&gt;%
+  filter(.metric == "accuracy") %&gt;%
+  ggplot() + 
+  geom_line(aes(color = as.factor(rbf_sigma), y = mean, x = cost)) +
+  geom_point(aes(color = as.factor(rbf_sigma), y = mean, x = cost)) +
+  labs(color = "Cost") +
+  scale_x_continuous(trans='log10')
 ```
 
 ![](2021-11-09-svm_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
+
+
 
 
 ---

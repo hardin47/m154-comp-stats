@@ -1,0 +1,230 @@
+---
+title: "Clustering"
+author: "Jo Hardin"
+date: "November 18 & 23, 2021"
+output:
+  xaringan::moon_reader:
+    nature:
+      highlightlines: true
+      titleSlideClass: ["right", "top", "my-title"]
+---
+
+```{r include=FALSE}
+library(tidymodels)
+knitr::opts_chunk$set(
+  message=FALSE,
+  warning=FALSE)
+options(
+  digits = 5,
+  pillar.sigfig = 5
+  )
+```
+
+```{r echo = FALSE}
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+```
+
+# Agenda 11/18/21
+
+1. Unsupervised learning
+2. k-means clustering
+3. k-medoids clustering
+
+---
+
+## Unsupervised learning
+
+> Grouping or categorizing observational units (objects) without any pre-assigned labels or scores (no outcome information!)
+
+---
+
+## Some examples:
+
+* Latent Dirichlet Allocation:  <a href="https://ziqixiong.shinyapps.io/TopicModeling/" target = "_blank">Topic Modeling of TSL Articles</a>
+
+* Network Analysis: <a href = "https://espresso.economist.com/6412121cbb2dc2cb9e460cfee7046be2" target = "_blank">Political Books</a>
+
+* Network & Clustering: <a href = "http://varianceexplained.org/r/love-actually-network/" target = "_blank">Characters in 'Love Actually'</a>
+
+
+---
+## $k$-means Clustering
+
+$k$-means clustering is an unsupervised partitioning algorithm designed to find a partition of the observations such that the following objective function is minimized (find the smallest within cluster sum of squares):
+
+$$\text{arg}\,\min\limits_{C_1, \ldots, C_k} \Bigg\{ \sum_{k=1}^K \sum_{i \in C_k} \sum_{j=1}^p (x_{ij} - \overline{x}_{kj})^2 \Bigg\}$$
+---
+
+# Monsters clustering
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters as cluster centers moving around throughout the k-means algorithm.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/kmeans.gif")
+```
+
+---
+
+## A fun applet!! 
+
+https://www.naftaliharris.com/blog/visualizing-k-means-clustering/
+
+---
+
+
+******
+**Algorithm**:   $k$-Means Clustering
+
+******
+1. Randomly assign a number, from 1 to $k$, to each of the observations.  These serve as initial cluster assignments for the observations.
+2. Iterate until the cluster assignments stop changing:
+    (a) For each of the $k$ clusters, compute the cluster centroid. The $k^{th}$ cluster centroid is the vector of the $p$ feature means for the observations in the $k^{th}$ cluster.
+    (b) Assign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance).
+3.  Ties?  Do something consistent:  for example, leave in the current cluster.
+
+******
+
+---
+
+## Convergence?  Yes!  (local...)
+
+1. If a point is "closer" to a different center, moving it will lower the objective function.
+
+2. Averages minimize squared differences, so taking the new average will result in a lower objective function.
+
+3. If a point is equidistant from two clusters, the point won't move.
+
+4. The algorithm must converge in finite number of steps because there are finitely many points.
+
+---
+
+## Scaling
+
+```{r echo = FALSE}
+set.seed(47)
+norm_clust <- data.frame(
+  x1 = rnorm(1000, 0, 15),
+  x2 = c(rnorm(500, 5, 1), rnorm(500, 0, 1)))
+```
+
+.panelset[
+
+.panel[.panel-name[raw data]
+.pull-left[
+```{r eval = FALSE}
+norm_clust %>%
+  kmeans(centers = 2) %>%
+  augment(norm_clust) %>%
+  ggplot() + 
+  geom_point(aes(x = x1, 
+                 y = x2, 
+                 color = .cluster)) +
+  ggtitle("k-means (k=2) on raw data")
+```
+]
+.pull-right[
+```{r echo = FALSE}
+norm_clust %>%
+  kmeans(centers = 2) %>%
+  augment(norm_clust) %>%
+  ggplot() + 
+  geom_point(aes(x = x1, 
+                 y = x2, 
+                 color = .cluster)) +
+  ggtitle("k-means (k=2) on raw data")
+```
+]
+]
+
+.panel[.panel-name[scaled data]
+.pull-left[
+```{r eval = FALSE}
+norm_clust %>%
+  mutate(across(everything(), scale)) %>%
+  kmeans(centers = 2) %>%
+  augment(norm_clust) %>%
+  ggplot() + 
+  geom_point(aes(x = x1, 
+                 y = x2, 
+                 color = .cluster)) +
+  ggtitle("k-means (k=2) on raw data")
+```
+]
+.pull-right[
+```{r echo = FALSE}
+norm_clust %>%
+  mutate(across(everything(), scale)) %>%
+  kmeans(centers = 2) %>%
+  augment(norm_clust) %>%
+  ggplot() + 
+  geom_point(aes(x = x1, 
+                 y = x2, 
+                 color = .cluster)) +
+  ggtitle("k-means (k=2) on raw data")
+```
+]
+]
+
+---
+
+## k-Medoids
+
+
+
+
+---
+
+# Agenda 11/23/21
+
+1. hierarchical clustering
+
+---
+
+## Hierarchical Clustering
+
+> is a set of nested clusters that are organized as a tree.  Note that objects that belong to a child cluster also belong to the parent cluster.
+
+---
+
+******
+**Algorithm**:  Agglomerative Hierarchical Clustering Algorithm
+
+******
+1. Begin with $n$ observations and a measure (such as Euclidean distance) of all the ${n \choose 2} = n(n-1)/2$ pairwise dissimilarities. Treat each observation as its own cluster.
+2. For $i = n, n - 1, \ldots , 2$:
+
+(a) Examine all pairwise inter-cluster dissimilarities among the $i$ clusters and identify the pair of clusters that are least dissimilar (that is, most similar). Fuse these two clusters. The dissimilarity between these two clusters indicates the height in the dendrogram at which the fusion should be placed.
+(b) Compute the new pairwise inter-cluster dissimilarities among the $i - 1$ remaining clusters.
+
+******
+
+---
+
+## Definitions
+
+**Agglomerative** methods start with each object (e.g., gene, penguin, etc.) in its own group.  Groups are merged until all objects are together in one group.
+
+**Divisive** methods start with all objects in one group and break up the groups sequentially until all objects are individuals.
+
+**Single Linkage** algorithm defines the distance between groups as that of the closest pair of individuals.
+
+**Complete Linkage** algorithm defines the distance between groups as that of the farthest pair of individuals.
+
+**Average Linkage** algorithm defines the distance between groups as the average of the distances between all pairs of individuals across the groups.
+
+---
+
+## Toy example
+
+of **Single Linkage Agglomerative Hierarchical Clustering**
+
+
+|  	| A 	|  B	| C 	|  D	| E |
+|----	|-----	|-----	|-----	|----	|----	|
+| A 	| 0 	|  	|  	|  	|  |
+| B 	| 0.2 	| 0 	|  	|  	|  |
+| C 	| 0.6 	| 0.5 	| 0  	|  	|  |
+| D 	| 1 	| 0.9 	| 0.4 	| 0 	|  |
+| E 	| 0.9 	| 0.8 	| 5 	| 0.3 	|  0 |
+
+---

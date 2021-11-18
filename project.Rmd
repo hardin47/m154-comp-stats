@@ -89,7 +89,7 @@ Your initial (via email) and revised (via GitHub) proposals should contain the f
 
 ## Update
 
-Please respond to the following three questions via email by the end of the day Friday, November 19th.
+Please respond to the following three questions (posted to your GitHub repo) by the end of the day Friday, November 19th.
 
 1. Have you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.
 
@@ -110,7 +110,7 @@ On Friday/Wednesday, December 10/14th, your group will make a 10-12 minute oral 
 
 You should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Markdown slides (<a href = "http://rmarkdown.rstudio.com/ioslides_presentation_format.html" target = "_blank">ioslides</a>, <a href = "http://rmarkdown.rstudio.com/slidy_presentation_format.html" target = "_blank">Slidy</a>, or <a href = "http://rmarkdown.rstudio.com/revealjs_presentation_format.html" target = "_blank">reveal.js</a>), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like <a href = "http://prezi.com/" target = "_blank">Prezi</a>. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!
 
-You will need to email me or submit your slides to GitHub before your presentation, but you should also bring the slides on a flash drive as a backup. You should plan to not hook up your laptop to the computer in Millikan 1021 (unless you have good reason and have spoken to me about it beforehand).
+You will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to **not** hook up your laptop to the computer in Millikan 1021 (unless you have good reason and have spoken to me about it beforehand).
 
 ### Advice
 
@@ -197,7 +197,7 @@ url = {https://CRAN.R-project.org/package=dplyr},
 
 Ideally, all group members would be equally involved and able and committed to the project. In reality, it doesn't always work that way. Individuals should be rewarded fairly for their group efforts; it's inevitable that there will be variation in how high a priority people put on this class and how much effort they put into this project.
 
-To this end, I would like each of you (individually) to describe how well (or how poorly!) your project group worked together and shared the load. This can take the form of an email, to be submitted by the Wednesday December 14th. Also give some specific comments describing each member's overall effort. Were there certain group members who really put out exceptional effort and deserve special recognition? Conversely, were there group members who really weren't carrying their own weight? And then, at the end of your assessment, estimate the percentage of the total amount of work/effort done by each member. (Be sure your percentages sum to 100%!)
+To this end, I would like each of you (individually) to describe how well (or how poorly!) your project group worked together and shared the load. This can take the form of an email (not GitHub because of the personal nature), to be submitted by the Wednesday December 14th. Also give some specific comments describing each member's overall effort. Were there certain group members who really put out exceptional effort and deserve special recognition? Conversely, were there group members who really weren't carrying their own weight? And then, at the end of your assessment, estimate the percentage of the total amount of work/effort done by each member. (Be sure your percentages sum to 100%!)
 
 For example, suppose you have 3 group members: X, Y and Z. In the event that each member contributed equally, you could assign:
 

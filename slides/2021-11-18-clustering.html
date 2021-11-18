@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Clustering</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Jo Hardin" />
+    <script src="2021-11-18-clustering_files/header-attrs-2.11.3/header-attrs.js"></script>
+    <link href="2021-11-18-clustering_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="2021-11-18-clustering_files/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="2021-11-18-clustering_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="2021-11-18-clustering_files/panelset-0.2.6/panelset.js"></script>
+  </head>
+  <body>
+    <textarea id="source">
+class: right, top, my-title, title-slide
+
+# Clustering
+### Jo Hardin
+### November 18 &amp; 23, 2021
+
+---
+
+
+
+
+
+
+# Agenda 11/18/21
+
+1. Unsupervised learning
+2. k-means clustering
+3. k-medoids clustering
+
+---
+
+## Unsupervised learning
+
+&gt; Grouping or categorizing observational units (objects) without any pre-assigned labels or scores (no outcome information!)
+
+---
+
+## Some examples:
+
+* Latent Dirichlet Allocation:  &lt;a href="https://ziqixiong.shinyapps.io/TopicModeling/" target = "_blank"&gt;Topic Modeling of TSL Articles&lt;/a&gt;
+
+* Network Analysis: &lt;a href = "https://espresso.economist.com/6412121cbb2dc2cb9e460cfee7046be2" target = "_blank"&gt;Political Books&lt;/a&gt;
+
+* Network &amp; Clustering: &lt;a href = "http://varianceexplained.org/r/love-actually-network/" target = "_blank"&gt;Characters in 'Love Actually'&lt;/a&gt;
+
+
+---
+## `\(k\)`-means Clustering
+
+`\(k\)`-means clustering is an unsupervised partitioning algorithm designed to find a partition of the observations such that the following objective function is minimized (find the smallest within cluster sum of squares):
+
+`$$\text{arg}\,\min\limits_{C_1, \ldots, C_k} \Bigg\{ \sum_{k=1}^K \sum_{i \in C_k} \sum_{j=1}^p (x_{ij} - \overline{x}_{kj})^2 \Bigg\}$$`
+---
+
+# Monsters clustering
+
+&lt;div class="figure"&gt;
+&lt;img src="../images/kmeans.gif" alt="Monsters as cluster centers moving around throughout the k-means algorithm."  /&gt;
+&lt;p class="caption"&gt;Artwork by @allison_horst.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## A fun applet!! 
+
+https://www.naftaliharris.com/blog/visualizing-k-means-clustering/
+
+---
+
+
+******
+**Algorithm**:   `\(k\)`-Means Clustering
+
+******
+1. Randomly assign a number, from 1 to `\(k\)`, to each of the observations.  These serve as initial cluster assignments for the observations.
+2. Iterate until the cluster assignments stop changing:
+    (a) For each of the `\(k\)` clusters, compute the cluster centroid. The `\(k^{th}\)` cluster centroid is the vector of the `\(p\)` feature means for the observations in the `\(k^{th}\)` cluster.
+    (b) Assign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance).
+3.  Ties?  Do something consistent:  for example, leave in the current cluster.
+
+******
+
+---
+
+## Convergence?  Yes!  (local...)
+
+1. If a point is "closer" to a different center, moving it will lower the objective function.
+
+2. Averages minimize squared differences, so taking the new average will result in a lower objective function.
+
+3. If a point is equidistant from two clusters, the point won't move.
+
+4. The algorithm must converge in finite number of steps because there are finitely many points.
+
+---
+
+## Scaling
+
+
+
+.panelset[
+
+.panel[.panel-name[raw data]
+.pull-left[
+
+```r
+norm_clust %&gt;%
+  kmeans(centers = 2) %&gt;%
+  augment(norm_clust) %&gt;%
+  ggplot() + 
+  geom_point(aes(x = x1, 
+                 y = x2, 
+                 color = .cluster)) +
+  ggtitle("k-means (k=2) on raw data")
+```
+]
+.pull-right[
+![](2021-11-18-clustering_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+]
+]
+
+.panel[.panel-name[scaled data]
+.pull-left[
+
+```r
+norm_clust %&gt;%
+  mutate(across(everything(), scale)) %&gt;%
+  kmeans(centers = 2) %&gt;%
+  augment(norm_clust) %&gt;%
+  ggplot() + 
+  geom_point(aes(x = x1, 
+                 y = x2, 
+                 color = .cluster)) +
+  ggtitle("k-means (k=2) on raw data")
+```
+]
+.pull-right[
+![](2021-11-18-clustering_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+]
+]
+
+---
+
+## k-Medoids
+
+
+
+
+---
+
+# Agenda 11/23/21
+
+1. hierarchical clustering
+
+---
+
+## Hierarchical Clustering
+
+&gt; is a set of nested clusters that are organized as a tree.  Note that objects that belong to a child cluster also belong to the parent cluster.
+
+---
+
+******
+**Algorithm**:  Agglomerative Hierarchical Clustering Algorithm
+
+******
+1. Begin with `\(n\)` observations and a measure (such as Euclidean distance) of all the `\({n \choose 2} = n(n-1)/2\)` pairwise dissimilarities. Treat each observation as its own cluster.
+2. For `\(i = n, n - 1, \ldots , 2\)`:
+
+(a) Examine all pairwise inter-cluster dissimilarities among the `\(i\)` clusters and identify the pair of clusters that are least dissimilar (that is, most similar). Fuse these two clusters. The dissimilarity between these two clusters indicates the height in the dendrogram at which the fusion should be placed.
+(b) Compute the new pairwise inter-cluster dissimilarities among the `\(i - 1\)` remaining clusters.
+
+******
+
+---
+
+## Definitions
+
+**Agglomerative** methods start with each object (e.g., gene, penguin, etc.) in its own group.  Groups are merged until all objects are together in one group.
+
+**Divisive** methods start with all objects in one group and break up the groups sequentially until all objects are individuals.
+
+**Single Linkage** algorithm defines the distance between groups as that of the closest pair of individuals.
+
+**Complete Linkage** algorithm defines the distance between groups as that of the farthest pair of individuals.
+
+**Average Linkage** algorithm defines the distance between groups as the average of the distances between all pairs of individuals across the groups.
+
+---
+
+## Toy example
+
+of **Single Linkage Agglomerative Hierarchical Clustering**
+
+
+|  	| A 	|  B	| C 	|  D	| E |
+|----	|-----	|-----	|-----	|----	|----	|
+| A 	| 0 	|  	|  	|  	|  |
+| B 	| 0.2 	| 0 	|  	|  	|  |
+| C 	| 0.6 	| 0.5 	| 0  	|  	|  |
+| D 	| 1 	| 0.9 	| 0.4 	| 0 	|  |
+| E 	| 0.9 	| 0.8 	| 5 	| 0.3 	|  0 |
+
+---
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightlines": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
