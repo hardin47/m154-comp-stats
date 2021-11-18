@@ -140,7 +140,8 @@ norm_clust %>%
 .pull-left[
 ```{r eval = FALSE}
 norm_clust %>%
-  mutate(across(everything(), scale)) %>%
+  mutate(across(everything(), 
+                scale)) %>%
   kmeans(centers = 2) %>%
   augment(norm_clust) %>%
   ggplot() + 
@@ -153,7 +154,8 @@ norm_clust %>%
 .pull-right[
 ```{r echo = FALSE}
 norm_clust %>%
-  mutate(across(everything(), scale)) %>%
+  mutate(across(everything(), 
+                scale)) %>%
   kmeans(centers = 2) %>%
   augment(norm_clust) %>%
   ggplot() + 
@@ -164,14 +166,48 @@ norm_clust %>%
 ```
 ]
 ]
-
+]
 ---
 
 ## k-Medoids
 
+Shortcomings of k-means
 
+* Center is calculated as average (establishes Euclidean distance)
 
+* Because center changes, distances must be re-calculated
 
+* Really, only Euclidean distance makes sense
+
+---
+## Partitioning Around Medoids (PAM)
+
+Find the observations (data values!) $m_k$ that solve:
+
+$$\text{arg}\,\min\limits_{C_1, \ldots, C_k} \Bigg\{ \sum_{k=1}^K \sum_{i \in C_k}d(x_i, m_k) \Bigg\}$$
+---
+
+## Evaluating clustering (which $k$?)
+
+* Silhouette Width (use $k$ with smallest silhouette width)
+
+* Elbow plot (use $k$ at elbow on plot of $k$ vs. within cluster sum of squares)
+
+---
+
+## Silhouette width
+
+Consider observation $i \in$ cluster $C_1$.  Let
+\begin{align}
+d(i, C_k) &= \mbox{average dissimilarity of } i \mbox{ to all objects in cluster } C_k\\
+a(i) &=  \mbox{average dissimilarity of } i \mbox{ to all objects in } C_1.\\
+b(i) &= \min_{C_k \ne C_1} d(i,C_k) = \mbox{distance to the next closest neighbor cluster}\\
+s(i) &= \frac{b(i) - a(i)}{\max \{ a(i), b(i) \}}\\
+& &\\
+\mbox{average}_{i \in C_1} s(i) &= \mbox{average silhouette width for cluster } C_1
+\end{align}
+
+Note that if $a(i) < b(i)$ then $i$ is well classified with a maximum $s(i) = 1$.   If $a(i) > b(i)$ then $i$ is *not* well classified with a maximum $s(i) = -1$.
 ---
 
 # Agenda 11/23/21
