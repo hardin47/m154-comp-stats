@@ -26,6 +26,7 @@ knitr::include_graphics("../../images/nominal_ordinal_binary.png")
 
 0. Reflection on supervised & unsupervised learning
 1. Q & A
+2. Take home 2 due at midnight.
 
 
 ### December 2 & 3, 2021
@@ -54,8 +55,13 @@ knitr::include_graphics("../../images/nominal_ordinal_binary.png")
 
 * Each week's slides are given separately, see the <a href = "https://m154-comp-stats.netlify.app/daily.html" target="_blank">Daily</a> (read: weekly) pages.
 
+
+* Each week's warm-up solutions are given separately, see the <a href = "https://m154-comp-stats.netlify.app/daily.html" target="_blank">Daily</a> (read: weekly) pages.
+
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
 * Each week's warm-up exercises are given separately, see the <a href = "https://m154-comp-stats.netlify.app/daily.html" target="_blank">Daily</a> (read: weekly) pages.
+
+* All solutions to HW (including the assignments that weren't due, like HW 11 on clustering) are on Sakai.
 
 

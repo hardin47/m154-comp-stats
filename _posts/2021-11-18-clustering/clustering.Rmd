@@ -1,7 +1,7 @@
 ---
 title: "12. Clustering"
 description: |
-  A short description of the post.
+  A quick dive into unsupervised methods.  We cover two clutering methods: partitioning (k-means and k-medoids) and hierarchical.
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
