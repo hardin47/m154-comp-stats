@@ -1,7 +1,7 @@
 ---
 title: "13. Second half review"
 description: |
-  Resources for review of the first half of the semester.
+  Resources for review of the second half of the semester.
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
