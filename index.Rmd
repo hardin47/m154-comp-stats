@@ -26,7 +26,7 @@ Each week, follow the general process outlined below:
 
 ```{r echo = FALSE}
 schedule <- tribble(
-  ~date, ~topic, ~readings, ~questions, ~ethics, ~slides, ~resources,
+  ~`date`, ~topic, ~readings, ~questions, ~ethics, ~slides, ~resources,
   "8.31.21", '<a href="posts/2021-08-31-getting-started/">starting with R + RStudio + Git</a>',
   '<a href="posts/2021-08-31-getting-started/#readings"><i class="fas fa-book-open"></i></a>',
   '<a href="posts/2021-08-31-getting-started/#reflection-questions"><i class="fas fa-lightbulb"></i></a>',
@@ -98,15 +98,16 @@ schedule <- tribble(
   '<a href="posts/2021-11-09-svm/#ethics-considerations"><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href="posts/2021-11-09-svm/#slides"><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href="posts/2021-11-09-svm/#additional-resources"><i class="fas fa-laptop"></i></a>',
- "11.18.21", '<a href="posts/2021-11-18-clustering/">clustering</a>',
+  '<font color = "#114B5F"><b>11.18.21</b></font>', '<font color = "#114B5F"><b>Data-ing in the World</b></font>', "","","","","",
+"11.18.21", '<a href="posts/2021-11-18-clustering/">clustering</a>',
   '<a href="posts/2021-11-18-clustering/#readings"><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href="posts/2021-11-18-clustering/#reflection-questions"><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href="posts/2021-11-18-clustering/#ethics-considerations"><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href="posts/2021-11-18-clustering/#slides"><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href="posts/2021-11-18-clustering/#additional-resources"><i class="fas fa-laptop"></i></a>',
   '<font color = "#114B5F"><b>11.19.21</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Project Update</b></font></a>', "","","","","",
- "11.23.21", '<a href="posts/2021-11-18-clustering/">clustering</a>',
-  '<a href="posts/2021-11-18-clustering/#readings"><i class="fas fa-book-open" target="_blank"></i></a>',
+"11.23.21", '<a href="posts/2021-11-18-clustering/">clustering</a>',
+  '<a href="posts/2021-11-18-clustering/#readings"><i class="fas fa-book-open" target="_blank"></i></a>', 
   '<a href="posts/2021-11-18-clustering/#reflection-questions"><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href="posts/2021-11-18-clustering/#ethics-considerations"><i class="fas fa-balance-scale" target="_blank"></i></a>',
   '<a href="posts/2021-11-18-clustering/#slides"><i class="fas fa-desktop" target="_blank"></i></a>',
