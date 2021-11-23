@@ -175,22 +175,85 @@ Find the observations (data values!) `\(m_k\)` that solve:
 ## Silhouette width
 
 Consider observation `\(i \in\)` cluster `\(C_1\)`.  Let
-`\begin{align}
-d(i, C_k) &amp;= \mbox{average dissimilarity of } i \mbox{ to all objects in cluster } C_k\\
-a(i) &amp;=  \mbox{average dissimilarity of } i \mbox{ to all objects in } C_1.\\
-b(i) &amp;= \min_{C_k \ne C_1} d(i,C_k) = \mbox{distance to the next closest neighbor cluster}\\
-s(i) &amp;= \frac{b(i) - a(i)}{\max \{ a(i), b(i) \}}\\
-&amp; &amp;\\
-\mbox{average}_{i \in C_1} s(i) &amp;= \mbox{average silhouette width for cluster } C_1
-\end{align}`
+
+`$$d(i, C_k) = \mbox{average dissimilarity of } i \mbox{ to all objects in cluster } C_k$$`
+`$$a(i) =  \mbox{average dissimilarity of } i \mbox{ to all objects in } C_1.$$`
+`$$b(i) = \min_{C_k \ne C_1} d(i,C_k) = \mbox{distance to the next closest neighbor cluster}$$`
+`$$s(i) = \frac{b(i) - a(i)}{\max \{ a(i), b(i) \}}$$`
+`$$\mbox{average}_{i \in C_1} s(i) = \mbox{average silhouette width for cluster } C_1$$`
 
 Note that if `\(a(i) &lt; b(i)\)` then `\(i\)` is well classified with a maximum `\(s(i) = 1\)`.   If `\(a(i) &gt; b(i)\)` then `\(i\)` is *not* well classified with a maximum `\(s(i) = -1\)`.
 ---
 
 # Agenda 11/23/21
 
-1. hierarchical clustering
+1. distance metrics
+2. hierarchical clustering
 
+
+---
+
+## Distance metric (mathematically)
+
+1. `\(d({\bf x}, {\bf y}) \geq 0\)`
+2. `\(d({\bf x}, {\bf y}) = d({\bf y}, {\bf x})\)`
+3. `\(d({\bf x}, {\bf y}) = 0\)` iff `\({\bf x} = {\bf y}\)`
+4. `\(d({\bf x}, {\bf y}) \leq d({\bf x}, {\bf z}) + d({\bf z}, {\bf y})\)`  for all other vectors `\({\bf z}\)`.
+
+---
+
+## Distance measures (for clustering)
+
+* Euclidean Distance
+
+`$$d_E({\bf x}, {\bf y}) = \sqrt{\sum_{i=1}^p (x_i - y_i)^2}$$`
+* Pearson Correlation Distance
+
+
+`$$d_P({\bf x}, {\bf y}) = 1 - r_P ({\bf x}, {\bf y})$$`
+`$$\mbox{ or } d_P({\bf x}, {\bf y}) =  1 - |r_P ({\bf x}, {\bf y})|$$`
+`$$\mbox{ or } d_P({\bf x}, {\bf y}) =  1 - (r_P ({\bf x}, {\bf y}))^2$$`
+
+---
+
+## Distance measures (for clustering)
+
+*  Cosine Distance 
+
+
+`$$d_C({\bf x}, {\bf y}) =  \frac{{\bf x} \cdot {\bf y}}{|| {\bf x} ||  ||{\bf y}||}$$`
+`$$= \frac{\sum_{i=1}^p x_i y_i}{\sqrt{\sum_{i=1}^p x_i^2 \sum_{i=1}^p y_i^2}}$$`
+`$$= 1 - r_P ({\bf x}, {\bf y})  \ \ \ \ \mbox{if } \overline{\bf x} = \overline{\bf y} = 0$$`
+* Hamming Distance
+
+`\begin{align}
+d_H({\bf x}, {\bf y}) = \sum_{i=1}^p I(x_i \ne y_i)
+\end{align}`
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/hamdistGCTA.png" alt="The Hamming distance across the two DNA strands is 7." width="60%" /&gt;
+&lt;p class="caption"&gt;The Hamming distance across the two DNA strands is 7.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+## `dist` function in R
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/distR.png" alt="The function `dist` in `R` calculates the distances given above." width="100%" /&gt;
+&lt;p class="caption"&gt;The function `dist` in `R` calculates the distances given above.&lt;/p&gt;
+&lt;/div&gt;
+
+---
+
+#### String distances
+https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="../images/text-distance-infographics.png" alt="Comparison of string distance metrics from https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html." width="100%" /&gt;
+&lt;p class="caption"&gt;Comparison of string distance metrics from https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html.&lt;/p&gt;
+&lt;/div&gt;
 ---
 
 ## Hierarchical Clustering
@@ -204,10 +267,9 @@ Note that if `\(a(i) &lt; b(i)\)` then `\(i\)` is well classified with a maximum
 
 ******
 1. Begin with `\(n\)` observations and a measure (such as Euclidean distance) of all the `\({n \choose 2} = n(n-1)/2\)` pairwise dissimilarities. Treat each observation as its own cluster.
-2. For `\(i = n, n - 1, \ldots , 2\)`:
-
-(a) Examine all pairwise inter-cluster dissimilarities among the `\(i\)` clusters and identify the pair of clusters that are least dissimilar (that is, most similar). Fuse these two clusters. The dissimilarity between these two clusters indicates the height in the dendrogram at which the fusion should be placed.
-(b) Compute the new pairwise inter-cluster dissimilarities among the `\(i - 1\)` remaining clusters.
+2. For `\(i = n, n - 1, \ldots , 2\)`:  
+   a. Examine all pairwise inter-cluster dissimilarities among the `\(i\)` clusters and identify the pair of clusters that are least dissimilar (that is, most similar). Fuse these two clusters. The dissimilarity between these two clusters indicates the height in the dendrogram at which the fusion should be placed.  
+   b. Compute the new pairwise inter-cluster dissimilarities among the `\(i - 1\)` remaining clusters.
 
 ******
 
@@ -241,6 +303,57 @@ of **Single Linkage Agglomerative Hierarchical Clustering**
 | E 	| 0.9 	| 0.8 	| 5 	| 0.3 	|  0 |
 
 ---
+
+## Hierarchical clustering in R
+
+
+
+
+```r
+penguins_h &lt;- penguins %&gt;%
+  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) %&gt;%
+  select(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) %&gt;%
+  mutate(across(bill_length_mm:body_mass_g, scale))
+
+penguin_hclust &lt;- penguins_h %&gt;%
+  dist() %&gt;%
+  hclust(method = "complete")
+
+penguin_hclust
+```
+
+```
+## 
+## Call:
+## hclust(d = ., method = "complete")
+## 
+## Cluster method   : complete 
+## Distance         : euclidean 
+## Number of objects: 342
+```
+
+```r
+penguin_dend &lt;- as.dendrogram(penguin_hclust)
+```
+
+---
+
+## The basic dendrogram
+
+
+```r
+plot(penguin_hclust)
+```
+
+![](2021-11-18-clustering_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+---
+## Colored dendrogram
+
+![](2021-11-18-clustering_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

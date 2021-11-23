@@ -48,6 +48,14 @@ knitr::include_graphics("../../images/kmeans_5.jpg")
 
 * Will a different initialization of the cluster centers always produce the same cluster output?
 
+* How do distance metrics change a hierarchical clustering?  
+
+* How can you choose $k$ with hierarchical clustering?
+
+* What is the difference between single, average, and complete linkage in hierarchical clustering?
+
+* What is the difference between agglomerative and divisive hierarchical clustering?
+
 ## Ethics considerations <i class="fas fa-balance-scale"></i> 
 
 * What type of feature engineering is required for $k$-means / hierarchical clustering?
