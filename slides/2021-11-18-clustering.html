@@ -215,6 +215,95 @@ Note that if `\(a(i) &lt; b(i)\)` then `\(i\)` is well classified with a maximum
 `$$\mbox{ or } d_P({\bf x}, {\bf y}) =  1 - (r_P ({\bf x}, {\bf y}))^2$$`
 
 ---
+#### Correlation distance isn't a distance metric!
+
+
+```r
+x1 &lt;- c(1,2,3)
+x2 &lt;- c(1, 4, 10)
+x3 &lt;- c(9, 2, 2)
+
+# d(1,2)
+1 - cor(x1, x2)
+```
+
+```
+## [1] 0.018019
+```
+
+```r
+# d(1,3)
+1 - cor(x1, x3)
+```
+
+```
+## [1] 1.866
+```
+
+```r
+# d(2,3)
+1 - cor(x2, x3)
+```
+
+```
+## [1] 1.7559
+```
+
+```r
+# d(1,3) &gt; d(1,2) + d(2,3)
+1 - cor(x1, x2) + 1 - cor(x2, x3)
+```
+
+```
+## [1] 1.7739
+```
+---
+
+#### Correlation distance isn't a distance metric!
+
+Using absolute distance doesn't fix things.
+
+
+```r
+# d(1,2)
+1 - abs(cor(x1, x2))
+```
+
+```
+## [1] 0.018019
+```
+
+```r
+# d(1,3)
+1 - abs(cor(x1, x3))
+```
+
+```
+## [1] 0.13397
+```
+
+```r
+# d(2,3)
+1 - abs(cor(x2, x3))
+```
+
+```
+## [1] 0.24407
+```
+
+```r
+# d(2,3) &gt; d(1,2) + d(1,3)
+1 - abs(cor(x1, x2)) + 1 - abs(cor(x1, x3))
+```
+
+```
+## [1] 0.15199
+```
+
+
+
+
+---
 
 ## Distance measures (for clustering)
 
@@ -300,7 +389,10 @@ of **Single Linkage Agglomerative Hierarchical Clustering**
 | B 	| 0.2 	| 0 	|  	|  	|  |
 | C 	| 0.6 	| 0.5 	| 0  	|  	|  |
 | D 	| 1 	| 0.9 	| 0.4 	| 0 	|  |
-| E 	| 0.9 	| 0.8 	| 5 	| 0.3 	|  0 |
+| E 	| 0.9 	| 0.8 	| 0.5 	| 0.3 	|  0 |
+
+
+see class notes to walk through the process.
 
 ---
 
@@ -345,12 +437,12 @@ penguin_dend &lt;- as.dendrogram(penguin_hclust)
 plot(penguin_hclust)
 ```
 
-![](2021-11-18-clustering_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+![](2021-11-18-clustering_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
 
 ---
 ## Colored dendrogram
 
-![](2021-11-18-clustering_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+![](2021-11-18-clustering_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 
 
 
