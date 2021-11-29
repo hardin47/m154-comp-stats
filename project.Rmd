@@ -102,7 +102,7 @@ Please respond to the following three questions (posted to your GitHub repo) by 
 
 An effective oral presentation is an integral part of this project. One of the objectives of this class is to give you experience conveying the results of a technical investigation to a non-technical audience in a way that they can understand. Whether you choose to stay in academia or pursue a career in industry, the ability to communicate clearly is of paramount importance. As a statistician (data scientist, software engineer, etc.), the burden of proof is on you to convince your audience that what you are saying is true. If your audience (who may very well be less knowledgeable about statistics than you are) cannot understand your results or their interpretations, then the technical merit of your project is irrelevant.
 
-On Friday/Wednesday, December 10/14th, your group will make a 10-12 minute oral presentation to the class. You should make (good) slides. Your goal should be to convey to your audience a clear understanding of your research topic, along with a basic understanding of your project, and how well it addresses the research question you posed. You should **not** tell us everything that you did, or show a bunch of things that you tried that didn't work well. After hearing your talk, each student in the class should be able to answer:
+On Friday/Tuesday, December 10/14th, your group will make a 10-12 minute oral presentation to the class. You should make (good) slides. Your goal should be to convey to your audience a clear understanding of your research topic, along with a basic understanding of your project, and how well it addresses the research question you posed. You should **not** tell us everything that you did, or show a bunch of things that you tried that didn't work well. After hearing your talk, each student in the class should be able to answer:
 
 1. What was your project about?  
 2. What format was the original data in, and what [downloading, data wrangling, data analysis] techniques did you apply to it?  
@@ -126,7 +126,7 @@ Watch the videos on this site to identify some common mistakes. Here is some gen
 
 ## Write-Up
 
-Your write-up will similar to a report to client crafted in R Markdown, compiled to a pdf, due on Wednesday, December 14th by midnight. 
+Your write-up will similar to a report to client crafted in R Markdown, compiled to a pdf, due on Tuesday, December 14th by midnight. 
 
 In your write-up, you should tell a data science audience about your project, why they should care about it, and what you have discovered. Your audience will be people like you – current or aspiring data scientists. Keep in mind that this audience is extraordinarily diverse in terms of skills and abilities, so you should assume very little about what they might know. However, your audience is reasonably tech-savvy, so you need not "dumb-down" your analysis.
 
@@ -197,7 +197,7 @@ url = {https://CRAN.R-project.org/package=dplyr},
 
 Ideally, all group members would be equally involved and able and committed to the project. In reality, it doesn't always work that way. Individuals should be rewarded fairly for their group efforts; it's inevitable that there will be variation in how high a priority people put on this class and how much effort they put into this project.
 
-To this end, I would like each of you (individually) to describe how well (or how poorly!) your project group worked together and shared the load. This can take the form of an email (not GitHub because of the personal nature), to be submitted by the Wednesday December 14th. Also give some specific comments describing each member's overall effort. Were there certain group members who really put out exceptional effort and deserve special recognition? Conversely, were there group members who really weren't carrying their own weight? And then, at the end of your assessment, estimate the percentage of the total amount of work/effort done by each member. (Be sure your percentages sum to 100%!)
+To this end, I would like each of you (individually) to describe how well (or how poorly!) your project group worked together and shared the load. This can take the form of an email (not GitHub because of the personal nature), to be submitted by the Tuesday December 14th. Also give some specific comments describing each member's overall effort. Were there certain group members who really put out exceptional effort and deserve special recognition? Conversely, were there group members who really weren't carrying their own weight? And then, at the end of your assessment, estimate the percentage of the total amount of work/effort done by each member. (Be sure your percentages sum to 100%!)
 
 For example, suppose you have 3 group members: X, Y and Z. In the event that each member contributed equally, you could assign:
 
