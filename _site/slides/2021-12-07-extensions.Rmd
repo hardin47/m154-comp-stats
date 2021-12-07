@@ -1,0 +1,449 @@
+---
+title: "Extensions"
+author: "Jo Hardin"
+date: "December 07, 2021"
+output:
+  xaringan::moon_reader:
+    nature:
+      highlightlines: true
+      titleSlideClass: ["right", "top", "my-title"]
+---
+
+```{r include=FALSE}
+library(tidymodels)
+knitr::opts_chunk$set(
+  message=FALSE,
+  warning=FALSE)
+options(
+  digits = 5,
+  pillar.sigfig = 5
+  )
+library(palmerpenguins)
+library(tidyverse)
+library(tidymodels)
+library(doParallel)
+```
+
+```{r echo = FALSE}
+#devtools::install_github("gadenbuie/xaringanExtra")
+library(xaringanExtra)
+xaringanExtra::use_panelset()
+```
+
+# Agenda 12/07/21
+
+1. Return clickers
+2. What's next?
+3. Course evaluations
+
+---
+
+## Parallel computing
+
+Set up the clusters to bootstrap the mean of the penguin `mass_g` (`Chinstrap` only).
+
+```{r}
+data(penguins)
+
+penguin_bs <- penguins %>%
+  filter(species == "Chinstrap") 
+```
+
+```{r warning=FALSE, error = FALSE}
+P <- parallel::detectCores(logical=FALSE)
+P
+cl <- parallel::makeCluster(P, setup_strategy = "sequential")
+clusterEvalQ(cl, library("tidyverse"))
+```
+
+---
+
+## Bootstrap in parallel
+
+
+```{r}
+doParallel::registerDoParallel(cl)
+bsmean_mass <- foreach(i = 1:100, .combine = 'c') %dopar% {
+  penguin_bs %>%
+    mutate(mass_bs = sample(body_mass_g, replace = TRUE)) %>%
+    summarize(mean(mass_bs)) %>% pull()
+}
+boot_results <- tibble(bsmean_mass)
+stopCluster(cl)
+```
+
+```{r}
+boot_results
+```
+
+
+---
+
+##  Graphing
+
+```{r}
+ggplot(boot_results, aes(x = bsmean_mass)) + 
+  geom_histogram(bins = 25) + 
+  ggtitle("Histogram of 100 Bootstrapped Means using foreach")
+```
+
+---
+
+## Python in R
+
+The main R package which allows Python use in R is called `reticulate`.
+
+```{r}
+library(reticulate)
+use_virtualenv("r-reticulate")
+reticulate::import("statsmodels")
+```
+
+---
+
+## Python code in an RMarkdown chunk
+
+.panelset[
+.panel[.panel-name[Rmd]
+````
+```{python}`r ''`
+import pandas
+flights = pandas.read_csv("flights.csv")
+flights = flights[flights["dest"] == "ORD"]
+flights = flights[['carrier', 'dep_delay', 'arr_delay']]
+flights = flights.dropna()
+```
+````
+]
+.panel[.panel-name[html]
+A view of the Python chunk which is actually run:
+
+```{python}
+import pandas
+flights = pandas.read_csv("flights.csv")
+flights = flights[flights["dest"] == "ORD"]
+flights = flights[['carrier', 'dep_delay', 'arr_delay']]
+flights = flights.dropna()
+```
+]]
+
+---
+
+## Computations using `pandas`
+
+.panelset[
+.panel[.panel-name[Rmd]
+````
+```{python}`r ''`
+flights = pandas.read_csv("flights.csv")
+flights = flights[['carrier', 'dep_delay', 'arr_delay']]
+flights.groupby("carrier").mean()
+```
+````
+]
+
+.panel[.panel-name[html]
+```{python}
+flights = pandas.read_csv("flights.csv")
+flights = flights[['carrier', 'dep_delay', 'arr_delay']]
+flights.groupby("carrier").mean()
+```
+]
+]
+
+---
+
+## From Python chunk to R chunk
+
+* `py$x` accesses an `x` variable created within Python from R
+* `r.x` accesses an `x` variable created within R from Python
+
+---
+
+### SQL in R
+
+Setting up the SQL connection to an external databse
+
+```{r message = FALSE, eval = FALSE}
+library(RMySQL)
+library(DBI)
+con <- dbConnect(
+  MySQL(), host = "XXX", user = "XXX", 
+  password = "XXX", dbname = "XXX")
+```
+
+
+---
+
+## Running SQL code in R
+
+```{r message = FALSE}
+dbGetQuery(con, 
+  "SELECT subject_race, AVG(subject_age) AS 'ave age' 
+  FROM TNnashville 
+  GROUP BY subject_race
+  ORDER BY `ave age`")
+```
+
+
+---
+
+## SQL code in a SQL chunk
+
+.panelset[
+.panel[.panel-name[Rmd]
+````
+```{sql, connection = con}`r ''`
+SELECT subject_race, AVG(subject_age) AS 'ave age' 
+  FROM TNnashville 
+  GROUP BY subject_race
+  ORDER BY `ave age`
+```
+````
+]
+
+.panel[.panel-name[html]
+```{sql, connection = con}
+SELECT subject_race, AVG(subject_age) AS 'ave age' 
+  FROM TNnashville 
+  GROUP BY subject_race
+  ORDER BY `ave age`
+```
+]
+.panel[.panel-name[SQL to R]
+````
+```{sql, connection = con, output.var = "TN_age"}`r ''`
+SELECT subject_race, AVG(subject_age) AS 'ave age' 
+  FROM TNnashville 
+  GROUP BY subject_race
+  ORDER BY `ave age`
+```
+````
+
+```{sql, connection = con, output.var = "TN_age"}
+SELECT subject_race, AVG(subject_age) AS 'ave age' 
+  FROM TNnashville 
+  GROUP BY subject_race
+  ORDER BY `ave age`
+```
+]
+
+.panel[.panel-name[R obj]
+
+(From an R chunk)
+
+```{r}
+TN_age
+```
+
+]
+]
+
+---
+
+## Regular expressions (strings)
+
+> A concise mechanism for describing patterns in character strings
+
+
+* regular expressions
+* `stringr`
+
+---
+
+## Weather Data
+
+```{r fig.cap = "", fig.alt = "Screenshot of weather data across the world on Dec 7, 2021.", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/weather.png")
+```
+
+[https://www.timeanddate.com/weather/](https://www.timeanddate.com/weather/)
+
+---
+
+## Weather Data
+
+
+```{r}
+library(rvest)
+weather <- read_html("https://www.timeanddate.com/weather/")
+w <- html_table(html_nodes(weather, "table"))[[1]]
+```
+
+(tiny bit of wrangling of columns here)
+
+```{r echo = FALSE}
+w1 <- w[,c(1,2,4)]
+w2 <- w[,c(5,6,8)]
+w3 <- w[,c(9,10,12)]
+w <- rbind(w1, w2, w3)
+names(w) <- c("city", "time", "temp")
+w <- w %>% filter(city !="")
+```
+
+```{r}
+w
+```
+
+
+---
+
+## Matching patterns
+
+
+```{r}
+w %>% filter(str_detect(city, "La"))
+```
+
+---
+
+## Matching patterns
+
+To indicate that the pattern must appear at the start of a character string use `^`.
+
+```{r}
+w %>% filter(str_detect(city, "^La"))
+```
+
+... or the end of a character string use `$`.
+
+```{r}
+w %>% filter(str_detect(city, "La$"))
+```
+
+
+---
+
+## Matching patterns
+
+If case doesn't matter use `(?i)`.
+
+```{r}
+w %>% filter(str_detect(city, "(?i)La"))
+```
+
+
+---
+
+## Matching patterns
+
+Match for Wednesday (only a few places are Wednesday right now at Tuesday, 6:45am PT).
+
+```{r}
+w %>% filter(str_detect(time, "Wed"))
+```
+
+---
+
+## Matching patterns
+
+Or not Wednesday
+
+```{r}
+w %>% filter(str_detect(time, "Wed", negate = TRUE))
+```
+
+---
+
+## Matching patterns
+
+
+```{r}
+w %>%
+  mutate(temp_num = str_sub(temp, 1, nchar(temp) -1)) %>% head(3)
+```
+
+
+```{r}
+w %>%
+  mutate(temp_num = str_sub(temp, 1, nchar(temp) -2)) %>% head(3)
+```
+
+
+---
+
+## Matching patterns
+
+```{r}
+w %>%
+  mutate(temp_num = str_sub(temp, 1, nchar(temp) -3)) %>% head(3)
+```
+
+
+```{r}
+w %>%
+  mutate(temp_num = as.numeric(str_sub(temp, 1, nchar(temp) -3))) 
+```
+
+---
+
+## Matching patterns
+
+Or by looking for the number in the string.
+
+```{r}
+w %>%
+  mutate(temp_num = str_extract(temp, "^-?\\d+")) 
+```
+
+---
+
+## Matching patterns
+
+How to fix the name which has a `*`?
+
+```{r}
+w %>%
+  mutate(new_city = str_replace(city, " \\*", ""))
+```
+
+
+
+---
+
+
+# Closing thoughts
+
+
+> **Important Adage #1**:  The perfect is the enemy of the good enough. (Voltaire?)
+
+> **Important Adage #2**:  All models are wrong, but some are useful. (G.E.P. Box 1987)
+
+---
+
+## Computational Statistics
+
+Statistics + Math + Computer Science
+
+* **Hypothesis Testing:**  Permutation tests
+* **Confidence Intervals:**  Bootstrapping
+* **Parameter Estimation:** The EM algorithm
+* **Bayesian Analysis:** Gibbs sampler, Metropolis-Hasting algorithm
+* **Polynomial regression:** Smoothing methods (e.g., loess)
+* **Prediction**: Supervised learning methods
+
+---
+
+```{r fig.cap = "", fig.alt = "Warning story about a white supremacist with data power.", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/info_architect_1.jpeg")
+```
+
+[Introduction to Everyday Information Architecture](https://everydayinformationarchitecture.com/) by Lisa Maria Martin
+
+---
+```{r fig.cap = "", fig.alt = "Warning story about a white supremacist with data power.", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/info_architect_2.jpeg")
+```
+
+
+---
+
+class: center, middle
+
+# Fin
+
+
+
+
+
+

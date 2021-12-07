@@ -26,5 +26,40 @@ knitr::include_graphics("../../images/whalekrill.png" )
 
 ### December 7, 2021
 
+1. Return clickers
+2. What's next
+3. Course Evaluations
+
+## Readings <i class="fas fa-book-open"></i> 
+
+* Class notes: <a href = "http://st47s.com/Math154/Notes/misc.html#misc" target= "_blank">Extensions</a>
+
+* Silge and Robinson (2021), <a href = "https://www.tidytextmining.com/" target = "_blank">Text Mining with R</a>.
+
+## Reflection questions <i class="fas fa-lightbulb"></i>
+
+* What do I love most about the methods we've been covering?  The math? The statistics? The programming? The algorithms?  The data?  The ethical quandaries?
+
+* The whale shark above is a graphic meant to help understand principal components.  Yet one more thing we didn't touch on, but could have.
+
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+* Keeping asking yourself:
+
+  - How do I stay accountable for my work?
+  - How might others be impacted by what I've created?
+  - Where did the data come from, and what biases might be inherent?
+  - What population is appropriate for any of the inferential claims I'm making?
+  - How might individual's privacy or anonymity be impacted by what I've created?
+  - Is it possible that might work could be misinterpreted or misused?
+
+## Slides <i class="fas fa-desktop"></i> 
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/2021-12-07-extensions" target = "_blank">In class slides - extensions</a> for 12/07/21.
+
+
+## Additional Resources <i class="fas fa-laptop"></i> 
+
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/" target_"blank">many string examples</a>
 
 
