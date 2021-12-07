@@ -51,7 +51,7 @@ knitr::include_graphics("../../images/whalekrill.png" )
   - Where did the data come from, and what biases might be inherent?
   - What population is appropriate for any of the inferential claims I'm making?
   - How might individual's privacy or anonymity be impacted by what I've created?
-  - Is it possible that might work could be misinterpreted or misused?
+  - Is it possible that my work could be misinterpreted or misused?
 
 ## Slides <i class="fas fa-desktop"></i> 
 
