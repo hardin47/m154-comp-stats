@@ -60,6 +60,8 @@ knitr::include_graphics("../../images/whalekrill.png" )
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
-* Julia Silge's blog <a href = "https://juliasilge.com/blog/" target_"blank">many string examples</a>
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/" target="_blank">many string examples</a>
+
+* Nate Silver and Galen Druke of 538 talk about the problems with using sentiment analysis to measure whether the mainstream media is more biased against Biden or Trump.  <a href="https://podcasts.apple.com/us/podcast/fivethirtyeight-politics/id1077418457?i=1000544493508" target = "_blank">Is The Media Tougher On Biden Than Trump?</a>
 
 
