@@ -192,7 +192,7 @@ The first time you submit, you may need to click "Connect to GitHub", to connect
 include_graphics("images/gradescope-sakai.png")
 ``` 
 
-2. The first time you submit your repository, you will need to authorize Gradescope to access your git repository. Select the appropriate repository and branch (brank will almost always be `main`).
+2. The first time you submit your repository, you will need to authorize Gradescope to access your git repository. Select the appropriate repository and branch (branch will almost always be `main`).
 
 ```{r echo = FALSE, fig.cap="Submit files directly from GitHub.", fig.alt = "Screen shot of Gradescope instruction to submit via GitHub."}
 include_graphics("images/gradescope-github.png")
