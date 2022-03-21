@@ -81,7 +81,7 @@ Before next Tuesday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/tu
 
 * <a href = "https://www.dataquest.io/blog/python-vs-r/" target="_blank">R vs. Python?  (My personal opinion is that neither of the languages is "best".)</a>
 
-* <a href = "https://www.kaggle.com/surveys/2017" target="_blank">2017 Kaggle user survey</a> and <a href = "https://insights.stackoverflow.com/survey/2019" target="_blank"> 2019 Stack Overflow Developer Survey</a>
+* <a href = "https://ailab-ua.github.io/courses/resources/the_state_of_data_science_machine_learning_-_kaggle_2017_survey.pdf" target="_blank">2017 Kaggle user survey</a> and <a href = "https://insights.stackoverflow.com/survey/2019" target="_blank"> 2019 Stack Overflow Developer Survey</a>
 
 * <a href = "http://cardiobrief.org/2016/04/06/pnas-paper-by-prominent-cardiologist-and-dean-retracted/" target="_blank">PNAS paper retracted due to problems with figure and reproducibility (April 2016)</a>
 
