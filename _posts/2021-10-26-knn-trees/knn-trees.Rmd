@@ -96,4 +96,4 @@ knitr::include_graphics("../../images/dragon_predict_mlr.png")
 
 * <a href = "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target = "_blank">SF vs. NYC housing</a> -- a great example of a classification tree.
 
-* Julia Silge's blog <a href = "https://juliasilge.com/blog/scooby-doo/" target_"blank">Tuning Decision Trees</a>
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/scooby-doo/" target="_blank">Tuning Decision Trees</a>
