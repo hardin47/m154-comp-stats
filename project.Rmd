@@ -245,9 +245,10 @@ Each of you will evaluate the presentations of your peers keeping the following 
 * <a href = "https://github.com/robinspollak/R.openFEC" target = "_blank">R package for downloading FEC data</a> by Robin Pollak and Jeff Carney 
 * <a href = "https://math154-fall2017-vegas.shinyapps.io/lvmapbackup/" target = "_blank">Vegas Baby</a> by Gwen Song, Amy Oden, and Judy Cheng
 * <a href = "https://fordc5.github.io/ExtremeWeatherAndTerrorism/" target = "_blank">Weather and Terrorism</a> by Connor Ford and Bradley Druzinsky
-* <a href = "https://mweinstock02014.shinyapps.io/twitter_app/" target = "_blank">NGO information via Twitter</a> by Molly Weinstock, Alex Pusch, and Melissa Hooke
-Investigative data project on copy-cat bills making it through congress.  <a href = "https://www.azcentral.com/pages/interactives/asbestos-sharia-law-model-bills-lobbyists-special-interests-influence-state-laws/" target = "_blank">Here</a> is a visual summary, <a href = "https://publicintegrity.org/state-politics/copy-paste-legislate/how-we-uncovered-10000-times-lawmakers-introduced-copycat-model-bills-and-why-it-matters/" target = "_blank">here</a> is a bit on the methodology, and <a href = "https://www.usatoday.com/in-depth/news/investigations/2019/04/03/abortion-gun-laws-stand-your-ground-model-bills-conservatives-liberal-corporate-influence-lobbyists/3162173002/" target = "_blank">here</a> is a complete report. 
-* <a href = "https://www.storybench.org/mapping-search-data-from-google-trends-in-r/" target = "_blank">Google trends</a> by Peer Christensen
+* <a href = "https://mweinstock02014.shinyapps.io/twitter_app/" target = "_blank">NGO information via Twitter</a> by Molly Weinstock, Alex Pusch, and Melissa Hooke 
+* Investigative data project on copy-cat bills making it through congress.  <a href = "https://www.azcentral.com/pages/interactives/asbestos-sharia-law-model-bills-lobbyists-special-interests-influence-state-laws/" target = "_blank">Here</a> is a visual summary, <a href = "https://publicintegrity.org/state-politics/copy-paste-legislate/how-we-uncovered-10000-times-lawmakers-introduced-copycat-model-bills-and-why-it-matters/" target = "_blank">here</a> is a bit on the methodology, and <a href = "https://www.usatoday.com/in-depth/news/investigations/2019/04/03/abortion-gun-laws-stand-your-ground-model-bills-conservatives-liberal-corporate-influence-lobbyists/3162173002/" target = "_blank">here</a> is a complete report. 
+* <a href = "https://www.storybench.org/mapping-search-data-from-google-trends-in-r/" target = "_blank">Google trends</a> by Peer Christensen 
+* <a href = "https://r.amherst.edu/apps/nhorton/clickbait/" target = "_blank">Classifying clickbait headlines</a> by Leah Johnson and Nick Horton at Amherst College.
 
 
 
