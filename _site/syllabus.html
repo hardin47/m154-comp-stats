@@ -11,7 +11,7 @@
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
   body {
-    visibility: hidden;
+
   }
   </style>
 
@@ -114,7 +114,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["Syllabus"]},{"type":"character","attributes":{},"value":["The plan, the details, and the logistics.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Jo Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]},{"type":"character","attributes":{},"value":["Pomona College"]},{"type":"character","attributes":{},"value":["https://hardin47.netlify.app/"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","toc_depth","theme","css"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[1]},{"type":"character","attributes":{},"value":["theme.css"]},{"type":"character","attributes":{},"value":["styles.css"]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["Syllabus"]},{"type":"character","attributes":{},"value":["The plan, the details, and the logistics.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Jo Hardin"]},{"type":"character","attributes":{},"value":["https://m154-comp-stats.netlify.app/"]},{"type":"character","attributes":{},"value":["Pomona College"]},{"type":"character","attributes":{},"value":["https://hardin47.netlify.app/"]}]}]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2070,408 +2070,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </script>
 
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:    sans-serif;
-    --mono-font:       monospace;
-    --body-font:       sans-serif;
-    --navbar-font:     sans-serif;  /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      white;
-    --bkgd-color:       #0F2E3D;
-  }
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-  </style>
-  <style type="text/css">
-  /* base variables */
-
-  /* Edit the CSS properties in this file to create a custom
-     Distill theme. Only edit values in the right column
-     for each row; values shown are the CSS defaults.
-     To return any property to the default,
-     you may set its value to: unset
-     All rows must end with a semi-colon.                      */
-
-  /* Optional: embed custom fonts here with `@import`          */
-  /* This must remain at the top of this file.                 */
-
-  @import url('https://fonts.googleapis.com/css2?family=Bitter');
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand');
-
-  html {
-    /*-- Main font sizes --*/
-    --title-size:      50px;
-    --body-size:       1.06rem;
-    --code-size:       14px;
-    --aside-size:      12px;
-    --fig-cap-size:    13px;
-    /*-- Main font colors --*/
-    --title-color:     #000000;
-    --header-color:    rgba(0, 0, 0, 0.8);
-    --body-color:      rgba(0, 0, 0, 0.8);
-    --aside-color:     rgba(0, 0, 0, 0.6);
-    --fig-cap-color:   rgba(0, 0, 0, 0.6);
-    /*-- Specify custom fonts ~~~ must be imported above   --*/
-    --heading-font:     'Quicksand';
-    --mono-font:        'Quicksand';
-    --body-font:        'Quicksand';
-    --navbar-font:      'Quicksand';  /* websites + blogs only */
-  }
-
-  /*-- ARTICLE METADATA --*/
-  d-byline {
-    --heading-size:    0.6rem;
-    --heading-color:   rgba(0, 0, 0, 0.5);
-    --body-size:       0.8rem;
-    --body-color:      rgba(0, 0, 0, 0.8);
-  }
-
-  /*-- ARTICLE TABLE OF CONTENTS --*/
-  .d-contents {
-    --heading-size:    18px;
-    --contents-size:   13px;
-  }
-
-  /*-- ARTICLE APPENDIX --*/
-  d-appendix {
-    --heading-size:    15px;
-    --heading-color:   rgba(0, 0, 0, 0.65);
-    --text-size:       0.8em;
-    --text-color:      rgba(0, 0, 0, 0.5);
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  /* These properties only apply to Distill sites and blogs  */
-
-  .distill-site-header {
-    --title-size:       18px;
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      black;
-    --bkgd-color:       #4d4819;
-  }
-
-  .distill-site-footer {
-    --text-color:       rgba(255, 255, 255, 0.8);
-    --text-size:        15px;
-    --hover-color:      black;
-    --bkgd-color:       #4d4819;
-  }
-
-  .distill-site-nav {
-    font-family: 'Quicksand';
-    color: #d35836; 
-    background-color: #F0EDD1;
-    font-size: 20px;
-    font-weight: 900;
-  }
-
-  .distill-site-nav a:hover {
-      color: black;
-    }
-    
-  /*-- Dropdown Menu --*/
-
-  .nav-dropdown .nav-dropbtn {
-      border: none;
-      outline: none;
-      color: #d35836;
-      padding: 16px 10px;
-      background-color: transparent;
-      font-family: inherit;
-      font-size: inherit;
-      font-weight: inherit;
-      margin: 0;
-      margin-top: 1px;
-      z-index: 2;
-    }
-    
-  .nav-dropdown:hover .nav-dropbtn {
-      color: black;
-    }
-    
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-      color: black;
-      padding: 6px 24px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
-    
-  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
-      color: #d35836;
-      padding: 6px 24px;
-      text-decoration: none;
-      display: block;
-      text-align: left;
-    }
-
-  .nav-dropdown-content a:hover {
-      background-color: #F0EDD1;
-      color: black;
-    }  
-    
-  .nav-dropdown-content .nav-dropdown-header {
-      display: block;
-      padding: 5px 24px;
-      padding-bottom: 0;
-      text-transform: uppercase;
-      font-size: 14px;
-      color: #F0EDD1;
-      white-space: nowrap;
-    }  
-
-  /*-- Additional custom styles --*/
-  /* Add any additional CSS rules below                      */
-
-    
-  /*IMPORT CUSTOM FONTS FROM GOOGLE*/
-  /* Import fonts from Google's API */
-  @import url('https://fonts.googleapis.com/css2?family=Bitter');
-  @import url('https://fonts.googleapis.com/css2?family=Quicksand');
-
-  /*USE THOSE FONTS THROUGHOUT*/
-  /* Use specific font in the body of the text */
-  html, body, p {
-    
-    font-family: 'Quicksand';
-    font-weight: 200;
-    line-height: 1.3; 
-    font-size: 1.0em;
-    color: #333333;
-    font-style: normal;
-    
-  }  
-
-  /* Change appearance of headers */
-  h1, h2, h3, h4, h5 {
-    font-family: 'Quicksand';
-    color: color: #676565;
-  }
-
-  </style>
-  <style type="text/css">
-  /* base style */
-
-  /* FONT FAMILIES */
-
-  :root {
-    --heading-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-    --mono-default: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    --body-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-  }
-
-  body,
-  .posts-list .post-preview p,
-  .posts-list .description p {
-    font-family: var(--body-font), var(--body-default);
-  }
-
-  h1, h2, h3, h4, h5, h6,
-  .posts-list .post-preview h2,
-  .posts-list .description h2 {
-    font-family: var(--heading-font), var(--heading-default);
-  }
-
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-family: var(--mono-font), var(--mono-default);
-  }
-
-
-  /*-- TITLE --*/
-  d-title h1,
-  .posts-list > h1 {
-    color: var(--title-color, black);
-  }
-
-  d-title h1 {
-    font-size: var(--title-size, 50px);
-  }
-
-  /*-- HEADERS --*/
-  d-article h1,
-  d-article h2,
-  d-article h3,
-  d-article h4,
-  d-article h5,
-  d-article h6 {
-    color: var(--header-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- BODY --*/
-  d-article > p,  /* only text inside of <p> tags */
-  d-article > ul, /* lists */
-  d-article > ol {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-    font-size: var(--body-size, 1.06rem);
-  }
-
-
-  /*-- CODE --*/
-  d-article div.sourceCode code,
-  d-article pre code {
-    font-size: var(--code-size, 14px);
-  }
-
-  /*-- ASIDE --*/
-  d-article aside {
-    font-size: var(--aside-size, 12px);
-    color: var(--aside-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- FIGURE CAPTIONS --*/
-  figure .caption,
-  figure figcaption,
-  .figure .caption {
-    font-size: var(--fig-cap-size, 13px);
-    color: var(--fig-cap-color, rgba(0, 0, 0, 0.6));
-  }
-
-  /*-- METADATA --*/
-  d-byline h3 {
-    font-size: var(--heading-size, 0.6rem);
-    color: var(--heading-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-byline {
-    font-size: var(--body-size, 0.8rem);
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  d-byline a,
-  d-article d-byline a {
-    color: var(--body-color, rgba(0, 0, 0, 0.8));
-  }
-
-  /*-- TABLE OF CONTENTS --*/
-  .d-contents nav h3 {
-    font-size: var(--heading-size, 18px);
-  }
-
-  .d-contents nav a {
-    font-size: var(--contents-size, 13px);
-  }
-
-  /*-- APPENDIX --*/
-  d-appendix h3 {
-    font-size: var(--heading-size, 15px);
-    color: var(--heading-color, rgba(0, 0, 0, 0.65));
-  }
-
-  d-appendix {
-    font-size: var(--text-size, 0.8em);
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  d-appendix d-footnote-list a.footnote-backlink {
-    color: var(--text-color, rgba(0, 0, 0, 0.5));
-  }
-
-  /*-- WEBSITE HEADER + FOOTER --*/
-  .distill-site-header .title {
-    font-size: var(--title-size, 18px);
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .distill-site-header a,
-  .nav-dropdown .nav-dropbtn {
-    font-family: var(--navbar-font), var(--heading-default);
-  }
-
-  .nav-dropdown .nav-dropbtn {
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    font-size: var(--text-size, 15px);
-  }
-
-  .distill-site-header a:hover,
-  .nav-dropdown:hover .nav-dropbtn {
-    color: var(--hover-color, white);
-  }
-
-  .distill-site-header {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer {
-    font-size: var(--text-size, 15px);
-    color: var(--text-color, rgba(255, 255, 255, 0.8));
-    background-color: var(--bkgd-color, #0F2E3D);
-  }
-
-  .distill-site-footer a:hover {
-    color: var(--hover-color, white);
-  }</style>
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14.3/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2654,7 +2254,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <!--/radix_placeholder_site_in_header-->
 
-  <link rel="stylesheet" href="styles.css" type="text/css"/>
+  <link rel="stylesheet" href="theme.css" type="text/css"/>
 
 </head>
 
@@ -2711,26 +2311,21 @@ Project
 </div>
 
 <div class="d-byline">
-  Jo Hardin <a href="https://m154-comp-stats.netlify.app/" class="uri">https://m154-comp-stats.netlify.app/</a> (Pomona College)<a href="https://hardin47.netlify.app/" class="uri">https://hardin47.netlify.app/</a>
+  Jo Hardin <a href="https://m154-comp-stats.netlify.app/"
+class="uri">https://m154-comp-stats.netlify.app/</a> (Pomona College)<a
+href="https://hardin47.netlify.app/"
+class="uri">https://hardin47.netlify.app/</a>
   
 
 </div>
 
 <div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
-<ul>
-<li><a href="#computational-statistics" id="toc-computational-statistics">Computational Statistics</a></li>
-</ul>
-</nav>
-</div>
 <h1 id="computational-statistics">Computational Statistics</h1>
 <h2 id="math-154-fall-2021">Math 154, Fall 2021</h2>
-<p>Jo Hardin
-2351 Estella
-<a href="mailto:jo.hardin@pomona.edu" class="email">jo.hardin@pomona.edu</a></p>
-<p><strong>Office Hours: Wed 9-11am, Th 1:30-3pm, or by appointment</strong></p>
+<p>Jo Hardin 2351 Estella <a href="mailto:jo.hardin@pomona.edu"
+class="email">jo.hardin@pomona.edu</a></p>
+<p><strong>Office Hours: Wed 9-11am, Th 1:30-3pm, or by
+appointment</strong></p>
 <p><strong>Mentor Sessions:</strong><br />
 Sun 9-10pm, Wed 8-10pm<br />
 Estella 1021 (Emmy Noether Room)<br />
@@ -2739,49 +2334,113 @@ Mentor: JJ Shankar</p>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="images/debugging.jpg" alt="Monsters going through the phases of writing code." width="3364" data-distill-preview=1 />
 <p class="caption">
-Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_horst</span>.
+Figure 1: Artwork by <span class="citation"
+data-cites="allison_horst">@allison_horst</span>.
 </p>
 </div>
 </div>
 <h2 id="the-course">The course</h2>
-<p>Computational Statistics will be an introduction to statistical methods that rely heavily on the use of computers. The course will generally have three parts. The first section will include communicating and working with data in a modern era. This includes data wrangling, data visualization, data ethics, and collaborative research (via GitHub). The second part of the course will focus on traditional statistical inference done through computational methods (e.g., permutation tests and bootstrapping). The last part of the course will focus on machine learning ideas such as classification, clustering, and dimension reduction techniques. Some of the methods were invented before the ubiquitous use of personal computers, but only because the calculus used to solve the problem was relatively straightforward (or because the method wasn’t actually every used). Some of the methods have been developed quite recently.</p>
-<p><strong>Anonymous Feedback</strong> As someone who is constantly learning and growing in many ways, I welcome your feedback about the course, the classroom dynamics, or anything else you’d like me to know. There is a link to an anonymous feedback form on the landing page of our Sakai webpage. Please provide me with feedback at any time!</p>
+<p>Computational Statistics will be an introduction to statistical
+methods that rely heavily on the use of computers. The course will
+generally have three parts. The first section will include communicating
+and working with data in a modern era. This includes data wrangling,
+data visualization, data ethics, and collaborative research (via
+GitHub). The second part of the course will focus on traditional
+statistical inference done through computational methods (e.g.,
+permutation tests and bootstrapping). The last part of the course will
+focus on machine learning ideas such as classification, clustering, and
+dimension reduction techniques. Some of the methods were invented before
+the ubiquitous use of personal computers, but only because the calculus
+used to solve the problem was relatively straightforward (or because the
+method wasn’t actually every used). Some of the methods have been
+developed quite recently.</p>
+<p><strong>Anonymous Feedback</strong> As someone who is constantly
+learning and growing in many ways, I welcome your feedback about the
+course, the classroom dynamics, or anything else you’d like me to know.
+There is a link to an anonymous feedback form on the landing page of our
+Sakai webpage. Please provide me with feedback at any time!</p>
 <h2 id="course-goals">Course Goals:</h2>
 <ul>
-<li>to be able to work through the entire computational statistics flow chart as a data analyst.</li>
-<li>to be able to use graphical representations of data to communicate ideas about the data.</li>
-<li>to be able to identify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.</li>
-<li>to critically evaluate analyses / graphics of data (typically big data or dynamic data).</li>
+<li>to be able to work through the entire computational statistics flow
+chart as a data analyst.</li>
+<li>to be able to use graphical representations of data to communicate
+ideas about the data.</li>
+<li>to be able to identify, understand, and describe the uses and
+misuses of algorithms and data collection from an ethical lens with the
+purpose of preventing harms from data science.</li>
+<li>to critically evaluate analyses / graphics of data (typically big
+data or dynamic data).</li>
 <li>to communicate results effectively.</li>
 </ul>
-<h2 id="diversity-and-inclusion-statement">Diversity and Inclusion Statement</h2>
+<h2 id="diversity-and-inclusion-statement">Diversity and Inclusion
+Statement</h2>
 <p>(adapted from Monica Linden, Brown University):</p>
-<p>In an ideal world, science would be objective. However, much of science is subjective and is historically built on a small subset of privileged voices. In this class, we will make an effort to recognize how science (and statistics!) has played a role in both understanding diversity as well as in promoting systems of power and privilege. I acknowledge that it is possible that there may be both overt and covert biases in the material due to the lens with which it was written, even though the material is primarily of a scientific nature. Integrating a diverse set of experiences is important for a more comprehensive understanding of science. I would like to discuss issues of diversity in statistics as part of the course from time to time.</p>
-<p>Please contact me if you have any suggestions to improve the quality of the course materials.</p>
-<p>Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities (including race, gender, class, sexuality, religion, ability, etc.) To help accomplish this:</p>
+<p>In an ideal world, science would be objective. However, much of
+science is subjective and is historically built on a small subset of
+privileged voices. In this class, we will make an effort to recognize
+how science (and statistics!) has played a role in both understanding
+diversity as well as in promoting systems of power and privilege. I
+acknowledge that it is possible that there may be both overt and covert
+biases in the material due to the lens with which it was written, even
+though the material is primarily of a scientific nature. Integrating a
+diverse set of experiences is important for a more comprehensive
+understanding of science. I would like to discuss issues of diversity in
+statistics as part of the course from time to time.</p>
+<p>Please contact me if you have any suggestions to improve the quality
+of the course materials.</p>
+<p>Furthermore, I would like to create a learning environment for my
+students that supports a diversity of thoughts, perspectives and
+experiences, and honors your identities (including race, gender, class,
+sexuality, religion, ability, etc.) To help accomplish this:</p>
 <ul>
-<li>If you have a name and/or set of pronouns that differ from those that appear in your official records, please let me know!</li>
-<li>If you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. You can also relay information to me via your mentors. I want to be a resource for you. If you prefer to speak with someone outside of the course, the math liaisons, Dean of Students, or QSC staff are all excellent resources.
-I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it. As a participant in course discussions, you should also strive to honor the diversity of your classmates.</li>
+<li>If you have a name and/or set of pronouns that differ from those
+that appear in your official records, please let me know!</li>
+<li>If you feel like your performance in the class is being impacted by
+your experiences outside of class, please don’t hesitate to come and
+talk with me. You can also relay information to me via your mentors. I
+want to be a resource for you. If you prefer to speak with someone
+outside of the course, the math liaisons, Dean of Students, or QSC staff
+are all excellent resources. I (like many people) am still in the
+process of learning about diverse perspectives and identities. If
+something was said in class (by anyone) that made you feel
+uncomfortable, please talk to me about it. As a participant in course
+discussions, you should also strive to honor the diversity of your
+classmates.</li>
 </ul>
 <h2 id="texts">Texts:</h2>
-<p>All resources are freely available. They also all have print versions which can be purchased. Using the online version of the books is expected.</p>
-<h3 id="first-section-of-the-course-data-science-data-viz-wrangling-simulating-permutation-tests-bootstrapping-ethics">First section of the course (data science, data viz, wrangling, simulating, permutation tests, bootstrapping, ethics)</h3>
+<p>All resources are freely available. They also all have print versions
+which can be purchased. Using the online version of the books is
+expected.</p>
+<h3
+id="first-section-of-the-course-data-science-data-viz-wrangling-simulating-permutation-tests-bootstrapping-ethics">First
+section of the course (data science, data viz, wrangling, simulating,
+permutation tests, bootstrapping, ethics)</h3>
 <div class="note">
 <ul>
-<li>Content: <strong>Modern Data Science with R</strong>; Baumer, Kaplan, and Horton, <a href="https://mdsr-book.github.io/mdsr2e/" target="_blank">https://mdsr-book.github.io/mdsr2e/</a><br />
+<li>Content: <strong>Modern Data Science with R</strong>; Baumer,
+Kaplan, and Horton,
+<a href="https://mdsr-book.github.io/mdsr2e/" target="_blank">https://mdsr-book.github.io/mdsr2e/</a><br />
 </li>
-<li>R resource: <strong>R for Data Science</strong>, Wickham, <a href = "https://r4ds.had.co.nz/" target="_blank">https://r4ds.had.co.nz/</a><br />
+<li>R resource: <strong>R for Data Science</strong>, Wickham,
+<a href = "https://r4ds.had.co.nz/" target="_blank">https://r4ds.had.co.nz/</a><br />
 </li>
-<li>Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte <a href="http://www.edwardtufte.com/tufte/books_textb" target="_blank">http://www.edwardtufte.com/tufte/books_textb</a></li>
+<li>Recommended: Visual and Statistical Thinking: Displays of Evidence
+for Making Decisions; Tufte
+<a href="http://www.edwardtufte.com/tufte/books_textb" target="_blank">http://www.edwardtufte.com/tufte/books_textb</a></li>
 </ul>
 </div>
-<h3 id="second-section-of-the-course-bootstrapping-knn-trees-bagging-random-forests-support-vector-machines-clustering">Second section of the course (bootstrapping, knn, trees, bagging, random forests, support vector machines, clustering)</h3>
+<h3
+id="second-section-of-the-course-bootstrapping-knn-trees-bagging-random-forests-support-vector-machines-clustering">Second
+section of the course (bootstrapping, knn, trees, bagging, random
+forests, support vector machines, clustering)</h3>
 <div class="note">
 <ul>
-<li>Content: <strong>An Introduction to Statistical Learning</strong>; James, Witten, Hastie, and Tibshirani <a href="https://www.statlearning.com/" target="_blank">https://www.statlearning.com/</a><br />
+<li>Content: <strong>An Introduction to Statistical Learning</strong>;
+James, Witten, Hastie, and Tibshirani
+<a href="https://www.statlearning.com/" target="_blank">https://www.statlearning.com/</a><br />
 </li>
-<li>R resource: <strong>Tidy Modeling with R</strong>; Kuhn and Silge <a href="https://www.tmwr.org/" target="_blank">https://www.tmwr.org/</a></li>
+<li>R resource: <strong>Tidy Modeling with R</strong>; Kuhn and Silge
+<a href="https://www.tmwr.org/" target="_blank">https://www.tmwr.org/</a></li>
 </ul>
 </div>
 <h2 id="important-dates">Important Dates:</h2>
@@ -2789,13 +2448,15 @@ I (like many people) am still in the process of learning about diverse perspecti
 <ul>
 <li>10/14 + 15/21 Exam 1 (not during class)</li>
 <li>10/24/21 Take home 1 due (on GitHub + Gradescope by midnight)</li>
-<li>10/26/21 Initial Project Proposal due (via email to me by midnight)</li>
+<li>10/26/21 Initial Project Proposal due (via email to me by
+midnight)</li>
 <li>11/2/21 Final Project Proposal due (on GitHub by midnight)</li>
 <li>11/18/21 2021 Data Science Panel with industry data scientists</li>
 <li>11/19/21 Project Update due (on GitHub by midnight)</li>
 <li>11/30/21 Take home 2 due (on GitHub by midnight)</li>
 <li>12/2 + 3/21 Exam 2 (not during class)</li>
-<li>12/10/21 (Friday) or 12/14/21 (Tuesday) Group Presentations (2-5pm)</li>
+<li>12/10/21 (Friday) or 12/14/21 (Tuesday) Group Presentations
+(2-5pm)</li>
 <li>12/14/21 Final write-up due (on GitHub by midnight)</li>
 </ul>
 </div>
@@ -2803,107 +2464,244 @@ I (like many people) am still in the process of learning about diverse perspecti
 <h3 id="git-resources">Git resources</h3>
 <div class="note">
 <ul>
-<li>Best and most comprehensive Git help: <a href="http://happygitwithr.com/" target="_blank">http://happygitwithr.com/</a></li>
-<li><a href="http://swcarpentry.github.io/git-novice/" target="_blank">Version control with Git</a></li>
-<li><a href="https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/#2.4.2." target="_blank">More on Git</a></li>
-<li><a href="https://git-scm.com/book/en/v2" target="_blank">Online Git book</a> with lots of info</li>
+<li>Best and most comprehensive Git help:
+<a href="http://happygitwithr.com/" target="_blank">http://happygitwithr.com/</a></li>
+<li><a href="http://swcarpentry.github.io/git-novice/" target="_blank">Version
+control with Git</a></li>
+<li><a href="https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/#2.4.2." target="_blank">More
+on Git</a></li>
+<li><a href="https://git-scm.com/book/en/v2" target="_blank">Online Git
+book</a> with lots of info</li>
 </ul>
 </div>
 <h3 id="r-resources">R resources</h3>
 <div class="note">
 <ul>
-<li><a href="https://rstudio.cloud/learn/primers" target="_blank">interactive tutorials</a> for working through “R for Data Science”</li>
-<li><a href="https://education.rstudio.com/learn/" target="_blank">for a good start</a> to R in general</li>
-<li>A fantastic <a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/" target="_blank">ggplot2 tutorial</a></li>
-<li>Great tutorials through the <a href="https://ourcodingclub.github.io/tutorials/" target="_blank">Coding Club</a></li>
-<li><a href="http://www.rseek.org/" target="_blank">Google for R</a></li>
-<li>some <a href = "someRideas.html" target="_blank">R ideas</a> that I wrote up</li>
-<li>Incredibly helpful <a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">cheatsheets</a> from RStudio.
+<li><a href="https://rstudio.cloud/learn/primers" target="_blank">interactive
+tutorials</a> for working through “R for Data Science”</li>
+<li><a href="https://education.rstudio.com/learn/" target="_blank">for a
+good start</a> to R in general</li>
+<li>A fantastic
+<a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/" target="_blank">ggplot2
+tutorial</a></li>
+<li>Great tutorials through the
+<a href="https://ourcodingclub.github.io/tutorials/" target="_blank">Coding
+Club</a></li>
+<li><a href="http://www.rseek.org/" target="_blank">Google for
+R</a></li>
+<li>some <a href = "someRideas.html" target="_blank">R ideas</a> that I
+wrote up</li>
+<li>Incredibly helpful
+<a href="https://www.rstudio.com/resources/cheatsheets/" target="_blank">cheatsheets</a>
+from RStudio.
 <ul>
-<li><a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf" target="_blank">data wrangling</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf" target="_blank">data
+wrangling</a></li>
 <li><a href="https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf" target="_blank">ggplot2</a></li>
-<li><a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" target="_blank">R Markdown</a></li>
-<li><a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf" target="_blank">RStudio IDE</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf" target="_blank">R
+Markdown</a></li>
+<li><a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf" target="_blank">RStudio
+IDE</a></li>
 </ul></li>
 </ul>
 </div>
 <h2 id="homework">Homework:</h2>
-<p>Homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in RMarkdown and compiled to pdf.</p>
+<p>Homework will be assigned from the text(s) with some additional
+problems. One homework grade will be dropped. Homework will be done
+using the statistical software package R (in the RStudio IDE) and posted
+to GitHub + Gradescope. All homework must be done in RMarkdown and
+compiled to pdf.</p>
 <ul>
-<li>Homework will be due on Thursdays by 11:59pm to GitHub + Gradescope.</li>
-<li>Non-homework activities (e.g., from the text) may be collected and added to your participation grade.</li>
-<li>HW should be turned in to your GitHub repository and posted to Gradescope by Thursday at 11:59pm.</li>
-<li>Always post both a PDF and R Markdown file to GitHub (and a pdf to Gradescope), unless otherwise requested.</li>
-<li>HW is graded on a scale of 5/4/3/2/1. See the first HW assignment for more information.</li>
+<li>Homework will be due on Thursdays by 11:59pm to GitHub +
+Gradescope.</li>
+<li>Non-homework activities (e.g., from the text) may be collected and
+added to your participation grade.</li>
+<li>HW should be turned in to your GitHub repository and posted to
+Gradescope by Thursday at 11:59pm.</li>
+<li>Always post both a PDF and R Markdown file to GitHub (and a pdf to
+Gradescope), unless otherwise requested.</li>
+<li>HW is graded on a scale of 5/4/3/2/1. See the first HW assignment
+for more information.</li>
 <li>HW file should be in the format of: ma154-hw#-lname-fname.pdf</li>
 </ul>
 <h5 id="hw-format">HW format</h5>
 <ul>
-<li>please be neat and organized which will help me, the grader, and you (in the future) to follow your work.</li>
+<li>please be neat and organized which will help me, the grader, and you
+(in the future) to follow your work.</li>
 <li>write your name on your assignment.</li>
-<li>please include at least the number of the problem, or a summary of the question (which will also be helpful to you in the future to prepare for exams).</li>
-<li>it is strongly recommended that you look through the questions as soon as you get the assignment. This will help you to start thinking how to solve them!</li>
-<li>for R problems, it is required to use R Markdown
-* in case of questions, or if you get stuck please don’t hesitate to email me (though I’m much less sympathetic to such questions if I receive emails within 24 hours of the due date for the assignment).</li>
+<li>please include at least the number of the problem, or a summary of
+the question (which will also be helpful to you in the future to prepare
+for exams).</li>
+<li>it is strongly recommended that you look through the questions as
+soon as you get the assignment. This will help you to start thinking how
+to solve them!</li>
+<li>for R problems, it is required to use R Markdown * in case of
+questions, or if you get stuck please don’t hesitate to email me (though
+I’m much less sympathetic to such questions if I receive emails within
+24 hours of the due date for the assignment).</li>
 </ul>
 <h5 id="hw-grading">HW Grading</h5>
-<p>Homework assignments will be graded out of 5 points, which are based on a combination of accuracy and effort. Below are rough guidelines for grading.</p>
-<p>[5] All problems completed with detailed solutions provided and 75% or more of the problems are fully correct. Additionally, there are no extraneous messages, warnings, or printed lists of numbers.<br />
-[4] All problems completed with detailed solutions and 50-75% correct; OR close to all problems completed and 75%-100% correct. <strong>Or all problems are completed and there are extraneous messages, warnings, or printed lists of numbers.</strong><br />
+<p>Homework assignments will be graded out of 5 points, which are based
+on a combination of accuracy and effort. Below are rough guidelines for
+grading.</p>
+<p>[5] All problems completed with detailed solutions provided and 75%
+or more of the problems are fully correct. Additionally, there are no
+extraneous messages, warnings, or printed lists of numbers.<br />
+[4] All problems completed with detailed solutions and 50-75% correct;
+OR close to all problems completed and 75%-100% correct. <strong>Or all
+problems are completed and there are extraneous messages, warnings, or
+printed lists of numbers.</strong><br />
 [3] Close to all problems completed with less than 75% correct.<br />
-[2] More than half but fewer than all problems completed and &gt; 75% correct.<br />
-[1] More than half but fewer than all problems completed and &lt; 75% correct; OR less than half of problems completed.<br />
-[0] No work submitted, OR half or less than half of the problems submitted and without any detail/work shown to explain the solutions. You will get a zero if your file is not compiled and submitted on GitHub.</p>
+[2] More than half but fewer than all problems completed and &gt; 75%
+correct.<br />
+[1] More than half but fewer than all problems completed and &lt; 75%
+correct; OR less than half of problems completed.<br />
+[0] No work submitted, OR half or less than half of the problems
+submitted and without any detail/work shown to explain the solutions.
+You will get a zero if your file is not compiled and submitted on
+GitHub.</p>
 <h2 id="projects">Projects:</h2>
-<p>There will be a semester long group project. Your task is to use data to tell us something interesting. This project is deliberately open-ended to allow you to fully explore your creativity. There are three main rules that must be followed: (1) data centered, (2) tell us something, (3) do something new. The project information is available here: <a href="/project/">Math 154 Semester Project</a></p>
+<p>There will be a semester long group project. Your task is to use data
+to tell us something interesting. This project is deliberately
+open-ended to allow you to fully explore your creativity. There are
+three main rules that must be followed: (1) data centered, (2) tell us
+something, (3) do something new. The project information is available
+here: <a href="/project/">Math 154 Semester Project</a></p>
 <h2 id="computing">Computing:</h2>
 <ul>
-<li><p>GitHub will be used as a way to practice reproducible and collaborative science. There may be a slight learning curve, but knowing Git will be an extremely useful skill as you venture on after this class.</p></li>
-<li><p>R will be used for all homework assignments. R is freely available at <a href="http://www.r-project.org/" target="_blank">http://www.r-project.org/</a> and is already installed on college computers. Additionally, you need to install R Studio in order to use R Markdown, <a href="http://rstudio.org/" target="_blank">http://rstudio.org/</a>. If you are not already familiar with R, please work through some of the materials provided ASAP.</p></li>
-<li><p>You are welcome to use Pomona’s R Studio server at <a href="https://rstudio.campus.pomona.edu/" target="_blank">https://rstudio.campus.pomona.edu/</a> (or <a href="https://rstudio.pomona.edu" target="_blank">https://rstudio.pomona.edu</a> if you are off campus). If you use the server, you can connect directly to your Git account without installing Git locally on your own computer. [If you are not a Pomona student, you will need to get an account from Pomona’s ITS. Go to ITS, tell them that you are taking a Pomona course, and ask for an account for using RStudio.]</p></li>
+<li><p>GitHub will be used as a way to practice reproducible and
+collaborative science. There may be a slight learning curve, but knowing
+Git will be an extremely useful skill as you venture on after this
+class.</p></li>
+<li><p>R will be used for all homework assignments. R is freely
+available at
+<a href="http://www.r-project.org/" target="_blank">http://www.r-project.org/</a>
+and is already installed on college computers. Additionally, you need to
+install R Studio in order to use R Markdown,
+<a href="http://rstudio.org/" target="_blank">http://rstudio.org/</a>.
+If you are not already familiar with R, please work through some of the
+materials provided ASAP.</p></li>
+<li><p>You are welcome to use Pomona’s R Studio server at
+<a href="https://rstudio.campus.pomona.edu/" target="_blank">https://rstudio.campus.pomona.edu/</a>
+(or
+<a href="https://rstudio.pomona.edu" target="_blank">https://rstudio.pomona.edu</a>
+if you are off campus). If you use the server, you can connect directly
+to your Git account without installing Git locally on your own computer.
+[If you are not a Pomona student, you will need to get an account from
+Pomona’s ITS. Go to ITS, tell them that you are taking a Pomona course,
+and ask for an account for using RStudio.]</p></li>
 </ul>
 <h2 id="participation">Participation:</h2>
 <ul>
-<li><p>This class will be interactive, and your participation is expected (every day in class). Although notes will be posted, your participation is an integral part of the in-class learning process.</p></li>
-<li><p>In class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]</p></li>
+<li><p>This class will be interactive, and your participation is
+expected (every day in class). Although notes will be posted, your
+participation is an integral part of the in-class learning
+process.</p></li>
+<li><p>In class: after answering one question, wait until 5 other people
+have spoken before answering another question. [Feel free to ask as many
+questions as often as you like!]</p></li>
 </ul>
 <h2 id="academic-honesty">Academic Honesty:</h2>
-<p>You are on your honor to present only your work as part of your course assessments. Below, I’ve provided Pomona’s academic honesty policy. But before the policy, I’ve given some thoughts on cheating which I have taken from Nick Ball’s CHEM 147 Collective (thank you, Prof Ball!). Prof Ball gives us all something to think about when we are learning in a classroom as well as on our journey to become scientists and professionals:</p>
-<p>There are many known reasons why we may feel the need to “cheat” on problem sets or exams:</p>
+<p>You are on your honor to present only your work as part of your
+course assessments. Below, I’ve provided Pomona’s academic honesty
+policy. But before the policy, I’ve given some thoughts on cheating
+which I have taken from Nick Ball’s CHEM 147 Collective (thank you, Prof
+Ball!). Prof Ball gives us all something to think about when we are
+learning in a classroom as well as on our journey to become scientists
+and professionals:</p>
+<p>There are many known reasons why we may feel the need to “cheat” on
+problem sets or exams:</p>
 <div class="note">
 <ul>
 <li>An academic environment that values grades above learning.</li>
-<li>Financial aid is critical for remaining in school that places undue pressure on maintaining a high GPA.</li>
-<li>Navigating school, work, and/or family obligations that have diverted focus from class.</li>
+<li>Financial aid is critical for remaining in school that places undue
+pressure on maintaining a high GPA.</li>
+<li>Navigating school, work, and/or family obligations that have
+diverted focus from class.</li>
 <li>Challenges balancing coursework and mental health.</li>
 <li>Balancing academic, family, peer, or personal issues.</li>
 </ul>
 </div>
-<p>Being accused of cheating – whether it has occurred or not – can be devastating for students. The college requires me to respond to potential academic dishonesty with a process that is very long and damaging. As your instructor, I care about you and want to offer alternatives to prevent us from having to go through this process. If you find yourself in a situation where “cheating” seems like the only option:</p>
-<p><strong>Please come talk to me. We will figure this out together.</strong></p>
-<p>Pomona College is an academic community, all of whose members are expected to abide by ethical standards both in their conduct and in their exercise of responsibilities toward other members of the community. The college expects students to understand and adhere to basic standards of honesty and academic integrity. These standards include, but are not limited to, the following:</p>
+<p>Being accused of cheating – whether it has occurred or not – can be
+devastating for students. The college requires me to respond to
+potential academic dishonesty with a process that is very long and
+damaging. As your instructor, I care about you and want to offer
+alternatives to prevent us from having to go through this process. If
+you find yourself in a situation where “cheating” seems like the only
+option:</p>
+<p><strong>Please come talk to me. We will figure this out
+together.</strong></p>
+<p>Pomona College is an academic community, all of whose members are
+expected to abide by ethical standards both in their conduct and in
+their exercise of responsibilities toward other members of the
+community. The college expects students to understand and adhere to
+basic standards of honesty and academic integrity. These standards
+include, but are not limited to, the following:</p>
 <div class="note">
 <ul>
-<li>In projects and assignments prepared independently, students never represent the ideas or the language of others as their own.</li>
-<li>Students do not destroy or alter either the work of other students or the educational resources and materials of the College.</li>
+<li>In projects and assignments prepared independently, students never
+represent the ideas or the language of others as their own.</li>
+<li>Students do not destroy or alter either the work of other students
+or the educational resources and materials of the College.</li>
 <li>Students neither give nor receive assistance in examinations.</li>
-<li>Students do not take unfair advantage of fellow students by representing work completed for one course as original work for another or by deliberately disregarding course rules and regulations.</li>
-<li>In laboratory or research projects involving the collection of data, students accurately report data observed and do not alter these data for any reason.</li>
+<li>Students do not take unfair advantage of fellow students by
+representing work completed for one course as original work for another
+or by deliberately disregarding course rules and regulations.</li>
+<li>In laboratory or research projects involving the collection of data,
+students accurately report data observed and do not alter these data for
+any reason.</li>
 </ul>
 </div>
 <h2 id="covid-safety-awareness.">Covid Safety Awareness.</h2>
-<p>The faculty at Pomona College knows that person-to-person interaction provides the best liberal arts education. The best learning occurs in small communities. This year we are gathering in person for what we do best: create, generate, and share knowledge. During the past academic year, we built community remotely, and this year we will build on the pedagogical improvements we acquired last year. For example, we might meet on zoom from time to time, or hold discussions online on Sakai Discussions Board.</p>
-<p>Our health, both mental and physical, is paramount. We must consider the health of others inside and outside the classroom. All Claremont Colleges students have signed agreements regulating on-campus behavior during the pandemic; in the classroom, we will uphold these agreements. We need to take care of each other for this course to be successful. I ask you therefore to adhere to the following principles:</p>
+<p>The faculty at Pomona College knows that person-to-person interaction
+provides the best liberal arts education. The best learning occurs in
+small communities. This year we are gathering in person for what we do
+best: create, generate, and share knowledge. During the past academic
+year, we built community remotely, and this year we will build on the
+pedagogical improvements we acquired last year. For example, we might
+meet on zoom from time to time, or hold discussions online on Sakai
+Discussions Board.</p>
+<p>Our health, both mental and physical, is paramount. We must consider
+the health of others inside and outside the classroom. All Claremont
+Colleges students have signed agreements regulating on-campus behavior
+during the pandemic; in the classroom, we will uphold these agreements.
+We need to take care of each other for this course to be successful. I
+ask you therefore to adhere to the following principles:</p>
 <ul>
-<li><p>There is a mask mandate for all indoor spaces on campus. You must wear a mask for the entire class; eating and drinking are not permitted. Your mask must cover your mouth and nose. The college has zero-tolerance for violations of this policy, and our shared commitment to the health and safety of our community members means if you come to class unmasked you will have to leave class for the day.</p></li>
-<li><p>Class attendance is required, but if you need to miss class for health reasons, concerning symptoms, suspected Covid exposure, unexpected dependent care, technology issues, or other emergency reasons I will work with you. Let me underscore this: please make your decisions always based on health, safety, and wellness—yours and others—and I will work with you at the other end. Take any potential symptoms seriously; we’re counting on each other.</p></li>
-<li><p>When not in class, avoid closed public spaces, and if you can’t avoid them: wear your mask properly, wash your hands, and maintain social distance.</p></li>
-<li><p>If you, or a family member, are experiencing hardship because of the pandemic, talk to me or to someone in the Dean of Students office. You are not alone during this time.</p></li>
+<li><p>There is a mask mandate for all indoor spaces on campus. You must
+wear a mask for the entire class; eating and drinking are not permitted.
+Your mask must cover your mouth and nose. The college has zero-tolerance
+for violations of this policy, and our shared commitment to the health
+and safety of our community members means if you come to class unmasked
+you will have to leave class for the day.</p></li>
+<li><p>Class attendance is required, but if you need to miss class for
+health reasons, concerning symptoms, suspected Covid exposure,
+unexpected dependent care, technology issues, or other emergency reasons
+I will work with you. Let me underscore this: please make your decisions
+always based on health, safety, and wellness—yours and others—and I will
+work with you at the other end. Take any potential symptoms seriously;
+we’re counting on each other.</p></li>
+<li><p>When not in class, avoid closed public spaces, and if you can’t
+avoid them: wear your mask properly, wash your hands, and maintain
+social distance.</p></li>
+<li><p>If you, or a family member, are experiencing hardship because of
+the pandemic, talk to me or to someone in the Dean of Students office.
+You are not alone during this time.</p></li>
 </ul>
-<p>The pandemic is fast-moving, and we might have to adjust the principles as the semester evolves. I am always happy to receive your feedback to make this course work.</p>
-<p>Let’s care for each other, show empathy, and be supportive. While there will likely be some community transmission and breakthrough infections, together, we can minimize their effect on our community and on your learning.</p>
+<p>The pandemic is fast-moving, and we might have to adjust the
+principles as the semester evolves. I am always happy to receive your
+feedback to make this course work.</p>
+<p>Let’s care for each other, show empathy, and be supportive. While
+there will likely be some community transmission and breakthrough
+infections, together, we can minimize their effect on our community and
+on your learning.</p>
 <h2 id="advice">Advice:</h2>
-<p>Please email and / or set up a time to talk if you have any questions about or difficulty with the material, the computing, or the course. Talk to me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. <strong>This semester is going to be fun.</strong> Let’s do it.</p>
+<p>Please email and / or set up a time to talk if you have any questions
+about or difficulty with the material, the computing, or the course.
+Talk to me as soon as possible if you find yourself struggling. The
+material will build on itself, so it will be much easier to catch up if
+the concepts get clarified earlier rather than later. <strong>This
+semester is going to be fun.</strong> Let’s do it.</p>
 <h3 id="grading">Grading:</h3>
 <div class="note">
 <ul>
@@ -2913,7 +2711,8 @@ I (like many people) am still in the process of learning about diverse perspecti
 <li>5% Class Participation</li>
 </ul>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
