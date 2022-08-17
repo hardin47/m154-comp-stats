@@ -249,7 +249,8 @@ Each of you will evaluate the presentations of your peers keeping the following 
 * Investigative data project on copy-cat bills making it through congress.  <a href = "https://www.azcentral.com/pages/interactives/asbestos-sharia-law-model-bills-lobbyists-special-interests-influence-state-laws/" target = "_blank">Here</a> is a visual summary, <a href = "https://publicintegrity.org/state-politics/copy-paste-legislate/how-we-uncovered-10000-times-lawmakers-introduced-copycat-model-bills-and-why-it-matters/" target = "_blank">here</a> is a bit on the methodology, and <a href = "https://www.usatoday.com/in-depth/news/investigations/2019/04/03/abortion-gun-laws-stand-your-ground-model-bills-conservatives-liberal-corporate-influence-lobbyists/3162173002/" target = "_blank">here</a> is a complete report. 
 * <a href = "https://www.storybench.org/mapping-search-data-from-google-trends-in-r/" target = "_blank">Google trends</a> by Peer Christensen 
 * <a href = "https://r.amherst.edu/apps/nhorton/clickbait/" target = "_blank">Classifying clickbait headlines</a> by Leah Johnson and Nick Horton at Amherst College.
-
+* <a href = "https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01316.x" target = "_blank">How to Measure Relative Bias in Media Coverage?</a> by Siddhartha Dalal, Berkay Adlim, and Michael Lesk.  (This article presents an analysis which is much bigger than a Math 154 project, but the ideas of using Reuters to scrape articles and ask questions might be perfect for a project.)
+* A complete analysis of the <a href = "https://twitter.com/kate_ptrv/status/1332398737604431874" target = "_blank">changes in candle scent perception</a> due to the COVID-19 pandemic by Kate Petrova @kate_ptrv, November 27, 2020.  The thread is <a href = "https://threadreaderapp.com/thread/1332398737604431874.html" target = "_blank">unrolled here</a>
 
 
 
