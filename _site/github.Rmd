@@ -36,7 +36,7 @@ set.seed(4747)
 
 In Math 154, we will use GitHub + Gradescope to access and submit assignments.  Here is the basic structure of how it will work:
 
-1. Get the assignment materials from GitHub classroom.
+1. Get the assignment materials from GitHub.
 2. Clone the repository to any machine you are using.
 3. Work on the assignment and push back to GitHub.
 4. Submit the assignment on Gradescope.
@@ -73,9 +73,9 @@ Most importantly, please become familiar with [Happy Git and GitHub with R](http
 include_graphics("images/happygitwithr.png")
 ```
 
-# Get the assignment materials from GitHub Classroom
+# Get the assignment materials from GitHub
 
-Each assignment will be provided as a link to GitHub classroom. Click the link.  (The link will come to you via an email from Canvas.  If you lose the email, or the email goes to your spam folder, check Canvas messages for the assignment link.)
+Each assignment will be provided as a link to GitHub. Click the link.  (The link will come to you via an email from Canvas.  If you lose the email, or the email goes to your spam folder, check Canvas messages for the assignment link.)
 
 <aside>
 When you use GitHub classroom for the first time, you'll be asked to authorize GitHub classroom to access your repositories.
@@ -92,7 +92,7 @@ For all **joint** assignments, you will need to create a team before you can sta
 * If you are working with a partner, the person who did *not* create the team and accept the assignment should now click the GitHub classroom link, find the newly created team, and click the Join button.
 
 <aside>
-&#9888; You may need to add a description of the assignment (for example “Lab 2”) to team name. This is because GitHub Classroom does seem to make it easy for some people to work in the same group as a previous assignment while other people form new groups.
+&#9888; You may need to add a description of the assignment (for example “HW 2”) to team name. This is because GitHub Classroom does seem to make it easy for some people to work in the same group as a previous assignment while other people form new groups.
 </aside>
 
 ```{r echo = FALSE, fig.cap="Accept the assignment to create a different repository for every assignment.", fig.alt = "Screen shot of GitHub showing where to accept the assignment."}
