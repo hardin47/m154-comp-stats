@@ -10,10 +10,11 @@ knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 ```
 
+<aside>
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "At first R and the monster are in a storm, very unhappy. Then R and the monster are happy in the sunshine.", preview = TRUE, echo = FALSE, out.width = "300px"}
 knitr::include_graphics("images/R_first_then.png")
 ```
-
+</aside>
 
 ```{r}
 #| echo: false
@@ -21,7 +22,7 @@ schedule <- tribble(
   ~`number`, ~tip, ~`description`, ~`misc`,
   "Tip 1", 'cmd + opt + i', 
   'creates a new R chunk',
-  'cntrl + opt + i <br> for PC',
+  'cntrl + alt + i <br> for PC',
 )
 ```
 

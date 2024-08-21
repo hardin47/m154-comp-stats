@@ -58,8 +58,8 @@
       "title": "R tip-of-the-day",
       "description": "So many awesome ways to do R.  I'll share some, you'll share some, it will be fun.\n",
       "author": [],
-      "contents": "\n\n\n\nFigure 1: Artwork by @allison_horst.\n\n\n\n\n\n\n\n\nnumber\n      tip\n      description\n      misc\n    Tip 1\ncmd + opt + i\ncreates a new R chunk\ncntrl + opt + i  for PC\n\n\n\n\n",
-      "last_modified": "2024-08-21T13:42:53-07:00"
+      "contents": "\n\n\n\nFigure 1: Artwork by @allison_horst.\n\n\n\n\n\n\n\n\nnumber\n      tip\n      description\n      misc\n    Tip 1\ncmd + opt + i\ncreates a new R chunk\ncntrl + alt + i  for PC\n\n\n\n\n",
+      "last_modified": "2024-08-21T14:11:06-07:00"
     },
     {
       "path": "roles.html",
