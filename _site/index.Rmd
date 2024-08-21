@@ -136,7 +136,7 @@ schedule <- tribble(
   '<a href=""><i class="fas fa-desktop" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-laptop"></i></a>',
 
- "11.25.24", '<a href="">fantastic extensions</a>',
+ "12.2.24", '<a href="">fantastic extensions</a>',
   '<a href=""><i class="fas fa-book-open" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-lightbulb" target="_blank"></i></a>',
   '<a href=""><i class="fas fa-balance-scale" target="_blank"></i></a>',

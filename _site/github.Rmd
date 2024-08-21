@@ -141,23 +141,23 @@ All of the GitHub interaction will take place through the RStudio IDE.  The two 
 If you are working with a colleague or on different machines it is so incredibly important to get in the habit of immediately clicking on `pull` when you start your work.  (If you are working alone on a single machine `pull` won't hurt!  You'll just be told that your files are already up to date.)
 
 
-```{r echo = FALSE, fig.cap="Always pull before you start. pull-work-save-commit-push", fig.alt = "Screen shot of how to pull using the Rstudio IDE."}
+```{r echo = FALSE, fig.cap="Always pull before you start. pull-work-render-commit-push", fig.alt = "Screen shot of how to pull using the Rstudio IDE."}
 include_graphics("images/pull.png")
 ```
 
-## `knit` your work
+## `Render` your work
 
-Don't forget to put your name on the assignment.  Also, make sure that you knit to pdf.  Knit early and often.  The more often you knit, the fewer headaches you will have.
+Don't forget to put your name on the assignment.  Also, make sure that you Render to pdf.  Render early and often.  The more often you Render, the fewer headaches you will have.
 
-```{r echo = FALSE, fig.cap="Always pull before you start. pull-work-knit-commit-push", fig.alt = "Screen shot of how to knit using the RStudio IDE."}
-include_graphics("images/name-knit.png")
+```{r echo = FALSE, fig.cap="Always pull before you start. pull-work-render-commit-push", fig.alt = "Screen shot of how to Render using the RStudio IDE."}
+include_graphics("images/name-render.png")
 ```
 
 ## `commit` your work
 
 You don't need to commit every file, but you do need to commit files that are integral to the analysis (always commit .qmd, .pdf, data files, images that created the pdf, etc.).
 
-```{r echo = FALSE, fig.cap="pull-work-knit-commit-push", fig.alt = "Screen shot of how to commit using the RStudio IDE."}
+```{r echo = FALSE, fig.cap="pull-work-render-commit-push", fig.alt = "Screen shot of how to commit using the RStudio IDE."}
 include_graphics("images/choose-commit.png")
 ```
 
@@ -165,7 +165,7 @@ include_graphics("images/choose-commit.png")
 
 It is good practice to use meaningful commit messages to help your future self figure out your past work.
 
-```{r echo = FALSE, fig.cap="pull-work-knit-commit-push", fig.alt = "Screen shot of how to push using the RStudio IDE."}
+```{r echo = FALSE, fig.cap="pull-work-render-commit-push", fig.alt = "Screen shot of how to push using the RStudio IDE."}
 include_graphics("images/commit-push.png")
 ```
 
