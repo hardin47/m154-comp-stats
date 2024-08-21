@@ -42,7 +42,7 @@ In Math 154, we will use GitHub + Gradescope to access and submit assignments.  
 4. Submit the assignment on Gradescope.
 
 <aside>
-```{r echo = FALSE, fig.cap="image credit: xkcd", fig.alt = "xkcd comic detailing that Git can be pretty complicated."}
+```{r echo = FALSE, fig.cap="image credit: https://xkcd.com/1597/", fig.alt = "xkcd comic detailing that Git can be pretty complicated."}
 include_graphics("images/git_2x.png")
 ```
 </aside>
@@ -75,7 +75,7 @@ include_graphics("images/happygitwithr.png")
 
 # Get the assignment materials from GitHub Classroom
 
-Each assignment will be provided as a link to GitHub classroom. Click the link.  (The link will come to you via an email from Sakai.  If you lose the email, or the email goes to your spam folder, check Sakai messages for the assignment link.)
+Each assignment will be provided as a link to GitHub classroom. Click the link.  (The link will come to you via an email from Canvas.  If you lose the email, or the email goes to your spam folder, check Canvas messages for the assignment link.)
 
 <aside>
 When you use GitHub classroom for the first time, you'll be asked to authorize GitHub classroom to access your repositories.
@@ -107,7 +107,7 @@ We will call this version, that lives on your personal GitHub account the *GitHu
 
 # Clone the assignment (or project) repository on to your own computer(s)
 
-Once your repository has been created, you should clone the code to whatever computer you are working on.  Just like a Google Doc, you can work on the files from different machines at different times.  Unlike a Google Doc, you'll have to make sure to open the repo (`clone` or `pull` if you've aleady `clone`d) and save the repo (`commit` + `push`) more deliberately.
+Once your repository has been created, you should clone the code to whatever computer you are working on.  Just like a Google Doc, you can work on the files from different machines at different times.  Unlike a Google Doc, you'll have to make sure to open the repo (`clone` or `pull` if you've already `clone`d) and save the repo (`commit` + `push`) more deliberately.
 
 <aside>
 [Happy Git with R](https://happygitwithr.com/) is your new best friend.
@@ -155,7 +155,7 @@ include_graphics("images/name-knit.png")
 
 ## `commit` your work
 
-You don't need to commit every file, but you do need to commit files that are integral to the analysis (always commite .Rmd, .pdf, data files, images that created the pdf, etc.).
+You don't need to commit every file, but you do need to commit files that are integral to the analysis (always commit .qmd, .pdf, data files, images that created the pdf, etc.).
 
 ```{r echo = FALSE, fig.cap="pull-work-knit-commit-push", fig.alt = "Screen shot of how to commit using the RStudio IDE."}
 include_graphics("images/choose-commit.png")
@@ -186,9 +186,9 @@ To submit your assignment, complete the following steps:
 The first time you submit, you may need to click "Connect to GitHub", to connect your Gradescope account to your GitHub account.
 </aside>
 
-1. Access the course’s Gradescope site, select the appropriate assignment, and then choose GitHub as the submission method.  You must access the course's Gradescope site via the side menu in Sakai.
+1. Access the course’s Gradescope site, select the appropriate assignment, and then choose GitHub as the submission method.  You must access the course's Gradescope site via the side menu in Canvas.
 
-```{r echo = FALSE, fig.cap="Access Gradescope via Sakai.", fig.alt = "Screen shot of Gradescope connection from inside Sakai."}
+```{r echo = FALSE, fig.cap="Access Gradescope via Canvas.", fig.alt = "Screen shot of Gradescope connection from inside Canvas."}
 include_graphics("images/gradescope-sakai.png")
 ``` 
 
@@ -202,4 +202,4 @@ include_graphics("images/gradescope-github.png")
 
 You can submit multiple times before the deadline. Your last submission will determine your grade.
 
-Once assignments are completely graded, you will be able to see your grade and assignment feedback on Gradescope. Grades will also be synched with Sakai.
+Once assignments are completely graded, you will be able to see your grade and assignment feedback on Gradescope. Grades will also be synced with Canvas.

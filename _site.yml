@@ -30,6 +30,8 @@ navbar:
           href: rubric.html
         - text: "Data Sources"
           href: https://hardin47.netlify.app/courses/data/
+    - text: "R tip"
+      href: R-tip.html
     - text: "GitHub"
       href: github.html
 output: 
