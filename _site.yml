@@ -7,8 +7,6 @@ include: ["*.Rmd"]
 base_url: https://m154-comp-stats.netlify.app/
 repository_url: https://github.com/hardin47/m154-comp-stats
 creative_commons: CC BY
-twitter:
-  site: "@jo_hardin47"
 navbar:
   logo:
     image: images/st47s.png

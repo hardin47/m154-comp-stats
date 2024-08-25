@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2024-08-26-getting-started/",
+    "title": "1. Start with R + Git",
+    "description": "The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub.",
+    "author": [
+      {
+        "name": "Jo Hardin",
+        "url": "https://m154-comp-stats.netlify.app/"
+      }
+    ],
+    "date": "2024-08-26",
+    "categories": [],
+    "contents": "\n\n\n\nFigure 1: Artwork by @allison_horst.\n\n\n\nAgenda \nAugust 26, 2024\nQuestionnaire\nSyllabus & Course Outline\nStitch Fix Algorithm\nCollege Rankings\nCan Twitter predict election results?\nBefore Wednesday, listen to the full conversation of Not So Standard Deviations - Compromised Shoe Situation.\nAugust 28, 2024\nReproducibility & GitHub\nDesign Challenge (Not So Standard Deviations)\nBefore next Thursday, read: Tufte. 1997. Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nReadings \nThe syllabus\nModern Data Science with R Prologue\nClass notes: Introduction\nWhy Git? + monsters\nReflection questions \nWhat can statistics & data science do? How do they do that?\nWhat can’t statistics & data science do? Why not?\nWhat choices were made to collect the Twitter data?\nWhat choices were made to model the Twitter data?\nWhat are the advantages and disadvantages of high touch versus low touch data?\nEthics considerations \nWhy is it problematic if the analysis isn’t reproducible?\nIs every analysis worth doing? (e.g., time to get to work, predicting presidential results, etc.). Can the act of doing the analysis be ethically questionable?\nSlides \nIn class slides for both 8/31/21 and 9/2/21.\nTwitter activity\nWU1 - working with R\nAdditional Resources \nGreat algorithm for the whole process\nDesign Challenge (Not So Standard Deviations), listen to the full conversation.\nVideo (less than 2 min) on the strengths of reproducible research\nR vs. Python? (My personal opinion is that neither of the languages is “best”.)\n2017 Kaggle user survey and  2019 Stack Overflow Developer Survey\nPNAS paper retracted due to problems with figure and reproducibility (April 2016)\nAnalysis of Trump’s tweets with evidence that someone else tweets from his account using an iPhone part 1 and part 2 \n\n\n\n",
+    "preview": "posts/2024-08-26-getting-started/../../images/reproducibility_court.png",
+    "last_modified": "2024-08-25T09:53:59-07:00",
+    "input_file": {},
+    "preview_width": 4678,
+    "preview_height": 2814
+  },
+  {
     "path": "posts/2021-12-07-extensions/",
     "title": "14. Awesome extensions",
     "description": "So many topics, so little time.  A short survey on some of the many many topics we could have covered but didn't.",
@@ -142,7 +161,7 @@
     "categories": [],
     "contents": "\n\n\n\nFigure 1: Artwork by @allison_horst.\n\n\n\nAgenda \nSeptember 28, 2021\nReview: logic of hypothesis testing\nLogic of permutation tests\nExamples - 2 samples and beyond\nSeptember 30, 2021\nConditions, exchangeability, random structure\nDifferent statistics within the permutation test\nPower\nPermutation vs. Randomization tests (Binomial)\nReadings \nClass notes: Permutation Tests\nBaumer, Horton, and Kaplan (2021), Simulation (Chp 13) in Modern Data Science for R.\nReflection questions \nWhat is a test statistic?\nWhat is a p-value?\nWhy for a two sample comparison (treatment A vs treatment B) is it okay to use \\(\\overline{X}_A - \\overline{X}_B\\) for a test statistic in a permutation test, but for a t-test the test statistic is necessarily \\(t^* = \\frac{\\overline{X}_A - \\overline{X}_B}{\\sqrt{s^2_A/n_A + s^2_B/n_B}}\\) (that is, divided by a measure of variability)?\nHow do you know what to permute in order to create a null sampling distribution?\nWhat does “exchangeability” mean (as a technical condition) when discussing permutation tests?\nWhat is the difference between a permutation test and a randomization test? Are there times when doing a randomization test is possible?\nWhat is power? What are type I and type II errors?\nEthics considerations \nIn a permutation test, sometimes there are many test statistics to choose from (which address the same hypotheses). Why wouldn’t you want to try them all and choose the one that gives you the highest level of significance?\nWhen is it acceptable to claim that the resulting “significant” outcome is actually a causal relationship (and not just an association)?\nSlides \nIn class slides for both 9/28/21 and 9/30/21.\nWU8 - HT logic\nWU9 - Permuting\nAdditional Resources \nRossman & Chance applets:\nanalytic test of 2 means (t-test)\npermutation test of 2 means\nanalytic test of many means (ANOVA)\npermutation test of many means\nconfidence intervals\npower\nlinear models\n\nStatistics without the agonizing pain - John Rauser at Strata + Hadoop 2014\nThe algorithm that could end partisan gerrymandering\nRStudio cheatsheets – there is one on purrr!\n\n\n\n",
     "preview": "posts/2021-09-28-permutation/../../images/not_normal.png",
-    "last_modified": "2022-07-28T10:57:20-07:00",
+    "last_modified": "2024-08-25T09:53:49-07:00",
     "input_file": {},
     "preview_width": 2320,
     "preview_height": 1790
@@ -161,7 +180,7 @@
     "categories": [],
     "contents": "\n\n\n\nFigure 1: Artwork by @allison_horst.\n\n\n\nAgenda \nSeptember 21, 2021\nWhy simulate?\nWhat makes a good simulation?\nExamples\nSeptember 23, 2021\nBias in modeling\nSimulating statistical inference\nReadings \nClass notes: Simulating\nBaumer, Horton, and Kaplan (2021), Iteration (Chp 7) in Modern Data Science for R.\nReflection questions \nWhat are some reasons to simulate?\nWhat makes a good simulation?\nWhat does “90%” mean when describing a 90% confidence interval? (That is, 90% of what?)\nWhat does a type I error rate mean when doing hypothesis testing? (That is, rate of what?)\nThe p-value is the probability of obtaining the observed data or more extreme if the null hypothesis is true. If probability is interpreted in the long-run-frequency definition, what is happening repeatedly so as to conceptualize the probability of something happening?\nEthics considerations \nHow can we use simulations to understand algorithmic bias or other types of problems in modeling?\nWhat does it mean for two different populations to have different feature distributions?\nSlides \nIn class slides for both 9/21/21 and 9/23/21.\nWU6 - Simulating\nWU7 - Simulating CIs\nAdditional Resources \nRStudio cheatsheets – there is one on purrr!\nSimulating who would be in the first GOP debate (NYT 7/29/15)\nBlog by Aaron Roth, Algorithmic Unfairness Without Any Bias Baked In.\nSimulating linear models from the ISCAM applets.\n\n\n\n",
     "preview": "posts/2021-09-21-simulating/../../images/map_frosting.png",
-    "last_modified": "2022-07-28T10:57:12-07:00",
+    "last_modified": "2024-08-25T09:53:32-07:00",
     "input_file": {},
     "preview_width": 5869,
     "preview_height": 3500
@@ -205,25 +224,6 @@
     "preview_height": 1566
   },
   {
-    "path": "posts/2021-08-31-getting-started/",
-    "title": "1. Start with R + Git",
-    "description": "The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub.",
-    "author": [
-      {
-        "name": "Jo Hardin",
-        "url": "https://m154-comp-stats.netlify.app/"
-      }
-    ],
-    "date": "2021-08-31",
-    "categories": [],
-    "contents": "\n\n\n\nFigure 1: Artwork by @allison_horst.\n\n\n\nAgenda \nAugust 31, 2021\nQuestionnaire\nSyllabus & Course Outline\nStitch Fix Algorithm\nCollege Rankings\nCan Twitter predict election results?\nBefore next Thursday, listen to the full conversation of Not So Standard Deviations - Compromised Shoe Situation.\nSeptember 2, 2021\nReproducibility & GitHub\nDesign Challenge (Not So Standard Deviations)\nBefore next Tuesday, read: Tufte. 1997. Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nReadings \nThe syllabus\nModern Data Science with R Prologue\nClass notes: Introduction\nWhy Git? + monsters\nReflection questions \nWhat can statistics & data science do? How do they do that?\nWhat can’t statistics & data science do? Why not?\nWhat choices were made to collect the Twitter data?\nWhat choices were made to model the Twitter data?\nWhat are the advantages and disadvantages of high touch versus low touch data?\nEthics considerations \nWhy is it problematic if the analysis isn’t reproducible?\nIs every analysis worth doing? (e.g., time to get to work, predicting presidential results, etc.). Can the act of doing the analysis be ethically questionable?\nSlides \nIn class slides for both 8/31/21 and 9/2/21.\nTwitter activity\nWU1 - working with R\nAdditional Resources \nGreat algorithm for the whole process\nDesign Challenge (Not So Standard Deviations), listen to the full conversation.\nVideo (less than 2 min) on the strengths of reproducible research\nR vs. Python? (My personal opinion is that neither of the languages is “best”.)\n2017 Kaggle user survey and  2019 Stack Overflow Developer Survey\nPNAS paper retracted due to problems with figure and reproducibility (April 2016)\nAnalysis of Trump’s tweets with evidence that someone else tweets from his account using an iPhone part 1 and part 2 \n\n\n\n",
-    "preview": "posts/2021-08-31-getting-started/../../images/reproducibility_court.png",
-    "last_modified": "2022-07-27T20:17:09-07:00",
-    "input_file": {},
-    "preview_width": 4678,
-    "preview_height": 2814
-  },
-  {
     "path": "posts/2021-10-12-review1/",
     "title": "7. First half review",
     "description": "Resources for review of the first half of the semester.",
@@ -256,7 +256,7 @@
     "categories": [],
     "contents": "\n\n\n\nFigure 1: Artwork by @allison_horst.\n\n\n\nAgenda \nOctober 5, 2021\nFinish power in the permutation test context\nReview: logic of confidence intervals\nLogic of bootstrapping (resample from the sample with replacement)\nBS SE of a statistic\nOctober 7, 2021\nNormal CI using BS SE\nBootstrap-t (studentized) CIs\nPercentile CIs\nproperties / advantages / disadvantages\nReadings \nClass notes: Bootstrapping\nBaumer, Horton, and Kaplan (2021), The bootstrap (Chp 9.3) in Modern Data Science for R.\nGareth, Witten, Hastie, and Tibshirani (2021), The Bootstrap (section 5.2)  Introduction to Statistical Learning.\nReflection questions \nWhy would anyone ever want to bootstrap?\nWhat are the differences between a normal CI with Boot SE, a Bootstrap-t CI, and a percentile interval?\nWhy do we need to bootstrap twice for the Bootstrap-t CI?\nWhat makes a confidence interval procedure good?\nEthics considerations \nWhy isn’t the bootstrap method a solution for the situation of small sample sizes?\nWhy isn’t the bootstrap method a solution for the situation with biased / unrepresentative data?\nConsider a population with a maximum value (the parameter of interest). Will the sample max have a sampling distribution which is centered on the true maximum? Why or why not? [Quintessential example of how a statistic can be biased for the parameter.]\nSlides \nIn class slides for both 10/5/21 and 10/7/21.\nWU10 - standard errors\nWU11 - Bootstrap SE\nAdditional Resources \nStatKey applets which demonstrate bootstrapping.\nConfidence interval logic from the Rossman & Chance applets.\nThe Role of Statistical Learning in Applied Statistics Daniela Witten talks to Rafa Irizarry June 15, 2020.\nFive ways to fix statistics, Nature Nov 28, 2017\n\n\n\n",
     "preview": "posts/2021-10-05-bootstrap/../../images/dotplot.png",
-    "last_modified": "2022-07-28T10:57:31-07:00",
+    "last_modified": "2024-08-25T09:53:44-07:00",
     "input_file": {},
     "preview_width": 887,
     "preview_height": 502

@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://m154-comp-stats.netlify.app/daily.html</loc>
-    <lastmod>2022-01-17T19:10:34-08:00</lastmod>
+    <lastmod>2024-08-24T13:53:17-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/github.html</loc>
-    <lastmod>2024-08-21T16:36:51-07:00</lastmod>
+    <lastmod>2024-08-23T13:01:13-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/</loc>
-    <lastmod>2024-08-21T14:31:50-07:00</lastmod>
+    <lastmod>2024-08-25T09:56:35-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/notes.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/project.html</loc>
-    <lastmod>2022-08-17T05:43:20-07:00</lastmod>
+    <lastmod>2024-08-25T10:29:53-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/R-tip.html</loc>
@@ -34,7 +34,11 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/syllabus.html</loc>
-    <lastmod>2022-07-27T20:29:11-07:00</lastmod>
+    <lastmod>2024-08-25T11:11:37-07:00</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/posts/2024-08-26-getting-started/</loc>
+    <lastmod>2024-08-25T09:53:59-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2021-12-07-extensions/</loc>
@@ -66,11 +70,11 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2021-09-28-permutation/</loc>
-    <lastmod>2022-07-28T10:57:20-07:00</lastmod>
+    <lastmod>2024-08-25T09:53:49-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/</loc>
-    <lastmod>2022-07-28T10:57:12-07:00</lastmod>
+    <lastmod>2024-08-25T09:53:32-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2021-09-14-wrangling/</loc>
@@ -81,15 +85,11 @@
     <lastmod>2022-07-28T10:56:52-07:00</lastmod>
   </url>
   <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-08-31-getting-started/</loc>
-    <lastmod>2022-07-27T20:17:09-07:00</lastmod>
-  </url>
-  <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2021-10-12-review1/</loc>
     <lastmod>2022-07-28T10:57:41-07:00</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2021-10-05-bootstrap/</loc>
-    <lastmod>2022-07-28T10:57:31-07:00</lastmod>
+    <lastmod>2024-08-25T09:53:44-07:00</lastmod>
   </url>
 </urlset>

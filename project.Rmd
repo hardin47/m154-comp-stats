@@ -239,18 +239,21 @@ Each of you will evaluate the presentations of your peers keeping the following 
 
 # Some Project Examples / Ideas:
 
-* <a href = "https://ziqixiong.shinyapps.io/TopicModeling" target = "_blank">Topic Modeling</a> by Benji Lu, Kai Fukutaki, and Ziqi Xiong
+(Projects completed as a Math 154 assignment are denoted with <i class="fa-solid fa-award"></i>)
+
+* <i class="fa-solid fa-award"></i> <a href = "https://ziqixiong.shinyapps.io/TopicModeling" target = "_blank">Topic Modeling</a> by Benji Lu, Kai Fukutaki, and Ziqi Xiong
 * <a href = "https://github.com/rundel/Dennys_LaQuinta_Chance" target = "_blank">La Quinta vs. Dennys</a> (Colin Rundel & Mine Çetinkaya-Rundel.  <a href = "https://www.rstudio.com/resources/webinars/data-science-case-study/" target = "_blank">Webinar about the study</a>.  (What if you look at Holiday Inns???)
-* <a href = "https://tcai.shinyapps.io/airbnbtextanalysis/" target = "_blank">Airbnb Text Analysis</a> by Tianyuan Cai, Jiwon Lee, and Ethan Matlin
-* <a href = "https://github.com/robinspollak/R.openFEC" target = "_blank">R package for downloading FEC data</a> by Robin Pollak and Jeff Carney 
-* <a href = "https://math154-fall2017-vegas.shinyapps.io/lvmapbackup/" target = "_blank">Vegas Baby</a> by Gwen Song, Amy Oden, and Judy Cheng
-* <a href = "https://fordc5.github.io/ExtremeWeatherAndTerrorism/" target = "_blank">Weather and Terrorism</a> by Connor Ford and Bradley Druzinsky
-* <a href = "https://mweinstock02014.shinyapps.io/twitter_app/" target = "_blank">NGO information via Twitter</a> by Molly Weinstock, Alex Pusch, and Melissa Hooke 
+* <i class="fa-solid fa-award"></i> <a href = "https://tcai.shinyapps.io/airbnbtextanalysis/" target = "_blank">Airbnb Text Analysis</a> by Tianyuan Cai, Jiwon Lee, and Ethan Matlin
+* <i class="fa-solid fa-award"></i> <a href = "https://github.com/robinspollak/R.openFEC" target = "_blank">R package for downloading FEC data</a> by Robin Pollak and Jeff Carney 
+* <i class="fa-solid fa-award"></i> <a href = "https://math154-fall2017-vegas.shinyapps.io/lvmapbackup/" target = "_blank">Vegas Baby</a> by Gwen Song, Amy Oden, and Judy Cheng
+* <i class="fa-solid fa-award"></i> <a href = "https://fordc5.github.io/ExtremeWeatherAndTerrorism/" target = "_blank">Weather and Terrorism</a> by Connor Ford and Bradley Druzinsky
+* <i class="fa-solid fa-award"></i> <a href = "https://mweinstock02014.shinyapps.io/twitter_app/" target = "_blank">NGO information via Twitter</a> by Molly Weinstock, Alex Pusch, and Melissa Hooke 
 * Investigative data project on copy-cat bills making it through congress.  <a href = "https://www.azcentral.com/pages/interactives/asbestos-sharia-law-model-bills-lobbyists-special-interests-influence-state-laws/" target = "_blank">Here</a> is a visual summary, <a href = "https://publicintegrity.org/state-politics/copy-paste-legislate/how-we-uncovered-10000-times-lawmakers-introduced-copycat-model-bills-and-why-it-matters/" target = "_blank">here</a> is a bit on the methodology, and <a href = "https://www.usatoday.com/in-depth/news/investigations/2019/04/03/abortion-gun-laws-stand-your-ground-model-bills-conservatives-liberal-corporate-influence-lobbyists/3162173002/" target = "_blank">here</a> is a complete report. 
 * <a href = "https://www.storybench.org/mapping-search-data-from-google-trends-in-r/" target = "_blank">Google trends</a> by Peer Christensen 
 * <a href = "https://r.amherst.edu/apps/nhorton/clickbait/" target = "_blank">Classifying clickbait headlines</a> by Leah Johnson and Nick Horton at Amherst College.
 * <a href = "https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01316.x" target = "_blank">How to Measure Relative Bias in Media Coverage?</a> by Siddhartha Dalal, Berkay Adlim, and Michael Lesk.  (This article presents an analysis which is much bigger than a Math 154 project, but the ideas of using Reuters to scrape articles and ask questions might be perfect for a project.)
 * A complete analysis of the <a href = "https://twitter.com/kate_ptrv/status/1332398737604431874" target = "_blank">changes in candle scent perception</a> due to the COVID-19 pandemic by Kate Petrova @kate_ptrv, November 27, 2020.  The thread is <a href = "https://threadreaderapp.com/thread/1332398737604431874.html" target = "_blank">unrolled here</a>
+* <i class="fa-solid fa-award"></i> <a href = "https://bwhqci-kae999.shinyapps.io/groupa-music/" target = "_blank">PoemR</a>, a Shiny app to generate poems from song lyrics by Brian Bishop, Kamil English, and Danny Ta. 
 
 
 

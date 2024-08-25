@@ -11,7 +11,7 @@
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
   body {
-
+    visibility: hidden;
   }
   </style>
 
@@ -21,7 +21,7 @@
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -119,7 +120,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <meta property="twitter:image" content="https://m154-comp-stats.netlify.app/posts/2021-09-28-permutation/../../images/not_normal.png"/>
 <meta property="twitter:image:width" content="2320"/>
 <meta property="twitter:image:height" content="1790"/>
-<meta property="twitter:site" content="@jo_hardin47"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
@@ -130,7 +130,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["permutation_files/anchor-4.2.2/anchor.min.js","permutation_files/bowser-1.9.3/bowser.min.js","permutation_files/distill-2.2.21/template.v2.js","permutation_files/header-attrs-2.11.1/header-attrs.js","permutation_files/header-attrs-2.11.3/header-attrs.js","permutation_files/jquery-3.6.0/jquery-3.6.0.js","permutation_files/jquery-3.6.0/jquery-3.6.0.min.js","permutation_files/jquery-3.6.0/jquery-3.6.0.min.map","permutation_files/popper-2.6.0/popper.min.js","permutation_files/tippy-6.2.7/tippy-bundle.umd.min.js","permutation_files/tippy-6.2.7/tippy-light-border.css","permutation_files/tippy-6.2.7/tippy.css","permutation_files/tippy-6.2.7/tippy.umd.min.js","permutation_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["permutation_files/anchor-4.2.2/anchor.min.js","permutation_files/bowser-1.9.3/bowser.min.js","permutation_files/distill-2.2.21/template.v2.js","permutation_files/header-attrs-2.11.1/header-attrs.js","permutation_files/header-attrs-2.11.3/header-attrs.js","permutation_files/header-attrs-2.11/header-attrs.js","permutation_files/jquery-3.6.0/jquery-3.6.0.js","permutation_files/jquery-3.6.0/jquery-3.6.0.min.js","permutation_files/jquery-3.6.0/jquery-3.6.0.min.map","permutation_files/popper-2.6.0/popper.min.js","permutation_files/tippy-6.2.7/tippy-bundle.umd.min.js","permutation_files/tippy-6.2.7/tippy-light-border.css","permutation_files/tippy-6.2.7/tippy.css","permutation_files/tippy-6.2.7/tippy.umd.min.js","permutation_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2118,7 +2118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.11/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.27/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2353,6 +2353,7 @@ Project
 
 <div class="d-title">
 <h1>5. Permutation Tests</h1>
+
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 <p><p>Simulating scenarios, simulating datasets, simulating random variables.</p></p>
@@ -2390,7 +2391,7 @@ Figure 1: Artwork by <span class="citation" data-cites="allison_horst">@allison_
 <h2 id="readings">Readings <i class="fas fa-book-open"></i></h2>
 <ul>
 <li><p>Class notes: <a href = "http://st47s.com/Math154/Notes/permschp.html" target= "_blank">Permutation Tests</a></p></li>
-<li><p>Baumer, Horton, and Kaplan (2021), <a href = "https://mdsr-book.github.io/mdsr2e/ch-simulation.html" target = "_blank">Simulation (Chp 13)</a> in Modern Data Science for R.</p></li>
+<li><p>Baumer, Horton, and Kaplan (2021), <a href = "https://mdsr-book.github.io/mdsr3e/13-simulation.html" target = "_blank">Simulation (Chp 13)</a> in Modern Data Science for R.</p></li>
 </ul>
 <h2 id="reflection-questions">Reflection questions <i class="fas fa-lightbulb"></i></h2>
 <ul>
