@@ -30,7 +30,7 @@
       "description": "Schedule for Math 154, Computational Statistics, Fall 2021\n",
       "author": [],
       "contents": "\n\n\n\nHere’s your roadmap for the semester!\nEach week, follow the general process outlined below:\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nComplete the assignment (see Sakai messages for HW link)\nDiscuss the reflection questions  and ethics considerations  with your classmates, mentor, and professor\nHomework assignments are found at the GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\n\n\n\n\n\ndate\n      topic\n      due dates\n    8.26.24\nstarting with R + RStudio + Git\n9.2.24\ndata viz\n HW 1 - due 9.39.9.24\nwrangling\n HW 2 - due 9.10  Quiz 9.119.16.24\nwrangling\n HW 3 - due 9.179.23.24\nsimulating\n HW 4 - due 9.24  Quiz 9.259.30.24\npermutation tests\n HW 5 - due 10.110.7.24\nbootstrapping\n HW 6 - due 10.8  Quiz 10.910.14.24\nrecipes\n10.16.24\nInitial Project Proposal due\n10.21.24\nknn + trees\n HW 7 - due 10.22  Quiz 10.2310.28.24\nbagging + RF\n HW 8 - due 10.2910.30.24\nFinal Project Proposal due\n11.4.24\nsupport vector machines\n HW 9 - due 11.5  Quiz 11.611.11.24\nclustering\n HW 10 - due 11.1211.13.24\nProject Update\n11.18.24\nclustering\n HW 11 - due 11.19  Quiz 11.2011.25.24\nLatent Dirichlet allocation\n12.2.24\nData-ing in the World\n12.2.24\nfantastic extensions\n12.6 + 12.24\nGroup Presentations\n12.12.24\nFinal write-up\n\n\n\n\n\n",
-      "last_modified": "2024-08-25T11:22:55-07:00"
+      "last_modified": "2024-08-25T11:25:33-07:00"
     },
     {
       "path": "notes.html",
