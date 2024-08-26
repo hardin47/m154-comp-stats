@@ -1,20 +1,42 @@
 ---
-title: "Introduction to Math154"
+title: "Introduction to Math 154"
 subtitle: "Computational Statistics"
-author: "Jo Hardin (thanks to Mine Cetinkaya-Rundel!)"
+author: "Jo Hardin"
 date: "August 26, 2024"
 format: 
   revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
     embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+
+---
+
+<!--
+format: 
+  revealjs:
     drop:
       button: true
       engine: webr
       webr:
         packages:
           - tidyverse
----
+    embed-resources: true
+revealjs-plugins:
+  - drop
+execute:
+  echo: true
+fig-width: 6
+fig-asp: 0.618
+-->
 
 
+    
 ```{r include=FALSE}
 library(ggplot2)
 library(dplyr)
@@ -22,8 +44,6 @@ library(mosaic)
 library(knitr)
 library(ggthemes)
 opts_chunk$set(
-  message=FALSE,
-  warning=FALSE,
   size='small',
   tidy=FALSE
   )
@@ -33,42 +53,80 @@ options(width=65)
 ```
 
 
-Agenda 8/26/24
-=====
+# Agenda 8/26/24
 
 1. [Syllabus](../syllabus/)
-3. Workflow
-4. Stitch Fix
-5. College Rankings
-6. Twitter
-
-Note: before Wednesday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.
+2. Workflow - Stitch Fix
+3. Twitter
+4. Tools
 
 
-Course structure
-=========================
+::: {.callout-important}
+Before Wednesday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.
+:::
+
+## Course structure
 * weekly HW (to GitHub + Gradescope)
-* bi-weekly quizzes + data project
+* bi-weekly quizzes 
+* data project
 * in-class activities / clickers
 * ethical considerations
 
 
-Additional details
-=========================
+
+## Additional details
 * Canvas has all the links
+  1. course website -- almost everything
+  2. class notes
+  3. Canvas page -- solutions and assignments
 * no computers (tablets fine)
-* semester flexibility -- good communication
+* good communication
+* TidyTuesday
 
 
-Workflow
-=========================
+## [Syllabus](../syllabus/)
+
+:::: {.columns}
+::: {.column width="50%"}
+* office hours
+* mentor sessions
+* anonymous feedback
+* dates for assignments
+:::
+
+::: {.column width="50%"}
+* links to resources
+* HW grading
+* project information
+:::
+::::
+
+::: {.callout-important}
+I need your GitHub user name - please email it to me.
+:::
+
+## Learning goals {.smaller}
+
+By the end of the course, you will be able to...
+
+::: incremental
+-   gain insight from data
+-   gain insight from data, **reproducibly**
+-   gain insight from data, reproducibly, **using modern programming tools and techniques**
+-   gain insight from data, reproducibly **(with literate programming and version control)**, using modern programming tools and techniques
+:::
+
+# Data Science Process
+
+## Workflow
 ```{r, out.width = "800px", echo=FALSE}
 knitr::include_graphics("../images/AnalysisProcessBaumer.jpg")
 ```
 
 
-Stitch Fix
-=========================
+## Stitch Fix
+
+Example of how data and algorithms are used to make decisions.
 
 ```{r, out.width = "800px", echo=FALSE}
 knitr::include_graphics("../images/SFalg.jpg")
@@ -78,8 +136,7 @@ knitr::include_graphics("../images/SFalg.jpg")
 http://algorithms-tour.stitchfix.com/
 
 
-What can/can't statistics & data science do?
-=========================
+## What can/can't statistics & data science do?
 
 * Can model the data at hand!
 * Can find patterns & visualizations in large datasets.
@@ -87,60 +144,9 @@ What can/can't statistics & data science do?
 * Can't represent data if it isn't there.
 
 
-Stats / Data Science / Math are not apolitical/agnostic
-=========================
-
-Source: https://www.politifact.com/truth-o-meter/
-
-```{r, out.width = "1000px", echo=FALSE}
-knitr::include_graphics("../images/politicalquotes_2021.png") 
-```
 
 
-* "Inner city crime is reaching record levels"  (Donald Trump, 8/30/16)
-* "The unemployment rate for African-American youth is 59 percent" (Donald Trump 6/20/16)
-* "Two million more Latinos are in poverty today than when President Obama took his oath of office less than eight years ago" (Donald Trump 8/25/16)
-* "We are now, for the first time ever, energy independent" (Hillary Clinton 8/10/16)
-* "If you look worldwide, the number of terrorist incidents have not substantially increased" (Barack Obama 10/13/16)
-* "Illegal immigration is lower than it's been in 40 years" (Barack Obama, 3/17/16)
-
-
-
-
-College Rankings (problems)
-=========================
-
-Cheating
-
-> Bucknell University lied about SAT averages from 2006 to 2012, and Emory University sent in biased SAT scores and class ranks for at least 11 years, starting in 2000. Iona College admitted to fudging SAT scores, graduation rates, retention rates, acceptance rates, and student-to-faculty ratios in order to move from 50th place to 30th for nine years before it was discovered.  (**Weapons of Math Destruction**, O'Neil)
-
-
-
-College Rankings (problems)
-=========================
-
-Gaming the system
-
-> Point by point, senior staff members tackled different criteria, always with an eye to U.S. News’s methodology. Freeland added faculty, for instance, to reduce class size. "We did play other kinds of games," he says. "You get credit for the number of classes you have under 20 [students], so we lowered our caps on a lot of our classes to 19 just to make sure." From 1996 to the 2003 edition (released in 2002), Northeastern rose 20 spots. ("14 Reasons Why US News College Rankings are Meaningless")
-
-
-
-College Rankings (problems)
-=========================
-
-No way to measure "quality of education"
-
-What is "best"?  A big part of the ranking system has to do with peer-assessed reputation (feedback loop!).
-
-
-http://www.slate.com/articles/business/moneybox/2016/09/how_big_data_made_applying_to_college_tougher_crueler_and_more_expensive.html
-
-http://www.liberalartscolleges.com/us-news-college-rankings-meaningless/
-
-
-
-Twitter
-=========================
+## Twitter
 
 
 In 2013, DiGrazia et al. published a provocative paper suggesting that polling could now be replaced by analyzing social media data.  They analyzed 406 competitive US congressional races using over 3.5 billion tweets.  In an article in *The Washington Post* one of the co-authors, Rojas, writes: "Anyone with programming skills can write a program that will harvest tweets, sort them for content and analyze the results.  This can be done with nothing more than a laptop computer." (Rojas, 2013)
@@ -152,37 +158,26 @@ In 2013, DiGrazia et al. published a provocative paper suggesting that polling c
 4. The researchers were from sociology and computer science - a truly collaborative endeavor, and one that is often quite efficient at producing high quality analyses.
 
 
+## Activity
 
-
-Activity
-=========================
-
-Spend a few minutes reading the Rojas editorial and skimming the actual paper. Be sure to consider Figure 1 and Table 1 carefully, and address the following questions.
+Spend a few minutes reading the Rojas editorial. Be sure to consider Figure 1 carefully, and address the following questions.
 
 ```{r, out.width = "400px", echo=FALSE}
 knitr::include_graphics("../images/twitterscatter.jpg") 
-knitr::include_graphics("../images/twitterreg.jpg")
+#knitr::include_graphics("../images/twitterreg.jpg")
 ```
 
 
-Statistics Hat
-=========================
+## Statistics Hat
 
 1. Discuss Figure 1 with your neighbor. What is its purpose? What does it convey? Think critically about this data visualization. What would you do differently?
 
 2. How would you improve the plot?  I.e., annotate it to make it more convincing / communicative?  Does it need enhancement?
 
-3.  Interpret the coefficient of **Republican Tweet Share** in both models shown in Table 1. Be sure to include units.
-
-4.  Discuss with your neighbor the differences between the *Bivariate* model and the *Full Model*. Which one do you think does a better job of predicting the outcome of an election? Which one do you think best addresses the influence of tweets on an election?
-
-5. Why do you suppose that the coefficient of **Republican Tweet Share** is so much larger in the *Bivariate* model? How does this reflect on the influence of tweets in an election?
-
-6.  Do you think the study holds water? Why or why not? What are the shortcomings of this study?
+3.  Do you think the study holds water? Why or why not? What are the shortcomings of this study?
 
 
-Data Scientist Hat
-=========================
+## Data Scientist Hat
 
 Imagine that your boss, who does not have advanced technical skills or knowledge, asked you to reproduce the study you just read. Discuss the following with your neighbor.
 
@@ -195,14 +190,14 @@ Imagine that your boss, who does not have advanced technical skills or knowledge
 
 
 
-Advantages
-=========================
+## Advantages
+
 1. Cheap
 
 2. Can measure any political race (not just the wealthy ones).
 
-Disadvantages
-=========================
+## Disadvantages
+
 1. Is it really reflective of the voting populace?  Who would it bias toward?
 
 2. Does simple mention of a candidate always reflect voting patterns?  When wouldn't it?
@@ -214,8 +209,7 @@ Disadvantages
 5. Can't measure any demographic information.
 
 
-What could be done differently?
-=========================
+## What could be done differently?
 
 * Gelman:  look only at close races
 
@@ -227,45 +221,299 @@ What could be done differently?
 
 https://statmodeling.stat.columbia.edu/2013/04/24/the-tweets-votes-curve/
 
-More twitter...
-=========================
 
-```{r, out.width = "800px", echo=FALSE}
-knitr::include_graphics("../images/trumptweets1.jpg") 
+
+# Toolkit: Computing
+
+We use tools to do the things.
+But the tools are **not** the things.
+
+
+# Reproducible data analysis
+
+## Reproducibility checklist {.smaller}
+
+::: question
+What does it mean for a data analysis to be "reproducible"?
+:::
+
+**Short-term goals:**
+
+-   Are the tables and figures reproducible from the code and data?
+-   Does the code actually do what you think it does?
+-   In addition to what was done, is it clear *why* it was done?
+
+**Long-term goals:**
+
+-   Can the code be used for other data?
+-   Can you extend the code to do other things?
+
+## Toolkit for reproducibility
+
+-   Scriptability $\rightarrow$ R
+-   Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
+-   Version control $\rightarrow$ Git / GitHub
+
+# R and RStudio
+
+## R and RStudio {.smaller}
+
+::: columns
+::: {.column width="50%"}
+![](../images/r-logo.png){fig-alt="R logo" fig-align="center"}
+
+-   R is an open-source statistical **programming language**
+-   R is also an environment for statistical computing and graphics
+-   It's easily extensible with *packages*
+:::
+
+::: {.column .fragment width="50%"}
+![](../images/rstudio-logo.png){fig-alt="RStudio logo"}
+
+-   RStudio is a convenient interface for R called an **IDE** (integrated development environment), e.g. *"I write R code in the RStudio IDE"*
+-   RStudio is not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
+:::
+:::
+
+## R vs. RStudio
+
+[![](../images/r_vs_rstudio.png){fig-alt="On the left: a car engine. On the right: a car dashboard. The engine is labelled R. The dashboard is labelled RStudio." fig-align="center" width="1001"}](https://moderndive.com/1-getting-started.html)
+
+::: aside
+Source: [Modern Dive](https://moderndive.com/1-getting-started.html).
+:::
+
+## R packages
+
+::: incremental
+-   **Packages**: Fundamental units of reproducible R code, including reusable R functions, the documentation that describes how to use them, and sample data<sup>1</sup>
+
+-   As of August 26, 2024, there are 21,145 R packages available on **CRAN** (the Comprehensive R Archive Network)<sup>2</sup>
+
+-   We're going to work with a small (but important) subset of these!
+:::
+
+::: aside
+<sup>1</sup> Wickham and Bryan, [R Packages](https://r-pkgs.org/).
+
+<sup>2</sup> [CRAN contributed packages](https://cran.r-project.org/web/packages/).
+:::
+
+## Tour: R + RStudio {.smaller}
+
+## Tour recap: R + RStudio
+
+![](../images/tour-r-rstudio.png)
+
+## A short list (for now) of R essentials
+
+-   Functions are (most often) verbs, followed by what they will be applied to in parentheses:
+
+```{r}
+#| eval: false
+
+do_this(to_this)
+do_that(to_this, to_that, with_those)
 ```
 
-http://varianceexplained.org/r/trump-tweets/
+. . .
 
-More twitter...
-=========================
+-   Packages are installed with the `install.packages()` function and loaded with the `library` function, once per session:
 
-```{r, out.width = "800px", echo=FALSE}
-knitr::include_graphics("../images/trumptweets2.jpg") 
+```{r}
+#| eval: false
+
+install.packages("package_name")
+library(package_name)
 ```
 
-http://varianceexplained.org/r/trump-followup/
+## R essentials (continued)
+
+-   Columns (variables) in data frames are accessed with `$`:
+
+```{r}
+#| eval: false
+
+dataframe$var_name
+```
+
+. . .
+
+-   Object documentation can be accessed with `?`
+
+```{r}
+#| eval: false
+
+?mean
+```
+
+## tidyverse
+
+::: columns
+::: {.column width="50%"}
+[![](../images/tidyverse.png){fig-alt="Hex logos for dplyr, ggplot2, forcats, tibble, readr, stringr, tidyr, and purrr"}](https://tidyverse.org)
+:::
+
+::: {.column width="50%"}
+[tidyverse.org](https://www.tidyverse.org/)
+
+-   The **tidyverse** is an opinionated collection of R packages designed for data science
+-   All packages share an underlying philosophy and a common grammar
+:::
+:::
+
+# Quarto
+
+## Quarto
+
+::: incremental
+-   Fully reproducible reports -- each time you `Render`, the analysis is run from the beginning
+-   Code goes in chunks 
+-   Narrative goes outside of chunks
+
+
+:::
+
+## Tour: Quarto {.smaller}
+
+
+## Tour recap: Quarto
+
+![](../images/tour-quarto.png){fig-alt="RStudio IDE with a Quarto document, source code on the left and output on the right. Annotated to show the YAML, a link, a header, and a code chunk." fig-align="center"}
+
+## Environments
+
+::: {.callout-important}
+The environment of your Quarto document is separate from the Console!
+:::
+
+Remember this, and expect it to bite you a few times as you're learning to work with Quarto!
+
+## Environments
+
+::: columns
+::: {.column width="50%"}
+First, run the following in the console:
+
+```{r eval = FALSE}
+x <- 2
+x * 3
+```
+
+<br>
+
+::: {.question .fragment}
+All looks good, eh?
+:::
+:::
+
+::: {.column .fragment width="50%"}
+Then, add the following in an R chunk in your Quarto document
+
+```{r}
+#| eval: false
+
+x * 3
+```
+
+<br>
+
+::: {.question .fragment}
+What happens?
+Why the error?
+:::
+:::
+:::
+
+## How will we use Quarto?
+
+-   Every application exercise, lab, project, etc. is an Quarto document
+-   You'll always have a template Quarto document to start with
+-   The amount of scaffolding in the template will decrease over the semester
+
+# Toolkit: Version control and collaboration
+
+## Git and GitHub {.smaller}
+
+::: columns
+::: {.column width="50%"}
+![](../images/git-logo.png){fig-alt="Git logo" fig-align="center" width="150"}
+
+-   Git is a version control system -- like "Track Changes" features from Microsoft Word, on steroids
+-   It's not the only version control system, but it's a very popular one
+:::
+
+::: {.column width="50%"}
+![](../images/github-logo.png){fig-alt="GitHub logo" fig-align="center" width="150"}
+
+-   GitHub is the home for your Git-based projects on the internet -- like DropBox but much, much better
+
+-   We will use GitHub as a platform for web hosting and collaboration (and as our course management system!)
+:::
+:::
+
+## Versioning - done badly
+
+![](../images/phd_comics_vc.gif){fig-align="center"}
+
+## Versioning - done better
+
+![](../images/lego-steps.png){fig-align="center"}
+
+## Versioning - done even better
+
+### with human readable messages
+
+![](../images/lego-steps-commit-messages.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-01.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-02.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-03.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-04.png){fig-align="center"}
+
+## Git and GitHub tips {.smaller}
+
+::: incremental
+-   There are millions of git commands -- ok, that's an exaggeration, but there are a lot of them -- and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.
+-   We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line -- skip that and move on to the next resource unless you feel comfortable trying it out.
+-   There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). Some of the content in there is beyond the scope of this course, but it's a good place to look for help.
+:::
+
+## Tour: Git + GitHub
 
 
 
-Agenda  9/2/21
-=====
+
+# Agenda  8/28/24
 
 1. Reproducibility
 2. GitHub
 3. NSSD
 
+::: {.callout-important}
 Before next Tuesday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
- 
-Reproducibility
-==========
+:::
+
+## Reproducibility
 
 ```{r, out.width = "800px", echo=FALSE}
 knitr::include_graphics("../images/reproducibilitysmall.jpg")
 ```
 
 
-Example #1
-==========
+## Example #1
+
 ### Science retracts gay marriage paper without agreement of lead author LaCour
 
 * In May 2015 Science retracted a study of how canvassers can sway people’s opinions about gay marriage published just 5 months prior.
@@ -282,8 +530,8 @@ Example #1
 Source: http://news.sciencemag.org/policy/2015/05/science-retracts-gay-marriage-paper-without-lead-author-s-consent
 
 
-Example #2
-==========
+## Example #2
+
 ### Seizure study retracted after authors realize data got "terribly mixed"
 
 * From the authors of Low Dose Lidocaine for Refractory Seizures in Preterm Neonates:
@@ -293,8 +541,8 @@ Example #2
 Source: http://retractionwatch.com/2013/02/01/seizure-study-retracted-after-authors-realize-data-got-terribly-mixed/
 
 
-Example #3
-======
+## Example #3
+
 
 ### Bad spreadsheet merge kills depression paper, quick fix resurrects it
 
@@ -307,8 +555,8 @@ Example #3
 Source: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depression-paper-quick-fix-resurrects-it/
 
 
-Reproducible data analysis
-=======================
+## Reproducible data analysis
+
 
 * Scriptability → R [in contrast to pull down menus]
 
@@ -319,8 +567,8 @@ Reproducible data analysis
 
  
 
-Scripting and literate programming
-=========================
+## Scripting and literate programming
+
 ### Donald Knuth "Literate Programming (1983)"
 
 "Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer- what to do, let us concentrate rather on explaining to human beings- what we want a computer to do."
@@ -331,8 +579,8 @@ Scripting and literate programming
 
 
 
-Reproducibility checklist
-=========================
+## Reproducibility checklist
+
 
 * Are the tables and figures reproducible from the code and data?
 * Does the code actually do what you think it does?
@@ -341,8 +589,8 @@ Reproducibility checklist
 * Can you extend the code to do other things?
 
 
-Tools: R & R Studio
-=========================
+## Tools: R & R Studio
+
 
 * You must use both software programs
 * R does the programming
@@ -350,29 +598,32 @@ Tools: R & R Studio
 * You may use Pomona's server: https://rstudio.campus.pomona.edu/ (or https://rstudio.pomona.edu if you are off campus)
 * See course website for getting started: https://m154-comp-stats.netlify.app/github.html
 
-R vs R Studio
-=========================
+
+## R vs R Studio
+
+R: think "python"
+
+R Studio: think "jupyter notebook" or "Google Colab"
 
 ```{r fig.cap = "Taken from [Modern Drive: An introduction to statistical and data sciences via R](https://ismayc.github.io/moderndiver-book/), by Ismay and Kim", out.width = "800px", fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/RRstudio.jpg")
 ```
 
-R Studio
-=========================
+## R Studio
+
 
 ```{r fig.cap = "[Jessica Ward](https://jkrward.github.io/), PhD student at Newcastle University",out.width = "1000px", fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/cookingRstudio.jpg")
 ```
 
-Tools: GitHub
-=========================
+## Tools: GitHub
 
 * You must submit your assignments via GitHub + Gradescope
 * Follow Jenny Bryan's advice on how to get set-up: http://happygitwithr.com/
 * Follow course specific advice: https://m154-comp-stats.netlify.app/github.html
 
-Steps for weekly homework
-=========================
+## Steps for weekly homework
+
 
 1. You will get a link to the new assignment (clicking on the link will create a new private repo)  
 2. Use R Studio  
@@ -383,8 +634,8 @@ Steps for weekly homework
      + **commit** and **push** after every problem  
 5. All necessary files *must* be in the same folder (e.g., data)  
 
-Tools: a GitHub merge conflict (demo)
-=========================
+## Tools: a GitHub merge conflict (demo)
+
 
 - On GitHub (on the web) edit the README document and Commit it with a message describing what you did.
 
@@ -397,16 +648,16 @@ Tools: a GitHub merge conflict (demo)
 - As you work in teams you will run into merge conflicts, learning how to resolve them properly will be very important.
 
 
-Tools: a GitHub merge conflict
-=========================
+## Tools: a GitHub merge conflict
+
 
 ```{r, out.width = "500px", echo=FALSE}
 knitr::include_graphics("../images/git_xkcd.png")
 ```
 
 
-NSSD: 
-=========================
+## NSSD: 
+
 
 1. What was Hilary trying to answer in her data collection?
 

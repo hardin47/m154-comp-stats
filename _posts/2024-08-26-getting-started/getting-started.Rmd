@@ -22,11 +22,9 @@ knitr::include_graphics("../../images/reproducibility_court.png")
 
 ### August 26, 2024
 
-1. Questionnaire
-2. Syllabus & Course Outline
-3. Stitch Fix Algorithm
-4. College Rankings
-5. Can Twitter predict election results?
+1. Syllabus & Course Outline
+2. Stitch Fix Algorithm
+3. Can Twitter predict election results?
 
 Before Wednesday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.
 
@@ -65,11 +63,11 @@ Before next Thursday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/t
 
 ## Slides <i class="fas fa-desktop"></i>
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2021-08-31-reprodgit" target = "_blank">In class slides</a> for both 8/31/21 and 9/2/21.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2024-08-26-reprodGit.html" target = "_blank">In class slides</a> for both 8/26/24 and 8/28/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/twitter.pdf" target = "_blank">Twitter activity</a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/ws1_m154_f24_twitter.pdf" target = "_blank">WS1 - Twitter</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU1_R_sol.pdf" target = "_blank">WU1 - working with R</a>
+* <a href = "https://m154-comp-stats.netlify.app/slides/ws2_m154_f24_R.pdf" target = "_blank">WU2 - working with R</a>
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 

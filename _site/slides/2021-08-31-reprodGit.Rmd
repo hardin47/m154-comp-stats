@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Math154"
 subtitle: "Computational Statistics"
-author: "Jo Hardin (thanks to Mine Cetinkaya-Rundel!)"
+author: "Jo Hardin (thanks to Mine Çetinkaya-Rundel!)"
 date: "August 31, 2021"
 output:
   slidy_presentation:
