@@ -1,95 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/index.html</loc>
+    <lastmod>2024-08-27T16:16:07.727Z</lastmod>
+  </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/daily.html</loc>
-    <lastmod>2024-08-24T13:53:17-07:00</lastmod>
+    <lastmod>2024-08-27T16:23:10.566Z</lastmod>
   </url>
   <url>
-    <loc>https://m154-comp-stats.netlify.app/github.html</loc>
-    <lastmod>2024-08-23T13:01:13-07:00</lastmod>
+    <loc>https://m154-comp-stats.netlify.app/posts/2024-08-26-getting-started/getting-started.html</loc>
+    <lastmod>2024-08-27T16:26:12.429Z</lastmod>
   </url>
   <url>
-    <loc>https://m154-comp-stats.netlify.app/</loc>
-    <lastmod>2024-08-25T11:25:29-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/notes.html</loc>
-    <lastmod>2021-08-30T21:13:36-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/project.html</loc>
-    <lastmod>2024-08-25T10:29:53-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/R-tip.html</loc>
-    <lastmod>2024-08-21T14:11:02-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/roles.html</loc>
-    <lastmod>2021-10-19T21:54:46-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/rubric.html</loc>
-    <lastmod>2021-12-10T08:12:43-08:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/syllabus.html</loc>
-    <lastmod>2024-08-25T11:11:37-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2024-08-26-getting-started/</loc>
-    <lastmod>2024-08-26T09:21:29-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-12-07-extensions/</loc>
-    <lastmod>2022-07-28T10:58:53-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-11-30-review2/</loc>
-    <lastmod>2022-07-28T10:58:44-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-11-18-clustering/</loc>
-    <lastmod>2022-07-28T10:58:34-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-11-09-svm/</loc>
-    <lastmod>2022-07-28T10:58:20-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-11-02-rf/</loc>
-    <lastmod>2022-07-28T10:58:10-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-10-26-knn-trees/</loc>
-    <lastmod>2022-07-28T10:58:01-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-10-21-recipes/</loc>
-    <lastmod>2022-07-28T10:57:51-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-09-28-permutation/</loc>
-    <lastmod>2024-08-25T09:53:49-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-09-21-simulating/</loc>
-    <lastmod>2024-08-25T09:53:32-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-09-14-wrangling/</loc>
-    <lastmod>2022-07-28T10:57:02-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-09-07-dataviz/</loc>
-    <lastmod>2022-07-28T10:56:52-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-10-12-review1/</loc>
-    <lastmod>2022-07-28T10:57:41-07:00</lastmod>
-  </url>
-  <url>
-    <loc>https://m154-comp-stats.netlify.app/posts/2021-10-05-bootstrap/</loc>
-    <lastmod>2024-08-25T09:53:44-07:00</lastmod>
+    <loc>https://m154-comp-stats.netlify.app/posts/2024-08-26-getting-started/index.html</loc>
+    <lastmod>2024-08-27T16:26:12.429Z</lastmod>
   </url>
 </urlset>

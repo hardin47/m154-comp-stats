@@ -1,6 +1,0 @@
----
-title: "Computational Statistics"
-listing: 
-  posts:
-   - 2024-08-26-getting-started
----
