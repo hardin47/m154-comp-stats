@@ -40,7 +40,7 @@ website:
       - text: "R tip"
         href: R-tip.qmd
       - text: "Clicker Q"
-        href: licker_study.qmd
+        href: clicker_study.qmd
       - text: "GitHub"
         href: github.qmd
     logo: images/st47s.png
