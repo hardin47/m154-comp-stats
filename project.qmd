@@ -2,7 +2,6 @@
 title: "Semester Project"
 description: |
   The best part of the semester: the awesome data-based group project!
-output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}

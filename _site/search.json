@@ -110,5 +110,684 @@
     "title": "1. Start with R + Git",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nGreat algorithm for the whole process\nDesign Challenge (Not So Standard Deviations), listen to the full conversation.\nVideo (less than 2 min) on the strengths of reproducible research\nR vs. Python? (My personal opinion is that neither of the languages is “best”.)\n2017 Kaggle user survey and  2019 Stack Overflow Developer Survey\nPNAS paper retracted due to problems with figure and reproducibility (April 2016)\nAnalysis of Trump’s tweets with evidence that someone else tweets from his account using an iPhone part 1 and part 2 \n\n\n:::"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Jo Hardin 2351 Estella jo.hardin@pomona.edu\nOffice Hours: Mon 2:30-3:30pm, Tues 9-10am & 1:30-2:30pm, Thurs 10am-noon\nMentorless Mentor Sessions:\nMon 8-10pm, Tues 8-10pm\nEstella 1041\nMentor: you don’t have a mentor – work together!!!\n\n\n\n\n\nArtwork by @allison_horst.\n\n\n\n\n\n\n\nComputational Statistics will be an introduction to statistical methods that rely heavily on the use of computers. The course will generally have three parts. The first section will include communicating and working with data in a modern era. This includes data wrangling, data visualization, data ethics, and collaborative research (via GitHub). The second part of the course will focus on traditional statistical inference done through computational methods (e.g., permutation tests and bootstrapping). The last part of the course will focus on machine learning ideas such as classification, clustering, and dimension reduction techniques. Some of the methods were invented before the ubiquitous use of personal computers, but only because the calculus used to solve the problem was relatively straightforward (or because the method wasn’t actually every used). Some of the methods have been developed quite recently.\nAnonymous Feedback As someone who is constantly learning and growing in many ways, I welcome your feedback about the course, the classroom dynamics, or anything else you’d like me to know. There is a link to an anonymous feedback form on the landing page of our Canvas webpage. Please provide me with feedback at any time!\n\n\n\nBy the end of the term, students will be able to:\n\nwork through the entire computational statistics flow chart as a data analyst.\nuse graphical representations of data to communicate ideas about the data.\nidentify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.\ncritically evaluate analyses / graphics of data (typically big data or dynamic data).\ncommunicate results effectively.\n\n\n\n\n(adapted from Monica Linden, Brown University):\nIn an ideal world, science would be objective. However, much of science is subjective and is historically built on a small subset of privileged voices. In this class, we will make an effort to recognize how science (and statistics!) has played a role in both understanding diversity as well as in promoting systems of power and privilege. I acknowledge that it is possible that there may be both overt and covert biases in the material due to the lens with which it was written, even though the material is primarily of a scientific nature. Integrating a diverse set of experiences is important for a more comprehensive understanding of science. I would like to discuss issues of diversity in statistics as part of the course from time to time.\nPlease contact me if you have any suggestions to improve the quality of the course materials.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities (including race, gender, class, sexuality, religion, ability, etc.) To help accomplish this:\n\nIf you have a name and/or set of pronouns that differ from those that appear in your official records, please let me know!\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me.  I want to be a resource for you. If you prefer to speak with someone outside of the course, the math liaisons, Dean of Students, or QSC staff are all excellent resources. I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it. As a participant in course discussions, you should also strive to honor the diversity of your classmates.\n\n\n\n\n\n\nAll resources are freely available. They also all have print versions which can be purchased. Using the online version of the books is expected.\n\n\n\n\n\nContent: Modern Data Science with R; Baumer, Kaplan, and Horton, https://mdsr-book.github.io/mdsr3e/\n\nR resource: R for Data Science, Wickham, https://r4ds.had.co.nz/\n\nRecommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte http://www.edwardtufte.com/tufte/books_textb (or find online)\n\n\n\n\n\n\n\nContent: An Introduction to Statistical Learning with applications in R; James, Witten, Hastie, and Tibshirani https://www.statlearning.com/\n\nR resource: Tidy Modeling with R; Kuhn and Silge https://www.tmwr.org/\n\n\n\n\n\n\n\n\nCheck-in quizzes on 9.11, 9.25, 10.9, 10.23, 11.6, and 11.20 (in class)\n10.16.24 Initial Project Proposal due (via email to me by midnight)\n10.30.24 Final Project Proposal due (on GitHub by midnight)\n11.13.24 Project Update due (on GitHub by midnight)\n12.2.24 (4:15pm) Data Science Panel with industry data scientists\n12.6.24 (Friday) or 12.12.24 (Thursday) Group Presentations (2-5pm)\n12.12.24 Final write-up due (on GitHub by midnight)\n\n\n\n\n\n\n\n\n\nBest and most comprehensive Git help: http://happygitwithr.com/\nVersion control with Git\nMore on Git\nOnline Git book with lots of info\n\n\n\n\n\n\n\n\nA fantastic ggplot2 tutorial\nGreat tutorials through the Coding Club\nGoogle for R\nIncredibly helpful cheatsheets from RStudio.\n\ndata wrangling\nggplot2\nShiny\nQuarto\nRStudio IDE\n\n\n\n\n\n\n\nWeekly homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in Quarto and compiled to pdf.\n\nHomework will be due on Tuesdays by 11:59pm to GitHub + Gradescope.\nNon-homework activities (e.g., from the text) may be collected and added to your engagement grade.\nHW should be turned in to your GitHub repository and posted to Gradescope by Tuesday at 11:59pm.\nAlways post both a PDF and a Quarto file to GitHub (and a pdf to Gradescope), unless otherwise requested.\nHW is graded on a scale of 5/4/3/2/1. See below.\nHW file should be in the format of: ma154-hw#-lname-fname.pdf\n\n\n\n\nplease be neat and organized which will help me, the grader, and you (in the future) to follow your work.\nwrite your name on your assignment.\nplease include at least the number of the problem, or a summary of the question (which will also be helpful to you in the future to prepare for exams).\nit is strongly recommended that you look through the questions as soon as you get the assignment. This will help you to start thinking how to solve them!\nfor R problems, it is required to use Quarto\n\nin case of questions, or if you get stuck please don’t hesitate to email me (though I’m much less sympathetic to such questions if I receive emails within 24 hours of the due date for the assignment).\n\n\n\n\n\nHomework assignments will be graded out of 5 points, which are based on a combination of accuracy and effort. Below are rough guidelines for grading.\n[5] All problems completed with detailed solutions provided and 75% or more of the problems are fully correct. Additionally, there are no extraneous messages, warnings, or printed lists of numbers.\n[4] All problems completed with detailed solutions and 50-75% correct; OR close to all problems completed and 75%-100% correct. Or all problems are completed and there are extraneous messages, warnings, or printed lists of numbers.\n[3] Close to all problems completed with less than 75% correct.\n[2] More than half but fewer than all problems completed and &gt; 75% correct.\n[1] More than half but fewer than all problems completed and &lt; 75% correct; OR less than half of problems completed.\n[0] No work submitted, OR half or less than half of the problems submitted and without any detail/work shown to explain the solutions. You will get a zero if your file is not compiled and submitted on GitHub.\n\n\n\n\nThere will be a semester long group project. Your task is to use data to tell us something interesting. This project is deliberately open-ended to allow you to fully explore your creativity. There are three main rules that must be followed: (1) data centered, (2) tell us something, (3) do something new. Project information is available here: Math 154 Semester Project\n\n\n\n\nGitHub will be used as a way to practice reproducible and collaborative science. There may be a slight learning curve, but knowing Git will be an extremely useful skill as you venture beyond this class.\nR will be used for all homework assignments. R is freely available at http://www.r-project.org/ and is already installed on college computers. Additionally, you need to install R Studio in order to use Quarto, https://posit.co/downloads/. If you are not already familiar with R, please work through some of the materials provided ASAP.\nYou are welcome to use Pomona’s R Studio server at https://rstudio.campus.pomona.edu/ (or https://rstudio.pomona.edu if you are off campus). If you use the server, you can connect directly to your Git account without installing Git locally on your own computer. [If you are not a Pomona student, you will need to get an account from Pomona’s ITS. Go to ITS, tell them that you are taking a Pomona course, and ask for an account for using RStudio.]\n\n\n\n\n\nThis class will be interactive, and your engagement is expected (every day in class). Although notes will be posted, your engagement is an integral part of the in-class learning process.\nIn class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]\n\n\n\n\nYou are on your honor to present only your work as part of your course assessments. Below, I’ve provided Pomona’s academic honesty policy. But before the policy, I’ve given some thoughts on cheating which I have taken from Nick Ball’s CHEM 147 Collective (thank you, Prof Ball!). Prof Ball gives us all something to think about when we are learning in a classroom as well as on our journey to become scientists and professionals:\nThere are many known reasons why we may feel the need to “cheat” on problem sets or exams:\n\n\nAn academic environment that values grades above learning.\nFinancial aid is critical for remaining in school that places undue pressure on maintaining a high GPA.\nNavigating school, work, and/or family obligations that have diverted focus from class.\nChallenges balancing coursework and mental health.\nBalancing academic, family, peer, or personal issues.\n\n\nBeing accused of cheating – whether it has occurred or not – can be devastating for students. The college requires me to respond to potential academic dishonesty with a process that is very long and damaging. As your instructor, I care about you and want to offer alternatives to prevent us from having to go through this process. If you find yourself in a situation where “cheating” seems like the only option:\nPlease come talk to me. We will figure this out together.\nPomona College is an academic community, all of whose members are expected to abide by ethical standards both in their conduct and in their exercise of responsibilities toward other members of the community. The college expects students to understand and adhere to basic standards of honesty and academic integrity. These standards include, but are not limited to, the following:\n\n\nIn projects and assignments prepared independently, students never represent the ideas or the language of others as their own.\nStudents do not destroy or alter either the work of other students or the educational resources and materials of the College.\nStudents neither give nor receive assistance in examinations.\nStudents do not take unfair advantage of fellow students by representing work completed for one course as original work for another or by deliberately disregarding course rules and regulations.\nIn laboratory or research projects involving the collection of data, students accurately report data observed and do not alter these data for any reason.\n\n\n\n\n\nPlease email and / or set up a time to talk if you have any questions about or difficulty with the material, the computing, or the course. Talk to me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. This semester is going to be fun. Let’s do it.\n\n\n\n\n30% Homework\n30% Quizzes\n30% Group Project & Presentation\n10% Class engagement\n\n\n\n:::"
+  },
+  {
+    "objectID": "syllabus.html#math-154-fall-2024",
+    "href": "syllabus.html#math-154-fall-2024",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Jo Hardin 2351 Estella jo.hardin@pomona.edu\nOffice Hours: Mon 2:30-3:30pm, Tues 9-10am & 1:30-2:30pm, Thurs 10am-noon\nMentorless Mentor Sessions:\nMon 8-10pm, Tues 8-10pm\nEstella 1041\nMentor: you don’t have a mentor – work together!!!\n\n\n\n\n\nArtwork by @allison_horst."
+  },
+  {
+    "objectID": "syllabus.html#the-course",
+    "href": "syllabus.html#the-course",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Computational Statistics will be an introduction to statistical methods that rely heavily on the use of computers. The course will generally have three parts. The first section will include communicating and working with data in a modern era. This includes data wrangling, data visualization, data ethics, and collaborative research (via GitHub). The second part of the course will focus on traditional statistical inference done through computational methods (e.g., permutation tests and bootstrapping). The last part of the course will focus on machine learning ideas such as classification, clustering, and dimension reduction techniques. Some of the methods were invented before the ubiquitous use of personal computers, but only because the calculus used to solve the problem was relatively straightforward (or because the method wasn’t actually every used). Some of the methods have been developed quite recently.\nAnonymous Feedback As someone who is constantly learning and growing in many ways, I welcome your feedback about the course, the classroom dynamics, or anything else you’d like me to know. There is a link to an anonymous feedback form on the landing page of our Canvas webpage. Please provide me with feedback at any time!"
+  },
+  {
+    "objectID": "syllabus.html#student-learning-outcomes.",
+    "href": "syllabus.html#student-learning-outcomes.",
+    "title": "Syllabus",
+    "section": "",
+    "text": "By the end of the term, students will be able to:\n\nwork through the entire computational statistics flow chart as a data analyst.\nuse graphical representations of data to communicate ideas about the data.\nidentify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.\ncritically evaluate analyses / graphics of data (typically big data or dynamic data).\ncommunicate results effectively."
+  },
+  {
+    "objectID": "syllabus.html#diversity-and-inclusion-statement",
+    "href": "syllabus.html#diversity-and-inclusion-statement",
+    "title": "Syllabus",
+    "section": "",
+    "text": "(adapted from Monica Linden, Brown University):\nIn an ideal world, science would be objective. However, much of science is subjective and is historically built on a small subset of privileged voices. In this class, we will make an effort to recognize how science (and statistics!) has played a role in both understanding diversity as well as in promoting systems of power and privilege. I acknowledge that it is possible that there may be both overt and covert biases in the material due to the lens with which it was written, even though the material is primarily of a scientific nature. Integrating a diverse set of experiences is important for a more comprehensive understanding of science. I would like to discuss issues of diversity in statistics as part of the course from time to time.\nPlease contact me if you have any suggestions to improve the quality of the course materials.\nFurthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities (including race, gender, class, sexuality, religion, ability, etc.) To help accomplish this:\n\nIf you have a name and/or set of pronouns that differ from those that appear in your official records, please let me know!\nIf you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me.  I want to be a resource for you. If you prefer to speak with someone outside of the course, the math liaisons, Dean of Students, or QSC staff are all excellent resources. I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it. As a participant in course discussions, you should also strive to honor the diversity of your classmates."
+  },
+  {
+    "objectID": "syllabus.html#technical-details",
+    "href": "syllabus.html#technical-details",
+    "title": "Syllabus",
+    "section": "",
+    "text": "All resources are freely available. They also all have print versions which can be purchased. Using the online version of the books is expected.\n\n\n\n\n\nContent: Modern Data Science with R; Baumer, Kaplan, and Horton, https://mdsr-book.github.io/mdsr3e/\n\nR resource: R for Data Science, Wickham, https://r4ds.had.co.nz/\n\nRecommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte http://www.edwardtufte.com/tufte/books_textb (or find online)\n\n\n\n\n\n\n\nContent: An Introduction to Statistical Learning with applications in R; James, Witten, Hastie, and Tibshirani https://www.statlearning.com/\n\nR resource: Tidy Modeling with R; Kuhn and Silge https://www.tmwr.org/"
+  },
+  {
+    "objectID": "syllabus.html#important-dates",
+    "href": "syllabus.html#important-dates",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Check-in quizzes on 9.11, 9.25, 10.9, 10.23, 11.6, and 11.20 (in class)\n10.16.24 Initial Project Proposal due (via email to me by midnight)\n10.30.24 Final Project Proposal due (on GitHub by midnight)\n11.13.24 Project Update due (on GitHub by midnight)\n12.2.24 (4:15pm) Data Science Panel with industry data scientists\n12.6.24 (Friday) or 12.12.24 (Thursday) Group Presentations (2-5pm)\n12.12.24 Final write-up due (on GitHub by midnight)"
+  },
+  {
+    "objectID": "syllabus.html#links-to-resources",
+    "href": "syllabus.html#links-to-resources",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Best and most comprehensive Git help: http://happygitwithr.com/\nVersion control with Git\nMore on Git\nOnline Git book with lots of info\n\n\n\n\n\n\n\n\nA fantastic ggplot2 tutorial\nGreat tutorials through the Coding Club\nGoogle for R\nIncredibly helpful cheatsheets from RStudio.\n\ndata wrangling\nggplot2\nShiny\nQuarto\nRStudio IDE"
+  },
+  {
+    "objectID": "syllabus.html#homework",
+    "href": "syllabus.html#homework",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Weekly homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in Quarto and compiled to pdf.\n\nHomework will be due on Tuesdays by 11:59pm to GitHub + Gradescope.\nNon-homework activities (e.g., from the text) may be collected and added to your engagement grade.\nHW should be turned in to your GitHub repository and posted to Gradescope by Tuesday at 11:59pm.\nAlways post both a PDF and a Quarto file to GitHub (and a pdf to Gradescope), unless otherwise requested.\nHW is graded on a scale of 5/4/3/2/1. See below.\nHW file should be in the format of: ma154-hw#-lname-fname.pdf\n\n\n\n\nplease be neat and organized which will help me, the grader, and you (in the future) to follow your work.\nwrite your name on your assignment.\nplease include at least the number of the problem, or a summary of the question (which will also be helpful to you in the future to prepare for exams).\nit is strongly recommended that you look through the questions as soon as you get the assignment. This will help you to start thinking how to solve them!\nfor R problems, it is required to use Quarto\n\nin case of questions, or if you get stuck please don’t hesitate to email me (though I’m much less sympathetic to such questions if I receive emails within 24 hours of the due date for the assignment).\n\n\n\n\n\nHomework assignments will be graded out of 5 points, which are based on a combination of accuracy and effort. Below are rough guidelines for grading.\n[5] All problems completed with detailed solutions provided and 75% or more of the problems are fully correct. Additionally, there are no extraneous messages, warnings, or printed lists of numbers.\n[4] All problems completed with detailed solutions and 50-75% correct; OR close to all problems completed and 75%-100% correct. Or all problems are completed and there are extraneous messages, warnings, or printed lists of numbers.\n[3] Close to all problems completed with less than 75% correct.\n[2] More than half but fewer than all problems completed and &gt; 75% correct.\n[1] More than half but fewer than all problems completed and &lt; 75% correct; OR less than half of problems completed.\n[0] No work submitted, OR half or less than half of the problems submitted and without any detail/work shown to explain the solutions. You will get a zero if your file is not compiled and submitted on GitHub."
+  },
+  {
+    "objectID": "syllabus.html#projects",
+    "href": "syllabus.html#projects",
+    "title": "Syllabus",
+    "section": "",
+    "text": "There will be a semester long group project. Your task is to use data to tell us something interesting. This project is deliberately open-ended to allow you to fully explore your creativity. There are three main rules that must be followed: (1) data centered, (2) tell us something, (3) do something new. Project information is available here: Math 154 Semester Project"
+  },
+  {
+    "objectID": "syllabus.html#computing",
+    "href": "syllabus.html#computing",
+    "title": "Syllabus",
+    "section": "",
+    "text": "GitHub will be used as a way to practice reproducible and collaborative science. There may be a slight learning curve, but knowing Git will be an extremely useful skill as you venture beyond this class.\nR will be used for all homework assignments. R is freely available at http://www.r-project.org/ and is already installed on college computers. Additionally, you need to install R Studio in order to use Quarto, https://posit.co/downloads/. If you are not already familiar with R, please work through some of the materials provided ASAP.\nYou are welcome to use Pomona’s R Studio server at https://rstudio.campus.pomona.edu/ (or https://rstudio.pomona.edu if you are off campus). If you use the server, you can connect directly to your Git account without installing Git locally on your own computer. [If you are not a Pomona student, you will need to get an account from Pomona’s ITS. Go to ITS, tell them that you are taking a Pomona course, and ask for an account for using RStudio.]"
+  },
+  {
+    "objectID": "syllabus.html#engagement",
+    "href": "syllabus.html#engagement",
+    "title": "Syllabus",
+    "section": "",
+    "text": "This class will be interactive, and your engagement is expected (every day in class). Although notes will be posted, your engagement is an integral part of the in-class learning process.\nIn class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]"
+  },
+  {
+    "objectID": "syllabus.html#academic-honesty",
+    "href": "syllabus.html#academic-honesty",
+    "title": "Syllabus",
+    "section": "",
+    "text": "You are on your honor to present only your work as part of your course assessments. Below, I’ve provided Pomona’s academic honesty policy. But before the policy, I’ve given some thoughts on cheating which I have taken from Nick Ball’s CHEM 147 Collective (thank you, Prof Ball!). Prof Ball gives us all something to think about when we are learning in a classroom as well as on our journey to become scientists and professionals:\nThere are many known reasons why we may feel the need to “cheat” on problem sets or exams:\n\n\nAn academic environment that values grades above learning.\nFinancial aid is critical for remaining in school that places undue pressure on maintaining a high GPA.\nNavigating school, work, and/or family obligations that have diverted focus from class.\nChallenges balancing coursework and mental health.\nBalancing academic, family, peer, or personal issues.\n\n\nBeing accused of cheating – whether it has occurred or not – can be devastating for students. The college requires me to respond to potential academic dishonesty with a process that is very long and damaging. As your instructor, I care about you and want to offer alternatives to prevent us from having to go through this process. If you find yourself in a situation where “cheating” seems like the only option:\nPlease come talk to me. We will figure this out together.\nPomona College is an academic community, all of whose members are expected to abide by ethical standards both in their conduct and in their exercise of responsibilities toward other members of the community. The college expects students to understand and adhere to basic standards of honesty and academic integrity. These standards include, but are not limited to, the following:\n\n\nIn projects and assignments prepared independently, students never represent the ideas or the language of others as their own.\nStudents do not destroy or alter either the work of other students or the educational resources and materials of the College.\nStudents neither give nor receive assistance in examinations.\nStudents do not take unfair advantage of fellow students by representing work completed for one course as original work for another or by deliberately disregarding course rules and regulations.\nIn laboratory or research projects involving the collection of data, students accurately report data observed and do not alter these data for any reason."
+  },
+  {
+    "objectID": "syllabus.html#advice",
+    "href": "syllabus.html#advice",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Please email and / or set up a time to talk if you have any questions about or difficulty with the material, the computing, or the course. Talk to me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. This semester is going to be fun. Let’s do it.\n\n\n\n\n30% Homework\n30% Quizzes\n30% Group Project & Presentation\n10% Class engagement\n\n\n\n:::"
+  },
+  {
+    "objectID": "rubric.html",
+    "href": "rubric.html",
+    "title": "Rubric for Semester Project",
+    "section": "",
+    "text": "Ideally, all group members would be equally involved and able and committed to the project. In reality, it doesn’t always work that way. Individuals should be rewarded fairly for their group efforts; it’s inevitable that there will be variation in how high a priority people put on this class and how much effort they put into this project.\nTo this end, I would like each of you (individually) to describe how well (or how poorly!) your project group worked together and shared the load. This can take the form of an email (not GitHub because of the personal nature), to be submitted by the Tuesday December 14th. Also give some specific comments describing each member’s overall effort. Were there certain group members who really put out exceptional effort and deserve special recognition? Conversely, were there group members who really weren’t carrying their own weight? And then, at the end of your assessment, estimate the percentage of the total amount of work/effort done by each member. (Be sure your percentages sum to 100%!)\nFor example, suppose you have 3 group members: X, Y and Z. In the event that each member contributed equally, you could assign:\n\n33.3% for member X, 33.3% for member Y, and 33.3% for member Z\n\nOr in case person Z did twice as much work as each other member, you could assign:\n\n25% for member X, 25% for member Y, and 50% for member Z\n\nOr if member Y didn’t really do squat, you could assign:\n\n45% for member X, 10% for member Y, and 45% for member Z\n\nI will find a fair way to synthesize the (possibly conflicting) assessments within each group and fairly incorporate this assessment of effort and cooperation in each individual’s overall grade. Don’t pressure one another to give everyone glowing reports unless it’s warranted, and don’t feel pressured to share your reports with one another. Just be fair to yourselves and to one another. Let me know if you have any questions or if you run into any problems. Also keep in mind that GitHub tracks who is committing and who is not committing."
+  },
+  {
+    "objectID": "rubric.html#presentation-evaluation",
+    "href": "rubric.html#presentation-evaluation",
+    "title": "Rubric for Semester Project",
+    "section": "Presentation Evaluation",
+    "text": "Presentation Evaluation\nThe questions below will be used to evaluate the oral presentations.\n\nPeer rubric\nEach of you will evaluate the presentations of your peers keeping the following grading rubrics in mind.\n\nMastery of the material (understanding of the material is strong and well communicated)\nBackground, completeness (thoroughly explains all key points)\nPresentation evaluation (organized, communicates effectively with the audience)\n\n\n:::"
+  },
+  {
+    "objectID": "github.html",
+    "href": "github.html",
+    "title": "Working on assignments with GitHub and Gradescope",
+    "section": "",
+    "text": "In Math 154, we will use GitHub + Gradescope to access and submit assignments. Here is the basic structure of how it will work:\n\nGet the assignment materials from GitHub.\nClone the repository to any machine you are using.\nWork on the assignment and push back to GitHub.\nSubmit the assignment on Gradescope.\n\n\n\n\n\n\n\nimage credit: https://xkcd.com/1597/\n\n\n\n\n\nThe following diagram lays out the process, and the rest of the document provides a more detailed set of instructions.\n\n\n\n\n\nFlowchart of assignment process."
+  },
+  {
+    "objectID": "github.html#pull",
+    "href": "github.html#pull",
+    "title": "Working on assignments with GitHub and Gradescope",
+    "section": "pull",
+    "text": "pull\nIf you are working with a colleague or on different machines it is so incredibly important to get in the habit of immediately clicking on pull when you start your work. (If you are working alone on a single machine pull won’t hurt! You’ll just be told that your files are already up to date.)\n\n\n\n\n\nAlways pull before you start. pull-work-render-commit-push"
+  },
+  {
+    "objectID": "github.html#render-your-work",
+    "href": "github.html#render-your-work",
+    "title": "Working on assignments with GitHub and Gradescope",
+    "section": "Render your work",
+    "text": "Render your work\nDon’t forget to put your name on the assignment. Also, make sure that you Render to pdf. Render early and often. The more often you Render, the fewer headaches you will have.\n\n\n\n\n\nAlways pull before you start. pull-work-render-commit-push"
+  },
+  {
+    "objectID": "github.html#commit-your-work",
+    "href": "github.html#commit-your-work",
+    "title": "Working on assignments with GitHub and Gradescope",
+    "section": "commit your work",
+    "text": "commit your work\nYou don’t need to commit every file, but you do need to commit files that are integral to the analysis (always commit .qmd, .pdf, data files, images that created the pdf, etc.).\n\n\n\n\n\npull-work-render-commit-push"
+  },
+  {
+    "objectID": "github.html#push-your-work-to-github",
+    "href": "github.html#push-your-work-to-github",
+    "title": "Working on assignments with GitHub and Gradescope",
+    "section": "push your work to GitHub",
+    "text": "push your work to GitHub\nIt is good practice to use meaningful commit messages to help your future self figure out your past work.\n\n\n\n\n\npull-work-render-commit-push"
+  },
+  {
+    "objectID": "github.html#check-your-work-on-github",
+    "href": "github.html#check-your-work-on-github",
+    "title": "Working on assignments with GitHub and Gradescope",
+    "section": "check your work on GitHub",
+    "text": "check your work on GitHub\nTo make sure that the work went through, always check your GitHub repo online to confirm any changes you made.\n\n\n\n\n\nCheck that your changes are correct."
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Class Notes",
+    "section": "",
+    "text": "Class notes can be found at http://st47s.com/Math154/Notes/.\n\n\n\n\n\n\n\n:::\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Semester Project",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "project.html#group-formation",
+    "href": "project.html#group-formation",
+    "title": "Semester Project",
+    "section": "Group Formation",
+    "text": "Group Formation\nYou will work in a group of (approximately) three students. You may choose your own groups, or I would be happy to assign you to a group. The best groups will have team members with similar interests as far as application areas (e.g., biology, economics, etc.) but differing abilities and interests in terms of computational statistics (e.g., a stronger programmer combined with a visualization designer combined with a domain knowledge expert). See Group Roles for more information on allocating tasks."
+  },
+  {
+    "objectID": "project.html#assignment",
+    "href": "project.html#assignment",
+    "title": "Semester Project",
+    "section": "Assignment",
+    "text": "Assignment\nYour task is to use data to tell us something interesting. This project is deliberately open-ended to allow you to fully explore your creativity. There are three main rules that must be followed:\n\nYour project must be centered around data. Preferably, you will work with large, complex, and/or messy data. The more challenging your data set is, the better. Two things that will make your project more ambitious (and more interesting) are:\n\nCombining two or more data sets that are not obviously related. For example, in the tweets predicting elections paper from the first day of class, the researchers had to combine data from Twitter that had nothing to do with politics with a data set of congressional districts, and both data sets had to be spatially-aware, since the merging was done according to the geographical location of the tweet.\n\nAccessing a live data stream. There are many APIs on the Internet that allow you to access data that changes on a continual basis. This is in contrast to static data that was collected at some point in time and does not change. If your project can respond dynamically to a live data stream, then this will make it more interesting.\nPlease note that neither of the above stipulations are requirements – they are merely examples of two considerations that may make your data more challenging to work with – and thus your project more ambitious.\n\nYour project must tell us something. We’ve seen a range of projects / analyses over the course of the semester. On one extreme are visualization projects (like Snow’s cholera map) that involve virtually no statistical analysis. On the other extreme are data mining projects like the KDD cup or Kaggle competitions, which involve very little visualization. Your project can be anywhere on this spectrum, but expectations may be different depending on where you are on the scale. An example of a project that doesn’t tell us anything, would be something that downloads a single data source and summarizes it, with some perfunctory visualization. Make sure that your project is thought-provoking and has some underlying meaning!\nTo get an A, you must show something beyond what we’ve done in class. Some examples: Use a new data mining technique (e.g., an artificial neural network, näive Bayes classifier) Use a new programming technology (e.g., Python, MapReduce, shell scripting… should be new to you!)\n\nUse a new visualization technology (e.g., Inkscape, Illustrator, Shiny, Processing)\n\nUse a new live data source or API (e.g., Flickr, Facebook, CoinMarketCap) [Note: just downloading a new data set in a flat file does not count!]\n\nUse a new data format (e.g., XML, HDF5, JSON)\n\nCompare two datasets (e.g., La Quinta vs. Dennys!)\nAlso, domain knowledge does not count here, so your outside knowledge of protein folding makes for a great motivation, but it doesn’t count as something extra.\n\nAt some point in the project, you should give an analysis/discussion of where the data came from and what/who it represents.\nLast, you must address any ethical considerations that came about during the project. How were you or weren’t you able to address the ethical issues that came up?\nIn addition to the examples you have seen over the course of the semester (and previous project links given at the bottom of this page), here are some generic ideas:\n\nCompete (strongly) in a past KDD cup or Kaggle competition\n\nCreate a GoogleMaps mash-up\n\nWrite an R package that provides an API to an online data set\n\nCreate a Shiny application that helps a Pomona professor analyze their data\n\n\n\nGeneral Rules\nYou may discuss your project with other students, but each group will have a different topic, so there is a limit to how much you can help each other. You may consult other sources, and you should credit all sources in your report. Feel free to consult with me or your mentors."
+  },
+  {
+    "objectID": "project.html#proposals",
+    "href": "project.html#proposals",
+    "title": "Semester Project",
+    "section": "Proposals",
+    "text": "Proposals\nYour initial proposal (via email to me) is due by midnight on Tuesday, October 26th. The final proposal (via GitHub project site) will be due the following week on November 2nd.\nPrior to writing your initial proposal you should get together with your group-mates and brainstorm a half dozen or so ideas before coalescing around one idea. Be ambitious! Once you decide on a topic that interests you, think about what you would like to end up with as a final result – without worrying about how to get there. Try to visualize what your end product will look like. Will it be an interactive map? A predictive model? A mobile application? Don’t think about coding, or a particular data set, or what you know how to do now. If you come up with something ambitious and original, you’ll be more motivated to learn new things as you go in order to accomplish your goal.\nThe topic is completely open to your choice, but keep in mind the three main rules listed above. Try to think about how you will satisfy the criteria.\n\nContent\nYour initial (via email) and revised (via GitHub) proposals should contain the following content:\n\nGroup Members: List the members of your group. For the revised proposal, add additional information about each person’s role. Each member of the group should have two jobs: (1) a group dynamic role, (2) a project role. See Group Roles for more information on allocating tasks.\nTitle: The title of your project\nPurpose: Describe the general topic/phenomenon you want to explore, as well some carefully considered questions that you hope to address. You should make an argument motivating your work. Why should someone be interested in what you are doing? What do you hope people will learn from your project?\nData: As best you can, describe where you will find your data, and what kind of data it is. Will you be working with spatial data in shapefiles? Do the data come from json files? Will you be accessing an API to a live data source? Be as specific as you can, listing URLs and file formats if possible.\nVariables: As much as possible, list, and briefly describe, each variable that you plan to incorporate. If you can, be specific about units, scale, etc.\nEnd Product: Describe what you hope to deliver as a final product. Will it be a Shiny application that will be posted on the Internet? Will it be a GoogleMaps mash-up? Will it be a package that provides an API to a live data source (e.g., twitteR)? Will it be a method that draws some statistical conclusions? Will it be a predictive model that forecasts future values of some quantity?"
+  },
+  {
+    "objectID": "project.html#update",
+    "href": "project.html#update",
+    "title": "Semester Project",
+    "section": "Update",
+    "text": "Update\nPlease respond to the following three questions (posted to your GitHub repo) by the end of the day Friday, November 19th.\n\nHave you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.\nWhat is the single biggest unresolved issue you are having? Please describe it briefly, and what your plan is for resolving this issue.\nWhat are the elements from outside of the course, if any, that you plan to incorporate into your project?"
+  },
+  {
+    "objectID": "project.html#presentation",
+    "href": "project.html#presentation",
+    "title": "Semester Project",
+    "section": "Presentation",
+    "text": "Presentation\nAn effective oral presentation is an integral part of this project. One of the objectives of this class is to give you experience conveying the results of a technical investigation to a non-technical audience in a way that they can understand. Whether you choose to stay in academia or pursue a career in industry, the ability to communicate clearly is of paramount importance. As a statistician (data scientist, software engineer, etc.), the burden of proof is on you to convince your audience that what you are saying is true. If your audience (who may very well be less knowledgeable about statistics than you are) cannot understand your results or their interpretations, then the technical merit of your project is irrelevant.\nOn Friday/Tuesday, December 10/14th, your group will make a 10-12 minute oral presentation to the class. You should make (good) slides. Your goal should be to convey to your audience a clear understanding of your research topic, along with a basic understanding of your project, and how well it addresses the research question you posed. You should not tell us everything that you did, or show a bunch of things that you tried that didn’t work well. After hearing your talk, each student in the class should be able to answer:\n\nWhat was your project about?\n\nWhat format was the original data in, and what [downloading, data wrangling, data analysis] techniques did you apply to it?\n\nWhat were your findings?\n\nYou should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Markdown slides (ioslides, Slidy, or reveal.js), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like Prezi. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!\nYou will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to not hook up your laptop to the computer in Millikan 1021 (unless you have good reason and have spoken to me about it beforehand).\n\nAdvice\nThere are many sources of advice for how to make a good presentation, but an excellent place to start is a project called Technically Speaking.\nWatch the videos on this site to identify some common mistakes. Here is some general advice:\n\nBudget your time. You only have ~10 minutes, and we will be running a tight schedule. Plan for 8-10 minutes to talk, and 2 minutes to answer questions. If your talk runs too short or too long, it makes you seem unprepared. Rehearse your talk ahead of time (with your group) several times in order to get a better feel for your timing. Note also that you may have a tendency to talk faster during your actual talk than you will during your rehearsal. Talking faster in order to speed up is not a good strategy – you are much better off simply cutting material ahead of time.\n\nDon’t write too much on each slide. You don’t want people to have to read your slides, because if the audience is reading your slides, then they aren’t listening to you. You want your slides to provide visual cues to the points that you are making – not substitute for your spoken words. Concentrate on graphical displays and bullet-pointed lists of ideas (not sentences).\n\nPut your problem in context. Remember that most of your audience will have little or no knowledge of your subject matter. The easiest way to lose people is to dive right into technical details that require prior domain knowledge. Spend a few minutes at the beginning of your talk introducing your audience to the most basic aspects of your topic and present some motivation for what you are studying.\n\nSpeak loudly and clearly. Remember that you know more about your topic that anyone else in the room, so speak and act with confidence!\n\nTell a story – not necessarily the whole story. It is unrealistic to expect that you can tell your audience everything that you know about your topic in 10 minutes. You should strive to convey the big ideas in a clear fashion, but not dwell on the details. Your talk will be successful if your audience is able to walk away with an understanding of what your research question was, how you addressed it, and what the implications of your findings are."
+  },
+  {
+    "objectID": "project.html#write-up",
+    "href": "project.html#write-up",
+    "title": "Semester Project",
+    "section": "Write-Up",
+    "text": "Write-Up\nYour write-up will similar to a report to client crafted in R Markdown, compiled to a pdf, due on Tuesday, December 14th by midnight.\nIn your write-up, you should tell a data science audience about your project, why they should care about it, and what you have discovered. Your audience will be people like you – current or aspiring data scientists. Keep in mind that this audience is extraordinarily diverse in terms of skills and abilities, so you should assume very little about what they might know. However, your audience is reasonably tech-savvy, so you need not “dumb-down” your analysis.\nNote that ideally, you would be able to use the write-up to show a future employer or graduate school an example of something interesting which you have produced.\n\nContent\nYou do not need to present all of the R code that you wrote throughout the process of working on this project. However, the write-up should contain the minimal set of R code that is necessary to understand your results and findings. If you make a claim, it must be justified by explicit calculation. A knowledgeable reviewer should be able to compile your .Rmd file without modification (caveat: unless you also did work outside of R), and verify every statement that you have made. All of the R code necessary to produce your figures and tables must appear in the .Rmd version of the write-up. All of the R code necessary to understand your work should appear in the .pdf version of the write-up.\nAny data you use should either be obtained dynamically (e.g., from a website) or saved into your project repository (unless the dataset is too big, and we’ve already discussed that the data are hosted locally).\n\n\nMotivation\nBe sure to motivate your topic at the beginning of your write-up. You should try to hook the reader early on. Assume that your audience is a skeptical data scientist who has stumbled across your write-up but has very little time to read it. Can you give her a reason to continue reading? A cool visualization or result can help.\n\n\nFormat\nYou don’t need to follow a specific format in the write-up, but you should start with an introductory paragraph and finish with a conclusion. The paragraphs needs not follow the formal writing style that you would use in most other classes. Here, a colloquial style that is accessible to a lay reader is appropriate.\nNevertheless, your write-up should address the following questions:\n\nWhy should anyone care about this?\n\nWhat is the project about? Do not assume that your readers have any domain knowledge! The burden of explanation as to what you are talking about is on you! For example, if your project involves phylogenetic trees, do not assume that your audience has anything other than a basic, lay understanding of genetics.\n\nWhere did your data come from? What kind of data was it? Is there a link to the data or some other way for the reader to follow up on your work? Be sure to cite / reference where your data came from!!\n\nWhat are your findings? What kind of statistical computations (if any) have you done to support those conclusions? Again, while the R code will show how the calculation was performed, it is up to you to interpret, in English sentences, the results of these calculations. Do not forget about units, axis labels, etc.\n\nWhat are the limitations of your work? Be clear so that others do not misinterpret your findings. To what population do your results apply? Do they generalize? Could your work be extended with more data or computational power or time to analyze? How could your study be improved? Suggesting plausible extensions don’t weaken your work – they strengthen it by connecting it to future work.\n\nWhat ethical considerations that came about during the project. How were you or weren’t you able to address those issues?\n\nWhat did you learn beyond what we’ve covered in class?\n\n\n\nStyle\nThe notebook (i.e., Rmd + pdf) format is designed to be an interactive document. Take advantage of this by including hyperlinks, figures, videos, etc. to provide context for the reader. It is likely that you will include references section or a bibliography, and your references should be embedded via links. Use Markdown elements like links, lists, LaTeX, and images as needed.\nVisualizations, particularly interactive ones, will be well-received. That said, do not overuse visualizations. You may be better off with one complicated but well-crafted visualization as opposed to many quick-and-dirty plots. Do not forget Tufte! Any plots should be well-thought out, properly labelled, informative, and visually appealing!\nThe R code is there to support the technical reader who wishes to dig into your work – not to substitute for written explanation. Do not present long unbroken chunks of R code without offering written explanations. It is rarely necessary to have more than three or four lines of R code in a single chunk. Feel free to echo=FALSE any code which is not relevant to the story you are telling.\n\n\nCiting Sources\nAs you know, you should cite all references that you use. This includes (among other things) research articles, important information (e.g., “7% of NHL players are non-white”), R packages, other (e.g., Python) packages, and relevant algorithms (e.g., NRC Word-Emotion Association Lexicon). You may use any formatting for the citations as long as the citations are consistent, standard usage, and contain all relevant information for your reader to find the appropriate documentation.\nThe information you need to cite any R package is given by the R command citation(). For example:\n\n&gt; citation(\"dplyr\")\n\n\nTo cite package ‘dplyr’ in publications use:\n\n\nHadley Wickham, Romain Francois, Lionel Henry and Kirill Müller (2017). dplyr: A Grammar of Data Manipulation. R package version 0.7.4. https://CRAN.R-project.org/package=dplyr\n\n\nA BibTeX entry for LaTeX users is\n\n\n@Manual{, title = {dplyr: A Grammar of Data Manipulation}, author = {Hadley Wickham and Romain Francois and Lionel Henry and Kirill Müller}, year = {2017}, note = {R package version 0.7.4}, url = {https://CRAN.R-project.org/package=dplyr}, }\n\n\n\nGroup Dynamic Report\nIdeally, all group members would be equally involved and able and committed to the project. In reality, it doesn’t always work that way. Individuals should be rewarded fairly for their group efforts; it’s inevitable that there will be variation in how high a priority people put on this class and how much effort they put into this project.\nTo this end, I would like each of you (individually) to describe how well (or how poorly!) your project group worked together and shared the load. This can take the form of an email (not GitHub because of the personal nature), to be submitted by the Tuesday December 14th. Also give some specific comments describing each member’s overall effort. Were there certain group members who really put out exceptional effort and deserve special recognition? Conversely, were there group members who really weren’t carrying their own weight? And then, at the end of your assessment, estimate the percentage of the total amount of work/effort done by each member. (Be sure your percentages sum to 100%!)\nFor example, suppose you have 3 group members: X, Y and Z. In the event that each member contributed equally, you could assign:\n\n33.3% for member X, 33.3% for member Y, and 33.3% for member Z\n\nOr in case person Z did twice as much work as each other member, you could assign:\n\n25% for member X, 25% for member Y, and 50% for member Z\n\nOr if member Y didn’t really do squat, you could assign:\n\n45% for member X, 10% for member Y, and 45% for member Z\n\nI will find a fair way to synthesize the (possibly conflicting) assessments within each group and fairly incorporate this assessment of effort and cooperation in each individual’s overall grade. Don’t pressure one another to give everyone glowing reports unless it’s warranted, and don’t feel pressured to share your reports with one another. Just be fair to yourselves and to one another. Let me know if you have any questions or if you run into any problems. Also keep in mind that GitHub tracks who is committing and who is not committing."
+  },
+  {
+    "objectID": "project.html#presentation-evaluation",
+    "href": "project.html#presentation-evaluation",
+    "title": "Semester Project",
+    "section": "Presentation Evaluation",
+    "text": "Presentation Evaluation\nThe questions below will be used to evaluate the oral presentations.\n\nPeer rubric\nEach of you will evaluate the presentations of your peers keeping the following grading rubrics in mind.\n\nMastery of the material (understanding of the material is strong and well communicated)\nBackground, completeness (thoroughly explains all key points)\nPresentation evaluation (organized, communicates effectively with the audience)"
+  },
+  {
+    "objectID": "R-tip.html",
+    "href": "R-tip.html",
+    "title": "R tip-of-the-day",
+    "section": "",
+    "text": "Artwork by @allison_horst.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnumber\ntip\ndescription\nmisc\n\n\n\n\nTip 1\ncmd + opt + i\ncreates a new R chunk\ncntrl + alt + i  for PC\n\n\n\n\n\n\n\n\n\n:::\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "roles.html",
+    "href": "roles.html",
+    "title": "Group Dynamic Roles",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "roles.html#roles-for-the-projects",
+    "href": "roles.html#roles-for-the-projects",
+    "title": "Group Dynamic Roles",
+    "section": "Roles for the Projects",
+    "text": "Roles for the Projects\nEach individual will have (at least) 2 roles; one role to help foster the group dynamics and the other role to divvy up the responsibilities involved in completing the project.\n\nGroup Dynamic Roles:\n\nProject Manager: Makes sure that the group is organized and has a clear plan for completing the project. This includes scheduling meetings and having a plan for what needs to be done before the next meeting.\n\nTask Manager: Makes sure that everyone knows what they are expected to do before the next meeting and makes sure that they do it. This might involve calling or emailing each person between meetings to discuss what they have/haven’t done. If someone can’t do the work that needs to be done, the task manager is responsible for calling another meeting if needed.\n\nFacilitator: Makes sure that every member of the group is participating and being listened to and heard. This might involve asking questions of a member that’s been silent and stopping others when someone’s comment is being overlooked.\n\n\n\nProject Roles\nIn each case, the person assuming that role is responsible for that aspect of the project. It doesn’t mean that they will do all that part of the project by themselves; it means that they are responsible for dividing that work up among the members of the group and ensuring that it is done and recorded correctly.\n\nDirector of Research: Is responsible for the literature searches. The Director of Research identifies what needs to be searched for in the literature, divvies up the literature searches to be performed among the group members, and coordinates changes in the searches based on information gathered and changes in direction. They are also responsible for making sure that the citations in the project are complete and accurate.\n\nDirector of Computation: Is responsible for the computer programs involved in the project. The Director of Computation is responsible for designing the code so that different people can write different parts of the code. The programmer is responsible for making sure that any code written by different people can be integrated.\n\nReporter: Is responsible for the written report. This involves taking notes during the complete process in order to keep a record of what has been done. The reporter may also gather everyone’s individual notes and put them together. The reporter is also responsible for editing the final report and making sure that the various pieces (that may have been written by different people) fit well together.\n\n\n\nThings to think about:\n\nIf all members of a group think that one member isn’t pulling their weight then you can come and talk to me about it. I can fire that member and have them do the project on their own.\n\n(Generally) All members of the group get the same grade for the project.\n\nGrade on projects (a rubric for grading will be posted soon, but generally the grade will be based on the following):\n\nGrade for technical depth and sophistication.\n\nGrade for quality of write-up (organization, clarity, grammatical correctness, appropriate use of graphs, tables, formulas).\n\nGrade for quality of oral presentation (organization, clarity, appropriate use of graphs, tables formula, ability to answer questions).\n\nGrade for quality of group work and distribution of labor.\n\n\nAttendance: you should keep track of who is or isn’t showing up to group project meetings\n\nStudents should keep a record of all the times that they worked on the project and the work that they did. Every time that you spend more than 15 minutes on the project they should write down the start and stop time and what they did. Group members should be spending roughly the same amount of time on the project (I will ask you to report on time spent on the project so far at the check-in in November.)\n\nGitHub will track who is committing what to the repository. Ideally, you will all be committing code regularly.\n\n\n:::"
+  },
+  {
+    "objectID": "clicker_study.html",
+    "href": "clicker_study.html",
+    "title": "Clicker Questions",
+    "section": "",
+    "text": "to go along with \nModern Data Science with R, 3rd edition by Baumer, Kaplan, and Horton\nIntroduction to Statistical Learning with Applications in R by James, Witten, Hastie, and Tibshirani\n\n\n\n\nThe reason to take random samples is:1\n\nto make cause and effect conclusions\nto get as many variables as possible\nit’s easier to collect a large dataset\nso that the data are a good representation of the population\nI have no idea why one would take a random sample\n\n\n\n\nThe reason to allocate/assign explanatory variables is:2\n\nto make cause and effect conclusions\nto get as many variables as possible\nit’s easier to collect a large dataset\nso that the data are a good representation of the population\nI have no idea what you mean by “allocate/assign” (or “explanatory variable” for that matter)\n\n\n\n\nApproximately how big is a tweet?3\n\n0.01Kb\n0.1Kb\n1Kb\n100Kb\n1000Kb = 1Mb\n\n\n\n\n\\(R^2\\) measures:4\n\nthe proportion of variability in vote margin as explained by tweet share.\nthe proportion of variability in tweet share as explained by vote margin.\nhow appropriate the linear part of the linear model is.\nwhether or not particular variables should be included in the model.\n\n\n\n\nR / R Studio / Quarto5\n\nall good\nstarted, progress is slow and steady\nstarted, very stuck\nhaven’t started yet\nwhat do you mean by “R”?\n\n\n\n\nGit / GitHub6\n\nall good\nstarted, progress is slow and steady\nstarted, very stuck\nhaven’t started yet\nwhat do you mean by “Git”?\n\n\n\n\nWhich of the following includes talking to GitHub?[^7]\n\nchanging your name (updating the YAML)\ncommitting the file(s)\npushing the file(s)\nsome of the above\nall of the above\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "clicker_study.html#footnotes",
+    "href": "clicker_study.html#footnotes",
+    "title": "Clicker Questions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n\nso that the data are a good representation of the population\n\n↩︎\n\nto make cause and effect conclusions\n\n↩︎\n\nabout 0.1Kb. Turns out that 3.5 billion tweets * 0.1Kb = 350Gb (0.35 Tb). My laptop is pretty good, and it has 36 Gb of memory (RAM) and 4 Tb of storage. It would not be able to work with 3.5 billion tweets.\n\n↩︎\n\nthe proportion of variability in vote margin as explained by tweet share.\n\n↩︎\nwherever you are, make sure you are communicating with me when you have questions!↩︎\nwherever you are, make sure you are communicating with me when you have questions!↩︎"
+  },
+  {
+    "objectID": "clicker_slides.html",
+    "href": "clicker_slides.html",
+    "title": "Clicker Questions",
+    "section": "",
+    "text": "to go with Modern Data Science with R, 3rd edition by Baumer, Kaplan, and Horton.\n\n\n\n\nWhat is a SQL server?.1\n\nA relational database management system.\nA software whose main purpose is to store and retrieve data.\nA highly secure server and does not allow any database file manipulation during execution.\nAll of the above.\n\n\n\n\nWhen was SQL created?2\n\n1960s\n1970s\n1980s\n1990s\n2000s\n\n\n\n\nWhat type of databases is SQL designed for?3\n\nhierarchical database management systems.\nnetwork database management systems.\nobject-oriented database management systems.\nrelational database management systems.\n\n\n\n\nWhich is bigger:4\n\ncomputer’s hard drive / storage\ncomputer’s memory / RAM\n\n\n\n\nWhere are each stored?5\n\nSQL tbl and R tibble both in storage\nSQL tbl and R tibble both in memory\nSQL tbl in storage and R tibble in memory\nSQL tbl in memory and R tibble in storage\n\n\n\n\nWhich SQL clause is used to extract data from a database?6\n\nOPEN\nEXTRACT\nSELECT\nGET\n\n\n\n\nWith SQL, how to you retrieve a column named “FirstName” from a table named “Persons”?7\n\nSELECT Persons.FirstName\nEXTRACT FIRSTNAME FROM Persons\nSELECT FirstName FROM Persons\nSELECT “FirstName” FROM “Persons”\n\n\n\n\nWith SQL, how do you select all the columns from a table named “Persons”?8\n\nSELECT Persons\nSELECT * FROM Persons\nSELECT [all] FROM Persons\nSELECT *.Persons\n\n\n\n\nWith SQL, how can you return the number of records in the “Persons” table?9\n\nSELECT COLUMNS(*) FROM Persons\nSELECT COUNT(*) FROM Persons\nSELECT NO(*) FROM Persons\nSELECT LEN(*) FROM Persons\n\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the value of the column “FirstName” is “Peter”?10\n\n\nSELECT * FROM Persons WHERE FirstName &lt;&gt; ‘Peter’\nSELECT * FROM Persons WHERE FirstName = ‘Peter’\nSELECT * FROM Persons WHERE FirstName == ‘Peter’\nSELECT [all] FROM Persons WHERE FirstName LIKE ‘Peter’\nSELECT [all] FROM Persons WHERE FirstName = ‘Peter’\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the “FirstName” is “Peter” and the “LastName” is “Jackson”?11\n\n\nSELECT FirstName = ‘Peter’, LastName = ‘Jackson’ FROM Persons\nSELECT * FROM Persons WHERE FirstName &lt;&gt; ‘Peter’ AND LastName &lt;&gt; ‘Jackson’\nSELECT * FROM Persons WHERE FirstName = ‘Peter’ AND LastName = ‘Jackson’\nSELECT * FROM Persons WHERE FirstName == ‘Peter’ AND LastName == ‘Jackson’\n\n\n\nWhich operator selects values within a range?12\n\nBEWTEEN\nWITHIN\nRANGE\n\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the “LastName” is alphabetically between (and including) “Hansen” and “Pettersen”?13\n\nSELECT LastName &gt; ‘Hansen’ AND LastName &lt; ‘Pettersen’ FROM Persons\nSELECT * FROM Persons WHERE LastName BETWEEN ‘Hansen’ AND ‘Pettersen’\nSELECT * FROM Persons WHERE LastName &gt; ‘Hansen’ AND LastName &lt; ‘Pettersen’\n\n\n\n\nWhich SQL statement returns only different values?14\n\nSELECT UNIQUE\nSELECT DISTINCT\nSELECT DIFFERENT\n\n\n\n\nWhich SQL keyword is used to sort the result-set?15\n\nORDER BY\nORDER\nSORT\nSORT BY\n\n\n\n\nWith SQL, how can you return all the records from a table named “Persons” sorted descending by “FirstName”?16\n\nSELECT * FROM Persons ORDER FirstName DESC\nSELECT * FROM Persons SORT ‘FirstName’ DESC\nSELECT * FROM Persons ORDER BY FirstName DESC\nSELECT * FROM Persons SORT BY ‘FirstName’ DESC\n\n\n\n\nThe OR operator displays a record if ANY conditions listed are true. The AND operator displays a record if ALL of the conditions listed are true.17\n\nTRUE\nFALSE\n\n\n\n\nIn order to SELECT the records with foods that are either green or yellow fruit:18\n\n… WHERE type = ‘fruit’ AND color = ‘yellow’ OR color = ‘green’\n\n… WHERE (type = ‘fruit’ AND color = ‘yellow’) OR color = ‘green’\n\n… WHERE type = ‘fruit’ AND (color = ‘yellow’ OR color = ‘green’)\n\n… WHERE type = ‘fruit’ AND color = ‘yellow’ AND color = ‘green’\n\n… WHERE type = ‘fruit’ AND (color = ‘yellow’ AND color = ‘green’)\n\n\n\n\nWhat is the purpose of a JOIN?19\n\nit filters the rows returned by the SELECT statement.\nit specifies the columns to be retrieved.\nit combines rows from two or more tables based on a related column.\nit orders the results in ascending or descending order.\n\n\n\n\nWhat is the purpose of the UNION operator in SQL?20\n\nit combines the results of two or more SELECT statements.\nit performs a pattern match on a string.\nit retrieves the maximum value in a column.\nit filters the rows returned by the SELECT statement.\n\n\n\n\nWhat is the purpose of the INNER JOIN in SQL?21\n\nit retrieves the maximum value in a column.\nit combines rows from two or more tables based on a related column.\nit filters the rows returned by the SELECT statement.\nit performs a pattern match on a string.\n\n\n\n\nWhat is the purpose of the LEFT JOIN in SQL?22\n\nit combines rows from two or more tables based on a related column.\nit retrieves the maximum value in a column.\nit filters the rows returned by the SELECT statement.\nit performs a pattern match on a string.\n\n\n\n\nRIGHT JOIN keeps all the rows in …?23\n\nthe first table.\nthe second table.\nboth tables.\nneither table\n\n\n\n\nWho is removed in a RIGHT JOIN?24\n\nMick\nJohn\nPaul\nKeith\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhich variable(s) are removed in a RIGHT JOIN?25\n\nname\nband\nplays\nnone of them\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn SQL, what happens to Mick’s “plays” variables in a FULL JOIN?26\n\nMick is removed\nguitar\nbass\nNA\nNULL\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngrep(\"q[^u]\", very.large.word.list) would not match which of the following?27\n\nIraqi\nIraqian\nIraq\nzaqqun (tree that “springs out of the bottom of Hell”, in the Quran)\nQantas (the Australian airline)\n\n\n\n\nWhich of the following regex would match to both “grey” and “gray”?28\n\n“gr[ae]y”\n“gr(a|e)y”\n“gray | grey”\n“gr[a|e]y”\nsome / all of the above – which ones?\n\n\n\n\nWhat will the result be for the following code?29\n\n10\n1\n0\nNA\n\n\n\nstr_extract(\"My dog is 10 years old\", \"\\\\d\")\n\n\n\nWhat will the result be for the following code?30\n\n10\n1\n0\nNA\n\n\n\nstr_extract(\"My dog is 10 years old\", \"\\\\d+\")\n\n\n\nWhat will the result be for the following code?31\n\n.\nEpisode 2: The pie whisperer. (4 August 2015)\nEpisode\nE\n\n\n\nstr_extract(\"Episode 2: The pie whisperer. (4 August 2015)\", \".\")\n\n\n\nWhat will the result be for the following code?32\n\n.\nEpisode 2: The pie whisperer. (4 August 2015)\nEpisode\nE\n\n\n\nstr_extract(\"Episode 2: The pie whisperer. (4 August 2015)\", \".+\")\n\n\n\nWhat will the result be for the following code?33\n\n.\nEpisode 2: The pie whisperer. (4 August 2015)\nEpisode\nE\n\n\n\nstr_extract(\"Episode 2: The pie whisperer. (4 August 2015)\", \"\\\\.\")\n\n\n\nHow can I pull out just the numerical information in $47?34\n\n“(?&lt;=\\$)\\d”\n“(?&lt;=\\$)\\d+”\n“\\d(?=\\$)”\n“\\d+(?=\\$)”\n\n\n\n\nYou want to know all the types of pies in the text strings. They are written as, for example “apple pie”.35\n\n“\\w+(?!pie)”\n“\\w+(?! pie)”\n“\\w+(?=pie)”\n“\\w+(?= pie)”\n\n\n\n\nstr_extract(c(\"apple pie\", \"chocolate pie\", \"peach pie\"), \"\\\\w+(?= pie)\")\n\n[1] \"apple\"     \"chocolate\" \"peach\"    \n\n\n\nstr_extract(c(\"apple pie\", \"chocolate pie\", \"peach pie\"), \"\\\\w+(?=pie)\")\n\n[1] NA NA NA\n\n\n\n\nWe say that lookarounds are “zero-lenghth assertions”. What does that mean?36\n\nwe return the string in the lookaround\nwe replace the string in the lookaround\nwe return the string at the lookaround\nwe replace the string at the lookaround\n\n\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the value of the column “FirstName” starts with an “a”?37\n\nSELECT * FROM Persons WHERE FirstName = ’a.*’\nSELECT * FROM Persons WHERE FirstName = ’a*’\nSELECT * FROM Persons WHERE FirstName REGEXP ’a.*’\nSELECT * FROM Persons WHERE FirstName REGEXP ’a*’\nSELECT * FROM Persons WHERE FirstName REGEXP ’(?i)a.*’\n\n\n\n\nWhat is the main way to absolutely recognize a record within a database?38\n\nForeign key\nPrimary key\nUnique key\nNatural key\nAlternate key\n\n\n\n\nWhat does a foreign key do?39\n\nDirectly identifies another table\nDirectly identifies another column\nGives access to another entire database\nTranslates the database into another language\n\n\n\n\nWhich of these would likely be used as a foreign key between a table on student enrollment and student grades?40\n\ngrades\ntuition\nstudent_name\nstudent_hometown\n\n\n\n\nFor the student records (for two tables: enrollment and grades), which is the most likely combination?41\n\nname as primary key to both\nname as foreign to both\nname as primary in enrollment and foreign in grades\nname as foreign in enrollment and primary in grades\n\n\n\n\nWhich SQL statement is used to create a database table called ‘Customers’?42\n\nCREATE DATABASE TAB Customers\nCREATE DATABASE Customers\nCREATE DATABASE TABLE Customers\nCREATE TABLE Customers\nCREATE DB Customers\n\n\n\n\nWhich SQL statement revises data in a database?43\n\nSAVE AS\nMODIFY\nSAVE\nUPDATE\n\n\n\n\nWhich SQL statement takes out data from a database?44\n\nREMOVE\nDELETE\nCOLLAPSE\n\n\n\n\nThe NOT NULL constraint enforces a column to not accept NULL values.45\n\nFALSE\nTRUE\n\n\n\n\nWhich SQL statement places new data in a database?46\n\nADD RECORD\nINSERT INTO\nADD NEW\nINSERT NEW\n\n\n\n\nWith SQL, how can you insert a new record into the “Persons” table?47\n\nINSERT INTO Persons VALUES (‘Jimmy’, ‘Jackson’)\nINSERT (‘Jimmy’, ‘Jacskon’) INTO Persons\nINSERT VALUES (‘Jimmy’, ‘Jackson’) INTO Persons\n\n\n\n\nWith SQL, how can you insert “Olsen” as the “LastName” in the “Persons” table?48\n\nINSERT INTO Persons (LastName) VALUES (‘Olsen’)\nINSERT INTO Persons (’Olsen) INTO LastName\nINSERT (‘Olsen’) INTO Persons (LastName)\n\n\n\n\nHow can you change “Hansen” into “Nilsen” in the “LastName” column in the Persons table?49\n\nMODIFY Persons SET LastName=‘Nilsen’ WHERE LastName=‘Hansen’\nUPDATE Persons SET LastName=‘Hansen’ INTO LastName=‘Nilsen’\nMODIFY Persons SET LastName=‘Hansen’ INTO LastName=‘Nilsen’\nUPDATE Persons SET LastName=‘Nilsen’ WHERE LastName=‘Hansen’\n\n\n\n\nWith SQL, how can you delete the records where the “FirstName” is “Peter” in the Persons Table?50\n\nDELETE FROM Persons WHERE FirstName=‘Peter’\nDELETE FirstName=‘Peter’ FROM Persons\nDELETE ROW FirstName=‘Peter’ FROM Persons\n\n\n\n\nIn the flights table, the following INDEXes exist: Tailnum, Year, and Date. How many rows would be looked through if the WHERE filter was on month only?51\n\nmore than 6.3 million\nless than 6.3 million\nmore than 700,000\nless than 700,000\n\n\n\n\nWhich has a larger cardinality, Tailnum or Year?52\n\nTailnum\nYear\nthey have the same cardinality\nneither has a cardinality\n\n\n\n\nWhich index takes up more storage space, the one on Tailnum or the one on Year?53\n\nTailnum\nYear\nthey take up the same space\nyou can’t index on either variable\n\n\n\n\nWhich index is more effective at reducing querying time, the one on Tailnum or the one on Year?54\n\nTailnum\nYear\nthe queries would be the same\nyou can’t query on either variable\n\n\n\n\nWhat does the R function ifelse(a, b, c) do?55\n\na = TRUE option, b = FALSE option, c = question\na = FALSE option, b = TRUE option, c = question\na = question, b = TRUE option, c = FALSE option\na = question, b = FALSE option, c = TRUE option\n\n\n\n\nWhat does the R function case_when() do?56\n\nrenames a variable\nchanges the data type of a variable\npartitions a numeric variable\ncreates a new variable by re-coding an original variable\n\n\n\n\nWhat does the R function cut() do?57\n\nrenames a variable\nchanges the data type of a variable\npartitions a numeric variable\ncreates a new variable by re-coding an original variable\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "clicker_slides.html#footnotes",
+    "href": "clicker_slides.html#footnotes",
+    "title": "Clicker Questions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n\nA relational database management system.\n\n↩︎\n\nThe first versions were created in the 1970s and called SEQUEL (Structured English QUEry Language). c. SQL came about in particular systems in the 1980s.\n\n↩︎\n\nrelational database management systems.\n\n↩︎\n\ncomputer’s hard drive / storage\n\n↩︎\n\nSQL tbl in storage and R tibble in memory\n\n↩︎\n\nSELECT\n\n↩︎\n\nSELECT FirstName FROM Persons\n\n↩︎\n\nSELECT * FROM Persons\n\n↩︎\n\nSELECT COUNT(*) FROM Persons\n\n↩︎\n\nSELECT * FROM Persons WHERE FirstName = ‘Peter’ (d. would also work.)\n\n↩︎\n\nSELECT * FROM Persons WHERE FirstName = ‘Peter’ AND LastName = ‘Jackson’\n\n↩︎\n\nBEWTEEN\n\n↩︎\n\nSELECT * FROM Persons WHERE LastName BETWEEN ‘Hansen’ AND ‘Pettersen’\n\n↩︎\n\nSELECT DISTINCT\n\n↩︎\n\nORDER BY\n\n↩︎\n\nSELECT * FROM Persons ORDER BY FirstName DESC\n\n↩︎\n\nTRUE\n\n↩︎\n\n… WHERE type = ‘fruit’ AND (color = ‘yellow’ OR color = ‘green’)\n\n↩︎\n\nit combines rows from two or more tables based on a related column.\n\n↩︎\n\nit combines the results of two or more SELECT statements.\n\n↩︎\n\nit combines rows from two or more tables based on a related column.\n\n↩︎\n\nit combines rows from two or more tables based on a related column.\n\n↩︎\n\nthe first table\n\n↩︎\n\nMick\n\n↩︎\n\nnone of them (all variables are kept in all joins)\n\n↩︎\n\nNULL (it would be NA in R)\n\n↩︎\nneither c. nor e. would match. Inside the bracket “[^u]” matches anything other than a “u”, but it has to match something.↩︎\n\nall of the above. Inside a character class | is a normal character and would therefore match “grey” and “gray” and “gr|y”. Which is not what we want, but would work to match both “grey” and “gray”.\n\n↩︎\n\n1 (because \\d matches only a single digit).\n\n↩︎\n\n10 (because \\d+ matches at least one digit).\n\n↩︎\n\nE (because . matches anything, and returns only a single character).\n\n↩︎\n\nEpisode 2: The pie whisperer. (4 August 2015) (because . matches anything, and with the + it returns multiple characters).\n\n↩︎\n\n. (because \\. matches the period, .).\n\n↩︎\n\n“(?&lt;=\\$)\\d+”\n\n↩︎\n\n“\\w+(?= pie)”\n\n↩︎\n\nwe return the string at the lookaround\n\n↩︎\n\nSELECT * FROM Persons WHERE FirstName REGEXP ’(?i)a.*’ (n.b., the LIKE function will give you a similar result, with % as a wildcard: SELECT*FROMPersonsWHERE` FirstName LIKE ‘a%’)\n\n↩︎\n\nPrimary key\n\n↩︎\n\nDirectly identifies another column\n\n↩︎\n\nstudent_name\n\n↩︎\n\nname as primary in enrollment and foreign in grades (the primary key must uniquely identify the records, and name is unlikely to do that in a grades database.)\n\n↩︎\n\nCREATE TABLE Customers\n\n↩︎\n\nUPDATE\n\n↩︎\n\nDELETE\n\n↩︎\n\nTRUE\n\n↩︎\n\nINSERT INTO\n\n↩︎\n\nINSERT INTO Persons VALUES (‘Jimmy’, ‘Jackson’)\n\n↩︎\n\nINSERT INTO Persons (LastName) VALUES (‘Olsen’)\n\n↩︎\n\nUPDATE Persons SET LastName=‘Nilsen’ WHERE LastName=‘Hansen’\n\n↩︎\n\nDELETE FROM Persons WHERE FirstName=‘Peter’\n\n↩︎\n\nmore than 6.3 million. Because there is no index on month (and we don’t have a year to incorporate month into the Date index), we need to look through all 48 million rows.\n\n↩︎\n\nTailnum. The cardinality is the number of unique values, and there are many more unique planes than years.\n\n↩︎\n\nTailnum. Because the cardinality is higher, it will take up much more space in the index.\n\n↩︎\n\nTailnum. Because the index is more complete, it will make the querying more efficient.\n\n↩︎\n\na = question, b = TRUE option, c = FALSE option\n\n↩︎\n\ncreates a new variable by re-coding an original variable\n\n↩︎\n\npartitions a numeric variable\n\n↩︎"
+  },
+  {
+    "objectID": "clicker.html",
+    "href": "clicker.html",
+    "title": "Clicker Questions",
+    "section": "",
+    "text": "to go with Modern Data Science with R, 3rd edition by Baumer, Kaplan, and Horton.\n\n\n\n\nWhat is a SQL server?.1\n\nA relational database management system.\nA software whose main purpose is to store and retrieve data.\nA highly secure server and does not allow any database file manipulation during execution.\nAll of the above.\n\n\n\n\nWhen was SQL created?2\n\n1960s\n1970s\n1980s\n1990s\n2000s\n\n\n\n\nWhat type of databases is SQL designed for?3\n\nhierarchical database management systems.\nnetwork database management systems.\nobject-oriented database management systems.\nrelational database management systems.\n\n\n\n\nWhich is bigger:4\n\ncomputer’s hard drive / storage\ncomputer’s memory / RAM\n\n\n\n\nWhere are each stored?5\n\nSQL tbl and R tibble both in storage\nSQL tbl and R tibble both in memory\nSQL tbl in storage and R tibble in memory\nSQL tbl in memory and R tibble in storage\n\n\n\n\nWhich SQL clause is used to extract data from a database?6\n\nOPEN\nEXTRACT\nSELECT\nGET\n\n\n\n\nWith SQL, how to you retrieve a column named “FirstName” from a table named “Persons”?7\n\nSELECT Persons.FirstName\nEXTRACT FIRSTNAME FROM Persons\nSELECT FirstName FROM Persons\nSELECT “FirstName” FROM “Persons”\n\n\n\n\nWith SQL, how do you select all the columns from a table named “Persons”?8\n\nSELECT Persons\nSELECT * FROM Persons\nSELECT [all] FROM Persons\nSELECT *.Persons\n\n\n\n\nWith SQL, how can you return the number of records in the “Persons” table?9\n\nSELECT COLUMNS(*) FROM Persons\nSELECT COUNT(*) FROM Persons\nSELECT NO(*) FROM Persons\nSELECT LEN(*) FROM Persons\n\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the value of the column “FirstName” is “Peter”?10\n\n\nSELECT * FROM Persons WHERE FirstName &lt;&gt; ‘Peter’\nSELECT * FROM Persons WHERE FirstName = ‘Peter’\nSELECT * FROM Persons WHERE FirstName == ‘Peter’\nSELECT [all] FROM Persons WHERE FirstName LIKE ‘Peter’\nSELECT [all] FROM Persons WHERE FirstName = ‘Peter’\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the “FirstName” is “Peter” and the “LastName” is “Jackson”?11\n\n\nSELECT FirstName = ‘Peter’, LastName = ‘Jackson’ FROM Persons\nSELECT * FROM Persons WHERE FirstName &lt;&gt; ‘Peter’ AND LastName &lt;&gt; ‘Jackson’\nSELECT * FROM Persons WHERE FirstName = ‘Peter’ AND LastName = ‘Jackson’\nSELECT * FROM Persons WHERE FirstName == ‘Peter’ AND LastName == ‘Jackson’\n\n\n\nWhich operator selects values within a range?12\n\nBEWTEEN\nWITHIN\nRANGE\n\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the “LastName” is alphabetically between (and including) “Hansen” and “Pettersen”?13\n\nSELECT LastName &gt; ‘Hansen’ AND LastName &lt; ‘Pettersen’ FROM Persons\nSELECT * FROM Persons WHERE LastName BETWEEN ‘Hansen’ AND ‘Pettersen’\nSELECT * FROM Persons WHERE LastName &gt; ‘Hansen’ AND LastName &lt; ‘Pettersen’\n\n\n\n\nWhich SQL statement returns only different values?14\n\nSELECT UNIQUE\nSELECT DISTINCT\nSELECT DIFFERENT\n\n\n\n\nWhich SQL keyword is used to sort the result-set?15\n\nORDER BY\nORDER\nSORT\nSORT BY\n\n\n\n\nWith SQL, how can you return all the records from a table named “Persons” sorted descending by “FirstName”?16\n\nSELECT * FROM Persons ORDER FirstName DESC\nSELECT * FROM Persons SORT ‘FirstName’ DESC\nSELECT * FROM Persons ORDER BY FirstName DESC\nSELECT * FROM Persons SORT BY ‘FirstName’ DESC\n\n\n\n\nThe OR operator displays a record if ANY conditions listed are true. The AND operator displays a record if ALL of the conditions listed are true.17\n\nTRUE\nFALSE\n\n\n\n\nIn order to SELECT the records with foods that are either green or yellow fruit:18\n\n… WHERE type = ‘fruit’ AND color = ‘yellow’ OR color = ‘green’\n\n… WHERE (type = ‘fruit’ AND color = ‘yellow’) OR color = ‘green’\n\n… WHERE type = ‘fruit’ AND (color = ‘yellow’ OR color = ‘green’)\n\n… WHERE type = ‘fruit’ AND color = ‘yellow’ AND color = ‘green’\n\n… WHERE type = ‘fruit’ AND (color = ‘yellow’ AND color = ‘green’)\n\n\n\n\nWhat is the purpose of a JOIN?19\n\nit filters the rows returned by the SELECT statement.\nit specifies the columns to be retrieved.\nit combines rows from two or more tables based on a related column.\nit orders the results in ascending or descending order.\n\n\n\n\nWhat is the purpose of the UNION operator in SQL?20\n\nit combines the results of two or more SELECT statements.\nit performs a pattern match on a string.\nit retrieves the maximum value in a column.\nit filters the rows returned by the SELECT statement.\n\n\n\n\nWhat is the purpose of the INNER JOIN in SQL?21\n\nit retrieves the maximum value in a column.\nit combines rows from two or more tables based on a related column.\nit filters the rows returned by the SELECT statement.\nit performs a pattern match on a string.\n\n\n\n\nWhat is the purpose of the LEFT JOIN in SQL?22\n\nit combines rows from two or more tables based on a related column.\nit retrieves the maximum value in a column.\nit filters the rows returned by the SELECT statement.\nit performs a pattern match on a string.\n\n\n\n\nRIGHT JOIN keeps all the rows in …?23\n\nthe first table.\nthe second table.\nboth tables.\nneither table\n\n\n\n\nWho is removed in a RIGHT JOIN?24\n\nMick\nJohn\nPaul\nKeith\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhich variable(s) are removed in a RIGHT JOIN?25\n\nname\nband\nplays\nnone of them\n\n\n\n\n\n\n\n\n\n\n\n\n\nIn SQL, what happens to Mick’s “plays” variables in a FULL JOIN?26\n\nMick is removed\nguitar\nbass\nNA\nNULL\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ngrep(\"q[^u]\", very.large.word.list) would not match which of the following?27\n\nIraqi\nIraqian\nIraq\nzaqqun (tree that “springs out of the bottom of Hell”, in the Quran)\nQantas (the Australian airline)\n\n\n\n\nWhich of the following regex would match to both “grey” and “gray”?28\n\n“gr[ae]y”\n“gr(a|e)y”\n“gray | grey”\n“gr[a|e]y”\nsome / all of the above – which ones?\n\n\n\n\nWhat will the result be for the following code?29\n\n10\n1\n0\nNA\n\n\n\nstr_extract(\"My dog is 10 years old\", \"\\\\d\")\n\n\n\nWhat will the result be for the following code?30\n\n10\n1\n0\nNA\n\n\n\nstr_extract(\"My dog is 10 years old\", \"\\\\d+\")\n\n\n\nWhat will the result be for the following code?31\n\n.\nEpisode 2: The pie whisperer. (4 August 2015)\nEpisode\nE\n\n\n\nstr_extract(\"Episode 2: The pie whisperer. (4 August 2015)\", \".\")\n\n\n\nWhat will the result be for the following code?32\n\n.\nEpisode 2: The pie whisperer. (4 August 2015)\nEpisode\nE\n\n\n\nstr_extract(\"Episode 2: The pie whisperer. (4 August 2015)\", \".+\")\n\n\n\nWhat will the result be for the following code?33\n\n.\nEpisode 2: The pie whisperer. (4 August 2015)\nEpisode\nE\n\n\n\nstr_extract(\"Episode 2: The pie whisperer. (4 August 2015)\", \"\\\\.\")\n\n\n\nHow can I pull out just the numerical information in $47?34\n\n“(?&lt;=\\$)\\d”\n“(?&lt;=\\$)\\d+”\n“\\d(?=\\$)”\n“\\d+(?=\\$)”\n\n\n\n\nYou want to know all the types of pies in the text strings. They are written as, for example “apple pie”.35\n\n“\\w+(?!pie)”\n“\\w+(?! pie)”\n“\\w+(?=pie)”\n“\\w+(?= pie)”\n\n\n\n\nstr_extract(c(\"apple pie\", \"chocolate pie\", \"peach pie\"), \"\\\\w+(?= pie)\")\n\n[1] \"apple\"     \"chocolate\" \"peach\"    \n\n\n\nstr_extract(c(\"apple pie\", \"chocolate pie\", \"peach pie\"), \"\\\\w+(?=pie)\")\n\n[1] NA NA NA\n\n\n\n\nWe say that lookarounds are “zero-lenghth assertions”. What does that mean?36\n\nwe return the string in the lookaround\nwe replace the string in the lookaround\nwe return the string at the lookaround\nwe replace the string at the lookaround\n\n\n\n\n\nWith SQL, how do you select all the records from a table named “Persons” where the value of the column “FirstName” starts with an “a”?37\n\nSELECT * FROM Persons WHERE FirstName = ’a.*’\nSELECT * FROM Persons WHERE FirstName = ’a*’\nSELECT * FROM Persons WHERE FirstName REGEXP ’a.*’\nSELECT * FROM Persons WHERE FirstName REGEXP ’a*’\nSELECT * FROM Persons WHERE FirstName REGEXP ’(?i)a.*’\n\n\n\n\nWhat is the main way to absolutely recognize a record within a database?38\n\nForeign key\nPrimary key\nUnique key\nNatural key\nAlternate key\n\n\n\n\nWhat does a foreign key do?39\n\nDirectly identifies another table\nDirectly identifies another column\nGives access to another entire database\nTranslates the database into another language\n\n\n\n\nWhich of these would likely be used as a foreign key between a table on student enrollment and student grades?40\n\ngrades\ntuition\nstudent_name\nstudent_hometown\n\n\n\n\nFor the student records (for two tables: enrollment and grades), which is the most likely combination?41\n\nname as primary key to both\nname as foreign to both\nname as primary in enrollment and foreign in grades\nname as foreign in enrollment and primary in grades\n\n\n\n\nWhich SQL statement is used to create a database table called ‘Customers’?42\n\nCREATE DATABASE TAB Customers\nCREATE DATABASE Customers\nCREATE DATABASE TABLE Customers\nCREATE TABLE Customers\nCREATE DB Customers\n\n\n\n\nWhich SQL statement revises data in a database?43\n\nSAVE AS\nMODIFY\nSAVE\nUPDATE\n\n\n\n\nWhich SQL statement takes out data from a database?44\n\nREMOVE\nDELETE\nCOLLAPSE\n\n\n\n\nThe NOT NULL constraint enforces a column to not accept NULL values.45\n\nFALSE\nTRUE\n\n\n\n\nWhich SQL statement places new data in a database?46\n\nADD RECORD\nINSERT INTO\nADD NEW\nINSERT NEW\n\n\n\n\nWith SQL, how can you insert a new record into the “Persons” table?47\n\nINSERT INTO Persons VALUES (‘Jimmy’, ‘Jackson’)\nINSERT (‘Jimmy’, ‘Jacskon’) INTO Persons\nINSERT VALUES (‘Jimmy’, ‘Jackson’) INTO Persons\n\n\n\n\nWith SQL, how can you insert “Olsen” as the “LastName” in the “Persons” table?48\n\nINSERT INTO Persons (LastName) VALUES (‘Olsen’)\nINSERT INTO Persons (’Olsen) INTO LastName\nINSERT (‘Olsen’) INTO Persons (LastName)\n\n\n\n\nHow can you change “Hansen” into “Nilsen” in the “LastName” column in the Persons table?49\n\nMODIFY Persons SET LastName=‘Nilsen’ WHERE LastName=‘Hansen’\nUPDATE Persons SET LastName=‘Hansen’ INTO LastName=‘Nilsen’\nMODIFY Persons SET LastName=‘Hansen’ INTO LastName=‘Nilsen’\nUPDATE Persons SET LastName=‘Nilsen’ WHERE LastName=‘Hansen’\n\n\n\n\nWith SQL, how can you delete the records where the “FirstName” is “Peter” in the Persons Table?50\n\nDELETE FROM Persons WHERE FirstName=‘Peter’\nDELETE FirstName=‘Peter’ FROM Persons\nDELETE ROW FirstName=‘Peter’ FROM Persons\n\n\n\n\nIn the flights table, the following INDEXes exist: Tailnum, Year, and Date. How many rows would be looked through if the WHERE filter was on month only?51\n\nmore than 6.3 million\nless than 6.3 million\nmore than 700,000\nless than 700,000\n\n\n\n\nWhich has a larger cardinality, Tailnum or Year?52\n\nTailnum\nYear\nthey have the same cardinality\nneither has a cardinality\n\n\n\n\nWhich index takes up more storage space, the one on Tailnum or the one on Year?53\n\nTailnum\nYear\nthey take up the same space\nyou can’t index on either variable\n\n\n\n\nWhich index is more effective at reducing querying time, the one on Tailnum or the one on Year?54\n\nTailnum\nYear\nthe queries would be the same\nyou can’t query on either variable\n\n\n\n\nWhat does the R function ifelse(a, b, c) do?55\n\na = TRUE option, b = FALSE option, c = question\na = FALSE option, b = TRUE option, c = question\na = question, b = TRUE option, c = FALSE option\na = question, b = FALSE option, c = TRUE option\n\n\n\n\nWhat does the R function case_when() do?56\n\nrenames a variable\nchanges the data type of a variable\npartitions a numeric variable\ncreates a new variable by re-coding an original variable\n\n\n\n\nWhat does the R function cut() do?57\n\nrenames a variable\nchanges the data type of a variable\npartitions a numeric variable\ncreates a new variable by re-coding an original variable\n\n\n\n\n:::"
+  },
+  {
+    "objectID": "clicker.html#footnotes",
+    "href": "clicker.html#footnotes",
+    "title": "Clicker Questions",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n\nA relational database management system.\n\n↩︎\n\nThe first versions were created in the 1970s and called SEQUEL (Structured English QUEry Language). c. SQL came about in particular systems in the 1980s.\n\n↩︎\n\nrelational database management systems.\n\n↩︎\n\ncomputer’s hard drive / storage\n\n↩︎\n\nSQL tbl in storage and R tibble in memory\n\n↩︎\n\nSELECT\n\n↩︎\n\nSELECT FirstName FROM Persons\n\n↩︎\n\nSELECT * FROM Persons\n\n↩︎\n\nSELECT COUNT(*) FROM Persons\n\n↩︎\n\nSELECT * FROM Persons WHERE FirstName = ‘Peter’ (d. would also work.)\n\n↩︎\n\nSELECT * FROM Persons WHERE FirstName = ‘Peter’ AND LastName = ‘Jackson’\n\n↩︎\n\nBEWTEEN\n\n↩︎\n\nSELECT * FROM Persons WHERE LastName BETWEEN ‘Hansen’ AND ‘Pettersen’\n\n↩︎\n\nSELECT DISTINCT\n\n↩︎\n\nORDER BY\n\n↩︎\n\nSELECT * FROM Persons ORDER BY FirstName DESC\n\n↩︎\n\nTRUE\n\n↩︎\n\n… WHERE type = ‘fruit’ AND (color = ‘yellow’ OR color = ‘green’)\n\n↩︎\n\nit combines rows from two or more tables based on a related column.\n\n↩︎\n\nit combines the results of two or more SELECT statements.\n\n↩︎\n\nit combines rows from two or more tables based on a related column.\n\n↩︎\n\nit combines rows from two or more tables based on a related column.\n\n↩︎\n\nthe first table\n\n↩︎\n\nMick\n\n↩︎\n\nnone of them (all variables are kept in all joins)\n\n↩︎\n\nNULL (it would be NA in R)\n\n↩︎\nneither c. nor e. would match. Inside the bracket “[^u]” matches anything other than a “u”, but it has to match something.↩︎\n\nall of the above. Inside a character class | is a normal character and would therefore match “grey” and “gray” and “gr|y”. Which is not what we want, but would work to match both “grey” and “gray”.\n\n↩︎\n\n1 (because \\d matches only a single digit).\n\n↩︎\n\n10 (because \\d+ matches at least one digit).\n\n↩︎\n\nE (because . matches anything, and returns only a single character).\n\n↩︎\n\nEpisode 2: The pie whisperer. (4 August 2015) (because . matches anything, and with the + it returns multiple characters).\n\n↩︎\n\n. (because \\. matches the period, .).\n\n↩︎\n\n“(?&lt;=\\$)\\d+”\n\n↩︎\n\n“\\w+(?= pie)”\n\n↩︎\n\nwe return the string at the lookaround\n\n↩︎\n\nSELECT * FROM Persons WHERE FirstName REGEXP ’(?i)a.*’ (n.b., the LIKE function will give you a similar result, with % as a wildcard: SELECT*FROMPersonsWHERE` FirstName LIKE ‘a%’)\n\n↩︎\n\nPrimary key\n\n↩︎\n\nDirectly identifies another column\n\n↩︎\n\nstudent_name\n\n↩︎\n\nname as primary in enrollment and foreign in grades (the primary key must uniquely identify the records, and name is unlikely to do that in a grades database.)\n\n↩︎\n\nCREATE TABLE Customers\n\n↩︎\n\nUPDATE\n\n↩︎\n\nDELETE\n\n↩︎\n\nTRUE\n\n↩︎\n\nINSERT INTO\n\n↩︎\n\nINSERT INTO Persons VALUES (‘Jimmy’, ‘Jackson’)\n\n↩︎\n\nINSERT INTO Persons (LastName) VALUES (‘Olsen’)\n\n↩︎\n\nUPDATE Persons SET LastName=‘Nilsen’ WHERE LastName=‘Hansen’\n\n↩︎\n\nDELETE FROM Persons WHERE FirstName=‘Peter’\n\n↩︎\n\nmore than 6.3 million. Because there is no index on month (and we don’t have a year to incorporate month into the Date index), we need to look through all 48 million rows.\n\n↩︎\n\nTailnum. The cardinality is the number of unique values, and there are many more unique planes than years.\n\n↩︎\n\nTailnum. Because the cardinality is higher, it will take up much more space in the index.\n\n↩︎\n\nTailnum. Because the index is more complete, it will make the querying more efficient.\n\n↩︎\n\na = question, b = TRUE option, c = FALSE option\n\n↩︎\n\ncreates a new variable by re-coding an original variable\n\n↩︎\n\npartitions a numeric variable\n\n↩︎"
+  },
+  {
+    "objectID": "images/ma154-hwtest.html",
+    "href": "images/ma154-hwtest.html",
+    "title": "Math 154 - Test HW",
+    "section": "",
+    "text": ":::\n\n\nReuseCC BY 4.0"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html",
+    "href": "slides/2024-08-26-reprodGit.html",
+    "title": "Introduction to Math 154",
+    "section": "",
+    "text": "Syllabus\nWorkflow - Stitch Fix\nTwitter\nTools\n\n\n\n\n\n\n\nImportant\n\n\n\nBefore Wednesday, listen to the full conversation of Not So Standard Deviations - Compromised Shoe Situation.\n\n\n\n\n\nweekly HW (to GitHub + Gradescope)\nbi-weekly quizzes\ndata project\nin-class activities / clickers\nethical considerations\n\n\n\n\n\nCanvas has all the links\n\ncourse website – almost everything\nclass notes\nCanvas page – solutions and assignments\n\nno computers (tablets fine)\ngood communication\nTidyTuesday\n\n\n\n\n\n\n\noffice hours\nmentor sessions\nanonymous feedback\ndates for assignments\n\n\n\nlinks to resources\nHW grading\nproject information\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nI need your GitHub user name - please email it to me.\n\n\n\n\n\nBy the end of the course, you will be able to…\n\n\ngain insight from data\ngain insight from data, reproducibly\ngain insight from data, reproducibly, using modern programming tools and techniques\ngain insight from data, reproducibly (with literate programming and version control), using modern programming tools and techniques"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#course-structure",
+    "href": "slides/2024-08-26-reprodGit.html#course-structure",
+    "title": "Introduction to Math 154",
+    "section": "",
+    "text": "weekly HW (to GitHub + Gradescope)\nbi-weekly quizzes\ndata project\nin-class activities / clickers\nethical considerations"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#additional-details",
+    "href": "slides/2024-08-26-reprodGit.html#additional-details",
+    "title": "Introduction to Math 154",
+    "section": "",
+    "text": "Canvas has all the links\n\ncourse website – almost everything\nclass notes\nCanvas page – solutions and assignments\n\nno computers (tablets fine)\ngood communication\nTidyTuesday"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#syllabus",
+    "href": "slides/2024-08-26-reprodGit.html#syllabus",
+    "title": "Introduction to Math 154",
+    "section": "",
+    "text": "office hours\nmentor sessions\nanonymous feedback\ndates for assignments\n\n\n\nlinks to resources\nHW grading\nproject information\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nI need your GitHub user name - please email it to me."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#learning-goals",
+    "href": "slides/2024-08-26-reprodGit.html#learning-goals",
+    "title": "Introduction to Math 154",
+    "section": "",
+    "text": "By the end of the course, you will be able to…\n\n\ngain insight from data\ngain insight from data, reproducibly\ngain insight from data, reproducibly, using modern programming tools and techniques\ngain insight from data, reproducibly (with literate programming and version control), using modern programming tools and techniques"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#workflow",
+    "href": "slides/2024-08-26-reprodGit.html#workflow",
+    "title": "Introduction to Math 154",
+    "section": "Workflow",
+    "text": "Workflow"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#stitch-fix",
+    "href": "slides/2024-08-26-reprodGit.html#stitch-fix",
+    "title": "Introduction to Math 154",
+    "section": "Stitch Fix",
+    "text": "Stitch Fix\nExample of how data and algorithms are used to make decisions.\n\n\n\n\n\n\n\n\n\nhttp://algorithms-tour.stitchfix.com/"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#what-cancant-statistics-data-science-do",
+    "href": "slides/2024-08-26-reprodGit.html#what-cancant-statistics-data-science-do",
+    "title": "Introduction to Math 154",
+    "section": "What can/can’t statistics & data science do?",
+    "text": "What can/can’t statistics & data science do?\n\nCan model the data at hand!\nCan find patterns & visualizations in large datasets.\nCan’t establish causation (mostly).\nCan’t represent data if it isn’t there."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#twitter",
+    "href": "slides/2024-08-26-reprodGit.html#twitter",
+    "title": "Introduction to Math 154",
+    "section": "Twitter",
+    "text": "Twitter\nIn 2013, DiGrazia et al. published a provocative paper suggesting that polling could now be replaced by analyzing social media data. They analyzed 406 competitive US congressional races using over 3.5 billion tweets. In an article in The Washington Post one of the co-authors, Rojas, writes: “Anyone with programming skills can write a program that will harvest tweets, sort them for content and analyze the results. This can be done with nothing more than a laptop computer.” (Rojas, 2013)\n\nThe data come from neither an experiment nor a random sample - there must be careful thought applied to the question of to whom the analysis can be generalized. The data were also scraped from the internet.\nThe analysis was done combining domain knowledge (about congressional races) with a data source that seems completely irrelevant at the outset (tweets).\nThe dataset was quite large! 3.5 billion tweets were collected and a random sample of 500,000 tweets were analyzed.\nThe researchers were from sociology and computer science - a truly collaborative endeavor, and one that is often quite efficient at producing high quality analyses."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#activity",
+    "href": "slides/2024-08-26-reprodGit.html#activity",
+    "title": "Introduction to Math 154",
+    "section": "Activity",
+    "text": "Activity\nSpend a few minutes reading the Rojas editorial. Be sure to consider Figure 1 carefully, and address the following questions."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#statistics-hat",
+    "href": "slides/2024-08-26-reprodGit.html#statistics-hat",
+    "title": "Introduction to Math 154",
+    "section": "Statistics Hat",
+    "text": "Statistics Hat\n\nDiscuss Figure 1 with your neighbor. What is its purpose? What does it convey? Think critically about this data visualization. What would you do differently?\nHow would you improve the plot? I.e., annotate it to make it more convincing / communicative? Does it need enhancement?\nDo you think the study holds water? Why or why not? What are the shortcomings of this study?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#data-scientist-hat",
+    "href": "slides/2024-08-26-reprodGit.html#data-scientist-hat",
+    "title": "Introduction to Math 154",
+    "section": "Data Scientist Hat",
+    "text": "Data Scientist Hat\nImagine that your boss, who does not have advanced technical skills or knowledge, asked you to reproduce the study you just read. Discuss the following with your neighbor.\n\nWhat steps are necessary to reproduce this study? Be as specific as you can! Try to list the subtasks that you would have to perform.\nWhat computational tools would you use for each task?\nIdentify all the steps necessary to conduct the study. Could you do it given your current abilities & knowledge? What about the practical considerations?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#advantages",
+    "href": "slides/2024-08-26-reprodGit.html#advantages",
+    "title": "Introduction to Math 154",
+    "section": "Advantages",
+    "text": "Advantages\n\nCheap\nCan measure any political race (not just the wealthy ones)."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#disadvantages",
+    "href": "slides/2024-08-26-reprodGit.html#disadvantages",
+    "title": "Introduction to Math 154",
+    "section": "Disadvantages",
+    "text": "Disadvantages\n\nIs it really reflective of the voting populace? Who would it bias toward?\nDoes simple mention of a candidate always reflect voting patterns? When wouldn’t it?\nMargin of error of 2.7%. How is that number typically calculated in a poll? Note: \\(2 \\cdot \\sqrt{(1/2)(1/2)/1000} = 0.0316\\).\nTweets feel more free in terms of what you are able to say - is that a good thing or a bad thing with respect to polling?\nCan’t measure any demographic information."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#what-could-be-done-differently",
+    "href": "slides/2024-08-26-reprodGit.html#what-could-be-done-differently",
+    "title": "Introduction to Math 154",
+    "section": "What could be done differently?",
+    "text": "What could be done differently?\n\nGelman: look only at close races\nGelman: “It might make sense to flip it around and predict twitter mentions given candidate popularity. That is, rotate the graph 90 degrees, and see how much variation there is in tweet shares for elections of different degrees of closeness.”\nGelman: “And scale the size of each dot to the total number of tweets for the two candidates in the election.”\nGelman: Make the data publicly available so that others can try to reproduce the results\n\nhttps://statmodeling.stat.columbia.edu/2013/04/24/the-tweets-votes-curve/"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#reproducibility-checklist",
+    "href": "slides/2024-08-26-reprodGit.html#reproducibility-checklist",
+    "title": "Introduction to Math 154",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\nShort-term goals:\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done?\n\nLong-term goals:\n\nCan the code be used for other data?\nCan you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#toolkit-for-reproducibility",
+    "href": "slides/2024-08-26-reprodGit.html#toolkit-for-reproducibility",
+    "title": "Introduction to Math 154",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#r-and-rstudio-1",
+    "href": "slides/2024-08-26-reprodGit.html#r-and-rstudio-1",
+    "title": "Introduction to Math 154",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\n\n\n\n\n\n\n\nR is an open-source statistical programming language\nR is also an environment for statistical computing and graphics\nIt’s easily extensible with packages\n\n\n\n\nRStudio is a convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\nRStudio is not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#r-vs.-rstudio",
+    "href": "slides/2024-08-26-reprodGit.html#r-vs.-rstudio",
+    "title": "Introduction to Math 154",
+    "section": "R vs. RStudio",
+    "text": "R vs. RStudio\n\n\n\n\n\n\n\nSource: Modern Dive."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#r-packages",
+    "href": "slides/2024-08-26-reprodGit.html#r-packages",
+    "title": "Introduction to Math 154",
+    "section": "R packages",
+    "text": "R packages\n\nPackages: Fundamental units of reproducible R code, including reusable R functions, the documentation that describes how to use them, and sample data1\nAs of August 26, 2024, there are 21,145 R packages available on CRAN (the Comprehensive R Archive Network)2\nWe’re going to work with a small (but important) subset of these!\n\n\n\n1 Wickham and Bryan, R Packages.\n2 CRAN contributed packages."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tour-r-rstudio",
+    "href": "slides/2024-08-26-reprodGit.html#tour-r-rstudio",
+    "title": "Introduction to Math 154",
+    "section": "Tour: R + RStudio",
+    "text": "Tour: R + RStudio"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tour-recap-r-rstudio",
+    "href": "slides/2024-08-26-reprodGit.html#tour-recap-r-rstudio",
+    "title": "Introduction to Math 154",
+    "section": "Tour recap: R + RStudio",
+    "text": "Tour recap: R + RStudio"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#a-short-list-for-now-of-r-essentials",
+    "href": "slides/2024-08-26-reprodGit.html#a-short-list-for-now-of-r-essentials",
+    "title": "Introduction to Math 154",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n. . .\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#r-essentials-continued",
+    "href": "slides/2024-08-26-reprodGit.html#r-essentials-continued",
+    "title": "Introduction to Math 154",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n. . .\n\nObject documentation can be accessed with ?\n\n\n?mean"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tidyverse",
+    "href": "slides/2024-08-26-reprodGit.html#tidyverse",
+    "title": "Introduction to Math 154",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\n\ntidyverse.org\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#quarto-1",
+    "href": "slides/2024-08-26-reprodGit.html#quarto-1",
+    "title": "Introduction to Math 154",
+    "section": "Quarto",
+    "text": "Quarto\n\nFully reproducible reports – each time you Render, the analysis is run from the beginning\nCode goes in chunks\nNarrative goes outside of chunks"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tour-quarto",
+    "href": "slides/2024-08-26-reprodGit.html#tour-quarto",
+    "title": "Introduction to Math 154",
+    "section": "Tour: Quarto",
+    "text": "Tour: Quarto"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tour-recap-quarto",
+    "href": "slides/2024-08-26-reprodGit.html#tour-recap-quarto",
+    "title": "Introduction to Math 154",
+    "section": "Tour recap: Quarto",
+    "text": "Tour recap: Quarto"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#environments",
+    "href": "slides/2024-08-26-reprodGit.html#environments",
+    "title": "Introduction to Math 154",
+    "section": "Environments",
+    "text": "Environments\n\n\n\n\n\n\nImportant\n\n\n\nThe environment of your Quarto document is separate from the Console!\n\n\nRemember this, and expect it to bite you a few times as you’re learning to work with Quarto!"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#environments-1",
+    "href": "slides/2024-08-26-reprodGit.html#environments-1",
+    "title": "Introduction to Math 154",
+    "section": "Environments",
+    "text": "Environments\n\n\nFirst, run the following in the console:\n\nx &lt;- 2\nx * 3\n\n\n\nAll looks good, eh?\n\n\nThen, add the following in an R chunk in your Quarto document\n\nx * 3\n\n\n\nWhat happens? Why the error?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#how-will-we-use-quarto",
+    "href": "slides/2024-08-26-reprodGit.html#how-will-we-use-quarto",
+    "title": "Introduction to Math 154",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery assignment is an Quarto document.\nYou’ll always have a template Quarto document to start with.\nThe amount of scaffolding in the template will decrease over the semester."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#git-and-github",
+    "href": "slides/2024-08-26-reprodGit.html#git-and-github",
+    "title": "Introduction to Math 154",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\n\n\n\n\n\n\n\n\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\nIt’s not the only version control system, but it’s a very popular one\n\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for web hosting and collaboration (and as our course management system!)"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#versioning---done-badly",
+    "href": "slides/2024-08-26-reprodGit.html#versioning---done-badly",
+    "title": "Introduction to Math 154",
+    "section": "Versioning - done badly",
+    "text": "Versioning - done badly"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#versioning---done-better",
+    "href": "slides/2024-08-26-reprodGit.html#versioning---done-better",
+    "title": "Introduction to Math 154",
+    "section": "Versioning - done better",
+    "text": "Versioning - done better"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#versioning---done-even-better",
+    "href": "slides/2024-08-26-reprodGit.html#versioning---done-even-better",
+    "title": "Introduction to Math 154",
+    "section": "Versioning - done even better",
+    "text": "Versioning - done even better\n\nwith human readable messages"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github",
+    "href": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github",
+    "title": "Introduction to Math 154",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github-1",
+    "href": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github-1",
+    "title": "Introduction to Math 154",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github-2",
+    "href": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github-2",
+    "title": "Introduction to Math 154",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github-3",
+    "href": "slides/2024-08-26-reprodGit.html#how-will-we-use-git-and-github-3",
+    "title": "Introduction to Math 154",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#git-and-github-tips",
+    "href": "slides/2024-08-26-reprodGit.html#git-and-github-tips",
+    "title": "Introduction to Math 154",
+    "section": "Git and GitHub tips",
+    "text": "Git and GitHub tips\n\n\nThere are millions of git commands – ok, that’s an exaggeration, but there are a lot of them – and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.\nWe will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line – skip that and move on to the next resource unless you feel comfortable trying it out.\nThere is a great resource for working with git and R: happygitwithr.com. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tour-git-github",
+    "href": "slides/2024-08-26-reprodGit.html#tour-git-github",
+    "title": "Introduction to Math 154",
+    "section": "Tour: Git + GitHub",
+    "text": "Tour: Git + GitHub"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#reproducibility",
+    "href": "slides/2024-08-26-reprodGit.html#reproducibility",
+    "title": "Introduction to Math 154",
+    "section": "Reproducibility",
+    "text": "Reproducibility"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#example-1",
+    "href": "slides/2024-08-26-reprodGit.html#example-1",
+    "title": "Introduction to Math 154",
+    "section": "Example #1",
+    "text": "Example #1\n\nScience retracts gay marriage paper without agreement of lead author LaCour\n\nIn May 2015 Science retracted a study of how canvassers can sway people’s opinions about gay marriage published just 5 months prior.\nScience Editor-in-Chief Marcia McNutt:\n\nOriginal survey data not made available for independent reproduction of results.\nSurvey incentives misrepresented.\nSponsorship statement false.\n\nTwo Berkeley grad students who attempted to replicate the study quickly discovered that the data must have been faked.\nMethods we’ll discuss can’t prevent this, but they can make it easier to discover issues.\n\nSource: http://news.sciencemag.org/policy/2015/05/science-retracts-gay-marriage-paper-without-lead-author-s-consent"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#example-2",
+    "href": "slides/2024-08-26-reprodGit.html#example-2",
+    "title": "Introduction to Math 154",
+    "section": "Example #2",
+    "text": "Example #2\n\nSeizure study retracted after authors realize data got “terribly mixed”\n\nFrom the authors of Low Dose Lidocaine for Refractory Seizures in Preterm Neonates:\n\n“The article has been retracted at the request of the authors. After carefully re-examining the data presented in the article, they identified that data of two different hospitals got terribly mixed. The published results cannot be reproduced in accordance with scientific and clinical correctness.”\nSource: http://retractionwatch.com/2013/02/01/seizure-study-retracted-after-authors-realize-data-got-terribly-mixed/"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#example-3",
+    "href": "slides/2024-08-26-reprodGit.html#example-3",
+    "title": "Introduction to Math 154",
+    "section": "Example #3",
+    "text": "Example #3\n\nBad spreadsheet merge kills depression paper, quick fix resurrects it\n\nThe authors informed the journal that the merge of lab results and other survey data used in the paper resulted in an error regarding the identification codes. Results of the analyses were based on the data set in which this error occurred. Further analyses established the results reported in this manuscript and interpretation of the data are not correct.\nOriginal conclusion: Lower levels of CSF IL-6 were associated with current depression and with future depression […].\nRevised conclusion: Higher levels of CSF IL-6 and IL-8 were associated with current depression […].\n\nSource: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depression-paper-quick-fix-resurrects-it/"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#reproducible-data-analysis-1",
+    "href": "slides/2024-08-26-reprodGit.html#reproducible-data-analysis-1",
+    "title": "Introduction to Math 154",
+    "section": "Reproducible data analysis",
+    "text": "Reproducible data analysis\n\nScriptability → R [in contrast to pull down menus]\nLiterate programming → R Markdown [in contrast to multiple files]\nVersion control → Git / GitHub [in contrast to multiple versions]"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#scripting-and-literate-programming",
+    "href": "slides/2024-08-26-reprodGit.html#scripting-and-literate-programming",
+    "title": "Introduction to Math 154",
+    "section": "Scripting and literate programming",
+    "text": "Scripting and literate programming\n\nDonald Knuth “Literate Programming (1983)”\n“Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer- what to do, let us concentrate rather on explaining to human beings- what we want a computer to do.”\n\nThese ideas have been around for years!\nand tools for putting them to practice have also been around\nbut they have never been as accessible as the current tools"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#reproducibility-checklist-1",
+    "href": "slides/2024-08-26-reprodGit.html#reproducibility-checklist-1",
+    "title": "Introduction to Math 154",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done? (e.g., how were parameter settings chosen?)\nCan the code be used for other data?\nCan you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tools-r-r-studio",
+    "href": "slides/2024-08-26-reprodGit.html#tools-r-r-studio",
+    "title": "Introduction to Math 154",
+    "section": "Tools: R & R Studio",
+    "text": "Tools: R & R Studio\n\nYou must use both software programs\nR does the programming\nR Studio brings everything together\nYou may use Pomona’s server: https://rstudio.campus.pomona.edu/ (or https://rstudio.pomona.edu if you are off campus)\nSee course website for getting started: https://m154-comp-stats.netlify.app/github.html"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#r-vs-r-studio",
+    "href": "slides/2024-08-26-reprodGit.html#r-vs-r-studio",
+    "title": "Introduction to Math 154",
+    "section": "R vs R Studio",
+    "text": "R vs R Studio\nR: think “python”\nR Studio: think “jupyter notebook” or “Google Colab”\n\n\n\n\n\nTaken from Modern Drive: An introduction to statistical and data sciences via R, by Ismay and Kim"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#r-studio",
+    "href": "slides/2024-08-26-reprodGit.html#r-studio",
+    "title": "Introduction to Math 154",
+    "section": "R Studio",
+    "text": "R Studio\n\n\n\n\n\nJessica Ward, PhD student at Newcastle University"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tools-github",
+    "href": "slides/2024-08-26-reprodGit.html#tools-github",
+    "title": "Introduction to Math 154",
+    "section": "Tools: GitHub",
+    "text": "Tools: GitHub\n\nYou must submit your assignments via GitHub + Gradescope\nFollow Jenny Bryan’s advice on how to get set-up: http://happygitwithr.com/\nFollow course specific advice: https://m154-comp-stats.netlify.app/github.html"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#steps-for-weekly-homework",
+    "href": "slides/2024-08-26-reprodGit.html#steps-for-weekly-homework",
+    "title": "Introduction to Math 154",
+    "section": "Steps for weekly homework",
+    "text": "Steps for weekly homework\n\nYou will get a link to the new assignment (clicking on the link will create a new private repo)\n\nUse R Studio\n\nNew Project, version control, Git\n\nClone the repo using SSH\n\n\nIf it exists, rename the Rmd file to ma154-hw#-lname-fname.Rmd\n\nDo the assignment\n\ncommit and push after every problem\n\n\nAll necessary files must be in the same folder (e.g., data)"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tools-a-github-merge-conflict-demo",
+    "href": "slides/2024-08-26-reprodGit.html#tools-a-github-merge-conflict-demo",
+    "title": "Introduction to Math 154",
+    "section": "Tools: a GitHub merge conflict (demo)",
+    "text": "Tools: a GitHub merge conflict (demo)\n\nOn GitHub (on the web) edit the README document and Commit it with a message describing what you did.\nThen, in RStudio also edit the README document with a different change.\n\nCommit your changes\nTry to push – you’ll get an error!\nTry pulling\nResolve the merge conflict and then commit and push\n\nAs you work in teams you will run into merge conflicts, learning how to resolve them properly will be very important."
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#tools-a-github-merge-conflict",
+    "href": "slides/2024-08-26-reprodGit.html#tools-a-github-merge-conflict",
+    "title": "Introduction to Math 154",
+    "section": "Tools: a GitHub merge conflict",
+    "text": "Tools: a GitHub merge conflict"
+  },
+  {
+    "objectID": "slides/2024-08-26-reprodGit.html#nssd",
+    "href": "slides/2024-08-26-reprodGit.html#nssd",
+    "title": "Introduction to Math 154",
+    "section": "NSSD:",
+    "text": "NSSD:\n\nWhat was Hilary trying to answer in her data collection?\nName two of Hilary’s main hurdles in gathering accurate data.\nWhich is better: high touch (manual) or low touch (automatic) data collection? Why?\nWhat additional covariates are needed / desired? Any problems with them?\nHow much data does she need?\n\n\n:::"
   }
 ]

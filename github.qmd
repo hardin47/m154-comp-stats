@@ -9,10 +9,13 @@ author:
     affiliation_url: https://hardin47.netlify.app/
   - name: original content by Ben Wiedermann
     affiliation: Harvey Mudd College
-output: 
-  distill::distill_article:
+format:
+  html: 
     toc: true
-    toc_depth: 1
+    toc-depth: 1
+execute: 
+  message: false
+  warning: false
 ---
 
 ```{r setup, include=FALSE}

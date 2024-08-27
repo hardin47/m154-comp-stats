@@ -1,0 +1,115 @@
+
+# Clicker Questions
+
+to go along with <br>
+
+<b><a href = "https://mdsr-book.github.io/mdsr3e/" target = "_blank">Modern Data Science with R, 3rd edition</a></b> by Baumer, Kaplan, and Horton
+
+<b><a href = "https://www.statlearning.com/" target = "_blank">Introduction to Statistical Learning with Applications in R</a></b> by James, Witten, Hastie, and Tibshirani
+
+
+<!-- the two formats are html and revealjs -->
+
+
+```{=html}
+<style>
+.reveal ol ol {
+   list-style-type: lower-alpha;
+}
+</style>
+```
+
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# figure options
+knitr::opts_chunk$set(warning = FALSE, message = FALSE,
+  fig.width = 10, fig.asp = 0.618, out.width = "90%",
+  fig.retina = 3, dpi = 300, fig.align = "center"
+)
+
+library(tidyverse)
+
+# Make sure to put a space before and after every slide break "---"
+
+```
+
+---
+
+1. The reason to take random samples is:[^1]
+   (a) to make cause and effect conclusions 
+   (b) to get as many variables as possible
+   (c) it's easier to collect a large dataset
+   (d) so that the data are a good representation of the population
+   (e) I have no idea why one would take a random sample
+
+[^1]: d. so that the data are a good representation of the population
+
+---
+
+2. The reason to allocate/assign explanatory variables is:[^2]
+   (a) to make cause and effect conclusions 
+   (b) to get as many variables as possible
+   (c) it's easier to collect a large dataset
+   (d) so that the data are a good representation of the population
+   (e) I have no idea what you mean by "allocate/assign" (or "explanatory variable" for that matter)
+
+[^2]: a. to make cause and effect conclusions
+
+---
+
+3. Approximately how big is a tweet?[^3]
+   (a) 0.01Kb
+   (b) 0.1Kb
+   (c) 1Kb
+   (d) 100Kb
+   (e) 1000Kb = 1Mb
+
+[^3]: b. about 0.1Kb.  Turns out that 3.5 billion tweets * 0.1Kb = 350Gb (0.35 Tb).  My laptop is pretty good, and it has 36 Gb of memory (RAM) and 4 Tb of storage.  It would not be able to work with 3.5 billion tweets.
+
+---
+
+4. $R^2$ measures:[^4]
+   (a) the proportion of variability in vote margin as explained by tweet share.
+   (b) the proportion of variability in tweet share as explained by vote margin.
+   (c) how appropriate the linear part of the linear model is.
+   (d) whether or not particular variables should be included in the model.
+
+[^4]: a. the proportion of variability in vote margin as explained by tweet share.
+
+---
+
+5. R / R Studio / Quarto[^5]
+    (a) all good
+    (b) started, progress is slow and steady
+    (c) started, very stuck
+    (d) haven’t started yet
+    (e) what do you mean by "R"?
+
+[^5]: wherever you are, make sure you are communicating with me when you have questions!
+
+---
+
+6. Git / GitHub[^6]
+    (a) all good
+    (b) started, progress is slow and steady
+    (c) started, very stuck
+    (d) haven’t started yet
+    (e) what do you mean by "Git"?
+
+[^6]: wherever you are, make sure you are communicating with me when you have questions!
+
+---
+
+7. Which of the following includes talking to GitHub?[^7]
+    (a) changing your name (updating the YAML)
+    (b) committing the file(s)
+    (c) pushing the file(s)
+    (d) some of the above
+    (e) all of the above
+
+---
+

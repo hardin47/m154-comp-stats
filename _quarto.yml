@@ -39,6 +39,8 @@ website:
             href: https://hardin47.netlify.app/courses/data/
       - text: "R tip"
         href: R-tip.qmd
+      - text: "Clicker Q"
+        href: licker_study.qmd
       - text: "GitHub"
         href: github.qmd
     logo: images/st47s.png

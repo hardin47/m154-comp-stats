@@ -7,8 +7,6 @@ author:
     url: https://m154-comp-stats.netlify.app/
     affiliation: Pomona College
     affiliation_url: https://hardin47.netlify.app/
-output: 
-  distill::distill_article
 ---
 
 

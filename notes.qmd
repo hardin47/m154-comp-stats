@@ -7,7 +7,6 @@ author:
     url: https://m154-comp-stats.netlify.app/
     affiliation: Pomona College
     affiliation_url: https://hardin47.netlify.app/
-output: distill::distill_article
 ---
 
 
@@ -15,10 +14,10 @@ Class notes can be found at <a href="http://st47s.com/Math154/Notes/" target="_b
 
 <p>   </p>
 
-```{r layout="l-page", out.extra='style="border: none;"', echo = FALSE}
-knitr::include_url("https://st47s.com/Math154/Notes/")
-```
 
+:::{.column-page}
+<iframe src="https://st47s.com/Math154/Notes/" title="Class Notes for DS 002R" width="1000" height="500" data-external="1"></iframe>
+:::
 
 
 

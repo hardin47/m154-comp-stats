@@ -2,7 +2,10 @@
 title: "Group Dynamic Roles"
 description: |
   Specific ways to work together.
-output: distill::distill_article
+format: html
+execute: 
+  message: false
+  warning: false
 ---
 
 ```{r setup, include=FALSE}

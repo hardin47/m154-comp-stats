@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jo Hardin">
+<meta name="dcterms.date" content="2024-08-26">
+
+<title>Computational Statistics - Introduction to Math 154</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://m154-comp-stats.netlify.app/" class="navbar-brand navbar-brand-logo">
+    <img src="../images/st47s.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://m154-comp-stats.netlify.app/">
+    <span class="navbar-title">Computational Statistics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../daily.html"> 
+<span class="menu-text">Daily</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notes.html"> 
+<span class="menu-text">Class Notes</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project.html">
+ <span class="dropdown-text">Project Assignment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../roles.html">
+ <span class="dropdown-text">Group Roles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rubric.html">
+ <span class="dropdown-text">Rubric</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://hardin47.netlify.app/courses/data/">
+ <span class="dropdown-text">Data Sources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../R-tip.html"> 
+<span class="menu-text">R tip</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../github.html"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2024-08-26-reprodGit.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Math 154</h1>
+<p class="subtitle lead">Computational Statistics</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jo Hardin </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 26, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<!--
+format: 
+  revealjs:
+    drop:
+      button: true
+      engine: webr
+      webr:
+        packages:
+          - tidyverse
+    embed-resources: true
+revealjs-plugins:
+  - drop
+execute:
+  echo: true
+fig-width: 6
+fig-asp: 0.618
+-->
+<section id="agenda-82624" class="level1">
+<h1>Agenda 8/26/24</h1>
+<ol type="1">
+<li><a href="../syllabus/">Syllabus</a></li>
+<li>Workflow - Stitch Fix</li>
+<li>Twitter</li>
+<li>Tools</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before Wednesday, listen to the <a href="https://nssdeviations.com/71-compromised-shoe-situation" target="_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.</p>
+</div>
+</div>
+<section id="course-structure" class="level2">
+<h2 class="anchored" data-anchor-id="course-structure">Course structure</h2>
+<ul>
+<li>weekly HW (to GitHub + Gradescope)</li>
+<li>bi-weekly quizzes</li>
+<li>data project</li>
+<li>in-class activities / clickers</li>
+<li>ethical considerations</li>
+</ul>
+</section>
+<section id="additional-details" class="level2">
+<h2 class="anchored" data-anchor-id="additional-details">Additional details</h2>
+<ul>
+<li>Canvas has all the links
+<ol type="1">
+<li>course website – almost everything</li>
+<li>class notes</li>
+<li>Canvas page – solutions and assignments</li>
+</ol></li>
+<li>no computers (tablets fine)</li>
+<li>good communication</li>
+<li>TidyTuesday</li>
+</ul>
+</section>
+<section id="syllabus" class="level2">
+<h2 class="anchored" data-anchor-id="syllabus"><a href="../syllabus/">Syllabus</a></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>office hours</li>
+<li>mentor sessions</li>
+<li>anonymous feedback</li>
+<li>dates for assignments</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>links to resources</li>
+<li>HW grading</li>
+<li>project information</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I need your GitHub user name - please email it to me.</p>
+</div>
+</div>
+</section>
+<section id="learning-goals" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="learning-goals">Learning goals</h2>
+<p>By the end of the course, you will be able to…</p>
+<div class="incremental">
+<ul class="incremental">
+<li>gain insight from data</li>
+<li>gain insight from data, <strong>reproducibly</strong></li>
+<li>gain insight from data, reproducibly, <strong>using modern programming tools and techniques</strong></li>
+<li>gain insight from data, reproducibly <strong>(with literate programming and version control)</strong>, using modern programming tools and techniques</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="data-science-process" class="level1">
+<h1>Data Science Process</h1>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../images/AnalysisProcessBaumer.jpg" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="stitch-fix" class="level2">
+<h2 class="anchored" data-anchor-id="stitch-fix">Stitch Fix</h2>
+<p>Example of how data and algorithms are used to make decisions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../images/SFalg.jpg" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>http://algorithms-tour.stitchfix.com/</p>
+</section>
+<section id="what-cancant-statistics-data-science-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-cancant-statistics-data-science-do">What can/can’t statistics &amp; data science do?</h2>
+<ul>
+<li>Can model the data at hand!</li>
+<li>Can find patterns &amp; visualizations in large datasets.</li>
+<li>Can’t establish causation (mostly).</li>
+<li>Can’t represent data if it isn’t there.</li>
+</ul>
+</section>
+<section id="twitter" class="level2">
+<h2 class="anchored" data-anchor-id="twitter">Twitter</h2>
+<p>In 2013, DiGrazia et al.&nbsp;published a provocative paper suggesting that polling could now be replaced by analyzing social media data. They analyzed 406 competitive US congressional races using over 3.5 billion tweets. In an article in <em>The Washington Post</em> one of the co-authors, Rojas, writes: “Anyone with programming skills can write a program that will harvest tweets, sort them for content and analyze the results. This can be done with nothing more than a laptop computer.” (Rojas, 2013)</p>
+<ol type="1">
+<li>The data come from neither an experiment nor a random sample - there must be careful thought applied to the question of <em>to whom</em> the analysis can be generalized. The data were also scraped from the internet.</li>
+<li>The analysis was done combining domain knowledge (about congressional races) with a data source that seems completely irrelevant at the outset (tweets).</li>
+<li>The dataset was quite large! 3.5 billion tweets were collected and a random sample of 500,000 tweets were analyzed.</li>
+<li>The researchers were from sociology and computer science - a truly collaborative endeavor, and one that is often quite efficient at producing high quality analyses.</li>
+</ol>
+</section>
+<section id="activity" class="level2">
+<h2 class="anchored" data-anchor-id="activity">Activity</h2>
+<p>Spend a few minutes reading the Rojas editorial. Be sure to consider Figure 1 carefully, and address the following questions.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../images/twitterscatter.jpg" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="statistics-hat" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-hat">Statistics Hat</h2>
+<ol type="1">
+<li><p>Discuss Figure 1 with your neighbor. What is its purpose? What does it convey? Think critically about this data visualization. What would you do differently?</p></li>
+<li><p>How would you improve the plot? I.e., annotate it to make it more convincing / communicative? Does it need enhancement?</p></li>
+<li><p>Do you think the study holds water? Why or why not? What are the shortcomings of this study?</p></li>
+</ol>
+</section>
+<section id="data-scientist-hat" class="level2">
+<h2 class="anchored" data-anchor-id="data-scientist-hat">Data Scientist Hat</h2>
+<p>Imagine that your boss, who does not have advanced technical skills or knowledge, asked you to reproduce the study you just read. Discuss the following with your neighbor.</p>
+<ol type="1">
+<li><p>What steps are necessary to reproduce this study? Be as specific as you can! Try to list the subtasks that you would have to perform.</p></li>
+<li><p>What computational tools would you use for each task?</p></li>
+<li><p>Identify all the steps necessary to conduct the study. Could you do it given your current abilities &amp; knowledge? What about the practical considerations?</p></li>
+</ol>
+</section>
+<section id="advantages" class="level2">
+<h2 class="anchored" data-anchor-id="advantages">Advantages</h2>
+<ol type="1">
+<li><p>Cheap</p></li>
+<li><p>Can measure any political race (not just the wealthy ones).</p></li>
+</ol>
+</section>
+<section id="disadvantages" class="level2">
+<h2 class="anchored" data-anchor-id="disadvantages">Disadvantages</h2>
+<ol type="1">
+<li><p>Is it really reflective of the voting populace? Who would it bias toward?</p></li>
+<li><p>Does simple mention of a candidate always reflect voting patterns? When wouldn’t it?</p></li>
+<li><p>Margin of error of 2.7%. How is that number typically calculated in a poll? Note: <span class="math inline">\(2 \cdot \sqrt{(1/2)(1/2)/1000} = 0.0316\)</span>.</p></li>
+<li><p>Tweets feel more free in terms of what you are able to say - is that a good thing or a bad thing with respect to polling?</p></li>
+<li><p>Can’t measure any demographic information.</p></li>
+</ol>
+</section>
+<section id="what-could-be-done-differently" class="level2">
+<h2 class="anchored" data-anchor-id="what-could-be-done-differently">What could be done differently?</h2>
+<ul>
+<li><p>Gelman: look only at close races</p></li>
+<li><p>Gelman: “It might make sense to flip it around and predict twitter mentions given candidate popularity. That is, rotate the graph 90 degrees, and see how much variation there is in tweet shares for elections of different degrees of closeness.”</p></li>
+<li><p>Gelman: “And scale the size of each dot to the total number of tweets for the two candidates in the election.”</p></li>
+<li><p>Gelman: Make the data publicly available so that others can try to reproduce the results</p></li>
+</ul>
+<p>https://statmodeling.stat.columbia.edu/2013/04/24/the-tweets-votes-curve/</p>
+</section>
+</section>
+<section id="toolkit-computing" class="level1">
+<h1>Toolkit: Computing</h1>
+<p>We use tools to do the things. But the tools are <strong>not</strong> the things.</p>
+</section>
+<section id="reproducible-data-analysis" class="level1">
+<h1>Reproducible data analysis</h1>
+<section id="reproducibility-checklist" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="reproducibility-checklist">Reproducibility checklist</h2>
+<div class="question">
+<p>What does it mean for a data analysis to be “reproducible”?</p>
+</div>
+<p><strong>Short-term goals:</strong></p>
+<ul>
+<li>Are the tables and figures reproducible from the code and data?</li>
+<li>Does the code actually do what you think it does?</li>
+<li>In addition to what was done, is it clear <em>why</em> it was done?</li>
+</ul>
+<p><strong>Long-term goals:</strong></p>
+<ul>
+<li>Can the code be used for other data?</li>
+<li>Can you extend the code to do other things?</li>
+</ul>
+</section>
+<section id="toolkit-for-reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="toolkit-for-reproducibility">Toolkit for reproducibility</h2>
+<ul>
+<li>Scriptability <span class="math inline">\(\rightarrow\)</span> R</li>
+<li>Literate programming (code, narrative, output in one place) <span class="math inline">\(\rightarrow\)</span> Quarto</li>
+<li>Version control <span class="math inline">\(\rightarrow\)</span> Git / GitHub</li>
+</ul>
+</section>
+</section>
+<section id="r-and-rstudio" class="level1 page-columns page-full">
+<h1>R and RStudio</h1>
+<section id="r-and-rstudio-1" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="r-and-rstudio-1">R and RStudio</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/r-logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="R logo"></p>
+</figure>
+</div>
+<ul>
+<li>R is an open-source statistical <strong>programming language</strong></li>
+<li>R is also an environment for statistical computing and graphics</li>
+<li>It’s easily extensible with <em>packages</em></li>
+</ul>
+</div><div class="column fragment" style="width:50%;">
+<p><img src="../images/rstudio-logo.png" class="img-fluid" alt="RStudio logo"></p>
+<ul>
+<li>RStudio is a convenient interface for R called an <strong>IDE</strong> (integrated development environment), e.g.&nbsp;<em>“I write R code in the RStudio IDE”</em></li>
+<li>RStudio is not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="r-vs.-rstudio" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="r-vs.-rstudio">R vs.&nbsp;RStudio</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://moderndive.com/1-getting-started.html"><img src="../images/r_vs_rstudio.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="On the left: a car engine. On the right: a car dashboard. The engine is labelled R. The dashboard is labelled RStudio." width="1001"></a></p>
+</figure>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Source: <a href="https://moderndive.com/1-getting-started.html">Modern Dive</a>.</p>
+</div></div></section>
+<section id="r-packages" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="r-packages">R packages</h2>
+<ul>
+<li><p><strong>Packages</strong>: Fundamental units of reproducible R code, including reusable R functions, the documentation that describes how to use them, and sample data<sup>1</sup></p></li>
+<li><p>As of August 26, 2024, there are 21,145 R packages available on <strong>CRAN</strong> (the Comprehensive R Archive Network)<sup>2</sup></p></li>
+<li><p>We’re going to work with a small (but important) subset of these!</p></li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p><sup>1</sup> Wickham and Bryan, <a href="https://r-pkgs.org/">R Packages</a>.</p>
+<p><sup>2</sup> <a href="https://cran.r-project.org/web/packages/">CRAN contributed packages</a>.</p>
+</div></div></section>
+<section id="tour-r-rstudio" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="tour-r-rstudio">Tour: R + RStudio</h2>
+</section>
+<section id="tour-recap-r-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="tour-recap-r-rstudio">Tour recap: R + RStudio</h2>
+<p><img src="../images/tour-r-rstudio.png" class="img-fluid"></p>
+</section>
+<section id="a-short-list-for-now-of-r-essentials" class="level2">
+<h2 class="anchored" data-anchor-id="a-short-list-for-now-of-r-essentials">A short list (for now) of R essentials</h2>
+<ul>
+<li>Functions are (most often) verbs, followed by what they will be applied to in parentheses:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">do_this</span>(to_this)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">do_that</span>(to_this, to_that, with_those)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<ul>
+<li>Packages are installed with the <code>install.packages()</code> function and loaded with the <code>library</code> function, once per session:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(package_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="r-essentials-continued" class="level2">
+<h2 class="anchored" data-anchor-id="r-essentials-continued">R essentials (continued)</h2>
+<ul>
+<li>Columns (variables) in data frames are accessed with <code>$</code>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dataframe<span class="sc">$</span>var_name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<ul>
+<li>Object documentation can be accessed with <code>?</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="tidyverse">tidyverse</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://tidyverse.org"><img src="../images/tidyverse.png" class="img-fluid" alt="Hex logos for dplyr, ggplot2, forcats, tibble, readr, stringr, tidyr, and purrr"></a></p>
+</div><div class="column" style="width:50%;">
+<p><a href="https://www.tidyverse.org/">tidyverse.org</a></p>
+<ul>
+<li>The <strong>tidyverse</strong> is an opinionated collection of R packages designed for data science</li>
+<li>All packages share an underlying philosophy and a common grammar</li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="quarto" class="level1">
+<h1>Quarto</h1>
+<section id="quarto-1" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-1">Quarto</h2>
+<ul>
+<li>Fully reproducible reports – each time you <code>Render</code>, the analysis is run from the beginning</li>
+<li>Code goes in chunks</li>
+<li>Narrative goes outside of chunks</li>
+</ul>
+</section>
+<section id="tour-quarto" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="tour-quarto">Tour: Quarto</h2>
+</section>
+<section id="tour-recap-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="tour-recap-quarto">Tour recap: Quarto</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/tour-quarto.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="RStudio IDE with a Quarto document, source code on the left and output on the right. Annotated to show the YAML, a link, a header, and a code chunk."></p>
+</figure>
+</div>
+</section>
+<section id="environments" class="level2">
+<h2 class="anchored" data-anchor-id="environments">Environments</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The environment of your Quarto document is separate from the Console!</p>
+</div>
+</div>
+<p>Remember this, and expect it to bite you a few times as you’re learning to work with Quarto!</p>
+</section>
+<section id="environments-1" class="level2">
+<h2 class="anchored" data-anchor-id="environments-1">Environments</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>First, run the following in the console:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="question fragment">
+<p>All looks good, eh?</p>
+</div>
+</div><div class="column fragment" style="width:50%;">
+<p>Then, add the following in an R chunk in your Quarto document</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">*</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="question fragment">
+<p>What happens? Why the error?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-will-we-use-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="how-will-we-use-quarto">How will we use Quarto?</h2>
+<ul>
+<li>Every assignment is an Quarto document.</li>
+<li>You’ll always have a template Quarto document to start with.</li>
+<li>The amount of scaffolding in the template will decrease over the semester.</li>
+</ul>
+</section>
+</section>
+<section id="toolkit-version-control-and-collaboration" class="level1">
+<h1>Toolkit: Version control and collaboration</h1>
+<section id="git-and-github" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="git-and-github">Git and GitHub</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/git-logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Git logo" width="150"></p>
+</figure>
+</div>
+<ul>
+<li>Git is a version control system – like “Track Changes” features from Microsoft Word, on steroids</li>
+<li>It’s not the only version control system, but it’s a very popular one</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/github-logo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="GitHub logo" width="150"></p>
+</figure>
+</div>
+<ul>
+<li><p>GitHub is the home for your Git-based projects on the internet – like DropBox but much, much better</p></li>
+<li><p>We will use GitHub as a platform for web hosting and collaboration (and as our course management system!)</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="versioning---done-badly" class="level2">
+<h2 class="anchored" data-anchor-id="versioning---done-badly">Versioning - done badly</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/phd_comics_vc.gif" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="versioning---done-better" class="level2">
+<h2 class="anchored" data-anchor-id="versioning---done-better">Versioning - done better</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/lego-steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="versioning---done-even-better" class="level2">
+<h2 class="anchored" data-anchor-id="versioning---done-even-better">Versioning - done even better</h2>
+<section id="with-human-readable-messages" class="level3">
+<h3 class="anchored" data-anchor-id="with-human-readable-messages">with human readable messages</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/lego-steps-commit-messages.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="how-will-we-use-git-and-github" class="level2">
+<h2 class="anchored" data-anchor-id="how-will-we-use-git-and-github">How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/whole-game-01.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-git-and-github-1" class="level2">
+<h2 class="anchored" data-anchor-id="how-will-we-use-git-and-github-1">How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/whole-game-02.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-git-and-github-2" class="level2">
+<h2 class="anchored" data-anchor-id="how-will-we-use-git-and-github-2">How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/whole-game-03.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="how-will-we-use-git-and-github-3" class="level2">
+<h2 class="anchored" data-anchor-id="how-will-we-use-git-and-github-3">How will we use Git and GitHub?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/whole-game-04.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="git-and-github-tips" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="git-and-github-tips">Git and GitHub tips</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>There are millions of git commands – ok, that’s an exaggeration, but there are a lot of them – and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.</li>
+<li>We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line – skip that and move on to the next resource unless you feel comfortable trying it out.</li>
+<li>There is a great resource for working with git and R: <a href="http://happygitwithr.com/">happygitwithr.com</a>. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help.</li>
+</ul>
+</div>
+</section>
+<section id="tour-git-github" class="level2">
+<h2 class="anchored" data-anchor-id="tour-git-github">Tour: Git + GitHub</h2>
+</section>
+</section>
+<section id="agenda-82824" class="level1">
+<h1>Agenda 8/28/24</h1>
+<ol type="1">
+<li>Reproducibility</li>
+<li>GitHub</li>
+<li>NSSD</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before next Tuesday, read: Tufte. 1997. <a href="http://www.edwardtufte.com/tufte/books_textb" target="_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>. (Use Google to find it.)</p>
+</div>
+</div>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../images/reproducibilitysmall.jpg" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example #1</h2>
+<section id="science-retracts-gay-marriage-paper-without-agreement-of-lead-author-lacour" class="level3">
+<h3 class="anchored" data-anchor-id="science-retracts-gay-marriage-paper-without-agreement-of-lead-author-lacour">Science retracts gay marriage paper without agreement of lead author LaCour</h3>
+<ul>
+<li><p>In May 2015 Science retracted a study of how canvassers can sway people’s opinions about gay marriage published just 5 months prior.</p></li>
+<li><p>Science Editor-in-Chief Marcia McNutt:</p>
+<ul>
+<li>Original survey data not made available for independent reproduction of results.</li>
+<li>Survey incentives misrepresented.</li>
+<li>Sponsorship statement false.</li>
+</ul></li>
+<li><p>Two Berkeley grad students who attempted to replicate the study quickly discovered that the data must have been faked.</p></li>
+<li><p>Methods we’ll discuss can’t prevent this, but they can make it easier to discover issues.</p></li>
+</ul>
+<p>Source: http://news.sciencemag.org/policy/2015/05/science-retracts-gay-marriage-paper-without-lead-author-s-consent</p>
+</section>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example #2</h2>
+<section id="seizure-study-retracted-after-authors-realize-data-got-terribly-mixed" class="level3">
+<h3 class="anchored" data-anchor-id="seizure-study-retracted-after-authors-realize-data-got-terribly-mixed">Seizure study retracted after authors realize data got “terribly mixed”</h3>
+<ul>
+<li>From the authors of Low Dose Lidocaine for Refractory Seizures in Preterm Neonates:</li>
+</ul>
+<p>“The article has been retracted at the request of the authors. After carefully re-examining the data presented in the article, they identified that data of two different hospitals got terribly mixed. The published results cannot be reproduced in accordance with scientific and clinical correctness.”</p>
+<p>Source: http://retractionwatch.com/2013/02/01/seizure-study-retracted-after-authors-realize-data-got-terribly-mixed/</p>
+</section>
+</section>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example #3</h2>
+<section id="bad-spreadsheet-merge-kills-depression-paper-quick-fix-resurrects-it" class="level3">
+<h3 class="anchored" data-anchor-id="bad-spreadsheet-merge-kills-depression-paper-quick-fix-resurrects-it">Bad spreadsheet merge kills depression paper, quick fix resurrects it</h3>
+<ul>
+<li><p>The authors informed the journal that the merge of lab results and other survey data used in the paper resulted in an error regarding the identification codes. Results of the analyses were based on the data set in which this error occurred. Further analyses established the results reported in this manuscript and interpretation of the data are not correct.</p></li>
+<li><p>Original conclusion: Lower levels of CSF IL-6 were associated with current depression and with future depression […].</p></li>
+<li><p>Revised conclusion: Higher levels of CSF IL-6 and IL-8 were associated with current depression […].</p></li>
+</ul>
+<p>Source: http://retractionwatch.com/2014/07/01/bad-spreadsheet-merge-kills-depression-paper-quick-fix-resurrects-it/</p>
+</section>
+</section>
+<section id="reproducible-data-analysis-1" class="level2">
+<h2 class="anchored" data-anchor-id="reproducible-data-analysis-1">Reproducible data analysis</h2>
+<ul>
+<li><p>Scriptability → R [in contrast to pull down menus]</p></li>
+<li><p>Literate programming → R Markdown [in contrast to multiple files]</p></li>
+<li><p>Version control → Git / GitHub [in contrast to multiple versions]</p></li>
+</ul>
+</section>
+<section id="scripting-and-literate-programming" class="level2">
+<h2 class="anchored" data-anchor-id="scripting-and-literate-programming">Scripting and literate programming</h2>
+<section id="donald-knuth-literate-programming-1983" class="level3">
+<h3 class="anchored" data-anchor-id="donald-knuth-literate-programming-1983">Donald Knuth “Literate Programming (1983)”</h3>
+<p>“Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer- what to do, let us concentrate rather on explaining to human beings- what we want a computer to do.”</p>
+<ul>
+<li>These ideas have been around for years!</li>
+<li>and tools for putting them to practice have also been around</li>
+<li>but they have never been as accessible as the current tools</li>
+</ul>
+</section>
+</section>
+<section id="reproducibility-checklist-1" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility-checklist-1">Reproducibility checklist</h2>
+<ul>
+<li>Are the tables and figures reproducible from the code and data?</li>
+<li>Does the code actually do what you think it does?</li>
+<li>In addition to what was done, is it clear why it was done? (e.g., how were parameter settings chosen?)</li>
+<li>Can the code be used for other data?</li>
+<li>Can you extend the code to do other things?</li>
+</ul>
+</section>
+<section id="tools-r-r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="tools-r-r-studio">Tools: R &amp; R Studio</h2>
+<ul>
+<li>You must use both software programs</li>
+<li>R does the programming</li>
+<li>R Studio brings everything together</li>
+<li>You may use Pomona’s server: https://rstudio.campus.pomona.edu/ (or https://rstudio.pomona.edu if you are off campus)</li>
+<li>See course website for getting started: https://m154-comp-stats.netlify.app/github.html</li>
+</ul>
+</section>
+<section id="r-vs-r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="r-vs-r-studio">R vs R Studio</h2>
+<p>R: think “python”</p>
+<p>R Studio: think “jupyter notebook” or “Google Colab”</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/RRstudio.jpg" class="img-fluid figure-img" width="800"></p>
+<figcaption>Taken from <a href="https://ismayc.github.io/moderndiver-book/">Modern Drive: An introduction to statistical and data sciences via R</a>, by Ismay and Kim</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="r-studio" class="level2">
+<h2 class="anchored" data-anchor-id="r-studio">R Studio</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/cookingRstudio.jpg" class="img-fluid figure-img" width="1000"></p>
+<figcaption><a href="https://jkrward.github.io/">Jessica Ward</a>, PhD student at Newcastle University</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="tools-github" class="level2">
+<h2 class="anchored" data-anchor-id="tools-github">Tools: GitHub</h2>
+<ul>
+<li>You must submit your assignments via GitHub + Gradescope</li>
+<li>Follow Jenny Bryan’s advice on how to get set-up: http://happygitwithr.com/</li>
+<li>Follow course specific advice: https://m154-comp-stats.netlify.app/github.html</li>
+</ul>
+</section>
+<section id="steps-for-weekly-homework" class="level2">
+<h2 class="anchored" data-anchor-id="steps-for-weekly-homework">Steps for weekly homework</h2>
+<ol type="1">
+<li>You will get a link to the new assignment (clicking on the link will create a new private repo)<br>
+</li>
+<li>Use R Studio
+<ul>
+<li>New Project, version control, Git<br>
+</li>
+<li>Clone the repo using SSH<br>
+</li>
+</ul></li>
+<li>If it exists, rename the Rmd file to ma154-hw#-lname-fname.Rmd<br>
+</li>
+<li>Do the assignment
+<ul>
+<li><strong>commit</strong> and <strong>push</strong> after every problem<br>
+</li>
+</ul></li>
+<li>All necessary files <em>must</em> be in the same folder (e.g., data)</li>
+</ol>
+</section>
+<section id="tools-a-github-merge-conflict-demo" class="level2">
+<h2 class="anchored" data-anchor-id="tools-a-github-merge-conflict-demo">Tools: a GitHub merge conflict (demo)</h2>
+<ul>
+<li><p>On GitHub (on the web) edit the README document and Commit it with a message describing what you did.</p></li>
+<li><p>Then, in RStudio also edit the README document with a different change.</p>
+<ul>
+<li>Commit your changes</li>
+<li>Try to push – you’ll get an error!</li>
+<li>Try pulling</li>
+<li>Resolve the merge conflict and then commit and push</li>
+</ul></li>
+<li><p>As you work in teams you will run into merge conflicts, learning how to resolve them properly will be very important.</p></li>
+</ul>
+</section>
+<section id="tools-a-github-merge-conflict" class="level2">
+<h2 class="anchored" data-anchor-id="tools-a-github-merge-conflict">Tools: a GitHub merge conflict</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="../images/git_xkcd.png" class="img-fluid figure-img" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nssd" class="level2">
+<h2 class="anchored" data-anchor-id="nssd">NSSD:</h2>
+<ol type="1">
+<li><p>What was Hilary trying to answer in her data collection?</p></li>
+<li><p>Name two of Hilary’s main hurdles in gathering accurate data.</p></li>
+<li><p>Which is better: high touch (manual) or low touch (automatic) data collection? Why?</p></li>
+<li><p>What additional covariates are needed / desired? Any problems with them?</p></li>
+<li><p>How much data does she need?</p></li>
+</ol>
+
+<p>:::</p>
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/m154-comp-stats\.netlify\.app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://hardin47.netlify.app/research/"><i class="fa-solid fa-book" aria-label="book"></i></a> <a href="https://hardin47.netlify.app/resume.pdf" target="_blank"><i class="fa-solid fa-bookmark"></i></a> <a href="mailto:jo.hardin@pomona.edu" target="_blank"><i class="fa-solid fa-at"></i></a> <a href="https://scholar.google.com/citations?user=c5Y77poAAAAJ&amp;hl=en" target="_blank"><i class="fa-brands fa-google-scholar"></i></a> <a href="https://www.researchgate.net/scientific-contributions/Johanna-Hardin-9764530" target="_blank"><i class="fa-brands fa-researchgate"></i></a><br>
+<a href="https://github.com/hardin47" target="_blank"><i class="fa-brands fa-github"></i></a> <a href="https://www.linkedin.com/in/jo-hardin-b91a4b55" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <br> © Jo Hardin, 2024 -- <a href="mailto: jo.hardin@pomona.edu">jo.hardin@pomona.edu</a> -- <a href="https://hardin47.netlify.app/">https://hardin47.netlify.app/</a> <br> <br>
+Math 154 -- Computational Statistics -- Pomona College <br>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

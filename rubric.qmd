@@ -2,7 +2,6 @@
 title: "Rubric for Semester Project"
 description: |
   Assessment will be based on the presentation and the final report. Your group itself, your class peers, and your professor will all provide feedback on the success of the project.
-output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
