@@ -3,7 +3,7 @@ title: "Computational Statistics"
 description: |
   Math 154, Computational Statistics, Pomona College
 output_dir: "_site"
-include: ["*.Rmd"]
+include: ["*.Rmd", "*.qmd"]
 base_url: https://m154-comp-stats.netlify.app/
 repository_url: https://github.com/hardin47/m154-comp-stats
 creative_commons: CC BY

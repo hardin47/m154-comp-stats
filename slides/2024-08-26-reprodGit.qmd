@@ -285,13 +285,13 @@ Source: [Modern Dive](https://moderndive.com/1-getting-started.html).
 
 ## R packages
 
-::: incremental
+
 -   **Packages**: Fundamental units of reproducible R code, including reusable R functions, the documentation that describes how to use them, and sample data<sup>1</sup>
 
 -   As of August 26, 2024, there are 21,145 R packages available on **CRAN** (the Comprehensive R Archive Network)<sup>2</sup>
 
 -   We're going to work with a small (but important) subset of these!
-:::
+
 
 ::: aside
 <sup>1</sup> Wickham and Bryan, [R Packages](https://r-pkgs.org/).
@@ -366,13 +366,11 @@ dataframe$var_name
 
 ## Quarto
 
-::: incremental
+
 -   Fully reproducible reports -- each time you `Render`, the analysis is run from the beginning
 -   Code goes in chunks 
 -   Narrative goes outside of chunks
 
-
-:::
 
 ## Tour: Quarto {.smaller}
 
@@ -427,9 +425,9 @@ Why the error?
 
 ## How will we use Quarto?
 
--   Every application exercise, lab, project, etc. is an Quarto document
--   You'll always have a template Quarto document to start with
--   The amount of scaffolding in the template will decrease over the semester
+-   Every assignment is an Quarto document.
+-   You'll always have a template Quarto document to start with.
+-   The amount of scaffolding in the template will decrease over the semester.
 
 # Toolkit: Version control and collaboration
 
