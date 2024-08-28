@@ -116,6 +116,150 @@ knitr::include_graphics("../images/Yau_cuestogether.png")
 ```
 
 
+## Attributes
+
+Attributes can focus your reader's attention.^[image credit: Better Data Visualization by Schwabish]
+
+
+![](../images/attributes.jpg){style="transform: rotate(90deg);" width="80%"}
+
+## Advice for Plotting
+
+:::: {.columns}
+::: {.column width="40%"}
+* **Basic plotting**
+:::
+
+::: {.column width="60%"}
+* Avoid having other graph elements interfere with data
+* Use visually prominent symbols
+* Avoid over-plotting (One way to avoid over plotting: jitter the values)
+* Different values of data may obscure each other
+* Include all or nearly all of the data
+* Fill data region
+:::
+:::: 
+
+
+## Advice for Plotting
+
+:::: {.columns}
+::: {.column width="40%"}
+* Basic plotting
+* **Eliminate superfluous material**
+:::
+
+::: {.column width="60%"}
+* Chart junk & stuff that adds no meaning, e.g. butterflies on top of barplots, background images
+* Extra tick marks and grid lines
+* Unnecessary text and arrows
+* Decimal places beyond the measurement error or the level of difference
+:::
+::::
+
+## Advice for Plotting
+
+:::: {.columns}
+::: {.column width="40%"}
+* Basic plotting
+* Eliminate superfluous material
+* **Facilitate comparisons**
+:::
+
+::: {.column width="60%"}
+* Put juxtaposed plots on same scale
+* Make it easy to distinguish elements of superposed plots (e.g. color)
+* Emphasizes the important difference
+* Comparison: volume, area, height (be careful, volume can seem bigger than you mean it to)
+:::
+::::
+
+## Advice for Plotting
+
+:::: {.columns}
+::: {.column width="40%"}
+* Basic plotting
+* Eliminate superfluous material
+* Facilitate comparisons
+* **Choosing the scale**
+:::
+
+::: {.column width="60%"}
+* Keep scales on x and y axes the same for both plots to facilitate the comparison
+* Zoom in to focus on the region that contains the bulk of the data
+* Keep the scale the same throughout the plot (i.e. don’t change it mid-axis)
+* Origin need not be on the scale
+* Choose a scale that improves resolution
+* Avoid jiggling the baseline
+:::
+::::
+
+
+## Advice for Plotting
+
+:::: {.columns}
+::: {.column width="40%"}
+* Basic plotting
+* Eliminate superfluous material
+* Facilitate comparisons
+* Choosing the scale
+* **How to make a plot information rich**
+:::
+
+::: {.column width="60%"}
+* Describe what you see in the caption
+* Add context with reference markers (lines and points) including text
+* Add legends and labels
+* Use color and plotting symbols to add more information
+* Plot the same thing more than once in different ways/scales
+* Reduce clutter
+:::
+::::
+
+## Advice for Plotting
+
+:::: {.columns}
+::: {.column width="40%"}
+* Basic plotting
+* Eliminate superfluous material
+* Facilitate comparisons
+* Choosing the scale
+* How to make a plot information rich
+* **Captions should**
+:::
+
+::: {.column width="60%"}
+* Be comprehensive
+* Self-contained
+* Describe what has been graphed
+* Draw attention to important features
+* Describe conclusions drawn from graph
+:::
+::::
+
+## Advice for Plotting
+
+:::: {.columns}
+::: {.column width="40%"}
+* Basic plotting
+* Eliminate superfluous material
+* Facilitate comparisons
+* Choosing the scale
+* How to make a plot information rich
+* Captions should
+* **Good Plot Making Practice**
+:::
+
+::: {.column width="60%"}
+* Put major conclusions in graphical form
+* Provide reference information
+* Proof read for clarity and consistency
+* Graphing is an iterative process
+* Multiplicity is OK, i.e. two plots of the same variable may provide different messages
+* Make plots data rich
+:::
+::::
+
 
 # Goals of `ggplot2`
 

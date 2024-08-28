@@ -1286,5 +1286,61 @@
     "title": "2. Data Viz",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nDuBois’s images online and in W.E.B. Du Bois’s Data Portraits: Visualizing Black America, a compilation edited by Whitney Battle-Baptiste.\nFlowcharts for choosing appropriate plots, brief tutorials of viz types, and source code in R and Python: from Data to Viz\nSee something or Say Something\nCensus trends visualized\nVisualization Internship (Fall 2021) at 538\nvisualizing data: Digest of the best visualizations from the past month\nA regular NYT column on visualizations: What’s Going on in this Graph?\nStudies about visualizations and perception\nFundamentals of Data Visualization\nAllison Horst’s amazing illustrations\nMakeover Mondays, a weekly data project for making more effective visualizations.\n\n\n:::"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#attributes",
+    "href": "slides/2024-09-04-grammarggplot.html#attributes",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Attributes",
+    "text": "Attributes\nAttributes can focus your reader’s attention.1\n\nimage credit: Better Data Visualization by Schwabish"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-for-plotting",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-for-plotting",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\n\n\n\nAvoid having other graph elements interfere with data\nUse visually prominent symbols\nAvoid over-plotting (One way to avoid over plotting: jitter the values)\nDifferent values of data may obscure each other\nInclude all or nearly all of the data\nFill data region"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-1",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\n\n\n\nChart junk & stuff that adds no meaning, e.g. butterflies on top of barplots, background images\nExtra tick marks and grid lines\nUnnecessary text and arrows\nDecimal places beyond the measurement error or the level of difference"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-2",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\n\n\n\nPut juxtaposed plots on same scale\nMake it easy to distinguish elements of superposed plots (e.g. color)\nEmphasizes the important difference\nComparison: volume, area, height (be careful, volume can seem bigger than you mean it to)"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-3",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-3",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\n\n\n\nKeep scales on x and y axes the same for both plots to facilitate the comparison\nZoom in to focus on the region that contains the bulk of the data\nKeep the scale the same throughout the plot (i.e. don’t change it mid-axis)\nOrigin need not be on the scale\nChoose a scale that improves resolution\nAvoid jiggling the baseline"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-4",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-4",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\nHow to make a plot information rich\n\n\n\nDescribe what you see in the caption\nAdd context with reference markers (lines and points) including text\nAdd legends and labels\nUse color and plotting symbols to add more information\nPlot the same thing more than once in different ways/scales\nReduce clutter"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-5",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-5",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\nHow to make a plot information rich\nCaptions should\n\n\n\nBe comprehensive\nSelf-contained\nDescribe what has been graphed\nDraw attention to important features\nDescribe conclusions drawn from graph"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-6",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-for-plotting-6",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\nHow to make a plot information rich\nCaptions should\nGood Plot Making Practice\n\n\n\nPut major conclusions in graphical form\nProvide reference information\nProof read for clarity and consistency\nGraphing is an iterative process\nMultiplicity is OK, i.e. two plots of the same variable may provide different messages\nMake plots data rich"
   }
 ]
