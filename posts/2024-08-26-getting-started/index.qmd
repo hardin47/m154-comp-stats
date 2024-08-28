@@ -11,6 +11,7 @@ embed-resources: true
 execute: 
   message: false
   warning: false
+image: ../../images/reproducibility_court.png
 ---
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Judge monster confirming that the RStudio monster has reproducible work.", preview = TRUE, echo = FALSE}

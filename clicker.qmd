@@ -110,6 +110,115 @@ library(tidyverse)
     (c) pushing the file(s)
     (d) some of the above
     (e) all of the above
+    
+[^7]: d. some of the above (b. committing the file(s) and c. pushing the file(s))
 
 ---
+
+8. What is the error?[^8]
+    (a) poor assignment operator
+    (b) unmatched quotes
+    (c) improper syntax for function argument
+    (d) invalid object name
+    (e) no mistake
+
+```{r}
+#| eval: false
+#| echo: true
+shup2 <-- "Hello to you!"
+```
+
+[^8]: a. poor assignment operator
+
+---
+
+9. What is the error?[^9]
+    (a) poor assignment operator
+    (b) unmatched quotes
+    (c) improper syntax for function argument
+    (d) invalid object name
+    (e) no mistake
+
+```{r}
+#| eval: false
+#| echo: true
+3shup <-  "Hello to you!"
+```
+
+[^9]: d. invalid object name
+
+---
+
+10. What is the error?[^10]
+    (a) poor assignment operator
+    (b) unmatched quotes
+    (c) improper syntax for function argument
+    (d) invalid object name
+    (e) no mistake
+
+```{r}
+#| eval: false
+#| echo: true
+shup4 <-  "Hello to you!
+```
+
+[^10]: b. unmatched quotes
+
+---
+
+11. What is the error?[^11]
+    (a) poor assignment operator
+    (b) unmatched quotes
+    (c) improper syntax for function argument
+    (d) invalid object name
+    (e) no mistake
+
+```{r}
+#| eval: false
+#| echo: true
+shup5 <-  date()
+```
+
+[^11]: e. no mistake
+
+---
+
+12. What is the error?[^12]
+    (a) poor assignment operator
+    (b) unmatched quotes
+    (c) improper syntax for function argument
+    (d) invalid object name
+    (e) no mistake
+
+```{r}
+#| eval: false
+#| echo: true
+shup6 <-  sqrt 10
+```
+
+[^12]: c. improper syntax for a function argument
+
+---
+
+13. Do you keep a calendar / schedule / planner?[^13]
+     (a) Yes
+     (b) No
+     
+[^13]: a. I mean, the right answer has to be Yes, right!??!
+
+---
+
+14.  Do you keep a calendar / schedule / planner?  If you answered "Yes" ...[^14]
+     (a)	Yes, on Google Calendar
+     (b)	Yes, on Calendar for macOS
+     (c)	Yes, on Outlook for Windows
+     (d)	Yes, in some other app
+     (e)	Yes, by hand
+
+
+[^14]: no right answer here!
+
+---
+
+
 
