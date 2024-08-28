@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -102,7 +102,7 @@
     "href": "posts/2024-08-26-getting-started/index.html#slides",
     "title": "1. Start with R + Git",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 8/26/24 and 8/28/24.\nWS1 - Twitter\nWU2 - working with R"
+    "text": "Slides \n\nIn class slides for both 8/26/24 and 8/28/24.\nWS1 - Twitter\nWS2 - working with R"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/index.html#additional-resources",
@@ -789,5 +789,502 @@
     "title": "Introduction to Math 154",
     "section": "NSSD:",
     "text": "NSSD:\n\nWhat was Hilary trying to answer in her data collection?\nName two of Hilary’s main hurdles in gathering accurate data.\nWhich is better: high touch (manual) or low touch (automatic) data collection? Why?\nWhat additional covariates are needed / desired? Any problems with them?\nHow much data does she need?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#nssd",
+    "href": "slides/2024-09-04-grammarggplot.html#nssd",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "NSSD:",
+    "text": "NSSD:\n\nWhat was Hilary trying to answer in her data collection?\nName two of Hilary’s main hurdles in gathering accurate data.\nWhich is better: high touch (manual) or low touch (automatic) data collection? Why?\nWhat additional covariates are needed / desired? Any problems with them?\nHow much data does she need?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#pieces-of-the-graph",
+    "href": "slides/2024-09-04-grammarggplot.html#pieces-of-the-graph",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Pieces of the Graph",
+    "text": "Pieces of the Graph\n\n\nVisual Cues of Yau (2013):\nPosition (numerical)\nLength (numerical)\nAngle (numerical)\nDirection (numerical)\nShape (categorical)\nArea (numerical)\nVolume (numerical)\nShade (either)\nColor (either)"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#order-matters",
+    "href": "slides/2024-09-04-grammarggplot.html#order-matters",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Order Matters",
+    "text": "Order Matters"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#cues-together",
+    "href": "slides/2024-09-04-grammarggplot.html#cues-together",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Cues Together",
+    "text": "Cues Together"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#getting-help",
+    "href": "slides/2024-09-04-grammarggplot.html#getting-help",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Getting help",
+    "text": "Getting help\n\nOne of the best ways to get started with ggplot is to Google what you want to do with the word ggplot. Then look through the images that come up. More often than not, the associated code is there. There are also ggplot galleries of images, one of them is here: https://plot.ly/ggplot2/\nLook at the end of this presentation and the syllabus. More help options there."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#what-are-the-visual-cues-on-this-plot",
+    "href": "slides/2024-09-04-grammarggplot.html#what-are-the-visual-cues-on-this-plot",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What are the visual cues on this plot?",
+    "text": "What are the visual cues on this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nposition\nlength\nshape\narea/volume\nshade/color\n\nCoordinate System? Scale?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#what-are-the-visual-cues-on-this-plot-1",
+    "href": "slides/2024-09-04-grammarggplot.html#what-are-the-visual-cues-on-this-plot-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What are the visual cues on this plot?",
+    "text": "What are the visual cues on this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nposition\nlength\nshape\narea/volume\nshade/color\n\nCoordinate System? Scale?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#what-are-the-visual-cues-on-this-plot-2",
+    "href": "slides/2024-09-04-grammarggplot.html#what-are-the-visual-cues-on-this-plot-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What are the visual cues on this plot?",
+    "text": "What are the visual cues on this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nposition\nlength\nshape\narea/volume\nshade/color\n\nCoordinate System? Scale?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#the-grammar-of-graphics-ggplot",
+    "href": "slides/2024-09-04-grammarggplot.html#the-grammar-of-graphics-ggplot",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "The grammar of graphics ggplot",
+    "text": "The grammar of graphics ggplot\ngeom: the geometric “shape” used to display data\n\nbar, point, line, ribbon, text, etc.\n\naesthetic: an attribute controlling how geom is displayed with respect to variables\n\nx position, y position, color, fill, shape, size, etc.\n\n\nguide: helps user convert visual data back into raw data (legends, axes)\nstat: a transformation applied to data before geom gets it\n\nexample: histograms work on binned data"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#set-up",
+    "href": "slides/2024-09-04-grammarggplot.html#set-up",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Set up",
+    "text": "Set up\n\nlibrary(mosaic)\ndata(Births78)     # restore fresh version of Births78\nhead(Births78, 3)\n\n        date births wday year month day_of_year day_of_month day_of_week\n1 1978-01-01   7701  Sun 1978     1           1            1           1\n2 1978-01-02   7527  Mon 1978     1           2            2           2\n3 1978-01-03   8825  Tue 1978     1           3            3           3"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nTwo Questions:\n\nWhat do we want R to do? (What is the goal?)\nWhat does R need to know?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-1",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoal: scatterplot = a plot with points\nWhat does R need to know?\n\ndata source: Births78\naesthetics:\n\ndate -&gt; x\nbirths -&gt; y\npoints (!)"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-2",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point() +\n  ggtitle(\"US Births in 1978\")\n\nggplot() +\n  geom_point(data = Births78, \n             aes(x = date, y = births)) +\n  ggtitle(\"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-3",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-3",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nWhat has changed?\n\nnew aesthetic: mapping color to day of week\n\nAdding day of week to the data set\nThe wday() function in the lubridate package computes the day of the week from a date."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-4",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-4",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nBirths78 &lt;-  \n  Births78 |&gt; \n  mutate(day_of_week = \n           wday(date, \n                label=TRUE))\n\nggplot(data = Births78,\n       aes(x = date\n           y = births, \n           color = day_of_week)) +\n  geom_point() +\n  ggtitle(\"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-5",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-5",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-6",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-6",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nlines instead of dots!\n\nggplot(data = Births78,\n         aes(x = date, \n             y = births,\n             color = day_of_week)) +\n  geom_line() +\n  ggtitle(\"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-7",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-7",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-8",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-8",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nNow there are two layers: one with points and one with lines\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births,\n           color = day_of_week)) + \n  geom_point() +  \n  geom_line()+\n  ggtitle(\"US Births in 1978\")\n\n\nThe layers are placed one on top of the other: the points are below and the lines are above.\ndata and aes specified in ggplot() affect all geoms"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#what-does-this-code-do",
+    "href": "slides/2024-09-04-grammarggplot.html#what-does-this-code-do",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What does this code do?",
+    "text": "What does this code do?\n\nggplot(data = Births78,\n       aes(x = date, y = births, color = \"navy\")) + \n  geom_point() +\n  ggtitle(\"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#what-does-this-code-do-1",
+    "href": "slides/2024-09-04-grammarggplot.html#what-does-this-code-do-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What does this code do?",
+    "text": "What does this code do?\n\nggplot(data = Births78,\n       aes(x = date, y = births, color = \"navy\")) + \n  geom_point()  +\n  ggtitle(\"US Births in 1978\")\n\n\nThis is mapping the color aesthetic to a new variable with only one value (“navy”).\nSo all the dots get set to the same color, but it’s not navy."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#setting-vs.-mapping",
+    "href": "slides/2024-09-04-grammarggplot.html#setting-vs.-mapping",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Setting vs. Mapping",
+    "text": "Setting vs. Mapping\nIf we want to set the color to be navy for all of the dots, we do it outside the aes() designation:\n\nggplot(data = Births78,\n       aes(x = date, y = births)) +   # map variables \n  geom_point(color = \"navy\")    +   # set attributes\n  ggtitle(\"US Births in 1978\")\n\n\n\nNote that color = \"navy\" is now outside of the aesthetics list. That’s how ggplot2 distinguishes between mapping and setting."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-9",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-9",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-10",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-10",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births)) + \n  geom_line(aes(color = day_of_week)) +      \n  geom_point(color = \"navy\")  +         \n  ggtitle(\"US Births in 1978\")\n\n\nggplot() establishes the default data and aesthetics for the geoms, but each geom may change these defaults.\ngood practice: put into ggplot() the things that affect all (or most) of the layers; rest in geom_XXXX()"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#setting-vs.-mapping-again",
+    "href": "slides/2024-09-04-grammarggplot.html#setting-vs.-mapping-again",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Setting vs. Mapping (again)",
+    "text": "Setting vs. Mapping (again)\nInformation gets passed to the plot via:\n\nmap the variable information inside the aes (aesthetic) command\nset the non-variable information outside the aes (aesthetic) command"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#other-geoms",
+    "href": "slides/2024-09-04-grammarggplot.html#other-geoms",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Other geoms",
+    "text": "Other geoms\n\napropos(\"^geom_\")\n\n [1] \"geom_abline\"            \"geom_area\"              \"geom_ash\"              \n [4] \"geom_bar\"               \"geom_bin_2d\"            \"geom_bin2d\"            \n [7] \"geom_blank\"             \"geom_boxplot\"           \"geom_col\"              \n[10] \"geom_contour\"           \"geom_contour_filled\"    \"geom_count\"            \n[13] \"geom_crossbar\"          \"geom_curve\"             \"geom_density\"          \n[16] \"geom_density_2d\"        \"geom_density_2d_filled\" \"geom_density2d\"        \n[19] \"geom_density2d_filled\"  \"geom_dotplot\"           \"geom_errorbar\"         \n[22] \"geom_errorbarh\"         \"geom_freqpoly\"          \"geom_function\"         \n[25] \"geom_hex\"               \"geom_histogram\"         \"geom_hline\"            \n[28] \"geom_jitter\"            \"geom_label\"             \"geom_line\"             \n[31] \"geom_linerange\"         \"geom_lm\"                \"geom_map\"              \n[34] \"geom_path\"              \"geom_point\"             \"geom_pointrange\"       \n[37] \"geom_polygon\"           \"geom_qq\"                \"geom_qq_line\"          \n[40] \"geom_quantile\"          \"geom_rangeframe\"        \"geom_raster\"           \n[43] \"geom_rect\"              \"geom_ribbon\"            \"geom_rug\"              \n[46] \"geom_segment\"           \"geom_sf\"                \"geom_sf_label\"         \n[49] \"geom_sf_text\"           \"geom_smooth\"            \"geom_spline\"           \n[52] \"geom_spoke\"             \"geom_step\"              \"geom_text\"             \n[55] \"geom_tile\"              \"geom_tufteboxplot\"      \"geom_violin\"           \n[58] \"geom_vline\""
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#other-geoms-1",
+    "href": "slides/2024-09-04-grammarggplot.html#other-geoms-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Other geoms",
+    "text": "Other geoms\nhelp pages will tell you their aesthetics, default stats, etc.\n\n?geom_area             # for example"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#lets-try-geom_area",
+    "href": "slides/2024-09-04-grammarggplot.html#lets-try-geom_area",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Let’s try geom_area",
+    "text": "Let’s try geom_area\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births, \n           fill = day_of_week)) + \n  geom_area()+\n  ggtitle(\"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#lets-try-geom_area-1",
+    "href": "slides/2024-09-04-grammarggplot.html#lets-try-geom_area-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Let’s try geom_area",
+    "text": "Let’s try geom_area\n\n\n\nggplot(data = Births78,\n       aes(x = date, y = births, fill = day_of_week)) + \n  geom_area()+\n  ggtitle(\"US Births in 1978\")\n\n\n\n\n\n\n\n\n\n… not a good plot\n\noverplotting is hiding much of the data\nextending y-axis to 0 may or may not be desirable."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#side-note-what-makes-a-plot-good",
+    "href": "slides/2024-09-04-grammarggplot.html#side-note-what-makes-a-plot-good",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Side note: what makes a plot good?",
+    "text": "Side note: what makes a plot good?\nMost (all?) graphics are intended to help us make comparisons\n\nHow does something change over time?\nDo my treatments matter? How much?\nDo treatment and control respond the same way?\n\n\n\n\n\n\n\nKey plot metric\n\n\nDoes my plot make the comparisons I am interested in:\n\neasily, and\naccurately?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#time-for-some-different-data",
+    "href": "slides/2024-09-04-grammarggplot.html#time-for-some-different-data",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Time for some different data",
+    "text": "Time for some different data\nHELPrct: Health Evaluation and Linkage to Primary care randomized clinical trial. Subjects admitted for treatment for addiction to one of three substances.\n\nhead(HELPrct)\n\n  age anysubstatus anysub cesd d1 daysanysub dayslink drugrisk e2b female\n1  37            1    yes   49  3        177      225        0  NA      0\n2  37            1    yes   30 22          2       NA        0  NA      0\n3  26            1    yes   39  0          3      365       20  NA      0\n4  39            1    yes   15  2        189      343        0   1      1\n5  32            1    yes   39 12          2       57        0   1      0\n6  47            1    yes    6  1         31      365        0  NA      1\n     sex g1b homeless i1 i2 id indtot linkstatus link       mcs      pcs pss_fr\n1   male yes   housed 13 26  1     39          1  yes 25.111990 58.41369      0\n2   male yes homeless 56 62  2     43         NA &lt;NA&gt; 26.670307 36.03694      1\n3   male  no   housed  0  0  3     41          0   no  6.762923 74.80633     13\n4 female  no   housed  5  5  4     28          0   no 43.967880 61.93168     11\n5   male  no homeless 10 13  5     38          1  yes 21.675755 37.34558     10\n6 female  no   housed  4  4  6     29          0   no 55.508991 46.47521      5\n  racegrp satreat sexrisk substance treat avg_drinks max_drinks\n1   black      no       4   cocaine   yes         13         26\n2   white      no       7   alcohol   yes         56         62\n3   black      no       2    heroin    no          0          0\n4   white     yes       4    heroin    no          5          5\n5   black      no       6   cocaine    no         10         13\n6   black      no       5   cocaine   yes          4          4\n  hospitalizations\n1                3\n2               22\n3                0\n4                2\n5               12\n6                1"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#who-are-the-people-in-the-study",
+    "href": "slides/2024-09-04-grammarggplot.html#who-are-the-people-in-the-study",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Who are the people in the study?",
+    "text": "Who are the people in the study?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = substance)) + \n  geom_bar()+\n  ggtitle(\"HELP trial\")\n\n\nHmm. What’s up with y?\n\nstat_bin() is being applied to the data before the geom_bar() gets to do its thing. Binning creates the y values."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#who-are-the-people-in-the-study-1",
+    "href": "slides/2024-09-04-grammarggplot.html#who-are-the-people-in-the-study-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Who are the people in the study?",
+    "text": "Who are the people in the study?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = substance,\n           fill = children)) + \n  geom_bar()+\n  ggtitle(\"HELP trial\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#who-are-the-people-in-the-study-2",
+    "href": "slides/2024-09-04-grammarggplot.html#who-are-the-people-in-the-study-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Who are the people in the study?",
+    "text": "Who are the people in the study?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(HELP_data,\n       aes(x = substance,\n           fill = children)) + \n  geom_bar(position = \"fill\") +\n  ylab(\"actually, percent\")+\n  ggtitle(\"HELP trial\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-old-are-people-in-the-help-study",
+    "href": "slides/2024-09-04-grammarggplot.html#how-old-are-people-in-the-help-study",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How old are people in the HELP study?",
+    "text": "How old are people in the HELP study?\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_histogram()+\n  ggtitle(\"HELP trial\")\n\nNotice the messages\n\nstat_bin: Histograms are not mapping the raw data but binned data.\nstat_bin() performs the data transformation.\nbinwidth: a default binwidth has been selected, but we should really choose our own."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#setting-the-binwidth-manually",
+    "href": "slides/2024-09-04-grammarggplot.html#setting-the-binwidth-manually",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Setting the binwidth manually",
+    "text": "Setting the binwidth manually\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_histogram(binwidth = 2)+\n  ggtitle(\"HELP trial\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-old-are-people-in-the-help-study-other-geoms",
+    "href": "slides/2024-09-04-grammarggplot.html#how-old-are-people-in-the-help-study-other-geoms",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How old are people in the HELP study? – Other geoms",
+    "text": "How old are people in the HELP study? – Other geoms\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_freqpoly(binwidth = 2)+\n  ggtitle(\"HELP clinical trial at detoxification unit\")\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_density()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#selecting-stat-and-geom-manually",
+    "href": "slides/2024-09-04-grammarggplot.html#selecting-stat-and-geom-manually",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Selecting stat and geom manually",
+    "text": "Selecting stat and geom manually\nEvery geom comes with a default stat\n\nfor simple cases, the stat is stat_identity() which does nothing\nwe can mix and match geoms and stats however we like\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_line(stat = \"density\")+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#selecting-stat-and-geom-manually-1",
+    "href": "slides/2024-09-04-grammarggplot.html#selecting-stat-and-geom-manually-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Selecting stat and geom manually",
+    "text": "Selecting stat and geom manually\nEvery stat comes with a default geom, every geom with a default stat\n\nwe can specify stats instead of geom, if we prefer\nwe can mix and match geoms and stats however we like\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  stat_density(geom = \"line\")+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#more-combinations",
+    "href": "slides/2024-09-04-grammarggplot.html#more-combinations",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "More combinations",
+    "text": "More combinations\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_point(stat = \"bin\", binwidth = 3) + \n  geom_line(stat = \"bin\", binwidth = 3)  +\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#more-combinations-1",
+    "href": "slides/2024-09-04-grammarggplot.html#more-combinations-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "More combinations",
+    "text": "More combinations\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_area(stat = \"bin\", binwidth = 3)  +\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#more-combinations-2",
+    "href": "slides/2024-09-04-grammarggplot.html#more-combinations-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "More combinations",
+    "text": "More combinations\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_point(stat = \"bin\", \n             binwidth = 3, \n             aes(size = ..count..)) +\n  geom_line(stat = \"bin\", binwidth = 3) +\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-much-drinking-i1",
+    "href": "slides/2024-09-04-grammarggplot.html#how-much-drinking-i1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How much drinking? (i1)",
+    "text": "How much drinking? (i1)\n\nHELP_data |&gt; \n  ggplot(aes(x = i1)) + geom_histogram()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-much-drinking-i1-1",
+    "href": "slides/2024-09-04-grammarggplot.html#how-much-drinking-i1-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How much drinking? (i1)",
+    "text": "How much drinking? (i1)\n\nHELP_data |&gt; \n  ggplot(aes(x = i1)) + geom_density()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-much-drinking-i1-2",
+    "href": "slides/2024-09-04-grammarggplot.html#how-much-drinking-i1-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How much drinking? (i1)",
+    "text": "How much drinking? (i1)\n\nHELP_data |&gt; \n  ggplot(aes(x = i1)) + geom_area(stat = \"density\")+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#covariates-adding-in-more-variables",
+    "href": "slides/2024-09-04-grammarggplot.html#covariates-adding-in-more-variables",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Covariates: Adding in more variables",
+    "text": "Covariates: Adding in more variables\nUsing color and linetype:\n\nggplot(data = HELP_data,\n       aes(x = i1,\n           color = substance,\n           linetype = children)) + \n  geom_line(stat = \"density\")+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#using-color-and-facets",
+    "href": "slides/2024-09-04-grammarggplot.html#using-color-and-facets",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Using color and facets",
+    "text": "Using color and facets\n\nggplot(data = HELP_data,\n       aes(x = i1, color = substance)) + \n  geom_line(stat = \"density\") + \n  facet_grid( . ~ children )+\n  ggtitle(\"HELP clinical trial at detoxification unit\")\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = i1, color = substance)) + \n  geom_line(stat = \"density\") + \n  facet_grid( children ~ . )+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#boxplots",
+    "href": "slides/2024-09-04-grammarggplot.html#boxplots",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Boxplots",
+    "text": "Boxplots\nBoxplots use stat_quantile() (five number summary).\nThe quantitative variable must be y, and there must be an additional x variable.\n\nHELP_data |&gt; \n  ggplot(aes(x = substance, y = age, color = children)) + \n  geom_boxplot()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#horizontal-boxplots",
+    "href": "slides/2024-09-04-grammarggplot.html#horizontal-boxplots",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Horizontal boxplots",
+    "text": "Horizontal boxplots\nHorizontal boxplots are obtained by flipping the coordinate system:\n\ncoord_flip() may be used with other plots as well to reverse the roles of x and y on the plot.\n\n\nggplot(data = HELP_data,\n       aes(x = substance, \n           y = age, \n           color = children)) + \n  geom_boxplot() +\n  coord_flip()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#axes-scaling-with-boxplots",
+    "href": "slides/2024-09-04-grammarggplot.html#axes-scaling-with-boxplots",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Axes scaling with boxplots",
+    "text": "Axes scaling with boxplots\nWe can scale the continuous axis\n\nggplot(data = HELP_data,\n       aes(x = substance, \n           y = age, \n           color = children)) + \n  geom_boxplot() +\n  coord_trans(y = \"exp\")+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#give-me-some-space",
+    "href": "slides/2024-09-04-grammarggplot.html#give-me-some-space",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Give me some space",
+    "text": "Give me some space\nWe’ve triggered a new feature: dodge (for dodging things left/right). We can control how much if we set the dodge manually.\n\nggplot(data = HELP_data,\n       aes(x = substance, \n           y = age, \n           color = children)) + \n  geom_boxplot(position = position_dodge(width=1)) +\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#issues-with-bigger-data",
+    "href": "slides/2024-09-04-grammarggplot.html#issues-with-bigger-data",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Issues with bigger data",
+    "text": "Issues with bigger data\n\nAlthough we can see a generally positive association (as we would expect), the overplotting may be hiding information.\n\n\nlibrary(NHANES)\ndim(NHANES)\n\n[1] 10000    76\n\nggplot(data = NHANES,\n       aes(x = Height, y = Weight)) +\n  geom_point() + \n  facet_grid( Gender ~ PregnantNow )"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#using-alpha-opacity",
+    "href": "slides/2024-09-04-grammarggplot.html#using-alpha-opacity",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Using alpha (opacity)",
+    "text": "Using alpha (opacity)\nOne way to deal with overplotting is to set the opacity low.\n\nggplot(data = NHANES,\n       aes(x = Height, y = Weight)) +\n  geom_point(alpha=0.01) + \n  facet_grid( Gender ~ PregnantNow )"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#geom_density2d",
+    "href": "slides/2024-09-04-grammarggplot.html#geom_density2d",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "geom_density2d",
+    "text": "geom_density2d\nAlternatively (or simultaneously) we might prefer a different geom altogether.\n\nggplot(data = NHANES,\n       aes(x = Height, y = Weight)) +\n  geom_density2d() + \n  facet_grid( Gender ~ PregnantNow )"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#multiple-layers",
+    "href": "slides/2024-09-04-grammarggplot.html#multiple-layers",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Multiple layers",
+    "text": "Multiple layers\n\n\n\nggplot(data = HELP_data, \n       aes(x = children, y = age)) +\n  geom_boxplot(outlier.size = 0) +\n  geom_point(alpha=.6) +\n  coord_flip()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = children, y = age)) +\n  geom_boxplot(outlier.size = 0) +\n  geom_jitter(alpha=.6, width = 0.1) +\n  coord_flip()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#multiple-layers-1",
+    "href": "slides/2024-09-04-grammarggplot.html#multiple-layers-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Multiple layers",
+    "text": "Multiple layers\n\nggplot(data = HELP_data,\n       aes(x = children, y = age)) +\n  geom_boxplot(outlier.size = 0) +\n  geom_point(alpha=.6, \n             position = position_jitter(width=.1, height=0)) +\n  coord_flip()+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#things-i-havent-mentioned-much",
+    "href": "slides/2024-09-04-grammarggplot.html#things-i-havent-mentioned-much",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Things I haven’t mentioned (much)",
+    "text": "Things I haven’t mentioned (much)\n\ncoords (coord_flip() is good to know about)\nthemes (for customizing appearance)\nposition (position_dodge(), position_jitterdodge(), position_stack(), etc.)\ntransforming axes"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#things-i-havent-mentioned-much-1",
+    "href": "slides/2024-09-04-grammarggplot.html#things-i-havent-mentioned-much-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Things I haven’t mentioned (much)",
+    "text": "Things I haven’t mentioned (much)\n\ncoords (coord_flip() is good to know about)\nthemes (for customizing appearance)\nposition (position_dodge(), position_jitterdodge(), position_stack(), etc.)\ntransforming axes\n\n\nggplot( data = HELP_data, aes(x = substance, y = age, color = children)) +\n  geom_boxplot(coef = 10, position = position_dodge()) +\n  geom_point(aes(color = children, fill = children), position = position_jitterdodge()) +\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#a-little-bit-of-everything",
+    "href": "slides/2024-09-04-grammarggplot.html#a-little-bit-of-everything",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "A little bit of everything",
+    "text": "A little bit of everything\n\nggplot(data = HELP_data, aes(x = substance, y = age, color = children)) +\n  geom_boxplot(coef = 10, position = position_dodge(width=1)) +\n  geom_point(aes(fill = children), alpha=.5, \n             position = position_jitterdodge(dodge.width=1, jitter.width = 0.2)) + \n  facet_wrap(~homeless)+\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#want-to-learn-more",
+    "href": "slides/2024-09-04-grammarggplot.html#want-to-learn-more",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Want to learn more?",
+    "text": "Want to learn more?\n\ndocs.ggplot2.org/\nR for Data Science by Hadley Wickham and Garrett Grolemund"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#whats-around-the-corner",
+    "href": "slides/2024-09-04-grammarggplot.html#whats-around-the-corner",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What’s around the corner?",
+    "text": "What’s around the corner?\nshiny\n\ninteractive graphics / modeling\nhttps://shiny.rstudio.com/\n\nplotly\n\nPlotly is an R package for creating interactive web-based graphs via plotly’s JavaScript graphing library, plotly.js. The plotly R libary contains the ggplotly function , which will convert ggplot2 figures into a Plotly object. Furthermore, you have the option of manipulating the Plotly object with the style function.\n\n\nhttps://plot.ly/ggplot2/getting-started/\n\ngganimate\n\ngganimate tutorial"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#grammar-of-graphics",
+    "href": "slides/2024-09-04-grammarggplot.html#grammar-of-graphics",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Grammar of graphics",
+    "text": "Grammar of graphics\nYau (2013) gives us nine visual cues, and Wickham (2014) translates them into a language using ggplot2.\n\nVisual Cues: the aspects of the figure where we should focus.\nPosition (numerical) where in relation to other things?\nLength (numerical) how big (in one dimension)?\nAngle (numerical) how wide? parallel to something else?\nDirection (numerical) at what slope? In a time series, going up or down?\nShape (categorical) belonging to what group?\nArea (numerical) how big (in two dimensions)? Beware of improper scaling!\nVolume (numerical) how big (in three dimensions)? Beware of improper scaling!\nShade (either) to what extent? how severely?\nColor (either) to what extent? how severely? Beware of red/green color blindness.\nCoordinate System: rectangular, polar, geographic, etc.\nScale: numeric (linear? logarithmic?), categorical (ordered?), time\nContext: in comparison to what (think back to ideas from Tufte)"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#themes",
+    "href": "slides/2024-09-04-grammarggplot.html#themes",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "themes",
+    "text": "themes\n\nlibrary(ggthemes)\nggplot(Births78, aes(x = date, y = births)) + \n  geom_point() + \n  theme_wsj()"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#jitterdodge",
+    "href": "slides/2024-09-04-grammarggplot.html#jitterdodge",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "jitterdodge()",
+    "text": "jitterdodge()\n\nggplot(data = HELP_data, \n       aes(x = substance, y = age, color = children)) +\n  geom_boxplot(coef = 10, position = position_dodge()) +\n  geom_point(aes(color = children, \n                 fill = children), \n             position = position_jitterdodge()) +\n  ggtitle(\"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "posts/2024-09-04-dataviz/index.html",
+    "href": "posts/2024-09-04-dataviz/index.html",
+    "title": "2. Data Viz",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2024-09-04-dataviz/index.html#agenda",
+    "href": "posts/2024-09-04-dataviz/index.html#agenda",
+    "title": "2. Data Viz",
+    "section": "Agenda ",
+    "text": "Agenda \n\nAugust 28, 2024\n\nGitHub\nNSSD\nGrammar of graphics\nggplot\n\n\n\nSeptember 4, 2024\n\nCholera: what went (didn’t go) well with the graphics?\nChallenger: what didn’t go (went) well with the graphics?\nThoughts on plotting (with example(s))\n\n\nClass discussion will be based on Tufte (1997) Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nAnother great reference is the following text: Fundamentals of Data Visualization by Wilke at http://serialmentor.com/dataviz/"
+  },
+  {
+    "objectID": "posts/2024-09-04-dataviz/index.html#readings",
+    "href": "posts/2024-09-04-dataviz/index.html#readings",
+    "title": "2. Data Viz",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Visualization\nTufte (1997) Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nWickham (2017) Data Visualization in R for Data Science."
+  },
+  {
+    "objectID": "posts/2024-09-04-dataviz/index.html#reflection-questions",
+    "href": "posts/2024-09-04-dataviz/index.html#reflection-questions",
+    "title": "2. Data Viz",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nWhen creating a graph, try to sketch / image the graph before you code it. What do you want R to do (what is the goal)? In order to do that, what does R need to know?\nWhat should the goal of a plot be? What should the goal of your plot be?\nWhat different aspects deconstruct a plot?"
+  },
+  {
+    "objectID": "posts/2024-09-04-dataviz/index.html#ethics-considerations",
+    "href": "posts/2024-09-04-dataviz/index.html#ethics-considerations",
+    "title": "2. Data Viz",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nDoes your plot make the comparison of interest: easily? and accurately?\nDid you add alt text to your images (see Writing Alt Text for Data Visualization)?\nIs your plot accessible to those who are color blind or looking at the image in black and white?"
+  },
+  {
+    "objectID": "posts/2024-09-04-dataviz/index.html#slides",
+    "href": "posts/2024-09-04-dataviz/index.html#slides",
+    "title": "2. Data Viz",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides for both 8/28/24 and 9/4/24.\nWS3 - ggplot\nWS4 - Tufte"
+  },
+  {
+    "objectID": "posts/2024-09-04-dataviz/index.html#additional-resources",
+    "href": "posts/2024-09-04-dataviz/index.html#additional-resources",
+    "title": "2. Data Viz",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nDuBois’s images online and in W.E.B. Du Bois’s Data Portraits: Visualizing Black America, a compilation edited by Whitney Battle-Baptiste.\nFlowcharts for choosing appropriate plots, brief tutorials of viz types, and source code in R and Python: from Data to Viz\nSee something or Say Something\nCensus trends visualized\nVisualization Internship (Fall 2021) at 538\nvisualizing data: Digest of the best visualizations from the past month\nA regular NYT column on visualizations: What’s Going on in this Graph?\nStudies about visualizations and perception\nFundamentals of Data Visualization\nAllison Horst’s amazing illustrations\nMakeover Mondays, a weekly data project for making more effective visualizations.\n\n\n:::"
   }
 ]
