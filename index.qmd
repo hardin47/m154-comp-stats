@@ -8,7 +8,8 @@ execute:
 ---
 
 
-```{r echo = FALSE}
+```{r}
+#| echo: false 
 library(tidyverse)
 ```
 
