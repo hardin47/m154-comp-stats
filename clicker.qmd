@@ -104,14 +104,14 @@ library(tidyverse)
 
 ---
 
-7. Which of the following includes talking to GitHub?[^7]
+7. Which of the following includes talking to the remote version of GitHub?[^7]
     (a) changing your name (updating the YAML)
     (b) committing the file(s)
     (c) pushing the file(s)
     (d) some of the above
     (e) all of the above
     
-[^7]: d. some of the above (b. committing the file(s) and c. pushing the file(s))
+[^7]: d. pushing the file(s)
 
 ---
 
@@ -219,6 +219,130 @@ shup6 <-  sqrt 10
 [^14]: no right answer here!
 
 ---
+
+15. The goal of making a figure is...[^15]
+     (a)  To draw attention to your work.
+     (b) To facilitate comparisons.
+     (c) To provide as much information as possible.
+
+[^15]: Yes! All the responses are reasons to make a figure.
+
+---
+
+16. A good reason to make a particular choice of a graph is:[^16]
+     (a) Because the journal / field has particular expectations for how the data are presented.
+     (b) Because some variables naturally fit better on some graphs (e.g., numbers on scatter plots).
+     (c) Because that graphic displays the message you want as optimally as possible.
+
+[^16]: c. Because that graphic displays the message you want as optimally as possible.
+
+---
+
+17. Why are the points orange?[^17]
+     (a) R translates "navy" into orange.
+     (b) color must be specified in `geom_point()`
+     (c) color must be specified **outside** the `aes()` function
+     (d) the default plot color is orange
+     
+:::: {.columns}
+
+::: {.column width="35%"}
+```{r}
+#| echo: false
+library(mosaic)
+data(Births78)
+ggplot(data = Births78, 
+       aes(x = date, y = births, color = "navy")) + 
+  geom_point() +          
+  ggtitle("US Births in 1978")
+```
+:::
+
+::: {.column width="65%"}
+```{r}
+#| eval: false
+#| echo: true
+ggplot(data = Births78, 
+       aes(x = date, y = births, color = "navy")) + 
+  geom_point() +          
+  ggtitle("US Births in 1978")
+```
+:::
+
+::::
+
+[^17]: c. color must be specified **outside** the `aes()` function
+
+---
+
+18. Why are the dots blue and the lines colored?[^18]
+     (a) dot color is given as "navy", line color is given as `wday`.
+     (b) both colors are specified in the `ggplot()` function.
+     (c) dot coloring takes precedence over line coloring.
+     (d) line coloring takes precedence over dot coloring.
+     
+```{r}
+#| echo: false
+#| out-width: 60%
+library(mosaic)
+data(Births78)
+ggplot(data = Births78, 
+       aes(x = date, y = births)) + 
+  geom_line(aes(color = wday)) +       
+  geom_point(color = "navy") +          
+  ggtitle("US Births in 1978")
+```
+     
+[^18]: a. dot color is specified as "navy", line color is specified as `wday`.
+
+---
+
+19. Setting vs. Mapping.  If I want information to be passed to all data points (not variable):[^19]
+     (a) map the information inside the `aes()` function.
+     (b) set the information outside the `aes()` function
+     
+[^19]: b. set the information outside the `aes()` function
+
+---
+
+20. The Snow figure was most successful at:[^20]
+     (a) making the data stand out
+     (b) facilitating comparison
+     (c) putting the work in context
+     (d) simplifying the story
+
+[^20]: answers may vary. I'd say c. putting the work in context.  Others might say b. facilitating comparison or d. simplifying the story.  However, I don't think a correct answer is a. making the data stand out.
+
+---
+
+21. The Challenger figure(s) was(were) least successful at:[^21]
+    (a) making the data stand out
+    (b) facilitating comparison
+    (c) putting the work in context
+    (d) simplifying the story
+
+[^21]: a. making the data stand out
+
+---
+
+22. The biggest difference between Snow and the Challenger was:[^22]
+    (a)	The **amount** of information portrayed.
+    (b)	One was better at displaying **cause**.
+    (c)	One showed the relevant **comparison** better.
+    (d)	One was more **artistic**.
+
+[^22]: c. One showed the relevant **comparison** better.
+
+---
+ 
+23. Caffeine and Calories.  What was the biggest concern over the average value axes?[^23]
+     (a) It isn’t at the origin.
+     (b) They should have used all the data possible to find averages.
+     (c) There wasn’t a random sample.
+     (d) There wasn’t a label explaining why the axes were where they were.
+     
+[^23]: a. It isn’t at the origin. in combination with d. There wasn’t a label explaining why the axes were where they were.  The story associated with the average value axes is not clear to the reader.
+
 
 
 
