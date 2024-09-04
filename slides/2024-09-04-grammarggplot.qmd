@@ -530,6 +530,32 @@ ggplot() +
 :::
 ::::
 
+
+## Layers
+
+### Layer 1 
+
+:::: {.columns} 
+::: {.column width="40%"}
+```{r, echo=FALSE}
+ggplot(data = Births78, aes(x = date, y = births)) 
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: "1,2"
+ggplot(data = Births78, 
+       aes(x = date, y = births)) 
+```
+
+:::
+::::
+
+
+
 ## Layers
 
 ### Layer 2 
@@ -583,6 +609,19 @@ ggplot(data = Births78,
 :::
 ::::
 
+
+## How do we make this plot?
+    
+:::: {.columns} 
+::: {.column width="40%"}
+```{r, echo=FALSE}
+ggplot(data = Births78) +
+  geom_point(aes(x = date, y = births, color = wday)) +
+  ggtitle("US Births in 1978")
+```
+:::
+
+::::
 
 
 ## How do we make this plot?

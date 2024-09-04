@@ -886,42 +886,42 @@
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-3",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nWhat has changed?\n\nnew aesthetic: mapping color to day of week"
+    "text": "How do we make this plot?"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-4",
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-4",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births, \n           color = wday)) +\n  geom_point() +\n  ggtitle(\"US Births in 1978\")"
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nWhat has changed?\n\nnew aesthetic: mapping color to day of week"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-5",
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-5",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?"
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births, \n           color = wday)) +\n  geom_point() +\n  ggtitle(\"US Births in 1978\")"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-6",
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-6",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nlines instead of dots!\n\nggplot(data = Births78,\n         aes(x = date, \n             y = births,\n             color = wday)) +\n  geom_line() +\n  ggtitle(\"US Births in 1978\")"
+    "text": "How do we make this plot?"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-7",
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-7",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?"
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nlines instead of dots!\n\nggplot(data = Births78,\n         aes(x = date, \n             y = births,\n             color = wday)) +\n  geom_line() +\n  ggtitle(\"US Births in 1978\")"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-8",
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-8",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nNow there are two layers: one with points and one with lines\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births,\n           color = wday)) + \n  geom_point() +  \n  geom_line() +\n  ggtitle(\"US Births in 1978\")\n\n\nThe layers are placed one on top of the other: the points are below and the lines are above.\ndata and aes specified in ggplot() affect all geoms"
+    "text": "How do we make this plot?"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#what-does-this-code-do",
@@ -949,14 +949,14 @@
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-9",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?"
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nNow there are two layers: one with points and one with lines\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births,\n           color = wday)) + \n  geom_point() +  \n  geom_line() +\n  ggtitle(\"US Births in 1978\")\n\n\nThe layers are placed one on top of the other: the points are below and the lines are above.\ndata and aes specified in ggplot() affect all geoms"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-10",
     "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-10",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "How do we make this plot?",
-    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births)) + \n  geom_line(aes(color = wday)) +      \n  geom_point(color = \"navy\")  +         \n  ggtitle(\"US Births in 1978\")\n\n\nggplot() establishes the default data and aesthetics for the geoms, but each geom may change these defaults.\ngood practice: put into ggplot() the things that affect all (or most) of the layers; put the rest in geom_XXXX()"
+    "text": "How do we make this plot?"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#setting-vs.-mapping-again",
@@ -1369,13 +1369,27 @@
     "href": "slides/2024-09-04-grammarggplot.html#layers",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "Layers",
-    "text": "Layers\nLayer 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point()"
+    "text": "Layers\nLayer 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births))"
   },
   {
     "objectID": "slides/2024-09-04-grammarggplot.html#layers-1",
     "href": "slides/2024-09-04-grammarggplot.html#layers-1",
     "title": "Data Viz & Introduction to ggplot2",
     "section": "Layers",
+    "text": "Layers\nLayer 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#layers-2",
+    "href": "slides/2024-09-04-grammarggplot.html#layers-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers",
     "text": "Layers\nLayer 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point() +\n  ggtitle(\"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-11",
+    "href": "slides/2024-09-04-grammarggplot.html#how-do-we-make-this-plot-11",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births)) + \n  geom_line(aes(color = wday)) +      \n  geom_point(color = \"navy\")  +         \n  ggtitle(\"US Births in 1978\")\n\n\nggplot() establishes the default data and aesthetics for the geoms, but each geom may change these defaults.\ngood practice: put into ggplot() the things that affect all (or most) of the layers; put the rest in geom_XXXX()"
   }
 ]
