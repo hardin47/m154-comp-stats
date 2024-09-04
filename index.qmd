@@ -34,7 +34,7 @@ schedule <- tribble(
   "8.26.24", '<a href="posts/2024-08-26-getting-started/">starting with R + RStudio + Git</a>',
   ' ',
 
- "9.2.24", '<a href="">data viz</a>',
+ "9.2.24", '<a href="posts/2024-09-04-dataviz/">data viz</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 1</a> - due 9.3',
 
  "9.9.24", '<a href="">wrangling</a>',
