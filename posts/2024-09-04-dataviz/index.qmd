@@ -69,9 +69,7 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-04-grammarggplot.html" target = "_blank">In class slides</a> for both 8/28/24 and 9/4/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws3_m154_f24_ggplot.pdf" target = "_blank">WS3 - ggplot</a>
-
-* <a href = "https://m154-comp-stats.netlify.app/slides/ws4_m154_f24_Tufte.pdf" target = "_blank">WS4 - Tufte</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws3_m154_f24_tufte.pdf" target = "_blank">WS3 - ggplot</a>
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
