@@ -220,25 +220,36 @@ shup6 <-  sqrt 10
 
 ---
 
-15. The goal of making a figure is...[^15]
+15. Where should I put things I've created for the HW (e.g., data, .ics file, etc.)[^15]
+    (a) Upload into remote GitHub directory
+    (b) In the local folder which also has the R project
+    (c) In my Downloads
+    (d) Somewhere on my Desktop
+    (e) In my Home directory
+    
+[^15]: b. In the local folder which also has the R project.  It could be on the Desktop or the Home directory, but it must be in the same place as the R project. Do **not** upload files to the remote GitHub directory or you will find yourself with two different copies of the files.
+
+---
+
+16. The goal of making a figure is...[^16]
      (a)  To draw attention to your work.
      (b) To facilitate comparisons.
      (c) To provide as much information as possible.
 
-[^15]: Yes! All the responses are reasons to make a figure.
+[^16]: Yes! All the responses are reasons to make a figure.
 
 ---
 
-16. A good reason to make a particular choice of a graph is:[^16]
+17. A good reason to make a particular choice of a graph is:[^17]
      (a) Because the journal / field has particular expectations for how the data are presented.
      (b) Because some variables naturally fit better on some graphs (e.g., numbers on scatter plots).
      (c) Because that graphic displays the message you want as optimally as possible.
 
-[^16]: c. Because that graphic displays the message you want as optimally as possible.
+[^17]: c. Because that graphic displays the message you want as optimally as possible.
 
 ---
 
-17. Why are the points orange?[^17]
+18. Why are the points orange?[^18]
      (a) R translates "navy" into orange.
      (b) color must be specified in `geom_point()`
      (c) color must be specified **outside** the `aes()` function
@@ -271,11 +282,11 @@ ggplot(data = Births78,
 
 ::::
 
-[^17]: c. color must be specified **outside** the `aes()` function
+[^18]: c. color must be specified **outside** the `aes()` function
 
 ---
 
-18. Why are the dots blue and the lines colored?[^18]
+19. Why are the dots blue and the lines colored?[^19]
      (a) dot color is given as "navy", line color is given as `wday`.
      (b) both colors are specified in the `ggplot()` function.
      (c) dot coloring takes precedence over line coloring.
@@ -293,56 +304,56 @@ ggplot(data = Births78,
   ggtitle("US Births in 1978")
 ```
      
-[^18]: a. dot color is specified as "navy", line color is specified as `wday`.
+[^19]: a. dot color is specified as "navy", line color is specified as `wday`.
 
 ---
 
-19. Setting vs. Mapping.  If I want information to be passed to all data points (not variable):[^19]
+20. Setting vs. Mapping.  If I want information to be passed to all data points (not variable):[^20]
      (a) map the information inside the `aes()` function.
      (b) set the information outside the `aes()` function
      
-[^19]: b. set the information outside the `aes()` function
+[^20]: b. set the information outside the `aes()` function
 
 ---
 
-20. The Snow figure was most successful at:[^20]
+21. The Snow figure was most successful at:[^21]
      (a) making the data stand out
      (b) facilitating comparison
      (c) putting the work in context
      (d) simplifying the story
 
-[^20]: answers may vary. I'd say c. putting the work in context.  Others might say b. facilitating comparison or d. simplifying the story.  However, I don't think a correct answer is a. making the data stand out.
+[^21]: answers may vary. I'd say c. putting the work in context.  Others might say b. facilitating comparison or d. simplifying the story.  However, I don't think a correct answer is a. making the data stand out.
 
 ---
 
-21. The Challenger figure(s) was(were) least successful at:[^21]
+22. The Challenger figure(s) was(were) least successful at:[^22]
     (a) making the data stand out
     (b) facilitating comparison
     (c) putting the work in context
     (d) simplifying the story
 
-[^21]: a. making the data stand out
+[^22]: a. making the data stand out
 
 ---
 
-22. The biggest difference between Snow and the Challenger was:[^22]
+23. The biggest difference between Snow and the Challenger was:[^23]
     (a)	The **amount** of information portrayed.
     (b)	One was better at displaying **cause**.
     (c)	One showed the relevant **comparison** better.
     (d)	One was more **artistic**.
 
-[^22]: c. One showed the relevant **comparison** better.
+[^23]: c. One showed the relevant **comparison** better.
 
 ---
  
-23. Caffeine and Calories.  What was the biggest concern over the average value axes?[^23]
+24. Caffeine and Calories.  What was the biggest concern over the average value axes?[^24]
      (a) It isn’t at the origin.
      (b) They should have used all the data possible to find averages.
      (c) There wasn’t a random sample.
      (d) There wasn’t a label explaining why the axes were where they were.
      
-[^23]: a. It isn’t at the origin. in combination with d. There wasn’t a label explaining why the axes were where they were.  The story associated with the average value axes is not clear to the reader.
+[^24]: a. It isn’t at the origin. in combination with d. There wasn’t a label explaining why the axes were where they were.  The story associated with the average value axes is not clear to the reader.
 
-
+---
 
 
