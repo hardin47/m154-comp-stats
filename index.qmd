@@ -37,10 +37,10 @@ schedule <- tribble(
  "9.2.24", '<a href="posts/2024-09-04-dataviz/">data viz</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 1</a> - due 9.3',
 
- "9.9.24", '<a href="">wrangling</a>',
+ "9.9.24", '<a href="posts/2024-09-09-wrangling/">wrangling</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 2</a> - due 9.10 <br> Quiz 9.11',
 
-   "9.16.24", '<a href="">wrangling</a>',
+   "9.16.24", '<a href="posts/2024-09-09-wrangling/">wrangling</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 3</a> - due 9.17',
 
    "9.23.24", '<a href="">simulating</a>',
