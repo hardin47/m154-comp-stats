@@ -43,7 +43,7 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 ## Readings <i class="fas fa-book-open"></i> 
 
-* Class notes: <a href = "http://st47s.com/Math154/Notes/visualization.html" target= "_blank">Visualization</a>
+* Class notes: <a href = "https://st47s.com/Math154/Notes/02-viz.html" target= "_blank">Visualization</a>
 
 * Tufte (1997) <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
 

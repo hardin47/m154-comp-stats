@@ -3,7 +3,8 @@
     "listing": "/daily.html",
     "items": [
       "/posts/2024-08-26-getting-started/index.html",
-      "/posts/2024-09-04-dataviz/index.html"
+      "/posts/2024-09-04-dataviz/index.html",
+      "/posts/2024-09-09-wrangling/index.html"
     ]
   }
 ]
