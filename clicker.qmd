@@ -356,4 +356,288 @@ ggplot(data = Births78,
 
 ---
 
+25. What is wrong with the following code?[^25]
+    (a) should only  be one =
+    (b) Sydney should be lower case
+    (c) name should not be in quotes
+    (d) use mutate instead of filter
+    (e) babynames in wrong place
+
+```{r}
+#| eval: false
+#| echo: true
+Result <- |> filter(babynames,
+		name== “Sydney”)
+```
+
+[^25]: e. babynames in wrong place
+
+---
+
+26. Which data represents the ideal format for **ggplot2** and **dplyr**?[^26]
+
+```{r}
+#| echo: false
+tribble_a <- tribble(
+  ~year, ~Algeria, ~Brazil, ~Columbia,
+  2000, 7, 12, 16,
+  2001, 9, 14, 18
+)
+tribble_a |> gt::gt(caption = "table a") 
+```
+
+```{r}
+#| echo: false
+tribble_b <- tribble(
+  ~country, ~Y2000, ~Y2001,
+  "Algeria", 7, 9,
+  "Brazil", 12, 14,
+  "Columbia", 16, 18
+)
+tribble_b |> gt::gt(caption = "table b") 
+```
+
+```{r}
+#| echo: false
+tribble_c <- tribble(
+  ~country, ~year, ~value,
+  "Algeria", 2000, 7,
+  "Algeria", 2001, 9,
+  "Brazil", 2000, 12,
+  "Brazil", 2001, 14,
+  "Columbia", 2000, 16, 
+  "Columbia", 2001, 18
+)
+tribble_c |> gt::gt(caption = "table c") 
+```
+
+[^26]: c. Table c is best because the columns allow us to work with each of the variable separately.
+
+---
+
+27. Each of the statements except one will accomplish the same calculation.  Which one does not match?[^27]
+
+```{r}
+#| eval: false
+#| echo: true
+#(a) 
+babynames |> 
+  group_by(year, sex) |> 
+  summarize(totalBirths = sum(num))
+
+#(b) 
+group_by(babynames, year, sex) |> 
+  summarize(totalBirths = sum(num))
+
+#(c)
+group_by(babynames, year, sex) |> 
+  summarize(totalBirths = mean(num))
+
+#(d)
+temp <- group_by(babynames, year, sex)
+
+summarize(temp, totalBirths = sum(num))
+
+#(e)
+summarize(group_by(babynames, year, sex), 
+          totalBirths = sum(num))
+```
+
+[^27]: c. does something different because it takes the `mean()` (average) instead of the `sum()`.  The other commands compute the total number of births broken down by `year` and `sex`.
+
+---
+
+28. Fill in Q1.[^28]
+    (a) `filter()`
+    (b) `arrange()`
+    (c) `select()`
+    (d) `mutate()`
+    (e) `group_by()`
+    
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "2,3"
+result <- babynames |>
+  Q1(name %in% c("Jane", "Mary")) |> 
+  # just the Janes and Marys
+  group_by(Q2, Q2) |> 
+  summarize(total = Q3)
+```
+
+[^28]: a. `filter()`
+
+---
+
+29. Fill in Q2.[^29]
+    (a) `(year, sex)`
+    (b) `(year, name)`
+    (c) `(year, num)`
+    (d) `(sex, name)`
+    (e) `(sex, num)`
+    
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3,4"
+result <- babynames |>
+  Q1(name %in% c("Jane", "Mary")) |> 
+  group_by(Q2, Q2) |> 
+  # for each year for each name
+  summarize(total = Q3)
+```
+
+[^29]: b. `(year, name)`
+
+---
+
+30. Fill in Q3.[^30]
+    (a) `n_distinct(name)`
+    (b) `n_distinct(n)`
+    (c) `sum(name)`
+    (d) `sum(num)`
+    (e) `mean(num)`
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4,5"
+result <- babynames |>
+  Q1(name %in% c("Jane", "Mary")) |> 
+  group_by(Q2, Q2) |> 
+  summarize(total = Q3)
+  # number of babies (each year, each name)
+```
+
+[^30]: d. `sum(num)`
+
+---
+
+31. Running the code.[^31]
+
+```{r}
+#| echo: true
+babynames <- babynames::babynames |> 
+  rename(num = n)
+
+babynames |>
+  filter(name %in% c("Jane", "Mary")) |> 
+  # just the Janes and Marys
+  group_by(name, year) |> 
+  # for each year for each name
+  summarize(total = sum(num))
+```
+
+
+```{r}
+#| error: true
+#| echo: true
+
+babynames |>
+  filter(name %in% c("Jane", "Mary")) |> 
+  group_by(name, year) |> 
+  summarize(number = sum(num))
+
+babynames |>
+  filter(name %in% c("Jane", "Mary")) |> 
+  group_by(name, year) |> 
+  summarize(n_distinct(name))
+
+babynames |>
+  filter(name %in% c("Jane", "Mary")) |> 
+  group_by(name, year) |> 
+  summarize(n_distinct(num))
+
+babynames |>
+  filter(name %in% c("Jane", "Mary")) |> 
+  group_by(name, year) |> 
+  summarize(sum(name))
+
+babynames |>
+  filter(name %in% c("Jane", "Mary")) |> 
+  group_by(name, year) |> 
+  summarize(mean(num))
+
+babynames |>
+  filter(name %in% c("Jane", "Mary")) |> 
+  group_by(name, year) |> 
+  summarize(median(num))
+```
+
+[^31]: running the different code chunks with relevant output.
+
+---
+
+32. Fill in Q1.[^32]
+     (a) `gdp`
+     (b) `year`
+     (c) `gdpval`
+     (d) `country`
+     (e) `–country`
+
+```{r}
+#| echo: false
+library(googlesheets4)
+gs4_deauth()
+GDP <- read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
+```
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "3"
+GDP |>  
+  select(country = starts_with("Income"), everything()) |> 
+       pivot_longer(cols = Q1, 
+                    names_to = Q2, 
+                    values_to = Q3)
+```
+
+[^32]: e. `-country`
+
+---
+
+33. Fill in Q2.[^33]
+     (a) `gdp`
+     (b) `year`
+     (c) `gdpval`
+     (d) `country`
+     (e) `–country`
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "4"
+GDP |>  
+  select(country = starts_with("Income"), everything()) |> 
+       pivot_longer(cols = Q1, 
+                    names_to = Q2, 
+                    values_to = Q3)
+```
+
+[^33]: b. `year`
+
+---
+
+34. Fill in Q3.[^34]
+     (a) `gdp`
+     (b) `year`
+     (c) `gdpval`
+     (d) `country`
+     (e) `–country`
+
+```{r}
+#| eval: false
+#| echo: true
+#| code-line-numbers: "5"
+GDP |>  
+  select(country = starts_with("Income"), everything()) |> 
+       pivot_longer(cols = Q1, 
+                    names_to = Q2, 
+                    values_to = Q3)
+```
+
+[^34]: c. `gdpval`  (if possible, good idea to name variables something different from the name of the dataframe)
+
+---
 
