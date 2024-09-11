@@ -164,9 +164,13 @@ data(flights)
 
 Data sets are often of high *volume* (lots of rows) and high *variety* (lots of columns). This is overwhelming to visualize and analyze, so we find ourselves chopping the data set up into more manageable and meaningful chunks. We also  often need to perform operations to organize and clean our data.
 
-This is all possible in base R, but with `dplyr`, it is simple, readible, and fast.
+This is all possible in base R, but with `dplyr`, it is simple, readable, and fast.
 
- 
+# Verbs
+
+Most data wrangling happens with a set of data verbs.  Verbs are **functions** that act on dataframes.  
+
+The first argument of each data verb is the dataframe.
 
 ## Some Basic Verbs
 
@@ -488,9 +492,25 @@ foo_foo |>
 
 ## Flights
  
+ 
+::: {.panel-tabset}
+
+## No pipe
 
 ```{r}
-flights2 |> 
+flights2 <- mutate(flights, speed = distance/(air_time/60))
+tail_speed <- select(flights2, tailnum, speed)
+tail_speed_grp <- group_by(tail_speed, tailnum)
+tail_ave <- summarize(tail_speed_grp, number = n(),
+                      avg_speed = mean(speed, na.rm = TRUE))
+arrange(tail_ave, desc(avg_speed))
+```
+
+## Pipe
+
+```{r}
+flights |> 
+  mutate(speed = distance / (air_time/60)) |> 
   select(tailnum, speed) |> 
   group_by(tailnum) |>  
   summarize(number = n(), 
@@ -498,11 +518,13 @@ flights2 |>
   arrange(desc(avg_speed))
 ```
 
+::: 
+
  
 
 ## Practice
 
-Form a chain that creates a data frame containing only carrier and the mean departure delay time. Which carriers have the highest and lowest mean delays?
+Form a chain that creates a data frame containing only carrier and each carrier's mean departure delay time. Which carriers have the highest and lowest mean delays?
 
  
 
@@ -569,10 +591,122 @@ When `scale_size_area` is used, the default behavior is to scale the area of poi
 # Agenda  9/11/24
 
 
-1. Relational data (`_join`)
-2. `pivot`ing
-3. `map`ping
-4. **lubridate**
+1. `pivot`ing
+2. Relational data (`_join`)
+3. **lubridate**
+
+# `pivot`ing
+ 
+```{r out.width = '47%', fig.align='center', echo=FALSE, fig.show='hold'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
+knitr::include_graphics("../images/tidyr-pivoting.gif")
+```
+ 
+ 
+## From wide to long and long to wide
+
+* <mark>`pivot_longer()`</mark> makes the dataframe "longer" -- many columns into a few columns (more rows): `pivot_longer(data, cols,  names_to = , value_to = )`
+* <mark>`pivot_wider()`</mark> makes the dataframe "wider" -- a few columns into many columns (fewer rows): `pivot_wider(data, names_from = , values_from = )`
+
+
+## From wide to long and long to wide
+
+```{r out.width = '47%', fig.align='center', echo=FALSE, fig.show='hold'}
+knitr::include_graphics(c("../images/pivotlonger.png", "../images/pivotwider.png"))
+```
+
+ 
+  
+## `pivot_longer`
+  
+`pivot_longer` will be demonstrated using datasets from GapMinder.
+
+`litF` represents country, year, and <mark>female literacy rate</mark>. 
+
+```{r message=FALSE}
+library(googlesheets4)
+gs4_deauth()
+litF <- read_sheet("https://docs.google.com/spreadsheets/d/1hDinTIRHQIaZg1RUn6Z_6mo12PtKwEPFIz_mJVF6P5I/pub?gid=0")
+
+litF
+```
+
+ 
+## `pivot_longer`
+  
+```{r}
+litF <- litF |> 
+  select(country = starts_with("Adult"), everything()) |> 
+  pivot_longer(cols = -country,
+               names_to = "year", 
+               values_to = "litRateF") |> 
+  filter(!is.na(litRateF))
+
+litF
+```
+
+
+ 
+  
+## `pivot_longer`
+  
+`GDP` represents country, year, and <mark>gdp</mark> (in fixed 2000 US$).
+
+```{r message=FALSE}
+GDP <- read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
+
+GDP <- GDP |>  
+  select(country = starts_with("Income"), everything()) |> 
+  pivot_longer(cols = -country, 
+               names_to = "year",
+               values_to = "gdp") |> 
+  filter(!is.na(gdp))
+
+GDP
+```
+
+
+ 
+  
+## `pivot_wider`
+
+`pivot_wider`  will be demonstrated using the `babynames` dataset.
+
+```{r}
+library(babynames)
+
+babynames
+```
+
+ 
+## `pivot_wider` babynames
+
+```{r}
+babynames |>  
+  select(-prop) |> 
+  pivot_wider(names_from = sex, values_from = n) 
+```
+
+## `pivot_wider` babynames
+ 
+  
+```{r}
+babynames |>  
+  select(-prop) |>  
+  pivot_wider(names_from = sex, values_from = n) |> 
+  filter(!is.na(F), !is.na(M)) |> 
+  arrange(desc(year), desc(F))
+```
+
+ 
+## `pivot_wider` babynames
+  
+```{r}
+babynames |>  
+  pivot_wider(names_from = sex, values_from = n) |> 
+  mutate(maxcount = pmax(F, M, na.rm = TRUE)) |> 
+  arrange(desc(maxcount))
+```
 
  
 
@@ -722,6 +856,7 @@ y
 
 ::: {.column width=50%}
 ```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
 include_graphics("../images/left-join.gif")
 ```
 :::
@@ -750,6 +885,7 @@ professions |>
 
 ::: {.column width=50%}
 ```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
 include_graphics("../images/right-join.gif")
 ```
 :::
@@ -779,6 +915,7 @@ professions |>
 
 ::: {.column width=50%}
 ```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
 include_graphics("../images/full-join.gif")
 ```
 :::
@@ -807,6 +944,7 @@ dates |>
 
 ::: {.column width=50%}
 ```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
 include_graphics("../images/inner-join.gif")
 ```
 :::
@@ -835,6 +973,7 @@ dates |>
 
 ::: {.column width=50%}
 ```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
 include_graphics("../images/semi-join.gif")
 ```
 :::
@@ -863,6 +1002,7 @@ dates |>
 
 ::: {.column width=50%}
 ```{r echo=FALSE, out.width="80%", out.extra ='style="background-color: #FDF6E3"'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
 include_graphics("../images/anti-join.gif")
 ```
 :::
@@ -896,111 +1036,6 @@ professions |>
 
 
  
-
-## From wide to long and long to wide
-
-* <mark>`pivot_longer()`</mark> makes the dataframe "longer" -- many columns into a few columns (more rows): `pivot_longer(data, cols,  names_to = , value_to = )`
-* <mark>`pivot_wider()`</mark> makes the dataframe "wider" -- a few columns into many columns (fewer rows): `pivot_wider(data, names_from = , values_from = )`
-
-
-## From wide to long and long to wide
-
-```{r out.width = '47%', fig.align='center', echo=FALSE, fig.show='hold'}
-knitr::include_graphics(c("../images/pivotlonger.png", "../images/pivotwider.png"))
-```
-
- 
-  
-## `pivot_longer`
-  
-`pivot_longer` will be demonstrated using datasets from GapMinder.
-
-`litF` represents country, year, and <mark>female literacy rate</mark>. 
-
-```{r message=FALSE}
-library(googlesheets4)
-gs4_deauth()
-litF <- read_sheet("https://docs.google.com/spreadsheets/d/1hDinTIRHQIaZg1RUn6Z_6mo12PtKwEPFIz_mJVF6P5I/pub?gid=0")
-
-litF
-```
-
- 
-## `pivot_longer`
-  
-```{r}
-litF <- litF |> 
-  select(country = starts_with("Adult"), everything()) |> 
-  pivot_longer(cols = -country,
-               names_to = "year", 
-               values_to = "litRateF") |> 
-  filter(!is.na(litRateF))
-
-litF
-```
-
-
- 
-  
-## `pivot_longer`
-  
-`GDP` represents country, year, and <mark>gdp</mark> (in fixed 2000 US$).
-
-```{r message=FALSE}
-GDP <- read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
-
-GDP <- GDP |>  
-  select(country = starts_with("Income"), everything()) |> 
-  pivot_longer(cols = -country, 
-               names_to = "year",
-               values_to = "gdp") |> 
-  filter(!is.na(gdp))
-
-GDP
-```
-
-
- 
-  
-## `pivot_wider`
-
-`pivot_wider`  will be demonstrated using the `babynames` dataset.
-
-```{r}
-library(babynames)
-
-babynames
-```
-
- 
-## `pivot_wider` babynames
-
-```{r}
-babynames |>  
-  select(-prop) |> 
-  pivot_wider(names_from = sex, values_from = n) 
-```
-
-## `pivot_wider` babynames
- 
-  
-```{r}
-babynames |>  
-  select(-prop) |>  
-  pivot_wider(names_from = sex, values_from = n) |> 
-  filter(!is.na(F), !is.na(M)) |> 
-  arrange(desc(year), desc(F))
-```
-
- 
-## `pivot_wider` babynames
-  
-```{r}
-babynames |>  
-  pivot_wider(names_from = sex, values_from = n) |> 
-  mutate(maxcount = pmax(F, M, na.rm = TRUE)) |> 
-  arrange(desc(maxcount))
-```
 
  
 

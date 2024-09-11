@@ -1460,7 +1460,7 @@
     "href": "slides/2024-09-09-wrangling.html#why-dplyr",
     "title": "Working with Data in R",
     "section": "Why dplyr?",
-    "text": "Why dplyr?\nData sets are often of high volume (lots of rows) and high variety (lots of columns). This is overwhelming to visualize and analyze, so we find ourselves chopping the data set up into more manageable and meaningful chunks. We also often need to perform operations to organize and clean our data.\nThis is all possible in base R, but with dplyr, it is simple, readible, and fast."
+    "text": "Why dplyr?\nData sets are often of high volume (lots of rows) and high variety (lots of columns). This is overwhelming to visualize and analyze, so we find ourselves chopping the data set up into more manageable and meaningful chunks. We also often need to perform operations to organize and clean our data.\nThis is all possible in base R, but with dplyr, it is simple, readable, and fast."
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#some-basic-verbs",
@@ -1523,7 +1523,7 @@
     "href": "slides/2024-09-09-wrangling.html#summarize-and-sample_n",
     "title": "Working with Data in R",
     "section": "summarize() and sample_n()",
-    "text": "summarize() and sample_n()\nsummarize() collapses a data frame to a single row based on some function. It’s not very useful yet, but it will be.\nsample_n() provides you with a random sample of rows.\n\nsummarize(flights, delay = mean(dep_delay, na.rm = TRUE))\n\n# A tibble: 1 × 1\n  delay\n  &lt;dbl&gt;\n1  12.6\n\nsample_n(flights, 10)\n\n# A tibble: 10 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     7    30     1452           1455        -3     1742           1800\n 2  2013     9     1     1453           1459        -6     1610           1630\n 3  2013     9     9     2015           2030       -15     2150           2203\n 4  2013     2    17     1217           1215         2     1457           1516\n 5  2013    11    11     1922           1930        -8     2033           2049\n 6  2013    12    28     1512           1446        26     1805           1753\n 7  2013     8    18     1732           1659        33     2001           1919\n 8  2013     4     6     1914           1859        15     2259           2244\n 9  2013    12     8     2001           1600       241     2141           1719\n10  2013     7    12     2253           2159        54        8           2322\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
+    "text": "summarize() and sample_n()\nsummarize() collapses a data frame to a single row based on some function. It’s not very useful yet, but it will be.\nsample_n() provides you with a random sample of rows.\n\nsummarize(flights, delay = mean(dep_delay, na.rm = TRUE))\n\n# A tibble: 1 × 1\n  delay\n  &lt;dbl&gt;\n1  12.6\n\nsample_n(flights, 10)\n\n# A tibble: 10 × 19\n    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time\n   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;\n 1  2013     2     4     2306           2250        16     2357           2353\n 2  2013    11    12     1221           1215         6     1409           1445\n 3  2013     9    21      939            940        -1     1211           1235\n 4  2013    11    19      727            730        -3      830            844\n 5  2013     8    15      651            655        -4      942            930\n 6  2013     7     8     1015           1025       -10     1204           1222\n 7  2013     7    30     1159           1200        -1     1318           1310\n 8  2013     7    11     1743           1735         8     2018           2030\n 9  2013     5    20     2114           2117        -3     2335           2351\n10  2013     2    24     1443           1445        -2     1652           1710\n# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,\n#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,\n#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#practice-2",
@@ -1600,7 +1600,7 @@
     "href": "slides/2024-09-09-wrangling.html#practice-4",
     "title": "Working with Data in R",
     "section": "Practice",
-    "text": "Practice\nForm a chain that creates a data frame containing only carrier and the mean departure delay time. Which carriers have the highest and lowest mean delays?"
+    "text": "Practice\nForm a chain that creates a data frame containing only carrier and each carrier’s mean departure delay time. Which carriers have the highest and lowest mean delays?"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#practice-5",
@@ -1684,7 +1684,7 @@
     "href": "slides/2024-09-09-wrangling.html#left_join",
     "title": "Working with Data in R",
     "section": "left_join()",
-    "text": "left_join()\n\n\n\n\n\n\n\n\n\n\n\n\n\nleft_join(x, y, by = \"id\")\n\n# A tibble: 3 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2     \n3     3 x3      &lt;NA&gt;"
+    "text": "left_join()\n\n\n\n\n\n\n\nimage credit: https://www.garrickadenbuie.com/project/tidyexplain/\n\n\n\n\n\n\nleft_join(x, y, by = \"id\")\n\n# A tibble: 3 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2     \n3     3 x3      &lt;NA&gt;"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#left_join-1",
@@ -1698,7 +1698,7 @@
     "href": "slides/2024-09-09-wrangling.html#right_join",
     "title": "Working with Data in R",
     "section": "right_join()",
-    "text": "right_join()\n\n\n\n\n\n\n\n\n\n\n\n\n\nright_join(x, y, by = \"id\")\n\n# A tibble: 3 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2     \n3     4 &lt;NA&gt;    y4"
+    "text": "right_join()\n\n\n\n\n\n\n\nimage credit: https://www.garrickadenbuie.com/project/tidyexplain/\n\n\n\n\n\n\nright_join(x, y, by = \"id\")\n\n# A tibble: 3 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2     \n3     4 &lt;NA&gt;    y4"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#right_join-1",
@@ -1712,7 +1712,7 @@
     "href": "slides/2024-09-09-wrangling.html#full_join",
     "title": "Working with Data in R",
     "section": "full_join()",
-    "text": "full_join()\n\n\n\n\n\n\n\n\n\n\n\n\n\nfull_join(x, y, by = \"id\")\n\n# A tibble: 4 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2     \n3     3 x3      &lt;NA&gt;   \n4     4 &lt;NA&gt;    y4"
+    "text": "full_join()\n\n\n\n\n\n\n\nimage credit: https://www.garrickadenbuie.com/project/tidyexplain/\n\n\n\n\n\n\nfull_join(x, y, by = \"id\")\n\n# A tibble: 4 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2     \n3     3 x3      &lt;NA&gt;   \n4     4 &lt;NA&gt;    y4"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#full_join-1",
@@ -1726,7 +1726,7 @@
     "href": "slides/2024-09-09-wrangling.html#inner_join",
     "title": "Working with Data in R",
     "section": "inner_join()",
-    "text": "inner_join()\n\n\n\n\n\n\n\n\n\n\n\n\n\ninner_join(x, y, by = \"id\")\n\n# A tibble: 2 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2"
+    "text": "inner_join()\n\n\n\n\n\n\n\nimage credit: https://www.garrickadenbuie.com/project/tidyexplain/\n\n\n\n\n\n\ninner_join(x, y, by = \"id\")\n\n# A tibble: 2 × 3\n     id value_x value_y\n  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  \n1     1 x1      y1     \n2     2 x2      y2"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#inner_join-1",
@@ -1740,7 +1740,7 @@
     "href": "slides/2024-09-09-wrangling.html#semi_join",
     "title": "Working with Data in R",
     "section": "semi_join()",
-    "text": "semi_join()\n\n\n\n\n\n\n\n\n\n\n\n\n\nsemi_join(x, y, by = \"id\")\n\n# A tibble: 2 × 2\n     id value_x\n  &lt;dbl&gt; &lt;chr&gt;  \n1     1 x1     \n2     2 x2"
+    "text": "semi_join()\n\n\n\n\n\n\n\nimage credit: https://www.garrickadenbuie.com/project/tidyexplain/\n\n\n\n\n\n\nsemi_join(x, y, by = \"id\")\n\n# A tibble: 2 × 2\n     id value_x\n  &lt;dbl&gt; &lt;chr&gt;  \n1     1 x1     \n2     2 x2"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#semi_join-1",
@@ -1754,7 +1754,7 @@
     "href": "slides/2024-09-09-wrangling.html#anti_join",
     "title": "Working with Data in R",
     "section": "anti_join()",
-    "text": "anti_join()\n\n\n\n\n\n\n\n\n\n\n\n\n\nanti_join(x, y, by = \"id\")\n\n# A tibble: 1 × 2\n     id value_x\n  &lt;dbl&gt; &lt;chr&gt;  \n1     3 x3"
+    "text": "anti_join()\n\n\n\n\n\n\n\nimage credit: https://www.garrickadenbuie.com/project/tidyexplain/\n\n\n\n\n\n\nanti_join(x, y, by = \"id\")\n\n# A tibble: 1 × 2\n     id value_x\n  &lt;dbl&gt; &lt;chr&gt;  \n1     3 x3"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#anti_join-1",
@@ -1803,14 +1803,14 @@
     "href": "slides/2024-09-09-wrangling.html#basics-in-lubridate",
     "title": "Working with Data in R",
     "section": "basics in lubridate",
-    "text": "basics in lubridate\n\nlibrary(lubridate)\nrightnow &lt;- now()\n\nday(rightnow)\n\n[1] 8\n\nweek(rightnow)\n\n[1] 36\n\nmonth(rightnow, label=FALSE)\n\n[1] 9\n\nmonth(rightnow, label=TRUE)\n\n[1] Sep\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec\n\nyear(rightnow)\n\n[1] 2024"
+    "text": "basics in lubridate\n\nlibrary(lubridate)\nrightnow &lt;- now()\n\nday(rightnow)\n\n[1] 11\n\nweek(rightnow)\n\n[1] 37\n\nmonth(rightnow, label=FALSE)\n\n[1] 9\n\nmonth(rightnow, label=TRUE)\n\n[1] Sep\n12 Levels: Jan &lt; Feb &lt; Mar &lt; Apr &lt; May &lt; Jun &lt; Jul &lt; Aug &lt; Sep &lt; ... &lt; Dec\n\nyear(rightnow)\n\n[1] 2024"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#basics-in-lubridate-1",
     "href": "slides/2024-09-09-wrangling.html#basics-in-lubridate-1",
     "title": "Working with Data in R",
     "section": "basics in lubridate",
-    "text": "basics in lubridate\n\nminute(rightnow)\n\n[1] 14\n\nhour(rightnow)\n\n[1] 20\n\nyday(rightnow)\n\n[1] 252\n\nmday(rightnow)\n\n[1] 8\n\nwday(rightnow, label=FALSE)\n\n[1] 1\n\nwday(rightnow, label=TRUE)\n\n[1] Sun\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
+    "text": "basics in lubridate\n\nminute(rightnow)\n\n[1] 14\n\nhour(rightnow)\n\n[1] 10\n\nyday(rightnow)\n\n[1] 255\n\nmday(rightnow)\n\n[1] 11\n\nwday(rightnow, label=FALSE)\n\n[1] 4\n\nwday(rightnow, label=TRUE)\n\n[1] Wed\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#but-how-do-i-create-a-date-object",
@@ -1908,7 +1908,7 @@
     "href": "slides/2024-09-09-wrangling.html#flights",
     "title": "Working with Data in R",
     "section": "Flights",
-    "text": "Flights\n\nflights2 |&gt; \n  select(tailnum, speed) |&gt; \n  group_by(tailnum) |&gt;  \n  summarize(number = n(), \n            avg_speed = mean(speed, na.rm = TRUE)) |&gt; \n  arrange(desc(avg_speed))\n\n# A tibble: 4,044 × 3\n   tailnum number avg_speed\n   &lt;chr&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 N228UA       1      501.\n 2 N315AS       1      499.\n 3 N654UA       1      499.\n 4 N819AW       1      490.\n 5 N382HA      26      486.\n 6 N388HA      36      484.\n 7 N391HA      21      484.\n 8 N777UA       1      483.\n 9 N385HA      28      483.\n10 N392HA      13      482.\n# ℹ 4,034 more rows"
+    "text": "Flights\n\nNo pipePipe\n\n\n\nflights2 &lt;- mutate(flights, speed = distance/(air_time/60))\ntail_speed &lt;- select(flights2, tailnum, speed)\ntail_speed_grp &lt;- group_by(tail_speed, tailnum)\ntail_ave &lt;- summarize(tail_speed_grp, number = n(),\n                      avg_speed = mean(speed, na.rm = TRUE))\narrange(tail_ave, desc(avg_speed))\n\n# A tibble: 4,044 × 3\n   tailnum number avg_speed\n   &lt;chr&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 N228UA       1      501.\n 2 N315AS       1      499.\n 3 N654UA       1      499.\n 4 N819AW       1      490.\n 5 N382HA      26      486.\n 6 N388HA      36      484.\n 7 N391HA      21      484.\n 8 N777UA       1      483.\n 9 N385HA      28      483.\n10 N392HA      13      482.\n# ℹ 4,034 more rows\n\n\n\n\n\nflights |&gt; \n  mutate(speed = distance / (air_time/60)) |&gt; \n  select(tailnum, speed) |&gt; \n  group_by(tailnum) |&gt;  \n  summarize(number = n(), \n            avg_speed = mean(speed, na.rm = TRUE)) |&gt; \n  arrange(desc(avg_speed))\n\n# A tibble: 4,044 × 3\n   tailnum number avg_speed\n   &lt;chr&gt;    &lt;int&gt;     &lt;dbl&gt;\n 1 N228UA       1      501.\n 2 N315AS       1      499.\n 3 N654UA       1      499.\n 4 N819AW       1      490.\n 5 N382HA      26      486.\n 6 N388HA      36      484.\n 7 N391HA      21      484.\n 8 N777UA       1      483.\n 9 N385HA      28      483.\n10 N392HA      13      482.\n# ℹ 4,034 more rows"
   },
   {
     "objectID": "slides/2024-09-09-wrangling.html#solution-1",
