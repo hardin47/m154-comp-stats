@@ -2034,7 +2034,7 @@
     "href": "posts/2024-09-09-wrangling/index.html#agenda",
     "title": "3. Wrangling",
     "section": "Agenda ",
-    "text": "Agenda \n\nSeptember 9, 2024\n\nTidy data\nData verbs\n\n\n\nSeptember 11, 2024\n\nRelational data (_join)\npivoting \nlubridate"
+    "text": "Agenda \n\nSeptember 9 + 11, 2024\n\nTidy data\nData verbs\n\n\n\nSeptember 16, 2024\n\nRelational data (_join)\npivoting\n\n\n\nSeptember 18, 2024\n\nmapping"
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#readings",
@@ -2062,7 +2062,7 @@
     "href": "posts/2024-09-09-wrangling/index.html#slides",
     "title": "3. Wrangling",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 9/9/24 and 9/11/24.\nWU4 - verbs"
+    "text": "Slides \n\nIn class slides for both 9/9/24 and 9/11/24.\nIn class slides for both 9/16/24.\nIn class slides for both 9/18/24.\nWS4 - verbs\nWS5 - joins\nWS6 - mapping"
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#additional-resources",
@@ -2665,5 +2665,110 @@
     "title": "Wrangling Data II Pivoting and Joining",
     "section": "reprex demo",
     "text": "reprex demo\nreprex(\n  jan31 + months(0:11) + days(31)\n)\nmultiple lines of code:\nreprex({\n  jan31 &lt;- ymd(\"2021-01-31\")\n  jan31 + months(0:11) + days(31)\n})\nreprex({\n  library(lubridate)\n  jan31 &lt;- ymd(\"2021-01-31\")\n  jan31 + months(0:11) + days(31)\n})"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#preliminaries",
+    "href": "slides/2024-09-04-grammarggplot.html#preliminaries",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Preliminaries",
+    "text": "Preliminaries\n\nMake the data stand out\nFacilitate comparison\nAdd information\n\n(Nolan and Perrett, 2016)"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#preliminaries-1",
+    "href": "slides/2024-09-04-grammarggplot.html#preliminaries-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Preliminaries",
+    "text": "Preliminaries\nTufte lists two main motivational steps to working with graphics as part of an argument.\n\n“An essential analytic task in making decisions based on evidence is to understand how things work.”\nMaking decisions based on evidence requires the appropriate display of that evidence.”"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#cholera---a-picture-tells-1000-words",
+    "href": "slides/2024-09-04-grammarggplot.html#cholera---a-picture-tells-1000-words",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Cholera - a picture tells 1000 words",
+    "text": "Cholera - a picture tells 1000 words\n\nHow many aspects of this graph can you point out which are relevant to figuring out that cholera infection was coming from a single pump? Are there any distracting aspects?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#cholera---difficult-to-interpret",
+    "href": "slides/2024-09-04-grammarggplot.html#cholera---difficult-to-interpret",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Cholera - difficult to interpret",
+    "text": "Cholera - difficult to interpret\n\nWhy would the outbreak already have begun to decline before the pump handle was removed?"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#challenger---problematic",
+    "href": "slides/2024-09-04-grammarggplot.html#challenger---problematic",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Challenger - Problematic",
+    "text": "Challenger - Problematic\n\nOne of the graphics which was particularly unconvincing in trying to explain that O-rings fail in the cold."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#challenger---better",
+    "href": "slides/2024-09-04-grammarggplot.html#challenger---better",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Challenger - Better????",
+    "text": "Challenger - Better????\n\nA different graph of the Challenger information, now sorted by temperature"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#challenger---improved",
+    "href": "slides/2024-09-04-grammarggplot.html#challenger---improved",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Challenger - Improved",
+    "text": "Challenger - Improved\n\nThe graphic the engineers should have led with in trying to persuade the administrators not to launch. It is evident that the number of O-ring failures is quite highly associated with the ambient temperature. Note the vital information on the x-axis associated with the large number of launches at warm temperatures that had zero O-ring failures.Note that the “improved” Challenger graphic was made by Tufte, not by the engineers working on the problem at the time."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#fonts-matter",
+    "href": "slides/2024-09-04-grammarggplot.html#fonts-matter",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Fonts matter",
+    "text": "Fonts matter"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-on-plotting-specific",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-on-plotting-specific",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice on plotting, specific",
+    "text": "Advice on plotting, specific\n\nAvoid having other graph elements interfere with data\nUse visually prominent symbols\nAvoid over-plotting (One way to avoid over plotting: jitter the values)\nDifferent values of data may obscure each other\nInclude all or nearly all of the data\nFill data region"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#advice-on-plotting-general",
+    "href": "slides/2024-09-04-grammarggplot.html#advice-on-plotting-general",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice on plotting, general",
+    "text": "Advice on plotting, general\n\nEliminate superfluous material\nFacilitate comparisons\nChoose the best scale\nMake the plot data / information rich\nUse good captions, alt text, conclusions"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#simplify",
+    "href": "slides/2024-09-04-grammarggplot.html#simplify",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Simplify",
+    "text": "Simplify\n\nimage credit: https://www.darkhorseanalytics.com/portfolio-data-looks-better-naked"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#simplified",
+    "href": "slides/2024-09-04-grammarggplot.html#simplified",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Simplified",
+    "text": "Simplified\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimage credit: https://www.darkhorseanalytics.com/portfolio-data-looks-better-naked"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#nyt-9721",
+    "href": "slides/2024-09-04-grammarggplot.html#nyt-9721",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "NYT 9/7/21",
+    "text": "NYT 9/7/21\n\nOne in 5,000, NYT, D. Leonhardt 9/7/21; image credit: https://www.nytimes.com/2021/09/07/briefing/risk-breakthrough-infections-delta.html"
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#worth-a-mention",
+    "href": "slides/2024-09-04-grammarggplot.html#worth-a-mention",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Worth a Mention",
+    "text": "Worth a Mention\n\n\nW.E.B. Du Bois (1868-1963)\n\nsociologist\ndata scientist]\n\n\n\n\n\n\n\nimage credit: wikipedia\n\n\n\n\n\n\nIn 1900 Du Bois contributed approximately 60 data visualizations to an exhibit at the Exposition Universelle in Paris, an exhibit designed to illustrate the progress made by African Americans since the end of slavery (only 37 years prior, in 1863)."
+  },
+  {
+    "objectID": "slides/2024-09-04-grammarggplot.html#beautiful-informative-graphics",
+    "href": "slides/2024-09-04-grammarggplot.html#beautiful-informative-graphics",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Beautiful & Informative Graphics",
+    "text": "Beautiful & Informative Graphics\nhttps://drawingmatter.org/w-e-b-du-bois-visionary-infographics/"
   }
 ]

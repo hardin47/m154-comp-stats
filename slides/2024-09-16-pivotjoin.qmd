@@ -60,7 +60,7 @@ knitr::include_graphics(c("../images/pivotlonger.png", "../images/pivotwider.png
   
 ## `pivot_longer`
   
-`pivot_longer` will be demonstrated using datasets from GapMinder.
+`pivot_longer` will be demonstrated using datasets from <a href = "https://www.gapminder.org/" target = "_blank">GapMinder</a>.
 
 `litF` represents country, year, and <mark>female literacy rate</mark>. 
 
@@ -158,7 +158,7 @@ babynames |>
 knitr::include_graphics("../images/dplyr-joins.png")
 ```
 
-See the Posit cheatsheets on <a href = "https://rstudio.github.io/cheatsheets/html/data-transformation.html/" target = "_blank">wrangling & joining</a> and <a href = "https://rstudio.github.io/cheatsheets/html/tidyr.html" target = "_blank">pivoting</a>.
+See the Posit cheatsheets on <a href = "https://rstudio.github.io/cheatsheets/html/data-transformation.html" target = "_blank">wrangling & joining</a> and <a href = "https://rstudio.github.io/cheatsheets/html/tidyr.html" target = "_blank">pivoting</a>.
 
  
   
@@ -645,7 +645,7 @@ penguins |>
 
 -->
  
-
+<!--
 
 ## **lubridate**
   
@@ -779,3 +779,7 @@ reprex({
   jan31 + months(0:11) + days(31)
 })
 ```
+
+-->
+
+
