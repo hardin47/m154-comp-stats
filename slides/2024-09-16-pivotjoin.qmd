@@ -467,7 +467,7 @@ dates |>
 
  
 
-## Putting it altogether
+## Putting it all together
 
 ```{r}
 professions |> 

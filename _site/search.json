@@ -2062,7 +2062,7 @@
     "href": "posts/2024-09-09-wrangling/index.html#slides",
     "title": "3. Wrangling",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 9/9/24 and 9/11/24.\nIn class slides for both 9/16/24.\nIn class slides for both 9/18/24.\nWS4 - verbs\nWS5 - joins\nWS6 - mapping"
+    "text": "Slides \n\nIn class slides for both 9/9/24 and 9/11/24.\nIn class slides for 9/16/24.\nIn class slides for 9/18/24.\nWS4 - verbs\nWS5 - joins\nWS6 - mapping"
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#additional-resources",
@@ -2770,5 +2770,12 @@
     "title": "Data Viz & Introduction to ggplot2",
     "section": "Beautiful & Informative Graphics",
     "text": "Beautiful & Informative Graphics\nhttps://drawingmatter.org/w-e-b-du-bois-visionary-infographics/"
+  },
+  {
+    "objectID": "slides/2024-09-16-pivotjoin.html#putting-it-all-together",
+    "href": "slides/2024-09-16-pivotjoin.html#putting-it-all-together",
+    "title": "Wrangling Data II Pivoting and Joining",
+    "section": "Putting it all together",
+    "text": "Putting it all together\n\nprofessions |&gt; \n  left_join(dates, by = \"name\") |&gt; \n  left_join(works, by = \"name\")\n\n# A tibble: 10 × 5\n   name               profession                 birth_year death_year known_for\n   &lt;chr&gt;              &lt;chr&gt;                           &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    \n 1 Ada Lovelace       Mathematician                      NA         NA first co…\n 2 Marie Curie        Physicist and Chemist              NA         NA theory o…\n 3 Janaki Ammal       Botanist                         1897       1984 hybrid s…\n 4 Chien-Shiung Wu    Physicist                        1912       1997 confim a…\n 5 Katherine Johnson  Mathematician                    1918       2020 calculat…\n 6 Rosalind Franklin  Chemist                          1920       1958 &lt;NA&gt;     \n 7 Vera Rubin         Astronomer                       1928       2016 existenc…\n 8 Gladys West        Mathematician                    1930         NA mathemat…\n 9 Flossie Wong-Staal Virologist and Molecular …       1947       2020 first sc…\n10 Jennifer Doudna    Biochemist                       1964         NA one of t…"
   }
 ]

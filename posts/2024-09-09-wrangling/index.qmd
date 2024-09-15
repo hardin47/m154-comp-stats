@@ -75,9 +75,9 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-09-verbs" target = "_blank">In class slides</a> for both 9/9/24 and 9/11/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-16-pivotjoin" target = "_blank">In class slides</a> for both 9/16/24.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-16-pivotjoin" target = "_blank">In class slides</a> for 9/16/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-18-map" target = "_blank">In class slides</a> for both 9/18/24.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-18-map" target = "_blank">In class slides</a> for 9/18/24.
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws4_m154_f24_verbs.pdf" target = "_blank">WS4 - verbs</a>
 
