@@ -312,8 +312,9 @@ library(mosaic)
 library(mosaicData)
 SAT |> subset(frac > 50) |>
   ggplot(aes(x = state, y =  math)) + 
-  xlab("state") + theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  ylab("average SAT score") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(x = "state",
+       y = "average SAT score") + 
   geom_point() + 
   geom_linerange(aes(x = state, ymin=0, ymax = math))
 ```
@@ -345,8 +346,8 @@ SwimRecords |>
   ggplot(aes(x = year, y = time, color = sex)) + 
   geom_point() + 
   geom_line() +
-  ylab("World Record Time (seconds)") +
-  ggtitle("100m Swimming World Records")
+  labs(title = "100m Swimming World Records",
+       y = "World Record Time (seconds)")
 ```
 :::
 
@@ -376,7 +377,7 @@ HELPrct |> group_by(substance) |>
   geom_text(aes(y = lab.ypos, label = count), color = "white") +
   scale_fill_brewer(palette = "Greens") +
   theme_void() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 :::
 
@@ -448,7 +449,7 @@ head(Births78) |>
 ggplot(
   data = Births78, aes(x = date, y = births)) + 
   geom_point() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -471,7 +472,7 @@ Two Questions:
 ggplot(
   data = Births78, aes(x = date, y = births)) + 
   geom_point() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -498,7 +499,7 @@ ggplot(
 ggplot(
   data = Births78, aes(x = date, y = births)) + 
   geom_point() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -510,12 +511,12 @@ ggplot(
 ggplot(data = Births78, 
        aes(x = date, y = births)) + 
   geom_point() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 
 ggplot() +
   geom_point(data = Births78, 
              aes(x = date, y = births)) +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 :::
@@ -582,7 +583,7 @@ ggplot(data = Births78,
 ```{r, echo=FALSE}
 ggplot(data = Births78, aes(x = date, y = births)) + 
   geom_point() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -594,7 +595,7 @@ ggplot(data = Births78, aes(x = date, y = births)) +
 ggplot(data = Births78, 
        aes(x = date, y = births)) + 
   geom_point() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 :::
@@ -608,7 +609,7 @@ ggplot(data = Births78,
 ```{r, echo=FALSE}
 ggplot(data = Births78) +
   geom_point(aes(x = date, y = births, color = wday)) +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -622,7 +623,7 @@ ggplot(data = Births78) +
 ```{r, echo=FALSE}
 ggplot(data = Births78) +
   geom_point(aes(x = date, y = births, color = wday)) +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -640,7 +641,7 @@ What has changed?
 ```{r, echo=FALSE}
 ggplot(data = Births78) +
   geom_point(aes(x = date, y = births, color = wday)) +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -654,7 +655,7 @@ ggplot(data = Births78,
            y = births, 
            color = wday)) +
   geom_point() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 ::::
@@ -666,7 +667,7 @@ ggplot(data = Births78,
 ```{r, echo=FALSE}
 ggplot(data = Births78) +
   geom_line(aes(x = date, y = births, color = wday)) +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 ::::
@@ -678,7 +679,7 @@ ggplot(data = Births78) +
 ```{r, echo=FALSE}
 ggplot(data = Births78) +
   geom_line(aes(x = date, y = births, color = wday)) +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -694,7 +695,7 @@ ggplot(data = Births78,
              y = births,
              color = wday)) +
   geom_line() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 :::
@@ -709,7 +710,7 @@ ggplot(data = Births78,
        aes(x = date, y = births, color = wday)) + 
   geom_point() + 
   geom_line() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 ::::
@@ -724,7 +725,7 @@ ggplot(data = Births78,
        aes(x = date, y = births, color = wday)) + 
   geom_point() + 
   geom_line() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -742,7 +743,7 @@ ggplot(data = Births78,
            color = wday)) + 
   geom_point() +  
   geom_line() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 
@@ -764,7 +765,7 @@ are *below* and the lines are *above*.
 ggplot(data = Births78,
        aes(x = date, y = births, color = "navy")) + 
   geom_point() +
-  ggtitle("US Births in 1978") 
+  labs(title = "US Births in 1978") 
 ```
 
 
@@ -777,7 +778,7 @@ ggplot(data = Births78,
 ggplot(data = Births78,
        aes(x = date, y = births, color = "navy")) + 
   geom_point()  +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 
@@ -798,7 +799,7 @@ it outside the `aes()` designation:
 ggplot(data = Births78,
        aes(x = date, y = births)) +   # map variables 
   geom_point(color = "navy")      +   # set attributes
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 
@@ -815,7 +816,7 @@ ggplot(data = Births78,
        aes(x = date, y = births)) + 
   geom_line(aes(color = wday)) +       
   geom_point(color = "navy")  +          
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 ::::
@@ -830,7 +831,7 @@ ggplot(data = Births78,
            y = births)) + 
   geom_line(aes(color = wday)) +       
   geom_point(color = "navy") +           
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -844,7 +845,7 @@ ggplot(data = Births78,
            y = births)) + 
   geom_line(aes(color = wday)) +      
   geom_point(color = "navy")  +         
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 
@@ -892,7 +893,7 @@ ggplot(data = Births78,
            y = births, 
            fill = wday)) + 
   geom_area() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 
 :::
@@ -906,7 +907,7 @@ ggplot(data = Births78,
 ggplot(data = Births78,
        aes(x = date, y = births, fill = wday)) + 
   geom_area() +
-  ggtitle("US Births in 1978")
+  labs(title = "US Births in 1978")
 ```
 :::
 
@@ -970,7 +971,7 @@ HELP_data <- left_join(HELPrct, HELPfull, by = c( "id" = "ID")) |>
 ggplot(data = HELP_data,
        aes(x = substance)) + 
   geom_bar() +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 :::
 
@@ -983,7 +984,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data,
        aes(x = substance)) + 
   geom_bar() +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 
 
@@ -1004,7 +1005,7 @@ ggplot(data = HELP_data,
        aes(x = substance, 
            fill = children)) + 
   geom_bar() +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 :::
 
@@ -1017,7 +1018,7 @@ ggplot(data = HELP_data,
        aes(x = substance,
            fill = children)) + 
   geom_bar() +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 
 :::
@@ -1032,8 +1033,8 @@ ggplot(data = HELP_data,
        aes(x = substance,
            fill = children)) + 
   geom_bar(position = "fill") +
-  scale_y_continuous("percent") +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial",
+       y = "actually, percent")
 ```
 :::
 
@@ -1046,8 +1047,8 @@ ggplot(HELP_data,
        aes(x = substance,
            fill = children)) + 
   geom_bar(position = "fill") +
-  ylab("actually, percent") +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial",
+       y = "actually, percent")
 ```
 
 :::
@@ -1062,7 +1063,7 @@ ggplot(HELP_data,
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_histogram() +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 :::
 
@@ -1074,7 +1075,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_histogram() +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 
 
@@ -1097,7 +1098,7 @@ really choose our own.
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_histogram(binwidth=2) +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 
 :::
@@ -1110,7 +1111,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_histogram(binwidth=2) +
-  ggtitle("HELP trial")
+  labs(title = "HELP trial")
 ```
 
 :::
@@ -1125,7 +1126,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_freqpoly(binwidth=2) +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 ```{r}
@@ -1135,7 +1136,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_density() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 ## Selecting stat and geom manually
@@ -1152,7 +1153,7 @@ Every geom comes with a default stat
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_line(stat = "density") +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1170,7 +1171,7 @@ Every stat comes with a default geom, every geom with a default stat
 ggplot(data = HELP_data,
        aes(x = age)) + 
   stat_density(geom = "line") +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 ## More combinations
@@ -1183,7 +1184,7 @@ ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_point(stat = "bin", binwidth=3) + 
   geom_line(stat = "bin", binwidth=3)  +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1196,7 +1197,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data,
        aes(x = age)) + 
   geom_area(stat = "bin", binwidth=3)  +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1213,7 +1214,7 @@ ggplot(data = HELP_data,
              binwidth=3, 
              aes(size = ..count..)) +
   geom_line(stat = "bin", binwidth=3) +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1223,7 +1224,7 @@ ggplot(data = HELP_data,
 ```{r, fig.height=1.5}
 ggplot(data = HELP_data,
        aes(x = i1)) + geom_histogram() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1234,7 +1235,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data,
        aes(x = i1)) + 
   geom_density() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1245,7 +1246,7 @@ ggplot(data = HELP_data,
 ggplot(data = HELP_data, 
        aes(x = i1)) + 
   geom_area(stat = "density") +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1265,7 +1266,7 @@ ggplot(data = HELP_data,
            color = substance,
            linetype = children)) + 
   geom_line(stat = "density") +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1279,7 +1280,7 @@ ggplot(data = HELP_data,
        aes(x = i1, color = substance)) + 
   geom_line(stat = "density") + 
   facet_grid( . ~ children ) +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1291,7 +1292,7 @@ ggplot(data = HELP_data,
        aes(x = i1, color = substance)) + 
   geom_line(stat = "density") + 
   facet_grid( children ~ . ) +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1306,7 +1307,7 @@ additional `x` variable.
 ggplot(data = HELP_data,
        aes(x = substance, y = age, color = children)) + 
   geom_boxplot() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1327,7 +1328,7 @@ ggplot(data = HELP_data,
            color = children)) + 
   geom_boxplot() +
   coord_flip() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 :::
 
@@ -1342,7 +1343,7 @@ ggplot(data = HELP_data,
            color = children)) + 
   geom_boxplot() +
   coord_flip() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 :::
 
@@ -1361,7 +1362,7 @@ ggplot(data = HELP_data,
            color = children)) + 
   geom_boxplot() +
   coord_trans(y = "exp") +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1380,7 +1381,7 @@ ggplot(data = HELP_data,
            y = age, 
            color = children)) + 
   geom_boxplot(position = position_dodge(width=1)) +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1462,7 +1463,7 @@ ggplot(data = HELP_data,
   geom_boxplot(outlier.size = 0) +
   geom_point(alpha = .6) +
   coord_flip() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 :::
 
@@ -1476,7 +1477,7 @@ ggplot(data = HELP_data,
   geom_boxplot(outlier.size = 0) +
   geom_jitter(alpha = .6, width=0.1) +
   coord_flip() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 :::
@@ -1494,7 +1495,7 @@ ggplot(data = HELP_data,
   geom_point(alpha = .6, 
              position = position_jitter(width = .1, height = 0)) +
   coord_flip() +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1536,7 +1537,7 @@ ggplot(data = HELP_data,
                  fill = children), 
              position = position_jitterdodge(dodge.width = 1, jitter.width = 0.1), 
              size = 0.5) +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
@@ -1551,7 +1552,7 @@ ggplot(data = HELP_data, aes(x = substance, y = age, color = children)) +
              alpha = .5, 
              position = position_jitterdodge(dodge.width = 1, jitter.width = 0.2)) + 
   facet_wrap(~homeless) +
-  ggtitle("HELP clinical trial at detoxification unit")
+  labs(title = "HELP clinical trial at detoxification unit")
 ```
 
 
