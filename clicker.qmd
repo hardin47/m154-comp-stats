@@ -641,3 +641,143 @@ GDP |>
 
 ---
 
+35. Response to stimulus (in ms) after only 3 hrs of sleep for 9 days. You want to make a plot with the subject's reaction time (y-axis) vs the number of days of sleep restriction (x-axis) using the following `ggplot()` code. Which dataframe should you use?[^35]
+    a. use raw data
+    b. use `pivot_wider()` on raw data
+    c. use `pivot_longer()` on raw data
+    
+```{r}
+#| echo: true
+#| eval: false
+ggplot(___, aes(x = ___, y = ___, color = ___)) + 
+  geom_line()
+```
+
+```{r}
+#| echo: false
+sleep_wide <- readr::read_csv("https://mac-stat.github.io/data/sleep_wide.csv")
+sleep_wide
+```
+
+[^35]: c. use `pivot_longer()` on raw data.  The reference to the study is: Gregory Belenky, Nancy J. Wesensten, David R. Thorne, Maria L. Thomas, Helen C. Sing, Daniel P. Redmond, Michael B. Russo and Thomas J. Balkin (2003) Patterns of performance degradation and restoration during sleep restriction and subsequent recovery: a sleep dose-response study. Journal of Sleep Research 12, 1–12.
+
+---
+
+```{r}
+#| echo: true
+sleep_long <- sleep_wide %>%
+  pivot_longer(cols = -Subject,
+               names_to = "day",
+               names_prefix = "day_",
+               values_to = "reaction_time")
+
+sleep_long
+```
+
+---
+
+36. Consider band members from the Beatles and the Rolling Stones.  Who is removed in a `right_join()`?[^36]
+   a. Mick
+   b. John
+   c. Paul
+   d. Keith
+   e. Impossible to know
+
+```{r}
+#| echo: true
+#| eval: false
+band_members |> 
+  right_join(band_instruments, by = "name")
+```
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: true
+band_members
+```
+:::
+
+:::{.column width="50%"}
+```{r}
+#| echo: true
+band_instruments
+```
+:::
+::::
+
+[^36]: a. Mick
+
+---
+
+37. Consider band members from the Beatles and the Rolling Stones.  Which variables are removed in a `right_join()`?[^37]
+   a. `name`
+   b. `band`
+   c. `plays`
+   d. none of them
+
+```{r}
+#| echo: true
+#| eval: false
+band_members |> 
+  right_join(band_instruments, by = "name")
+```
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: true
+band_members
+```
+:::
+
+:::{.column width="50%"}
+```{r}
+#| echo: true
+band_instruments
+```
+:::
+::::
+
+[^37]: d. none of them (the default is to retain all the variables)
+
+---
+
+38. What happens to Mick's `plays` variable in a `full_join()`?[^38]
+   a. Mick is removed
+   b. changes to guitar
+   c. changes to bass
+   d. `NA`
+   e. `NULL`
+
+```{r}
+#| echo: true
+#| eval: false
+band_members |> 
+  full_join(band_instruments, by = "name")
+```
+
+:::: {.columns}
+::: {.column width="50%"}
+```{r}
+#| echo: true
+band_members
+```
+:::
+
+:::{.column width="50%"}
+```{r}
+#| echo: true
+band_instruments
+```
+:::
+::::
+
+[^38]: d. `NA` (it would be `NULL` in **SQL**)
+---
+
+
+
+
+
+
