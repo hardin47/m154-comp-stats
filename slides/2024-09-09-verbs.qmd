@@ -75,8 +75,13 @@ knitr::include_graphics("../images/tidyverse.png")
 Hosted online:
 
 ```{r load_from_file, eval = TRUE}
-movies <- read_csv("http://pages.pomona.edu/~jsh04747/courses/math58/Math58Data/movies2.csv")
+movies <- read.csv("http://pages.pomona.edu/~jsh04747/courses/math58/Math58Data/movies2.csv")
 ```
+
+
+```{r}
+```
+
 
 Hosted locally:
 ```{r load_local, eval = FALSE}

@@ -776,6 +776,73 @@ band_instruments
 [^38]: d. `NA` (it would be `NULL` in **SQL**)
 ---
 
+39. Consider the `addTen()` function.  The following output is a result of which `map_*()` call?[^39]
+   a. `map(c(1,4,7), addTen)`
+   b. `map_dbl(c(1,4,7), addTen)`
+   c. `map_chr(c(1,4,7), addTen)`
+   d. `map_lgl(c(1,4,7), addTen)`
+   
+```{r}
+#| echo: true
+addTen <- function(wow) {
+  return(wow + 10)
+}
+```
+```{r}
+#| echo: false
+map_chr(c(1,4,7), addTen)
+```
+
+[^39]: c. `map_chr(c(1,4,7), addTen)` because the output is in quotes, the values are strings, not numbers.
+
+---
+
+40. Which of the following input is allowed?[^40]
+    a. `map(c(1, 4, 7), addTen)`
+    b. `map(list(1, 4, 7), addTen)`
+    c. `map(data.frame(a=1, b=4, c=7), addTen)`
+    d. some of the above
+    e. all of the above
+
+[^40]: e. all of the above.  The `map()` function allows vectors, lists, and data frames as input.
+
+---
+
+41. Which of the following produces a different output?[^41]
+    a. `map(c(1, 4, 7), addTen)`
+    b. `map(c(1, 4, 7), ~addTen(.x))`
+    c. `map(c(1, 4, 7), ~addTen)`
+    d. `map(c(1, 4, 7), function(hi) (hi + 10) )`
+    e. `map(c(1, 4, 7), ~(.x + 10))`
+    
+[^41]: c. `map(c(1, 4, 7), ~addTen)`.  The `~` acts on functions that do not have their own name or that are defined by `function(...)`.  By adding the argument `(.x)` we've expanded the `addTen()` function, and so it needs a `~`.  The `addTen()` function all alone does not use a `~`.
+
+---
+
+42. What will the following code output?[^42]
+    a. 3 random normals
+    b. 6 random normals
+    c. 18 random normals
+    
+```{r}
+input <- tibble::tribble(
+  ~ n, ~ mean, ~ sd,
+   1,     1,    3,
+   2,    3,   1,
+   3,   47,  10
+)
+```
+```{r}
+#| echo: true
+#| eval: false
+input
+
+input |> 
+  pmap(rnorm)
+```
+[^42]: b. 6 random normals (1 with mean 1, sd 3; 2 with mean 3, sd 1; 3 with mean 47, sd 10)
+
+---
 
 
 

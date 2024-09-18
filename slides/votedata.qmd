@@ -1,0 +1,74 @@
+---
+title: "Creating Voting Data"
+format: html
+execute: 
+  warning: false
+  message: false
+---
+
+
+```{r}
+library(tidyverse)
+```
+
+
+Based on the 2020 census: https://www.archives.gov/electoral-college/allocation
+
+
+```{r}
+electoral_college <- read_csv("../data/electoral_college.csv") |> 
+  separate_wider_delim(state, 
+                       delim = " - ", 
+                       names = c("state", "evotes")) |> 
+  #mutate(evotes = as.numeric(str_extract(evotes, "[0-9]+")))
+  mutate(evotes = parse_number(evotes)) |> 
+  rbind(data.frame(state = c("ME-1", "ME-2", "NE-2"),
+                   evotes = c(1,1,1))) |> 
+  mutate(evotes = case_when(
+    state == "Maine" ~ 2,
+    state == "Nebraska" ~ 4,
+    TRUE ~ evotes
+  ))
+
+electoral_college
+```
+
+
+https://github.com/fivethirtyeight/data/blob/master/polls/2024-averages/presidential_general_averages_2024-09-12_uncorrected.csv
+
+```{r}
+pres_polls <- read_csv("../data/presidential_general_averages.csv") |> 
+  filter(state != "National") |> 
+  mutate(pct = ifelse(is.na(pct_trend_adjusted), pct_estimate,
+                      pct_trend_adjusted)) |> 
+  select(candidate, date, state, pct) |> 
+  pivot_wider(names_from = candidate, values_from = pct) |> 
+  mutate(Trump = ifelse(is.na(Trump), `Donald Trump`, Trump)) |> 
+  mutate(Biden = ifelse(is.na(Biden), `Joseph R. Biden Jr.`, Biden)) |> 
+  select(date, state, Harris, Trump, Biden) |> 
+  mutate(Harris = ifelse(is.na(Harris), Biden, Harris)) |> 
+  select(-Biden) |> 
+  mutate(date = lubridate::parse_date_time(date, orders = "mdy")) |> 
+  arrange(state, desc(date)) |> 
+  group_by(state) |> 
+  slice_head(n = 1)
+  
+```
+
+
+```{r}
+sim_data <- pres_polls |> 
+  full_join(electoral_college, by = "state")
+
+sim_data
+```
+
+Need 270 to win!
+
+```{r}
+sim_data |> 
+  ungroup() |> 
+  summarize(sum(evotes))
+```
+
+
