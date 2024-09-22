@@ -1,0 +1,82 @@
+---
+title: "4. Simulating"
+description: |
+  Simulating scenarios, simulating datasets, simulating random variables.
+author:
+  - name: Johanna Hardin
+    url: https://m154-comp-stats.netlify.app/  
+date: 2024-09-23
+citation: false
+embed-resources: true
+execute: 
+  message: false
+  warning: false
+image: ../../images/map_frosting.png
+---
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters using a lasso on other monsters and their data to indicate wrangling.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/map_frosting.png")
+```
+
+
+
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+
+### September 23, 2024
+
+1. Why simulate?
+2. What makes a good simulation?
+3. Examples
+
+
+
+### September 25, 2024
+
+1. Bias in modeling
+2. Simulating statistical inference
+
+## Readings <i class="fas fa-book-open"></i> 
+
+* Class notes: <a href = "https://st47s.com/Math154/Notes/04-simulating.html" target= "_blank">Simulating</a>
+
+* Baumer, Horton, and Kaplan (2021), <a href = "https://mdsr-book.github.io/mdsr3e/07-iteration.html" target = "_blank">Iteration (Chp 7)</a> in Modern Data Science for R.
+
+
+## Reflection questions <i class="fas fa-lightbulb"></i>
+
+* What are some reasons to simulate?
+* What makes a good simulation?
+* What does "90%" mean when describing a 90% confidence interval?   (That is, 90% of what?)
+* What does a type I error rate mean when doing hypothesis testing?  (That is, rate of what?)
+* The p-value is the probability of obtaining the observed data or more extreme if the null hypothesis is true.  If probability is interpreted in the long-run-frequency definition, what is happening repeatedly  so as to conceptualize the probability of something happening?
+
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+* How can we use simulations to understand algorithmic bias or other types of problems in modeling?
+
+* What does it mean for two different populations to have different feature distributions?
+
+## Slides <i class="fas fa-desktop"></i> 
+
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-23-simulating" target = "_blank">In class slides</a> for both 9/23/24 and 9/25/24.
+
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws7_m154_f24_sim.pdf" target = "_blank">WS7 - Simulating</a>
+
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws8_m154_f24_simCI.pdf" target = "_blank">WS8 - Simulating CIs</a>
+
+## Additional Resources <i class="fas fa-laptop"></i> 
+
+
+* Posit <a href = "https://posit.co/resources/cheatsheets/" target = "_blank">cheatsheets</a> -- there is <a href = "https://rstudio.github.io/cheatsheets/html/purrr.html" target = "_blank">one on **purrr**</a>!
+
+* Simulating who would be in the [first GOP debate](http://www.nytimes.com/interactive/2015/07/21/upshot/election-2015-the-first-gop-debate-and-the-role-of-chance.html)  (NYT 7/29/15)
+
+* Blog by Aaron Roth, [Algorithmic Unfairness Without Any Bias Baked In](http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html).  
+
+* [Simulating linear models](http://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm) from the ISCAM applets.
+
+
+
+
+

@@ -6,12 +6,13 @@ author:
   - name: Jo Hardin
     url: https://m154-comp-stats.netlify.app/
 date: 09-04-2024
-draft: false
-output:
-  distill::distill_article:
-    self_contained: false
+citation: false
+embed-resources: true
+execute: 
+  message: false
+  warning: false
+image: ../../images/ggplot2_masterpiece.png
 ---
-
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Three monsters are painting data viz portraits.  Two of the monsters carry boxes labeled `themes` and `geoms`.  All of the data viz portraits look like ggplot figures.", preview = TRUE, echo = FALSE}
 knitr::include_graphics("../../images/ggplot2_masterpiece.png")

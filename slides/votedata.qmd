@@ -58,17 +58,46 @@ pres_polls <- read_csv("../data/presidential_general_averages.csv") |>
 
 ```{r}
 sim_data <- pres_polls |> 
-  full_join(electoral_college, by = "state")
+  full_join(electoral_college, by = "state") |> 
+  ungroup()
 
 sim_data
 ```
 
+
+
+```{r}
+election <- function(i, data) {
+  rand_number <- runif(nrow(data)) * 100
+  data |> 
+    cbind(rand_number) |> 
+    mutate(state_winner = case_when(
+      rand_number < Harris ~ "Harris",
+      rand_number < Harris + Trump ~ "Trump",
+      TRUE ~ "Third Party")) |> 
+    group_by(state_winner) |> 
+    summarize(votes = sum(evotes)) |> 
+    mutate(simulation = paste0("simulation", i))
+}
+```
+
+
 Need 270 to win!
 
 ```{r}
-sim_data |> 
+election(47, sim_data)
+
+map(1:1000, election, data = sim_data) |> 
+  list_rbind() |> 
+  group_by(simulation) |> 
+  slice_max(votes) |> 
   ungroup() |> 
-  summarize(sum(evotes))
+  mutate(winner = case_when(
+    votes >=270 ~ state_winner,
+    TRUE ~ "no winner"
+  )) |> 
+  select(winner) |> 
+  table()
 ```
 
 

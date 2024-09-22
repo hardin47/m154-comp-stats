@@ -6,7 +6,8 @@ format:
     embed-resources: true
     code-line-numbers: true
     scrollable: true
-
+    header-includes: |
+      <link href="slides.css" rel="stylesheet">
 ---
 
 ```{=html}

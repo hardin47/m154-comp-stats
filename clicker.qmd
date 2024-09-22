@@ -39,7 +39,7 @@ library(tidyverse)
 
 ---
 
-1. The reason to take random samples is:[^1]
+(@) The reason to take random samples is:[^1]
    (a) to make cause and effect conclusions 
    (b) to get as many variables as possible
    (c) it's easier to collect a large dataset
@@ -50,7 +50,7 @@ library(tidyverse)
 
 ---
 
-2. The reason to allocate/assign explanatory variables is:[^2]
+(@) The reason to allocate/assign explanatory variables is:[^2]
    (a) to make cause and effect conclusions 
    (b) to get as many variables as possible
    (c) it's easier to collect a large dataset
@@ -61,18 +61,18 @@ library(tidyverse)
 
 ---
 
-3. Approximately how big is a tweet?[^3]
-   (a) 0.01Kb
-   (b) 0.1Kb
-   (c) 1Kb
-   (d) 100Kb
-   (e) 1000Kb = 1Mb
+(@) Approximately how big is a tweet?[^3]  
+    (a) 0.01Kb
+    (b) 0.1Kb
+    (c) 1Kb
+    (d) 100Kb
+    (e) 1000Kb = 1Mb
 
 [^3]: b. about 0.1Kb.  Turns out that 3.5 billion tweets * 0.1Kb = 350Gb (0.35 Tb).  My laptop is pretty good, and it has 36 Gb of memory (RAM) and 4 Tb of storage.  It would not be able to work with 3.5 billion tweets.
 
 ---
 
-4. $R^2$ measures:[^4]
+(@) $R^2$ measures:[^4]
    (a) the proportion of variability in vote margin as explained by tweet share.
    (b) the proportion of variability in tweet share as explained by vote margin.
    (c) how appropriate the linear part of the linear model is.
@@ -82,7 +82,7 @@ library(tidyverse)
 
 ---
 
-5. R / R Studio / Quarto[^5]
+(@) R / R Studio / Quarto[^5]
     (a) all good
     (b) started, progress is slow and steady
     (c) started, very stuck
@@ -93,7 +93,7 @@ library(tidyverse)
 
 ---
 
-6. Git / GitHub[^6]
+(@) Git / GitHub[^6]
     (a) all good
     (b) started, progress is slow and steady
     (c) started, very stuck
@@ -104,7 +104,7 @@ library(tidyverse)
 
 ---
 
-7. Which of the following includes talking to the remote version of GitHub?[^7]
+(@) Which of the following includes talking to the remote version of GitHub?[^7]
     (a) changing your name (updating the YAML)
     (b) committing the file(s)
     (c) pushing the file(s)
@@ -115,7 +115,7 @@ library(tidyverse)
 
 ---
 
-8. What is the error?[^8]
+(@) What is the error?[^8]
     (a) poor assignment operator
     (b) unmatched quotes
     (c) improper syntax for function argument
@@ -132,7 +132,7 @@ shup2 <-- "Hello to you!"
 
 ---
 
-9. What is the error?[^9]
+(@) What is the error?[^9]
     (a) poor assignment operator
     (b) unmatched quotes
     (c) improper syntax for function argument
@@ -149,7 +149,7 @@ shup2 <-- "Hello to you!"
 
 ---
 
-10. What is the error?[^10]
+(@) What is the error?[^10]
     (a) poor assignment operator
     (b) unmatched quotes
     (c) improper syntax for function argument
@@ -166,7 +166,7 @@ shup4 <-  "Hello to you!
 
 ---
 
-11. What is the error?[^11]
+(@) What is the error?[^11]
     (a) poor assignment operator
     (b) unmatched quotes
     (c) improper syntax for function argument
@@ -183,7 +183,7 @@ shup5 <-  date()
 
 ---
 
-12. What is the error?[^12]
+(@) What is the error?[^12]
     (a) poor assignment operator
     (b) unmatched quotes
     (c) improper syntax for function argument
@@ -200,7 +200,7 @@ shup6 <-  sqrt 10
 
 ---
 
-13. Do you keep a calendar / schedule / planner?[^13]
+(@) Do you keep a calendar / schedule / planner?[^13]
      (a) Yes
      (b) No
      
@@ -208,7 +208,7 @@ shup6 <-  sqrt 10
 
 ---
 
-14.  Do you keep a calendar / schedule / planner?  If you answered "Yes" ...[^14]
+(@) Do you keep a calendar / schedule / planner?  If you answered "Yes" ...[^14]
      (a)	Yes, on Google Calendar
      (b)	Yes, on Calendar for macOS
      (c)	Yes, on Outlook for Windows
@@ -220,7 +220,7 @@ shup6 <-  sqrt 10
 
 ---
 
-15. Where should I put things I've created for the HW (e.g., data, .ics file, etc.)[^15]
+(@) Where should I put things I've created for the HW (e.g., data, .ics file, etc.)[^15]
     (a) Upload into remote GitHub directory
     (b) In the local folder which also has the R project
     (c) In my Downloads
@@ -231,7 +231,7 @@ shup6 <-  sqrt 10
 
 ---
 
-16. The goal of making a figure is...[^16]
+(@) The goal of making a figure is...[^16]
      (a)  To draw attention to your work.
      (b) To facilitate comparisons.
      (c) To provide as much information as possible.
@@ -240,7 +240,7 @@ shup6 <-  sqrt 10
 
 ---
 
-17. A good reason to make a particular choice of a graph is:[^17]
+(@) A good reason to make a particular choice of a graph is:[^17]
      (a) Because the journal / field has particular expectations for how the data are presented.
      (b) Because some variables naturally fit better on some graphs (e.g., numbers on scatter plots).
      (c) Because that graphic displays the message you want as optimally as possible.
@@ -249,7 +249,7 @@ shup6 <-  sqrt 10
 
 ---
 
-18. Why are the points orange?[^18]
+(@) Why are the points orange?[^18]
      (a) R translates "navy" into orange.
      (b) color must be specified in `geom_point()`
      (c) color must be specified **outside** the `aes()` function
@@ -286,7 +286,7 @@ ggplot(data = Births78,
 
 ---
 
-19. Why are the dots blue and the lines colored?[^19]
+(@) Why are the dots blue and the lines colored?[^19]
      (a) dot color is given as "navy", line color is given as `wday`.
      (b) both colors are specified in the `ggplot()` function.
      (c) dot coloring takes precedence over line coloring.
@@ -308,7 +308,7 @@ ggplot(data = Births78,
 
 ---
 
-20. Setting vs. Mapping.  If I want information to be passed to all data points (not variable):[^20]
+(@) Setting vs. Mapping.  If I want information to be passed to all data points (not variable):[^20]
      (a) map the information inside the `aes()` function.
      (b) set the information outside the `aes()` function
      
@@ -316,7 +316,7 @@ ggplot(data = Births78,
 
 ---
 
-21. The Snow figure was most successful at:[^21]
+(@) The Snow figure was most successful at:[^21]
      (a) making the data stand out
      (b) facilitating comparison
      (c) putting the work in context
@@ -326,7 +326,7 @@ ggplot(data = Births78,
 
 ---
 
-22. The Challenger figure(s) was(were) least successful at:[^22]
+(@) The Challenger figure(s) was(were) least successful at:[^22]
     (a) making the data stand out
     (b) facilitating comparison
     (c) putting the work in context
@@ -336,7 +336,7 @@ ggplot(data = Births78,
 
 ---
 
-23. The biggest difference between Snow and the Challenger was:[^23]
+(@) The biggest difference between Snow and the Challenger was:[^23]
     (a)	The **amount** of information portrayed.
     (b)	One was better at displaying **cause**.
     (c)	One showed the relevant **comparison** better.
@@ -346,7 +346,7 @@ ggplot(data = Births78,
 
 ---
  
-24. Caffeine and Calories.  What was the biggest concern over the average value axes?[^24]
+(@) Caffeine and Calories.  What was the biggest concern over the average value axes?[^24]
      (a) It isn’t at the origin.
      (b) They should have used all the data possible to find averages.
      (c) There wasn’t a random sample.
@@ -356,7 +356,7 @@ ggplot(data = Births78,
 
 ---
 
-25. What is wrong with the following code?[^25]
+(@) What is wrong with the following code?[^25]
     (a) should only  be one =
     (b) Sydney should be lower case
     (c) name should not be in quotes
@@ -374,7 +374,7 @@ Result <- |> filter(babynames,
 
 ---
 
-26. Which data represents the ideal format for **ggplot2** and **dplyr**?[^26]
+(@) Which data represents the ideal format for **ggplot2** and **dplyr**?[^26]
 
 ```{r}
 #| echo: false
@@ -415,7 +415,7 @@ tribble_c |> gt::gt(caption = "table c")
 
 ---
 
-27. Each of the statements except one will accomplish the same calculation.  Which one does not match?[^27]
+(@) Each of the statements except one will accomplish the same calculation.  Which one does not match?[^27]
 
 ```{r}
 #| eval: false
@@ -447,7 +447,7 @@ summarize(group_by(babynames, year, sex),
 
 ---
 
-28. Fill in Q1.[^28]
+(@) Fill in Q1.[^28]
     (a) `filter()`
     (b) `arrange()`
     (c) `select()`
@@ -469,7 +469,7 @@ result <- babynames |>
 
 ---
 
-29. Fill in Q2.[^29]
+(@) Fill in Q2.[^29]
     (a) `(year, sex)`
     (b) `(year, name)`
     (c) `(year, num)`
@@ -491,7 +491,7 @@ result <- babynames |>
 
 ---
 
-30. Fill in Q3.[^30]
+(@) Fill in Q3.[^30]
     (a) `n_distinct(name)`
     (b) `n_distinct(n)`
     (c) `sum(name)`
@@ -513,7 +513,7 @@ result <- babynames |>
 
 ---
 
-31. Running the code.[^31]
+(@) Running the code.[^31]
 
 ```{r}
 #| echo: true
@@ -568,7 +568,7 @@ babynames |>
 
 ---
 
-32. Fill in Q1.[^32]
+(@) Fill in Q1.[^32]
      (a) `gdp`
      (b) `year`
      (c) `gdpval`
@@ -597,7 +597,7 @@ GDP |>
 
 ---
 
-33. Fill in Q2.[^33]
+(@) Fill in Q2.[^33]
      (a) `gdp`
      (b) `year`
      (c) `gdpval`
@@ -619,7 +619,7 @@ GDP |>
 
 ---
 
-34. Fill in Q3.[^34]
+(@) Fill in Q3.[^34]
      (a) `gdp`
      (b) `year`
      (c) `gdpval`
@@ -641,7 +641,7 @@ GDP |>
 
 ---
 
-35. Response to stimulus (in ms) after only 3 hrs of sleep for 9 days. You want to make a plot with the subject's reaction time (y-axis) vs the number of days of sleep restriction (x-axis) using the following `ggplot()` code. Which data frame should you use?[^35]
+(@) Response to stimulus (in ms) after only 3 hrs of sleep for 9 days. You want to make a plot with the subject's reaction time (y-axis) vs the number of days of sleep restriction (x-axis) using the following `ggplot()` code. Which data frame should you use?[^35]
     a. use raw data
     b. use `pivot_wider()` on raw data
     c. use `pivot_longer()` on raw data
@@ -676,7 +676,7 @@ sleep_long
 
 ---
 
-36. Consider band members from the Beatles and the Rolling Stones.  Who is removed in a `right_join()`?[^36]
+(@) Consider band members from the Beatles and the Rolling Stones.  Who is removed in a `right_join()`?[^36]
    a. Mick
    b. John
    c. Paul
@@ -710,7 +710,7 @@ band_instruments
 
 ---
 
-37. Consider band members from the Beatles and the Rolling Stones.  Which variables are removed in a `right_join()`?[^37]
+(@) Consider band members from the Beatles and the Rolling Stones.  Which variables are removed in a `right_join()`?[^37]
    a. `name`
    b. `band`
    c. `plays`
@@ -743,7 +743,7 @@ band_instruments
 
 ---
 
-38. What happens to Mick's `plays` variable in a `full_join()`?[^38]
+(@) What happens to Mick's `plays` variable in a `full_join()`?[^38]
    a. Mick is removed
    b. changes to guitar
    c. changes to bass
@@ -776,7 +776,7 @@ band_instruments
 [^38]: d. `NA` (it would be `NULL` in **SQL**)
 ---
 
-39. Consider the `addTen()` function.  The following output is a result of which `map_*()` call?[^39]
+(@) Consider the `addTen()` function.  The following output is a result of which `map_*()` call?[^39]
    a. `map(c(1,4,7), addTen)`
    b. `map_dbl(c(1,4,7), addTen)`
    c. `map_chr(c(1,4,7), addTen)`
@@ -797,7 +797,7 @@ map_chr(c(1,4,7), addTen)
 
 ---
 
-40. Which of the following input is allowed?[^40]
+(@) Which of the following input is allowed?[^40]
     a. `map(c(1, 4, 7), addTen)`
     b. `map(list(1, 4, 7), addTen)`
     c. `map(data.frame(a=1, b=4, c=7), addTen)`
@@ -808,23 +808,25 @@ map_chr(c(1,4,7), addTen)
 
 ---
 
-41. Which of the following produces a different output?[^41]
+(@) Which of the following produces a different output?[^41]
     a. `map(c(1, 4, 7), addTen)`
     b. `map(c(1, 4, 7), ~addTen(.x))`
     c. `map(c(1, 4, 7), ~addTen)`
-    d. `map(c(1, 4, 7), function(hi) (hi + 10) )`
+    d. `map(c(1, 4, 7), function(hi) (hi + 10))`
     e. `map(c(1, 4, 7), ~(.x + 10))`
     
 [^41]: c. `map(c(1, 4, 7), ~addTen)`.  The `~` acts on functions that do not have their own name or that are defined by `function(...)`.  By adding the argument `(.x)` we've expanded the `addTen()` function, and so it needs a `~`.  The `addTen()` function all alone does not use a `~`.
 
 ---
 
-42. What will the following code output?[^42]
+(@) What will the following code output?[^42]
     a. 3 random normals
     b. 6 random normals
     c. 18 random normals
     
 ```{r}
+#| echo: false
+#| eval: true
 input <- tibble::tribble(
   ~ n, ~ mean, ~ sd,
    1,     1,    3,
@@ -834,9 +836,13 @@ input <- tibble::tribble(
 ```
 ```{r}
 #| echo: true
-#| eval: false
+#| eval: true
 input
+```
 
+```{r}
+#| echo: true
+#| eval: false
 input |> 
   pmap(rnorm)
 ```

@@ -1,0 +1,262 @@
+---
+title: "Simulating"
+author: "Jo Hardin"
+subtitle: "September 23 + 25, 2024"
+format: 
+  revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    multiplex: true
+execute:
+  echo: true
+  warning: false
+  message: false
+bibliography: 
+  - ../slides.bib
+--- 
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(openintro)
+```
+
+
+# Agenda  9/23/24
+
+1. Why simulate?
+2. What makes a good simulation?
+3. Examples
+
+
+## Goals of Simulating Complicated Models
+
+The goal of simulating a complicated model is not only to create a program which will provide the desired results.  We also hope to be able to write code such that:
+
+1. The problem is broken down into small pieces.
+2. The problem has checks in it to see what works (run the lines *inside* the functions!).
+3. uses simple code (as often as possible).
+
+
+## Aside: a few R functions (`ifelse()`)
+```{r}
+data.frame(value = c(-2:2)) %>%
+  mutate(abs_value = ifelse(value >=0, value, -value))  # abs val
+```
+
+
+## Aside: a few R functions (`case_when()`)
+```{r}
+set.seed(4747)
+diamonds %>% select(carat, cut, color, price) %>%
+  sample_n(20) %>%
+  mutate(price_cat = case_when(
+    price > 10000 ~ "expensive",
+    price > 1500 ~ "medium", 
+    TRUE ~ "inexpensive"))
+```
+
+## Aside: a few R functions (`sample()`)
+
+*sampling*, *shuffling*,  and *resampling*: `sample()` 
+
+```{r}
+set.seed(47)
+alph <- letters[1:10]
+alph
+
+sample(alph, 5, replace = FALSE) # sample (from a population)
+
+sample(alph, 5, replace = TRUE) # sample (from a population)
+
+sample(alph, 10, replace = FALSE)  # shuffle
+
+sample(alph, 10, replace = TRUE)  # resample
+```
+
+## Why?
+
+Three simulating methods are used for different purposes:
+
+1. Monte Carlo methods - use repeated *sampling* from a **population** with known characteristics.
+
+
+2. Randomization / Permutation methods - use *shuffling* (sampling without replacement from a **sample**) to test hypotheses of "no effect".
+
+
+3. Bootstrap methods - use *resampling* (sampling with replacement from a **sample**) to establish confidence intervals.
+
+## Aside: a few R functions (`set.seed()`)
+
+What if we want to be able to generate the **same** random numbers (here on the interval from 0 to 1) over and over?
+
+```{r}
+set.seed(4747)
+runif(4, 0, 1) # random uniform numbers
+
+set.seed(123)
+runif(4, 0, 1) # random uniform numbers
+
+set.seed(4747)
+runif(4, 0, 1) # random uniform numbers
+```
+
+
+
+# Small simulation problem
+
+```{=html}
+<style>
+.semi-transparent {
+  opacity: 0.5;
+}
+</style>
+```
+
+
+* Simulation as easier than calculus for estimating probabilities.
+* [Simulation to understand complicated models.]{.semi-transparent}
+* [Simulation to consider methods with fewer assumptions.]{.semi-transparent}
+
+## Sally & Joan
+
+Consider a situation where Sally and Joan plan to meet to study in their college campus center [@mosteller1987;@MDSR]. They are both impatient people who will wait only 10 minutes for the other before leaving.
+
+But their planning was incomplete. Sally said, "Meet me between 7 and 8 tonight at the student center." When should Joan plan to arrive at the campus center? And what is the probability that they actually meet?
+
+## Simulate their meeting
+
+Assume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm. 
+
+::: {.panel-tabset}
+
+## vectorized 
+
+```{r}
+library(tictoc)
+n <- 10000
+
+tic()
+meet_vect <- tibble(
+  sally = runif(n, 0, max = 60),
+  joan = runif(n, min = 0, max = 60),
+  result = ifelse(
+    abs(sally - joan) <= 10, "They meet", "They do not"
+  )
+)
+toc()
+```
+## function
+
+```{r}
+
+meet_func <- function(nada){
+  tibble(
+    sally = runif(1, min = 0, max = 60),
+    joan = runif(1, min = 0, max = 60),
+    result = ifelse(
+    abs(sally - joan) <= 10, "They meet", "They do not"
+  )
+  )
+}
+```
+
+
+## `map()`
+
+```{r}
+tic()
+meet_map <- 1:n |> 
+  map(meet_func) |> 
+  list_rbind()
+toc()
+```
+
+## `for()` loop
+
+```{r}
+tic()
+meet_for <- data.frame()
+for(i in 1:n){
+  meet_for <- meet_for |> rbind(
+    tibble(
+      sally = runif(1, min = 0, max = 60),
+      joan = runif(1, min = 0, max = 60),
+      result = ifelse(
+    abs(sally - joan) <= 10, "They meet", "They do not"
+  )))
+}
+toc()
+
+```
+
+:::
+
+
+##  Results
+
+The results themselves are equivalent.  Differing values due to randomness in the simulation.
+
+::: {.panel-tabset}
+
+## vectorized
+
+```{r}
+meet_vect |> 
+  group_by(result) |> 
+  summarize(number = n()) |> 
+  mutate(proprotion = number / sum(number))
+```
+
+## `map()`
+
+```{r}
+
+meet_map |> 
+  group_by(result) |> 
+  summarize(number = n())|> 
+  mutate(proprotion = number / sum(number))
+```
+
+## `for()` loop
+
+```{r}
+meet_for |> 
+  group_by(result) |> 
+  summarize(number = n())|> 
+  mutate(proprotion = number / sum(number))
+```
+
+:::
+
+## Visualizing the meet up
+
+
+```{r}
+meet_map |> 
+  ggplot(aes(x = joan, y = sally, color = result)) +
+  geom_point(alpha = 0.3) + 
+  geom_abline(intercept = 10, slope = 1) + 
+  geom_abline(intercept = -10, slope = 1) + 
+  scale_color_brewer(palette = "Paired")
+```
+
+
+## Simulation best practices
+
+* no magic numbers
+* comment your code
+* use informative names
+* set a seed for reproducibility
+
+
+# Bigger simulation
+
+## References
+
+
