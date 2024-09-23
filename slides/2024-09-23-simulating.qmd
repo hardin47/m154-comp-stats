@@ -108,7 +108,7 @@ runif(4, 0, 1) # random uniform numbers
 
 
 
-# Small simulation problem
+# Small simulation example
 
 ```{=html}
 <style>
@@ -255,7 +255,118 @@ meet_map |>
 * set a seed for reproducibility
 
 
-# Bigger simulation
+# Bigger simulation example
+
+## Thoughts on simulating
+
+* break down the problem into **small** steps
+* check to see what works
+* simple is better
+
+## Roulette
+
+* A roulette wheel has 38 slots numbered 00, 0, and 1–36.
+Two are green, 18 are red, and 18 are black.
+* If a gambler bets based on color, the return on a $1 bet
+is $2
+* A gambler has $50, and will continuously bet $1 on red
+until they double their money (have $100) or lose the
+money they came with
+* What is the probability the gambler doubles their money?
+
+Question: Without calculating probabilities, how could you
+design an experiment to estimate this probability?
+
+## Design the simulation
+
+Step 1: Need a Roulette wheel!  ... and money
+Step 2: Will spin the wheel
+Step 3: Depending on the wheel, update the money.
+    - if spin is red: `money + 1`
+    - if spin is not red: `money - 1`
+Step 4: Keep spinning until `money = 100` or `money = 0`
+Step 5: Repeat many times
+
+## Step 1: create a roulette wheel
+
+```{r}
+wheel <- c(rep("green", 2), rep("black", 18), rep("red", 18))
+
+wheel
+```
+
+
+* `rep()` repeats a value the specified number of times
+* `c()` combines vectors (or scalars) into a single vector
+
+## Step 2: spin the wheel
+
+```{r}
+spin <- sample(wheel, size = 1)
+
+spin
+```
+
+## Step 3: update the money
+
+```{r}
+money <- 50
+
+spin <- sample(wheel, size = 1)
+money <- ifelse(spin == "red", money + 1, money  - 1)
+
+spin
+money
+```
+
+## Step 4: keep spinning (function first)
+
+```{r}
+spin_func <- function(money=20, i){
+  wheel <- c(rep("green", 2), rep("black", 18), rep("red", 18))
+  spin <- sample(wheel, size = 1)
+  money <- ifelse(spin == "red", money + 1, money  - 1)
+  money
+}
+
+spin_func(10)
+spin_func(spin_func(10))
+```
+
+## Step 4: run multiple times
+
+```{r}
+set.seed(4747)
+1:20 |> accumulate(spin_func, .init = 50)
+set.seed(4747)
+1:20 |> reduce(spin_func, .init = 50)
+```
+
+## Step 4: another function
+
+```{r}
+game_func <- function(rep, money, iter){
+  data.frame(interim_money = 1:iter |> accumulate(spin_func, .init = money),
+             game = 0:iter,
+             rep = rep)
+}
+
+game_func(1, 20, 3)
+```
+
+
+## Step 5: Repeat many times
+
+Note that map 
+
+```{r}
+1:20 |> map(game_func, money = 20, iter = 10) |> 
+  list_rbind()
+```
+
+
+
+
 
 ## References
 
