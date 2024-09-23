@@ -367,7 +367,7 @@ ggplot(data = Births78,
 #| eval: false
 #| echo: true
 Result <- |> filter(babynames,
-		name== “Sydney”)
+		name== "Sydney")
 ```
 
 [^25]: e. babynames in wrong place
@@ -850,7 +850,48 @@ input |>
 
 ---
 
+(@) In R the `ifelse()` function takes the arguments:[^43]
+   a. question, yes, no
+   b. question, no, yes
+   c. statement, yes, no
+   d. statement, no, yes
+   e. option1, option2, option3
 
+
+[^43]: a. question, yes, no
+
+---
+
+(@) What is the output of the following:[^44]
+    a.	"cat", 30, "cat", "cat", 6 
+    b.	"cat", "30", "cat", "cat", "6"
+    c.	1, "cat", 5, "cat", "cat"
+    d.	1, "cat", 5, NA, "cat"
+    e.	"1", "cat", "5", NA, "cat"
+
+```{r}
+#| eval: false
+#| echo: true
+data <- c(1, 30, 5, NA, 6)
+
+ifelse(data > 5, "cat", data)
+```
+
+[^44]: e.	"1", "cat", "5", NA, "cat"  (Note that the numbers were converted to character strings!)
+
+---
+
+(@) In R, the `set.seed()` function[^45]
+   a. makes your computations go faster
+   b. keeps track of your computation time
+   c. provides an important parameter
+   d. repeats the function
+   e. makes your results reproducible
+
+[^45]: e. makes your results reproducible
+
+
+---
 
 
 
