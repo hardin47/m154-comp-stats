@@ -439,18 +439,26 @@ iterations <- 10000
 
 ## Bias in a model
 
+Population:
+
 ```
 talent ~ Normal (100, 15)
 grades ~ Normal (talent, 15)
 SAT ~ Normal (talent, 15)
 ```
 
+
+The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [Algorithmic Unfairness Without Any Bias Baked In](http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html).  
+
+
+## Goal for admitting students
+
 College wants to admit students with 
+
 > `talent > 115` 
 
 ... but they only have access to `grades` and `SAT` which are noisy estimates of `talent`.
 
-The example is taken directly (and mostly verbatim) from a blog by Aaron Roth [Algorithmic Unfairness Without Any Bias Baked In](http://aaronsadventures.blogspot.com/2019/01/discussion-of-unfairness-in-machine.html).  
 
 ## Plan for accepting students
 
@@ -514,7 +522,7 @@ ggplot(college.data, aes(x = grades, y = SAT, color = color)) +
 ## Two models:
 
 ```{r echo = FALSE}
-red.lm = college.data %>%
+red.lm = college.data |>
   dplyr::filter(color == "red") %>%
   lm(talent ~ SAT + grades, data = .)
 
@@ -536,9 +544,9 @@ blue.lm |> broom::tidy()
 
 ## New data
 
-* Generate new data and use the **two** models above, separately. 
+* Generate new data, use the **two** models separately. 
 
-* How well do the models predict if a student has `talent` > 115?
+* Can the models predict if a student has `talent` > 115?
 
 ```{r echo=FALSE}
 set.seed(4747)
@@ -559,11 +567,11 @@ new.college.data <- data.frame(talent = c(new.reds, new.blues),
                            color = c(rep("red", n.red), rep("blue", n.blue)))
 
 
-new.red.pred <- new.college.data %>%
+new.red.pred <- new.college.data |>
   filter(color == "red") %>%
   predict.lm(red.lm, newdata = .)
 
-new.blue.pred <- new.college.data %>%
+new.blue.pred <- new.college.data |>
   filter(color == "blue") %>%
   predict.lm(blue.lm, newdata = .)
 
@@ -623,7 +631,7 @@ error.rates
 
 What if we fit only one model to the entire dataset?
 
-Afterall, there are laws against using protected classes to make decisions (housing, jobs, money loans, college, etc.)
+After all, there are laws against using protected classes to make decisions (housing, jobs, money loans, college, etc.)
 
 ```{r echo = FALSE}
 global.lm = college.data %>%
@@ -846,8 +854,8 @@ map(1:1000, election, data = poll_data) |>
 
 
 * [Simulation as easier than calculus for estimating probabilities.]{.semi-transparent}
-* Simulation to understand complicated models.
-* [Simulation to consider statistical methods with fewer assumptions.]{.semi-transparent}
+* [Simulation to understand complicated models..]{.semi-transparent}
+* Simulation to consider statistical methods with fewer assumptions
 
 ## t-test with Poisson data
 
@@ -894,8 +902,9 @@ map(1:10, ~t.test.pval(rpois(n = 10, lambda = 1),
 
 ```{r}
 set.seed(4747)
-results <- map(1:10000, ~t.test.pval(rpois(n = 8, lambda = 1), 
-                              rpois(n = 5, lambda = 1))) |> 
+results <- map(1:10000, 
+               ~t.test.pval(rpois(n = 8, lambda = 1),
+                            rpois(n = 5, lambda = 1))) |> 
   list_rbind() 
 
 ```
@@ -915,6 +924,278 @@ results |>
   summarize(type1 = mean(p.value < 0.05))
 ```
 :::
+
+
+# Sensitivity of CI to tech conditions
+
+Consider the following set up (as in the WS):
+
+```{r}
+#| echo: false
+library(ggplot2)
+library(ggthemes)
+library(broom)
+```
+
+```{r}
+set.seed(474)
+beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
+n_obs <- 100; reps <- 1000
+
+
+x1 <- rep(c(0,1), each=n_obs/2)
+x2 <- runif(n_obs, min=-1, max=1)
+y <- beta0 + beta1*x1 + beta2*x2 + rnorm(n_obs, mean=0, sd = 1)
+```
+
+
+
+## Plot of data
+```{r echo = FALSE}
+lm(y ~ x1 + x2) |>
+  augment() |>
+  ggplot(aes(x=x2, y = y, color=as.factor(x1))) + 
+  geom_point() +
+  geom_line(aes(y = .fitted)) +
+  scale_colour_tableau("Color Blind") +
+  guides(color=guide_legend(title="x1 value")) +
+  xlab("x2 value") + ylab("y value")
+```
+
+
+
+## Capture the slope parameter?
+
+* We know the truth (!!!!!)  
+* We can create a single CI for the parameter given a single data set  
+* Is the parameter in the interval?  
+* Should it always be in the interval?  How often should it be?  
+* Repeat the process to see whether the confidence interval captures the parameter at the claimed rate.  
+
+
+See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/2021/regshuffle/regshuffle.htm)
+
+
+
+## Running a linear model
+
+```{r}
+CI <- lm(y~x1+x2) |> tidy(conf.int=TRUE) |> data.frame()
+CI
+
+CI |>
+  filter(term == "x2") |>
+  select(term, estimate, conf.low, conf.high) |>
+  mutate(inside = between(beta2, conf.low, conf.high))
+```
+
+
+
+## What happens to the CI of coefficients in repeated samples? (eq var)
+
+::: {.panel-tabset}
+
+## Datasets
+
+```{r}
+eqvar_data <- data.frame(row_id = seq(1, n_obs, 1)) |>
+  slice(rep(row_id, each = reps)) |>
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c(0,1), each = n()/2),
+    x2 = runif(n(), min = -1, max = 1),
+    y = beta0 + beta1*x1 + beta2*x2 + rnorm(n(), mean = 0, sd = 1)
+  ) |>
+  arrange(sim_id, row_id) |>
+  group_by(sim_id) |>
+  nest()
+
+eqvar_data
+``` 
+
+
+## Function 
+```{r}
+beta_coef <- function(df){
+  lm(y ~ x1 + x2, data = df) |>
+    tidy(conf.int = TRUE) |>
+    filter(term == "x2") |>
+    select(estimate, conf.low, conf.high, p.value) 
+}
+```
+
+## `map()`
+
+```{r}
+eqvar_data |> 
+  mutate(b2_vals = map(data, beta_coef)) |>
+  select(b2_vals) |> 
+  unnest(b2_vals) |>
+  summarize(capture = between(beta2, conf.low, conf.high)) |>
+  summarize(capture_rate = sum(capture)/reps)
+```
+
+:::
+
+## Sensitivity of CI to tech conditions
+
+Consider the following set up (note the difference in variability):
+
+```{r unequal-ci-1}
+set.seed(470)
+beta0 <- -1; beta1 <- 0.5; beta2 <- 1.5
+n_obs <- 100; reps <- 1000
+
+  x1 <- rep(c(0,1), each=n_obs/2)
+  x2 <- runif(n_obs, min=-1, max=1)
+  y <- beta0 + beta1*x1 + beta2*x2 + 
+             rnorm(n_obs, mean=0, sd = 1 + x1 + 10*abs(x2))
+```
+
+
+
+## Plot of data
+```{r echo = FALSE}
+lm(y ~ x1 + x2) |>
+  augment() |>
+  arrange(x2) |>
+  ggplot(aes(x=x2, y = y, color=as.factor(x1))) + 
+  geom_point() +
+  geom_line(aes(y = .fitted)) +
+  scale_colour_tableau("Color Blind") +
+  guides(color=guide_legend(title="x1 value")) +
+  xlab("x2 value") + ylab("y value")
+```
+
+
+## What happens to the CI of coefficients in repeated samples? (uneq var)
+```{r echo = FALSE}
+set.seed(47)
+```
+
+::: {.panel-tabset}
+
+## Datasets
+```{r unequal-ci}
+uneqvar_data <- data.frame(row_id = seq(1, n_obs, 1)) |>
+  slice(rep(row_id, each = reps)) |>
+  mutate(sim_id = rep(1:reps, n_obs), 
+         x1 = rep(c(0,1), each = n()/2),
+         x2 = runif(n(), min = -1, max = 1),
+         y = beta0 + beta1*x1 + beta2*x2 + 
+              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))  ) |>
+  arrange(sim_id, row_id) |>
+  group_by(sim_id) |> nest() 
+```
+
+
+## `map()`
+```{r}
+uneqvar_data |> 
+  mutate(b2_vals = map(data, beta_coef)) |>
+  select(b2_vals) |> unnest(b2_vals) |>
+  summarize(capture = between(beta2, conf.low, conf.high)) |>
+  summarize(capture_rate = sum(capture)/reps)
+```
+:::
+
+## Equal variance: type I error?
+
+Another method for thinking about type I error rates.  With equal variance, the type I error rate is close to what we'd expect, 5%.
+
+
+::: {.panel-tabset}
+
+## function
+```{r}
+t_test_pval <- function(df){
+  t.test(y ~ x1, data = df, var.equal = TRUE) |>
+    tidy() |>
+    select(estimate, p.value) 
+}
+```
+
+
+## generate data
+
+```{r}
+set.seed(470)
+reps <- 1000
+n_obs <- 20
+null_data_equal <- 
+  data.frame(row_id = seq(1, n_obs, 1)) |>
+  slice(rep(row_id, each = reps)) |>
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c("group1", "group2"), each = n()/2),
+    y = rnorm(n(), mean = 10, 
+               sd = rep(c(1,1), each = n()/2))
+  ) |>
+  arrange(sim_id, row_id) |>
+  group_by(sim_id) |>
+  nest()
+```
+
+
+## summarize p-values
+```{r}
+null_data_equal |> 
+  mutate(t_vals = map(data,t_test_pval)) |>
+  select(t_vals) |> 
+  unnest(t_vals) |>
+  ungroup(sim_id) |>
+  summarize(type1error_rate = sum(p.value < 0.05)/reps)
+```
+
+:::
+
+
+
+## Unequal variance: type I error?
+
+With unequal variance, the type I error rate is much higher than we set.  We set the the type I error rate to be 5%, but the simulated rate was 6.36%.
+
+::: {.panel-tabset}
+```{r}
+t_test_pval <- function(df){
+  t.test(y ~ x1, data = df, var.equal = TRUE) |>
+    tidy() |>
+    select(estimate, p.value) 
+}
+```
+
+## generate data
+```{r unequal-ttest}
+set.seed(470)
+reps <- 1000
+n_obs <- 20
+null_data_unequal <- 
+  data.frame(row_id = seq(1, n_obs, 1)) |>
+  slice(rep(row_id, each = reps)) |>
+  mutate(
+    sim_id = rep(1:reps, n_obs),
+    x1 = rep(c("group1", "group2"), each = n()/2),
+    y = rnorm(n(), mean = 10, 
+               sd = rep(c(1,100), each = n()/2))
+  ) |>
+  arrange(sim_id, row_id) |>
+  group_by(sim_id) |>
+  nest()
+```
+
+
+
+## summarize p-values
+```{r}
+null_data_unequal |> 
+  mutate(t_vals = map(data,t_test_pval)) |>
+  select(t_vals) |> 
+  unnest(t_vals) |>
+  ungroup(sim_id) |>
+  summarize(type1error_rate = sum(p.value < 0.05)/reps)
+```
+:::
+
 
 
 ## References

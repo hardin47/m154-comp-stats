@@ -893,5 +893,64 @@ ifelse(data > 5, "cat", data)
 
 ---
 
+(@) If I run a hypothesis test with a type I error cut off of $\alpha = 0.05$ and the null hypothesis is true, what is the probability of rejecting $H_0$?[^46]
+   a. 0.01
+   b. 0.05
+   c. 0.1
+   d. I don't know.
+   e. No one knows.
+
+
+[^46]: b. 0.05  If the null hypothesis is true and the technical conditions hold, then we should reject the null hypothesis $\alpha \cdot 100$% of the time.
+
+---
+
+(@) If I run a hypothesis test with a type I error cut off of $\alpha = 0.05$ and the null hypothesis is true, **and also the technical conditions do not hold** what is the probability of rejecting $H_0$?[^47]
+   a. 0.01
+   b. 0.05
+   c. 0.1
+   d. I don't know.
+   e. No one knows.
+
+
+[^47]: e. No one knows.  It totally depends on how and how much the technical conditions are violated and how resistant the test is to the technical conditions.
+
+---
+
+(@) If I run a hypothesis test with a type I error cut off of $\alpha = 0.05$ and **the null hypothesis is false**, what is the probability of rejecting $H_0$?[^48]
+   a. 0.01
+   b. 0.05
+   c. 0.1
+   d. I don't know.
+   e. No one knows.
+
+
+[^48]: e. No one knows.  It totally depends on the degree to which the null hypothesis is false.
+
+---
+
+(@) If I aim to create a 95% confidence interval, and the technical conditions hold, what is the probability that the CI will contain the true value of the parameter?[^49]
+   a. 0.90
+   b. 0.95
+   c. 0.99
+   d. I don't know.
+   e. No one knows.
+
+
+[^49]: b. 0.95  If the technical conditions hold, 95% of all confidence intervals should contain the true parameter.
+
+---
+
+(@) If I aim to create a 95% confidence interval, and **the technical conditions do not hold**, what is the probability that the CI will contain the true value of the parameter?[^50]
+   a. 0.90
+   b. 0.95
+   c. 0.99
+   d. I don't know.
+   e. No one knows.
+
+
+[^50]: e. No one knows.  If the technical conditions do not hold, the CI may or may not contain the true value of the parameter at the given confidence level (i.e., 95%).
+
+---
 
 
