@@ -2972,14 +2972,14 @@
     "href": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-ifelse",
     "title": "Simulating",
     "section": "Aside: a few R functions (ifelse())",
-    "text": "Aside: a few R functions (ifelse())\n\ndata.frame(value = c(-2:2)) %&gt;%\n  mutate(abs_value = ifelse(value &gt;=0, value, -value))  # abs val\n\n  value abs_value\n1    -2         2\n2    -1         1\n3     0         0\n4     1         1\n5     2         2"
+    "text": "Aside: a few R functions (ifelse())\n\ndata.frame(value = c(-2:2)) |&gt;\n  mutate(abs_value = ifelse(value &gt;=0, value, -value))  # abs val\n\n  value abs_value\n1    -2         2\n2    -1         1\n3     0         0\n4     1         1\n5     2         2"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-case_when",
     "href": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-case_when",
     "title": "Simulating",
     "section": "Aside: a few R functions (case_when())",
-    "text": "Aside: a few R functions (case_when())\n\nset.seed(4747)\ndiamonds %&gt;% select(carat, cut, color, price) %&gt;%\n  sample_n(20) %&gt;%\n  mutate(price_cat = case_when(\n    price &gt; 10000 ~ \"expensive\",\n    price &gt; 1500 ~ \"medium\", \n    TRUE ~ \"inexpensive\"))\n\n# A tibble: 20 × 5\n   carat cut       color price price_cat  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;int&gt; &lt;chr&gt;      \n 1  1.23 Very Good F     10276 expensive  \n 2  0.35 Premium   H       706 inexpensive\n 3  0.7  Good      E      2782 medium     \n 4  0.4  Ideal     D      1637 medium     \n 5  0.53 Ideal     G      1255 inexpensive\n 6  2.22 Ideal     G     14637 expensive  \n 7  0.3  Ideal     G       878 inexpensive\n 8  1.05 Ideal     H      4223 medium     \n 9  0.53 Premium   E      1654 medium     \n10  1.7  Ideal     H      7068 medium     \n11  0.31 Good      E       698 inexpensive\n12  0.31 Ideal     F       840 inexpensive\n13  1.03 Ideal     H      4900 medium     \n14  0.31 Premium   G       698 inexpensive\n15  1.56 Premium   G      8858 medium     \n16  1.71 Premium   G     11032 expensive  \n17  1    Good      E      5345 medium     \n18  1.86 Ideal     J     10312 expensive  \n19  1.08 Very Good E      3726 medium     \n20  0.31 Premium   E       698 inexpensive"
+    "text": "Aside: a few R functions (case_when())\n\nset.seed(4747)\ndiamonds |&gt; select(carat, cut, color, price) |&gt;\n  sample_n(20) |&gt;\n  mutate(price_cat = case_when(\n    price &gt; 10000 ~ \"expensive\",\n    price &gt; 1500 ~ \"medium\", \n    TRUE ~ \"inexpensive\"))\n\n# A tibble: 20 × 5\n   carat cut       color price price_cat  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;int&gt; &lt;chr&gt;      \n 1  1.23 Very Good F     10276 expensive  \n 2  0.35 Premium   H       706 inexpensive\n 3  0.7  Good      E      2782 medium     \n 4  0.4  Ideal     D      1637 medium     \n 5  0.53 Ideal     G      1255 inexpensive\n 6  2.22 Ideal     G     14637 expensive  \n 7  0.3  Ideal     G       878 inexpensive\n 8  1.05 Ideal     H      4223 medium     \n 9  0.53 Premium   E      1654 medium     \n10  1.7  Ideal     H      7068 medium     \n11  0.31 Good      E       698 inexpensive\n12  0.31 Ideal     F       840 inexpensive\n13  1.03 Ideal     H      4900 medium     \n14  0.31 Premium   G       698 inexpensive\n15  1.56 Premium   G      8858 medium     \n16  1.71 Premium   G     11032 expensive  \n17  1    Good      E      5345 medium     \n18  1.86 Ideal     J     10312 expensive  \n19  1.08 Very Good E      3726 medium     \n20  0.31 Premium   E       698 inexpensive"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-sample",
@@ -3063,7 +3063,7 @@
     "href": "slides/2024-09-23-simulating.html#simulate-their-meeting",
     "title": "Simulating",
     "section": "Simulate their meeting",
-    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.336 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.831 sec elapsed"
+    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.367 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n4.061 sec elapsed"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html",
@@ -3280,7 +3280,7 @@
     "href": "slides/2024-09-23-simulating.html#new-data-1",
     "title": "Simulating",
     "section": "New data",
-    "text": "New data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 2 × 5\n  color   tpr    fpr   fnr error\n  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 blue  0.482 0.0371 0.518 0.103\n2 red   0.503 0.0378 0.497 0.111"
+    "text": "New data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 2 × 5\n  color   tpr    fpr   fnr error\n  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 blue  0.503 0.0379 0.497 0.109\n2 red   0.509 0.0378 0.491 0.109"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#two-models-doesnt-seem-right",
@@ -3294,14 +3294,14 @@
     "href": "slides/2024-09-23-simulating.html#how-do-the-error-rates-change",
     "title": "Simulating",
     "section": "How do the error rates change?",
-    "text": "How do the error rates change?\n\n\n\n\n\n\n\n\n\n\n\n\nOne model:\n\n\n# A tibble: 2 × 5\n  color   tpr    fpr   fnr error\n  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 blue  0.584 0.0660 0.416 0.114\n2 red   0.502 0.0375 0.498 0.111\n\n\nTwo separate models:\n\n\n# A tibble: 2 × 5\n  color   tpr    fpr   fnr error\n  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 blue  0.482 0.0371 0.518 0.103\n2 red   0.503 0.0378 0.497 0.111"
+    "text": "How do the error rates change?\n\n\n\n\n\n\n\n\n\n\n\n\nOne model:\n\n\n# A tibble: 2 × 5\n  color   tpr    fpr   fnr error\n  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 blue  0.619 0.0627 0.381 0.112\n2 red   0.507 0.0375 0.493 0.109\n\n\nTwo separate models:\n\n\n# A tibble: 2 × 5\n  color   tpr    fpr   fnr error\n  &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 blue  0.503 0.0379 0.497 0.109\n2 red   0.509 0.0378 0.491 0.109"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#what-did-we-learn",
     "href": "slides/2024-09-23-simulating.html#what-did-we-learn",
     "title": "Simulating",
     "section": "What did we learn?",
-    "text": "What did we learn?\n\nwith two populations that have different feature distributions, learning a single classifier (that is prohibited from discriminating based on population) will fit the bigger of the two populations\n\n\ndepending on the nature of the distribution difference, it can be either to the benefit or the detriment of the minority population\nno explicit human bias, either on the part of the algorithm designer or the data gathering process\nthe problem is exacerbated if we artificially force the algorithm to be group blind\nwell intentioned “fairness” regulations prohibiting decision makers form taking sensitive attributes into account can actually make things less fair and less accurate at the same time"
+    "text": "What did we learn?\n\nwith two populations that have different feature distributions, learning a single classifier (that is prohibited from discriminating based on population) will fit the bigger of the two populations\n\n\ndepending on the nature of the distribution difference, it can be either to the benefit or the detriment of the minority population\nno explicit human bias, either on the part of the algorithm designer or the data gathering process\nthe problem is exacerbated if we artificially force the algorithm to be group blind\nwell-intentioned “fairness” regulations prohibiting decision makers form taking sensitive attributes into account can actually make things less fair and less accurate at the same time"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#aside-the-accumulate-function",
@@ -3309,5 +3309,89 @@
     "title": "Simulating",
     "section": "Aside: the accumulate() function",
     "text": "Aside: the accumulate() function\nIn R, the accumulate() function will run f(f(f(f(x)))) as many times as asked.\n\n1:10 |&gt; \n  accumulate(`+`)\n\n [1]  1  3  6 10 15 21 28 36 45 55\n\n1:10 |&gt; \n  accumulate(`+`, .init = 47)\n\n [1]  47  48  50  53  57  62  68  75  83  92 102"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#simulate",
+    "href": "slides/2024-09-23-simulating.html#simulate",
+    "title": "Simulating",
+    "section": "Simulate?",
+    "text": "Simulate?\n\ndifferent varying proportions\neffect due to variability\neffect due to SAT coefficient\ndifferent number of times the blues get to take the test\netc."
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#presidential-election",
+    "href": "slides/2024-09-23-simulating.html#presidential-election",
+    "title": "Simulating",
+    "section": "Presidential election",
+    "text": "Presidential election\n\nHarris is ahead in the national polling but behind in North Carolina, Arizona, and Georgia."
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#presidential-election-1",
+    "href": "slides/2024-09-23-simulating.html#presidential-election-1",
+    "title": "Simulating",
+    "section": "Presidential election",
+    "text": "Presidential election\n\n538 simulates many many elections to see how the individual state percentages play out."
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#election-data",
+    "href": "slides/2024-09-23-simulating.html#election-data",
+    "title": "Simulating",
+    "section": "Election Data",
+    "text": "Election Data\n(Big caveat: the data are old!)\n\n\n# A tibble: 54 × 5\n   date                state                Harris Trump evotes\n   &lt;dttm&gt;              &lt;chr&gt;                 &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1 2020-11-03 00:00:00 Alabama                37.8 57.4       9\n 2 2020-11-03 00:00:00 Alaska                 43.6 51.2       3\n 3 2024-09-17 00:00:00 Arizona                46.9 47.3      11\n 4 2020-11-03 00:00:00 Arkansas               36.2 58.9       6\n 5 2024-09-17 00:00:00 California             59.5 35.3      54\n 6 2020-11-03 00:00:00 Colorado               53.6 41.1      10\n 7 2020-11-03 00:00:00 Connecticut            58.6 32.4       7\n 8 2020-11-03 00:00:00 Delaware               58.9 34.6       3\n 9 2020-11-03 00:00:00 District of Columbia   90.8  5.78      3\n10 2024-09-17 00:00:00 Florida                45.4 49.4      30\n# ℹ 44 more rows\n\n\nData sources include: 538 and the National Archives."
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#function-to-determine-who-wins",
+    "href": "slides/2024-09-23-simulating.html#function-to-determine-who-wins",
+    "title": "Simulating",
+    "section": "Function to determine who wins",
+    "text": "Function to determine who wins\nNeed 270 to win!\n\nelection &lt;- function(i, data) {\n  rand_number &lt;- runif(nrow(data)) * 100\n  data |&gt; \n    cbind(rand_number) |&gt; \n    mutate(state_winner = case_when(\n      rand_number &lt; Harris ~ \"Harris\",\n      rand_number &lt; Harris + Trump ~ \"Trump\",\n      rand_number &lt; (Harris + Trump) + (100 - Harris - Trump) /2 ~ \"Harris\",\n      TRUE ~ \"Trump\")) |&gt; \n    group_by(state_winner) |&gt; \n    summarize(votes = sum(evotes)) |&gt; \n    mutate(simulation = paste0(\"simulation\", i))\n}\n\nelection(47, poll_data)\n\n# A tibble: 2 × 3\n  state_winner votes simulation  \n  &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;       \n1 Harris         304 simulation47\n2 Trump          234 simulation47"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#running-the-function-many-times",
+    "href": "slides/2024-09-23-simulating.html#running-the-function-many-times",
+    "title": "Simulating",
+    "section": "Running the function many times",
+    "text": "Running the function many times\n\nset.seed(47)\nmap(1:1000, election, data = poll_data) |&gt; \n  list_rbind() |&gt; \n  group_by(simulation) |&gt; \n  slice_max(votes) |&gt; \n  ungroup() |&gt; \n  mutate(winner = case_when(\n    votes &gt;= 270 ~ state_winner,\n    TRUE ~ \"no winner\"\n  )) |&gt; \n  select(winner) |&gt; \n  table()\n\nwinner\n   Harris no winner     Trump \n      591        10       404"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#t-test-with-poisson-data",
+    "href": "slides/2024-09-23-simulating.html#t-test-with-poisson-data",
+    "title": "Simulating",
+    "section": "t-test with Poisson data",
+    "text": "t-test with Poisson data\nThe t-test says that if the null hypothesis is true, we’d expect to reject a true null hypothesis \\(\\alpha \\cdot 100\\) percent of the time. That is, if \\(\\alpha = 0.05\\), we’d reject true null hypotheses 5% of the time.\n\nThe guarantee of 5% (across many tests) happens only when the data are normal (or reasonably normal)."
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#non-normal-data",
+    "href": "slides/2024-09-23-simulating.html#non-normal-data",
+    "title": "Simulating",
+    "section": "Non-normal data",
+    "text": "Non-normal data\n\ndata.frame(pois_data = rpois(n = 100000, lambda = 1)) |&gt; \n  ggplot(aes(x = pois_data)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#t-test",
+    "href": "slides/2024-09-23-simulating.html#t-test",
+    "title": "Simulating",
+    "section": "t-test",
+    "text": "t-test\n\nt.test.pval &lt;- function(data1, data2){\n  t.test(data1, data2) |&gt; \n    broom::tidy() |&gt; \n    select(p.value)\n}\n\nt.test.pval(rpois(n = 10, lambda = 1), rpois(n = 7, lambda = 1))\n\n# A tibble: 1 × 1\n  p.value\n    &lt;dbl&gt;\n1   0.896"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#caveats",
+    "href": "slides/2024-09-23-simulating.html#caveats",
+    "title": "Simulating",
+    "section": "Caveats",
+    "text": "Caveats\n\nThe simulation assumes that each state is independent (538’s model is much more sophisticated modeling connections across states and other demographic groups)\nThe poll numbers are very old\nThe poll numbers are constantly changing"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#t-test-function",
+    "href": "slides/2024-09-23-simulating.html#t-test-function",
+    "title": "Simulating",
+    "section": "t-test function",
+    "text": "t-test function\n\nt.test.pval &lt;- function(data1, data2){\n  t.test(data1, data2) |&gt; \n    broom::tidy() |&gt; \n    select(p.value)\n}\n\nt.test.pval(rpois(n = 10, lambda = 1), rpois(n = 7, lambda = 1))\n\n# A tibble: 1 × 1\n  p.value\n    &lt;dbl&gt;\n1   0.696"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#election-model",
+    "href": "slides/2024-09-23-simulating.html#election-model",
+    "title": "Simulating",
+    "section": "Election model",
+    "text": "Election model\n\neach state has a Bernoulli probability of going for either Harris or Trump\nthe states are independent of one another\nthe probabilities are an accurate model for how each state will vote\n\n(Do we believe the model conditions?)"
   }
 ]

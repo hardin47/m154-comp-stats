@@ -665,7 +665,7 @@ sleep_wide
 
 ```{r}
 #| echo: true
-sleep_long <- sleep_wide %>%
+sleep_long <- sleep_wide |>
   pivot_longer(cols = -Subject,
                names_to = "day",
                names_prefix = "day_",
