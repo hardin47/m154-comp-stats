@@ -3063,7 +3063,7 @@
     "href": "slides/2024-09-23-simulating.html#simulate-their-meeting",
     "title": "Simulating",
     "section": "Simulate their meeting",
-    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.649 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n6.805 sec elapsed"
+    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.261 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.787 sec elapsed"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html",
@@ -3463,5 +3463,19 @@
     "title": "Simulating",
     "section": "Unequal variance: type I error?",
     "text": "Unequal variance: type I error?\nWith unequal variance, the type I error rate is much higher than we set. We set the the type I error rate to be 5%, but the simulated rate was 6.36%.\n\ngenerate datasummarize p-values\n\n\n\nset.seed(470)\nreps &lt;- 1000\nn_obs &lt;- 20\nnull_data_unequal &lt;- \n  data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(\"group1\", \"group2\"), each = n()/2),\n    y = rnorm(n(), mean = 10, \n               sd = rep(c(1,100), each = n()/2))\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\n\n\n\nnull_data_unequal |&gt; \n  mutate(t_vals = map(data,t_test_pval)) |&gt;\n  select(t_vals) |&gt; \n  unnest(t_vals) |&gt;\n  ungroup(sim_id) |&gt;\n  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)\n\n# A tibble: 1 × 1\n  type1error_rate\n            &lt;dbl&gt;\n1           0.057"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#t-test-10-times",
+    "href": "slides/2024-09-23-simulating.html#t-test-10-times",
+    "title": "Simulating",
+    "section": "t-test 10 times",
+    "text": "t-test 10 times\n\nmap(1:10, ~t.test.pval(rpois(n = 10, lambda = 1),\n                       rpois(n = 7, lambda = 1))) |&gt; \n          list_rbind()\n\n# A tibble: 10 × 1\n   p.value\n     &lt;dbl&gt;\n 1  0.643 \n 2  0.304 \n 3  0.784 \n 4  0.0874\n 5  0.0379\n 6  0.361 \n 7  0.0215\n 8  0.532 \n 9  0.319 \n10  0.539"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html#t-test-many-times",
+    "href": "slides/2024-09-23-simulating.html#t-test-many-times",
+    "title": "Simulating",
+    "section": "t-test many times",
+    "text": "t-test many times\n\nmap()plotreject \\(H_0\\)\n\n\n\nset.seed(4747)\nresults &lt;- map(1:10000, \n               ~t.test.pval(rpois(n = 8, lambda = 1),\n                            rpois(n = 5, lambda = 1))) |&gt; \n  list_rbind() \n\n\n\n\nresults |&gt; \n  ggplot(aes(x = p.value)) + \n  geom_histogram(bins = 30) + \n  labs(x = \"p.values\")\n\n\n\n\n\n\n\n\n\n\n\nresults |&gt; \n  summarize(type1 = mean(p.value &lt; 0.05))\n\n# A tibble: 1 × 1\n   type1\n   &lt;dbl&gt;\n1 0.0498"
   }
 ]
