@@ -63,7 +63,6 @@ knitr::include_graphics("../../images/map_frosting.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws7_m154_f24_sims.pdf" target = "_blank">WS7 - Simulating</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws8_m154_f24_simCI.pdf" target = "_blank">WS8 - Simulating CIs</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

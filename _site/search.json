@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 28, 2021\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -3063,7 +3063,7 @@
     "href": "slides/2024-09-23-simulating.html#simulate-their-meeting",
     "title": "Simulating",
     "section": "Simulate their meeting",
-    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.261 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.787 sec elapsed"
+    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.291 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.837 sec elapsed"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html",
@@ -3105,7 +3105,7 @@
     "href": "posts/2024-09-23-simulating/index.html#slides",
     "title": "4. Simulating",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 9/23/24 and 9/25/24.\nWS7 - Simulating\nWS8 - Simulating CIs"
+    "text": "Slides \n\nIn class slides for both 9/23/24 and 9/25/24.\nWS7 - Simulating"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html#additional-resources",
@@ -3477,5 +3477,530 @@
     "title": "Simulating",
     "section": "t-test many times",
     "text": "t-test many times\n\nmap()plotreject \\(H_0\\)\n\n\n\nset.seed(4747)\nresults &lt;- map(1:10000, \n               ~t.test.pval(rpois(n = 8, lambda = 1),\n                            rpois(n = 5, lambda = 1))) |&gt; \n  list_rbind() \n\n\n\n\nresults |&gt; \n  ggplot(aes(x = p.value)) + \n  geom_histogram(bins = 30) + \n  labs(x = \"p.values\")\n\n\n\n\n\n\n\n\n\n\n\nresults |&gt; \n  summarize(type1 = mean(p.value &lt; 0.05))\n\n# A tibble: 1 × 1\n   type1\n   &lt;dbl&gt;\n1 0.0498"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#logic-of-hypothesis-tests",
+    "href": "slides/2024-10-01-permutations.html#logic-of-hypothesis-tests",
+    "title": "Permutation Tests",
+    "section": "Logic of hypothesis tests",
+    "text": "Logic of hypothesis tests\n\nChoose a statistic that measures the effect\nConstruct the sampling distribution under \\(H_0\\)\nLocate the observed statistic in the null sampling distribution\np-value is the probability of the observed data or more extreme if the null hypothesis is true"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#logic-of-permutation-tests",
+    "href": "slides/2024-10-01-permutations.html#logic-of-permutation-tests",
+    "title": "Permutation Tests",
+    "section": "Logic of permutation tests",
+    "text": "Logic of permutation tests\n\nChoose a test statistic\nShuffle the data (force the null hypothesis to be true)\nCreate a null sampling distribution of the test statistic (under \\(H_0\\))\nFind the observed test statistic on the null sampling distribution and compute the p-value (observed data or more extreme). The p-value can be one or two-sided."
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#consider-the-nhanes-dataset.",
+    "href": "slides/2024-10-01-permutations.html#consider-the-nhanes-dataset.",
+    "title": "Permutation Tests",
+    "section": "Consider the NHANES dataset.",
+    "text": "Consider the NHANES dataset.\n\nIncome\n\n(HHIncomeMid - Numerical version of HHIncome derived from the middle income in each category)\n\nHealth\n\n(HealthGen - Self-reported rating of participant’s health in general Reported for participants aged 12 years or older. One of Excellent, Vgood, Good, Fair, or Poor.)"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#summary-of-the-variables-of-interest",
+    "href": "slides/2024-10-01-permutations.html#summary-of-the-variables-of-interest",
+    "title": "Permutation Tests",
+    "section": "Summary of the variables of interest",
+    "text": "Summary of the variables of interest\n\nNHANES  |&gt; select(HealthGen)  |&gt; table()\n\nHealthGen\nExcellent     Vgood      Good      Fair      Poor \n      878      2508      2956      1010       187 \n\nNHANES  |&gt; select(HHIncomeMid)  |&gt; summary()\n\n  HHIncomeMid    \n Min.   :  2500  \n 1st Qu.: 30000  \n Median : 50000  \n Mean   : 57206  \n 3rd Qu.: 87500  \n Max.   :100000  \n NA's   :811"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#mean-income-broken-down-by-health",
+    "href": "slides/2024-10-01-permutations.html#mean-income-broken-down-by-health",
+    "title": "Permutation Tests",
+    "section": "Mean Income broken down by Health",
+    "text": "Mean Income broken down by Health\n\nNH.means &lt;- NHANES  |&gt; \n  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |&gt; \n  group_by(HealthGen)  |&gt; \n  summarize(IncMean = mean(HHIncomeMid), count=n())\nNH.means\n\n# A tibble: 5 × 3\n  HealthGen IncMean count\n  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;\n1 Excellent  69354.   817\n2 Vgood      65011.  2342\n3 Good       55662.  2744\n4 Fair       44194.   899\n5 Poor       37027.   164\n\n\nAre the differences in means simply due to random chance??"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#income-and-health",
+    "href": "slides/2024-10-01-permutations.html#income-and-health",
+    "title": "Permutation Tests",
+    "section": "Income and Health",
+    "text": "Income and Health\n\nNHANES  |&gt; filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt; \nggplot(aes(x=HealthGen, y=HHIncomeMid)) + geom_boxplot()"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#differences-in-income",
+    "href": "slides/2024-10-01-permutations.html#differences-in-income",
+    "title": "Permutation Tests",
+    "section": "Differences in Income ($)",
+    "text": "Differences in Income ($)\n\n\n           Excellent      Vgood      Good      Fair      Poor\nExcellent      0.000   4343.671  13691.99 25160.797 32326.906\nVgood      -4343.671      0.000   9348.32 20817.126 27983.236\nGood      -13691.991  -9348.320      0.00 11468.806 18634.915\nFair      -25160.797 -20817.126 -11468.81     0.000  7166.109\nPoor      -32326.906 -27983.236 -18634.92 -7166.109     0.000"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#overall-difference",
+    "href": "slides/2024-10-01-permutations.html#overall-difference",
+    "title": "Permutation Tests",
+    "section": "Overall difference",
+    "text": "Overall difference\nWe can measure the overall differences as the amount of variability between each of the means and the overall mean:\n\\[F = \\frac{\\text{between-group variability}}{\\text{within-group variability}}\\] \\[F = \\frac{\\sum_i n_i(\\overline{X}_{i\\cdot} - \\overline{X})^2/(K-1)}{\\sum_{ij} (X_{ij}-\\overline{X}_{i\\cdot})^2/(N-K)}\\] \\[SumSqBtwn = \\sum_i n_i(\\overline{X}_{i\\cdot} - \\overline{X})^2\\]"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#creating-a-test-statistic",
+    "href": "slides/2024-10-01-permutations.html#creating-a-test-statistic",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\nNHANES  |&gt; select(HHIncomeMid, HealthGen)  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))\n\n# A tibble: 6,966 × 2\n   HHIncomeMid HealthGen\n         &lt;int&gt; &lt;fct&gt;    \n 1       30000 Good     \n 2       30000 Good     \n 3       30000 Good     \n 4       40000 Good     \n 5       87500 Vgood    \n 6       87500 Vgood    \n 7       87500 Vgood    \n 8       30000 Vgood    \n 9      100000 Vgood    \n10       70000 Fair     \n# ℹ 6,956 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#creating-a-test-statistic-1",
+    "href": "slides/2024-10-01-permutations.html#creating-a-test-statistic-1",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\nGM &lt;- NHANES  |&gt; summarize(mean(HHIncomeMid, na.rm=TRUE))  |&gt; pull()\nGM\n\n[1] 57206.17\n\nNH.means\n\n# A tibble: 5 × 3\n  HealthGen IncMean count\n  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;\n1 Excellent  69354.   817\n2 Vgood      65011.  2342\n3 Good       55662.  2744\n4 Fair       44194.   899\n5 Poor       37027.   164"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#creating-a-test-statistic-2",
+    "href": "slides/2024-10-01-permutations.html#creating-a-test-statistic-2",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\nNH.means  |&gt; select(IncMean)  |&gt; pull() - GM\n\n[1]  12148.175   7804.504  -1543.816 -13012.622 -20178.731\n\n(NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 147578150  60910286   2383368 169328332 407181201\n\nNH.means  |&gt; select(count)  |&gt; pull()\n\n[1]  817 2342 2744  899  164\n\nNH.means  |&gt; select(count)  |&gt; pull() * \n  (NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 120571348234 142651889943   6539963000 152226170649  66777716928"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#creating-a-test-statistic-3",
+    "href": "slides/2024-10-01-permutations.html#creating-a-test-statistic-3",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\\[SumSqBtwn = \\sum_i n_i(\\overline{X}_{i\\cdot} - \\overline{X})^2\\]\n\nsum(NH.means  |&gt; select(count)  |&gt; pull() * \n      (NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2)\n\n[1] 488767088754"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#permuting-the-data",
+    "href": "slides/2024-10-01-permutations.html#permuting-the-data",
+    "title": "Permutation Tests",
+    "section": "Permuting the data",
+    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000      40000\n 2 Good            30000     100000\n 3 Good            30000      50000\n 4 Good            40000      70000\n 5 Vgood           87500      50000\n 6 Vgood           87500      30000\n 7 Vgood           87500      87500\n 8 Vgood           30000     100000\n 9 Vgood          100000      70000\n10 Fair            70000     100000\n# ℹ 6,956 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#permuting-the-data-a-new-test-statistic",
+    "href": "slides/2024-10-01-permutations.html#permuting-the-data-a-new-test-statistic",
+    "title": "Permutation Tests",
+    "section": "Permuting the data & a new test statistic",
+    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 14599132124."
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#lots-of-times",
+    "href": "slides/2024-10-01-permutations.html#lots-of-times",
+    "title": "Permutation Tests",
+    "section": "Lots of times…",
+    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 16247760756.\n 2 20931115782.\n 3 15458718991.\n 4 12802201825.\n 5 17047450007.\n 6 13743950133.\n 7 12163844295.\n 8 12943334376.\n 9 14176463718.\n10 13229002009.\n# ℹ 990 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#compared-to-the-real-data",
+    "href": "slides/2024-10-01-permutations.html#compared-to-the-real-data",
+    "title": "Permutation Tests",
+    "section": "Compared to the real data",
+    "text": "Compared to the real data\n\nSSB_obs &lt;- NHANES  |&gt;\n  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |&gt; \n  group_by(HealthGen)  |&gt; \n  summarize(IncMean = mean(HHIncomeMid), count=n())  |&gt;\n  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) \n\nSSB_obs \n\n# A tibble: 1 × 1\n   obs_teststat\n          &lt;dbl&gt;\n1 488767088754.\n\nsum(SSB_perm_val  |&gt; pull() &gt; SSB_obs  |&gt; pull() ) / reps\n\n[1] 0"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#compared-to-the-observed-test-statistic",
+    "href": "slides/2024-10-01-permutations.html#compared-to-the-observed-test-statistic",
+    "title": "Permutation Tests",
+    "section": "Compared to the observed test statistic",
+    "text": "Compared to the observed test statistic"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#exchangeability",
+    "href": "slides/2024-10-01-permutations.html#exchangeability",
+    "title": "Permutation Tests",
+    "section": "Exchangeability",
+    "text": "Exchangeability\n\nIf the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.\n\ntypically,\n\\[H_0: F_1(x) = F_2(x)\\]\n(there are no distributional or parametric conditions)"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#probability-as-measured-by-what",
+    "href": "slides/2024-10-01-permutations.html#probability-as-measured-by-what",
+    "title": "Permutation Tests",
+    "section": "Probability as measured by what?",
+    "text": "Probability as measured by what?\n\nRandom Sample The concept of a p-value usually comes from the idea of taking a sample from a population and comparing it to a sampling distribution (from many many random samples).\nRandomized Experiment The p-value represents the observed data compared to the treatment variable being allocated to the groups “by chance.”"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations",
+    "href": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations\nThe Economist, Sep 21, 2017"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations-1",
+    "href": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations-1",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations-2",
+    "href": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations-2",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations\n\nInnovative Higher Education, 40, pages 291–303 (2015)."
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations-3",
+    "href": "slides/2024-10-01-permutations.html#gender-bias-in-teaching-evaluations-3",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#gender-bias-macnell-data",
+    "href": "slides/2024-10-01-permutations.html#gender-bias-macnell-data",
+    "title": "Permutation Tests",
+    "section": "Gender bias: MacNell data",
+    "text": "Gender bias: MacNell data"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#analysis-goal",
+    "href": "slides/2024-10-01-permutations.html#analysis-goal",
+    "title": "Permutation Tests",
+    "section": "Analysis goal",
+    "text": "Analysis goal\nWant to know if the population average score for the perceived gender is different.\n\\[H_0:  \\mu_{ID.Female} = \\mu_{ID.Male}\\]\n\nAlthough for the permutation test, under the null hypothesis not only are the means of the population distributions the same, but the variance and all other aspects of the distributions across perceived gender."
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#macnell-data-without-permutation",
+    "href": "slides/2024-10-01-permutations.html#macnell-data-without-permutation",
+    "title": "Permutation Tests",
+    "section": "MacNell Data without permutation",
+    "text": "MacNell Data without permutation\n\nmacnell  |&gt;\n  select(overall, tagender, taidgender) \n\n# A tibble: 47 × 3\n   overall tagender taidgender\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n 1       4        0          1\n 2       4        0          1\n 3       5        0          1\n 4       5        0          1\n 5       5        0          1\n 6       4        0          1\n 7       4        0          1\n 8       5        0          1\n 9       4        0          1\n10       3        0          1\n# ℹ 37 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#permuting-macnell-data",
+    "href": "slides/2024-10-01-permutations.html#permuting-macnell-data",
+    "title": "Permutation Tests",
+    "section": "Permuting MacNell data",
+    "text": "Permuting MacNell data\nConceptually, there are two levels of randomization:\n\n\\(N_m\\) students are randomly assigned to the male instructor and \\(N_f\\) are assigned to the female instructor.\nOf the \\(N_j\\) assigned to instructor \\(j\\), \\(N_{jm}\\) are told that the instructor is male, and \\(N_{jf}\\) are told that the instructor is female for \\(j=m,f\\).\n\n\nmacnell  |&gt;\n  group_by(tagender, taidgender)  |&gt;\n  summarize(n())\n\n# A tibble: 4 × 3\n# Groups:   tagender [2]\n  tagender taidgender `n()`\n     &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;\n1        0          0    11\n2        0          1    12\n3        1          0    13\n4        1          1    11\n\n\nStratified two-sample test:\n\nFor each instructor, permute perceived gender assignments.\nUse difference in mean ratings for female-identified vs male-identified instructors."
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#macnell-data-with-permutation",
+    "href": "slides/2024-10-01-permutations.html#macnell-data-with-permutation",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        1\n 2       4        0          1        0\n 3       5        0          1        1\n 4       5        0          1        1\n 5       5        0          1        1\n 6       4        0          1        0\n 7       4        0          1        1\n 8       5        0          1        1\n 9       4        0          1        0\n10       3        0          1        1\n# ℹ 37 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#macnell-data-with-permutation-1",
+    "href": "slides/2024-10-01-permutations.html#macnell-data-with-permutation-1",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.287"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#macnell-data-with-permutation-2",
+    "href": "slides/2024-10-01-permutations.html#macnell-data-with-permutation-2",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1  -0.00216\n2  -0.184  \n3  -0.374  \n4   0.0909 \n5   0.0909"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#observed-vs.-permuted-statistic",
+    "href": "slides/2024-10-01-permutations.html#observed-vs.-permuted-statistic",
+    "title": "Permutation Tests",
+    "section": "Observed vs. Permuted statistic",
+    "text": "Observed vs. Permuted statistic\n\n# observed\nmacnell  |&gt; \n  group_by(taidgender)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n\n# A tibble: 1 × 1\n  diff_mean\n      &lt;dbl&gt;\n1     0.474\n\n\n\n# permuted\nset.seed(47)\nreps = 1000\nperm_diff_means &lt;- map(1:reps, diff_means_func) |&gt; \n  list_rbind()"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#macnell-data-with-permutation-3",
+    "href": "slides/2024-10-01-permutations.html#macnell-data-with-permutation-3",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\npermutation sampling distribution:\n.pull-left[\n\n]\n.pull-right[\n\n# permutation p-value\nperm_diff_means  |&gt;\n  summarize(p_val = \n      sum(diff_mean &gt; 0.474) / \n      reps)\n\n# A tibble: 1 × 1\n  p_val\n  &lt;dbl&gt;\n1 0.048\n\n\n]"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#macnell-results",
+    "href": "slides/2024-10-01-permutations.html#macnell-results",
+    "title": "Permutation Tests",
+    "section": "MacNell results",
+    "text": "MacNell results"
+  },
+  {
+    "objectID": "slides/2024-10-01-permutations.html#statistics-without-the-agonizing-pain",
+    "href": "slides/2024-10-01-permutations.html#statistics-without-the-agonizing-pain",
+    "title": "Permutation Tests",
+    "section": "Statistics Without the Agonizing Pain",
+    "text": "Statistics Without the Agonizing Pain\n\nJohn Rauser of Pintrest (now Amazon), speaking at Strata + Hadoop 2014. https://blog.revolutionanalytics.com/2014/10/statistics-doesnt-have-to-be-that-hard.html"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#statistics-without-the-agonizing-pain",
+    "href": "slides/2024-09-30-permutations.html#statistics-without-the-agonizing-pain",
+    "title": "Permutation Tests",
+    "section": "Statistics Without the Agonizing Pain",
+    "text": "Statistics Without the Agonizing Pain\n\nJohn Rauser of Pintrest (now Amazon), speaking at Strata + Hadoop 2014. https://blog.revolutionanalytics.com/2014/10/statistics-doesnt-have-to-be-that-hard.html"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#logic-of-hypothesis-tests",
+    "href": "slides/2024-09-30-permutations.html#logic-of-hypothesis-tests",
+    "title": "Permutation Tests",
+    "section": "Logic of hypothesis tests",
+    "text": "Logic of hypothesis tests\n\nChoose a statistic that measures the effect\nConstruct the sampling distribution under \\(H_0\\)\nLocate the observed statistic in the null sampling distribution\np-value is the probability of the observed data or more extreme if the null hypothesis is true"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#logic-of-permutation-tests",
+    "href": "slides/2024-09-30-permutations.html#logic-of-permutation-tests",
+    "title": "Permutation Tests",
+    "section": "Logic of permutation tests",
+    "text": "Logic of permutation tests\n\nChoose a test statistic\nShuffle the data (force the null hypothesis to be true)\nCreate a null sampling distribution of the test statistic (under \\(H_0\\))\nFind the observed test statistic on the null sampling distribution and compute the p-value (observed data or more extreme). The p-value can be one or two-sided."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#consider-the-nhanes-dataset.",
+    "href": "slides/2024-09-30-permutations.html#consider-the-nhanes-dataset.",
+    "title": "Permutation Tests",
+    "section": "Consider the NHANES dataset.",
+    "text": "Consider the NHANES dataset.\n\nIncome\n\n(HHIncomeMid - Numerical version of HHIncome derived from the middle income in each category)\n\nHealth\n\n(HealthGen - Self-reported rating of participant’s health in general Reported for participants aged 12 years or older. One of Excellent, Vgood, Good, Fair, or Poor.)"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#summary-of-the-variables-of-interest",
+    "href": "slides/2024-09-30-permutations.html#summary-of-the-variables-of-interest",
+    "title": "Permutation Tests",
+    "section": "Summary of the variables of interest",
+    "text": "Summary of the variables of interest\n\nNHANES  |&gt; select(HealthGen)  |&gt; table()\n\nHealthGen\nExcellent     Vgood      Good      Fair      Poor \n      878      2508      2956      1010       187 \n\nNHANES  |&gt; select(HHIncomeMid)  |&gt; summary()\n\n  HHIncomeMid    \n Min.   :  2500  \n 1st Qu.: 30000  \n Median : 50000  \n Mean   : 57206  \n 3rd Qu.: 87500  \n Max.   :100000  \n NA's   :811"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#mean-income-broken-down-by-health",
+    "href": "slides/2024-09-30-permutations.html#mean-income-broken-down-by-health",
+    "title": "Permutation Tests",
+    "section": "Mean Income broken down by Health",
+    "text": "Mean Income broken down by Health\n\nNH.means &lt;- NHANES  |&gt; \n  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |&gt; \n  group_by(HealthGen)  |&gt; \n  summarize(IncMean = mean(HHIncomeMid), count=n())\nNH.means\n\n# A tibble: 5 × 3\n  HealthGen IncMean count\n  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;\n1 Excellent  69354.   817\n2 Vgood      65011.  2342\n3 Good       55662.  2744\n4 Fair       44194.   899\n5 Poor       37027.   164\n\n\nAre the differences in means simply due to random chance??"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#income-and-health",
+    "href": "slides/2024-09-30-permutations.html#income-and-health",
+    "title": "Permutation Tests",
+    "section": "Income and Health",
+    "text": "Income and Health\n\nNHANES  |&gt; filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt; \nggplot(aes(x=HealthGen, y=HHIncomeMid)) + geom_boxplot()"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#differences-in-income",
+    "href": "slides/2024-09-30-permutations.html#differences-in-income",
+    "title": "Permutation Tests",
+    "section": "Differences in Income ($)",
+    "text": "Differences in Income ($)\n\n\n           Excellent      Vgood      Good      Fair      Poor\nExcellent      0.000   4343.671  13691.99 25160.797 32326.906\nVgood      -4343.671      0.000   9348.32 20817.126 27983.236\nGood      -13691.991  -9348.320      0.00 11468.806 18634.915\nFair      -25160.797 -20817.126 -11468.81     0.000  7166.109\nPoor      -32326.906 -27983.236 -18634.92 -7166.109     0.000"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#overall-difference",
+    "href": "slides/2024-09-30-permutations.html#overall-difference",
+    "title": "Permutation Tests",
+    "section": "Overall difference",
+    "text": "Overall difference\nWe can measure the overall differences as the amount of variability between each of the means and the overall mean:\n\\[F = \\frac{\\text{between-group variability}}{\\text{within-group variability}}\\] \\[F = \\frac{\\sum_i n_i(\\overline{X}_{i\\cdot} - \\overline{X})^2/(K-1)}{\\sum_{ij} (X_{ij}-\\overline{X}_{i\\cdot})^2/(N-K)}\\] \\[SumSqBtwn = \\sum_i n_i(\\overline{X}_{i\\cdot} - \\overline{X})^2\\]"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#creating-a-test-statistic",
+    "href": "slides/2024-09-30-permutations.html#creating-a-test-statistic",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\nNHANES  |&gt; select(HHIncomeMid, HealthGen)  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))\n\n# A tibble: 6,966 × 2\n   HHIncomeMid HealthGen\n         &lt;int&gt; &lt;fct&gt;    \n 1       30000 Good     \n 2       30000 Good     \n 3       30000 Good     \n 4       40000 Good     \n 5       87500 Vgood    \n 6       87500 Vgood    \n 7       87500 Vgood    \n 8       30000 Vgood    \n 9      100000 Vgood    \n10       70000 Fair     \n# ℹ 6,956 more rows"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#creating-a-test-statistic-1",
+    "href": "slides/2024-09-30-permutations.html#creating-a-test-statistic-1",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\nGM &lt;- NHANES  |&gt; summarize(mean(HHIncomeMid, na.rm=TRUE))  |&gt; pull()\nGM\n\n[1] 57206.17\n\nNH.means\n\n# A tibble: 5 × 3\n  HealthGen IncMean count\n  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;\n1 Excellent  69354.   817\n2 Vgood      65011.  2342\n3 Good       55662.  2744\n4 Fair       44194.   899\n5 Poor       37027.   164"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#creating-a-test-statistic-2",
+    "href": "slides/2024-09-30-permutations.html#creating-a-test-statistic-2",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\nNH.means  |&gt; select(IncMean)  |&gt; pull() - GM\n\n[1]  12148.175   7804.504  -1543.816 -13012.622 -20178.731\n\n(NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 147578150  60910286   2383368 169328332 407181201\n\nNH.means  |&gt; select(count)  |&gt; pull()\n\n[1]  817 2342 2744  899  164\n\nNH.means  |&gt; select(count)  |&gt; pull() * \n  (NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 120571348234 142651889943   6539963000 152226170649  66777716928"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#creating-a-test-statistic-3",
+    "href": "slides/2024-09-30-permutations.html#creating-a-test-statistic-3",
+    "title": "Permutation Tests",
+    "section": "Creating a test statistic",
+    "text": "Creating a test statistic\n\\[SumSqBtwn = \\sum_i n_i(\\overline{X}_{i\\cdot} - \\overline{X})^2\\]\n\nsum(NH.means  |&gt; select(count)  |&gt; pull() * \n      (NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2)\n\n[1] 488767088754"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#permuting-the-data",
+    "href": "slides/2024-09-30-permutations.html#permuting-the-data",
+    "title": "Permutation Tests",
+    "section": "Permuting the data",
+    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000       7500\n 2 Good            30000      60000\n 3 Good            30000      12500\n 4 Good            40000     100000\n 5 Vgood           87500     100000\n 6 Vgood           87500      60000\n 7 Vgood           87500      40000\n 8 Vgood           30000     100000\n 9 Vgood          100000      70000\n10 Fair            70000      12500\n# ℹ 6,956 more rows"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#permuting-the-data-a-new-test-statistic",
+    "href": "slides/2024-09-30-permutations.html#permuting-the-data-a-new-test-statistic",
+    "title": "Permutation Tests",
+    "section": "Permuting the data & a new test statistic",
+    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 15574244419."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#lots-of-times",
+    "href": "slides/2024-09-30-permutations.html#lots-of-times",
+    "title": "Permutation Tests",
+    "section": "Lots of times…",
+    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 21788516577.\n 2 14065495417.\n 3 13444453672.\n 4 19672373100.\n 5 12205135509.\n 6 14404253045.\n 7 21278167597.\n 8 14337958575.\n 9 22302162772.\n10 14307041029.\n# ℹ 990 more rows"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#compared-to-the-real-data",
+    "href": "slides/2024-09-30-permutations.html#compared-to-the-real-data",
+    "title": "Permutation Tests",
+    "section": "Compared to the real data",
+    "text": "Compared to the real data\n\nSSB_obs &lt;- NHANES  |&gt;\n  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |&gt; \n  group_by(HealthGen)  |&gt; \n  summarize(IncMean = mean(HHIncomeMid), count=n())  |&gt;\n  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) \n\nSSB_obs \n\n# A tibble: 1 × 1\n   obs_teststat\n          &lt;dbl&gt;\n1 488767088754.\n\nsum(SSB_perm_val  |&gt; pull() &gt; SSB_obs  |&gt; pull() ) / reps\n\n[1] 0"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#compared-to-the-observed-test-statistic",
+    "href": "slides/2024-09-30-permutations.html#compared-to-the-observed-test-statistic",
+    "title": "Permutation Tests",
+    "section": "Compared to the observed test statistic",
+    "text": "Compared to the observed test statistic"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#exchangeability",
+    "href": "slides/2024-09-30-permutations.html#exchangeability",
+    "title": "Permutation Tests",
+    "section": "Exchangeability",
+    "text": "Exchangeability\n\nIf the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.\n\ntypically,\n\\[H_0: F_1(x) = F_2(x)\\]\n(there are no distributional or parametric conditions)"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#probability-as-measured-by-what",
+    "href": "slides/2024-09-30-permutations.html#probability-as-measured-by-what",
+    "title": "Permutation Tests",
+    "section": "Probability as measured by what?",
+    "text": "Probability as measured by what?\n\nRandom Sample The concept of a p-value usually comes from the idea of taking a sample from a population and comparing it to a sampling distribution (from many many random samples).\nRandomized Experiment The p-value represents the observed data compared to the treatment variable being allocated to the groups “by chance.”"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations",
+    "href": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations\nThe Economist, Sep 21, 2017"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations-1",
+    "href": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations-1",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations-2",
+    "href": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations-2",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations\n\nInnovative Higher Education, 40, pages 291–303 (2015)."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations-3",
+    "href": "slides/2024-09-30-permutations.html#gender-bias-in-teaching-evaluations-3",
+    "title": "Permutation Tests",
+    "section": "Gender bias in teaching evaluations",
+    "text": "Gender bias in teaching evaluations"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#gender-bias-macnell-data",
+    "href": "slides/2024-09-30-permutations.html#gender-bias-macnell-data",
+    "title": "Permutation Tests",
+    "section": "Gender bias: MacNell data",
+    "text": "Gender bias: MacNell data"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#analysis-goal",
+    "href": "slides/2024-09-30-permutations.html#analysis-goal",
+    "title": "Permutation Tests",
+    "section": "Analysis goal",
+    "text": "Analysis goal\nWant to know if the population average score for the perceived gender is different.\n\\[H_0:  \\mu_{ID.Female} = \\mu_{ID.Male}\\]\n\nAlthough for the permutation test, under the null hypothesis not only are the means of the population distributions the same, but the variance and all other aspects of the distributions across perceived gender."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#macnell-data-without-permutation",
+    "href": "slides/2024-09-30-permutations.html#macnell-data-without-permutation",
+    "title": "Permutation Tests",
+    "section": "MacNell Data without permutation",
+    "text": "MacNell Data without permutation\n\nmacnell  |&gt;\n  select(overall, tagender, taidgender) \n\n# A tibble: 47 × 3\n   overall tagender taidgender\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;\n 1       4        0          1\n 2       4        0          1\n 3       5        0          1\n 4       5        0          1\n 5       5        0          1\n 6       4        0          1\n 7       4        0          1\n 8       5        0          1\n 9       4        0          1\n10       3        0          1\n# ℹ 37 more rows"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#permuting-macnell-data",
+    "href": "slides/2024-09-30-permutations.html#permuting-macnell-data",
+    "title": "Permutation Tests",
+    "section": "Permuting MacNell data",
+    "text": "Permuting MacNell data\nConceptually, there are two levels of randomization:\n\n\\(N_m\\) students are randomly assigned to the male instructor and \\(N_f\\) are assigned to the female instructor.\nOf the \\(N_j\\) assigned to instructor \\(j\\), \\(N_{jm}\\) are told that the instructor is male, and \\(N_{jf}\\) are told that the instructor is female for \\(j=m,f\\).\n\n\nmacnell  |&gt;\n  group_by(tagender, taidgender)  |&gt;\n  summarize(n())\n\n# A tibble: 4 × 3\n# Groups:   tagender [2]\n  tagender taidgender `n()`\n     &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;\n1        0          0    11\n2        0          1    12\n3        1          0    13\n4        1          1    11\n\n\nStratified two-sample test:\n\nFor each instructor, permute perceived gender assignments.\nUse difference in mean ratings for female-identified vs male-identified instructors."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation",
+    "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        1\n 2       4        0          1        0\n 3       5        0          1        0\n 4       5        0          1        0\n 5       5        0          1        1\n 6       4        0          1        0\n 7       4        0          1        0\n 8       5        0          1        0\n 9       4        0          1        1\n10       3        0          1        0\n# ℹ 37 more rows"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-1",
+    "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-1",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1         0.0870"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-2",
+    "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-2",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1  -0.00652\n2  -0.370  \n3   0.561  \n4  -0.0909 \n5  -0.474"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#observed-vs.-permuted-statistic",
+    "href": "slides/2024-09-30-permutations.html#observed-vs.-permuted-statistic",
+    "title": "Permutation Tests",
+    "section": "Observed vs. Permuted statistic",
+    "text": "Observed vs. Permuted statistic\n\n# observed\nmacnell  |&gt; \n  group_by(taidgender)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n\n# A tibble: 1 × 1\n  diff_mean\n      &lt;dbl&gt;\n1     0.474\n\n\n\n# permuted\nset.seed(47)\nreps = 1000\nperm_diff_means &lt;- map(1:reps, diff_means_func) |&gt; \n  list_rbind()"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-3",
+    "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-3",
+    "title": "Permutation Tests",
+    "section": "MacNell Data with permutation",
+    "text": "MacNell Data with permutation\npermutation sampling distribution:\n.pull-left[\n\n]\n.pull-right[\n\n# permutation p-value\nperm_diff_means  |&gt;\n  summarize(p_val = \n      sum(diff_mean &gt; 0.474) / \n      reps)\n\n# A tibble: 1 × 1\n  p_val\n  &lt;dbl&gt;\n1 0.048\n\n\n]"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#macnell-results",
+    "href": "slides/2024-09-30-permutations.html#macnell-results",
+    "title": "Permutation Tests",
+    "section": "MacNell results",
+    "text": "MacNell results"
+  },
+  {
+    "objectID": "posts/2024-09-30-permutation/index.html",
+    "href": "posts/2024-09-30-permutation/index.html",
+    "title": "5. Permutation Tests",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2024-09-30-permutation/index.html#agenda",
+    "href": "posts/2024-09-30-permutation/index.html#agenda",
+    "title": "5. Permutation Tests",
+    "section": "Agenda ",
+    "text": "Agenda \n\nSeptember 28, 2021\n\nReview: logic of hypothesis testing\nLogic of permutation tests\nExamples - 2 samples and beyond\n\n\n\nSeptember 30, 2021\n\nConditions, exchangeability, random structure\nDifferent statistics within the permutation test\nPower\nPermutation vs. Randomization tests (Binomial)"
+  },
+  {
+    "objectID": "posts/2024-09-30-permutation/index.html#readings",
+    "href": "posts/2024-09-30-permutation/index.html#readings",
+    "title": "5. Permutation Tests",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Permutation Tests\nBaumer, Horton, and Kaplan (2021), Simulation (Chp 13) in Modern Data Science for R."
+  },
+  {
+    "objectID": "posts/2024-09-30-permutation/index.html#reflection-questions",
+    "href": "posts/2024-09-30-permutation/index.html#reflection-questions",
+    "title": "5. Permutation Tests",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nWhat is a test statistic?\nWhat is a p-value?\nWhy for a two sample comparison (treatment A vs treatment B) is it okay to use \\(\\overline{X}_A - \\overline{X}_B\\) for a test statistic in a permutation test, but for a t-test the test statistic is necessarily \\(t^* = \\frac{\\overline{X}_A - \\overline{X}_B}{\\sqrt{s^2_A/n_A + s^2_B/n_B}}\\) (that is, divided by a measure of variability)?\nHow do you know what to permute in order to create a null sampling distribution?\nWhat does “exchangeability” mean (as a technical condition) when discussing permutation tests?\nWhat is the difference between a permutation test and a randomization test? Are there times when doing a randomization test is possible?\nWhat is power? What are type I and type II errors?"
+  },
+  {
+    "objectID": "posts/2024-09-30-permutation/index.html#ethics-considerations",
+    "href": "posts/2024-09-30-permutation/index.html#ethics-considerations",
+    "title": "5. Permutation Tests",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nIn a permutation test, sometimes there are many test statistics to choose from (which address the same hypotheses). Why wouldn’t you want to try them all and choose the one that gives you the highest level of significance?\nWhen is it acceptable to claim that the resulting “significant” outcome is actually a causal relationship (and not just an association)?"
+  },
+  {
+    "objectID": "posts/2024-09-30-permutation/index.html#slides",
+    "href": "posts/2024-09-30-permutation/index.html#slides",
+    "title": "5. Permutation Tests",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides for both 9/28/21 and 9/30/21.\nWU8 - HT logic\nWU9 - Permuting"
+  },
+  {
+    "objectID": "posts/2024-09-30-permutation/index.html#additional-resources",
+    "href": "posts/2024-09-30-permutation/index.html#additional-resources",
+    "title": "5. Permutation Tests",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nRossman & Chance applets:\n\nanalytic test of 2 means (t-test)\npermutation test of 2 means\nanalytic test of many means (ANOVA)\npermutation test of many means\nconfidence intervals\npower\n\nlinear models\n\nStatistics without the agonizing pain - John Rauser at Strata + Hadoop 2014\nThe algorithm that could end partisan gerrymandering\nRStudio cheatsheets – there is one on purrr!\n\n\n:::"
   }
 ]

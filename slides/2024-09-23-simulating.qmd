@@ -792,6 +792,12 @@ poll_data <- pres_polls |>
 poll_data
 ```
 
+```{r}
+#| echo: false
+#| eval: false
+write_csv(poll_data, "../data/poll_data.csv")
+```
+
 
 Data sources include: <a href = "https://github.com/fivethirtyeight/data/blob/master/polls/2024-averages/presidential_general_averages_2024-09-12_uncorrected.csv" target = "_blank">538</a> and the <a href = "https://www.archives.gov/electoral-college/allocation" target = "_blank">National Archives</a>. 
 

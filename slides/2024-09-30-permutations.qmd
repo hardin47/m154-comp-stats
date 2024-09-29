@@ -1,0 +1,542 @@
+---
+title: "Permutation Tests"
+author: "Jo Hardin"
+subtitle: "September 30 + October 2, 2024"
+format: 
+  revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    multiplex: true
+execute:
+  echo: true
+  warning: false
+  message: false
+bibliography: 
+  - ../slides.bib
+--- 
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(openintro)
+#devtools::install_github("statlab/permuter")
+#library(permuter)  # only need permuter for the macnell data
+library(NHANES)
+```
+
+
+# Agenda  9/30/24
+
+1. Review: logic of hypothesis testing
+2. Logic of permutation tests
+3. Examples - 2 samples and beyond
+
+ 
+## Statistics Without the Agonizing Pain
+
+```{r, out.width="40%", fig.cap = "John Rauser of Pintrest (now Amazon), speaking at Strata + Hadoop 2014. https://blog.revolutionanalytics.com/2014/10/statistics-doesnt-have-to-be-that-hard.html", fig.alt = "Image of John Rauser who gave a keynote address  on permutation tests at the Strat + Hadoop conference in 2014.", echo=FALSE}
+knitr::include_graphics("../images/rauser.png")
+``` 
+
+
+## Logic of hypothesis tests
+
+1. Choose a statistic that measures the effect 
+
+2. Construct the sampling distribution under $H_0$
+
+3. Locate the observed statistic in the null sampling distribution
+
+4. **p-value**  is the probability of the observed data or more extreme if the null hypothesis is true
+
+ 
+
+## Logic of permutation tests
+
+1. Choose a test statistic
+
+2. Shuffle the data (force the null hypothesis to be true)
+
+3. Create a null sampling distribution of the test statistic (under $H_0$)
+
+4. Find the observed test statistic on the null sampling distribution and compute the p-value (observed data or more extreme).  The p-value can be one or two-sided.
+
+ 
+
+##  Consider the NHANES dataset.
+
+- Income 
+    * (HHIncomeMid - Numerical version of HHIncome derived from the middle income in each category)
+- Health 
+    * (HealthGen - Self-reported rating of participant's health in general Reported for participants aged 12 years or older. One of Excellent, Vgood, Good, Fair, or Poor.)
+
+
+ 
+
+## Summary of the variables of interest
+
+```{r}
+NHANES  |> select(HealthGen)  |> table()
+NHANES  |> select(HHIncomeMid)  |> summary()
+```
+
+ 
+
+## Mean Income broken down by Health
+
+```{r}
+NH.means <- NHANES  |> 
+  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |> 
+  group_by(HealthGen)  |> 
+  summarize(IncMean = mean(HHIncomeMid), count=n())
+NH.means
+```
+
+Are the differences in means simply due to random chance??
+
+ 
+
+## Income and Health
+
+```{r warning=FALSE, fig.height = 5, fig.align='center'}
+NHANES  |> filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |> 
+ggplot(aes(x=HealthGen, y=HHIncomeMid)) + geom_boxplot()
+```
+
+ 
+
+## Differences in Income ($)
+
+```{r echo = FALSE}
+diff.mat = data.frame(matrix(ncol=5, nrow=5))
+names(diff.mat) = NH.means$HealthGen
+rownames(diff.mat) = NH.means$HealthGen
+
+for(i in 1:5){
+  for(j in 1:5){
+    diff.mat[i,j] = NH.means$IncMean[i] - NH.means$IncMean[j]   }}
+
+diff.mat
+```
+
+ 
+
+## Overall difference
+
+We can measure the overall differences as the amount of variability between each of the means and the overall mean:
+
+$$F = \frac{\text{between-group variability}}{\text{within-group variability}}$$
+$$F = \frac{\sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2/(K-1)}{\sum_{ij} (X_{ij}-\overline{X}_{i\cdot})^2/(N-K)}$$
+$$SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2$$
+
+ 
+
+## Creating a test statistic
+
+```{r}
+NHANES  |> select(HHIncomeMid, HealthGen)  |> 
+  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))
+
+```
+
+ 
+
+## Creating a test statistic
+```{r}
+GM <- NHANES  |> summarize(mean(HHIncomeMid, na.rm=TRUE))  |> pull()
+GM
+
+NH.means
+```
+
+ 
+
+## Creating a test statistic
+
+```{r}
+NH.means  |> select(IncMean)  |> pull() - GM
+(NH.means  |> select(IncMean)  |> pull() - GM)^2
+NH.means  |> select(count)  |> pull()
+NH.means  |> select(count)  |> pull() * 
+  (NH.means  |> select(IncMean)  |> pull() - GM)^2
+```
+
+ 
+
+## Creating a test statistic
+
+$$SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2$$
+```{r}
+sum(NH.means  |> select(count)  |> pull() * 
+      (NH.means  |> select(IncMean)  |> pull() - GM)^2)
+```
+
+
+
+ 
+
+##  Permuting the data 
+
+```{r}
+NHANES  |> 
+  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |>
+  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |>
+  select(HealthGen, HHIncomeMid, IncomePerm) 
+```
+
+
+ 
+
+##  Permuting the data & a new test statistic
+
+```{r}
+NHANES  |> 
+  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |>
+  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |>
+  group_by(HealthGen)  |> 
+  summarize(IncMeanP = mean(IncomePerm), count=n())  |>
+  summarize(teststat = sum(count*(IncMeanP - GM)^2))
+
+```
+
+ 
+
+## Lots of times...
+
+```{r}
+reps <- 1000
+
+SSB_perm_func <- function(.x){
+  NHANES  |> 
+        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |>
+        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |>
+        group_by(HealthGen)  |> 
+        summarize(IncMeanP = mean(IncomePerm), count=n())  |>
+        summarize(teststat = sum(count*(IncMeanP - GM)^2)) 
+}
+
+SSB_perm_val <- map(1:reps, SSB_perm_func) |> 
+  list_rbind()
+
+SSB_perm_val
+
+```
+
+ 
+
+## Compared to the real data
+
+
+```{r}
+SSB_obs <- NHANES  |>
+  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |> 
+  group_by(HealthGen)  |> 
+  summarize(IncMean = mean(HHIncomeMid), count=n())  |>
+  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) 
+
+SSB_obs 
+sum(SSB_perm_val  |> pull() > SSB_obs  |> pull() ) / reps
+```
+
+ 
+
+## Compared to the observed test statistic
+
+```{r fig.height = 7, fig.align='center', echo = FALSE}
+SSB_perm_val  |>
+  ggplot(aes(x = teststat)) +
+  geom_histogram() + 
+  geom_vline(data = SSB_obs, aes(xintercept = obs_teststat), color = "red") +
+  ylab("") + xlab("Permuted SSB Test Statistics")
+```
+
+
+ 
+
+# Agenda  10/2/24
+
+1. Conditions, exchangeability, random structure
+2. Different statistics within the permutation test
+
+
+## Exchangeability
+
+> *If the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.*
+
+typically, 
+
+$$H_0: F_1(x) = F_2(x)$$
+
+(there are no distributional or parametric conditions)
+
+ 
+
+## Probability as measured by what?
+
+* **Random Sample** The concept of a p-value usually comes from the idea of taking a sample from a population and comparing it to a sampling distribution (from many many random samples).
+
+* **Randomized Experiment** The p-value represents the observed data compared to the treatment variable being allocated to the groups "by chance."
+
+ 
+
+## Gender bias in teaching evaluations
+
+*The Economist*, Sep 21, 2017 
+
+```{r out.width='100%', fig.align="center",  echo=FALSE}
+knitr::include_graphics(c("../images/genderbias2a.png", "../images/genderbias2b.png"))
+```
+
+
+ 
+
+## Gender bias in teaching evaluations
+
+```{r out.width='100%', fig.align="center",  echo=FALSE}
+knitr::include_graphics("../images/genderbias.png")
+
+```
+
+ 
+
+## Gender bias in teaching evaluations
+
+
+```{r out.width='100%', fig.align="center", echo=FALSE}
+knitr::include_graphics("../images/genderbias3a.png")
+```
+*Innovative Higher Education*, **40**, pages 291–303 (2015).
+ 
+
+## Gender bias in teaching evaluations
+
+```{r out.width='100%', fig.align="center", echo=FALSE}
+knitr::include_graphics("../images/genderbias3b.png")
+```
+
+
+
+ 
+
+## Gender bias: MacNell data
+
+
+```{r echo=FALSE}
+macnell <- readr::read_csv("https://raw.githubusercontent.com/statlab/permuter/master/data-raw/macnell.csv", na = "NaN")
+data(macnell)  # is in the permuter package
+```
+
+
+
+```{r warning=FALSE, message=FALSE, echo=FALSE, fig.align="center"}
+library(ggridges)
+macnell  |> 
+  mutate(TAID = ifelse(taidgender==1, "male", "female"))  |>
+  mutate(TAGend = ifelse(tagender==1, "male", "female"))  |>
+ggplot(aes(y=TAGend, x=overall, group = interaction(TAGend, TAID), 
+           fill=TAID)) +
+  geom_point(position=position_jitterdodge(jitter.height=0.3, jitter.width = 0, dodge.width = 0.4), aes(color = TAID)) +
+  stat_summary(fun="mean", geom="crossbar", size=.3, width = 1,
+               aes(color = TAID),
+               position=position_dodge(width=0.4)) +
+  stat_summary(fun="mean", geom="point", shape = "X",
+               size=5, aes(color = TAID),
+               position=position_dodge(width=0.4)) +
+  coord_flip() +
+  labs(x = "",
+       y = "TA gender",
+       color = "TA identifier",
+       fill = "TA identifier",
+       title = "Overall teaching effectiveness score")
+```
+
+
+ 
+
+##  Analysis goal
+
+Want to know if the population average score for the **perceived** gender is different.
+
+
+$$H_0:  \mu_{ID.Female} = \mu_{ID.Male}$$
+
+> Although for the permutation test, under the null hypothesis not only are the means of the population distributions the same, but the variance and all other aspects of the distributions across perceived gender.
+
+ 
+
+## MacNell Data without permutation
+
+```{r}
+macnell  |>
+  select(overall, tagender, taidgender) 
+```
+
+
+
+ 
+
+## Permuting MacNell data
+
+Conceptually, there are two levels of randomization:
+
+1. $N_m$ students are randomly assigned to the male instructor and $N_f$ are assigned to the female instructor.
+
+2.  Of the $N_j$ assigned to instructor $j$, $N_{jm}$ are told that the instructor is male, and $N_{jf}$ are told that the instructor is female for $j=m,f$.
+
+```{r}
+macnell  |>
+  group_by(tagender, taidgender)  |>
+  summarize(n())
+```
+ 
+
+**Stratified two-sample test:**
+
+* **For each instructor**, permute *perceived* gender assignments.
+* Use difference in mean ratings for female-identified vs male-identified instructors.
+
+ 
+
+## MacNell Data with permutation
+
+```{r mac1}
+#| code-line-numbers: "2"
+macnell  |> 
+  group_by(tagender)  |>
+  mutate(permTAID = sample(taidgender, replace=FALSE))  |>
+  select(overall, tagender, taidgender, permTAID) 
+```
+
+
+## MacNell Data with permutation
+
+```{r mac2}
+#| code-line-numbers: "2,5"
+macnell  |> 
+  group_by(tagender)  |>
+  mutate(permTAID = sample(taidgender, replace=FALSE))  |>
+  ungroup(tagender)  |>
+  group_by(permTAID)  |>
+  summarize(pmeans = mean(overall, na.rm=TRUE))  |>
+  summarize(diff(pmeans))
+```
+
+
+
+## MacNell Data with permutation
+
+```{r mac3}
+diff_means_func <- function(.x){
+  macnell  |> group_by(tagender)  |>
+  mutate(permTAID = sample(taidgender, replace=FALSE))  |>
+  ungroup(tagender)  |>
+  group_by(permTAID)  |>
+  summarize(pmeans = mean(overall, na.rm=TRUE))  |>
+  summarize(diff_mean = diff(pmeans))
+  }
+
+map(1:5, diff_means_func) |> 
+  list_rbind()
+```
+
+
+ 
+
+## Observed vs. Permuted statistic
+
+```{r}
+# observed
+macnell  |> 
+  group_by(taidgender)  |>
+  summarize(pmeans = mean(overall, na.rm=TRUE))  |>
+  summarize(diff_mean = diff(pmeans))
+```
+
+
+```{r}
+# permuted
+set.seed(47)
+reps = 1000
+perm_diff_means <- map(1:reps, diff_means_func) |> 
+  list_rbind()
+```
+
+ 
+
+## MacNell Data with permutation
+
+permutation sampling distribution:
+
+.pull-left[
+```{r echo=FALSE}
+perm_diff_means  |>
+  ggplot(aes(x = diff_mean)) +
+  geom_histogram() +
+  geom_vline(xintercept = 0.474, color = "red")
+```
+]
+
+.pull-right[
+```{r}
+# permutation p-value
+perm_diff_means  |>
+  summarize(p_val = 
+      sum(diff_mean > 0.474) / 
+      reps)
+```
+]
+ 
+
+```{r echo = FALSE, eval = FALSE}
+## MacNell Data with different permutation tests
+distr1 <- stratified_two_sample(response = macnell$overall,
+                               group =  macnell$taidgender,
+                               stratum = macnell$tagender,
+                               stat = "mean", reps=reps)
+
+distr2 <- stratified_two_sample(response = macnell$overall,
+                               group =  macnell$taidgender,
+                               stratum = macnell$tagender,
+                               stat = "t", reps=reps)
+```
+
+```{r echo = FALSE, eval = FALSE}
+macnell  |> group_by(taidgender)  |>
+  summarize(means = mean(overall, na.rm=TRUE))  |>
+  summarize(diff(means))
+
+macnell  |> group_by(taidgender)  |>
+  summarize(means = mean(overall, na.rm=TRUE), 
+            vars = var(overall, na.rm = TRUE), ns = n() )  |>
+  summarize((means[1] - means[2])/ sqrt(vars[1]/ns[1] + vars[2]/ns[2]))
+
+```
+
+
+```{r echo = FALSE, eval = FALSE}
+## MacNell Data with different permutation tests
+
+
+# brute force permuation
+2*sum(ov.stats > 0.47) / reps
+
+# mean(x) - mean(y)
+t2p(0.47, distr1, alternative="two-sided")
+
+# t permutation
+t2p(-1.56, distr2, alternative="two-sided")
+
+```
+
+## MacNell results
+
+```{r out.width = '80%', fig.align="center", echo=FALSE}
+knitr::include_graphics("../images/genderbias3c.png")
+```
+
+
