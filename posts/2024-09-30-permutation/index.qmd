@@ -30,7 +30,7 @@ knitr::include_graphics("../../images/not_normal.png")
 
 
 
-### September 30, 2021
+### September 30, 2024
 
 1. Conditions, exchangeability, random structure
 2. Different statistics within the permutation test
