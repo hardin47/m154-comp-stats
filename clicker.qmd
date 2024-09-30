@@ -953,4 +953,220 @@ ifelse(data > 5, "cat", data)
 
 ---
 
+(@) We typically compare means (across two groups) instead of medians because:[^51]
+   a. we don’t know the SE of the difference of medians
+   b. means are inherently more interesting than medians
+   c. permutation tests don’t work with medians
+   d. the Central Limit Theorem doesn’t apply for medians.
+   
+[^51]: d. the Central Limit Theorem doesn’t apply for medians.
+
+---
+
+(@) What are the technical assumptions for a t-test?[^52]
+   a. none
+   b. normal data
+   c. $n \geq 30$
+   d. random sampling / random allocation for appropriate conclusions
+
+[^52]: we always need d. random sampling / random allocation for appropriate conclusions.  The theory is derived from b. normal data.  If c. $n \geq 30$, then the theory holds really well, regardless of whether the data are normal.
+
+---
+
+(@) What are the technical conditions for permutation tests?[^53]
+   a. none
+   b. normal data
+   c. $n \geq 30$
+   d. random sampling / random allocation for appropriate conclusions
+   
+[^53]: d. random sampling / random allocation for appropriate conclusions
+   
+---
+
+(@) Follow up to permutation test:  the assumptions change based on whether the statistic used is the mean, median, proportion, etc.[^54]
+   a. TRUE
+   b. FALSE
+
+[^54]: b. FALSE
+
+---
+
+(@) Why care about the distribution of the test statistic?[^55]
+   a. Better estimator
+   b. So we can find rejection region
+   c. So we can control power
+   d. Because we love the CLT
+   
+[^55]: b. So we can find rejection region
+
+---
+
+(@) Given statistic T = r(X), how do we find a (reasonable) test?[^56]
+   a. Maximize power
+   b. Minimize type I error
+   c. Control type I error
+   d. Minimize type II error
+   e. Control type II error
+
+[^56]: c. Control type I error
+
+---
+
+(@) Type I error is[^57]
+   a. We give him a raise when he deserves it.
+   b. We don’t give him a raise when he deserves it.
+   c. We give him a raise when he doesn’t deserve it.
+   d. We don’t give him a raise when he doesn’t deserve it.
+
+[^57]: c. We give him a raise when he doesn’t deserve it.
+
+---
+
+(@) Type II error is[^58]
+   a. We give him a raise when he deserves it.
+   b. We don’t give him a raise when he deserves it.
+   c. We give him a raise when he doesn’t deserve it.
+   d. We don’t give him a raise when he doesn’t deserve it.
+
+[^58]: b. We don’t give him a raise when he deserves it.
+
+---
+
+(@) Power is the probability that:[^59]
+   a. We give him a raise when he deserves it.
+   b. We don’t give him a raise when he deserves it.
+   c. We give him a raise when he doesn’t deserve it.
+   d. We don’t give him a raise when he doesn’t deserve it.
+
+[^59]: a. We give him a raise when he deserves it.
+
+---
+
+(@) Why don’t we always reject H0?[^60]
+   a. type I error too high
+   b. type II error too high
+   c. level of sig too high
+   d. power too high
+
+[^60]: a. type I error too high
+
+---
+
+(@) The player is more worried about[^61]
+   a. A type I error
+   b. A type II error
+
+[^61]: b. A type II error
+
+---
+
+(@) The coach is more worried about[^62]
+   a. A type I error
+   b. A type II error
+
+[^62]: a. A type I error
+
+---
+
+(@) Increasing your sample size[^63]
+   a. Increases your power
+   b. Decreases your power
+   
+[^63]: a. Increases your power
+
+---
+
+(@) Making your significance level more stringent ($\alpha$ smaller)[^64]
+   a. Increases your power
+   b. Decreases your power
+
+[^64]: a. Increases your power
+
+---
+
+(@) A more extreme alternative[^65]
+   a. Increases your power
+   b. Decreases your power
+   
+[^65]: a. Increases your power
+
+---
+
+(@) What is the primary reason to use a permutation test (instead of a test built on calculus)?[^66]
+   a. more power
+   b. lower type I error
+   c. more resistant to outliers
+   d. can be done on statistics with unknown sampling distributions
+
+[^66]: d. can be done on statistics with unknown sampling distributions
+
+---
+
+(@) What is the primary reason to bootstrap a CI (instead of creating a CI from calculus)?[^67]
+   a. larger coverage probabilities
+   b. narrower intervals
+   c. more resistant to outliers
+   d. can be done on statistics with unknown sampling distributions
+
+[^67]: d. can be done on statistics with unknown sampling distributions
+
+---
+
+(@) You have a sample of size n = 50.  You sample with replacement 1000 times to get 1000 bootstrap samples. What is the sample size of each bootstrap sample?[^68]
+   a. 50
+   b. 1000
+
+[^68]: a. 50
+
+---
+
+(@) You have a sample of size n = 50.  You sample with replacement 1000 times to get 1000 bootstrap samples. How many bootstrap statistics will you have?[^69]
+   a. 50
+   b. 1000
+
+[^69]: b. 1000
+
+---
+
+(@) The bootstrap distribution is centered around the[^70]
+   a. population parameter
+   b. sample statistic
+   c. bootstrap statistic
+   d. bootstrap parameter
+
+[^70]: b. sample statistic
+
+---
+
+(NEED TO ADD A PLOT FROM STATKEY HERE)
+
+(@) 95% CI for the difference in proportions:[^71]
+   a. (0.39, 0.43)
+   b. (0.37, 0.45)
+   c. (0.77, 0.81)
+   d. (0.75, 0.85)
+
+[^71]: depends on the plot
+
+---
+
+(@) Suppose a 95% bootstrap CI for the difference in means was (3,9), would you reject H0?[^72] (uh... What is the null hypothesis here???)
+   a. yes
+   b. no
+   c. not enough information to know
+
+[^72]: a. yes (because the interval for the true difference in population means does not overlap zero.)
+
+---
+
+(@) Given the situation where $H_a$ is TRUE.  Consider 100 CIs (for true difference in means, where each of the 100 CIs is created using a different dataset). The power of the test can be approximated by:[^73]
+   a. The proportion that contain the true difference in means.
+   b. The proportion that do not contain the true difference in means.
+   c. The proportion that contain zero.
+   d. The proportion that do not contain zero.
+
+[^73]: d. The proportion that do not contain zero.
+
+
+---
 
