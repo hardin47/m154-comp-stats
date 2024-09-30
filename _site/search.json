@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 28, 2021\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -3966,7 +3966,7 @@
     "href": "posts/2024-09-30-permutation/index.html#agenda",
     "title": "5. Permutation Tests",
     "section": "Agenda ",
-    "text": "Agenda \n\nSeptember 28, 2021\n\nReview: logic of hypothesis testing\nLogic of permutation tests\nExamples - 2 samples and beyond\n\n\n\nSeptember 30, 2021\n\nConditions, exchangeability, random structure\nDifferent statistics within the permutation test\nPower\nPermutation vs. Randomization tests (Binomial)"
+    "text": "Agenda \n\nSeptember 30, 2024\n\nReview: logic of hypothesis testing\nLogic of permutation tests\nExamples - 2 samples and beyond\n\n\n\nSeptember 30, 2021\n\nConditions, exchangeability, random structure\nDifferent statistics within the permutation test"
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#readings",
@@ -3994,13 +3994,13 @@
     "href": "posts/2024-09-30-permutation/index.html#slides",
     "title": "5. Permutation Tests",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 9/28/21 and 9/30/21.\nWU8 - HT logic\nWU9 - Permuting"
+    "text": "Slides \n\nIn class slides for both 9/30/24 and 10/02/24.\nWS8 - HT logic\nWU9 - Permuting"
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#additional-resources",
     "href": "posts/2024-09-30-permutation/index.html#additional-resources",
     "title": "5. Permutation Tests",
     "section": "Additional Resources ",
-    "text": "Additional Resources \n\nRossman & Chance applets:\n\nanalytic test of 2 means (t-test)\npermutation test of 2 means\nanalytic test of many means (ANOVA)\npermutation test of many means\nconfidence intervals\npower\n\nlinear models\n\nStatistics without the agonizing pain - John Rauser at Strata + Hadoop 2014\nThe algorithm that could end partisan gerrymandering\nRStudio cheatsheets – there is one on purrr!\n\n\n:::"
+    "text": "Additional Resources \n\nRossman & Chance applets:\n\nanalytic test of 2 means (t-test)\npermutation test of 2 means\nanalytic test of many means (ANOVA)\npermutation test of many means\nconfidence intervals\npower\n\nlinear models\n\nStatistics without the agonizing pain - John Rauser at Strata + Hadoop 2014\nThe algorithm that could end partisan gerrymandering\nPosit cheatsheets – there is one on purrr!\n\n\n:::"
   }
 ]
