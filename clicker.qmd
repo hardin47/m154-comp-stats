@@ -1001,7 +1001,7 @@ ifelse(data > 5, "cat", data)
 
 ---
 
-(@) Given statistic T = r(X), how do we find a (reasonable) test?[^56]
+(@) Given statistic T = r(X), how do we find a (sensible) test?[^56]
    a. Maximize power
    b. Minimize type I error
    c. Control type I error
@@ -1042,35 +1042,35 @@ ifelse(data > 5, "cat", data)
 
 ---
 
-(@) Why don’t we always reject H0?[^60]
-   a. type I error too high
-   b. type II error too high
-   c. level of sig too high
-   d. power too high
+(@) Why don’t we always reject $H_0$?[^60]
+    a. type I error too high
+    b. type II error too high
+    c. level of sig too high
+    d. power too high
 
 [^60]: a. type I error too high
 
 ---
 
 (@) The player is more worried about[^61]
-   a. A type I error
-   b. A type II error
+    a. A type I error
+    b. A type II error
 
 [^61]: b. A type II error
 
 ---
 
 (@) The coach is more worried about[^62]
-   a. A type I error
-   b. A type II error
+    a. A type I error
+    b. A type II error
 
 [^62]: a. A type I error
 
 ---
 
 (@) Increasing your sample size[^63]
-   a. Increases your power
-   b. Decreases your power
+    a. Increases your power
+    b. Decreases your power
    
 [^63]: a. Increases your power
 
@@ -1085,8 +1085,8 @@ ifelse(data > 5, "cat", data)
 ---
 
 (@) A more extreme alternative[^65]
-   a. Increases your power
-   b. Decreases your power
+    a. Increases your power
+    b. Decreases your power
    
 [^65]: a. Increases your power
 
