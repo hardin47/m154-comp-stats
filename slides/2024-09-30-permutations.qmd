@@ -428,7 +428,7 @@ macnell  |>
 ```
  
 
-**Stratified two-sample test:**
+## Stratified two-sample test:
 
 * **For each instructor**, permute *perceived* gender assignments.
 * Use difference in mean ratings for female-identified vs male-identified instructors.
@@ -505,16 +505,18 @@ perm_diff_means <- map(1:reps, diff_means_func) |>
 
 permutation sampling distribution:
 
-.pull-left[
+:::: {.columns}
+
+::: {.column width=50%}
 ```{r echo=FALSE}
 perm_diff_means  |>
   ggplot(aes(x = diff_mean)) +
   geom_histogram() +
   geom_vline(xintercept = 0.474, color = "red")
 ```
-]
+:::
 
-.pull-right[
+::: {.column width=50%}
 ```{r}
 # permutation p-value
 perm_diff_means  |>
@@ -522,7 +524,9 @@ perm_diff_means  |>
       sum(diff_mean > 0.474) / 
       reps)
 ```
-]
+:::
+
+::::
  
 
 ```{r echo = FALSE, eval = FALSE}
