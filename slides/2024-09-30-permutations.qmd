@@ -268,11 +268,18 @@ SSB_perm_val  |>
 
 > *If the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.*
 
-typically, 
+typically (with the two group setting), 
 
 $$H_0: F_1(x) = F_2(x)$$
 
 (there are no distributional or parametric conditions)
+
+
+## Exchangeability
+
+More generally, we might use the following exchangeability definition
+
+> Data are **exchangeable** under the null hypothesis if the joint distribution from which the data came is the same before permutation as after permutation when the null hypothesis is true.
 
  
 
@@ -283,6 +290,32 @@ $$H_0: F_1(x) = F_2(x)$$
 * **Randomized Experiment** The p-value represents the observed data compared to the treatment variable being allocated to the groups "by chance."
 
  
+## Permuting independent observations
+
+Consider a "family" structure where some individuals are exposed and others are not (control).
+
+```{r out.width='100%', fig.align="center",  echo=FALSE}
+knitr::include_graphics("../images/indep_perm.jpg")
+```
+ 
+## Permuting homogenous cluster
+
+Consider a "family" structure where individuals in a cluster always have the same treatment.
+
+```{r out.width='100%', fig.align="center",  echo=FALSE}
+knitr::include_graphics("../images/perm_homo.jpg")
+```
+ 
+
+## Permuting herterogenous cluster
+
+Consider a "family" structure where individuals in a cluster always have the opposite treatment.
+
+```{r out.width='100%', fig.align="center",  echo=FALSE}
+knitr::include_graphics("../images/perm_hetero.jpg")
+```
+ 
+
 
 ## Gender bias in teaching evaluations
 

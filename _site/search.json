@@ -3812,21 +3812,21 @@
     "href": "slides/2024-09-30-permutations.html#permuting-the-data",
     "title": "Permutation Tests",
     "section": "Permuting the data",
-    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000     100000\n 2 Good            30000       2500\n 3 Good            30000      17500\n 4 Good            40000      17500\n 5 Vgood           87500      17500\n 6 Vgood           87500     100000\n 7 Vgood           87500      22500\n 8 Vgood           30000     100000\n 9 Vgood          100000      70000\n10 Fair            70000      87500\n# ℹ 6,956 more rows"
+    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000       7500\n 2 Good            30000      70000\n 3 Good            30000      12500\n 4 Good            40000     100000\n 5 Vgood           87500      12500\n 6 Vgood           87500      30000\n 7 Vgood           87500      60000\n 8 Vgood           30000      87500\n 9 Vgood          100000     100000\n10 Fair            70000     100000\n# ℹ 6,956 more rows"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#permuting-the-data-a-new-test-statistic",
     "href": "slides/2024-09-30-permutations.html#permuting-the-data-a-new-test-statistic",
     "title": "Permutation Tests",
     "section": "Permuting the data & a new test statistic",
-    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 13631760255."
+    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 15885508701."
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#lots-of-times",
     "href": "slides/2024-09-30-permutations.html#lots-of-times",
     "title": "Permutation Tests",
     "section": "Lots of times…",
-    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 15549069058.\n 2 21362573990.\n 3 12041124689.\n 4 15966876043.\n 5 18470463479.\n 6 17974162304.\n 7 14031080472.\n 8 18098237199.\n 9 12571653965.\n10 13278612078.\n# ℹ 990 more rows"
+    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 13062814915.\n 2 16570622160.\n 3 14622071785.\n 4 16384867405.\n 5 26856478649.\n 6 12802434039.\n 7 15492980891.\n 8 16326619821.\n 9 13548147445.\n10 14742878022.\n# ℹ 990 more rows"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#compared-to-the-real-data",
@@ -3847,7 +3847,7 @@
     "href": "slides/2024-09-30-permutations.html#exchangeability",
     "title": "Permutation Tests",
     "section": "Exchangeability",
-    "text": "Exchangeability\n\nIf the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.\n\ntypically,\n\\[H_0: F_1(x) = F_2(x)\\]\n(there are no distributional or parametric conditions)"
+    "text": "Exchangeability\n\nIf the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.\n\ntypically (with the two group setting),\n\\[H_0: F_1(x) = F_2(x)\\]\n(there are no distributional or parametric conditions)"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#probability-as-measured-by-what",
@@ -3917,21 +3917,21 @@
     "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        1\n 2       4        0          1        1\n 3       5        0          1        1\n 4       5        0          1        1\n 5       5        0          1        0\n 6       4        0          1        1\n 7       4        0          1        1\n 8       5        0          1        1\n 9       4        0          1        0\n10       3        0          1        0\n# ℹ 37 more rows"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        1\n 2       4        0          1        1\n 3       5        0          1        1\n 4       5        0          1        0\n 5       5        0          1        0\n 6       4        0          1        1\n 7       4        0          1        0\n 8       5        0          1        1\n 9       4        0          1        1\n10       3        0          1        1\n# ℹ 37 more rows"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-1",
     "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-1",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1         -0.654"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.184"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-2",
     "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-2",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1  -0.0909 \n2  -0.474  \n3   0.654  \n4   0.274  \n5  -0.00216"
+    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1     0.184\n2     0.370\n3     0.367\n4    -0.281\n5    -0.374"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#observed-vs.-permuted-statistic",
@@ -4016,5 +4016,33 @@
     "title": "Clicker Questions",
     "section": "",
     "text": "95% CI for the difference in proportions:71\n\n\n(0.39, 0.43)\n(0.37, 0.45)\n(0.77, 0.81)\n(0.75, 0.85)\n\n\n\nSuppose a 95% bootstrap CI for the difference in means was (3,9), would you reject H0?72 (uh… What is the null hypothesis here???)\n\n\nyes\nno\nnot enough information to know\n\n\n\nGiven the situation where \\(H_a\\) is TRUE. Consider 100 CIs (for true difference in means, where each of the 100 CIs is created using a different dataset). The power of the test can be approximated by:73\n\n\nThe proportion that contain the true difference in means.\nThe proportion that do not contain the true difference in means.\nThe proportion that contain zero.\nThe proportion that do not contain zero.\n\n\n\n:::"
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#exchangeability-1",
+    "href": "slides/2024-09-30-permutations.html#exchangeability-1",
+    "title": "Permutation Tests",
+    "section": "Exchangeability",
+    "text": "Exchangeability\nMore generally, we might use the following exchangeability definition\n\nData are exchangeable under the null hypothesis if the joint distribution from which the data came is the same before permutation as after permutation when the null hypothesis is true."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#permuting-independent-observations",
+    "href": "slides/2024-09-30-permutations.html#permuting-independent-observations",
+    "title": "Permutation Tests",
+    "section": "Permuting independent observations",
+    "text": "Permuting independent observations\nConsider a “family” structure where some individuals are exposed and others are not (control)."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#permuting-homogenous-cluster",
+    "href": "slides/2024-09-30-permutations.html#permuting-homogenous-cluster",
+    "title": "Permutation Tests",
+    "section": "Permuting homogenous cluster",
+    "text": "Permuting homogenous cluster\nConsider a “family” structure where individuals in a cluster always have the same treatment."
+  },
+  {
+    "objectID": "slides/2024-09-30-permutations.html#permuting-herterogenous-cluster",
+    "href": "slides/2024-09-30-permutations.html#permuting-herterogenous-cluster",
+    "title": "Permutation Tests",
+    "section": "Permuting herterogenous cluster",
+    "text": "Permuting herterogenous cluster\nConsider a “family” structure where individuals in a cluster always have the opposite treatment."
   }
 ]
