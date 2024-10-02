@@ -328,7 +328,7 @@ knitr::include_graphics("../images/genderbias3b.png")
 
 ```{r echo=FALSE}
 macnell <- readr::read_csv("https://raw.githubusercontent.com/statlab/permuter/master/data-raw/macnell.csv", na = "NaN")
-data(macnell)  # is in the permuter package
+#data(macnell)  # is in the permuter package
 ```
 
 
