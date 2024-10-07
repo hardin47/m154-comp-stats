@@ -1113,6 +1113,17 @@ ifelse(data > 5, "cat", data)
 
 ---
 
+(@) Which of the following could not possibly be a bootstrap sample from the vector: c(4, 10, 8, 1, 2, 4)[^67b]
+    a. c(4, 4, 4, 4, 4, 4)
+    b. c(4, 10, 8, 1, 2, 4)
+    c. c(1, 2, 2, 4, 4, 2)
+    d. c(10, 8, 1, 1, 8, 10)
+    e. c(1, 2, 4, 3, 4, 10)
+
+[^67b]: e. c(1, 2, 4, 3, 4, 10) because there is no 3 in the original dataset.
+
+---
+
 (@) You have a sample of size n = 50.  You sample with replacement 1000 times to get 1000 bootstrap samples. What is the sample size of each bootstrap sample?[^68]
    a. 50
    b. 1000

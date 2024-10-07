@@ -49,7 +49,7 @@ schedule <- tribble(
   "9.30.24", '<a href="posts/2024-09-30-permutation/">permutation tests</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 5</a> - due 10.1',
 
-  "10.7.24", '<a href="">bootstrapping</a>',
+  "10.7.24", '<a href="posts/2024-10-07-bootstrap/">bootstrapping</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 6</a> - due 10.8 <br> Quiz 10.9',
 
   "10.14.24", '<a href="">recipes</a>',
