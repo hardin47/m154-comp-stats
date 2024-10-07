@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -3812,21 +3812,21 @@
     "href": "slides/2024-09-30-permutations.html#permuting-the-data",
     "title": "Permutation Tests",
     "section": "Permuting the data",
-    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000      70000\n 2 Good            30000      22500\n 3 Good            30000      87500\n 4 Good            40000      30000\n 5 Vgood           87500       2500\n 6 Vgood           87500      17500\n 7 Vgood           87500      50000\n 8 Vgood           30000      22500\n 9 Vgood          100000      12500\n10 Fair            70000      60000\n# ℹ 6,956 more rows"
+    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000      60000\n 2 Good            30000      40000\n 3 Good            30000      50000\n 4 Good            40000      17500\n 5 Vgood           87500     100000\n 6 Vgood           87500      22500\n 7 Vgood           87500      50000\n 8 Vgood           30000      30000\n 9 Vgood          100000      40000\n10 Fair            70000      50000\n# ℹ 6,956 more rows"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#permuting-the-data-a-new-test-statistic",
     "href": "slides/2024-09-30-permutations.html#permuting-the-data-a-new-test-statistic",
     "title": "Permutation Tests",
     "section": "Permuting the data & a new test statistic",
-    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 14762774665."
+    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 17017817836."
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#lots-of-times",
     "href": "slides/2024-09-30-permutations.html#lots-of-times",
     "title": "Permutation Tests",
     "section": "Lots of times…",
-    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 13068484783.\n 2 19784721345.\n 3 14554418707.\n 4 25372511950.\n 5 23720194388.\n 6 12053073111.\n 7 14292056626.\n 8 12058678624.\n 9 14103870073.\n10 20770271587.\n# ℹ 990 more rows"
+    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 16393556429.\n 2 18523927570.\n 3 16366010480.\n 4 18302578935.\n 5 20660912717.\n 6 13658449479.\n 7 18942952877.\n 8 13337031236.\n 9 15101614595.\n10 14340521584.\n# ℹ 990 more rows"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#compared-to-the-real-data",
@@ -3917,21 +3917,21 @@
     "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        0\n 2       4        0          1        1\n 3       5        0          1        1\n 4       5        0          1        0\n 5       5        0          1        1\n 6       4        0          1        1\n 7       4        0          1        1\n 8       5        0          1        0\n 9       4        0          1        1\n10       3        0          1        0\n# ℹ 37 more rows"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        0\n 2       4        0          1        0\n 3       5        0          1        0\n 4       5        0          1        1\n 5       5        0          1        1\n 6       4        0          1        1\n 7       4        0          1        0\n 8       5        0          1        0\n 9       4        0          1        1\n10       3        0          1        1\n# ℹ 37 more rows"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-1",
     "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-1",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.184"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1       -0.00216"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-2",
     "href": "slides/2024-09-30-permutations.html#macnell-data-with-permutation-2",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1   -0.649 \n2   -0.100 \n3    0.835 \n4    0.0909\n5   -0.567"
+    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1  -0.00652\n2  -0.463  \n3  -0.0909 \n4   0.0952 \n5   0.0952"
   },
   {
     "objectID": "slides/2024-09-30-permutations.html#observed-vs.-permuted-statistic",
@@ -4058,5 +4058,306 @@
     "title": "Permutation Tests",
     "section": "Other Test Statistics",
     "text": "Other Test Statistics\n\n\n\n\n\n\n\n\nData\nHypothesis Question\nStatistic\n\n\n\n\n2 categorical\ndiff in prop\n\\(\\hat{p}_1 - \\hat{p}_2\\) or \\(\\chi^2\\)\n\n\nvariables\nratio of prop\n\\(\\hat{p}_1 /  \\hat{p}_2\\)\n\n\n1 numeric\ndiff in means\n\\(\\overline{X}_1 - \\overline{X}_2\\)\n\n\n1 binary\nratio of means\n\\(\\overline{X}_1 / \\overline{X}_2\\)\n\n\n\ndiff in medians\n\\(\\mbox{median}_1 - \\mbox{median}_2\\)\n\n\n\nratio of medians\n\\(\\mbox{median}_1 / \\mbox{median}_2\\)\n\n\n\ndiff in SD\n\\(s_1 - s_2\\)\n\n\n\ndiff in var\n\\(s^2_1 - s^2_2\\)\n\n\n\nratio of SD or VAR\n\\(s_1 / s_2\\)\n\n\n1 numeric\ndiff in means\n\\(\\sum n_i (\\overline{X}_i - \\overline{X})^2\\) or\n\n\nk groups\n\nF stat\n\n\npaired or\n(permute within row)\n\\(\\overline{X}_1 - \\overline{X}_2\\)\n\n\nrepeated measures\n\n\n\n\nregression\ncorrelation\nleast sq slope\n\n\ntime series\nno serial corr\nlag 1 autocross"
+  },
+  {
+    "objectID": "posts/2024-10-07-bootstrap/index.html",
+    "href": "posts/2024-10-07-bootstrap/index.html",
+    "title": "6. Bootstrapping",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2024-10-07-bootstrap/index.html#agenda",
+    "href": "posts/2024-10-07-bootstrap/index.html#agenda",
+    "title": "6. Bootstrapping",
+    "section": "Agenda ",
+    "text": "Agenda \n\nOctober 7, 2024\n\nReview: logic of confidence intervals\nLogic of bootstrapping (resample from the sample with replacement)\nBS SE of a statistic\n\n\n\nOctober 9, 2024\n\nNormal CI using BS SE\nBootstrap-t (studentized) CIs\nPercentile CIs\nproperties / advantages / disadvantages"
+  },
+  {
+    "objectID": "posts/2024-10-07-bootstrap/index.html#readings",
+    "href": "posts/2024-10-07-bootstrap/index.html#readings",
+    "title": "6. Bootstrapping",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Bootstrapping\nBaumer, Horton, and Kaplan (2021), The bootstrap (Chp 9.3) in Modern Data Science for R.\nGareth, Witten, Hastie, and Tibshirani (2021), The Bootstrap (section 5.2)  Introduction to Statistical Learning."
+  },
+  {
+    "objectID": "posts/2024-10-07-bootstrap/index.html#reflection-questions",
+    "href": "posts/2024-10-07-bootstrap/index.html#reflection-questions",
+    "title": "6. Bootstrapping",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nWhy would anyone ever want to bootstrap?\nWhat are the differences between a normal CI with Boot SE, a Bootstrap-t CI, and a percentile interval?\nWhy do we need to bootstrap twice for the Bootstrap-t CI?\nWhat makes a confidence interval procedure good?"
+  },
+  {
+    "objectID": "posts/2024-10-07-bootstrap/index.html#ethics-considerations",
+    "href": "posts/2024-10-07-bootstrap/index.html#ethics-considerations",
+    "title": "6. Bootstrapping",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nWhy isn’t the bootstrap method a solution for the situation of small sample sizes?\nWhy isn’t the bootstrap method a solution for the situation with biased / unrepresentative data?\nConsider a population with a maximum value (the parameter of interest). Will the sample max have a sampling distribution which is centered on the true maximum? Why or why not? [Quintessential example of how a statistic can be biased for the parameter.]"
+  },
+  {
+    "objectID": "posts/2024-10-07-bootstrap/index.html#slides",
+    "href": "posts/2024-10-07-bootstrap/index.html#slides",
+    "title": "6. Bootstrapping",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides for both 10/7/24 and 10/9/24.\nWU10 - standard errors"
+  },
+  {
+    "objectID": "posts/2024-10-07-bootstrap/index.html#additional-resources",
+    "href": "posts/2024-10-07-bootstrap/index.html#additional-resources",
+    "title": "6. Bootstrapping",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nStatKey applets which demonstrate bootstrapping.\nConfidence interval logic from the Rossman & Chance applets.\nThe Role of Statistical Learning in Applied Statistics Daniela Witten talks to Rafa Irizarry June 15, 2020.\nFive ways to fix statistics, Nature Nov 28, 2017\n\n\n:::"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html",
+    "href": "slides/2024-10-07-bootstrap.html",
+    "title": "Agenda 10/7/24",
+    "section": "",
+    "text": "title: “Bootstrapping” author: “Jo Hardin” date: “October 7 + 9, 2024” output: xaringan::moon_reader: nature: highlightlines: true titleSlideClass: [“right”, “top”, “my-title”]"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#why-bootstrap",
+    "href": "slides/2024-10-07-bootstrap.html#why-bootstrap",
+    "title": "Bootstrapping",
+    "section": "Why bootstrap?",
+    "text": "Why bootstrap?\nMotivation:\n\nto estimate the variability and distribution of a statistic in repeated samples of size \\(n\\) (not dependent on \\(H_0\\) being true)."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#variability",
+    "href": "slides/2024-10-07-bootstrap.html#variability",
+    "title": "Bootstrapping",
+    "section": "Variability",
+    "text": "Variability\n\nstandard deviation of the data: \\(s = \\sqrt{\\frac{\\sum_{i=1}^n(X_i - \\overline{X})^2}{n-1}}\\)\nstandard error of the statistic: depends…"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#intuitive-understanding",
+    "href": "slides/2024-10-07-bootstrap.html#intuitive-understanding",
+    "title": "Bootstrapping",
+    "section": "Intuitive understanding",
+    "text": "Intuitive understanding\nSee in the applets for an intuitive understanding of both confidence intervals and boostrapping:\n\nStatKey applets which demonstrate bootstrapping.\nConfidence interval logic from the Rossman & Chance applets."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#basic-notation",
+    "href": "slides/2024-10-07-bootstrap.html#basic-notation",
+    "title": "Bootstrapping",
+    "section": "Basic Notation",
+    "text": "Basic Notation\n(n.b., we don’t ever do what is on this slide)\nLet \\(\\theta\\) be the parameter of interest, and let \\(\\hat{\\theta}\\) be the estimate of \\(\\theta\\). If we could, we’d take many samples of size \\(n\\) from the population to create a sampling distribution for \\(\\hat{\\theta}\\). Consider taking \\(B\\) random samples from the population.\n\\[\\begin{align}\n\\hat{\\theta}(\\cdot) = \\frac{1}{B} \\sum_{i=1}^B \\hat{\\theta}_i\n\\end{align}\\] is the best guess for \\(\\theta\\). If \\(\\hat{\\theta}\\) is very different from \\(\\theta\\), we would call it biased. \\[\\begin{align}\nSE(\\hat{\\theta}) &= \\bigg[ \\frac{1}{B-1} \\sum_{i=1}^B(\\hat{\\theta}_i - \\hat{\\theta}(\\cdot))^2 \\bigg]^{1/2}\\\\\nq_1 &= [0.25 B] \\ \\ \\ \\ \\hat{\\theta}^{(q_1)} = \\mbox{25}\\% \\mbox{ cutoff}\\\\\nq_3 &= [0.75 B] \\ \\ \\ \\ \\hat{\\theta}^{(q_3)} = \\mbox{75}\\% \\mbox{ cutoff}\\\\\n\\end{align}\\]"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#ideally",
+    "href": "slides/2024-10-07-bootstrap.html#ideally",
+    "title": "Bootstrapping",
+    "section": "Ideally",
+    "text": "Ideally\n(we never do part (a))\n\nFrom Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by Moore, McCabe, and Craig"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrap-procedure",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrap-procedure",
+    "title": "Bootstrapping",
+    "section": "Bootstrap Procedure",
+    "text": "Bootstrap Procedure\n\nResample data with replacement from the original sample.\nCalculate the statistic of interest for each resample.\nRepeat 1. and 2. \\(B\\) times.\nUse the bootstrap distribution for inference."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrap-notation",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrap-notation",
+    "title": "Bootstrapping",
+    "section": "Bootstrap Notation",
+    "text": "Bootstrap Notation\n(n.b., bootstrapping is the process on this slide)\nTake many ( \\(B\\) ) resamples of size \\(n\\) from the sample to create a bootstrap distribution for \\(\\hat{\\theta}^*\\) (instead of the sampling distribution for \\(\\hat{\\theta}\\)).\nLet \\(\\hat{\\theta}^*(b)\\) be the calculated statistic of interest for the \\(b^{th}\\) bootstrap sample. The best guess for \\(\\theta\\) is: \\[\\begin{align}\n\\hat{\\theta}^* = \\frac{1}{B} \\sum_{b=1}^B \\hat{\\theta}^*(b)\n\\end{align}\\] (if \\(\\hat{\\theta}^*\\) is very different from \\(\\hat{\\theta}\\), we call it biased.) And the estimated value for the standard error of the estimate is \\[\\begin{align}\n\\hat{SE}^* = \\bigg[ \\frac{1}{B-1} \\sum_{b=1}^B ( \\hat{\\theta}^*(b) - \\hat{\\theta}^*)^2 \\bigg]^{1/2}\n\\end{align}\\]"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#what-do-we-get",
+    "href": "slides/2024-10-07-bootstrap.html#what-do-we-get",
+    "title": "Bootstrapping",
+    "section": "What do we get?",
+    "text": "What do we get?\nJust like repeatedly taking samples from the population, taking resamples from the sample allows us to characterize the bootstrap distribution which approximates the sampling distribution.\n\nThe bootstrap distribution approximates the shape, spread, & bias of the true sampling distribution.\n\n\n\n\n\n\nFrom Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by Moore, McCabe, and Craig. The left image represents the mean with n=50. The center image represents the mean with n=9. The right image represents the median with n=15.\n\n\n\n\n\n\n\nFrom Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by Moore, McCabe, and Craig. The left image represents the mean with n=50. The center image represents the mean with n=9. The right image represents the median with n=15.\n\n\n\n\n\n\n\nFrom Hesterberg et al., Chapter 16 of Introduction to the Practice of Statistics by Moore, McCabe, and Craig. The left image represents the mean with n=50. The center image represents the mean with n=9. The right image represents the median with n=15."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#example",
+    "href": "slides/2024-10-07-bootstrap.html#example",
+    "title": "Bootstrapping",
+    "section": "Example",
+    "text": "Example\n\nHesketh and Everitt (2000) report on a study by Caplehorn and Bell (1991) that investigated the time (days) spent in a clinic for methadone maintenance treatment for people addicted to heroin.\nThe data include the amount of time that the subjects stayed in the facility until treatment was terminated.\nFor about 37% of the subjects, the study ended while they were still the in clinic (status=0).\nTheir survival time has been truncated. For this reason we might not want to estimate the mean survival time, but rather some other measure of typical survival time. Below we explore using the median as well as the 25% trimmed mean. (From ISCAM Chance & Rossman, Investigation 4.5.3)"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#the-data",
+    "href": "slides/2024-10-07-bootstrap.html#the-data",
+    "title": "Bootstrapping",
+    "section": "The data",
+    "text": "The data\n\n\n# A tibble: 238 × 5\n      id clinic status times  dose\n   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1      1      1   428    50\n 2     2      1      1   275    55\n 3     3      1      1   262    55\n 4     4      1      1   183    30\n 5     5      1      1   259    65\n 6     6      1      1   714    55\n 7     7      1      1   438    65\n 8     8      1      0   796    60\n 9     9      1      1   892    50\n10    10      1      1   393    65\n# ℹ 228 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#observed-test-statistics",
+    "href": "slides/2024-10-07-bootstrap.html#observed-test-statistics",
+    "title": "Bootstrapping",
+    "section": "Observed Test Statistic(s)",
+    "text": "Observed Test Statistic(s)\n\nheroin |&gt;\n  summarize(obs_med = median(times), \n            obs_tr_mean = mean(times, trim = 0.25))\n\n# A tibble: 1 × 2\n  obs_med obs_tr_mean\n    &lt;dbl&gt;       &lt;dbl&gt;\n1    368.        378."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrapped-data",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrapped-data",
+    "title": "Bootstrapping",
+    "section": "Bootstrapped data!",
+    "text": "Bootstrapped data!\n\nset.seed(4747)\n\nheroin |&gt; \n  sample_frac(size=1, replace=TRUE) |&gt;\n  summarize(boot_med = median(times), \n            boot_tr_mean = mean(times, trim = 0.25))\n\n# A tibble: 1 × 2\n  boot_med boot_tr_mean\n     &lt;dbl&gt;        &lt;dbl&gt;\n1      368         372."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#need-to-bootstrap-a-lot-of-times",
+    "href": "slides/2024-10-07-bootstrap.html#need-to-bootstrap-a-lot-of-times",
+    "title": "Bootstrapping",
+    "section": "Need to bootstrap a lot of times…",
+    "text": "Need to bootstrap a lot of times…\nBootstrapping with map."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#what-do-the-data-distributions-look-like",
+    "href": "slides/2024-10-07-bootstrap.html#what-do-the-data-distributions-look-like",
+    "title": "Bootstrapping",
+    "section": "What do the data distributions look like?",
+    "text": "What do the data distributions look like?"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#what-do-the-sampling-distributions-look-like",
+    "href": "slides/2024-10-07-bootstrap.html#what-do-the-sampling-distributions-look-like",
+    "title": "Bootstrapping",
+    "section": "What do the sampling distributions look like?",
+    "text": "What do the sampling distributions look like?\nBoth the median and the trimmed mean are reasonably symmetric and bell-shaped."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#technical-derivations",
+    "href": "slides/2024-10-07-bootstrap.html#technical-derivations",
+    "title": "Bootstrapping",
+    "section": "Technical derivations",
+    "text": "Technical derivations\nSee in class notes on bootstrapping for the technical details on how to create different bootstrap intervals."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrapping-with-map",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrapping-with-map",
+    "title": "Bootstrapping",
+    "section": "Bootstrapping with map",
+    "text": "Bootstrapping with map\n\nset variablesboot stat functionbootstrap!\n\n\n\nn_rep1 &lt;- 100\nset.seed(4747)\n\n\n\n\nboot_stat_func &lt;- function(df){ \n    df |&gt; \n    mutate(obs_med = median(times),\n           obs_tr_mean = mean(times, trim = 0.25)) |&gt;\n    sample_frac(size=1, replace=TRUE) |&gt;\n    summarize(boot_med = median(times), \n              boot_tr_mean = mean(times, trim = 0.25),\n              obs_med = mean(obs_med),\n              obs_tr_mean = mean(obs_tr_mean))}\n\n\n\n\nboot_stats &lt;- map(1:n_rep1, ~boot_stat_func(df = heroin)) |&gt; \n  list_rbind()\n\nboot_stats\n\n# A tibble: 100 × 4\n   boot_med boot_tr_mean obs_med obs_tr_mean\n      &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;\n 1     368          372.    368.        378.\n 2     358          363.    368.        378.\n 3     431          421.    368.        378.\n 4     332.         350.    368.        378.\n 5     310.         331.    368.        378.\n 6     376          382.    368.        378.\n 7     366          365.    368.        378.\n 8     378.         382.    368.        378.\n 9     394          386.    368.        378.\n10     392.         402.    368.        378.\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#normal-ci-with-bs-se",
+    "href": "slides/2024-10-07-bootstrap.html#normal-ci-with-bs-se",
+    "title": "Bootstrapping",
+    "section": "95% normal CI with BS SE",
+    "text": "95% normal CI with BS SE\n\nboot_stats |&gt;\n  summarize(low_med = mean(obs_med) + qnorm(0.025) * sd(boot_med), \n         up_med = mean(obs_med) + qnorm(0.975) * sd(boot_med),\n         low_tr_mean = mean(obs_tr_mean) + qnorm(0.025) * sd(boot_tr_mean), \n         up_tr_mean = mean(obs_tr_mean) + qnorm(0.975) * sd(boot_tr_mean))\n\n# A tibble: 1 × 4\n  low_med up_med low_tr_mean up_tr_mean\n    &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;\n1    310.   425.        337.       420."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#percentile-ci",
+    "href": "slides/2024-10-07-bootstrap.html#percentile-ci",
+    "title": "Bootstrapping",
+    "section": "95% Percentile CI",
+    "text": "95% Percentile CI\n\nboot_stats |&gt;\n  summarize(perc_CI_med = quantile(boot_med, c(0.025, 0.975)), \n            perc_CI_tr_mean = quantile(boot_tr_mean, c(0.025, 0.975)), \n            q = c(0.025, 0.975))\n\n# A tibble: 2 × 3\n  perc_CI_med perc_CI_tr_mean     q\n        &lt;dbl&gt;           &lt;dbl&gt; &lt;dbl&gt;\n1        321             335. 0.025\n2        435.            420. 0.975"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#double-bootstrapping-with-map",
+    "href": "slides/2024-10-07-bootstrap.html#double-bootstrapping-with-map",
+    "title": "Bootstrapping",
+    "section": "Double bootstrapping with map",
+    "text": "Double bootstrapping with map\n\nset variablesboot stat functionresample functionre-resample functiondouble bootstrap!\n\n\n\nn_rep1 &lt;- 100\nn_rep2 &lt;- 20\nset.seed(4747)\n\n\n\n\nboot_stat_func &lt;- function(df){ \n    df |&gt; \n    mutate(obs_med = median(times),\n           obs_tr_mean = mean(times, trim = 0.25)) |&gt;\n    sample_frac(size=1, replace=TRUE) |&gt;\n    summarize(boot_med = median(times), \n              boot_tr_mean = mean(times, trim = 0.25),\n              obs_med = mean(obs_med),\n              obs_tr_mean = mean(obs_tr_mean))}\n\n\n\n\nboot_1_func &lt;- function(df){\n  df |&gt; \n    sample_frac(size=1, replace=TRUE)\n}\n\n\n\n\nboot_2_func &lt;- function(df, reps){\n  resample2 &lt;- 1:reps\n  df |&gt;\n    summarize(boot_med = median(times), boot_tr_mean = mean(times, trim = 0.25)) |&gt;\n    cbind(resample2, map(resample2, ~df |&gt; \n            sample_frac(size=1, replace=TRUE) |&gt;\n            summarize(boot_2_med = median(times), \n                       boot_2_tr_mean = mean(times, trim = 0.25))) |&gt;\n                list_rbind()) |&gt; \n    select(resample2, everything())\n}\n\n\n\n\nboot_2_stats &lt;- data.frame(resample1 = 1:n_rep1) |&gt;\n  mutate(first_boot = map(1:n_rep1, ~boot_1_func(df = heroin))) |&gt;\n  mutate(second_boot = map(first_boot, boot_2_func, reps = n_rep2))"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#summarizing-the-double-bootstrap",
+    "href": "slides/2024-10-07-bootstrap.html#summarizing-the-double-bootstrap",
+    "title": "Bootstrapping",
+    "section": "Summarizing the double bootstrap",
+    "text": "Summarizing the double bootstrap\n\nresultssummary for resample 1summary for all resamples\n\n\n\nboot_2_stats |&gt;\n  unnest(second_boot) |&gt;\n  unnest(first_boot) \n\n# A tibble: 476,000 × 12\n   resample1    id clinic status times prison  dose resample2 boot_med\n       &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;\n 1         1   257      1      1   204      0    50         1      368\n 2         1   230      1      0    28      0    50         1      368\n 3         1   229      1      1   216      0    50         1      368\n 4         1   186      2      0   683      0   100         1      368\n 5         1   119      2      0   684      0    65         1      368\n 6         1    73      1      0   405      0    80         1      368\n 7         1    41      1      1   550      1    60         1      368\n 8         1    75      1      0   905      0    80         1      368\n 9         1    68      1      0   439      0    80         1      368\n10         1   224      1      1   546      1    50         1      368\n# ℹ 475,990 more rows\n# ℹ 3 more variables: boot_tr_mean &lt;dbl&gt;, boot_2_med &lt;dbl&gt;,\n#   boot_2_tr_mean &lt;dbl&gt;\n\n\n\n\n\nboot_2_stats |&gt;\n  unnest(second_boot) |&gt;\n  unnest(first_boot) |&gt;\n  filter(resample1 == 1) \n\n\n\n# A tibble: 4 × 4\n  skim_variable  numeric.mean numeric.sd numeric.p50\n  &lt;chr&gt;                 &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;\n1 boot_med               368         0          368 \n2 boot_tr_mean           372.        0          372.\n3 boot_2_med             365.       32.5        367.\n4 boot_2_tr_mean         368.       21.5        367.\n\n\n\n\n\nboot_t_stats &lt;- boot_2_stats |&gt;\n  unnest(second_boot) |&gt;\n  unnest(first_boot) |&gt;\n  group_by(resample1) |&gt;\n  summarize(boot_sd_med = sd(boot_2_med),\n            boot_sd_tr_mean = sd(boot_2_tr_mean),\n            boot_med = mean(boot_med),  # doesn't do anything, just copies over\n            boot_tr_mean = mean(boot_tr_mean))  |&gt; # the variables into the output\n  mutate(boot_t_med = (boot_med - mean(boot_med)) / boot_sd_med,\n            boot_t_tr_mean = (boot_tr_mean - mean(boot_tr_mean)) / boot_sd_tr_mean)\n\n  \nboot_t_stats\n\n# A tibble: 100 × 7\n   resample1 boot_sd_med boot_sd_tr_mean boot_med boot_tr_mean boot_t_med\n       &lt;int&gt;       &lt;dbl&gt;           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n 1         1        32.5            21.5     368          372.     -0.154\n 2         2        24.2            18.8     358          363.     -0.619\n 3         3        32.0            21.1     431          421.      1.81 \n 4         4        49.1            34.0     332.         350.     -0.845\n 5         5        22.7            13.4     310.         331.     -2.75 \n 6         6        20.3            19.9     376          382.      0.148\n 7         7        35.3            22.1     366          365.     -0.198\n 8         8        15.0            16.4     378.         382.      0.367\n 9         9        27.6            20.9     394          386.      0.761\n10        10        38.5            19.6     392.         402.      0.481\n# ℹ 90 more rows\n# ℹ 1 more variable: boot_t_tr_mean &lt;dbl&gt;"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrap-t-ci",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrap-t-ci",
+    "title": "Bootstrapping",
+    "section": "95% Bootstrap-t CI",
+    "text": "95% Bootstrap-t CI\nNote that the t-value is needed (which requires a different SE for each bootstrap sample).\n\nt-valuesmultiplierspull numbersBS-t CI\n\n\n\nboot_t_stats |&gt;\n  select(boot_t_med, boot_t_tr_mean)\n\n# A tibble: 100 × 2\n   boot_t_med boot_t_tr_mean\n        &lt;dbl&gt;          &lt;dbl&gt;\n 1     -0.154         -0.249\n 2     -0.619         -0.790\n 3      1.81           2.04 \n 4     -0.845         -0.824\n 5     -2.75          -3.50 \n 6      0.148          0.235\n 7     -0.198         -0.570\n 8      0.367          0.261\n 9      0.761          0.406\n10      0.481          1.26 \n# ℹ 90 more rows\n\n\n\n\n\nboot_q &lt;- boot_t_stats |&gt;\n  select(boot_t_med, boot_t_tr_mean) |&gt;\n  summarize(q_t_med = quantile(boot_t_med, c(0.025, 0.975)), \n            q_t_tr_mean = quantile(boot_t_tr_mean, c(0.025, 0.975)),\n            q = c(0.025, 0.975))\n\nboot_q\n\n# A tibble: 2 × 3\n  q_t_med q_t_tr_mean     q\n    &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1   -2.17       -2.20 0.025\n2    1.78        2.06 0.975\n\n\n\n\n\nboot_q_med &lt;- boot_q |&gt; select(q_t_med) |&gt; pull()\nboot_q_med\n\n     2.5%     97.5% \n-2.170931  1.782708 \n\nboot_q_tr_mean &lt;- boot_q |&gt; select(q_t_tr_mean) |&gt; pull()\nboot_q_tr_mean\n\n     2.5%     97.5% \n-2.204115  2.059893 \n\n\n\n\n\nboot_t_stats |&gt;\n  summarize(boot_t_CI_med = mean(boot_med) + \n                                  boot_q_med*sd(boot_med),\n            boot_t_CI_tr_mean = mean(boot_tr_mean) + \n                                  boot_q_tr_mean * sd(boot_tr_mean),\n            q = c(0.025, 0.975))\n\n# A tibble: 2 × 3\n  boot_t_CI_med boot_t_CI_tr_mean     q\n          &lt;dbl&gt;             &lt;dbl&gt; &lt;dbl&gt;\n1          309.              331. 0.025\n2          425.              421. 0.975"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#comparison-of-intervals",
+    "href": "slides/2024-10-07-bootstrap.html#comparison-of-intervals",
+    "title": "Bootstrapping",
+    "section": "Comparison of intervals",
+    "text": "Comparison of intervals\nThe first three columns correspond to the CIs for the true median of the survival times. The second three columns correspond to the CIs for the true trimmed mean of the survival times.\nCI | lower | obs Med | upper | lower | obs Tr Mean | upper | – | – | – | – | | – | Percentile | 321 | 367.50| 434.58 | 334.86 | 378.30 | 429.77 w BS SE | 309.98 | 367.50| 425.01 | 336.90 | 378.30 | 419.77 BS-t | 309.30 | 367.50| 425.31 | 331.02 | 378.30 | 421.17"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#what-makes-a-confidence-interval-procedure-good",
+    "href": "slides/2024-10-07-bootstrap.html#what-makes-a-confidence-interval-procedure-good",
+    "title": "Bootstrapping",
+    "section": "What makes a confidence interval procedure good?",
+    "text": "What makes a confidence interval procedure good?\n\nThat it captures the true parameter in \\(1-\\alpha \\cdot\\) 100% of the datasets.\nThat it produces narrow intervals."
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#what-else-about-intervals",
+    "href": "slides/2024-10-07-bootstrap.html#what-else-about-intervals",
+    "title": "Bootstrapping",
+    "section": "What else about intervals?",
+    "text": "What else about intervals?\nCI | Symmetric | Range Resp | Trans Resp | Accuracy | Normal Samp Dist? | Other |\n|:–: |:: |:-: |:-: |:–: |:–: | | | Boot SE | Yes | No | No | \\(1^{st}\\) order | Yes | param assump \\(F(\\hat{\\theta})\\) | | Boot-t | No | No | No | \\(2^{nd}\\) order | Yes/No | computer intensive | | perc | No | Yes | Yes | \\(1^{st}\\) order | No | small \\(n \\rightarrow\\) low accuracy | | BCa | No | Yes | Yes | \\(2^{nd}\\) order | No | limited param assump |"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#boot-stat-function",
+    "href": "slides/2024-10-07-bootstrap.html#boot-stat-function",
+    "title": "Bootstrapping",
+    "section": "boot stat function",
+    "text": "boot stat function\n\nboot_stat_func &lt;- function(df){ \n    df |&gt; \n    mutate(obs_med = median(times),\n           obs_tr_mean = mean(times, trim = 0.25)) |&gt;\n    sample_frac(size=1, replace=TRUE) |&gt;\n    summarize(boot_med = median(times), \n              boot_tr_mean = mean(times, trim = 0.25),\n              obs_med = mean(obs_med),\n              obs_tr_mean = mean(obs_tr_mean))}"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#resample-function",
+    "href": "slides/2024-10-07-bootstrap.html#resample-function",
+    "title": "Bootstrapping",
+    "section": "resample function",
+    "text": "resample function\n\nboot_1_func &lt;- function(df){\n  df |&gt; \n    sample_frac(size=1, replace=TRUE)\n}"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrapping",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrapping",
+    "title": "Bootstrapping",
+    "section": "bootstrapping",
+    "text": "bootstrapping\n\nmap_df(1:n_rep1, ~boot_stat_func(df = heroin))\n\n# A tibble: 100 × 4\n   boot_med boot_tr_mean obs_med obs_tr_mean\n      &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;\n 1     368          372.    368.        378.\n 2     358          363.    368.        378.\n 3     431          421.    368.        378.\n 4     332.         350.    368.        378.\n 5     310.         331.    368.        378.\n 6     376          382.    368.        378.\n 7     366          365.    368.        378.\n 8     378.         382.    368.        378.\n 9     394          386.    368.        378.\n10     392.         402.    368.        378.\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#set-variables",
+    "href": "slides/2024-10-07-bootstrap.html#set-variables",
+    "title": "Bootstrapping",
+    "section": "set variables",
+    "text": "set variables\n\nn_rep1 &lt;- 100\nn_rep2 &lt;- 20\nset.seed(4747)"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#boot-stat-function-1",
+    "href": "slides/2024-10-07-bootstrap.html#boot-stat-function-1",
+    "title": "Bootstrapping",
+    "section": "boot stat function",
+    "text": "boot stat function\n\nboot_stat_func &lt;- function(df){ \n    df |&gt; \n    mutate(obs_med = median(times),\n           obs_tr_mean = mean(times, trim = 0.25)) |&gt;\n    sample_frac(size=1, replace=TRUE) |&gt;\n    summarize(boot_med = median(times), \n              boot_tr_mean = mean(times, trim = 0.25),\n              obs_med = mean(obs_med),\n              obs_tr_mean = mean(obs_tr_mean))}"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrap",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrap",
+    "title": "Bootstrapping",
+    "section": "bootstrap!",
+    "text": "bootstrap!\n\nboot_stats &lt;- map_df(1:n_rep1, ~boot_stat_func(df = heroin))\n\nboot_stats\n\n# A tibble: 100 × 4\n   boot_med boot_tr_mean obs_med obs_tr_mean\n      &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;\n 1     368          372.    368.        378.\n 2     358          363.    368.        378.\n 3     431          421.    368.        378.\n 4     332.         350.    368.        378.\n 5     310.         331.    368.        378.\n 6     376          382.    368.        378.\n 7     366          365.    368.        378.\n 8     378.         382.    368.        378.\n 9     394          386.    368.        378.\n10     392.         402.    368.        378.\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#set-variables-1",
+    "href": "slides/2024-10-07-bootstrap.html#set-variables-1",
+    "title": "Bootstrapping",
+    "section": "set variables",
+    "text": "set variables\n\nn_rep1 &lt;- 100\nset.seed(4747)"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#bootstrapping-with-map.",
+    "href": "slides/2024-10-07-bootstrap.html#bootstrapping-with-map.",
+    "title": "Bootstrapping",
+    "section": "Bootstrapping with map().",
+    "text": "Bootstrapping with map().\n\nset variablesboot stat functionresample functionbootstrapping\n\n\n\nn_rep1 &lt;- 100\nn_rep2 &lt;- 20\nset.seed(4747)\n\n\n\n\nboot_stat_func &lt;- function(df){ \n    df |&gt; \n    mutate(obs_med = median(times),\n           obs_tr_mean = mean(times, trim = 0.25)) |&gt;\n    sample_frac(size=1, replace=TRUE) |&gt;\n    summarize(boot_med = median(times), \n              boot_tr_mean = mean(times, trim = 0.25),\n              obs_med = mean(obs_med),\n              obs_tr_mean = mean(obs_tr_mean))}\n\n\n\n\nboot_1_func &lt;- function(df){\n  df |&gt; \n    sample_frac(size=1, replace=TRUE)\n}\n\n\n\n\nmap(1:n_rep1, ~boot_stat_func(df = heroin)) |&gt; \n  list_rbind()\n\n# A tibble: 100 × 4\n   boot_med boot_tr_mean obs_med obs_tr_mean\n      &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;\n 1     368          372.    368.        378.\n 2     358          363.    368.        378.\n 3     431          421.    368.        378.\n 4     332.         350.    368.        378.\n 5     310.         331.    368.        378.\n 6     376          382.    368.        378.\n 7     366          365.    368.        378.\n 8     378.         382.    368.        378.\n 9     394          386.    368.        378.\n10     392.         402.    368.        378.\n# ℹ 90 more rows"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#data-distributions",
+    "href": "slides/2024-10-07-bootstrap.html#data-distributions",
+    "title": "Bootstrapping",
+    "section": "Data distributions",
+    "text": "Data distributions"
+  },
+  {
+    "objectID": "slides/2024-10-07-bootstrap.html#sampling-distributions",
+    "href": "slides/2024-10-07-bootstrap.html#sampling-distributions",
+    "title": "Bootstrapping",
+    "section": "Sampling distributions",
+    "text": "Sampling distributions\nBoth the median and the trimmed mean are reasonably symmetric and bell-shaped."
   }
 ]

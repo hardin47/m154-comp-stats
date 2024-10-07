@@ -788,6 +788,7 @@ addTen <- function(wow) {
   return(wow + 10)
 }
 ```
+
 ```{r}
 #| echo: false
 map_chr(c(1,4,7), addTen)

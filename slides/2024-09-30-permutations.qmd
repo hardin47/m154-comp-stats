@@ -10,6 +10,7 @@ format:
     show-slide-number: all
     embed-resources: true
     multiplex: true
+    html-math-method: mathjax
 execute:
   echo: true
   warning: false
@@ -261,7 +262,7 @@ SSB_perm_val  |>
 # Agenda  10/2/24
 
 1. Conditions, exchangeability, random structure
-2. Different statistics within the permutation test
+2. Different structures and statistics 
 
 
 ## Exchangeability

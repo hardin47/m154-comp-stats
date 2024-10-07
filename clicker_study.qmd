@@ -5,6 +5,7 @@ format:
     reference-location: document
     embed-resources: true
     code-line-numbers: true
+    html-math-method: mathjax
 ---
 
 ```{=html}
