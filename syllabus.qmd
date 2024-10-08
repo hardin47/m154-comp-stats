@@ -87,11 +87,11 @@ All resources are freely available.  They also all have print versions which can
 
 :::note
 * Check-in quizzes on 9.11, 9.25, 10.9, 10.23, 11.6, and 11.20 (in class)
-* 10.16.24 Initial Project Proposal due (via email to me by midnight) 
+* 10.16.24 Initial Project Proposal due (via Canvas by midnight) 
 * 10.30.24 Final Project Proposal due (on GitHub by midnight) 
 * 11.13.24 Project Update due (on GitHub by midnight) 
 * 12.2.24 (4:15pm) Data Science Panel with industry data scientists
-* 12.6.24 (Friday) or 12.12.24 (Thursday) Group Presentations (2-5pm) 
+* 12.6.24 (Friday) or 12.12.24 (Thursday) Group Presentations (both 2-5pm) 
 * 12.12.24 Final write-up due (on GitHub by midnight) 
 :::
 
