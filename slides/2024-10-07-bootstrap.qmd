@@ -15,6 +15,8 @@ execute:
   echo: true
   warning: false
   message: false
+bibliography: 
+  - ../slides.bib
 ---
 
 
@@ -29,7 +31,7 @@ library(skimr)
 
 # Agenda 10/7/24
 
-1. Review: logic of confidence intervals
+1. Review: logic of SE
 2. Logic of bootstrapping (resample from the sample *with* replacement)
 3. BS SE of a statistic
 
@@ -134,13 +136,13 @@ knitr::include_graphics(c("../images/BShesterberg1.png",
 
 
 ## Example
-- Hesketh and Everitt (2000) report on a study by Caplehorn and Bell (1991) that investigated the time (days) spent in a clinic for methadone maintenance treatment for people addicted to heroin.  
+- @everitt2006 report on a study by @caplehorn1991 that investigated the time (days) spent in a clinic for methadone maintenance treatment for people addicted to heroin.  
 
 - The data include the amount of time that the subjects stayed in the facility until treatment was terminated. 
 
 - For about 37% of the subjects, the study ended while they were still the in clinic (status=0).  
 
-- Their survival time has been truncated.  For this reason we might not want to estimate the mean survival time, but rather some other measure of typical survival time.  Below we explore using the median as well as the 25% trimmed mean.   (From ISCAM Chance & Rossman, Investigation 4.5.3)
+- Their survival time has been truncated.  For this reason we might not want to estimate the mean survival time, but rather some other measure of typical survival time.  Below we explore using the median as well as the 25% trimmed mean.   (From @iscam, Investigation 4.5.3)
 
 
 
@@ -291,9 +293,9 @@ ggplot(boot_stats, aes(x=boot_tr_mean)) +
 
 
 
-# Agenda 10/9/24
+# Agenda 10/16/24
 
-
+0. Logic of CI
 1. Normal CI using BS SE
 2. Bootstrap-t (studentized) CIs 
 3. Percentile CIs
@@ -303,7 +305,7 @@ ggplot(boot_stats, aes(x=boot_tr_mean)) +
 
 ## Technical derivations
 
-See in class notes on [bootstrapping](http://st47s.com/Math154/Notes/boot.html) for the technical details on how to create different bootstrap intervals.
+See in class notes on [bootstrapping](https://st47s.com/Math154/Notes/06-bootstrap.html) for the technical details on how to create different bootstrap intervals.
 
 
 
@@ -545,12 +547,13 @@ boot_t_stats |>
 The first three columns  correspond to the CIs for the true median of the survival times.  The second three columns correspond to the CIs for the true trimmed mean of the survival times.
 
 
-CI | lower | obs Med | upper | lower | obs Tr Mean | upper
- | -- | -- | -- | -- |  | -- | 
-Percentile | 321 | 367.50| 434.58 | 334.86 | 378.30 | 429.77
-w BS SE | 309.98 | 367.50| 425.01 | 336.90 | 378.30 | 419.77
-BS-t | 309.30 | 367.50| 425.31 | 331.02 | 378.30 | 421.17
+| CI          | Lower  | Obs Med | Upper  | Lower  | Obs Tr Mean | Upper  |
+|-------------|--------|---------|--------|--------|-------------|--------|
+| Percentile  | 321    | 367.50  | 434.58 | 334.86 | 378.30      | 419.77 |
+| w BS SE     | 309.99 | 367.50  | 425.01 | 336.87 | 378.30      | 419.73 |
+| BS-t        | 309.30 | 367.50  | 425.31 | 331.03 | 378.30      | 421.17 |
 
+(Can't know what the *Truth* is...)
 
 
 ## What makes a confidence interval procedure good?
