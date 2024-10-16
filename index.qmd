@@ -52,7 +52,7 @@ schedule <- tribble(
   "10.7.24", '<a href="posts/2024-10-07-bootstrap/">bootstrapping</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 6</a> - due 10.8 <br> Quiz 3 10.9',
 
-  "10.14.24", '<a href="">bootstrapping</a>',
+  "10.14.24", '<a href="posts/2024-10-07-bootstrap/">bootstrapping</a>',
   ' ',
  
   '<font color = "#114B5F"><b>10.16.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Initial Project Proposal due</b></font></a>', ' ',

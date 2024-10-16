@@ -1150,24 +1150,27 @@ ifelse(data > 5, "cat", data)
 
 ---
 
-(NEED TO ADD A PLOT FROM STATKEY HERE)
-
 (@) 95% CI for the difference in proportions:[^71]
-   a. (0.39, 0.43)
-   b. (0.37, 0.45)
-   c. (0.77, 0.81)
-   d. (0.75, 0.85)
+    a. (0.15, 0.173)
+    b. (0.025, 0.975)
+    c. (0.72, 0.87)
+    d. (0.70, 0.873)
+    e. (0.12, 0.179)
+   
+```{r out.width='60%', fig.align="center",  echo=FALSE, fig.cap = "https://www.lock5stat.com/StatKey/bootstrap_2_cat/bootstrap_2_cat.html"}
+knitr::include_graphics("images/BShist.jpg")
+```
 
-[^71]: depends on the plot
+[^71]: e. (0.12, 0.179)
 
 ---
 
-(@) Suppose a 95% bootstrap CI for the difference in means was (3,9), would you reject H0?[^72] (uh... What is the null hypothesis here???)
+(@) Suppose a 95% bootstrap CI for the difference in trimmed means was (3,9), would you reject H0?[^72] (uh... What is the null hypothesis here???)
    a. yes
    b. no
    c. not enough information to know
 
-[^72]: a. yes (because the interval for the true difference in population means does not overlap zero.)
+[^72]: a. yes (because the interval for the true difference in population trimmed means does not overlap zero.)
 
 ---
 

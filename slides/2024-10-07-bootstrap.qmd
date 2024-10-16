@@ -1,7 +1,7 @@
 ---
 title: "Bootstrapping"
 author: "Jo Hardin"
-subtitle: "October 7 + 9, 2024"
+subtitle: "October 7 + 9 + 16, 2024"
 format: 
   revealjs:
     incremental: false
@@ -192,6 +192,12 @@ n_rep2 <- 20
 set.seed(4747)
 ```
 
+## data
+```{r}
+heroin
+```
+
+
 ## boot stat function
 ```{r}
 boot_stat_func <- function(df){ 
@@ -349,10 +355,11 @@ boot_stats
 
 ```{r}
 boot_stats |>
-  summarize(low_med = mean(obs_med) + qnorm(0.025) * sd(boot_med), 
-         up_med = mean(obs_med) + qnorm(0.975) * sd(boot_med),
-         low_tr_mean = mean(obs_tr_mean) + qnorm(0.025) * sd(boot_tr_mean), 
-         up_tr_mean = mean(obs_tr_mean) + qnorm(0.975) * sd(boot_tr_mean))
+  summarize(
+    low_med = mean(obs_med) + qnorm(0.025) * sd(boot_med),
+    up_med = mean(obs_med) + qnorm(0.975) * sd(boot_med),
+    low_tr_mean = mean(obs_tr_mean) + qnorm(0.025) * sd(boot_tr_mean),
+    up_tr_mean = mean(obs_tr_mean) + qnorm(0.975) * sd(boot_tr_mean))
 ```
 
 
@@ -530,10 +537,8 @@ boot_q_tr_mean
 ## BS-t CI
 ```{r}
 boot_t_stats |>
-  summarize(boot_t_CI_med = mean(boot_med) + 
-                                  boot_q_med*sd(boot_med),
-            boot_t_CI_tr_mean = mean(boot_tr_mean) + 
-                                  boot_q_tr_mean * sd(boot_tr_mean),
+  summarize(boot_t_CI_med = mean(boot_med) + boot_q_med*sd(boot_med),
+            boot_t_CI_tr_mean = mean(boot_tr_mean) + boot_q_tr_mean * sd(boot_tr_mean),
             q = c(0.025, 0.975))
 
 ```
@@ -566,13 +571,14 @@ The first three columns  correspond to the CIs for the true median of the surviv
 
 ## What else about intervals?
 
-| CI 	| Symmetric 	| Range Resp 	| Trans Resp 	| Accuracy 	| Normal Samp Dist? 	| Other 	|
-|:--:	|::	|:-:	|:-:	|:--:	|:--:	|	|
-| Boot SE 	| Yes 	| No 	| No 	| $1^{st}$ order 	| Yes 	| param assump $F(\hat{\theta})$ 	|
-| Boot-t 	| No 	| No 	| No 	| $2^{nd}$ order 	| Yes/No 	| computer intensive 	|
-| perc 	| No 	| Yes 	| Yes 	| $1^{st}$ order 	| No 	| small $n \rightarrow$ low accuracy 	|
-| BCa 	| No 	| Yes 	| Yes 	| $2^{nd}$ order 	| No 	| limited param assump 	|
+| **CI**      | **Symmetric** | **Range Resp** | **Trans Resp** | **Accuracy**  | **Normal Samp Dist?** | **Other**                              |
+|-------------|---------------|----------------|----------------|---------------|-----------------------|----------------------------------------|
+| **Boot SE** | Yes           | No             | No             | 1st order     | Yes                   | Parametric assumptions, $F(\hat{\theta})$ |
+| **Boot-t**  | No            | No             | No             | 2nd order     | Yes/No                | Computationally intensive              |
+| **perc**    | No            | Yes            | Yes            | 1st order     | No                    | Small $n \rightarrow$ low accuracy             |
+| **BCa**     | No            | Yes            | Yes            | 2nd order     | No                    | Limited parametric assumptions         |
 
 
 
+## References
 
