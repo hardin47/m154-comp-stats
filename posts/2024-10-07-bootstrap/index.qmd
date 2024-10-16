@@ -71,7 +71,9 @@ knitr::include_graphics("../../images/dotplot.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2024-10-07-bootstrap" target = "_blank">In class slides</a> for both 10/7/24 and 10/9/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU10_SE.pdf" target = "_blank">WU10 - standard errors</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws10_m154_f24_SE.pdf" target = "_blank">WU10 - standard errors</a>
+
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws11_m154_f24_boot.pdf" target = "_blank">WU11 - bootstrap t</a>
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
