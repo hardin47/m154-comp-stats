@@ -71,7 +71,7 @@ The topic is completely open to your choice, but keep in mind the three main rul
 
 ### Content
 
-Your initial (via email) and revised (via GitHub) proposals should contain the following content:
+Your initial (via Canvas) and revised (via GitHub) proposals should contain the following content:
 
 1. Group Members: List the members of your group. For the revised proposal, add additional information about each person's role. Each member of the group should have two jobs: (1) a group dynamic role, (2) a project role. See <a href = "https://m154-comp-stats.netlify.app/roles.html" target="_blank">Group Roles</a> for more information on allocating tasks.
 

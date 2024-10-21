@@ -58,11 +58,11 @@ schedule <- tribble(
   '<font color = "#114B5F"><b>10.16.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Initial Project Proposal due</b></font></a>', ' ',
 
  
- "10.21.24", '<a href="">recipes + knn</a>',
+ "10.21.24", '<a href="posts/2024-10-21-recipes">recipes + knn</a> <br>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 7</a> - due 10.22 <br> Quiz 4 10.23',
 
 
-  "10.28.24", '<a href="">trees + bagging</a>',
+  "10.28.24", '<a href="posts/2024-10-28-trees">trees + bagging</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 8</a> - due 10.29',
 
    '<font color = "#114B5F"><b>10.30.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Final Project Proposal due</b></font></a>', ' ',
