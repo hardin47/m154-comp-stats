@@ -76,7 +76,7 @@ knitr::include_graphics("../../images/not_normal.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws8_m154_f24_HT.pdf" target = "_blank">WS8 - HT logic</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws9_m154_f24_permute.pdf" target = "_blank">WU9 - Permuting</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws9_m154_f24_permute.pdf" target = "_blank">WS9 - Permuting</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

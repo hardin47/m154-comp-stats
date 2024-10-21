@@ -1185,3 +1185,220 @@ knitr::include_graphics("images/BShist.jpg")
 
 ---
 
+(@) Small k in k-NN will help reduce the risk of overfitting.[^74]
+    a. TRUE
+    b. FALSE
+
+[^74]: b. FALSE
+
+---
+
+(@) The training error for 1-NN classifier is zero.[^75]
+   a. TRUE
+   b. FALSE
+
+[^75]: a. TRUE
+
+---
+
+(@) Generally, the k-NN algorithm can take any distance measure.[^76]
+   a. TRUE
+   b. FALSE
+
+[^76]: a. TRUE
+
+---
+
+(@) In R, the `kknn` method can use any distance measure.[^77]
+   a. TRUE
+   b. FALSE
+
+[^77]: b. FALSE, it uses Minkowski(p) distance, with a user specified choice of `p`.  When `p=2`, Minkowski is the same as Euclidean.
+
+---
+
+(@) The `k` in k-NN refers to[^78]
+    a. `k` groups
+    b. `k` partitions
+    c. `k` neighbors
+
+[^78]: c. `k` neighbors
+
+---
+
+(@) the `V` in V-fold CV refers to[^79]
+    a. `V` groups
+    b. `V` partitions
+    c. `V` neighbors
+
+[^79]: b. `V` partitions
+
+---
+
+(@) All of the following are TRUE for the use of CART except for:[^80]
+   a. Can deal with missing data
+   b. Require the assumptions of statistical models
+   c. Variable selection is automatic
+   d. Produce rules that are easy to interpret and implement
+
+[^80]: b. Require the assumptions of statistical models
+
+---
+
+82. Simplifying the decision tree by pruning peripheral branches will cause over fitting.
+
+(a) TRUE
+
+(b) FALSE
+
+
+ 
+83. All are true with regards to PRUNING except:
+
+(a) Multiple (sequential) trees are possible to create by pruning
+
+(b) CART lets tree grow to full extent, then prunes it back
+
+(c) Pruning generates successively smaller trees by pruning leaves
+
+(d) Pruning is only beneficial when purity improvement is statistically significant
+
+ 
+
+
+
+84.  Regression trees are invariant to monotonic transformations of:
+
+(a) the explanatory (predictor) variables
+(b) the response variable
+(c)  both types of variables
+(d) none of the variables
+
+
+
+
+
+ 
+85.  CART suffers from
+
+(a) high variance
+(b) high bias
+
+ 
+
+
+
+
+86. bagging uses bootstrapping on:
+
+(a) the variables
+(b) the observations
+(c) both
+(d) neither
+
+
+
+
+
+
+
+ 
+
+
+87.  oob samples
+
+(a) are in the test data
+
+(b) are in the training data and provide independent predictions
+
+(c) are in the training data but do not provide independent predictions
+
+
+
+ 
+88.  oob samples are great because
+
+(a) oob is “boo” spelled backwards
+
+(b) oob samples allow for independent predictions
+
+(c) oob samples allow for more predictions than a “test group”
+
+(d) oob data frame is always bigger than the test sample data frame
+
+(e) some of the above
+
+ 
+89.  bagging is random forests with:
+
+(a) m = # predictor variables
+(b) all the observations
+(c) the most important predictor variables isolated
+(d) cross validation to choose m
+
+
+ 
+80 training observations, 20 test observations
+
+to get the test MSE
+
+(a)	20 predictions from all trees
+(b)	20 predictions from oob trees
+(c)	80 predictions form all trees
+(d)	80 predictions from oob trees
+
+
+
+
+
+ 
+90.  With random forests, the value for m is chosen
+
+(a) using OOB error rate
+(b) as p/3
+(c) as sqrt(p)
+(d) using cross validation 
+
+ 
+91.   A tuning parameter:
+
+(a)  makes the model fit the training data as well as possible.
+
+(b) makes the model fit the test data as well as possible.
+
+(c) allows for a good model that does not overfit the data.
+
+
+ 
+
+
+92.  With binary response and X1 and X2 continuous, kNN (k=1) creates a linear decision boundary.
+
+(a) TRUE
+(b) FALSE
+
+
+
+
+ 
+
+
+
+93. With binary response and X1 and X2 continuous, a classification tree with one split creates a linear decision boundary.
+
+(a) TRUE
+
+(b) FALSE
+
+
+ 
+94.  With binary response and X1 and X2 continuous, a classification tree with one split creates the best linear decision boundary.
+
+(a) TRUE
+
+(b) FALSE
+
+ 
+
+
+

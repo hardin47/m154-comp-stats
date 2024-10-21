@@ -1,11 +1,11 @@
 ---
-title: "9. trees"
+title: "8. trees"
 description: |
   Trees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space.
 author:
   - name: Johanna Hardin
     url: https://m154-comp-stats.netlify.app/  
-date: 2021-10-26
+date: 2024-10-28
 citation: false
 draft: false
 output:
@@ -72,13 +72,11 @@ knitr::include_graphics("../../images/dragon_predict_mlr.png")
 ## Slides <i class="fas fa-desktop"></i> 
 
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2021-10-26-knn" target = "_blank">In class slides - knn</a> for 10/26/21.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2021-10-28-cart" target = "_blank">In class slides - decision trees</a> for 10/28/21.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2024-10-28-cart" target = "_blank">In class slides - decision trees</a> for 10/28/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU13_knn.pdf" target = "_blank">WU13 - k-NN</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws13_m154_f24_trees.pdf" target = "_blank">WS13 - decision trees</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/Math154_WU14_trees.pdf" target = "_blank">WU14 - trees</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

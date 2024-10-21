@@ -79,18 +79,6 @@ sample(alph, 10, replace = FALSE)  # shuffle
 sample(alph, 10, replace = TRUE)  # resample
 ```
 
-## Why?
-
-Three simulating methods are used for different purposes:
-
-1. Monte Carlo methods - use repeated *sampling* from a **population** with known characteristics.
-
-
-2. Randomization / Permutation methods - use *shuffling* (sampling without replacement from a **sample**) to test hypotheses of "no effect".
-
-
-3. Bootstrap methods - use *resampling* (sampling with replacement from a **sample**) to establish confidence intervals.
-
 ## Aside: a few R functions (`set.seed()`)
 
 What if we want to be able to generate the **same** random numbers (here on the interval from 0 to 1) over and over?
@@ -107,8 +95,21 @@ runif(4, 0, 1) # random uniform numbers
 ```
 
 
+## Why?
 
-# Small simulation example
+Three simulation methods are used for different purposes:
+
+1. Monte Carlo methods - use repeated *sampling* from a **population** with known characteristics.
+
+2. Randomization / Permutation methods - use *shuffling* (sampling without replacement from a **sample**) to test hypotheses of "no effect".
+
+
+3. Bootstrap methods - use *resampling* (sampling with replacement from a **sample**) to establish confidence intervals.
+
+
+
+## Monte Carlo from a population to...
+
 
 ```{=html}
 <style>
@@ -119,9 +120,11 @@ runif(4, 0, 1) # random uniform numbers
 ```
 
 
-* Simulation as easier than calculus for estimating probabilities.
-* [Simulation to understand complicated models.]{.semi-transparent}
-* [Simulation to consider statistical methods with fewer assumptions.]{.semi-transparent}
+* ...simulate as easier than calculus for estimating probabilities.
+* [...simulate to understand complicated models.]{.semi-transparent}
+* [...simulate to consider statistical methods with fewer assumptions.]{.semi-transparent}
+
+# Small simulation example
 
 ## Sally & Joan
 

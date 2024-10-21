@@ -112,9 +112,9 @@ knitr::include_graphics("../../images/recipes.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2024-10-21-recipes" target = "_blank">Recipes + feature engineering</a> for 10/21/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-10-23-knn" target = "_blank">k-NN</a> for 10/21/24.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2024-10-23-knn" target = "_blank">k-NN</a> for 10/23/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws12_m154_f24_FE.pdf" target = "_blank">WU12 - feature engineering</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws12_m154_f24_FE.pdf" target = "_blank">WS12 - feature engineering</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
