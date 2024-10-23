@@ -40,7 +40,7 @@ knitr::include_graphics("../../images/dotplot.png")
 
 ## Readings <i class="fas fa-book-open"></i> 
 
-* Class notes: <a href = "http://st47s.com/Math154/Notes/boot.html" target= "_blank">Bootstrapping</a>
+* Class notes: <a href = "https://st47s.com/Math154/Notes/06-bootstrap.html" target= "_blank">Bootstrapping</a>
 
 * Baumer, Horton, and Kaplan (2021), <a href = "https://mdsr-book.github.io/mdsr3e/09-foundations.html#sec-boot" target = "_blank">The bootstrap (Chp 9.3)</a> in Modern Data Science for R.
 

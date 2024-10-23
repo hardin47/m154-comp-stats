@@ -32,8 +32,8 @@ library(skimr)
 # Agenda 10/23/24
 
 1. Redux - model process
-2. $k$-Nearest Neighbors
-3. cross validation
+2. cross validation
+3. $k$-Nearest Neighbors
 
 
 

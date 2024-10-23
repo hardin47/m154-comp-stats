@@ -1113,14 +1113,14 @@ ifelse(data > 5, "cat", data)
 
 ---
 
-(@) Which of the following could not possibly be a bootstrap sample from the vector: c(4, 10, 8, 1, 2, 4)[^67b]
-    a. c(4, 4, 4, 4, 4, 4)
-    b. c(4, 10, 8, 1, 2, 4)
-    c. c(1, 2, 2, 4, 4, 2)
-    d. c(10, 8, 1, 1, 8, 10)
-    e. c(1, 2, 4, 3, 4, 10)
+(@) Which of the following could not possibly be a bootstrap sample from the vector: `c(4, 10, 8, 1, 2, 4)`[^67b]
+    a. `c(4, 4, 4, 4, 4, 4)`
+    b. `c(4, 10, 8, 1, 2, 4)`
+    c. `c(1, 2, 2, 4, 4, 2)`
+    d. `c(10, 8, 1, 1, 8, 10)`
+    e. `c(1, 2, 4, 3, 4, 10)`
 
-[^67b]: e. c(1, 2, 4, 3, 4, 10) because there is no 3 in the original dataset.
+[^67b]: e. `c(1, 2, 4, 3, 4, 10)` because there is no 3 in the original dataset.
 
 ---
 
@@ -1194,8 +1194,8 @@ knitr::include_graphics("images/BShist.jpg")
 ---
 
 (@) The training error for 1-NN classifier is zero.[^75]
-   a. TRUE
-   b. FALSE
+    a. TRUE
+    b. FALSE
 
 [^75]: a. TRUE
 
@@ -1245,160 +1245,134 @@ knitr::include_graphics("images/BShist.jpg")
 
 ---
 
-82. Simplifying the decision tree by pruning peripheral branches will cause over fitting.
+(@) Simplifying the decision tree by pruning peripheral branches will cause over fitting.[^81]
+   a. TRUE
+   b. FALSE
 
-(a) TRUE
+[^81]: b. FALSE.  If you don't prune, you will overfit.
 
-(b) FALSE
+---
 
+(@) All are true with regards to PRUNING except:[^82]
+   a. Multiple (sequential) trees are possible to create by pruning
+   b. CART lets tree grow to full extent, then prunes it  
+   c. Pruning generates successively smaller trees by pruning leaves
+   d. Pruning is only beneficial when purity improvement is statistically significant
 
- 
-83. All are true with regards to PRUNING except:
+[^82]: d. Pruning is only beneficial when purity improvement is statistically significant (we don't do hypothesis testing on trees)
 
-(a) Multiple (sequential) trees are possible to create by pruning
+---
 
-(b) CART lets tree grow to full extent, then prunes it back
+(@) Regression trees are invariant to monotonic transformations of:[^83]
+   a. the explanatory (predictor) variables
+   b. the response variable
+   c. both types of variables
+   d. none of the variables
 
-(c) Pruning generates successively smaller trees by pruning leaves
+[^83]: a. the explanatory (predictor) variables
 
-(d) Pruning is only beneficial when purity improvement is statistically significant
+---
 
- 
+(@) CART suffers from[^84]
+   a. high variance
+   b. high bias
 
+[^84]: a. high variance
 
+---
 
-84.  Regression trees are invariant to monotonic transformations of:
+(@) bagging uses bootstrapping on:[^85]
+   a. the variables
+   b. the observations
+   c. both
+   d. neither
 
-(a) the explanatory (predictor) variables
-(b) the response variable
-(c)  both types of variables
-(d) none of the variables
+[^85]: b. the observations
 
+---
 
+(@) oob samples[^86]
+   a. are in the test data
+   b. are in the training data and provide independent predictions
+   c. are in the training data but do not provide independent predictions
 
+[^86]: b. are in the training data and provide independent predictions
 
+---
 
- 
-85.  CART suffers from
+(@) oob samples are great because[^87]
+   a. oob is "boo" spelled backwards
+   b. oob samples allow for independent predictions
+   c. oob samples allow for more predictions than a "test group"
+   d. oob data frame is always bigger than the test sample data frame
+   e. some of the above
 
-(a) high variance
-(b) high bias
+[^87]: e. some of the above (both of b. and c. are great!) The oob data frame is exactly the same size as the training data, and it may or may not be bigger than the test data.
 
- 
+---
 
+(@) bagging is random forests with:[^88]
+   a. m = # predictor variables
+   b. all the observations
+   c. the most important predictor variables isolated
+   d. cross validation to choose m
 
+[^88]: a. m = # predictor variables
 
+---
 
-86. bagging uses bootstrapping on:
+(@) We have 80 training observations and 20 test observations. To get the test MSE, we need[^89]
+   a. 20 predictions from all trees
+   b. 20 predictions from oob trees
+   c. 80 predictions form all trees
+   d. 80 predictions from oob trees
 
-(a) the variables
-(b) the observations
-(c) both
-(d) neither
+[^89]: a. 20 predictions from all trees
 
+---
 
+(@) With random forests, the value for m is chosen[^90]
+   a. using OOB error rate
+   b. as p/3
+   c. as sqrt(p)
+   d. using cross validation 
 
+[^90]: d. using cross validation  (but is also often used as p/3 or sqrt(p))
 
+---
 
+(@) A tuning parameter:[^91]
+   a. makes the model fit the training data as well as possible.
+   b. makes the model fit the test data as well as possible.
+   c. allows for a good model that does not overfit the data.
+   
+[^91]: c. allows for a good model that does not overfit the data.
 
+---
 
- 
+(@) With binary response and X1 and X2 continuous, kNN (k=1) creates a linear decision boundary.[^92]
+   a. TRUE
+   b. FALSE
 
+[^92]: b. FALSE
 
-87.  oob samples
+---
 
-(a) are in the test data
+(@) With binary response and X1 and X2 continuous, a classification tree with one split creates a linear decision boundary.[^93]
+   a. TRUE
+   b. FALSE
 
-(b) are in the training data and provide independent predictions
+[^93]: a. TRUE
 
-(c) are in the training data but do not provide independent predictions
+---
 
+(@) With binary response and X1 and X2 continuous, a classification tree with one split creates the best linear decision boundary.[^94]
+   a. TRUE
+   b. FALSE
+   
+[^94]: b. FALSE  (what is "best" ????)
 
-
- 
-88.  oob samples are great because
-
-(a) oob is “boo” spelled backwards
-
-(b) oob samples allow for independent predictions
-
-(c) oob samples allow for more predictions than a “test group”
-
-(d) oob data frame is always bigger than the test sample data frame
-
-(e) some of the above
-
- 
-89.  bagging is random forests with:
-
-(a) m = # predictor variables
-(b) all the observations
-(c) the most important predictor variables isolated
-(d) cross validation to choose m
-
-
- 
-80 training observations, 20 test observations
-
-to get the test MSE
-
-(a)	20 predictions from all trees
-(b)	20 predictions from oob trees
-(c)	80 predictions form all trees
-(d)	80 predictions from oob trees
-
-
-
-
-
- 
-90.  With random forests, the value for m is chosen
-
-(a) using OOB error rate
-(b) as p/3
-(c) as sqrt(p)
-(d) using cross validation 
-
- 
-91.   A tuning parameter:
-
-(a)  makes the model fit the training data as well as possible.
-
-(b) makes the model fit the test data as well as possible.
-
-(c) allows for a good model that does not overfit the data.
-
-
- 
-
-
-92.  With binary response and X1 and X2 continuous, kNN (k=1) creates a linear decision boundary.
-
-(a) TRUE
-(b) FALSE
-
-
-
-
- 
-
-
-
-93. With binary response and X1 and X2 continuous, a classification tree with one split creates a linear decision boundary.
-
-(a) TRUE
-
-(b) FALSE
-
-
- 
-94.  With binary response and X1 and X2 continuous, a classification tree with one split creates the best linear decision boundary.
-
-(a) TRUE
-
-(b) FALSE
-
- 
+---
 
 
 
