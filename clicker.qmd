@@ -1274,18 +1274,18 @@ knitr::include_graphics("images/BShist.jpg")
 ---
 
 (@) CART suffers from[^84]
-   a. high variance
-   b. high bias
+    a. high variance
+    b. high bias
 
 [^84]: a. high variance
 
 ---
 
 (@) bagging uses bootstrapping on:[^85]
-   a. the variables
-   b. the observations
-   c. both
-   d. neither
+    a. the variables
+    b. the observations
+    c. both
+    d. neither
 
 [^85]: b. the observations
 
