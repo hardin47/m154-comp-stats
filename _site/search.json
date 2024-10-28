@@ -4890,7 +4890,7 @@
     "href": "slides/2024-10-28-cart.html#decision-trees-in-action",
     "title": "Decision Trees",
     "section": "Decision trees in action",
-    "text": "Decision trees in action\n\nhttp://www.r2d3.us/visual-intro-to-machine-learning-part-1/ A visual introduction to machine learning.Yee and Chu created a step-by-step build of a recursive binary tree to model the differences between homes in SF and homes in NYC. http://www.r2d3.us/visual-intro-to-machine-learning-part-1/"
+    "text": "Decision trees in action\n\nA visual introduction to machine learning by Yee and Chu.Yee and Chu created a step-by-step build of a recursive binary tree to model the differences between homes in SF and homes in NYC. http://www.r2d3.us/visual-intro-to-machine-learning-part-1/"
   },
   {
     "objectID": "slides/2024-10-28-cart.html#classification-and-regression-trees-cart",
