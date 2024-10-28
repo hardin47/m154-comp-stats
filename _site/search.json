@@ -4877,5 +4877,159 @@
     "title": "Simulating",
     "section": "Monte Carlo from a population to…",
     "text": "Monte Carlo from a population to…\n\n\n…simulate as easier than calculus for estimating probabilities.\n…simulate to understand complicated models.\n…simulate to consider statistical methods with fewer assumptions."
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#tidymodels-syntax",
+    "href": "slides/2024-10-28-cart.html#tidymodels-syntax",
+    "title": "Decision Trees",
+    "section": "tidymodels syntax",
+    "text": "tidymodels syntax\n\npartition the data\nbuild a recipe\nselect a model\ncreate a workflow\nfit the model\n\nvalidate the model"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#decision-trees-in-action",
+    "href": "slides/2024-10-28-cart.html#decision-trees-in-action",
+    "title": "Decision Trees",
+    "section": "Decision trees in action",
+    "text": "Decision trees in action\n\nhttp://www.r2d3.us/visual-intro-to-machine-learning-part-1/ A visual introduction to machine learning.Yee and Chu created a step-by-step build of a recursive binary tree to model the differences between homes in SF and homes in NYC. http://www.r2d3.us/visual-intro-to-machine-learning-part-1/"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#classification-and-regression-trees-cart",
+    "href": "slides/2024-10-28-cart.html#classification-and-regression-trees-cart",
+    "title": "Decision Trees",
+    "section": "Classification and Regression Trees (CART)",
+    "text": "Classification and Regression Trees (CART)\nBasic Classification and Regression Trees (CART) Algorithm:\n\nStart with all observations in one group.\nFind the variable/split that best separates the response variable (successive binary partitions based on the different predictors / explanatory variables).\n\nEvaluation “homogeneity” within each group\nDivide the data into two groups (“leaves”) on that split (“node”).\nWithin each split, find the best variable/split that separates the outcomes.\n\nContinue until the groups are too small or sufficiently “pure”.\nPrune tree."
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#minimize-heterogeneity",
+    "href": "slides/2024-10-28-cart.html#minimize-heterogeneity",
+    "title": "Decision Trees",
+    "section": "Minimize heterogeneity",
+    "text": "Minimize heterogeneity\nFor every observation that falls into the region \\(R_m\\),\nprediction = the mean of the response values for observations in \\(R_m\\).\n\\(\\Rightarrow\\) Minimize Residual Sum of Squares (RSS): \\[RSS = \\sum_{m=1}^{|T|} \\sum_{i \\in R_m} (y_i - \\overline{y}_{R_m})^2\\] where \\(\\overline{y}_{R_m}\\) is the mean response for observations within the \\(m\\)th region."
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#recursive-binary-splitting",
+    "href": "slides/2024-10-28-cart.html#recursive-binary-splitting",
+    "title": "Decision Trees",
+    "section": "Recursive binary splitting",
+    "text": "Recursive binary splitting\nSelect the predictor \\(X_j\\) and the cutpoint \\(s\\) such that splitting the predictor space into the regions \\(\\{X | X_j&lt; s\\}\\) and \\(\\{X | X_j \\geq s\\}\\) lead to the greatest reduction in RSS.\nFor any \\(j\\) and \\(s\\), define the pair of half-planes to be \\[R_1(j,s) = \\{X | X_j &lt; s\\} \\mbox{ and } R_2(j,s) = \\{X | X_j \\geq s\\}\\] Find the value of \\(j\\) and \\(s\\) that minimize the equation: \\[\\sum_{i:x_i \\in R_1(j,s)} (y_i - \\overline{y}_{R_1})^2 + \\sum_{i:x_i \\in R_2(j,s)} (y_i - \\overline{y}_{R_2})^2\\]\nwhere \\(\\overline{y}_{R_1}\\) is the mean response for observations in \\(R_1(j,s)\\) and \\(\\overline{y}_{R_2}\\) is the mean response observations in \\(R_2(j,s)\\)."
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#trees-in-action",
+    "href": "slides/2024-10-28-cart.html#trees-in-action",
+    "title": "Decision Trees",
+    "section": "Trees in action",
+    "text": "Trees in action"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#measures-of-impurity",
+    "href": "slides/2024-10-28-cart.html#measures-of-impurity",
+    "title": "Decision Trees",
+    "section": "Measures of impurity",
+    "text": "Measures of impurity\n\\(\\hat{p}_{mk}\\) = proportion of observations in the \\(m\\)th region from the \\(k\\)th class.\n\nclassification error rate = fraction of observations in the node & not in the most common class:\n\n\\[E_m = 1 - \\max_k(\\hat{p}_{mk})\\]\n\nGini index \\[G_m= \\sum_{k=1}^K \\hat{p}_{mk}(1-\\hat{p}_{mk})\\]\ncross-entropy \\[D_m = - \\sum_{k=1}^K \\hat{p}_{mk} \\log \\hat{p}_{mk}\\] (Gini index & cross-entropy will both take on a value near zero if the \\(\\hat{p}_{mk}\\) values are all near zero or all near one.)"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#recursive-binary-splitting-1",
+    "href": "slides/2024-10-28-cart.html#recursive-binary-splitting-1",
+    "title": "Decision Trees",
+    "section": "Recursive binary splitting",
+    "text": "Recursive binary splitting\nFor any \\(j\\) and \\(s\\), define the pair of half-planes to be \\[R_1(j,s) = \\{X | X_j &lt; s\\} \\mbox{ and } R_2(j,s) = \\{X | X_j \\geq s\\}\\]\nSeek the value of \\(j\\) and \\(s\\) that minimize the equation: \\[\\begin{align}\n& \\sum_{i:x_i \\in R_1(j,s)} \\sum_{k=1}^K \\hat{p}_{{R_1}k}(1-\\hat{p}_{{R_1}k}) + \\sum_{i:x_i \\in R_2(j,s)} \\sum_{k=1}^K \\hat{p}_{{R_2}k}(1-\\hat{p}_{{R_2}k})\\\\\n\\\\\n\\mbox{equivalently:    } & \\\\\n& n_{R_1} \\sum_{k=1}^K \\hat{p}_{{R_1}k}(1-\\hat{p}_{{R_1}k}) + n_{R_2} \\sum_{k=1}^K \\hat{p}_{{R_2}k}(1-\\hat{p}_{{R_2}k})\\\\\n\\end{align}\\]"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#stopping",
+    "href": "slides/2024-10-28-cart.html#stopping",
+    "title": "Decision Trees",
+    "section": "Stopping",
+    "text": "Stopping\nWe can always make the tree more “pure” by continuing the split.\n\nToo many splits will overfit the model to the training data!\n\nWays to control:\n\ncost_complexity\ntree_depth\nmin_n\n\nOverfitting: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#cost-complexity",
+    "href": "slides/2024-10-28-cart.html#cost-complexity",
+    "title": "Decision Trees",
+    "section": "Cost complexity",
+    "text": "Cost complexity\nThere is a cost to having a larger (more complex!) tree.\nDefine the cost complexity criterion, \\(\\alpha &gt; 0:\\) \\[\\begin{align}\n\\mbox{numerical: } C_\\alpha(T) &= \\sum_{m=1}^{|T|} \\sum_{i \\in R_m} (y_i - \\overline{y}_{R_m})^2 + \\alpha \\cdot |T|\\\\\n\\mbox{categorical: } C_\\alpha(T) &= \\sum_{m=1}^{|T|} \\sum_{i \\in R_m} I(y_i \\ne k(m)) + \\alpha \\cdot |T|\n\\end{align}\\] where \\(k(m)\\) is the class with the majority of observations in node \\(m\\) and \\(|T|\\) is the number of terminal nodes in the tree.\n\n\\(\\alpha\\) small: If \\(\\alpha\\) is set to be small, we are saying that the risk is more worrisome than the complexity and larger trees are favored because they reduce the risk.\n\\(\\alpha\\) large: If \\(\\alpha\\) is set to be large, then the complexity of the tree is more worrisome and smaller trees are favored."
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#in-practice",
+    "href": "slides/2024-10-28-cart.html#in-practice",
+    "title": "Decision Trees",
+    "section": "In practice",
+    "text": "In practice\nConsider \\(\\alpha\\) increasing. As \\(\\alpha\\) gets bigger, the “best” tree will be smaller.\nThe test error will not be monotonically related to the size of the training tree."
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#a-note-on-alpha",
+    "href": "slides/2024-10-28-cart.html#a-note-on-alpha",
+    "title": "Decision Trees",
+    "section": "A note on \\(\\alpha\\)",
+    "text": "A note on \\(\\alpha\\)\nIn the text (Introduction to Statistical Learning) and almost everywhere else you might look, the cost complexity is defined as in previous slides.\nHowever, you might notice that in R the cost_complexity value is typically less than 1. From what I can tell, the value of the function that is being minimized in R is the average of the squared errors and the missclassification rate.\n\\[\\begin{align}\n\\mbox{numerical: } C_\\alpha(T) &= \\frac{1}{n}\\sum_{m=1}^{|T|} \\sum_{i \\in R_m} (y_i - \\overline{y}_{R_m})^2 + \\alpha \\cdot |T|\\\\\n\\mbox{categorical: } C_\\alpha(T) &= \\frac{1}{n}\\sum_{m=1}^{|T|} \\sum_{i \\in R_m} I(y_i \\ne k(m)) + \\alpha \\cdot |T|\n\\end{align}\\]"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#cart-algorithm",
+    "href": "slides/2024-10-28-cart.html#cart-algorithm",
+    "title": "Decision Trees",
+    "section": "CART algorithm",
+    "text": "CART algorithm\nAlgorithm: Building a Regression Tree\n\nUse recursive binary splitting to grow a large tree on the training data, stopping only when each terminal node has fewer than some minimum number of observations.\nApply cost complexity pruning to the large tree in order to obtain a sequence of best subtrees, as a function of \\(\\alpha\\).\nUse \\(V\\)-fold cross-validation to choose \\(\\alpha\\). Divide the training observations into \\(V\\) folds, then for each \\(v=1, 2, \\ldots, V\\):\n\nRepeat Steps 1 and 2 on all but the \\(v\\)th fold of the training data.\nEvaluate the mean squared prediction error on the data in the left-out \\(k\\)th fold, as a function of \\(\\alpha\\). For each value of \\(\\alpha\\), average the prediction error (either misclassification or RSS), and pick \\(\\alpha\\) to minimize the average error.\n\nReturn the subtree from Step 2 that corresponds to the chosen value of \\(\\alpha\\)."
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#cart-example-w-defaults",
+    "href": "slides/2024-10-28-cart.html#cart-example-w-defaults",
+    "title": "Decision Trees",
+    "section": "CART example w defaults",
+    "text": "CART example w defaults\n\nrecipemodelworkflowfitpred\n\n\n\npenguin_cart_recipe &lt;-\n  recipe(species ~ . ,\n         data = penguin_train) |&gt;\n  step_unknown(sex, new_level = \"unknown\") |&gt;\n  step_mutate(year = as.factor(year)) \n\nsummary(penguin_cart_recipe)\n\n# A tibble: 8 × 4\n  variable          type      role      source  \n  &lt;chr&gt;             &lt;list&gt;    &lt;chr&gt;     &lt;chr&gt;   \n1 island            &lt;chr [3]&gt; predictor original\n2 bill_length_mm    &lt;chr [2]&gt; predictor original\n3 bill_depth_mm     &lt;chr [2]&gt; predictor original\n4 flipper_length_mm &lt;chr [2]&gt; predictor original\n5 body_mass_g       &lt;chr [2]&gt; predictor original\n6 sex               &lt;chr [3]&gt; predictor original\n7 year              &lt;chr [2]&gt; predictor original\n8 species           &lt;chr [3]&gt; outcome   original\n\n\n\n\n\npenguin_cart &lt;- decision_tree() |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart\n\nDecision Tree Model Specification (classification)\n\nComputational engine: rpart \n\n\n\n\n\npenguin_cart_wflow &lt;- workflow() |&gt;\n  add_model(penguin_cart) |&gt;\n  add_recipe(penguin_cart_recipe)\n\npenguin_cart_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: decision_tree()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nDecision Tree Model Specification (classification)\n\nComputational engine: rpart \n\n\n\n\n\npenguin_cart_fit &lt;- penguin_cart_wflow |&gt;\n  fit(data = penguin_train)\n\npenguin_cart_fit \n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: decision_tree()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nn= 258 \n\nnode), split, n, loss, yval, (yprob)\n      * denotes terminal node\n\n1) root 258 139 Adelie (0.461240310 0.189922481 0.348837209)  \n  2) flipper_length_mm&lt; 206.5 164  46 Adelie (0.719512195 0.274390244 0.006097561)  \n    4) bill_length_mm&lt; 43.15 118   3 Adelie (0.974576271 0.025423729 0.000000000) *\n    5) bill_length_mm&gt;=43.15 46   4 Chinstrap (0.065217391 0.913043478 0.021739130) *\n  3) flipper_length_mm&gt;=206.5 94   5 Gentoo (0.010638298 0.042553191 0.946808511)  \n    6) bill_depth_mm&gt;=17.15 7   3 Chinstrap (0.142857143 0.571428571 0.285714286) *\n    7) bill_depth_mm&lt; 17.15 87   0 Gentoo (0.000000000 0.000000000 1.000000000) *\n\n\n\n\n\npenguin_cart_fit |&gt;\n  predict(new_data = penguin_train) |&gt;\n  cbind(penguin_train) |&gt;\n  select(.pred_class, species) |&gt;\n  table()\n\n           species\n.pred_class Adelie Chinstrap Gentoo\n  Adelie       115         3      0\n  Chinstrap      4        46      3\n  Gentoo         0         0     87"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#plotting-the-tree-not-tidy",
+    "href": "slides/2024-10-28-cart.html#plotting-the-tree-not-tidy",
+    "title": "Decision Trees",
+    "section": "Plotting the tree (not tidy)",
+    "text": "Plotting the tree (not tidy)\n\nplot 1plot 2\n\n\n\n\n\nlibrary(rpart.plot)\npenguins_cart_plot &lt;- \n  penguin_cart_fit |&gt;\n  extract_fit_parsnip()\n\nrpart.plot(\n  penguins_cart_plot$fit,\n  roundint = FALSE)  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(rattle)\npenguins_cart_plot &lt;- \n  penguin_cart_fit |&gt;\n  extract_fit_parsnip()\n\nfancyRpartPlot(\n  penguins_cart_plot$fit,\n  sub = NULL,\n  palettes = \"RdPu\")"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#cart-example-w-cv",
+    "href": "slides/2024-10-28-cart.html#cart-example-w-cv",
+    "title": "Decision Trees",
+    "section": "CART example w CV",
+    "text": "CART example w CV\n\nnew recipecreating foldsalphatune wkflowtuning\n\n\n\npenguin_cart_tune_recipe &lt;-\n  recipe(sex ~ body_mass_g + bill_length_mm + species,\n         data = penguin_train)  \n\n\n\n\nset.seed(470)\npenguin_vfold &lt;- vfold_cv(penguin_train,\n                          v = 5, strata = sex)\n\n\n\n\ncart_grid &lt;- expand.grid(\n  cost_complexity = c(0, 10^(seq(-5,-1,1))),\n  tree_depth = seq(1,6, by = 1))\n\ncart_grid\n\n   cost_complexity tree_depth\n1            0e+00          1\n2            1e-05          1\n3            1e-04          1\n4            1e-03          1\n5            1e-02          1\n6            1e-01          1\n7            0e+00          2\n8            1e-05          2\n9            1e-04          2\n10           1e-03          2\n11           1e-02          2\n12           1e-01          2\n13           0e+00          3\n14           1e-05          3\n15           1e-04          3\n16           1e-03          3\n17           1e-02          3\n18           1e-01          3\n19           0e+00          4\n20           1e-05          4\n21           1e-04          4\n22           1e-03          4\n23           1e-02          4\n24           1e-01          4\n25           0e+00          5\n26           1e-05          5\n27           1e-04          5\n28           1e-03          5\n29           1e-02          5\n30           1e-01          5\n31           0e+00          6\n32           1e-05          6\n33           1e-04          6\n34           1e-03          6\n35           1e-02          6\n36           1e-01          6\n\n\n\n\n\npenguin_cart_tune &lt;- \n  decision_tree(cost_complexity = tune(),\n                tree_depth = tune()) |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart_wflow_tune &lt;- workflow() |&gt;\n  add_model(penguin_cart_tune) |&gt;\n  add_recipe(penguin_cart_tune_recipe)\n\n\n\n\npenguin_tuned &lt;- penguin_cart_wflow_tune |&gt;\n  tune_grid(resamples = penguin_vfold, \n           grid = cart_grid) \n\npenguin_tuned |&gt; collect_metrics() |&gt;\n  filter(.metric == \"accuracy\")\n\n# A tibble: 36 × 8\n   cost_complexity tree_depth .metric  .estimator  mean     n std_err .config   \n             &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     \n 1         0                1 accuracy binary     0.669     5  0.0152 Preproces…\n 2         0.00001          1 accuracy binary     0.669     5  0.0152 Preproces…\n 3         0.0001           1 accuracy binary     0.669     5  0.0152 Preproces…\n 4         0.001            1 accuracy binary     0.669     5  0.0152 Preproces…\n 5         0.01             1 accuracy binary     0.669     5  0.0152 Preproces…\n 6         0.1              1 accuracy binary     0.669     5  0.0152 Preproces…\n 7         0                2 accuracy binary     0.693     5  0.0226 Preproces…\n 8         0.00001          2 accuracy binary     0.693     5  0.0226 Preproces…\n 9         0.0001           2 accuracy binary     0.693     5  0.0226 Preproces…\n10         0.001            2 accuracy binary     0.693     5  0.0226 Preproces…\n# ℹ 26 more rows\n\n\n\n\n\nParameter choice\n\npenguin_tuned |&gt;\n  autoplot(metric = \"accuracy\")\n\npenguin_tuned |&gt; \n  select_best(metric = \"accuracy\")\n\n# A tibble: 1 × 3\n  cost_complexity tree_depth .config              \n            &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                \n1               0          5 Preprocessor1_Model25"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#best-model-predictions",
+    "href": "slides/2024-10-28-cart.html#best-model-predictions",
+    "title": "Decision Trees",
+    "section": "Best Model Predictions",
+    "text": "Best Model Predictions\n\nworkflow() |&gt;\n  add_model(penguin_best) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(.pred_class, sex) |&gt;\n  table()\n\n           sex\n.pred_class female male\n     female     26    5\n     male        7   47"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#best-model-predictions-1",
+    "href": "slides/2024-10-28-cart.html#best-model-predictions-1",
+    "title": "Decision Trees",
+    "section": "Best Model Predictions",
+    "text": "Best Model Predictions\n\n\n\nlibrary(rpart.plot)\npenguins_cart_plot &lt;- \nworkflow() |&gt;\n  add_model(penguin_best) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  extract_fit_parsnip()\n\nrpart.plot(\n  penguins_cart_plot$fit,\n  roundint = FALSE)"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#bias-variance-tradeoff",
+    "href": "slides/2024-10-28-cart.html#bias-variance-tradeoff",
+    "title": "Decision Trees",
+    "section": "Bias-Variance Tradeoff",
+    "text": "Bias-Variance Tradeoff\n\nTest and training error as a function of model complexity. Note that the error goes down monotonically only for the training data. Be careful not to overfit!! image credit: ISLR"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#reflecting-on-model-building",
+    "href": "slides/2024-10-28-cart.html#reflecting-on-model-building",
+    "title": "Decision Trees",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#reflecting-on-model-building-1",
+    "href": "slides/2024-10-28-cart.html#reflecting-on-model-building-1",
+    "title": "Decision Trees",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#reflecting-on-model-building-2",
+    "href": "slides/2024-10-28-cart.html#reflecting-on-model-building-2",
+    "title": "Decision Trees",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\n\nImage credit: https://www.tmwr.org/"
   }
 ]

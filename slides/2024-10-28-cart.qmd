@@ -1,0 +1,523 @@
+---
+title: "Decision Trees"
+author: "Jo Hardin"
+subtitle: "October 28, 2024"
+format: 
+  revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    html-math-method: mathjax
+execute:
+  echo: true
+  warning: false
+  message: false
+bibliography: 
+  - ../slides.bib
+---
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(mosaic)
+library(boot)
+library(skimr)
+```
+
+# Agenda 10/28/21
+
+1. Decision Trees
+2. Example
+
+
+
+## `tidymodels` syntax
+
+1. partition the data
+2. build a recipe
+3. select a model
+4. create a workflow
+5. fit the model  
+6. validate the model
+
+
+
+## Decision trees in action
+
+
+
+```{r fig.cap = "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/ A visual introduction to machine learning.", out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/sfnyc.png")
+```
+
+Yee and  Chu created a step-by-step build of a recursive binary tree to model the differences between homes in SF and homes in NYC.  http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
+
+
+## Classification and Regression Trees (CART)
+
+**Basic Classification and Regression Trees (CART) Algorithm:**
+
+1. Start with all observations in one group.
+2. Find the variable/split that best separates the response variable (successive binary partitions based on the different predictors / explanatory variables).
+    * Evaluation "homogeneity" within each group
+    * Divide the data into two groups ("leaves") on that split ("node").
+    * Within each split, find the best variable/split that separates the outcomes.
+3. Continue until the groups are too small or sufficiently "pure".
+4. Prune tree.
+
+
+
+## Minimize heterogeneity
+
+For every observation that falls into the region $R_m$, 
+
+prediction = the mean of the response values for observations in $R_m$.  
+
+$\Rightarrow$ Minimize Residual Sum of Squares (RSS): 
+$$RSS = \sum_{m=1}^{|T|} \sum_{i \in R_m} (y_i - \overline{y}_{R_m})^2$$
+where $\overline{y}_{R_m}$ is the mean response for observations within the $m$th region.
+
+
+
+## Recursive binary splitting
+
+Select the predictor $X_j$ and the cutpoint $s$ such that splitting the predictor space into the regions $\{X | X_j< s\}$ and $\{X | X_j \geq s\}$ lead to the greatest reduction in RSS.
+
+For any $j$ and $s$, define the pair of half-planes to be
+$$R_1(j,s) = \{X | X_j < s\} \mbox{ and } R_2(j,s) = \{X | X_j \geq s\}$$
+Find the value of $j$ and $s$ that minimize the equation:
+$$\sum_{i:x_i \in R_1(j,s)} (y_i - \overline{y}_{R_1})^2 + \sum_{i:x_i \in R_2(j,s)} (y_i - \overline{y}_{R_2})^2$$
+
+where $\overline{y}_{R_1}$ is the mean response for observations in $R_1(j,s)$ and $\overline{y}_{R_2}$ is the mean response observations in $R_2(j,s)$.
+
+
+
+
+##  Trees in action
+
+```{r fig.cap = "", out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/decisiontrees.gif")
+```
+
+
+
+
+## Measures of impurity
+
+$\hat{p}_{mk}$ = proportion of observations in the $m$th region from the $k$th class. 
+
+* *classification error rate* = fraction of observations in the node & not in the most common class: 
+
+$$E_m = 1 - \max_k(\hat{p}_{mk})$$
+ 
+* *Gini index* 
+$$G_m= \sum_{k=1}^K \hat{p}_{mk}(1-\hat{p}_{mk})$$
+
+* *cross-entropy* 
+$$D_m = - \sum_{k=1}^K \hat{p}_{mk} \log \hat{p}_{mk}$$
+(Gini index & cross-entropy will both take on a value near zero if the $\hat{p}_{mk}$ values are all near zero or all near one.)
+
+
+
+## Recursive binary splitting
+
+For any $j$ and $s$, define the pair of half-planes to be
+$$R_1(j,s) = \{X | X_j < s\} \mbox{ and } R_2(j,s) = \{X | X_j \geq s\}$$
+
+Seek the value of $j$ and $s$ that minimize the equation:
+\begin{align}
+& \sum_{i:x_i \in R_1(j,s)} \sum_{k=1}^K \hat{p}_{{R_1}k}(1-\hat{p}_{{R_1}k}) + \sum_{i:x_i \in R_2(j,s)} \sum_{k=1}^K \hat{p}_{{R_2}k}(1-\hat{p}_{{R_2}k})\\
+\\
+\mbox{equivalently:    } & \\
+& n_{R_1} \sum_{k=1}^K \hat{p}_{{R_1}k}(1-\hat{p}_{{R_1}k}) + n_{R_2} \sum_{k=1}^K \hat{p}_{{R_2}k}(1-\hat{p}_{{R_2}k})\\
+\end{align}
+
+
+
+## Stopping
+
+We can always make the tree more "pure" by continuing the split.
+
+> Too many splits will overfit the model to the training data!
+
+Ways to control:
+
+* `cost_complexity`
+* `tree_depth`
+* `min_n`
+
+Overfitting: http://www.r2d3.us/visual-intro-to-machine-learning-part-2/
+
+
+
+## Cost complexity
+
+There is a cost to having a larger (more complex!) tree. 
+
+Define the cost complexity criterion, $\alpha > 0:$
+\begin{align}
+\mbox{numerical: } C_\alpha(T) &= \sum_{m=1}^{|T|} \sum_{i \in R_m} (y_i - \overline{y}_{R_m})^2 + \alpha \cdot |T|\\
+\mbox{categorical: } C_\alpha(T) &= \sum_{m=1}^{|T|} \sum_{i \in R_m} I(y_i \ne k(m)) + \alpha \cdot |T|
+\end{align}
+where $k(m)$ is the class with the majority of observations in node $m$ and $|T|$ is the number of terminal nodes in the tree.
+
+
+* $\alpha$ small:  If $\alpha$ is set to be small, we are saying that the risk is more worrisome than the complexity and larger trees are favored because they reduce the risk.
+* $\alpha$ large:  If $\alpha$ is set to be large, then the complexity of the tree is more worrisome and smaller trees are favored.
+
+
+
+## In practice
+
+Consider $\alpha$ increasing.  As $\alpha$ gets bigger, the "best" tree will be smaller.  
+
+The test error will not be monotonically related to the size of the training tree.
+
+
+```{r  out.width='80%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/treealpha.jpg")
+```
+
+
+## A note on $\alpha$
+
+In the text (*Introduction to Statistical Learning*) and almost everywhere else you might look, the cost complexity is defined as in previous slides.
+
+However, you might notice that in R the `cost_complexity` value is typically less than 1.  From what I can tell, the value of the function that is being minimized in R is the **average** of the squared errors and the missclassification **rate**.
+
+\begin{align}
+\mbox{numerical: } C_\alpha(T) &= \frac{1}{n}\sum_{m=1}^{|T|} \sum_{i \in R_m} (y_i - \overline{y}_{R_m})^2 + \alpha \cdot |T|\\
+\mbox{categorical: } C_\alpha(T) &= \frac{1}{n}\sum_{m=1}^{|T|} \sum_{i \in R_m} I(y_i \ne k(m)) + \alpha \cdot |T|
+\end{align}
+
+
+
+## CART algorithm
+
+**Algorithm**:  Building a Regression Tree
+
+1.  Use recursive binary splitting to grow a large tree on the training data, stopping only when each terminal node has fewer than some minimum number of observations.
+2.  Apply cost complexity pruning to the large tree in order to obtain a sequence of best subtrees, as a function of $\alpha$.
+3. Use $V$-fold cross-validation to choose $\alpha$.  Divide the training observations into $V$ folds, then for each $v=1, 2, \ldots, V$:
+    a. Repeat Steps 1 and 2 on all but the $v$th fold of the training data.
+    b. Evaluate the mean squared prediction error on the data in the left-out $k$th fold, as a function of $\alpha$.
+    For each value of $\alpha$, average the prediction error (either misclassification or RSS), and pick $\alpha$ to minimize the average error.
+4. Return the subtree from Step 2 that corresponds to the chosen value of $\alpha$.
+
+******
+
+
+
+## CART example w defaults
+
+```{r echo = FALSE}
+library(tidymodels)
+library(palmerpenguins)
+
+set.seed(47)
+penguin_split <- initial_split(penguins)
+penguin_train <- training(penguin_split)
+penguin_test <- testing(penguin_split)
+```
+
+
+::: {.panel-tabset}
+
+## recipe
+```{r}
+penguin_cart_recipe <-
+  recipe(species ~ . ,
+         data = penguin_train) |>
+  step_unknown(sex, new_level = "unknown") |>
+  step_mutate(year = as.factor(year)) 
+
+summary(penguin_cart_recipe)
+```
+
+## model
+```{r}
+penguin_cart <- decision_tree() |>
+  set_engine("rpart") |>
+  set_mode("classification")
+
+penguin_cart
+```
+
+## workflow
+```{r}
+penguin_cart_wflow <- workflow() |>
+  add_model(penguin_cart) |>
+  add_recipe(penguin_cart_recipe)
+
+penguin_cart_wflow
+```
+
+## fit
+```{r}
+penguin_cart_fit <- penguin_cart_wflow |>
+  fit(data = penguin_train)
+
+penguin_cart_fit 
+```
+
+## pred
+```{r}
+penguin_cart_fit |>
+  predict(new_data = penguin_train) |>
+  cbind(penguin_train) |>
+  select(.pred_class, species) |>
+  table()
+```
+
+:::
+
+
+
+##  Plotting the tree (not tidy)
+
+
+::::: {.panel-tabset}
+
+## plot 1
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r eval = FALSE}
+library(rpart.plot)
+penguins_cart_plot <- 
+  penguin_cart_fit |>
+  extract_fit_parsnip()
+
+rpart.plot(
+  penguins_cart_plot$fit,
+  roundint = FALSE)  
+```
+:::
+
+::: {.column width=50%}
+```{r echo = FALSE}
+library(rpart.plot)
+penguins_cart_plot <- 
+  penguin_cart_fit |>
+  extract_fit_parsnip()
+
+rpart.plot(
+  penguins_cart_plot$fit,
+  roundint = FALSE)  
+```
+:::
+::::
+
+## plot 2
+:::: {.columns}
+
+::: {.column width=50%}
+
+```{r eval = FALSE}
+library(rattle)
+penguins_cart_plot <- 
+  penguin_cart_fit |>
+  extract_fit_parsnip()
+
+fancyRpartPlot(
+  penguins_cart_plot$fit,
+  sub = NULL,
+  palettes = "RdPu")
+```
+:::
+
+::: {.column width=50%}
+```{r echo = FALSE}
+library(rattle)
+penguins_cart_plot <- 
+  penguin_cart_fit |>
+  extract_fit_parsnip()
+
+fancyRpartPlot(
+  penguins_cart_plot$fit,
+  sub = NULL,
+  palettes = "RdPu")  # change the color 
+```
+
+:::
+
+::::
+
+:::::
+
+
+## CART example w CV
+
+
+::: {.panel-tabset}
+
+## new recipe
+```{r}
+penguin_cart_tune_recipe <-
+  recipe(sex ~ body_mass_g + bill_length_mm + species,
+         data = penguin_train)  
+```
+
+## creating folds
+```{r}
+set.seed(470)
+penguin_vfold <- vfold_cv(penguin_train,
+                          v = 5, strata = sex)
+```
+
+## alpha
+```{r}
+cart_grid <- expand.grid(
+  cost_complexity = c(0, 10^(seq(-5,-1,1))),
+  tree_depth = seq(1,6, by = 1))
+
+cart_grid
+```
+
+## tune wkflow
+```{r}
+penguin_cart_tune <- 
+  decision_tree(cost_complexity = tune(),
+                tree_depth = tune()) |>
+  set_engine("rpart") |>
+  set_mode("classification")
+
+penguin_cart_wflow_tune <- workflow() |>
+  add_model(penguin_cart_tune) |>
+  add_recipe(penguin_cart_tune_recipe)
+```
+
+## tuning
+```{r}
+penguin_tuned <- penguin_cart_wflow_tune |>
+  tune_grid(resamples = penguin_vfold, 
+           grid = cart_grid) 
+
+penguin_tuned |> collect_metrics() |>
+  filter(.metric == "accuracy")
+```
+
+:::
+
+
+
+
+###  Parameter choice
+
+```{r fig.height = 3.5, fig.align='center'}
+penguin_tuned |>
+  autoplot(metric = "accuracy")
+
+penguin_tuned |> 
+  select_best(metric = "accuracy")
+```
+
+
+
+# Best model
+
+```{r}
+penguin_best <- finalize_model(
+  penguin_cart_tune,
+  select_best(penguin_tuned, metric = "accuracy"))
+
+workflow() |>
+  add_model(penguin_best) |>
+  add_recipe(penguin_cart_tune_recipe) |>
+  fit(data = penguin_train)
+```
+
+
+
+## Best Model Predictions
+
+```{r}
+workflow() |>
+  add_model(penguin_best) |>
+  add_recipe(penguin_cart_tune_recipe) |>
+  fit(data = penguin_train) |>
+  predict(new_data = penguin_test) |>
+  cbind(penguin_test) |>
+  select(.pred_class, sex) |>
+  table()
+```
+
+
+## Best Model Predictions
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r eval = FALSE}
+library(rpart.plot)
+penguins_cart_plot <- 
+workflow() |>
+  add_model(penguin_best) |>
+  add_recipe(penguin_cart_tune_recipe) |>
+  fit(data = penguin_train) |>
+  extract_fit_parsnip()
+
+rpart.plot(
+  penguins_cart_plot$fit,
+  roundint = FALSE) 
+```
+:::
+
+::: {.column width=50%}
+```{r echo = FALSE}
+library(rpart.plot)
+penguins_cart_plot <- 
+workflow() |>
+  add_model(penguin_best) |>
+  add_recipe(penguin_cart_tune_recipe) |>
+  fit(data = penguin_train) |>
+  extract_fit_parsnip()
+
+rpart.plot(
+  penguins_cart_plot$fit,
+  roundint = FALSE) 
+```
+
+:::
+
+::::
+
+
+
+
+## Bias-Variance Tradeoff
+
+```{r fig.cap = "Test and training error as a function of model complexity.  Note that the error goes down monotonically only for the training data.  Be careful not to overfit!!  image credit: ISLR", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/varbias.png")
+```
+
+
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild1.png")
+```
+
+
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild2.png")
+```
+
+
+
+
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/", out.width = "70%", fig.align='center'}
+knitr::include_graphics("../images/modelbuild3.png")
+```
+
+
