@@ -75,7 +75,7 @@ knitr::include_graphics("../../images/dragon_predict_mlr.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2024-10-28-cart" target = "_blank">In class slides - decision trees</a> for 10/28/24.
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws13_m154_f24_trees.pdf" target = "_blank">WS13 - decision trees</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws13_m154_f24_cart.pdf" target = "_blank">WS13 - decision trees</a>
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 

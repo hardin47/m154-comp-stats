@@ -63,6 +63,7 @@ penguin_test <- testing(penguin_split)
 
 ## recipe
 ```{r}
+#| message: true
 penguin_lm_recipe <-
   recipe(body_mass_g ~ species + island + bill_length_mm + 
            bill_depth_mm + flipper_length_mm + sex + year,
@@ -72,7 +73,7 @@ penguin_lm_recipe <-
   step_relevel(sex, ref_level = "female") |>
   update_role(island, new_role = "id variable")
 
-summary(penguin_lm_recipe)
+penguin_lm_recipe
 ```
 
 ## model
