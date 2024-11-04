@@ -8,10 +8,11 @@ author:
     url: https://m154-comp-stats.netlify.app/  
 date: 2024-10-21
 citation: false
-draft: false
-output:
-  distill::distill_article:
-    self_contained: false
+embed-resources: true
+execute: 
+  message: false
+  warning: false
+image: ../../images/recipes.png
 ---
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "", preview = TRUE, echo = FALSE}

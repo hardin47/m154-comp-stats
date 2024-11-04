@@ -7,10 +7,11 @@ author:
     url: https://m154-comp-stats.netlify.app/  
 date: 2024-10-28
 citation: false
-draft: false
-output:
-  distill::distill_article:
-    self_contained: false
+embed-resources: true
+execute: 
+  message: false
+  warning: false
+image: ../../images/dragon_predict_mlr.png
 ---
 
 ```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Predicting dragon weight from one continuous variable (height) and one categorical variable (whether or not the dragon is spotted).", preview = TRUE, echo = FALSE}

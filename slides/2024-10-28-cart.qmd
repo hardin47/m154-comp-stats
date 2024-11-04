@@ -26,7 +26,7 @@ library(boot)
 library(skimr)
 ```
 
-# Agenda 10/28/21
+# Agenda 10/28/24
 
 1. Decision Trees
 2. Example
@@ -174,7 +174,9 @@ where $k(m)$ is the class with the majority of observations in node $m$ and $|T|
 
 Consider $\alpha$ increasing.  As $\alpha$ gets bigger, the "best" tree will be smaller.  
 
-The test error will not be monotonically related to the size of the training tree.
+The [training error]{.underline} will be monotonically related to the size of the training tree.
+
+However, the [test error]{.underline} will **not** be monotonically related to the size of the training tree.
 
 
 ```{r  out.width='80%', fig.align='center', echo=FALSE}
@@ -488,7 +490,22 @@ rpart.plot(
 ::::
 
 
+## Bias-Variance Tradeoff
 
+
+* **Variance** refers to the amount by which would change if we estimated it using a different training set. Generally, the [closer the model fits the (training) data]{.underline}, the more variable it will be (it will be different for each data set!). A model with many many explanatory variables will often fit the data too closely.
+
+* **Bias** refers to the error that is introduced by approximating the "truth" by a model which is [too simple]{.underline}. For example, we often use linear models to describe complex relationships, but it is unlikely that any real life situation actually has a true linear model. However, if the true relationship is close to linear, then the linear model will have a low bias.
+
+* an excellent resource for explaining the bias-variance trade-off: http://scott.fortmann-roe.com/docs/BiasVariance.html
+
+## Bias-Variance Tradeoff
+
+| model | high bias <br> (too simple) | high variance <br> (overfit training data) |
+| ----- | --------- | ------------- |
+| linear model | one (zero!) predictor | many many predictors |
+| $k$-NN | $k = n$ | $k = 1$ |
+| CART | one split | single observation in every terminal node |
 
 ## Bias-Variance Tradeoff
 
@@ -511,8 +528,6 @@ knitr::include_graphics("../images/modelbuild1.png")
 ```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
 knitr::include_graphics("../images/modelbuild2.png")
 ```
-
-
 
 
 

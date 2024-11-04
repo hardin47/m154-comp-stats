@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n7. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n8. trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n7. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n8. trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n9. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -4953,7 +4953,7 @@
     "href": "slides/2024-10-28-cart.html#in-practice",
     "title": "Decision Trees",
     "section": "In practice",
-    "text": "In practice\nConsider \\(\\alpha\\) increasing. As \\(\\alpha\\) gets bigger, the “best” tree will be smaller.\nThe test error will not be monotonically related to the size of the training tree."
+    "text": "In practice\nConsider \\(\\alpha\\) increasing. As \\(\\alpha\\) gets bigger, the “best” tree will be smaller.\nThe training error will be monotonically related to the size of the training tree.\nHowever, the test error will not be monotonically related to the size of the training tree."
   },
   {
     "objectID": "slides/2024-10-28-cart.html#a-note-on-alpha",
@@ -5009,7 +5009,7 @@
     "href": "slides/2024-10-28-cart.html#bias-variance-tradeoff",
     "title": "Decision Trees",
     "section": "Bias-Variance Tradeoff",
-    "text": "Bias-Variance Tradeoff\n\nTest and training error as a function of model complexity. Note that the error goes down monotonically only for the training data. Be careful not to overfit!! image credit: ISLR"
+    "text": "Bias-Variance Tradeoff\n\nVariance refers to the amount by which would change if we estimated it using a different training set. Generally, the closer the model fits the (training) data, the more variable it will be (it will be different for each data set!). A model with many many explanatory variables will often fit the data too closely.\nBias refers to the error that is introduced by approximating the “truth” by a model which is too simple. For example, we often use linear models to describe complex relationships, but it is unlikely that any real life situation actually has a true linear model. However, if the true relationship is close to linear, then the linear model will have a low bias.\nan excellent resource for explaining the bias-variance trade-off: http://scott.fortmann-roe.com/docs/BiasVariance.html"
   },
   {
     "objectID": "slides/2024-10-28-cart.html#reflecting-on-model-building",
@@ -5031,5 +5031,278 @@
     "title": "Decision Trees",
     "section": "Reflecting on Model Building",
     "text": "Reflecting on Model Building\n\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#tidymodels-syntax",
+    "href": "slides/2024-11-04-rf.html#tidymodels-syntax",
+    "title": "Bagging and Random Forests",
+    "section": "tidymodels syntax",
+    "text": "tidymodels syntax\n\npartition the data\nbuild a recipe\nselect a model\ncreate a workflow\nfit the model\n\nvalidate the model"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#random-forests",
+    "href": "slides/2024-11-04-rf.html#random-forests",
+    "title": "Bagging and Random Forests",
+    "section": "Random Forests",
+    "text": "Random Forests\n\nRandom forests are an ensemble learning method for classification (and regression) that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes output by individual trees – Wikipedia"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#why-a-forest-instead-of-a-tree",
+    "href": "slides/2024-11-04-rf.html#why-a-forest-instead-of-a-tree",
+    "title": "Bagging and Random Forests",
+    "section": "Why a forest instead of a tree?",
+    "text": "Why a forest instead of a tree?\n\nTrees suffer from very high variance\nTwo datasets will provide extremely different trees\nTo reduce variability, fit many trees and aggregate the predictions.\nNo longer reporting the tree structure, now reporting the predicted values (with hopes that predictions from one dataset will be similar to predictions from another dataset)."
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#bagging",
+    "href": "slides/2024-11-04-rf.html#bagging",
+    "title": "Bagging and Random Forests",
+    "section": "Bagging",
+    "text": "Bagging\nBagging = Bootstrap Aggregating.\n\nmultiple models aggregate together will produce a smoother model fit and better balance between\n\nbias in the fit\nvariance in the fit.\n\n\nBagging can be applied to any classifier to reduce variability.\n\nRecall that the variance of the sample mean is variance of data / n. So we’ve seen the idea that averaging an outcome gives reduced variability."
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#bagging-models",
+    "href": "slides/2024-11-04-rf.html#bagging-models",
+    "title": "Bagging and Random Forests",
+    "section": "Bagging Models",
+    "text": "Bagging Models\n\nImage credit: https://www.pluralsight.com/guides/ensemble-methods:-bagging-versus-boosting"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#bagging-trees",
+    "href": "slides/2024-11-04-rf.html#bagging-trees",
+    "title": "Bagging and Random Forests",
+    "section": "Bagging Trees",
+    "text": "Bagging Trees\n\nImage credit: https://www.analyticsvidhya.com/blog/2021/05/bagging-25-questions-to-test-your-skills-on-random-forest-algorithm/"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#oob-error",
+    "href": "slides/2024-11-04-rf.html#oob-error",
+    "title": "Bagging and Random Forests",
+    "section": "OOB Error",
+    "text": "OOB Error\nOut of Bag\nwith bagging, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error. It is estimated internally for free!!!\n\nEach tree is constructed using a different bootstrap sample\nPut all of the cases left out in the construction of the \\(b^{th}\\) tree down the \\(b^{th}\\) tree to get a classification.\nAt the end of the run,\n\ntake \\(j\\) to be the class that got most of the votes every time case \\(i\\) was oob.\nThe proportion of times that \\(j\\) is not equal to the true class of n averaged over all cases is the oob error."
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#bagging-example-w-defaults",
+    "href": "slides/2024-11-04-rf.html#bagging-example-w-defaults",
+    "title": "Bagging and Random Forests",
+    "section": "Bagging example w defaults",
+    "text": "Bagging example w defaults\n\nrecipemodelworkflowfit\n\n\n\npenguin_bag_recipe &lt;-\n  recipe(body_mass_g ~ . ,\n         data = penguin_train) |&gt;\n  step_unknown(sex, new_level = \"unknown\") |&gt;\n  step_mutate(year = as.factor(year)) |&gt;\n  step_naomit(all_predictors(), body_mass_g)\n\npenguin_bag_recipe\n\n\n\n\n── Recipe ──────────────────────────────────────────────────────────────────────\n\n\n\n\n\n── Inputs \n\n\nNumber of variables by role\n\n\noutcome:   1\npredictor: 7\n\n\n\n\n\n── Operations \n\n\n• Unknown factor level assignment for: sex\n\n\n• Variable mutation for: as.factor(year)\n\n\n• Removing rows with NA values in: all_predictors() and body_mass_g\n\n\n\n\n\nnum_trees &lt;- 500\npenguin_bag &lt;- rand_forest(mtry = 7,\n                           trees = num_trees) |&gt;\n  set_engine(\"randomForest\", oob.error = TRUE) |&gt;\n  set_mode(\"regression\")\n\npenguin_bag\n\nRandom Forest Model Specification (regression)\n\nMain Arguments:\n  mtry = 7\n  trees = num_trees\n\nEngine-Specific Arguments:\n  oob.error = TRUE\n\nComputational engine: randomForest \n\n\n\n\n\npenguin_bag_wflow &lt;- workflow() |&gt;\n  add_model(penguin_bag) |&gt;\n  add_recipe(penguin_bag_recipe)\n\npenguin_bag_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n• step_naomit()\n\n── Model ───────────────────────────────────────────────────────────────────────\nRandom Forest Model Specification (regression)\n\nMain Arguments:\n  mtry = 7\n  trees = num_trees\n\nEngine-Specific Arguments:\n  oob.error = TRUE\n\nComputational engine: randomForest \n\n\n\n\n\n\n\npenguin_bag_fit &lt;- \n  penguin_bag_wflow |&gt;\n  fit(data = penguin_train)\n\npenguin_bag_fit \n\n\n\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n• step_naomit()\n\n── Model ───────────────────────────────────────────────────────────────────────\n\nCall:\n randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x), oob.error = ~TRUE) \n               Type of random forest: regression\n                     Number of trees: 500\nNo. of variables tried at each split: 7\n\n          Mean of squared residuals: 92247.19\n                    % Var explained: 85.06"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#plotting-the-oob-not-tidy",
+    "href": "slides/2024-11-04-rf.html#plotting-the-oob-not-tidy",
+    "title": "Bagging and Random Forests",
+    "section": "Plotting the OOB (not tidy)",
+    "text": "Plotting the OOB (not tidy)\n\nplot 1plot 2\n\n\n\n\n\nrsq &lt;- penguin_bag_fit |&gt;\n  extract_fit_parsnip() |&gt;\n  pluck(\"fit\") |&gt;\n  pluck(\"rsq\")\n\n\ndata.frame(\n  trees = 1:num_trees, \n  rsq = rsq) |&gt;\n  ggplot() + \n  geom_line(\n    aes(x = trees, y = rsq)) +\n  ylab(\"\") + \n  xlab(\"Number of Trees\") + \n  ggtitle(\"OOB R-squared\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMSE &lt;- penguin_bag_fit |&gt;\n  extract_fit_parsnip() |&gt;\n  pluck(\"fit\") |&gt;\n  pluck(\"mse\")\n\ndata.frame(\n  trees = 1:num_trees, \n  MSE = MSE) |&gt;\n  ggplot() + \n  geom_line(\n    aes(x = trees, y = MSE)) +\n  ylab(\"\") + \n  xlab(\"Number of Trees\") + \n  ggtitle(\"OOB MSE\")"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#random-forests-1",
+    "href": "slides/2024-11-04-rf.html#random-forests-1",
+    "title": "Bagging and Random Forests",
+    "section": "Random Forests",
+    "text": "Random Forests\n\nMany trees\n\nbootstrap the data before building each tree\nfor best split look only at a random \\(m\\) varaibles (different \\(m\\) variables per split)\n\nTuning: look at OOB predictions – either average or majority vote\nTesting: test data will be (average or majority vote) prediction for all the trees."
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#variable-importance",
+    "href": "slides/2024-11-04-rf.html#variable-importance",
+    "title": "Bagging and Random Forests",
+    "section": "Variable Importance",
+    "text": "Variable Importance\n\nimportance = decrease in node impurity resulting from splits over that variable, averaged over all trees.\n\n\nFor each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).\nPermute the \\(j^{th}\\) variable and recalculate the oob prediction error.\nThe difference between the two oob errors are averaged over all trees (for the \\(j^{th}\\) variable) and normalized to give the importance for the \\(j^{th}\\) variable."
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#rf-technical-details",
+    "href": "slides/2024-11-04-rf.html#rf-technical-details",
+    "title": "Bagging and Random Forests",
+    "section": "RF technical details",
+    "text": "RF technical details\n\nunfortunately, tidymodels currently does not have an OOB option for model tuning (e.g., to find mtry)\nunlike num_trees, mtry is not calculated “as you go along”\ncross validation will be used to find the optimal value of mtry"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#rf-example-w-cv-tuning",
+    "href": "slides/2024-11-04-rf.html#rf-example-w-cv-tuning",
+    "title": "Bagging and Random Forests",
+    "section": "RF example w CV tuning",
+    "text": "RF example w CV tuning\n\nrecipemodelworkflowCVparamtune\n\n\n\npenguin_rf_recipe &lt;-\n  recipe(body_mass_g ~ . ,\n         data = penguin_train) |&gt;\n  step_unknown(sex, new_level = \"unknown\") |&gt;\n  step_mutate(year = as.factor(year)) \n\npenguin_rf_recipe\n\n\n\n\n── Recipe ──────────────────────────────────────────────────────────────────────\n\n\n\n\n\n── Inputs \n\n\nNumber of variables by role\n\n\noutcome:   1\npredictor: 7\n\n\n\n\n\n── Operations \n\n\n• Unknown factor level assignment for: sex\n\n\n• Variable mutation for: as.factor(year)\n\n\n\n\n\npenguin_rf &lt;- rand_forest(mtry = tune(),\n                           trees = tune()) |&gt;\n  set_engine(\"ranger\", importance = \"permutation\") |&gt;\n  set_mode(\"regression\")\n\npenguin_rf\n\nRandom Forest Model Specification (regression)\n\nMain Arguments:\n  mtry = tune()\n  trees = tune()\n\nEngine-Specific Arguments:\n  importance = permutation\n\nComputational engine: ranger \n\n\n\n\n\npenguin_rf_wflow &lt;- workflow() |&gt;\n  add_model(penguin_rf) |&gt;\n  add_recipe(penguin_rf_recipe)\n\npenguin_rf_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nRandom Forest Model Specification (regression)\n\nMain Arguments:\n  mtry = tune()\n  trees = tune()\n\nEngine-Specific Arguments:\n  importance = permutation\n\nComputational engine: ranger \n\n\n\n\n\nset.seed(234)\npenguin_folds &lt;- vfold_cv(penguin_train,\n                          v = 4)\n\n\n\n\npenguin_grid &lt;- grid_regular(mtry(range = c(2,7)),\n                             trees(range = c(1,500)), levels = 5)\n\npenguin_grid\n\n# A tibble: 25 × 2\n    mtry trees\n   &lt;int&gt; &lt;int&gt;\n 1     2     1\n 2     3     1\n 3     4     1\n 4     5     1\n 5     7     1\n 6     2   125\n 7     3   125\n 8     4   125\n 9     5   125\n10     7   125\n# ℹ 15 more rows\n\n\n\n\n\npenguin_rf_tune &lt;- \n  penguin_rf_wflow |&gt;\n  tune_grid(resamples = penguin_folds,\n            grid = penguin_grid)\n\npenguin_rf_tune \n\n# Tuning results\n# 4-fold cross-validation \n# A tibble: 4 × 4\n  splits           id    .metrics          .notes          \n  &lt;list&gt;           &lt;chr&gt; &lt;list&gt;            &lt;list&gt;          \n1 &lt;split [186/63]&gt; Fold1 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 3]&gt;\n2 &lt;split [187/62]&gt; Fold2 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 3]&gt;\n3 &lt;split [187/62]&gt; Fold3 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 3]&gt;\n4 &lt;split [187/62]&gt; Fold4 &lt;tibble [50 × 6]&gt; &lt;tibble [0 × 3]&gt;"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#rf-model-output",
+    "href": "slides/2024-11-04-rf.html#rf-model-output",
+    "title": "Bagging and Random Forests",
+    "section": "RF model output",
+    "text": "RF model output\n\npenguin_rf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"rmse\") |&gt;\n  ggplot() + \n  geom_line(aes(x = trees, y = mean, color = as.factor(mtry)))"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#rf-model-output---take-two",
+    "href": "slides/2024-11-04-rf.html#rf-model-output---take-two",
+    "title": "Bagging and Random Forests",
+    "section": "RF model output - take two",
+    "text": "RF model output - take two\n\npenguin_rf_tune |&gt;\n  autoplot()"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#rf-final-model",
+    "href": "slides/2024-11-04-rf.html#rf-final-model",
+    "title": "Bagging and Random Forests",
+    "section": "RF Final model",
+    "text": "RF Final model\n\npenguin_rf_best &lt;- finalize_model(\n  penguin_rf,\n  select_best(penguin_rf_tune, metric = \"rmse\"))\n\npenguin_rf_best\n\nRandom Forest Model Specification (regression)\n\nMain Arguments:\n  mtry = 2\n  trees = 375\n\nEngine-Specific Arguments:\n  importance = permutation\n\nComputational engine: ranger \n\npenguin_rf_final &lt;-\n  workflow() |&gt;\n  add_model(penguin_rf_best) |&gt;\n  add_recipe(penguin_rf_recipe) |&gt;\n  fit(data = penguin_train)"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#rf-final-model-1",
+    "href": "slides/2024-11-04-rf.html#rf-final-model-1",
+    "title": "Bagging and Random Forests",
+    "section": "RF Final model",
+    "text": "RF Final model\n\npenguin_rf_final\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nRanger result\n\nCall:\n ranger::ranger(x = maybe_data_frame(x), y = y, mtry = min_cols(~2L,      x), num.trees = ~375L, importance = ~\"permutation\", num.threads = 1,      verbose = FALSE, seed = sample.int(10^5, 1)) \n\nType:                             Regression \nNumber of trees:                  375 \nSample size:                      249 \nNumber of independent variables:  7 \nMtry:                             2 \nTarget node size:                 5 \nVariable importance mode:         permutation \nSplitrule:                        variance \nOOB prediction error (MSE):       84149.09 \nR squared (OOB):                  0.8634591"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#test-predictions",
+    "href": "slides/2024-11-04-rf.html#test-predictions",
+    "title": "Bagging and Random Forests",
+    "section": "Test predictions",
+    "text": "Test predictions\n\npenguin_rf_final |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  ggplot() +\n  geom_point(aes(x = body_mass_g, y = .pred)) + \n  geom_abline(intercept = 0, slope = 1)"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#model-choices",
+    "href": "slides/2024-11-04-rf.html#model-choices",
+    "title": "Bagging and Random Forests",
+    "section": "Model choices",
+    "text": "Model choices\n\n\n\nexplanatory variable choice\n\nnumber of explanatory variables\n\nfunctions/transformation of explanatory\n\ntransformation of response\n\nresponse: continuous vs. categorical\n\nhow missing data is dealt with\n\ntrain/test split (set.seed)\n\ntrain/test proportion\n\ntype of classification model\n\nuse of cost complexity / parameter\n\nmajority / average prob (tree error rate)\n\naccuracy vs sensitivity vs specificity\n\n\n\n\n\\(k\\) (\\(k\\)-NN)\ndistance measure\nV (CV)\nCV set.seed\n\\(\\alpha\\) prune\nmaxdepth prune\nprune or not\ngini / entropy (split)\n# trees / # BS samples\ngrid search etc. for tuning\nvalue(s) of mtry\nOOB vs CV for tuning"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#bias-variance-tradeoff",
+    "href": "slides/2024-11-04-rf.html#bias-variance-tradeoff",
+    "title": "Bagging and Random Forests",
+    "section": "Bias-Variance Tradeoff",
+    "text": "Bias-Variance Tradeoff\n\nTest and training error as a function of model complexity. Note that the error goes down monotonically only for the training data. Be careful not to overfit!! image credit: ISLR"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#reflecting-on-model-building",
+    "href": "slides/2024-11-04-rf.html#reflecting-on-model-building",
+    "title": "Bagging and Random Forests",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#reflecting-on-model-building-1",
+    "href": "slides/2024-11-04-rf.html#reflecting-on-model-building-1",
+    "title": "Bagging and Random Forests",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#reflecting-on-model-building-2",
+    "href": "slides/2024-11-04-rf.html#reflecting-on-model-building-2",
+    "title": "Bagging and Random Forests",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#algorithm-bagging-forest",
+    "href": "slides/2024-11-04-rf.html#algorithm-bagging-forest",
+    "title": "Bagging and Random Forests",
+    "section": "Algorithm: Bagging Forest",
+    "text": "Algorithm: Bagging Forest\n\nResample (bootstrap) cases (observational units, not variables).\n\nBuild a tree on each new set of (bootstrapped) training observations.\nAverage (regression) or majority vote (classification).\nNote that for every bootstrap sample, approximately 2/3 of the observations will be chosen and 1/3 of them will not be chosen."
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#observations-not-in-a-given-tree",
+    "href": "slides/2024-11-04-rf.html#observations-not-in-a-given-tree",
+    "title": "Bagging and Random Forests",
+    "section": "Observations not in a given tree",
+    "text": "Observations not in a given tree\nP(observation \\(i\\) is not in the bootstrap sample) = \\(\\bigg(1 - \\frac{1}{n} \\bigg)^n\\)\n\\[\\lim_{n \\rightarrow \\infty} \\bigg(1 - \\frac{1}{n} \\bigg)^n = \\frac{1}{e} \\approx \\frac{1}{3}\\]"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#fit-again",
+    "href": "slides/2024-11-04-rf.html#fit-again",
+    "title": "Bagging and Random Forests",
+    "section": "Fit again",
+    "text": "Fit again\n\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n• step_naomit()\n\n── Model ───────────────────────────────────────────────────────────────────────\n\nCall:\n randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x), oob.error = ~TRUE) \n               Type of random forest: regression\n                     Number of trees: 500\nNo. of variables tried at each split: 7\n\n          Mean of squared residuals: 92405.61\n                    % Var explained: 85.03"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#plot-1",
+    "href": "slides/2024-11-04-rf.html#plot-1",
+    "title": "Bagging and Random Forests",
+    "section": "plot 1",
+    "text": "plot 1\n\n\n\nrsq &lt;- penguin_bag_fit %&gt;%\n  extract_fit_parsnip() %&gt;%\n  pluck(\"fit\") %&gt;%\n  pluck(\"rsq\")\n\n\ndata.frame(\n  trees = 1:num_trees, \n  rsq = rsq) %&gt;%\n  ggplot() + \n  geom_line(\n    aes(x = trees, y = rsq)) +\n  ylab(\"\") + \n  xlab(\"Number of Trees\") + \n  ggtitle(\"OOB R-squared\")"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#plot-2",
+    "href": "slides/2024-11-04-rf.html#plot-2",
+    "title": "Bagging and Random Forests",
+    "section": "plot 2",
+    "text": "plot 2\n\n\n\nMSE &lt;- penguin_bag_fit %&gt;%\n  extract_fit_parsnip() %&gt;%\n  pluck(\"fit\") %&gt;%\n  pluck(\"mse\")\n\ndata.frame(\n  trees = 1:num_trees, \n  MSE = MSE) %&gt;%\n  ggplot() + \n  geom_line(\n    aes(x = trees, y = MSE)) +\n  ylab(\"\") + \n  xlab(\"Number of Trees\") + \n  ggtitle(\"OOB MSE\")"
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#algorithm-random-forest",
+    "href": "slides/2024-11-04-rf.html#algorithm-random-forest",
+    "title": "Bagging and Random Forests",
+    "section": "Algorithm: Random Forest",
+    "text": "Algorithm: Random Forest\n\nBootstrap sample from the training set.\nGrow an un-pruned tree on the bootstrap sample.\n\n\nAt each split, select \\(m\\) variables and determine the best split using only the \\(m\\) predictors.\nDo not prune the tree. Save the tree as is!\n\n\nRepeat steps 1-2 for many many trees.\nFor each tree grown on a bootstrap sample, predict the OOB samples. For each tree grown, \\(~1/3\\) of the training samples won’t be in the bootstrap sample – those are called out of bootstrap (OOB) samples. OOB samples can be used as test data to estimate the error rate of the tree.\nCombine the OOB predictions to create the “out-of-bag” error rate (either majority vote or average of predictions / class probabilities).\nAll trees together represent the model that is used for new predictions (either majority vote or average)."
+  },
+  {
+    "objectID": "slides/2024-11-04-rf.html#oob-prediction",
+    "href": "slides/2024-11-04-rf.html#oob-prediction",
+    "title": "Bagging and Random Forests",
+    "section": "OOB Prediction",
+    "text": "OOB Prediction\nLet the OOB prediction for the \\(i^{th}\\) observation to be \\(\\hat{y}_{(-i)}\\)\n\\[\\begin{eqnarray*}\n\\mbox{OOB}_{\\mbox{error}} &=& \\frac{1}{n} \\sum_{i=1}^n \\textrm{I} (y_i \\ne \\hat{y}_{(-i)}) \\ \\ \\ \\ \\ \\ \\ \\  \\mbox{classification}\\\\\n\\mbox{OOB}_{\\mbox{error}} &=& \\frac{1}{n} \\sum_{i=1}^n  (y_i - \\hat{y}_{(-i)})^2  \\ \\ \\ \\ \\ \\ \\ \\ \\mbox{regression}\\\\\n\\end{eqnarray*}\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\nobs\ntree1\ntree2\ntree3\ntree4\n\\(\\cdots\\)\ntree100\naverage\n\n\n\n\n1\n\nX\nX\n\n\n\n\\(\\sum(pred)/38\\)\n\n\n2\nX\n\n\n\n\n\n\\(\\sum(pred)/30\\)\n\n\n3\n\n\n\nX\n\nX\n\\(\\sum(pred)/33\\)\n\n\n4\nX\n\n\n\n\n\n\\(\\sum(pred)/32\\)\n\n\n5\nX\n\n\n\n\n\n\\(\\sum(pred)/39\\)\n\n\n6\n\n\nX\n\n\nX\n\\(\\sum(pred)/29\\)\n\n\n7\n\n\n\n\n\nX\n\\(\\sum(pred)/29\\)\n\n\n8\n\n\nX\nX\n\nX\n\\(\\sum(pred)/31\\)\n\n\n9\n\n\n\nX\n\n\n\\(\\sum(pred)/36\\)"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#bias-variance-tradeoff-1",
+    "href": "slides/2024-10-28-cart.html#bias-variance-tradeoff-1",
+    "title": "Decision Trees",
+    "section": "Bias-Variance Tradeoff",
+    "text": "Bias-Variance Tradeoff\n\n\n\n\n\n\n\n\nmodel\nhigh bias  (too simple)\nhigh variance  (overfit training data)\n\n\n\n\nlinear model\none (zero!) predictor\nmany many predictors\n\n\n\\(k\\)-NN\n\\(k = n\\)\n\\(k = 1\\)\n\n\nCART\none split\nsingle observation in every terminal node"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#bias-variance-tradeoff-2",
+    "href": "slides/2024-10-28-cart.html#bias-variance-tradeoff-2",
+    "title": "Decision Trees",
+    "section": "Bias-Variance Tradeoff",
+    "text": "Bias-Variance Tradeoff\n\nTest and training error as a function of model complexity. Note that the error goes down monotonically only for the training data. Be careful not to overfit!! image credit: ISLR"
+  },
+  {
+    "objectID": "posts/2024-11-04-rf/index.html",
+    "href": "posts/2024-11-04-rf/index.html",
+    "title": "9. Random Forests",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2024-11-04-rf/index.html#agenda",
+    "href": "posts/2024-11-04-rf/index.html#agenda",
+    "title": "9. Random Forests",
+    "section": "Agenda ",
+    "text": "Agenda \n\nNovember 4, 2024\n\nRedux - CART\nbagging process\nbagging error rate (OOB error)\n\n\n\nNovember 6, 2024\n\nRandom Forests\nExample"
+  },
+  {
+    "objectID": "posts/2024-11-04-rf/index.html#readings",
+    "href": "posts/2024-11-04-rf/index.html#readings",
+    "title": "9. Random Forests",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: bagging\nClass notes: random forests\nGareth, Witten, Hastie, and Tibshirani (2021), bagging & random forests (section 8.2)  Introduction to Statistical Learning.\nMax Kuhn and Julia Silge (2021), Tidy Modeling with R"
+  },
+  {
+    "objectID": "posts/2024-11-04-rf/index.html#reflection-questions",
+    "href": "posts/2024-11-04-rf/index.html#reflection-questions",
+    "title": "9. Random Forests",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nHow does bagging improve on a single tree? How does tuning mtry (with aggregation) improve on a single tree? (That is, what advantage do forests have over single trees.)\nHow do Random Forests make predictions on test data?\nCan Random Forests be used for both classification and regression or only one of the two tasks?\nCan you use categorical / character predictors with Random Forests?\nHow are mtry and the number of trees chosen?\nHow do the bias and variance change for different values of mtry and number of trees?\nWhat are the advantages of the Random Forests algorithm?\nWhat are the disadvantages of the Random Forest algorithm?"
+  },
+  {
+    "objectID": "posts/2024-11-04-rf/index.html#ethics-considerations",
+    "href": "posts/2024-11-04-rf/index.html#ethics-considerations",
+    "title": "9. Random Forests",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nWhat type of feature engineering is required for Random Forests?\nDo Random Forests produce a closed form “model” that can be written down or visualized and handed to a client?\nIf the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?"
+  },
+  {
+    "objectID": "posts/2024-11-04-rf/index.html#slides",
+    "href": "posts/2024-11-04-rf/index.html#slides",
+    "title": "9. Random Forests",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides - bagging & random forests for 11/4/24 and 11/6/24.\nWS14 - Bias-Variance trade-off"
+  },
+  {
+    "objectID": "posts/2024-11-04-rf/index.html#additional-resources",
+    "href": "posts/2024-11-04-rf/index.html#additional-resources",
+    "title": "9. Random Forests",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nThe end of science (???) “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete”, Science, June 23, 2008.\nMaybe not so fast. “10 things statistics taught us about big data analysis”, Jeff Leek, May 22, 2014.\nJulia Silge’s blog &lt;a href = “https://juliasilge.com/blog/sf-trees-random-tuning/” target_“blank”&gt;Tuning Random Forest parameters\nJulia Silge’s blog &lt;a href = “https://juliasilge.com/blog/water-sources/” target_“blank”&gt;Predicting water sources with Random Forests\n\n\n:::"
   }
 ]

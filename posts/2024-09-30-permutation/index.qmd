@@ -7,10 +7,11 @@ author:
     url: https://m154-comp-stats.netlify.app/  
 date: 2024-09-30
 citation: false
-draft: false
-output:
-  distill::distill_article:
-    self_contained: false
+embed-resources: true
+execute: 
+  message: false
+  warning: false
+image: ../../images/not_normal.png
 ---
 
 
