@@ -5079,7 +5079,7 @@
     "href": "slides/2024-11-04-rf.html#oob-error",
     "title": "Bagging and Random Forests",
     "section": "OOB Error",
-    "text": "OOB Error\nOut of Bag\nwith bagging, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error. It is estimated internally for free!!!\n\nEach tree is constructed using a different bootstrap sample\nPut all of the cases left out in the construction of the \\(b^{th}\\) tree down the \\(b^{th}\\) tree to get a classification.\nAt the end of the run,\n\ntake \\(j\\) to be the class that got most of the votes every time case \\(i\\) was oob.\nThe proportion of times that \\(j\\) is not equal to the true class of n averaged over all cases is the oob error."
+    "text": "OOB Error\nOut of Bag\nwith bagging, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error. It is estimated internally for free!!!\n\nEach tree is constructed using a different bootstrap sample\nPut all of the cases left out in the construction of the \\(b^{th}\\) tree down the \\(b^{th}\\) tree to get a classification.\nAt the end of the run,\n\ntake \\(j\\) to be the class that got most of the votes every time case \\(i\\) was oob.\nThe proportion of times that \\(j\\) is not equal to the true class averaged over all cases is the oob error."
   },
   {
     "objectID": "slides/2024-11-04-rf.html#bagging-example-w-defaults",
@@ -5100,14 +5100,14 @@
     "href": "slides/2024-11-04-rf.html#random-forests-1",
     "title": "Bagging and Random Forests",
     "section": "Random Forests",
-    "text": "Random Forests\n\nMany trees\n\nbootstrap the data before building each tree\nfor best split look only at a random \\(m\\) varaibles (different \\(m\\) variables per split)\n\nTuning: look at OOB predictions – either average or majority vote\nTesting: test data will be (average or majority vote) prediction for all the trees."
+    "text": "Random Forests\n\nMany trees\n\nbootstrap the data before building each tree\nfor best split look only at a random \\(m\\) variables (different \\(m\\) variables per split)\n\nTuning: look at OOB predictions – either average or majority vote\nTesting: test data will be (average or majority vote) prediction for all the trees."
   },
   {
     "objectID": "slides/2024-11-04-rf.html#variable-importance",
     "href": "slides/2024-11-04-rf.html#variable-importance",
     "title": "Bagging and Random Forests",
     "section": "Variable Importance",
-    "text": "Variable Importance\n\nimportance = decrease in node impurity resulting from splits over that variable, averaged over all trees.\n\n\nFor each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).\nPermute the \\(j^{th}\\) variable and recalculate the oob prediction error.\nThe difference between the two oob errors are averaged over all trees (for the \\(j^{th}\\) variable) and normalized to give the importance for the \\(j^{th}\\) variable."
+    "text": "Variable Importance\n\nimportance = decrease in node impurity resulting from splits over that variable, averaged over all trees.\n\n\nFor each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).\nKeep the set of trees, and permute the \\(j^{th}\\) variable and recalculate the oob prediction error.\nThe difference between the two oob errors are averaged over all trees (for the \\(j^{th}\\) variable) to give the importance for the \\(j^{th}\\) variable."
   },
   {
     "objectID": "slides/2024-11-04-rf.html#rf-technical-details",

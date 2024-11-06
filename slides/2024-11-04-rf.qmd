@@ -121,7 +121,7 @@ with bagging, there is no need for cross-validation or a separate test set to ge
 
 * At the end of the run, 
    - take $j$ to be the class that got most of the votes every time case $i$ was oob. 
-   - The proportion of times that $j$ is not equal to the true class of n averaged over all cases is the **oob error**. 
+   - The proportion of times that $j$ is not equal to the true class averaged over all cases is the **oob error**. 
 
 ## OOB Prediction {.smaller}
 
@@ -337,7 +337,7 @@ data.frame(
 
 * Many trees
   - bootstrap the data before building each tree
-  - for best split look only at a random $m$ varaibles (different $m$ variables per split)
+  - for best split look only at a random $m$ variables (different $m$ variables per split)
   
 * Tuning:  look at OOB predictions -- either average or majority vote
 
@@ -368,9 +368,9 @@ data.frame(
 
 * For each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).  
 
-* **Permute** the $j^{th}$ variable and recalculate the oob prediction error.  
+* Keep the set of trees, and **permute** the $j^{th}$ variable and recalculate the oob prediction error.  
 
-* The difference between the two oob errors are averaged over all trees (for the $j^{th}$ variable) and normalized to give the importance for the $j^{th}$ variable.
+* The difference between the two oob errors are averaged over all trees (for the $j^{th}$ variable) to give the importance for the $j^{th}$ variable.
 
 
 
