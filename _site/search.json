@@ -5128,7 +5128,7 @@
     "href": "slides/2024-11-04-rf.html#rf-model-output",
     "title": "Bagging and Random Forests",
     "section": "RF model output",
-    "text": "RF model output\n\npenguin_rf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"rmse\") |&gt;\n  ggplot() + \n  geom_line(aes(x = trees, y = mean, color = as.factor(mtry)))"
+    "text": "RF model output\n\npenguin_rf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"rmse\") |&gt;\n  mutate(mtry = as.factor(mtry)) |&gt; \n  ggplot() + \n  geom_line(aes(x = trees, y = mean, color = mtry)) + \n  labs(title = \"RMSE: root mean squared error\", y = \"\")"
   },
   {
     "objectID": "slides/2024-11-04-rf.html#rf-model-output---take-two",

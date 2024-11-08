@@ -468,18 +468,12 @@ penguin_rf_tune
 penguin_rf_tune |>
   collect_metrics() |>
   filter(.metric == "rmse") |>
+  mutate(mtry = as.factor(mtry)) |> 
   ggplot() + 
-  geom_line(aes(x = trees, y = mean, color = as.factor(mtry)))
+  geom_line(aes(x = trees, y = mean, color = mtry)) + 
+  labs(title = "RMSE: root mean squared error", y = "")
 ```
 
-
-
-## RF model output - take two
-
-```{r}
-penguin_rf_tune |>
-  autoplot()
-```
 
 
 
