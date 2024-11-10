@@ -16,7 +16,7 @@ knitr::include_graphics("images/project.png")
 
 You will undertake a computational statistics project on a topic of your choice focused on a **dataset**. The project is an opportunity to show off what you've learned about the entire process of running a computational statistics analysis. It is a major component of the class, and successful completion is required to pass. Your final output for this project will be:
 
-1. a technical report written in R Markdown, compiled to pdf  
+1. a technical report written in Quarto, compiled to pdf  
 2. an oral presentation delivered to the class
 
 ## Group Formation
@@ -35,7 +35,7 @@ Please note that neither of the above stipulations are requirements – they are
 2. Your project must tell us something. We've seen a range of projects / analyses over the course of the semester. On one extreme are visualization projects (like Snow's cholera map) that involve virtually no statistical analysis. On the other extreme are data mining projects like the KDD cup or Kaggle competitions, which involve very little visualization. Your project can be anywhere on this spectrum, but expectations may be different depending on where you are on the scale. An example of a project that doesn't tell us anything, would be something that downloads a single data source and summarizes it, with some perfunctory visualization. Make sure that your project is thought-provoking and has some underlying meaning!
 
 3. To get an A, you must show something beyond what we've done in class. Some examples:
-Use a new data mining technique (e.g., an artificial neural network, näive Bayes classifier)
+Use a new data mining technique (e.g., an artificial neural network, näive Bayes classifier -- only if the technique is a new idea for you!)
 Use a new programming technology (e.g., Python, MapReduce, shell scripting...  should be new to you!)  
    * Use a new visualization technology (e.g., Inkscape, Illustrator, Shiny, Processing)  
    * Use a new live data source or API (e.g., Flickr, Facebook, <a href = "https://github.com/amrrs/coinmarketcapr" target = "_blank">CoinMarketCap</a>) [Note: just downloading a new data set in a flat file does not count!]  
@@ -46,7 +46,10 @@ Also, domain knowledge does not count here, so your outside knowledge of protein
 4. At some point in the project, you should give an analysis/discussion of where the data came from and what/who it represents.
 
 5. Last, you must address any ethical considerations that came about during the project.  How were you or weren't you able to address the ethical issues that came up?    
-In addition to the examples you have seen over the course of the semester (and previous project links given at the bottom of this page), here are some generic ideas:  
+
+
+
+In addition to the examples you have seen over the course of the semester (and previous project links given at the bottom of this page), here are some generic ideas for projects:  
 
    * Compete (strongly) in a past KDD cup or Kaggle competition    
    * Create a GoogleMaps mash-up  
@@ -107,7 +110,7 @@ On Friday/Thursday, December 6/12th, your group will make a 10-12 minute oral pr
 2. What format was the original data in, and what [downloading, data wrangling, data analysis] techniques did you apply to it?  
 3. What were your findings?
 
-You should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Markdown slides (<a href = "http://rmarkdown.rstudio.com/ioslides_presentation_format.html" target = "_blank">ioslides</a>, <a href = "http://rmarkdown.rstudio.com/slidy_presentation_format.html" target = "_blank">Slidy</a>, or <a href = "http://rmarkdown.rstudio.com/revealjs_presentation_format.html" target = "_blank">reveal.js</a>), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like <a href = "http://prezi.com/" target = "_blank">Prezi</a>. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!
+You should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Quarto slides (<a href = "https://quarto.org/docs/presentations/" target = "_blank">Quarto presentations</a>, <a href = "http://rmarkdown.rstudio.com/ioslides_presentation_format.html" target = "_blank">ioslides</a>, <a href = "http://rmarkdown.rstudio.com/slidy_presentation_format.html" target = "_blank">Slidy</a>, or <a href = "http://rmarkdown.rstudio.com/revealjs_presentation_format.html" target = "_blank">reveal.js</a>), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like <a href = "http://prezi.com/" target = "_blank">Prezi</a>. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!
 
 You will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to **not** hook up your laptop to the computer in Millikan 1021 (unless you have good reason and have spoken to me about it beforehand).
 
@@ -125,7 +128,7 @@ Watch the videos on this site to identify some common mistakes. Here is some gen
 
 ## Write-Up
 
-Your write-up will similar to a report to client crafted in R Markdown, compiled to a pdf, due on Tuesday, December 14th by midnight. 
+Your write-up will similar to a report to client crafted in Quarto, compiled to a pdf, due on Thursday, December 12th by midnight. 
 
 In your write-up, you should tell a data science audience about your project, why they should care about it, and what you have discovered. Your audience will be people like you – current or aspiring data scientists. Keep in mind that this audience is extraordinarily diverse in terms of skills and abilities, so you should assume very little about what they might know. However, your audience is reasonably tech-savvy, so you need not "dumb-down" your analysis.
 
@@ -137,7 +140,7 @@ Note that ideally, you would be able to use the write-up to show a future employ
 
 ### Content
 
-You do not need to present all of the R code that you wrote throughout the process of working on this project. However, the write-up should contain the minimal set of R code that is necessary to understand your results and findings. If you make a claim, it must be justified by explicit calculation. A knowledgeable reviewer should be able to compile your .Rmd file without modification (caveat: unless you also did work outside of R), and verify every statement that you have made. All of the R code necessary to produce your figures and tables must appear in the .Rmd version of the write-up.  All of the R code necessary to understand your work should appear in the .pdf version of the write-up.
+You do not need to present all of the R code that you wrote throughout the process of working on this project. However, the write-up should contain the minimal set of R code that is necessary to understand your results and findings. If you make a claim, it must be justified by explicit calculation. A knowledgeable reviewer should be able to compile your .qmd file without modification (caveat: unless you also did work outside of R), and verify every statement that you have made. All of the R code necessary to produce your figures and tables must appear in the .qmd version of the write-up.  All of the R code necessary to understand your work should appear in the .pdf version of the write-up.
 
 Any data you use should either be obtained dynamically (e.g., from a website) or saved into your project repository (unless the dataset is too big, and we've already discussed that the data are hosted locally).
 
@@ -161,7 +164,7 @@ Nevertheless, your write-up should address the following questions:
 
 ### Style
 
-The notebook (i.e., Rmd + pdf) format is designed to be an interactive document. Take advantage of this by including hyperlinks, figures, videos, etc. to provide context for the reader. It is likely that you will include references section or a <a href = "http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" target = "_blank">bibliography</a>, and your references should be embedded via links. Use Markdown elements like links, lists, LaTeX, and images as needed.
+The notebook (i.e., qmd + pdf) format is designed to be an interactive document. Take advantage of this by including hyperlinks, figures, videos, etc. to provide context for the reader. It is likely that you will include references section or a <a href = "http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html" target = "_blank">bibliography</a>, and your references should be embedded via links. Use Quarto elements like links, lists, LaTeX, and images as needed.
 
 Visualizations, particularly interactive ones, will be well-received. That said, do not overuse visualizations. You may be better off with one complicated but well-crafted visualization as opposed to many quick-and-dirty plots. *Do not forget Tufte*! Any plots should be well-thought out, properly labelled, informative, and visually appealing!
 

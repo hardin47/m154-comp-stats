@@ -19,7 +19,7 @@ quotes about 80% of work is data wrangling
 
 slides on data wrangling
 
-example R code / sample markdown file?
+example R code / sample Quarto file?
 ```
 
 
