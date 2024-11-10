@@ -84,7 +84,7 @@ schedule <- tribble(
   '<font color = "#114B5F"><b>12.2.24</b></font>', '<font color = "#114B5F"><b>Data-ing in the World</b></font>', ' ',
 
  "12.2.24", '<a href="">Latent Dirichlet allocation +  extensions</a>',
-  ' ',
+  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 12</a> - due 12.3.24',
 
  '<font color = "#114B5F"><b>12.6 + 12.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Group Presentations 2-5pm</b></font></a>', ' ',
 
