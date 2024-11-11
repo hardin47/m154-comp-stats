@@ -70,7 +70,7 @@ schedule <- tribble(
  "11.4.24", '<a href="posts/2024-11-04-rf">Random Forests</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 9</a> - due 11.5 <br> Quiz 5 11.6',
 
-"11.11.24", '<a href="">support vector machines</a>',
+"11.11.24", '<a href="https://m154-comp-stats.netlify.app/posts/2024-11-11-svm/">support vector machines</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 10</a> - due 11.12',
 
   '<font color = "#114B5F"><b>11.13.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Project Update</b></font></a>', ' ',

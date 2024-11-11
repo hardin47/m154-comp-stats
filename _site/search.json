@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n7. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n8. trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n9. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 11, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n7. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n8. trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n9. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -5304,5 +5304,166 @@
     "title": "9. Random Forests",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nThe end of science (???) “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete”, Science, June 23, 2008.\nMaybe not so fast. “10 things statistics taught us about big data analysis”, Jeff Leek, May 22, 2014.\nJulia Silge’s blog &lt;a href = “https://juliasilge.com/blog/sf-trees-random-tuning/” target_“blank”&gt;Tuning Random Forest parameters\nJulia Silge’s blog &lt;a href = “https://juliasilge.com/blog/water-sources/” target_“blank”&gt;Predicting water sources with Random Forests\n\n\n:::"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#tidymodels-syntax",
+    "href": "slides/2024-11-11-svm.html#tidymodels-syntax",
+    "title": "Support Vector Machines",
+    "section": "tidymodels syntax",
+    "text": "tidymodels syntax\n\npartition the data\nbuild a recipe\nselect a model\ncreate a workflow\nfit the model\n\nvalidate the model"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#support-vector-machines",
+    "href": "slides/2024-11-11-svm.html#support-vector-machines",
+    "title": "Support Vector Machines",
+    "section": "Support Vector Machines",
+    "text": "Support Vector Machines\n\nSVMs create both linear and non-linear decision boundaries. They are incredibly efficient because of the kernel trick which allows the computation to be done in a high dimension."
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#deriving-svm-formulation",
+    "href": "slides/2024-11-11-svm.html#deriving-svm-formulation",
+    "title": "Support Vector Machines",
+    "section": "Deriving SVM formulation",
+    "text": "Deriving SVM formulation\n\\(\\rightarrow\\) see class notes for all technical details\n\nMathematics of the optimization to find the widest linear boundary in a space where the two groups are completely separable.\nNote from derivation: both the optimization and the application are based on dot products.\nTransform the data to a higher space so that the points are linearly separable. Perform SVM in that space.\nRecognize that “performing SVM in higher space” is exactly equivalent to using a kernel in the original dimension.\nAllow for points to cross the boundary using soft margins."
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-example-w-defaults",
+    "href": "slides/2024-11-11-svm.html#svm-example-w-defaults",
+    "title": "Support Vector Machines",
+    "section": "SVM example w defaults",
+    "text": "SVM example w defaults\n\nrecipemodelworkflowfit\n\n\n\npenguin_svm_recipe &lt;-\n  recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +\n           body_mass_g, data = penguin_train) |&gt;\n  step_normalize(all_predictors())\n\nsummary(penguin_svm_recipe)\n\n# A tibble: 5 × 4\n  variable          type      role      source  \n  &lt;chr&gt;             &lt;list&gt;    &lt;chr&gt;     &lt;chr&gt;   \n1 bill_length_mm    &lt;chr [2]&gt; predictor original\n2 bill_depth_mm     &lt;chr [2]&gt; predictor original\n3 flipper_length_mm &lt;chr [2]&gt; predictor original\n4 body_mass_g       &lt;chr [2]&gt; predictor original\n5 sex               &lt;chr [3]&gt; outcome   original\n\n\n\n\n\npenguin_svm_lin &lt;- svm_linear() |&gt;\n  set_engine(\"LiblineaR\") |&gt;\n  set_mode(\"classification\")\n\npenguin_svm_lin\n\nLinear Support Vector Machine Model Specification (classification)\n\nComputational engine: LiblineaR \n\n\n\n\n\npenguin_svm_lin_wflow &lt;- workflow() |&gt;\n  add_model(penguin_svm_lin) |&gt;\n  add_recipe(penguin_svm_recipe)\n\npenguin_svm_lin_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: svm_linear()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\nLinear Support Vector Machine Model Specification (classification)\n\nComputational engine: LiblineaR \n\n\n\n\n\n\n\npenguin_svm_lin_fit &lt;- \n  penguin_svm_lin_wflow |&gt;\n  fit(data = penguin_train)\n\npenguin_svm_lin_fit \n\n\n\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: svm_linear()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\n$TypeDetail\n[1] \"L2-regularized L2-loss support vector classification dual (L2R_L2LOSS_SVC_DUAL)\"\n\n$Type\n[1] 1\n\n$W\n     bill_length_mm bill_depth_mm flipper_length_mm body_mass_g       Bias\n[1,]       0.248908      1.080195        -0.2256375    1.328448 0.06992734\n\n$Bias\n[1] 1\n\n$ClassNames\n[1] male   female\nLevels: female male\n\n$NbClass\n[1] 2\n\nattr(,\"class\")\n[1] \"LiblineaR\"\n\n\n\n\n\n\n\nFit again\n\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: svm_linear()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\n$TypeDetail\n[1] \"L2-regularized L2-loss support vector classification dual (L2R_L2LOSS_SVC_DUAL)\"\n\n$Type\n[1] 1\n\n$W\n     bill_length_mm bill_depth_mm flipper_length_mm body_mass_g       Bias\n[1,]       0.248908      1.080195        -0.2256375    1.328448 0.06992734\n\n$Bias\n[1] 1\n\n$ClassNames\n[1] male   female\nLevels: female male\n\n$NbClass\n[1] 2\n\nattr(,\"class\")\n[1] \"LiblineaR\""
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-example-w-cv-tuning-rbf-kernel",
+    "href": "slides/2024-11-11-svm.html#svm-example-w-cv-tuning-rbf-kernel",
+    "title": "Support Vector Machines",
+    "section": "SVM example w CV tuning (RBF kernel)",
+    "text": "SVM example w CV tuning (RBF kernel)\n\nrecipemodelworkflowCVparamtune\n\n\n\npenguin_svm_recipe &lt;-\n  recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +\n           body_mass_g, data = penguin_train) |&gt;\n  step_normalize(all_predictors())\n\nsummary(penguin_svm_recipe)\n\n# A tibble: 5 × 4\n  variable          type      role      source  \n  &lt;chr&gt;             &lt;list&gt;    &lt;chr&gt;     &lt;chr&gt;   \n1 bill_length_mm    &lt;chr [2]&gt; predictor original\n2 bill_depth_mm     &lt;chr [2]&gt; predictor original\n3 flipper_length_mm &lt;chr [2]&gt; predictor original\n4 body_mass_g       &lt;chr [2]&gt; predictor original\n5 sex               &lt;chr [3]&gt; outcome   original\n\n\n\n\n\npenguin_svm_rbf &lt;- svm_rbf(cost = tune(),\n                           rbf_sigma = tune()) |&gt;\n  set_engine(\"kernlab\") |&gt;\n  set_mode(\"classification\")\n\npenguin_svm_rbf\n\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = tune()\n  rbf_sigma = tune()\n\nComputational engine: kernlab \n\n\n\n\n\npenguin_svm_rbf_wflow &lt;- workflow() |&gt;\n  add_model(penguin_svm_rbf) |&gt;\n  add_recipe(penguin_svm_recipe)\n\npenguin_svm_rbf_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: svm_rbf()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = tune()\n  rbf_sigma = tune()\n\nComputational engine: kernlab \n\n\n\n\n\nset.seed(234)\npenguin_folds &lt;- vfold_cv(penguin_train,\n                          v = 4)\n\n\n\n\n# the tuned parameters also have default values you can use\npenguin_grid &lt;- grid_regular(cost(),\n                             rbf_sigma(),\n                             levels = 8)\n\npenguin_grid\n\n# A tibble: 64 × 2\n        cost     rbf_sigma\n       &lt;dbl&gt;         &lt;dbl&gt;\n 1  0.000977 0.0000000001 \n 2  0.00431  0.0000000001 \n 3  0.0190   0.0000000001 \n 4  0.0841   0.0000000001 \n 5  0.371    0.0000000001 \n 6  1.64     0.0000000001 \n 7  7.25     0.0000000001 \n 8 32        0.0000000001 \n 9  0.000977 0.00000000268\n10  0.00431  0.00000000268\n# ℹ 54 more rows\n\n\n\n\n\n# this takes a few minutes\npenguin_svm_rbf_tune &lt;- \n  penguin_svm_rbf_wflow |&gt;\n  tune_grid(resamples = penguin_folds,\n            grid = penguin_grid)\n\npenguin_svm_rbf_tune \n\n# Tuning results\n# 4-fold cross-validation \n# A tibble: 4 × 4\n  splits           id    .metrics           .notes          \n  &lt;list&gt;           &lt;chr&gt; &lt;list&gt;             &lt;list&gt;          \n1 &lt;split [186/63]&gt; Fold1 &lt;tibble [192 × 6]&gt; &lt;tibble [0 × 3]&gt;\n2 &lt;split [187/62]&gt; Fold2 &lt;tibble [192 × 6]&gt; &lt;tibble [0 × 3]&gt;\n3 &lt;split [187/62]&gt; Fold3 &lt;tibble [192 × 6]&gt; &lt;tibble [0 × 3]&gt;\n4 &lt;split [187/62]&gt; Fold4 &lt;tibble [192 × 6]&gt; &lt;tibble [0 × 3]&gt;"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-model-output",
+    "href": "slides/2024-11-11-svm.html#svm-model-output",
+    "title": "Support Vector Machines",
+    "section": "SVM model output",
+    "text": "SVM model output\n\npenguin_svm_rbf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt;\n  ggplot() + \n  geom_line(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +\n  geom_point(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +\n  labs(color = \"Cost\") +\n  scale_x_continuous(trans='log10')"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-model-output---take-two",
+    "href": "slides/2024-11-11-svm.html#svm-model-output---take-two",
+    "title": "Support Vector Machines",
+    "section": "SVM model output - take two",
+    "text": "SVM model output - take two\n\npenguin_svm_rbf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt;\n  ggplot() + \n  geom_line(aes(color = as.factor(rbf_sigma), y = mean, x = cost)) +\n  geom_point(aes(color = as.factor(rbf_sigma), y = mean, x = cost)) +\n  labs(color = \"Cost\") +\n  scale_x_continuous(trans='log10')"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-final-model",
+    "href": "slides/2024-11-11-svm.html#svm-final-model",
+    "title": "Support Vector Machines",
+    "section": "SVM Final model",
+    "text": "SVM Final model\n\npenguin_svm_rbf_best &lt;- finalize_model(\n  penguin_svm_rbf,\n  select_best(penguin_svm_rbf_tune, metric = \"accuracy\"))\n\npenguin_svm_rbf_best\n\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = 0.371498572284237\n  rbf_sigma = 1\n\nComputational engine: kernlab \n\npenguin_svm_rbf_final &lt;-\n  workflow() |&gt;\n  add_model(penguin_svm_rbf_best) |&gt;\n  add_recipe(penguin_svm_recipe) |&gt;\n  fit(data = penguin_train)"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-final-model-1",
+    "href": "slides/2024-11-11-svm.html#svm-final-model-1",
+    "title": "Support Vector Machines",
+    "section": "SVM Final model",
+    "text": "SVM Final model\n\npenguin_svm_rbf_final\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: svm_rbf()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\nSupport Vector Machine object of class \"ksvm\" \n\nSV type: C-svc  (classification) \n parameter : cost C = 0.371498572284237 \n\nGaussian Radial Basis kernel function. \n Hyperparameter : sigma =  1 \n\nNumber of Support Vectors : 137 \n\nObjective Function Value : -31.8005 \nTraining error : 0.052209 \nProbability model included."
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#test-predictions",
+    "href": "slides/2024-11-11-svm.html#test-predictions",
+    "title": "Support Vector Machines",
+    "section": "Test predictions",
+    "text": "Test predictions\n\npenguin_svm_rbf_final |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(sex, .pred_class) |&gt;\n  table()\n\n        .pred_class\nsex      female male\n  female     39    5\n  male        4   36\n\n\n\npenguin_svm_rbf_final |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  conf_mat(sex, .pred_class)\n\n          Truth\nPrediction female male\n    female     39    4\n    male        5   36"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#other-measures",
+    "href": "slides/2024-11-11-svm.html#other-measures",
+    "title": "Support Vector Machines",
+    "section": "Other measures",
+    "text": "Other measures\n\n# https://yardstick.tidymodels.org/articles/metric-types.html\nclass_metrics &lt;- metric_set(accuracy, sensitivity, \n                            specificity, f_meas)\n\npenguin_svm_rbf_final |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  class_metrics(truth = sex, estimate = .pred_class)\n\n# A tibble: 4 × 3\n  .metric     .estimator .estimate\n  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n1 accuracy    binary         0.893\n2 sensitivity binary         0.886\n3 specificity binary         0.9  \n4 f_meas      binary         0.897"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#bias-variance-tradeoff",
+    "href": "slides/2024-11-11-svm.html#bias-variance-tradeoff",
+    "title": "Support Vector Machines",
+    "section": "Bias-Variance Tradeoff",
+    "text": "Bias-Variance Tradeoff\n\nTest and training error as a function of model complexity. Note that the error goes down monotonically only for the training data. Be careful not to overfit!! image credit: ISLR"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#reflecting-on-model-building",
+    "href": "slides/2024-11-11-svm.html#reflecting-on-model-building",
+    "title": "Support Vector Machines",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#reflecting-on-model-building-1",
+    "href": "slides/2024-11-11-svm.html#reflecting-on-model-building-1",
+    "title": "Support Vector Machines",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#reflecting-on-model-building-2",
+    "href": "slides/2024-11-11-svm.html#reflecting-on-model-building-2",
+    "title": "Support Vector Machines",
+    "section": "Reflecting on Model Building",
+    "text": "Reflecting on Model Building\n\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#algorithm-support-vector-machine",
+    "href": "slides/2024-11-11-svm.html#algorithm-support-vector-machine",
+    "title": "Support Vector Machines",
+    "section": "Algorithm: Support Vector Machine",
+    "text": "Algorithm: Support Vector Machine\n\nUsing cross validation, find values of \\(C, \\gamma, d, r\\), etc. (and the kernel function!)\nUsing Lagrange multipliers (read: the computer), solve for \\(\\alpha_i\\) and \\(b\\).\nClassify an unknown observation (\\({\\bf u}\\)) as “positive” if: \\[\\sum \\alpha_i y_i \\phi({\\bf x}_i) \\cdot \\phi({\\bf u}) + b  = \\sum \\alpha_i y_i K({\\bf x}_i, {\\bf u}) + b \\geq 0\\]"
+  },
+  {
+    "objectID": "posts/2024-11-11-svm/index.html",
+    "href": "posts/2024-11-11-svm/index.html",
+    "title": "10. Support Vector Machines",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2024-11-11-svm/index.html#agenda",
+    "href": "posts/2024-11-11-svm/index.html#agenda",
+    "title": "10. Support Vector Machines",
+    "section": "Agenda ",
+    "text": "Agenda \n\nNovember 11, 2024\n\nlinearly separable\ndot products\nsupport vector formulation\n\n\n\nNovember 13, 2024\n\nnot linearly separable (SVM)\nkernels (SVM)\nsupport vector formulation"
+  },
+  {
+    "objectID": "posts/2024-11-11-svm/index.html#readings",
+    "href": "posts/2024-11-11-svm/index.html#readings",
+    "title": "10. Support Vector Machines",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Support Vector Machines\nGareth, Witten, Hastie, and Tibshirani (2021), Support Vector Machines (Chapter 9)  Introduction to Statistical Learning.\nMax Kuhn and Julia Silge (2021), Tidy Modeling with R"
+  },
+  {
+    "objectID": "posts/2024-11-11-svm/index.html#reflection-questions",
+    "href": "posts/2024-11-11-svm/index.html#reflection-questions",
+    "title": "10. Support Vector Machines",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nHow is an SVM built (how do we find the model)?\nWhy is it often advantageous to transform the data into a higher dimensional space?\nWhat is the kernel trick and how is it related to the SVM decision rule?\nCan SVMs work on data that are not linearly separable (even in high dimensions)? How?\nWhat are the advantages of the SVM algorithm?\nWhat are the disadvantages of the SVM algorithm?"
+  },
+  {
+    "objectID": "posts/2024-11-11-svm/index.html#ethics-considerations",
+    "href": "posts/2024-11-11-svm/index.html#ethics-considerations",
+    "title": "10. Support Vector Machines",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nWhat type of feature engineering is required for Support Vector Machines?\nDo Support Vector Machines produce a closed form “model” that can be written down or visualized and handed to a client?\nIf the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?"
+  },
+  {
+    "objectID": "posts/2024-11-11-svm/index.html#slides",
+    "href": "posts/2024-11-11-svm/index.html#slides",
+    "title": "10. Support Vector Machines",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides - support vector machines for 11/11/24 + 11/13/24.\nWS15 - SVMs 1\nWS16 - SVMs 2\nWS17 - SVMs 3"
+  },
+  {
+    "objectID": "posts/2024-11-11-svm/index.html#additional-resources",
+    "href": "posts/2024-11-11-svm/index.html#additional-resources",
+    "title": "10. Support Vector Machines",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nROC curve of science\nTidymodels SVM vignette\nJulia Silge’s blog SVMs to predict if a post office is in Hawaii\nJulia Silge’s blog SVMs to predict Netflix shows as TV or movies\n\n\n:::"
   }
 ]
