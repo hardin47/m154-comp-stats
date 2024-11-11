@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 11, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n7. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n8. trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n9. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 11, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n7. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n8. Trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n9. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -4370,49 +4370,49 @@
   {
     "objectID": "posts/2024-10-28-trees/index.html",
     "href": "posts/2024-10-28-trees/index.html",
-    "title": "8. trees",
+    "title": "8. Trees",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#agenda",
     "href": "posts/2024-10-28-trees/index.html#agenda",
-    "title": "8. trees",
+    "title": "8. Trees",
     "section": "Agenda ",
     "text": "Agenda \n\nOctober 28, 2024\n\nDecision Trees\nExample\n\n\n\nOctober 30, 2024\n\nBagging\nExample"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#readings",
     "href": "posts/2024-10-28-trees/index.html#readings",
-    "title": "8. trees",
+    "title": "8. Trees",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: decision trees\nGareth, Witten, Hastie, and Tibshirani (2021), k Nearest Neighbors (section 3.5)  Introduction to Statistical Learning.\nGareth, Witten, Hastie, and Tibshirani (2021), the basics of decision trees (section 8.1)  Introduction to Statistical Learning.\nMax Kuhn and Julia Silge (2021), Tidy Modeling with R"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#reflection-questions",
     "href": "posts/2024-10-28-trees/index.html#reflection-questions",
-    "title": "8. trees",
+    "title": "8. Trees",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhat does CART stand for?\nHow does CART make predictions on test data?\nCan CART be used for both classification and regression or only one of the two tasks?\nCan you use categorical / character predictors with CART?\nHow is tree depth chosen?\nWhat does it mean for CART to be high variance?\nWhat are the advantages of the CART algorithm?\nWhat are the disadvantages of the CART algorithm?"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#ethics-considerations",
     "href": "posts/2024-10-28-trees/index.html#ethics-considerations",
-    "title": "8. trees",
+    "title": "8. Trees",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nWhat type of feature engineering is required for CART?\nIf the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#slides",
     "href": "posts/2024-10-28-trees/index.html#slides",
-    "title": "8. trees",
+    "title": "8. Trees",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides - decision trees for 10/28/24.\nWS13 - decision trees"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#additional-resources",
     "href": "posts/2024-10-28-trees/index.html#additional-resources",
-    "title": "8. trees",
+    "title": "8. Trees",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nWhy the Bronx really burned – “adjusting” data to give the wrong information. FiveThirtyEight, Jody Avirgan, 10/29/2015.\n\n\nWith the help of the Rand Corp., the city tried to measure fire response times, identify redundancies in service, and close or re-allocate fire stations accordingly. What resulted, though, was a perfect storm of bad data: The methodology was flawed, the analysis was rife with biases, and the results were interpreted in a way that stacked the deck against poorer neighborhoods. The slower response times allowed smaller fires to rage uncontrolled in the city’s most vulnerable communities.\n\n\nSF vs. NYC housing – a great example of a classification tree.\nJulia Silge’s blog Tuning Decision Trees\n\n\n:::"
   },
