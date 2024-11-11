@@ -11,7 +11,7 @@ embed-resources: true
 execute: 
   message: false
   warning: false
-image: ../../images/monster_support.png
+image: ../../images/monster_support.jpg
 ---
 
 

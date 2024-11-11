@@ -1,5 +1,5 @@
 ---
-title: "9. Random Forests"
+title: "09. Random Forests"
 description: |
   Many trees make a forest.  Bagging gives FREE independent model assessment or parameter tuning.  Random Forests have a fantastic variance - bias trade-off.
 author:

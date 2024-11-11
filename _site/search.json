@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n1. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 11, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n2. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n3. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n4. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n5. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n6. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n7. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n8. Trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n9. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n04. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n05. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n06. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n07. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n08. Trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n09. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 11, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -65,49 +65,49 @@
   {
     "objectID": "posts/2024-08-26-getting-started/index.html",
     "href": "posts/2024-08-26-getting-started/index.html",
-    "title": "1. Start with R + Git",
+    "title": "01. Start with R + Git",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-08-26-getting-started/index.html#agenda",
     "href": "posts/2024-08-26-getting-started/index.html#agenda",
-    "title": "1. Start with R + Git",
+    "title": "01. Start with R + Git",
     "section": "Agenda ",
     "text": "Agenda \n\nAugust 26, 2024\n\nSyllabus & Course Outline\nStitch Fix Algorithm\nCan Twitter predict election results?\n\nBefore Wednesday, listen to the full conversation of Not So Standard Deviations - Compromised Shoe Situation.\n\n\nAugust 28, 2024\n\nReproducibility & GitHub\nDesign Challenge (Not So Standard Deviations)\n\nBefore next Thursday, read: Tufte. 1997. Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/index.html#readings",
     "href": "posts/2024-08-26-getting-started/index.html#readings",
-    "title": "1. Start with R + Git",
+    "title": "01. Start with R + Git",
     "section": "Readings ",
     "text": "Readings \n\nThe syllabus\nModern Data Science with R Prologue\nClass notes: Introduction\nWhy Git? + monsters"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/index.html#reflection-questions",
     "href": "posts/2024-08-26-getting-started/index.html#reflection-questions",
-    "title": "1. Start with R + Git",
+    "title": "01. Start with R + Git",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhat can statistics & data science do? How do they do that?\nWhat can’t statistics & data science do? Why not?\nWhat choices were made to collect the Twitter data?\nWhat choices were made to model the Twitter data?\nWhat are the advantages and disadvantages of high touch versus low touch data?"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/index.html#ethics-considerations",
     "href": "posts/2024-08-26-getting-started/index.html#ethics-considerations",
-    "title": "1. Start with R + Git",
+    "title": "01. Start with R + Git",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nWhy is it problematic if the analysis isn’t reproducible?\nIs every analysis worth doing? (e.g., time to get to work, predicting presidential results, etc.). Can the act of doing the analysis be ethically questionable?"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/index.html#slides",
     "href": "posts/2024-08-26-getting-started/index.html#slides",
-    "title": "1. Start with R + Git",
+    "title": "01. Start with R + Git",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides for both 8/26/24 and 8/28/24.\nWS1 - Twitter\nWS2 - working with R"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/index.html#additional-resources",
     "href": "posts/2024-08-26-getting-started/index.html#additional-resources",
-    "title": "1. Start with R + Git",
+    "title": "01. Start with R + Git",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nGreat algorithm for the whole process\nDesign Challenge (Not So Standard Deviations), listen to the full conversation.\nVideo (less than 2 min) on the strengths of reproducible research\nR vs. Python? (My personal opinion is that neither of the languages is “best”.)\n2017 Kaggle user survey and  2019 Stack Overflow Developer Survey\nPNAS paper retracted due to problems with figure and reproducibility (April 2016)\nAnalysis of Trump’s tweets with evidence that someone else tweets from his account using an iPhone part 1 and part 2 \n\n\n:::"
   },
@@ -1241,49 +1241,49 @@
   {
     "objectID": "posts/2024-09-04-dataviz/index.html",
     "href": "posts/2024-09-04-dataviz/index.html",
-    "title": "2. Data Viz",
+    "title": "02. Data Viz",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-09-04-dataviz/index.html#agenda",
     "href": "posts/2024-09-04-dataviz/index.html#agenda",
-    "title": "2. Data Viz",
+    "title": "02. Data Viz",
     "section": "Agenda ",
     "text": "Agenda \n\nAugust 28, 2024\n\nGitHub\nNSSD\nGrammar of graphics\nggplot\n\n\n\nSeptember 4, 2024\n\nCholera: what went (didn’t go) well with the graphics?\nChallenger: what didn’t go (went) well with the graphics?\nThoughts on plotting (with example(s))\n\n\nClass discussion will be based on Tufte (1997) Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nAnother great reference is the following text: Fundamentals of Data Visualization by Wilke at http://serialmentor.com/dataviz/"
   },
   {
     "objectID": "posts/2024-09-04-dataviz/index.html#readings",
     "href": "posts/2024-09-04-dataviz/index.html#readings",
-    "title": "2. Data Viz",
+    "title": "02. Data Viz",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: Visualization\nTufte (1997) Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nWickham (2017) Data Visualization in R for Data Science."
   },
   {
     "objectID": "posts/2024-09-04-dataviz/index.html#reflection-questions",
     "href": "posts/2024-09-04-dataviz/index.html#reflection-questions",
-    "title": "2. Data Viz",
+    "title": "02. Data Viz",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhen creating a graph, try to sketch / image the graph before you code it. What do you want R to do (what is the goal)? In order to do that, what does R need to know?\nWhat should the goal of a plot be? What should the goal of your plot be?\nWhat different aspects deconstruct a plot?"
   },
   {
     "objectID": "posts/2024-09-04-dataviz/index.html#ethics-considerations",
     "href": "posts/2024-09-04-dataviz/index.html#ethics-considerations",
-    "title": "2. Data Viz",
+    "title": "02. Data Viz",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nDoes your plot make the comparison of interest: easily? and accurately?\nDid you add alt text to your images (see Writing Alt Text for Data Visualization)?\nIs your plot accessible to those who are color blind or looking at the image in black and white?"
   },
   {
     "objectID": "posts/2024-09-04-dataviz/index.html#slides",
     "href": "posts/2024-09-04-dataviz/index.html#slides",
-    "title": "2. Data Viz",
+    "title": "02. Data Viz",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides for both 8/28/24 and 9/4/24.\nWS3 - ggplot"
   },
   {
     "objectID": "posts/2024-09-04-dataviz/index.html#additional-resources",
     "href": "posts/2024-09-04-dataviz/index.html#additional-resources",
-    "title": "2. Data Viz",
+    "title": "02. Data Viz",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nDuBois’s images online and in W.E.B. Du Bois’s Data Portraits: Visualizing Black America, a compilation edited by Whitney Battle-Baptiste.\nFlowcharts for choosing appropriate plots, brief tutorials of viz types, and source code in R and Python: from Data to Viz\nSee something or Say Something\nCensus trends visualized\nVisualization Internship (Fall 2021) at 538\nvisualizing data: Digest of the best visualizations from the past month\nA regular NYT column on visualizations: What’s Going on in this Graph?\nStudies about visualizations and perception\nFundamentals of Data Visualization\nAllison Horst’s amazing illustrations\nMakeover Mondays, a weekly data project for making more effective visualizations.\n\n\n:::"
   },
@@ -2025,49 +2025,49 @@
   {
     "objectID": "posts/2024-09-09-wrangling/index.html",
     "href": "posts/2024-09-09-wrangling/index.html",
-    "title": "3. Wrangling",
+    "title": "03. Wrangling",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#agenda",
     "href": "posts/2024-09-09-wrangling/index.html#agenda",
-    "title": "3. Wrangling",
+    "title": "03. Wrangling",
     "section": "Agenda ",
     "text": "Agenda \n\nSeptember 9 + 11, 2024\n\nTidy data\nData verbs\n\n\n\nSeptember 16, 2024\n\nRelational data (_join)\npivoting\n\n\n\nSeptember 18, 2024\n\nmapping"
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#readings",
     "href": "posts/2024-09-09-wrangling/index.html#readings",
-    "title": "3. Wrangling",
+    "title": "03. Wrangling",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: Data Wrangling\nWickham (2017) Data transformation and Tidy data in R for Data Science.\nIf you aren’t super comfortable with R yet, check out Workflow: basics in R for Data Science."
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#reflection-questions",
     "href": "posts/2024-09-09-wrangling/index.html#reflection-questions",
-    "title": "3. Wrangling",
+    "title": "03. Wrangling",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nHow and why is |&gt; used? And how is it different from the layering symbol + used in ggplot()?\nWhat are the main data wrangling verbs?\nHow do you distinguish the different _join functions? Are the _join keys formatted in the same way across the two datasets? Are the data recorded in the same way (e.g., is age birthday or age at recording?) ?\nWhat are some of the ways to distinguish a data verb from a typical function?"
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#ethics-considerations",
     "href": "posts/2024-09-09-wrangling/index.html#ethics-considerations",
-    "title": "3. Wrangling",
+    "title": "03. Wrangling",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nWhat is Jan 31 plus one month? And why does it matter that every analysis we do is a series of decisions? Keeping in mind that each of us might make a different decision, and all decisions have consequences."
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#slides",
     "href": "posts/2024-09-09-wrangling/index.html#slides",
-    "title": "3. Wrangling",
+    "title": "03. Wrangling",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides for both 9/9/24 and 9/11/24.\nIn class slides for 9/16/24.\nIn class slides for 9/18/24.\nWS4 - verbs\nWS5 - joins\nWS6 - mapping"
   },
   {
     "objectID": "posts/2024-09-09-wrangling/index.html#additional-resources",
     "href": "posts/2024-09-09-wrangling/index.html#additional-resources",
-    "title": "3. Wrangling",
+    "title": "03. Wrangling",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nPosit cheatsheets\ntidyverse vignettes\npivoting\n\n\n:::"
   },
@@ -3068,49 +3068,49 @@
   {
     "objectID": "posts/2024-09-23-simulating/index.html",
     "href": "posts/2024-09-23-simulating/index.html",
-    "title": "4. Simulating",
+    "title": "04. Simulating",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html#agenda",
     "href": "posts/2024-09-23-simulating/index.html#agenda",
-    "title": "4. Simulating",
+    "title": "04. Simulating",
     "section": "Agenda ",
     "text": "Agenda \n\nSeptember 23, 2024\n\nWhy simulate?\nWhat makes a good simulation?\nExamples\n\n\n\nSeptember 25, 2024\n\nBias in modeling\nSimulating statistical inference"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html#readings",
     "href": "posts/2024-09-23-simulating/index.html#readings",
-    "title": "4. Simulating",
+    "title": "04. Simulating",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: Simulating\nBaumer, Horton, and Kaplan (2021), Iteration (Chp 7) in Modern Data Science for R."
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html#reflection-questions",
     "href": "posts/2024-09-23-simulating/index.html#reflection-questions",
-    "title": "4. Simulating",
+    "title": "04. Simulating",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhat are some reasons to simulate?\nWhat makes a good simulation?\nWhat does “90%” mean when describing a 90% confidence interval? (That is, 90% of what?)\nWhat does a type I error rate mean when doing hypothesis testing? (That is, rate of what?)\nThe p-value is the probability of obtaining the observed data or more extreme if the null hypothesis is true. If probability is interpreted in the long-run-frequency definition, what is happening repeatedly so as to conceptualize the probability of something happening?"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html#ethics-considerations",
     "href": "posts/2024-09-23-simulating/index.html#ethics-considerations",
-    "title": "4. Simulating",
+    "title": "04. Simulating",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nHow can we use simulations to understand algorithmic bias or other types of problems in modeling?\nWhat does it mean for two different populations to have different feature distributions?"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html#slides",
     "href": "posts/2024-09-23-simulating/index.html#slides",
-    "title": "4. Simulating",
+    "title": "04. Simulating",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides for both 9/23/24 and 9/25/24.\nWS7 - Simulating"
   },
   {
     "objectID": "posts/2024-09-23-simulating/index.html#additional-resources",
     "href": "posts/2024-09-23-simulating/index.html#additional-resources",
-    "title": "4. Simulating",
+    "title": "04. Simulating",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nPosit cheatsheets – there is one on purrr!\nSimulating who would be in the first GOP debate (NYT 7/29/15)\nBlog by Aaron Roth, Algorithmic Unfairness Without Any Bias Baked In.\nSimulating linear models from the ISCAM applets.\n\n\n:::"
   },
@@ -3957,49 +3957,49 @@
   {
     "objectID": "posts/2024-09-30-permutation/index.html",
     "href": "posts/2024-09-30-permutation/index.html",
-    "title": "5. Permutation Tests",
+    "title": "05. Permutation Tests",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#agenda",
     "href": "posts/2024-09-30-permutation/index.html#agenda",
-    "title": "5. Permutation Tests",
+    "title": "05. Permutation Tests",
     "section": "Agenda ",
     "text": "Agenda \n\nSeptember 30, 2024\n\nReview: logic of hypothesis testing\nLogic of permutation tests\nExamples - 2 samples and beyond\n\n\n\nSeptember 30, 2024\n\nConditions, exchangeability, random structure\nDifferent statistics within the permutation test"
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#readings",
     "href": "posts/2024-09-30-permutation/index.html#readings",
-    "title": "5. Permutation Tests",
+    "title": "05. Permutation Tests",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: Permutation Tests\nBaumer, Horton, and Kaplan (2021), Simulation (Chp 13) in Modern Data Science for R."
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#reflection-questions",
     "href": "posts/2024-09-30-permutation/index.html#reflection-questions",
-    "title": "5. Permutation Tests",
+    "title": "05. Permutation Tests",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhat is a test statistic?\nWhat is a p-value?\nWhy for a two sample comparison (treatment A vs treatment B) is it okay to use \\(\\overline{X}_A - \\overline{X}_B\\) for a test statistic in a permutation test, but for a t-test the test statistic is necessarily \\(t^* = \\frac{\\overline{X}_A - \\overline{X}_B}{\\sqrt{s^2_A/n_A + s^2_B/n_B}}\\) (that is, divided by a measure of variability)?\nHow do you know what to permute in order to create a null sampling distribution?\nWhat does “exchangeability” mean (as a technical condition) when discussing permutation tests?\nWhat is the difference between a permutation test and a randomization test? Are there times when doing a randomization test is possible?\nWhat is power? What are type I and type II errors?"
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#ethics-considerations",
     "href": "posts/2024-09-30-permutation/index.html#ethics-considerations",
-    "title": "5. Permutation Tests",
+    "title": "05. Permutation Tests",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nIn a permutation test, sometimes there are many test statistics to choose from (which address the same hypotheses). Why wouldn’t you want to try them all and choose the one that gives you the highest level of significance?\nWhen is it acceptable to claim that the resulting “significant” outcome is actually a causal relationship (and not just an association)?"
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#slides",
     "href": "posts/2024-09-30-permutation/index.html#slides",
-    "title": "5. Permutation Tests",
+    "title": "05. Permutation Tests",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides for both 9/30/24 and 10/02/24.\nWS8 - HT logic\nWS9 - Permuting"
   },
   {
     "objectID": "posts/2024-09-30-permutation/index.html#additional-resources",
     "href": "posts/2024-09-30-permutation/index.html#additional-resources",
-    "title": "5. Permutation Tests",
+    "title": "05. Permutation Tests",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nRossman & Chance applets:\n\nanalytic test of 2 means (t-test)\npermutation test of 2 means\nanalytic test of many means (ANOVA)\npermutation test of many means\nconfidence intervals\npower\n\nlinear models\n\nStatistics without the agonizing pain - John Rauser at Strata + Hadoop 2014\nThe algorithm that could end partisan gerrymandering\nPosit cheatsheets – there is one on purrr!\n\n\n:::"
   },
@@ -4062,49 +4062,49 @@
   {
     "objectID": "posts/2024-10-07-bootstrap/index.html",
     "href": "posts/2024-10-07-bootstrap/index.html",
-    "title": "6. Bootstrapping",
+    "title": "06. Bootstrapping",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-10-07-bootstrap/index.html#agenda",
     "href": "posts/2024-10-07-bootstrap/index.html#agenda",
-    "title": "6. Bootstrapping",
+    "title": "06. Bootstrapping",
     "section": "Agenda ",
     "text": "Agenda \n\nOctober 7, 2024\n\nReview: logic of confidence intervals\nLogic of bootstrapping (resample from the sample with replacement)\nBS SE of a statistic\n\n\n\nOctober 9, 2024\n\nNormal CI using BS SE\nBootstrap-t (studentized) CIs\nPercentile CIs\nproperties / advantages / disadvantages"
   },
   {
     "objectID": "posts/2024-10-07-bootstrap/index.html#readings",
     "href": "posts/2024-10-07-bootstrap/index.html#readings",
-    "title": "6. Bootstrapping",
+    "title": "06. Bootstrapping",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: Bootstrapping\nBaumer, Horton, and Kaplan (2021), The bootstrap (Chp 9.3) in Modern Data Science for R.\nGareth, Witten, Hastie, and Tibshirani (2021), The Bootstrap (section 5.2)  Introduction to Statistical Learning."
   },
   {
     "objectID": "posts/2024-10-07-bootstrap/index.html#reflection-questions",
     "href": "posts/2024-10-07-bootstrap/index.html#reflection-questions",
-    "title": "6. Bootstrapping",
+    "title": "06. Bootstrapping",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhy would anyone ever want to bootstrap?\nWhat are the differences between a normal CI with Boot SE, a Bootstrap-t CI, and a percentile interval?\nWhy do we need to bootstrap twice for the Bootstrap-t CI?\nWhat makes a confidence interval procedure good?"
   },
   {
     "objectID": "posts/2024-10-07-bootstrap/index.html#ethics-considerations",
     "href": "posts/2024-10-07-bootstrap/index.html#ethics-considerations",
-    "title": "6. Bootstrapping",
+    "title": "06. Bootstrapping",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nWhy isn’t the bootstrap method a solution for the situation of small sample sizes?\nWhy isn’t the bootstrap method a solution for the situation with biased / unrepresentative data?\nConsider a population with a maximum value (the parameter of interest). Will the sample max have a sampling distribution which is centered on the true maximum? Why or why not? [Quintessential example of how a statistic can be biased for the parameter.]"
   },
   {
     "objectID": "posts/2024-10-07-bootstrap/index.html#slides",
     "href": "posts/2024-10-07-bootstrap/index.html#slides",
-    "title": "6. Bootstrapping",
+    "title": "06. Bootstrapping",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides for both 10/7/24 and 10/9/24.\nWU10 - standard errors\nWU11 - bootstrap t"
   },
   {
     "objectID": "posts/2024-10-07-bootstrap/index.html#additional-resources",
     "href": "posts/2024-10-07-bootstrap/index.html#additional-resources",
-    "title": "6. Bootstrapping",
+    "title": "06. Bootstrapping",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nStatKey applets which demonstrate bootstrapping.\nConfidence interval logic from the Rossman & Chance applets.\nThe Role of Statistical Learning in Applied Statistics Daniela Witten talks to Rafa Irizarry June 15, 2020.\nFive ways to fix statistics, Nature Nov 28, 2017\n\n\n:::"
   },
@@ -4370,98 +4370,98 @@
   {
     "objectID": "posts/2024-10-28-trees/index.html",
     "href": "posts/2024-10-28-trees/index.html",
-    "title": "8. Trees",
+    "title": "08. Trees",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#agenda",
     "href": "posts/2024-10-28-trees/index.html#agenda",
-    "title": "8. Trees",
+    "title": "08. Trees",
     "section": "Agenda ",
     "text": "Agenda \n\nOctober 28, 2024\n\nDecision Trees\nExample\n\n\n\nOctober 30, 2024\n\nBagging\nExample"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#readings",
     "href": "posts/2024-10-28-trees/index.html#readings",
-    "title": "8. Trees",
+    "title": "08. Trees",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: decision trees\nGareth, Witten, Hastie, and Tibshirani (2021), k Nearest Neighbors (section 3.5)  Introduction to Statistical Learning.\nGareth, Witten, Hastie, and Tibshirani (2021), the basics of decision trees (section 8.1)  Introduction to Statistical Learning.\nMax Kuhn and Julia Silge (2021), Tidy Modeling with R"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#reflection-questions",
     "href": "posts/2024-10-28-trees/index.html#reflection-questions",
-    "title": "8. Trees",
+    "title": "08. Trees",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhat does CART stand for?\nHow does CART make predictions on test data?\nCan CART be used for both classification and regression or only one of the two tasks?\nCan you use categorical / character predictors with CART?\nHow is tree depth chosen?\nWhat does it mean for CART to be high variance?\nWhat are the advantages of the CART algorithm?\nWhat are the disadvantages of the CART algorithm?"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#ethics-considerations",
     "href": "posts/2024-10-28-trees/index.html#ethics-considerations",
-    "title": "8. Trees",
+    "title": "08. Trees",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nWhat type of feature engineering is required for CART?\nIf the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#slides",
     "href": "posts/2024-10-28-trees/index.html#slides",
-    "title": "8. Trees",
+    "title": "08. Trees",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides - decision trees for 10/28/24.\nWS13 - decision trees"
   },
   {
     "objectID": "posts/2024-10-28-trees/index.html#additional-resources",
     "href": "posts/2024-10-28-trees/index.html#additional-resources",
-    "title": "8. Trees",
+    "title": "08. Trees",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nWhy the Bronx really burned – “adjusting” data to give the wrong information. FiveThirtyEight, Jody Avirgan, 10/29/2015.\n\n\nWith the help of the Rand Corp., the city tried to measure fire response times, identify redundancies in service, and close or re-allocate fire stations accordingly. What resulted, though, was a perfect storm of bad data: The methodology was flawed, the analysis was rife with biases, and the results were interpreted in a way that stacked the deck against poorer neighborhoods. The slower response times allowed smaller fires to rage uncontrolled in the city’s most vulnerable communities.\n\n\nSF vs. NYC housing – a great example of a classification tree.\nJulia Silge’s blog Tuning Decision Trees\n\n\n:::"
   },
   {
     "objectID": "posts/2024-10-21-recipes/index.html",
     "href": "posts/2024-10-21-recipes/index.html",
-    "title": "7. Recipes + k-NN",
+    "title": "07. Recipes + k-NN",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-10-21-recipes/index.html#agenda",
     "href": "posts/2024-10-21-recipes/index.html#agenda",
-    "title": "7. Recipes + k-NN",
+    "title": "07. Recipes + k-NN",
     "section": "Agenda ",
     "text": "Agenda \n\nOctober 21, 2024\n\nWhat needs to be done to the data?\ntidymodels syntax for recipes\nExample\n\n\n\nOctober 23, 2022\n\n\\(k\\)-Nearest Neighbors\nCross Validation\nExample"
   },
   {
     "objectID": "posts/2024-10-21-recipes/index.html#readings",
     "href": "posts/2024-10-21-recipes/index.html#readings",
-    "title": "7. Recipes + k-NN",
+    "title": "07. Recipes + k-NN",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: model building\nClass notes: k nearest neighbors\nMax Kuhn and Julia Silge (2021), Tidy Modeling with R"
   },
   {
     "objectID": "posts/2024-10-21-recipes/index.html#reflection-questions",
     "href": "posts/2024-10-21-recipes/index.html#reflection-questions",
-    "title": "7. Recipes + k-NN",
+    "title": "07. Recipes + k-NN",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nWhat is the process for building a model using tidymodels?\nWhy is it important to do feature engineering for variables in a model?\nHow is data separated in order to work with independent information (hint: two ways)?\nWhat is the “\\(k\\)” in \\(k\\)-Nearest Neighbors?\nWhy do most implementations of \\(k\\)-NN prefer odd values of k?\nHow does \\(k\\)-NN make predictions on test data?\nCan \\(k\\)-NN be used for both classification and regression or only one of the two tasks?\nCan you use categorical / character predictors with \\(k\\)-NN?\nHow is \\(k\\) chosen?\nHow do the bias and variance change for different values of \\(k\\) in \\(k\\)-NN?\nWhat are the advantages of the \\(k\\)-NN algorithm?\nWhat are the disadvantages of the \\(k\\)-NN algorithm?"
   },
   {
     "objectID": "posts/2024-10-21-recipes/index.html#ethics-considerations",
     "href": "posts/2024-10-21-recipes/index.html#ethics-considerations",
-    "title": "7. Recipes + k-NN",
+    "title": "07. Recipes + k-NN",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nThere are two ways that laws are enforced (both equally important):\n\ndisparate treatment \\(\\rightarrow\\) means that the differential treatment is intentional\ndisparate impact \\(\\rightarrow\\) means that the differential treatment is unintentional or implicit (some examples include advancing mortgage credit, employment selection, predictive policing)\n\nAnti-discrimination Laws\n\nCivil Rights Acts of 1964 and 1991\nAmericans with Disabilities Act\nGenetic Information Nondiscrimination Act\nEqual Credit Opportunity Act\nFair Housing Act\n\nQuestions to ask yourself in every single data analysis you perform (taken from Data Science for Social Good at the University of Chicago):\n\nWhat biases may exist in the data you’ve been given? How can you find out?\nHow will your choices with tuning parameters affect different populations represented in the data?\nHow do you know you aren’t getting the right answer to the wrong question?\nHow would you justify what you’d built to someone whose welfare is made worse off by the implementation of your algorithm?\nSee the slides on bias in modeling (9/23/21) for times when there are no inherent biases but the structure of the data create unequal model results.\n\nWhat type of feature engineering is required for \\(k\\)-NN?\nWhy is it recommended that \\(k\\)-NN not be used on large datasets?\n(For a given \\(k\\)) why does \\(k\\)-NN use more computation time to test than to train? [n.b., the opposite is true for the majority of classification and regression algorithms.]\nIf the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?"
   },
   {
     "objectID": "posts/2024-10-21-recipes/index.html#slides",
     "href": "posts/2024-10-21-recipes/index.html#slides",
-    "title": "7. Recipes + k-NN",
+    "title": "07. Recipes + k-NN",
     "section": "Slides ",
     "text": "Slides \n\nRecipes + feature engineering for 10/21/24.\nk-NN for 10/23/24.\nWS12 - feature engineering"
   },
   {
     "objectID": "posts/2024-10-21-recipes/index.html#additional-resources",
     "href": "posts/2024-10-21-recipes/index.html#additional-resources",
-    "title": "7. Recipes + k-NN",
+    "title": "07. Recipes + k-NN",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nHilary Mason describing what is machine learning to 5 different people.\nJulia Silge’s blog is full of complete tidymodels examples and screencasts.\nAlexandria Ocasio-Cortez, Jan 22, 2019 MLK event with Ta-Nehisi Coates\nS. Barocas and A. Selbst, “Big Data’s Disparate Impact”, California Law Review, 671, 2016.\nMachine Bias in Pro Publica by Julia Angwin, Jeff Larson, Surya Mattu, and Lauren Kirchner, May 23, 2016\nAlgorithmic Justice League is a collective that aims to:\n\nHighlight algorithmic bias through media, art, and science\nProvide space for people to voice concerns and experiences with coded bias\nDevelop practices for accountability during design, development, and deployment of coded systems\nJoy Buolamwini – AI, Ain’t I A Woman?\n\n\n\n:::"
   },
@@ -5259,49 +5259,49 @@
   {
     "objectID": "posts/2024-11-04-rf/index.html",
     "href": "posts/2024-11-04-rf/index.html",
-    "title": "9. Random Forests",
+    "title": "09. Random Forests",
     "section": "",
     "text": "Artwork by @allison_horst."
   },
   {
     "objectID": "posts/2024-11-04-rf/index.html#agenda",
     "href": "posts/2024-11-04-rf/index.html#agenda",
-    "title": "9. Random Forests",
+    "title": "09. Random Forests",
     "section": "Agenda ",
     "text": "Agenda \n\nNovember 4, 2024\n\nRedux - CART\nbagging process\nbagging error rate (OOB error)\n\n\n\nNovember 6, 2024\n\nRandom Forests\nExample"
   },
   {
     "objectID": "posts/2024-11-04-rf/index.html#readings",
     "href": "posts/2024-11-04-rf/index.html#readings",
-    "title": "9. Random Forests",
+    "title": "09. Random Forests",
     "section": "Readings ",
     "text": "Readings \n\nClass notes: bagging\nClass notes: random forests\nGareth, Witten, Hastie, and Tibshirani (2021), bagging & random forests (section 8.2)  Introduction to Statistical Learning.\nMax Kuhn and Julia Silge (2021), Tidy Modeling with R"
   },
   {
     "objectID": "posts/2024-11-04-rf/index.html#reflection-questions",
     "href": "posts/2024-11-04-rf/index.html#reflection-questions",
-    "title": "9. Random Forests",
+    "title": "09. Random Forests",
     "section": "Reflection questions ",
     "text": "Reflection questions \n\nHow does bagging improve on a single tree? How does tuning mtry (with aggregation) improve on a single tree? (That is, what advantage do forests have over single trees.)\nHow do Random Forests make predictions on test data?\nCan Random Forests be used for both classification and regression or only one of the two tasks?\nCan you use categorical / character predictors with Random Forests?\nHow are mtry and the number of trees chosen?\nHow do the bias and variance change for different values of mtry and number of trees?\nWhat are the advantages of the Random Forests algorithm?\nWhat are the disadvantages of the Random Forest algorithm?"
   },
   {
     "objectID": "posts/2024-11-04-rf/index.html#ethics-considerations",
     "href": "posts/2024-11-04-rf/index.html#ethics-considerations",
-    "title": "9. Random Forests",
+    "title": "09. Random Forests",
     "section": "Ethics considerations ",
     "text": "Ethics considerations \n\nWhat type of feature engineering is required for Random Forests?\nDo Random Forests produce a closed form “model” that can be written down or visualized and handed to a client?\nIf the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?"
   },
   {
     "objectID": "posts/2024-11-04-rf/index.html#slides",
     "href": "posts/2024-11-04-rf/index.html#slides",
-    "title": "9. Random Forests",
+    "title": "09. Random Forests",
     "section": "Slides ",
     "text": "Slides \n\nIn class slides - bagging & random forests for 11/4/24 and 11/6/24.\nWS14 - Bias-Variance trade-off"
   },
   {
     "objectID": "posts/2024-11-04-rf/index.html#additional-resources",
     "href": "posts/2024-11-04-rf/index.html#additional-resources",
-    "title": "9. Random Forests",
+    "title": "09. Random Forests",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nThe end of science (???) “The End of Theory: The Data Deluge Makes the Scientific Method Obsolete”, Science, June 23, 2008.\nMaybe not so fast. “10 things statistics taught us about big data analysis”, Jeff Leek, May 22, 2014.\nJulia Silge’s blog &lt;a href = “https://juliasilge.com/blog/sf-trees-random-tuning/” target_“blank”&gt;Tuning Random Forest parameters\nJulia Silge’s blog &lt;a href = “https://juliasilge.com/blog/water-sources/” target_“blank”&gt;Predicting water sources with Random Forests\n\n\n:::"
   },

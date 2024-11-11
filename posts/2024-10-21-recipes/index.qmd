@@ -1,5 +1,5 @@
 ---
-title: "7. Recipes + k-NN"
+title: "07. Recipes + k-NN"
 description: |
   And old adage says: garbage in, garbage out.  Here we avoid garbage in.
   k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable.

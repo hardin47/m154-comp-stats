@@ -1,5 +1,5 @@
 ---
-title: "2. Data Viz"
+title: "02. Data Viz"
 description: |
   Examples, good and bad.  Theory underlying what makes a viz good and bad.  Tools to implement viz tasks.
 author:

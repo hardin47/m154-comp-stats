@@ -1,5 +1,5 @@
 ---
-title: "4. Simulating"
+title: "04. Simulating"
 description: |
   Simulating scenarios, simulating datasets, simulating random variables.
 author:

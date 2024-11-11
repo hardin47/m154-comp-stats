@@ -1,5 +1,5 @@
 ---
-title: "6. Bootstrapping"
+title: "06. Bootstrapping"
 description: |
   The sample as a proxy for the unknown population.  Sample from said proxy population (i.e., the sample) to generate a sampling distribution.  Bootstrap.
 author:

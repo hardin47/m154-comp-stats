@@ -1,5 +1,5 @@
 ---
-title: "1. Start with R + Git"
+title: "01. Start with R + Git"
 description: |
   The importance of reproducibility.  Ideas of computational statistics, data science, and machine learning.  Some resources for starting with R + RStudio + Git + GitHub.
 author:

@@ -1,5 +1,5 @@
 ---
-title: "5. Permutation Tests"
+title: "05. Permutation Tests"
 description: |
   Simulating scenarios, simulating datasets, simulating random variables.
 author:
