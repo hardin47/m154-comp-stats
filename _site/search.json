@@ -5465,5 +5465,26 @@
     "title": "10. Support Vector Machines",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nROC curve of science\nTidymodels SVM vignette\nJulia Silge’s blog SVMs to predict if a post office is in Hawaii\nJulia Silge’s blog SVMs to predict Netflix shows as TV or movies\n\n\n:::"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#what-if-the-boundary-is-wiggly",
+    "href": "slides/2024-11-11-svm.html#what-if-the-boundary-is-wiggly",
+    "title": "Support Vector Machines",
+    "section": "What if the boundary is wiggly?",
+    "text": "What if the boundary is wiggly?\nIf a wiggly boundary is really best, and the value of \\(\\gamma\\) should be high to represent the high model complexity.\n\n\n\n\n\n\n\nExtremely complicated boundary"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#what-if-the-boundary-isnt-wiggly",
+    "href": "slides/2024-11-11-svm.html#what-if-the-boundary-isnt-wiggly",
+    "title": "Support Vector Machines",
+    "section": "What if the boundary isn’t wiggly?",
+    "text": "What if the boundary isn’t wiggly?\nBut if the boundary has low complexity, then the best value of \\(\\gamma\\) is probably much lower.\n\n\n\n\n\nSimple boundary\n\n\n\n\n\n\n\n\n\n\n\nSimple boundary – reasonable gamma\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSimple decision boundary – gamma too big"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#examples-of-kernels",
+    "href": "slides/2024-11-11-svm.html#examples-of-kernels",
+    "title": "Support Vector Machines",
+    "section": "Examples of kernels",
+    "text": "Examples of kernels\n\nlinear \\[K({\\bf x}, {\\bf y}) = {\\bf x} \\cdot{\\bf y}\\] Note, the only tuning parameter is the penalty/cost parameter \\(C\\)).\npolynomial \\[K_P({\\bf x}, {\\bf y}) =(\\gamma {\\bf x}\\cdot {\\bf y} + r)^d = \\phi_P({\\bf x}) \\cdot \\phi_P({\\bf y}) \\ \\ \\ \\ \\gamma &gt; 0\\] Note, here \\(\\gamma, r, d\\) must be tuned using cross validation (along with the penalty/cost parameter \\(C\\)).\nRBF \\[K_{RBF}({\\bf x}, {\\bf y}) = \\exp( - \\gamma ||{\\bf x} -  {\\bf y}||^2) = \\phi_{RBF}({\\bf x}) \\cdot \\phi_{RBF}({\\bf y})\\] Note, here \\(\\gamma\\) must be tuned using cross validation (along with the penalty/cost parameter \\(C\\)).\nsigmoid1 \\[K_S({\\bf x}, {\\bf y}) = \\tanh(\\gamma {\\bf x}\\cdot {\\bf y} + r) = \\phi_S({\\bf x}) \\cdot \\phi_S({\\bf y})\\] Note, here \\(\\gamma, r\\) must be tuned using cross validation (along with the penalty/cost parameter \\(C\\)). One benefit of the sigmoid kernel is that it has equivalence to a two-layer perceptron neural network.\n\nThe sigmoid kernel is not a valid kernel method for all values of \\(\\gamma\\) and \\(r\\) (which means that for certain parameter values, the \\(\\phi()\\) function may not exist)."
   }
 ]
