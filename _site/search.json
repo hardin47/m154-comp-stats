@@ -5486,5 +5486,26 @@
     "title": "Support Vector Machines",
     "section": "Examples of kernels",
     "text": "Examples of kernels\n\nlinear \\[K({\\bf x}, {\\bf y}) = {\\bf x} \\cdot{\\bf y}\\] Note, the only tuning parameter is the penalty/cost parameter \\(C\\)).\npolynomial \\[K_P({\\bf x}, {\\bf y}) =(\\gamma {\\bf x}\\cdot {\\bf y} + r)^d = \\phi_P({\\bf x}) \\cdot \\phi_P({\\bf y}) \\ \\ \\ \\ \\gamma &gt; 0\\] Note, here \\(\\gamma, r, d\\) must be tuned using cross validation (along with the penalty/cost parameter \\(C\\)).\nRBF \\[K_{RBF}({\\bf x}, {\\bf y}) = \\exp( - \\gamma ||{\\bf x} -  {\\bf y}||^2) = \\phi_{RBF}({\\bf x}) \\cdot \\phi_{RBF}({\\bf y})\\] Note, here \\(\\gamma\\) must be tuned using cross validation (along with the penalty/cost parameter \\(C\\)).\nsigmoid1 \\[K_S({\\bf x}, {\\bf y}) = \\tanh(\\gamma {\\bf x}\\cdot {\\bf y} + r) = \\phi_S({\\bf x}) \\cdot \\phi_S({\\bf y})\\] Note, here \\(\\gamma, r\\) must be tuned using cross validation (along with the penalty/cost parameter \\(C\\)). One benefit of the sigmoid kernel is that it has equivalence to a two-layer perceptron neural network.\n\nThe sigmoid kernel is not a valid kernel method for all values of \\(\\gamma\\) and \\(r\\) (which means that for certain parameter values, the \\(\\phi()\\) function may not exist)."
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#big-c-or-small-c",
+    "href": "slides/2024-11-11-svm.html#big-c-or-small-c",
+    "title": "Support Vector Machines",
+    "section": "Big \\(C\\) or small \\(C\\)?",
+    "text": "Big \\(C\\) or small \\(C\\)?\n\nThe low C value gives a large margin. On the right, the high C value gives a small margin. Which classifier is better? Well, it depends on what the actual data (test, population, etc.) look like! photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#big-c-or-small-c-1",
+    "href": "slides/2024-11-11-svm.html#big-c-or-small-c-1",
+    "title": "Support Vector Machines",
+    "section": "Big \\(C\\) or small \\(C\\)?",
+    "text": "Big \\(C\\) or small \\(C\\)?\n\nNow, the large C classifier is better. photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#big-c-or-small-c-2",
+    "href": "slides/2024-11-11-svm.html#big-c-or-small-c-2",
+    "title": "Support Vector Machines",
+    "section": "Big \\(C\\) or small \\(C\\)?",
+    "text": "Big \\(C\\) or small \\(C\\)?\n\nNow, the small C classifier is better. photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel"
   }
 ]

@@ -148,6 +148,23 @@ Note, here $\gamma$ must be tuned using cross validation (along with the penalty
 Note, here $\gamma, r$ must be tuned using cross validation (along with the penalty/cost parameter $C$).  One benefit of the sigmoid kernel is that it has equivalence to a two-layer perceptron neural network.
 
 
+## Big $C$ or small $C$?
+
+```{r fig.cap = "The low C value gives a large margin.  On the right, the high C value gives a small margin.  Which classifier is better?  Well, it depends on what the actual data (test, population, etc.) look like!    photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel", out.width='100%', fig.align='center', echo=FALSE,fig.show='hold'}
+knitr::include_graphics("../images/CvsM1.jpg")
+```
+
+## Big $C$ or small $C$?
+
+```{r fig.cap = "Now, the large C classifier is better.  photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel", out.width='100%', fig.align='center', echo=FALSE,fig.show='hold'}
+knitr::include_graphics("../images/CvsM2.jpg")
+```
+
+## Big $C$ or small $C$?
+
+```{r fig.cap = "Now, the small C classifier is better.  photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel", out.width='100%', fig.align='center', echo=FALSE,fig.show='hold'}
+knitr::include_graphics("../images/CvsM3.jpg")
+```
 
 
 ## **Algorithm**:   Support Vector Machine
