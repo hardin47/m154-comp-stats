@@ -194,12 +194,14 @@ penguin_test <- testing(penguin_split)
 
 ## recipe
 ```{r}
+#| message: true
+
 penguin_svm_recipe <-
   recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +
            body_mass_g, data = penguin_train) |>
   step_normalize(all_predictors())
 
-summary(penguin_svm_recipe)
+penguin_svm_recipe
 ```
 
 ## model
@@ -264,12 +266,14 @@ penguin_svm_lin_fit
 
 ## recipe
 ```{r}
+#| message: true
+
 penguin_svm_recipe <-
   recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +
            body_mass_g, data = penguin_train) |>
   step_normalize(all_predictors())
 
-summary(penguin_svm_recipe)
+penguin_svm_recipe
 ```
 
 ## model

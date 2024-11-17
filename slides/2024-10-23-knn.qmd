@@ -256,6 +256,8 @@ knitr::include_graphics("../images/knnK.jpg")
 
 ## recipe
 ```{r}
+#| message: true
+
 penguin_knn_recipe <-
   recipe(species ~ body_mass_g + island + bill_length_mm + 
            bill_depth_mm + flipper_length_mm,
@@ -263,7 +265,7 @@ penguin_knn_recipe <-
   update_role(island, new_role = "id variable") |>
   step_normalize(all_predictors())
 
-summary(penguin_knn_recipe)
+penguin_knn_recipe
 ```
 
 ## model
@@ -384,6 +386,8 @@ penguin_knn_wflow_tune |>
 
 ## recipe
 ```{r}
+#| message: true
+
 penguin_knn_recipe <-
   recipe(species ~ body_mass_g + island + bill_length_mm + 
            bill_depth_mm + flipper_length_mm,
@@ -391,7 +395,7 @@ penguin_knn_recipe <-
   update_role(island, new_role = "id variable") |>
   step_normalize(all_predictors())
 
-summary(penguin_knn_recipe)
+penguin_knn_recipe
 ```
 
 ## model

@@ -76,10 +76,10 @@ schedule <- tribble(
   '<font color = "#114B5F"><b>11.13.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Project Update</b></font></a>', ' ',
 
 "11.18.24", '<a href="">clustering</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 11</a> - due 11.19 <br> Quiz 6 11.20',
+  '<i class="fas fa-code"></i> Quiz 6 11.20',
 
  "11.25.24", '<a href="">clustering</a>',
-  ' ',
+  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 11</a> - due 11.26',
 
   '<font color = "#114B5F"><b>12.2.24</b></font>', '<font color = "#114B5F"><b>Data-ing in the World</b></font>', ' ',
 
