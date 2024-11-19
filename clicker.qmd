@@ -1245,7 +1245,7 @@ knitr::include_graphics("images/BShist.jpg")
 
 ---
 
-(@) Simplifying the decision tree by pruning peripheral branches will cause over fitting.[^81]
+(@) Simplifying the decision tree by pruning peripheral branches will cause overfitting.[^81]
    a. TRUE
    b. FALSE
 
@@ -1417,261 +1417,248 @@ knitr::include_graphics("images/BShist.jpg")
 
 ---
 
-(@) If I am using all features of my dataset and I achieve 100% accuracy on my training set, but ~70% on validation set, what should I look out for?[^100]
+(@) If I am using all features of my dataset and I achieve 100% accuracy on my training set, but ~70% on the cross validation set, what should I look out for?[^100]
      a. Underfitting 
      b. Nothing, the model is perfect
      c. Overfitting
 
 [^100]: c. Overfitting
 
-(@) For a large value of C, the model is expected to[^101]
-     a. overfit the training data more as compared to a small C      b. overfit the training data less as compared to a small C      c. not related to overfitting the data
+---
 
-[^101]: a. overfit the training data more as compared to a small C 
+(@) For a large value of C, the model is expected to[^101]
+     a. overfit the training data more as compared to a small C
+     b. overfit the training data less as compared to a small C
+     c. not related to overfitting the data
+
+[^101]: a. overfit the training data more as compared to a small C (because the act of misclassifying is heavily penalized)
 
 ---
 
-(@) Suppose you have trained an SVM with linear decision boundary after training SVM, you correctly infer that your SVM model is under fitting.   
-Which of the following option would make you more likely to consider iterating the SVM next time?[^102]:
-     a. You want to increase your data points
-     b. You want to decrease your data points
-     c. You will try to calculate more variables
-     d. You will try to reduce the features
+(@) Suppose you have trained an SVM with linear decision boundary. You correctly infer that your training SVM model is underfitting. Which of the following should you consider?[^102]
+     a. increase number of observations
+     b. decrease number of observations
+     c. calculate more variables
+     d. reduce the number of features
 
-[^102]: 
+[^102]: c. calculate more variables (use feature engineering to see if you can get more information out of the variables)
 
+---
 
- 
- 
-102.  Suppose you have trained an SVM with linear decision boundary after training SVM, you correctly infer that your SVM model is under fitting.
+(@) Suppose you have trained an SVM with linear decision boundary. You correctly infer that your training SVM model is underfitting. Suppose you gave the correct answer in previous question. What do you think that is actually happening (when you take that action)?[^103]
+i. We are lowering the bias
+ii. We are lowering the variance
+iii. We are increasing the bias
+iv. We are increasing the variance
+     a. i. and ii.
+     b. ii. and iii.
+     c. i. and iv.
+     d. ii. and iv. 
 
-Suppose you gave the correct answer in previous question. What do you think that is actually happening?
+[^103]: c. i. and iv.  The model is too simple (i.e., biased), so we need more information to make it more complex.  If we make the model more complex it will have lower bias but higher variance.
 
-1. We are lowering the bias
-2. We are lowering the variance
-3. We are increasing the bias
-4. We are increasing the variance
+---
 
-A) 1 and 2
-B) 2 and 3
-C) 1 and 4
-D) 2 and 4
+(@) Suppose you are using SVM with polynomial kernel of degree 2. Your model perfectly predicts! That is, training and testing accuracy are both 100%. You increase the complexity (degree of polynomial). What will happen?[^104]
+   a. Increasing the complexity will overfit the data (increase variance)
+   b. Increasing the complexity will underfit the data (increase bias)
+   c. Nothing will happen since your model was already 100% accurate
+   d. None of these
+   
+[^104]: a. Increasing the complexity will overfit the data (increase variance)  Even though you already perfectly fit the data, the model could potentially draw boundaries that were even more singular, thus increasing the variance and producing a worse model.
 
- 
- 
+---
 
-103. Suppose you are using SVM with linear kernel of polynomial degree 2, Now think that you have applied this on data and found that it perfectly fit the data that means, Training and testing accuracy is 100%.
+(@) Building on the previous question, after increasing the complexity, you found that training accuracy was still 100%. According to you what is the reason behind that?[^105]
+     i. Since data are fixed and we are fitting more polynomial terms, the algorithm starts memorizing everything in the data
+     ii. Since data are fixed, SVM doesn’t need to search in high dimensional space
 
-You increase the complexity(degree of polynomial of this kernel). What will happen?
+     a. i.
+     b. ii.
+     c. i. and ii.
+     d. none of these
 
-A) Increasing the complexity will overfit the data
-B) Increasing the complexity will underfit the data
-C) Nothing will happen since your model was already 100% accurate
-D) None of these
+[^105]: a. i.  Effectively.  The polynomial bound becomes more wiggly as the degree of the polynomial increases.
 
- 
-104. Suppose you are using SVM with linear kernel of polynomial degree 2, Now think that you have applied this on data and found that it perfectly fit the data that means, Training and testing accuracy is 100%.
+---
 
-In the previous question after increasing the complexity you found that training accuracy was still 100%. According to you what is the reason behind that?
+(@) The cost parameter in the SVM means:[^106]
+     a. The number of cross-validations to be made
+     b. The kernel to be used
+     c. The trade-off between misclassification and simplicity of the model
+     d. None of the above
 
-1. Since data are fixed and we are fitting more polynomial terms, the algorithm starts memorizing everything in the data
-2. Since data are fixed, SVM doesn’t need to search in high dimensional space
+[^106]: c. The trade-off between misclassification and simplicity of the model (In the SVM derivation, we think of it as the trade-off between the misclassifications and the width of the street.  But that width determines how complicated the model is.)
 
-A) 1
-B) 2
-C) 1 and 2
-D) None of these
+--- 
 
+(@) Suppose you have trained an SVM classifier with a Gaussian kernel, and it learned the following decision boundary on the training set. You suspect that the SVM is underfitting your dataset. What should you try?[^107]
+    a. decreasing C and/or decrease gamma
+    b. decreasing C and/or increase gamma
+    c. increasing C and/or decrease gamma
+    d. increasing C and/or increase gamma
 
+```{r out.width='60%', fig.align="center",  echo=FALSE}
+knitr::include_graphics("images/svm_linear.png")
+```
 
-105. The cost parameter in the SVM means:
+[^107]: d. increasing C (to discourage misclassifications) and/or increase gamma (to encourage more complicated models)
 
-A) The number of cross-validations to be made
-B) The kernel to be used
-C) The tradeoff between misclassification and simplicity of the model
-D) None of the above
+---
 
- 
-106. Suppose you have trained an SVM classifier with a Gaussian kernel, and it learned the following decision boundary on the training set:
- 
+(@) Suppose you have trained an SVM classifier with a Gaussian kernel, and it learned the following decision boundary on the training set. When you measure the SVM’s performance on a cross validation set, it does poorly. What should you try?[^108]
+    a. decreasing C and/or decrease gamma
+    b. decreasing C and/or increase gamma
+    c. increasing C and/or decrease gamma
+    d. increasing C and/or increase gamma
 
-You suspect that the SVM is underfitting your dataset. Should you try increasing or decreasing C? Increasing or decreasing gamma?
+```{r out.width='60%', fig.align="center",  echo=FALSE}
+knitr::include_graphics("images/svm_nonlinear.png")
+```
 
+[^108]: a. decreasing C (to allow more misclassifications) and/or decrease gamma (to make a simpler model)
 
-a)	decreasing C and/or decrease gamma
-b)	decreasing C and/or increase gamma
-c)	increasing C and/or decrease gamma
-d)	increasing C and/or increase gamma
- 
+---
 
-107. Suppose you have trained an SVM classifier with a Gaussian kernel, and it learned the following decision boundary on the training set:
- 
+(@)  Cross validation will guarantee that the model does not overfit.[^109]
+     a. TRUE
+     b. FALSE
 
-When you measure the SVM’s performance on a cross validation set, it does poorly. Should you try increasing or decreasing C? Increasing or decreasing gamma?
+[^109]: b. FALSE  Nothing in statistics (or life) is guaranteed. Tuning parameters, however does help the model to avoid overfitting as much as possible.
 
-a)	decreasing C and/or decrease gamma
-b)	decreasing C and/or increase gamma
-c)	increasing C and/or decrease gamma
-d)	increasing C and/or increase gamma
- 
+---
 
-108.  Cross validation will guarantee that the model does not overfit.
+(@) The biggest problem with missing data is the resulting small sample size.[^110]
+     a. TRUE
+     b. FALSE
+     
+[^110]: b. FALSE  The biggest problem with missing data is that missingness is almost always non-random. So the missing values are systematically different than the non-missing data.  Makes conclusions difficult.
 
-(a) TRUE
+--- 
 
-(b) FALSE
+(@)	Which statement is not true about cluster analysis?[^111]
+    a. Objects in each cluster tend to be similar to each other and dissimilar to objects in the other clusters.
+    b. Cluster analysis is a type of unsupervised learning.
+    c. Groups or clusters are suggested by the data, not defined a priori.
+    d. Cluster analysis is a technique for analyzing data when the response variable is categorical and the predictor variables are continuous in nature.
 
+[^111]: d. Cluster analysis is a technique for analyzing data when the response variable is categorical and the predictor variables are continuous in nature.
 
+---
 
+(@)	A _____ or tree graph is a graphical device for displaying clustering results.  Vertical lines represent clusters that are joined together.  The position of the line on the scale indicates the distances at which clusters were joined. [^112]
+    a. dendrogram
+    b. scatterplot
+    c. scree plot
+    d. segment plot 
 
+[^112]: a. dendrogram
 
+---
 
- 
+(@)	_____ is a clustering procedure characterized by the development of a tree-like structure.[^113]
+     a. Partitioning clustering  
+     b. Hierarchical clustering
+     c. Divisive clustering
+     d. Agglomerative clustering
 
+[^113]: b. Hierarchical clustering
 
+---
 
-109. The biggest problem with missing data is the resulting small sample size.
 
-(a) True
+(@)	_____ is a clustering procedure where all objects start out in one giant cluster. Clusters are formed by dividing this cluster into smaller and smaller clusters.[^114]
+    a. Non-hierarchical clustering
+    b. Hierarchical clustering
+    c. Divisive clustering
+    d. Agglomerative clustering
 
-(b) False
+[^114]: c. Divisive clustering
 
+---
 
- 
+(@) The _____ method uses information on all pairs of distances, not merely the minimum or maximum distances.[^115]
+    a. single linkage
+    b. medium linkage
+    c. complete linkage
+    d. average linkage
 
+[^115]: d. average linkage
 
-110.	Which statement is not true about cluster analysis?
- 
-(a)	Objects in each cluster tend to be similar to each other and dissimilar to objects in the other clusters.
+---
 
-(b) Cluster analysis is a type of unsupervised learning.
+(@) Hierarchical clustering is deterministic, but k-means clustering is not.[^116]
+     a. TRUE
+     b. FALSE
 
-(c)	Groups or clusters are suggested by the data, not defined a priori. 
+[^116]: a. TRUE  (k-means starts with a random set of centers)
 
-(d) Cluster analysis is a technique for analyzing data when the response variable is categorical and the predictor variables are continuous in nature.
+---
 
+(@)	k-means	is a clustering procedure characterized referred to as ________.[^117]
+     a. Partitioning clustering  
+     b. Hierarchical clustering
+     c. Divisive clustering
+     d. Agglomerative clustering
 
+[^117]: a. Partitioning clustering
 
- 
+---
 
+(@) One method of assessing reliability and validity of clustering is to use different methods of clustering and compare the results.[^118]
+     a. TRUE
+     b. FALSE
 
-111.	A _____ or tree graph is a graphical device for displaying clustering results.  Vertical lines represent clusters that are joined together.  The position of the line on the scale indicates the distances at which clusters were joined.   
+[^118]: a. TRUE
 
+---
 
-(a) 	dendrogram
-(b)	      scatterplot
-(c)	      scree plot
-(d)	      segment plot 
+(@) The choice of k, the number of clusters to partition a set of data into,...[^119]
+    a. is a personal choice that shouldn't be discussed in public
+    b. depends on why you are clustering the data
+    c. should always be as large as your computer system can handle
+    d. has maximum 10
 
+[^119]: b. depends on why you are clustering the data
 
- 
- 
+---
 
-112.	_____ is a clustering procedure characterized by the development of a tree-like structure.
+(@) Which of the following is required by k-means clustering?[^120]
+    a. defined distance metric
+    b. number of clusters
+    c. initial guess as to cluster centroids
+    d. all of the above
+    e. some of the above
 
+[^120]: d. all of the above
 
-a.	Partitioning clustering  
-b.	Hierarchical clustering
-c.	Divisive clustering
-d.	Agglomerative clustering
+---
 
+(@) For which of the following tasks might clustering be a suitable approach?[^121]
+     a. Given sales data from many products in a supermarket, estimate future sales for each of these products.
+     b. Given a database of information about your users, automatically group them into different market segments.
+     c. From the user's usage patterns on a website, identify different user groups.
+     d. Given historical weather records, predict if tomorrow's weather will be sunny or rainy.
 
+[^121]: c. From the user's usage patterns on a website, identify different user groups.  Or maybe b.  No pre-defined response variable.
 
- 
+---
 
-113.	_____ is a clustering procedure where all objects start out in one giant cluster.  
-
-Clusters are formed by dividing this cluster into smaller and smaller clusters.
-
-a.	Non-hierarchical clustering  
-b.	Hierarchical clustering
-c.	Divisive clustering
-d.	Agglomerative clustering
- 
-
-
-
-114.	The _____ method uses information on all pairs of distances, not merely the minimum or maximum distances. 
-
-a.	single linkage
-b.	medium linkage
-c.	complete linkage
-d.	average linkage
-
-
- 
-
-115. Hierarchical clustering is deterministic, but k-means clustering is not.
-
-(a) TRUE
-
-(b) FALSE
-
- 
-116.	k-means	is a clustering procedure characterized referred to as ________.
-
-a.	Partitioning clustering  
-b.	Hierarchical clustering
-c.	Divisive clustering
-d.	Agglomerative clustering
-
- 
-
-
-
-117. One method of assessing reliability and validity of clustering is to use different methods of clustering and compare the results. 
-
-(a) TRUE
-
-(b) FALSE
-
- 
-
-
-118. The choice of k, the number of clusters to partition a set of data into,...
-(a) is a personal choice that shouldn't be discussed in public
-(b) depends on why you are clustering the data
-(c) should always be as large as your computer system can handle
-(d) has maximum 10
-
-
-
- 
-
-119. Which of the following is required by k-means clustering?
-(a) defined distance metric
-(b) number of clusters
-(c) initial guess as to cluster centroids
-(d) all of the above
-(e) some of the above
-
- 
-
-
-
-
-120. For which of the following tasks might clustering be a suitable approach?
-(a) Given sales data from many products in a supermarket, estimate future sales for each of these products.
-(b) Given a database of information about your users, automatically group them into different market segments.
-(c) From the user's usage patterns on a website, identify different user groups.
-(d) Given historical weather records, predict if tomorrow's weather will be sunny or rainy.
-
- 
-
-121. k-means is an iterative algorithm, and two of the following steps are repeatedly carried out. Which two?
+(@) k-means is an iterative algorithm, and two of the following steps are repeatedly carried out. Which two?[^122]
 1. Assign each point to its nearest cluster
 2. Test on the cross-validation set
 3. Update the cluster centroids based the current assignment
 4. Using the elbow method to choose K
+     a. 1 & 2
+     b. 1 & 3
+     c. 1 & 4
+     d. 2 & 3
+     e. 2 & 4
+     f. 3 & 4
 
-(a)	1 & 2
-(b)	1 & 3
-(c)	1 & 4
-(d)	2 & 3
-(e)	2 & 4
-(f)	3 & 4
+[^122]: b. 1 & 3
 
-
+---
 
 
 

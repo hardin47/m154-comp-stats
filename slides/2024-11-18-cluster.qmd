@@ -44,7 +44,6 @@ library(skimr)
 
 * Latent Dirichlet Allocation:  <a href="https://ziqixiong.shinyapps.io/TopicModeling/" target = "_blank">Topic Modeling of TSL Articles</a>
 
-* Network Analysis: <a href = "https://espresso.economist.com/6412121cbb2dc2cb9e460cfee7046be2" target = "_blank">Political Books</a>
 
 * Network & Clustering: <a href = "http://varianceexplained.org/r/love-actually-network/" target = "_blank">Characters in 'Love Actually'</a>
 
