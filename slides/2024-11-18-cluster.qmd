@@ -305,17 +305,14 @@ https://www.naftaliharris.com/blog/visualizing-k-means-clustering/
 
 
 
-******
-**Algorithm**:   $k$-Means Clustering
+## $k$-Means Clustering Algoritm
 
-******
 1. Randomly assign a number, from 1 to $k$, to each of the observations.  These serve as initial cluster assignments for the observations.
 2. Iterate until the cluster assignments stop changing:  
     (a) For each of the $k$ clusters, compute the cluster centroid. The $k^{th}$ cluster centroid is the vector of the $p$ feature means for the observations in the $k^{th}$ cluster.  
     (b) Assign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance).
 3.  Ties?  Do something consistent:  for example, leave in the current cluster.
 
-******
 
 
 
@@ -374,7 +371,6 @@ norm_clust |>
 
 ::::
 
-::::: {.panel-tabset}
 
 ## scaled data
 
@@ -391,7 +387,7 @@ norm_clust |>
   geom_point(aes(x = x1, 
                  y = x2, 
                  color = .cluster)) +
-  ggtitle("k-means (k=2) on raw data")
+  ggtitle("k-means (k=2) on scaled data")
 ```
 :::
 
@@ -406,7 +402,7 @@ norm_clust |>
   geom_point(aes(x = x1, 
                  y = x2, 
                  color = .cluster)) +
-  ggtitle("k-means (k=2) on raw data")
+  ggtitle("k-means (k=2) on scaled data")
 ```
 :::
 

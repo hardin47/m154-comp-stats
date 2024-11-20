@@ -5625,35 +5625,35 @@
     "href": "slides/2024-11-18-cluster.html#scaling",
     "title": "Clustering",
     "section": "Scaling",
-    "text": "Scaling\n\nraw datak-MedoidsPartitioning Around Medoids (PAM)Evaluating clustering (which \\(k\\)?)Silhouette width\n\n\n\n\n\nnorm_clust |&gt;\n  kmeans(centers = 2) |&gt;\n  augment(norm_clust) |&gt;\n  ggplot() + \n  geom_point(aes(x = x1, \n                 y = x2, \n                 color = .cluster)) +\n  ggtitle(\"k-means (k=2) on raw data\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nscaled data\n\n\n\n\n\nnorm_clust |&gt;\n  mutate(across(everything(), \n                scale)) |&gt;\n  kmeans(centers = 2) |&gt;\n  augment(norm_clust) |&gt;\n  ggplot() + \n  geom_point(aes(x = x1, \n                 y = x2, \n                 color = .cluster)) +\n  ggtitle(\"k-means (k=2) on raw data\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShortcomings of k-means\n\nCenter is calculated as average (establishes Euclidean distance)\nBecause center changes, distances must be re-calculated\nReally, only Euclidean distance makes sense\n\n\n\nFind the observations (data values!) \\(m_k\\) that solve:\n\\[\\text{arg}\\,\\min\\limits_{C_1, \\ldots, C_k} \\Bigg\\{ \\sum_{k=1}^K \\sum_{i \\in C_k}d(x_i, m_k) \\Bigg\\}\\]\n\n\n\nSilhouette Width (use \\(k\\) with smallest silhouette width)\nElbow plot (use \\(k\\) at elbow on plot of \\(k\\) vs. within cluster sum of squares)\n\n\n\nConsider observation \\(i \\in\\) cluster \\(C_1\\). Let\n\\[d(i, C_k) = \\mbox{average dissimilarity of } i \\mbox{ to all objects in cluster } C_k\\] \\[a(i) =  \\mbox{average dissimilarity of } i \\mbox{ to all objects in } C_1.\\] \\[b(i) = \\min_{C_k \\ne C_1} d(i,C_k) = \\mbox{distance to the next closest neighbor cluster}\\] \\[s(i) = \\frac{b(i) - a(i)}{\\max \\{ a(i), b(i) \\}}\\] \\[\\mbox{average}_{i \\in C_1} s(i) = \\mbox{average silhouette width for cluster } C_1\\]\nNote that if \\(a(i) &lt; b(i)\\) then \\(i\\) is well classified with a maximum \\(s(i) = 1\\). If \\(a(i) &gt; b(i)\\) then \\(i\\) is not well classified with a maximum \\(s(i) = -1\\)."
+    "text": "Scaling\n\nraw datascaled data\n\n\n\n\n\nnorm_clust |&gt;\n  kmeans(centers = 2) |&gt;\n  augment(norm_clust) |&gt;\n  ggplot() + \n  geom_point(aes(x = x1, \n                 y = x2, \n                 color = .cluster)) +\n  ggtitle(\"k-means (k=2) on raw data\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnorm_clust |&gt;\n  mutate(across(everything(), \n                scale)) |&gt;\n  kmeans(centers = 2) |&gt;\n  augment(norm_clust) |&gt;\n  ggplot() + \n  geom_point(aes(x = x1, \n                 y = x2, \n                 color = .cluster)) +\n  ggtitle(\"k-means (k=2) on scaled data\")"
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#k-medoids",
     "href": "slides/2024-11-18-cluster.html#k-medoids",
-    "title": "Agenda 11/23/21",
+    "title": "Clustering",
     "section": "k-Medoids",
     "text": "k-Medoids\nShortcomings of k-means\n\nCenter is calculated as average (establishes Euclidean distance)\nBecause center changes, distances must be re-calculated\nReally, only Euclidean distance makes sense"
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#partitioning-around-medoids-pam",
     "href": "slides/2024-11-18-cluster.html#partitioning-around-medoids-pam",
-    "title": "Agenda 11/23/21",
+    "title": "Clustering",
     "section": "Partitioning Around Medoids (PAM)",
     "text": "Partitioning Around Medoids (PAM)\nFind the observations (data values!) \\(m_k\\) that solve:\n\\[\\text{arg}\\,\\min\\limits_{C_1, \\ldots, C_k} \\Bigg\\{ \\sum_{k=1}^K \\sum_{i \\in C_k}d(x_i, m_k) \\Bigg\\}\\]"
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#evaluating-clustering-which-k",
     "href": "slides/2024-11-18-cluster.html#evaluating-clustering-which-k",
-    "title": "Agenda 11/23/21",
+    "title": "Clustering",
     "section": "Evaluating clustering (which \\(k\\)?)",
     "text": "Evaluating clustering (which \\(k\\)?)\n\nSilhouette Width (use \\(k\\) with smallest silhouette width)\nElbow plot (use \\(k\\) at elbow on plot of \\(k\\) vs. within cluster sum of squares)"
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#silhouette-width",
     "href": "slides/2024-11-18-cluster.html#silhouette-width",
-    "title": "Agenda 11/23/21",
+    "title": "Clustering",
     "section": "Silhouette width",
-    "text": "Silhouette width\nConsider observation \\(i \\in\\) cluster \\(C_1\\). Let\n\\[d(i, C_k) = \\mbox{average dissimilarity of } i \\mbox{ to all objects in cluster } C_k\\] \\[a(i) =  \\mbox{average dissimilarity of } i \\mbox{ to all objects in } C_1.\\] \\[b(i) = \\min_{C_k \\ne C_1} d(i,C_k) = \\mbox{distance to the next closest neighbor cluster}\\] \\[s(i) = \\frac{b(i) - a(i)}{\\max \\{ a(i), b(i) \\}}\\] \\[\\mbox{average}_{i \\in C_1} s(i) = \\mbox{average silhouette width for cluster } C_1\\]\nNote that if \\(a(i) &lt; b(i)\\) then \\(i\\) is well classified with a maximum \\(s(i) = 1\\). If \\(a(i) &gt; b(i)\\) then \\(i\\) is not well classified with a maximum \\(s(i) = -1\\).\n\n:::"
+    "text": "Silhouette width\nConsider observation \\(i \\in\\) cluster \\(C_1\\). Let\n\\[d(i, C_k) = \\mbox{average dissimilarity of } i \\mbox{ to all objects in cluster } C_k\\] \\[a(i) =  \\mbox{average dissimilarity of } i \\mbox{ to all objects in } C_1.\\] \\[b(i) = \\min_{C_k \\ne C_1} d(i,C_k) = \\mbox{distance to the next closest neighbor cluster}\\] \\[s(i) = \\frac{b(i) - a(i)}{\\max \\{ a(i), b(i) \\}}\\] \\[\\mbox{average}_{i \\in C_1} s(i) = \\mbox{average silhouette width for cluster } C_1\\]\nNote that if \\(a(i) &lt; b(i)\\) then \\(i\\) is well classified with a maximum \\(s(i) = 1\\). If \\(a(i) &gt; b(i)\\) then \\(i\\) is not well classified with a maximum \\(s(i) = -1\\)."
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#correlation-distance-isnt-a-distance-metric",
@@ -5738,5 +5738,12 @@
     "title": "11. Clustering",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nFantastic k-means applet by Naftali Harris.\nAnalyzing networks of characters in ‘Love Actually’\n\n\n:::"
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#k-means-clustering-algoritm",
+    "href": "slides/2024-11-18-cluster.html#k-means-clustering-algoritm",
+    "title": "Clustering",
+    "section": "\\(k\\)-Means Clustering Algoritm",
+    "text": "\\(k\\)-Means Clustering Algoritm\n\nRandomly assign a number, from 1 to \\(k\\), to each of the observations. These serve as initial cluster assignments for the observations.\nIterate until the cluster assignments stop changing:\n\nFor each of the \\(k\\) clusters, compute the cluster centroid. The \\(k^{th}\\) cluster centroid is the vector of the \\(p\\) feature means for the observations in the \\(k^{th}\\) cluster.\n\nAssign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance).\n\nTies? Do something consistent: for example, leave in the current cluster."
   }
 ]
