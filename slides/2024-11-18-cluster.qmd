@@ -111,7 +111,7 @@ Using absolute distance doesn't fix things.
 
 
 
-## Distance measures (for clustering)
+## More distance measures
 
 *  Cosine Distance 
 
@@ -120,6 +120,8 @@ $$d_C({\textbf x}, {\textbf y}) =  \frac{{\textbf x} \cdot {\textbf y}}{|| {\tex
 $$= \frac{\sum_{i=1}^p x_i y_i}{\sqrt{\sum_{i=1}^p x_i^2 \sum_{i=1}^p y_i^2}}$$
 $$= 1 - r_P ({\textbf x}, {\textbf y})  \ \ \ \ \mbox{if } \overline{\textbf x} = \overline{\textbf y} = 0$$
 
+## More distance measures
+
 * Hamming Distance
 
 \begin{align}
@@ -127,7 +129,7 @@ d_H({\textbf x}, {\textbf y}) = \sum_{i=1}^p I(x_i \ne y_i)
 \end{align}
 
 
-```{r fig.cap = "The Hamming distance across the two DNA strands is 7.", out.width='60%', fig.align='center', echo=FALSE}
+```{r fig.cap = "The Hamming distance across the two DNA strands is 7.", out.width='100%', fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/hamdistGCTA.png")
 ```
 
@@ -142,7 +144,6 @@ knitr::include_graphics("../images/distR.png")
 
 
 ## String distances
-https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html
 
 ```{r fig.cap = "Comparison of string distance metrics from https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html.", out.width='100%', fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/text-distance-infographics.png")

@@ -5674,7 +5674,7 @@
     "href": "slides/2024-11-18-cluster.html#string-distances",
     "title": "Clustering",
     "section": "String distances",
-    "text": "String distances\nhttps://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html\n\nComparison of string distance metrics from https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html."
+    "text": "String distances\n\nComparison of string distance metrics from https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html."
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#algorithm-agglomerative-hierarchical-clustering-algorithm",
@@ -5808,5 +5808,19 @@
     "title": "Clustering",
     "section": "We don’t usually have a way to check (i.e., “unsupervised”)",
     "text": "We don’t usually have a way to check (i.e., “unsupervised”)\n\npenguins |&gt; \n  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |&gt;\n  select(island) |&gt; \n  cbind(cluster = cutree(penguin_hclust, k = 3) ) |&gt; \n  table()\n\n           cluster\nisland        1   2   3\n  Biscoe     44 123   0\n  Dream      70   0  54\n  Torgersen  51   0   0\n\npenguins |&gt; \n  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |&gt;\n  select(species) |&gt; \n  cbind(cluster = cutree(penguin_hclust, k = 3) ) |&gt; \n  table()\n\n           cluster\nspecies       1   2   3\n  Adelie    151   0   0\n  Chinstrap  14   0  54\n  Gentoo      0 123   0"
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#more-distance-measures",
+    "href": "slides/2024-11-18-cluster.html#more-distance-measures",
+    "title": "Clustering",
+    "section": "More distance measures",
+    "text": "More distance measures\n\nCosine Distance\n\n\\[d_C({\\textbf x}, {\\textbf y}) =  \\frac{{\\textbf x} \\cdot {\\textbf y}}{|| {\\textbf x} ||  ||{\\textbf y}||}\\] \\[= \\frac{\\sum_{i=1}^p x_i y_i}{\\sqrt{\\sum_{i=1}^p x_i^2 \\sum_{i=1}^p y_i^2}}\\] \\[= 1 - r_P ({\\textbf x}, {\\textbf y})  \\ \\ \\ \\ \\mbox{if } \\overline{\\textbf x} = \\overline{\\textbf y} = 0\\]"
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#more-distance-measures-1",
+    "href": "slides/2024-11-18-cluster.html#more-distance-measures-1",
+    "title": "Clustering",
+    "section": "More distance measures",
+    "text": "More distance measures\n\nHamming Distance\n\n\\[\\begin{align}\nd_H({\\textbf x}, {\\textbf y}) = \\sum_{i=1}^p I(x_i \\ne y_i)\n\\end{align}\\]\n\nThe Hamming distance across the two DNA strands is 7."
   }
 ]
