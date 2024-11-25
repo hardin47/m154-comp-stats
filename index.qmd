@@ -7,6 +7,11 @@ execute:
   warning: false
 ---
 
+<!-- Note to self:  this broke when i upgraded the gt package above 0.11.0 (to 0.11.1).  not sure why!  didn't like the function: gt::fmt_markdown(columns = everything())  
+
+require(remotes)
+install_version("gt", version = "0.11.0")
+-->
 
 ```{r}
 #| echo: false 
@@ -80,8 +85,6 @@ schedule <- tribble(
 
  "11.25.24", '<a href="">clustering</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 11</a> - due 11.26',
-
-  '<font color = "#114B5F"><b>12.2.24</b></font>', '<font color = "#114B5F"><b>Data-ing in the World</b></font>', ' ',
 
  "12.2.24", '<a href="">Latent Dirichlet allocation +  extensions</a>',
   '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 12</a> - due 12.3.24',
