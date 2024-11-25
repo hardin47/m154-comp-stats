@@ -27,7 +27,7 @@ library(skimr)
 ```
 
 
-# Agenda 11/18/24
+# Agenda 11/25/24
 
 1. unsupervised learning
 2. distance metrics
@@ -119,6 +119,7 @@ Using absolute distance doesn't fix things.
 $$d_C({\textbf x}, {\textbf y}) =  \frac{{\textbf x} \cdot {\textbf y}}{|| {\textbf x} ||  ||{\textbf y}||}$$
 $$= \frac{\sum_{i=1}^p x_i y_i}{\sqrt{\sum_{i=1}^p x_i^2 \sum_{i=1}^p y_i^2}}$$
 $$= 1 - r_P ({\textbf x}, {\textbf y})  \ \ \ \ \mbox{if } \overline{\textbf x} = \overline{\textbf y} = 0$$
+
 * Hamming Distance
 
 \begin{align}
@@ -225,61 +226,65 @@ penguin_dend <- as.dendrogram(penguin_hclust)
 ## The basic dendrogram
 
 ```{r fig.width=10}
-plot(penguin_hclust)
+library(ggdendro)
+ggdendrogram(penguin_dend)
+```
+## Zooming in on a cluster
+
+::: {.panel-tabset}
+
+## left
+```{r fig.width=10}
+ggdendrogram(penguin_dend[[1]])
 ```
 
+## right
+```{r fig.width=10}
+ggdendrogram(penguin_dend[[2]])
+```
 
+## left-left
+```{r fig.width=10}
+ggdendrogram(penguin_dend[[1]][[1]])
+```
+
+:::
 ## Colored dendrogram
 
-```{r echo = FALSE, fig.width=10}
-library(colorspace) # get nice colors
-species_col <- rev(rainbow_hcl(3))[as.numeric(penguins$species)]
 
+```{r}
 library(dendextend)
-# order the branches as closely as possible to the original order
-penguin_dend <- rotate(penguin_dend, 1:342)
+penguin_dend |>
+  set("branches_k_color", k = 3) |>  # color of the branches
+  set("labels_colors", k = 3) |>     # color of the labels
+  set("branches_lwd", 0.3) |>        # width of the branches
+  set("labels_cex", 0.3) |>          # size of the label 
+  as.ggdend() |> 
+  ggplot(horiz = TRUE)
+```
 
+## We don't usually have a way to check (i.e., "unsupervised")
 
-# color brances based on the clusters
-penguin_dend <- color_branches(penguin_dend, k = 3)
+```{r}
+penguins |> 
+  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  select(island) |> 
+  cbind(cluster = cutree(penguin_hclust, k = 3) ) |> 
+  table()
 
-# Manually match the labels, as much as possible, to the real classification of the flowers:
-labels_colors(penguin_dend) <-
-   rainbow_hcl(3)[sort_levels_values(
-      as.numeric(penguins$species)[order.dendrogram(penguin_dend)]
-   )]
-
-# We shall add the flower type to the labels:
-labels(penguin_dend) <- paste(as.character(penguins$species)[order.dendrogram(penguin_dend)],
-                           "(",labels(penguin_dend),")", 
-                           sep = "")
-# We hang the dendrogram a bit:
-penguin_dend <- hang.dendrogram(penguin_dend,hang_height=0.1)
-
-# reduce the size of the labels:
-penguin_dend <- assign_values_to_leaves_nodePar(penguin_dend, 0.5, "lab.cex")
-penguin_dend <- set(penguin_dend, "labels_cex", 0.5)
-# And plot:
-par(mar = c(3,3,3,7))
-plot(penguin_dend, 
-     main = "Clustered penguin data set
-     (the labels give the true penguin species)", 
-     horiz =  TRUE,  nodePar = list(cex = .007))
-penguin_species <- rev(levels(penguins$species))
-legend("topleft", legend = penguin_species, fill = rainbow_hcl(3))
+penguins |> 
+  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  select(species) |> 
+  cbind(cluster = cutree(penguin_hclust, k = 3) ) |> 
+  table()
 ```
 
 
 
-
-
-
-# Agenda 11/20 + 25/24
+# Agenda 12/2/24
 
 1. k-means clustering
 2. k-medoids clustering
-
-
 
 
 

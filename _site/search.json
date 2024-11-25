@@ -5548,7 +5548,7 @@
     "href": "slides/2024-11-18-cluster.html#distance-measures-for-clustering-1",
     "title": "Clustering",
     "section": "Distance measures (for clustering)",
-    "text": "Distance measures (for clustering)\n\nCosine Distance\n\n\\[d_C({\\textbf x}, {\\textbf y}) =  \\frac{{\\textbf x} \\cdot {\\textbf y}}{|| {\\textbf x} ||  ||{\\textbf y}||}\\] \\[= \\frac{\\sum_{i=1}^p x_i y_i}{\\sqrt{\\sum_{i=1}^p x_i^2 \\sum_{i=1}^p y_i^2}}\\] \\[= 1 - r_P ({\\textbf x}, {\\textbf y})  \\ \\ \\ \\ \\mbox{if } \\overline{\\textbf x} = \\overline{\\textbf y} = 0\\] * Hamming Distance\n\\[\\begin{align}\nd_H({\\textbf x}, {\\textbf y}) = \\sum_{i=1}^p I(x_i \\ne y_i)\n\\end{align}\\]\n\nThe Hamming distance across the two DNA strands is 7."
+    "text": "Distance measures (for clustering)\n\nCosine Distance\n\n\\[d_C({\\textbf x}, {\\textbf y}) =  \\frac{{\\textbf x} \\cdot {\\textbf y}}{|| {\\textbf x} ||  ||{\\textbf y}||}\\] \\[= \\frac{\\sum_{i=1}^p x_i y_i}{\\sqrt{\\sum_{i=1}^p x_i^2 \\sum_{i=1}^p y_i^2}}\\] \\[= 1 - r_P ({\\textbf x}, {\\textbf y})  \\ \\ \\ \\ \\mbox{if } \\overline{\\textbf x} = \\overline{\\textbf y} = 0\\]\n\nHamming Distance\n\n\\[\\begin{align}\nd_H({\\textbf x}, {\\textbf y}) = \\sum_{i=1}^p I(x_i \\ne y_i)\n\\end{align}\\]\n\nThe Hamming distance across the two DNA strands is 7."
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#dist-function-in-r",
@@ -5590,14 +5590,14 @@
     "href": "slides/2024-11-18-cluster.html#the-basic-dendrogram",
     "title": "Clustering",
     "section": "The basic dendrogram",
-    "text": "The basic dendrogram\n\nplot(penguin_hclust)"
+    "text": "The basic dendrogram\n\nlibrary(ggdendro)\nggdendrogram(penguin_dend)"
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#colored-dendrogram",
     "href": "slides/2024-11-18-cluster.html#colored-dendrogram",
     "title": "Clustering",
     "section": "Colored dendrogram",
-    "text": "Colored dendrogram"
+    "text": "Colored dendrogram\n\nlibrary(dendextend)\npenguin_dend |&gt;\n  set(\"branches_k_color\", k = 3) |&gt;  # color of the branches\n  set(\"labels_colors\", k = 3) |&gt;     # color of the labels\n  set(\"branches_lwd\", 0.3) |&gt;        # width of the branches\n  set(\"labels_cex\", 0.3) |&gt;          # size of the label \n  as.ggdend() |&gt; \n  ggplot(horiz = TRUE)"
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#k-means-clustering",
@@ -5794,5 +5794,19 @@
     "title": "11. Unsupervised Learning",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nFantastic k-means applet by Naftali Harris.\nAnalyzing networks of characters in ‘Love Actually’"
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#zooming-in-on-a-cluster",
+    "href": "slides/2024-11-18-cluster.html#zooming-in-on-a-cluster",
+    "title": "Clustering",
+    "section": "Zooming in on a cluster",
+    "text": "Zooming in on a cluster\n\nleftrightleft-left\n\n\n\nggdendrogram(penguin_dend[[1]])\n\n\n\n\n\n\n\n\n\n\n\nggdendrogram(penguin_dend[[2]])\n\n\n\n\n\n\n\n\n\n\n\nggdendrogram(penguin_dend[[1]][[1]])"
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#we-dont-usually-have-a-way-to-check-i.e.-unsupervised",
+    "href": "slides/2024-11-18-cluster.html#we-dont-usually-have-a-way-to-check-i.e.-unsupervised",
+    "title": "Clustering",
+    "section": "We don’t usually have a way to check (i.e., “unsupervised”)",
+    "text": "We don’t usually have a way to check (i.e., “unsupervised”)\n\npenguins |&gt; \n  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |&gt;\n  select(island) |&gt; \n  cbind(cluster = cutree(penguin_hclust, k = 3) ) |&gt; \n  table()\n\n           cluster\nisland        1   2   3\n  Biscoe     44 123   0\n  Dream      70   0  54\n  Torgersen  51   0   0\n\npenguins |&gt; \n  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |&gt;\n  select(species) |&gt; \n  cbind(cluster = cutree(penguin_hclust, k = 3) ) |&gt; \n  table()\n\n           cluster\nspecies       1   2   3\n  Adelie    151   0   0\n  Chinstrap  14   0  54\n  Gentoo      0 123   0"
   }
 ]
