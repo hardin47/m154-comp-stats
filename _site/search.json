@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": ":::\n\n\n\n\n\n\n\n\n\n\n\n\n\n01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n04. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n05. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n06. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n07. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n08. Trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n09. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 11, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n11. Clustering\n\n\n\n\n\nA quick dive into unsupervised methods. We cover two clutering methods: hierarchical and partitioning (k-means and k-medoids). \n\n\n\n\n\nNov 18, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": "01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n04. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 23, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n05. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 30, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n06. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 7, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n07. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 21, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n08. Trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 28, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n09. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 4, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 11, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n11. Unsupervised Learning\n\n\n\n\n\nA quick dive into unsupervised methods. We cover two clutering methods: hierarchical and partitioning (k-means and k-medoids). Additionally, we discuss latent Dirichlet allocation (LDA). \n\n\n\n\n\nNov 18, 2024\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -5745,5 +5745,54 @@
     "title": "Clustering",
     "section": "\\(k\\)-Means Clustering Algoritm",
     "text": "\\(k\\)-Means Clustering Algoritm\n\nRandomly assign a number, from 1 to \\(k\\), to each of the observations. These serve as initial cluster assignments for the observations.\nIterate until the cluster assignments stop changing:\n\nFor each of the \\(k\\) clusters, compute the cluster centroid. The \\(k^{th}\\) cluster centroid is the vector of the \\(p\\) feature means for the observations in the \\(k^{th}\\) cluster.\n\nAssign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance).\n\nTies? Do something consistent: for example, leave in the current cluster."
+  },
+  {
+    "objectID": "posts/2024-11-18-unsupervised/index.html",
+    "href": "posts/2024-11-18-unsupervised/index.html",
+    "title": "11. Unsupervised Learning",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2024-11-18-unsupervised/index.html#agenda",
+    "href": "posts/2024-11-18-unsupervised/index.html#agenda",
+    "title": "11. Unsupervised Learning",
+    "section": "Agenda ",
+    "text": "Agenda \n\nNovember 20, 2024\n\nunsupervised methods\n\n\n\nNovember 25, 2024\n\ndistances\nhierarchical clustering\n\n\n\nDecember 2, 2024\n\nk-means clustering\nk-medoids clustering\n\n\n\nDecember 4, 2024\n\nlatent Dirichlet allocation (LDA)"
+  },
+  {
+    "objectID": "posts/2024-11-18-unsupervised/index.html#readings",
+    "href": "posts/2024-11-18-unsupervised/index.html#readings",
+    "title": "11. Unsupervised Learning",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Unsupervised Methods\nGareth, Witten, Hastie, and Tibshirani (2021), Unsupervised Learning (Chapter 12)  Introduction to Statistical Learning."
+  },
+  {
+    "objectID": "posts/2024-11-18-unsupervised/index.html#reflection-questions",
+    "href": "posts/2024-11-18-unsupervised/index.html#reflection-questions",
+    "title": "11. Unsupervised Learning",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nWhy does the plot of within-cluster sum of squares vs. \\(k\\) make an elbow-shape (hint: think about \\(k\\) as it ranges from 1 to \\(n)?\\)\nHow are the centers of the clusters in \\(k\\)-means calculated? What about in \\(k\\)-medoids?\nWill a different initialization of the cluster centers always produce the same cluster output?\nHow do distance metrics change a hierarchical clustering?\nHow can you choose \\(k\\) with hierarchical clustering?\nWhat is the difference between single, average, and complete linkage in hierarchical clustering?\nWhat is the difference between agglomerative and divisive hierarchical clustering?"
+  },
+  {
+    "objectID": "posts/2024-11-18-unsupervised/index.html#ethics-considerations",
+    "href": "posts/2024-11-18-unsupervised/index.html#ethics-considerations",
+    "title": "11. Unsupervised Learning",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nWhat type of feature engineering is required for \\(k\\)-means / hierarchical clustering?\nHow do you (can you?) know if your clustering has uncovered any real patterns in the data?"
+  },
+  {
+    "objectID": "posts/2024-11-18-unsupervised/index.html#slides",
+    "href": "posts/2024-11-18-unsupervised/index.html#slides",
+    "title": "11. Unsupervised Learning",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides - clustering for 11/25/24 + 12/2/24.\nIn class slides - latent Dirichlet allocation for 12/4/24.\nWS 18 - hierarchical clustering\nWS 19 - k-means clustering\nWS 20 - latent Dirichlet allocation"
+  },
+  {
+    "objectID": "posts/2024-11-18-unsupervised/index.html#additional-resources",
+    "href": "posts/2024-11-18-unsupervised/index.html#additional-resources",
+    "title": "11. Unsupervised Learning",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nFantastic k-means applet by Naftali Harris.\nAnalyzing networks of characters in ‘Love Actually’"
   }
 ]
