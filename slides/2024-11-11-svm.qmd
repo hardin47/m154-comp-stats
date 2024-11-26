@@ -355,11 +355,36 @@ penguin_svm_rbf_tune |>
   scale_x_continuous(trans='log10')
 ```
 
+## SVM model output - best CV parameters
+
+```{r}
+penguin_svm_rbf_tune |>
+  collect_metrics() |>
+  filter(.metric == "accuracy") |> 
+  arrange(desc(mean))
+```
+
+
+## SVM Final model -- using CV params
+
+```{r}
+penguin_svm_rbf_opt <- svm_rbf(cost = 0.3715,
+                           rbf_sigma = 1) |>
+  set_engine("kernlab") |>
+  set_mode("classification")
+
+penguin_svm_rbf_opt
+
+penguin_svm_rbf_final_opt <-
+  workflow() |>
+  add_model(penguin_svm_rbf_opt) |>
+  add_recipe(penguin_svm_recipe) |>
+  fit(data = penguin_train)
+```
 
 
 
-
-## SVM Final model
+## SVM Final model -- using `finalize_model()`
 
 ```{r}
 penguin_svm_rbf_best <- finalize_model(
@@ -369,7 +394,7 @@ penguin_svm_rbf_best <- finalize_model(
 penguin_svm_rbf_best
 
 
-penguin_svm_rbf_final <-
+penguin_svm_rbf_final_best <-
   workflow() |>
   add_model(penguin_svm_rbf_best) |>
   add_recipe(penguin_svm_recipe) |>
@@ -380,16 +405,29 @@ penguin_svm_rbf_final <-
 
 ## SVM Final model
 
+Note that pluggint in the parameter values from cross validating or using the `finalize_model()` function give you the same results.
+
+::: {.panel-tabset}
+
+
+## optimized
 ```{r}
-penguin_svm_rbf_final
+penguin_svm_rbf_final_opt
 ```
 
+## `best`
+
+```{r}
+penguin_svm_rbf_final_best
+```
+
+:::
 
 
 ## Test predictions
 
 ```{r fig.height = 5}
-penguin_svm_rbf_final |>
+penguin_svm_rbf_final_opt |>
   predict(new_data = penguin_test) |>
   cbind(penguin_test) |>
   select(sex, .pred_class) |>
@@ -397,7 +435,7 @@ penguin_svm_rbf_final |>
 ```
 
 ```{r fig.height = 5}
-penguin_svm_rbf_final |>
+penguin_svm_rbf_final_opt |>
   predict(new_data = penguin_test) |>
   cbind(penguin_test) |>
   conf_mat(sex, .pred_class)
@@ -412,7 +450,7 @@ penguin_svm_rbf_final |>
 class_metrics <- metric_set(accuracy, sensitivity, 
                             specificity, f_meas)
 
-penguin_svm_rbf_final |>
+penguin_svm_rbf_final_opt |>
   predict(new_data = penguin_test) |>
   cbind(penguin_test) |>
   class_metrics(truth = sex, estimate = .pred_class)

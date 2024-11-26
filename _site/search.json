@@ -4981,21 +4981,21 @@
     "href": "slides/2024-10-28-cart.html#plotting-the-tree-not-tidy",
     "title": "Decision Trees",
     "section": "Plotting the tree (not tidy)",
-    "text": "Plotting the tree (not tidy)\n\nplot 1plot 2\n\n\n\n\n\nlibrary(rpart.plot)\npenguins_cart_plot &lt;- \n  penguin_cart_fit |&gt;\n  extract_fit_parsnip()\n\nrpart.plot(\n  penguins_cart_plot$fit,\n  roundint = FALSE)  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(rattle)\npenguins_cart_plot &lt;- \n  penguin_cart_fit |&gt;\n  extract_fit_parsnip()\n\nfancyRpartPlot(\n  penguins_cart_plot$fit,\n  sub = NULL,\n  palettes = \"RdPu\")"
+    "text": "Plotting the tree (not tidy)\n\nplot 1plot 2\n\n\n\n\n\nlibrary(rpart.plot)\npenguins_cart_plot &lt;- \n  penguin_cart_fit |&gt;\n  extract_fit_parsnip()\n\nrpart.plot(\n  penguins_cart_plot$fit,\n  roundint = FALSE)  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(rattle)\npenguins_cart_plot &lt;- \n  penguin_cart_fit |&gt;\n  extract_fit_parsnip()\n\nfancyRpartPlot(\n  penguins_cart_plot$fit,\n  sub = NULL,\n  palettes = \"RdPu\")"
   },
   {
     "objectID": "slides/2024-10-28-cart.html#cart-example-w-cv",
     "href": "slides/2024-10-28-cart.html#cart-example-w-cv",
     "title": "Decision Trees",
     "section": "CART example w CV",
-    "text": "CART example w CV\n\nnew recipecreating foldsalphatune wkflowtuning\n\n\n\npenguin_cart_tune_recipe &lt;-\n  recipe(sex ~ body_mass_g + bill_length_mm + species,\n         data = penguin_train)  \n\n\n\n\nset.seed(470)\npenguin_vfold &lt;- vfold_cv(penguin_train,\n                          v = 5, strata = sex)\n\n\n\n\ncart_grid &lt;- expand.grid(\n  cost_complexity = c(0, 10^(seq(-5,-1,1))),\n  tree_depth = seq(1,6, by = 1))\n\ncart_grid\n\n   cost_complexity tree_depth\n1            0e+00          1\n2            1e-05          1\n3            1e-04          1\n4            1e-03          1\n5            1e-02          1\n6            1e-01          1\n7            0e+00          2\n8            1e-05          2\n9            1e-04          2\n10           1e-03          2\n11           1e-02          2\n12           1e-01          2\n13           0e+00          3\n14           1e-05          3\n15           1e-04          3\n16           1e-03          3\n17           1e-02          3\n18           1e-01          3\n19           0e+00          4\n20           1e-05          4\n21           1e-04          4\n22           1e-03          4\n23           1e-02          4\n24           1e-01          4\n25           0e+00          5\n26           1e-05          5\n27           1e-04          5\n28           1e-03          5\n29           1e-02          5\n30           1e-01          5\n31           0e+00          6\n32           1e-05          6\n33           1e-04          6\n34           1e-03          6\n35           1e-02          6\n36           1e-01          6\n\n\n\n\n\npenguin_cart_tune &lt;- \n  decision_tree(cost_complexity = tune(),\n                tree_depth = tune()) |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart_wflow_tune &lt;- workflow() |&gt;\n  add_model(penguin_cart_tune) |&gt;\n  add_recipe(penguin_cart_tune_recipe)\n\n\n\n\npenguin_tuned &lt;- penguin_cart_wflow_tune |&gt;\n  tune_grid(resamples = penguin_vfold, \n           grid = cart_grid) \n\npenguin_tuned |&gt; collect_metrics() |&gt;\n  filter(.metric == \"accuracy\")\n\n# A tibble: 36 × 8\n   cost_complexity tree_depth .metric  .estimator  mean     n std_err .config   \n             &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     \n 1         0                1 accuracy binary     0.669     5  0.0152 Preproces…\n 2         0.00001          1 accuracy binary     0.669     5  0.0152 Preproces…\n 3         0.0001           1 accuracy binary     0.669     5  0.0152 Preproces…\n 4         0.001            1 accuracy binary     0.669     5  0.0152 Preproces…\n 5         0.01             1 accuracy binary     0.669     5  0.0152 Preproces…\n 6         0.1              1 accuracy binary     0.669     5  0.0152 Preproces…\n 7         0                2 accuracy binary     0.693     5  0.0226 Preproces…\n 8         0.00001          2 accuracy binary     0.693     5  0.0226 Preproces…\n 9         0.0001           2 accuracy binary     0.693     5  0.0226 Preproces…\n10         0.001            2 accuracy binary     0.693     5  0.0226 Preproces…\n# ℹ 26 more rows\n\n\n\n\n\nParameter choice\n\npenguin_tuned |&gt;\n  autoplot(metric = \"accuracy\")\n\npenguin_tuned |&gt; \n  select_best(metric = \"accuracy\")\n\n# A tibble: 1 × 3\n  cost_complexity tree_depth .config              \n            &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                \n1               0          5 Preprocessor1_Model25"
+    "text": "CART example w CV\n\nnew recipecreating foldsalphatune wkflowtuning\n\n\n\npenguin_cart_tune_recipe &lt;-\n  recipe(sex ~ body_mass_g + bill_length_mm + species,\n         data = penguin_train)  \n\n\n\n\nset.seed(470)\npenguin_vfold &lt;- vfold_cv(penguin_train,\n                          v = 5, strata = sex)\n\n\n\n\ncart_grid &lt;- expand.grid(\n  cost_complexity = c(0, 10^(seq(-5,-1,1))),\n  tree_depth = seq(1,6, by = 1))\n\ncart_grid\n\n   cost_complexity tree_depth\n1            0e+00          1\n2            1e-05          1\n3            1e-04          1\n4            1e-03          1\n5            1e-02          1\n6            1e-01          1\n7            0e+00          2\n8            1e-05          2\n9            1e-04          2\n10           1e-03          2\n11           1e-02          2\n12           1e-01          2\n13           0e+00          3\n14           1e-05          3\n15           1e-04          3\n16           1e-03          3\n17           1e-02          3\n18           1e-01          3\n19           0e+00          4\n20           1e-05          4\n21           1e-04          4\n22           1e-03          4\n23           1e-02          4\n24           1e-01          4\n25           0e+00          5\n26           1e-05          5\n27           1e-04          5\n28           1e-03          5\n29           1e-02          5\n30           1e-01          5\n31           0e+00          6\n32           1e-05          6\n33           1e-04          6\n34           1e-03          6\n35           1e-02          6\n36           1e-01          6\n\n\n\n\n\npenguin_cart_tune &lt;- \n  decision_tree(cost_complexity = tune(),\n                tree_depth = tune()) |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart_wflow_tune &lt;- workflow() |&gt;\n  add_model(penguin_cart_tune) |&gt;\n  add_recipe(penguin_cart_tune_recipe)\n\n\n\n\npenguin_tuned &lt;- penguin_cart_wflow_tune |&gt;\n  tune_grid(resamples = penguin_vfold, \n           grid = cart_grid) \n\npenguin_tuned |&gt; collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  arrange(desc(mean))\n\n# A tibble: 36 × 8\n   cost_complexity tree_depth .metric  .estimator  mean     n std_err .config   \n             &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     \n 1         0                5 accuracy binary     0.847     5  0.0203 Preproces…\n 2         0.00001          5 accuracy binary     0.847     5  0.0203 Preproces…\n 3         0.0001           5 accuracy binary     0.847     5  0.0203 Preproces…\n 4         0.001            5 accuracy binary     0.847     5  0.0203 Preproces…\n 5         0                6 accuracy binary     0.847     5  0.0203 Preproces…\n 6         0.00001          6 accuracy binary     0.847     5  0.0203 Preproces…\n 7         0.0001           6 accuracy binary     0.847     5  0.0203 Preproces…\n 8         0.001            6 accuracy binary     0.847     5  0.0203 Preproces…\n 9         0                4 accuracy binary     0.843     5  0.0216 Preproces…\n10         0.00001          4 accuracy binary     0.843     5  0.0216 Preproces…\n# ℹ 26 more rows\n\n\n\n\n\nParameter choice\n(Hard to see because tree_depth = 6 is on top of tree_depth = 5, either would be fine to choose.)\n\npenguin_tuned |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  ggplot(aes(x = cost_complexity, y = mean, \n             color = as.factor(tree_depth))) + \n  geom_line()\n\npenguin_tuned |&gt; \n  select_best(metric = \"accuracy\")\n\n# A tibble: 1 × 3\n  cost_complexity tree_depth .config              \n            &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                \n1               0          5 Preprocessor1_Model25"
   },
   {
     "objectID": "slides/2024-10-28-cart.html#best-model-predictions",
     "href": "slides/2024-10-28-cart.html#best-model-predictions",
     "title": "Decision Trees",
     "section": "Best Model Predictions",
-    "text": "Best Model Predictions\n\nworkflow() |&gt;\n  add_model(penguin_best) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(.pred_class, sex) |&gt;\n  table()\n\n           sex\n.pred_class female male\n     female     26    5\n     male        7   47"
+    "text": "Best Model Predictions\nYou get the same model whether you use the CV parameters that you found or whether you use finalize_model() to pull out the CV parameters.\n\nusing CV paramsusing finalize_model()\n\n\n\nworkflow() |&gt;\n  add_model(penguin_opt) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(.pred_class, sex) |&gt;\n  table()\n\n           sex\n.pred_class female male\n     female     26    5\n     male        7   47\n\n\n\n\n\nworkflow() |&gt;\n  add_model(penguin_best) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(.pred_class, sex) |&gt;\n  table()\n\n           sex\n.pred_class female male\n     female     26    5\n     male        7   47"
   },
   {
     "objectID": "slides/2024-10-28-cart.html#best-model-predictions-1",
@@ -5030,7 +5030,7 @@
     "href": "slides/2024-10-28-cart.html#reflecting-on-model-building-2",
     "title": "Decision Trees",
     "section": "Reflecting on Model Building",
-    "text": "Reflecting on Model Building\n\n\nImage credit: https://www.tmwr.org/"
+    "text": "Reflecting on Model Building\n\n\n\nImage credit: https://www.tmwr.org/"
   },
   {
     "objectID": "slides/2024-11-04-rf.html#tidymodels-syntax",
@@ -5359,7 +5359,7 @@
     "href": "slides/2024-11-11-svm.html#svm-final-model",
     "title": "Support Vector Machines",
     "section": "SVM Final model",
-    "text": "SVM Final model\n\npenguin_svm_rbf_best &lt;- finalize_model(\n  penguin_svm_rbf,\n  select_best(penguin_svm_rbf_tune, metric = \"accuracy\"))\n\npenguin_svm_rbf_best\n\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = 0.371498572284237\n  rbf_sigma = 1\n\nComputational engine: kernlab \n\npenguin_svm_rbf_final &lt;-\n  workflow() |&gt;\n  add_model(penguin_svm_rbf_best) |&gt;\n  add_recipe(penguin_svm_recipe) |&gt;\n  fit(data = penguin_train)"
+    "text": "SVM Final model\nNote that pluggint in the parameter values from cross validating or using the finalize_model() function give you the same results.\n\noptimizedbest\n\n\n\npenguin_svm_rbf_final_opt\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: svm_rbf()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\nSupport Vector Machine object of class \"ksvm\" \n\nSV type: C-svc  (classification) \n parameter : cost C = 0.3715 \n\nGaussian Radial Basis kernel function. \n Hyperparameter : sigma =  1 \n\nNumber of Support Vectors : 137 \n\nObjective Function Value : -31.8005 \nTraining error : 0.052209 \nProbability model included. \n\n\n\n\n\npenguin_svm_rbf_final_best\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: svm_rbf()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n1 Recipe Step\n\n• step_normalize()\n\n── Model ───────────────────────────────────────────────────────────────────────\nSupport Vector Machine object of class \"ksvm\" \n\nSV type: C-svc  (classification) \n parameter : cost C = 0.371498572284237 \n\nGaussian Radial Basis kernel function. \n Hyperparameter : sigma =  1 \n\nNumber of Support Vectors : 137 \n\nObjective Function Value : -31.8005 \nTraining error : 0.052209 \nProbability model included."
   },
   {
     "objectID": "slides/2024-11-11-svm.html#svm-final-model-1",
@@ -5373,14 +5373,14 @@
     "href": "slides/2024-11-11-svm.html#test-predictions",
     "title": "Support Vector Machines",
     "section": "Test predictions",
-    "text": "Test predictions\n\npenguin_svm_rbf_final |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(sex, .pred_class) |&gt;\n  table()\n\n        .pred_class\nsex      female male\n  female     39    5\n  male        4   36\n\n\n\npenguin_svm_rbf_final |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  conf_mat(sex, .pred_class)\n\n          Truth\nPrediction female male\n    female     39    4\n    male        5   36"
+    "text": "Test predictions\n\npenguin_svm_rbf_final_opt |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(sex, .pred_class) |&gt;\n  table()\n\n        .pred_class\nsex      female male\n  female     39    5\n  male        4   36\n\n\n\npenguin_svm_rbf_final_opt |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  conf_mat(sex, .pred_class)\n\n          Truth\nPrediction female male\n    female     39    4\n    male        5   36"
   },
   {
     "objectID": "slides/2024-11-11-svm.html#other-measures",
     "href": "slides/2024-11-11-svm.html#other-measures",
     "title": "Support Vector Machines",
     "section": "Other measures",
-    "text": "Other measures\n\n# https://yardstick.tidymodels.org/articles/metric-types.html\nclass_metrics &lt;- metric_set(accuracy, sensitivity, \n                            specificity, f_meas)\n\npenguin_svm_rbf_final |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  class_metrics(truth = sex, estimate = .pred_class)\n\n# A tibble: 4 × 3\n  .metric     .estimator .estimate\n  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n1 accuracy    binary         0.893\n2 sensitivity binary         0.886\n3 specificity binary         0.9  \n4 f_meas      binary         0.897"
+    "text": "Other measures\n\n# https://yardstick.tidymodels.org/articles/metric-types.html\nclass_metrics &lt;- metric_set(accuracy, sensitivity, \n                            specificity, f_meas)\n\npenguin_svm_rbf_final_opt |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  class_metrics(truth = sex, estimate = .pred_class)\n\n# A tibble: 4 × 3\n  .metric     .estimator .estimate\n  &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;\n1 accuracy    binary         0.893\n2 sensitivity binary         0.886\n3 specificity binary         0.9  \n4 f_meas      binary         0.897"
   },
   {
     "objectID": "slides/2024-11-11-svm.html#bias-variance-tradeoff",
@@ -5408,7 +5408,7 @@
     "href": "slides/2024-11-11-svm.html#reflecting-on-model-building-2",
     "title": "Support Vector Machines",
     "section": "Reflecting on Model Building",
-    "text": "Reflecting on Model Building\n\n\nImage credit: https://www.tmwr.org/"
+    "text": "Reflecting on Model Building\n\n\n\nImage credit: https://www.tmwr.org/"
   },
   {
     "objectID": "slides/2024-11-11-svm.html#algorithm-support-vector-machine",
@@ -5822,5 +5822,47 @@
     "title": "Clustering",
     "section": "More distance measures",
     "text": "More distance measures\n\nHamming Distance\n\n\\[\\begin{align}\nd_H({\\textbf x}, {\\textbf y}) = \\sum_{i=1}^p I(x_i \\ne y_i)\n\\end{align}\\]\n\nThe Hamming distance across the two DNA strands is 7."
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-model-output---best-cv-parameters",
+    "href": "slides/2024-11-11-svm.html#svm-model-output---best-cv-parameters",
+    "title": "Support Vector Machines",
+    "section": "SVM model output - best CV parameters",
+    "text": "SVM model output - best CV parameters\n\npenguin_svm_rbf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  arrange(desc(mean))\n\n# A tibble: 64 × 8\n     cost rbf_sigma .metric  .estimator  mean     n std_err .config             \n    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n 1  0.371   1       accuracy binary     0.891     4 0.0123  Preprocessor1_Model…\n 2 32       0.00139 accuracy binary     0.884     4 0.00747 Preprocessor1_Model…\n 3  1.64    0.0373  accuracy binary     0.884     4 0.00747 Preprocessor1_Model…\n 4 32       1       accuracy binary     0.880     4 0.0207  Preprocessor1_Model…\n 5  1.64    1       accuracy binary     0.880     4 0.00791 Preprocessor1_Model…\n 6  7.25    1       accuracy binary     0.872     4 0.0168  Preprocessor1_Model…\n 7  7.25    0.0373  accuracy binary     0.872     4 0.0145  Preprocessor1_Model…\n 8  7.25    0.00139 accuracy binary     0.868     4 0.0329  Preprocessor1_Model…\n 9 32       0.0373  accuracy binary     0.868     4 0.0136  Preprocessor1_Model…\n10  0.371   0.0373  accuracy binary     0.864     4 0.0295  Preprocessor1_Model…\n# ℹ 54 more rows"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-final-model-using-a-new-model",
+    "href": "slides/2024-11-11-svm.html#svm-final-model-using-a-new-model",
+    "title": "Support Vector Machines",
+    "section": "SVM Final model – using a new model",
+    "text": "SVM Final model – using a new model\n\npenguin_svm_rbf_opt &lt;- svm_rbf(cost = 0.3715,\n                           rbf_sigma = 1) |&gt;\n  set_engine(\"kernlab\") |&gt;\n  set_mode(\"classification\")\n\npenguin_svm_rbf_opt\n\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = 0.3715\n  rbf_sigma = 1\n\nComputational engine: kernlab \n\npenguin_svm_rbf_final_opt &lt;-\n  workflow() |&gt;\n  add_model(penguin_svm_rbf_opt) |&gt;\n  add_recipe(penguin_svm_recipe) |&gt;\n  fit(data = penguin_train)"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-final-model-using-built-in-functions",
+    "href": "slides/2024-11-11-svm.html#svm-final-model-using-built-in-functions",
+    "title": "Support Vector Machines",
+    "section": "SVM Final model – using built in functions",
+    "text": "SVM Final model – using built in functions\n\npenguin_svm_rbf_best &lt;- finalize_model(\n  penguin_svm_rbf,\n  select_best(penguin_svm_rbf_tune, metric = \"accuracy\"))\n\npenguin_svm_rbf_best\n\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = 0.371498572284237\n  rbf_sigma = 1\n\nComputational engine: kernlab \n\npenguin_svm_rbf_final_best &lt;-\n  workflow() |&gt;\n  add_model(penguin_svm_rbf_best) |&gt;\n  add_recipe(penguin_svm_recipe) |&gt;\n  fit(data = penguin_train)"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-final-model-using-cv-params",
+    "href": "slides/2024-11-11-svm.html#svm-final-model-using-cv-params",
+    "title": "Support Vector Machines",
+    "section": "SVM Final model – using CV params",
+    "text": "SVM Final model – using CV params\n\npenguin_svm_rbf_opt &lt;- svm_rbf(cost = 0.3715,\n                           rbf_sigma = 1) |&gt;\n  set_engine(\"kernlab\") |&gt;\n  set_mode(\"classification\")\n\npenguin_svm_rbf_opt\n\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = 0.3715\n  rbf_sigma = 1\n\nComputational engine: kernlab \n\npenguin_svm_rbf_final_opt &lt;-\n  workflow() |&gt;\n  add_model(penguin_svm_rbf_opt) |&gt;\n  add_recipe(penguin_svm_recipe) |&gt;\n  fit(data = penguin_train)"
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-final-model-using-finalize_model",
+    "href": "slides/2024-11-11-svm.html#svm-final-model-using-finalize_model",
+    "title": "Support Vector Machines",
+    "section": "SVM Final model – using finalize_model()",
+    "text": "SVM Final model – using finalize_model()\n\npenguin_svm_rbf_best &lt;- finalize_model(\n  penguin_svm_rbf,\n  select_best(penguin_svm_rbf_tune, metric = \"accuracy\"))\n\npenguin_svm_rbf_best\n\nRadial Basis Function Support Vector Machine Model Specification (classification)\n\nMain Arguments:\n  cost = 0.371498572284237\n  rbf_sigma = 1\n\nComputational engine: kernlab \n\npenguin_svm_rbf_final_best &lt;-\n  workflow() |&gt;\n  add_model(penguin_svm_rbf_best) |&gt;\n  add_recipe(penguin_svm_recipe) |&gt;\n  fit(data = penguin_train)"
+  },
+  {
+    "objectID": "slides/2024-10-28-cart.html#best-model-using-cv-params",
+    "href": "slides/2024-10-28-cart.html#best-model-using-cv-params",
+    "title": "Decision Trees",
+    "section": "Best model – using CV params",
+    "text": "Best model – using CV params\n\npenguin_opt &lt;- decision_tree(cost_complexity = 0, \n                             tree_depth = 5) |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_opt\n\nDecision Tree Model Specification (classification)\n\nMain Arguments:\n  cost_complexity = 0\n  tree_depth = 5\n\nComputational engine: rpart \n\npenguin_final_opt &lt;-\n  workflow() |&gt;\n  add_model(penguin_opt) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train)"
   }
 ]

@@ -403,7 +403,8 @@ penguin_tuned <- penguin_cart_wflow_tune |>
            grid = cart_grid) 
 
 penguin_tuned |> collect_metrics() |>
-  filter(.metric == "accuracy")
+  filter(.metric == "accuracy") |> 
+  arrange(desc(mean))
 ```
 
 :::
@@ -413,9 +414,15 @@ penguin_tuned |> collect_metrics() |>
 
 ###  Parameter choice
 
+(Hard to see because `tree_depth = 6` is on top of `tree_depth = 5`, either would be fine to choose.)
+
 ```{r fig.height = 3.5, fig.align='center'}
 penguin_tuned |>
-  autoplot(metric = "accuracy")
+  collect_metrics() |>
+  filter(.metric == "accuracy") |> 
+  ggplot(aes(x = cost_complexity, y = mean, 
+             color = as.factor(tree_depth))) + 
+  geom_line()
 
 penguin_tuned |> 
   select_best(metric = "accuracy")
@@ -423,7 +430,24 @@ penguin_tuned |>
 
 
 
-# Best model
+## Best model -- using CV params
+
+```{r}
+penguin_opt <- decision_tree(cost_complexity = 0, 
+                             tree_depth = 5) |>
+  set_engine("rpart") |>
+  set_mode("classification")
+
+penguin_opt
+
+penguin_final_opt <-
+  workflow() |>
+  add_model(penguin_opt) |>
+  add_recipe(penguin_cart_tune_recipe) |>
+  fit(data = penguin_train)
+```
+
+# Best model -- using `finalize_model()`
 
 ```{r}
 penguin_best <- finalize_model(
@@ -440,6 +464,25 @@ workflow() |>
 
 ## Best Model Predictions
 
+You get the same model whether you use the CV parameters that you found or whether you use `finalize_model()` to pull out the CV parameters.
+
+::: {.panel-tabset}
+
+## using CV params
+
+```{r}
+workflow() |>
+  add_model(penguin_opt) |>
+  add_recipe(penguin_cart_tune_recipe) |>
+  fit(data = penguin_train) |>
+  predict(new_data = penguin_test) |>
+  cbind(penguin_test) |>
+  select(.pred_class, sex) |>
+  table()
+```
+
+## using `finalize_model()`
+
 ```{r}
 workflow() |>
   add_model(penguin_best) |>
@@ -450,6 +493,8 @@ workflow() |>
   select(.pred_class, sex) |>
   table()
 ```
+
+:::
 
 
 ## Best Model Predictions
