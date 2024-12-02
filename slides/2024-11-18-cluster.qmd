@@ -197,6 +197,17 @@ of **Single Linkage Agglomerative Hierarchical Clustering**
 see class notes to walk through the process.
 
 
+## Should we use hierarchical clustering?
+
+**strengths**
+
+* Provides a clustering for a range of values of $k$.
+* Can be used with any distance metric.
+
+**shortcomings**
+
+* Forces a hierarchical structure (almost always agglomerative)
+* Linkage choice can change the outcome.
 
 ## Hierarchical clustering in R
 
@@ -281,11 +292,10 @@ penguins |>
 ```
 
 
-
 # Agenda 12/2/24
 
-1. k-means clustering
-2. k-medoids clustering
+1. $k$-means clustering
+2. $k$-medoids clustering
 
 
 
@@ -332,6 +342,17 @@ https://www.naftaliharris.com/blog/visualizing-k-means-clustering/
 
 4. The algorithm must converge in finite number of steps because there are finitely many points.
 
+## Should we use $k$-means?
+
+**strengths**
+
+* No hierarchical structure / points can move from one cluster to another.
+* Can run for a range of values of $k$.
+
+**shortcomings**
+
+* $k$ has to be predefined to run the algorithm.
+* $k$-means is based on Euclidean distance (*only*).
 
 
 ## Scaling
@@ -417,15 +438,7 @@ norm_clust |>
 :::::
 
 
-## k-Medoids
 
-Shortcomings of k-means
-
-* Center is calculated as average (establishes Euclidean distance)
-
-* Because center changes, distances must be re-calculated
-
-* Really, only Euclidean distance makes sense
 
 
 ## Partitioning Around Medoids (PAM)
@@ -434,12 +447,40 @@ Find the observations (data values!) $m_k$ that solve:
 
 $$\text{arg}\,\min\limits_{C_1, \ldots, C_k} \Bigg\{ \sum_{k=1}^K \sum_{i \in C_k}d(x_i, m_k) \Bigg\}$$
 
+Important: $m_k$ is a data point. It is not an average of points or any other summary statistic.
+
+
+## PAM algorithm
+
+1.  Randomly assign a number, from 1 to $K$, to each of the observations to serve as initial cluster assignments for the observations.
+
+2. Iterate until the cluster assignments stop changing:
+
+(a) (Repeat for $k \in \{1, 2, ...K\}$) For a given cluster, $C_k$, find the observation in the cluster minimizing total distance to other points in that cluster:
+$$i^*_k = \text{arg}\,\min\limits_{i \in C_k} \sum_{i' \in C_k} d(x_i, x_{i'})$$
+Then $m_k = x_{i^*_k}, k=1, 2, \ldots, K$ are the current estimates of the cluster centers.
+(b) Given a current set of cluster centers $\{m_1, m_2, \ldots, m_K\}$, minimize the total error by assigning each observation to the closest (current) cluster center:
+$$C_i = \text{arg}\,\min\limits_{1 \leq k \leq K} d(x_i, m_k)$$
+
+
+## Should we use PAM?
+
+**strengths**
+
+* No hierarchical structure / points can move from one cluster to another.
+* Can run for a range of values of $k$.
+* It can use any distance measure.
+
+**shortcomings**
+
+* $k$ has to be predefined to run the algorithm.
+
 
 ## Evaluating clustering (which $k$?)
 
-* Silhouette Width (use $k$ with smallest silhouette width)
+* Silhouette Width (use $k$ with smallest silhouette width) -- good for PAM (because uses any distance)
 
-* Elbow plot (use $k$ at elbow on plot of $k$ vs. within cluster sum of squares)
+* Elbow plot (use $k$ at elbow on plot of $k$ vs. within cluster sum of squares) -- good for $k$-means (because based on Euclidean distance)
 
 
 

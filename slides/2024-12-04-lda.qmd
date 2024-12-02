@@ -1,0 +1,60 @@
+---
+title: "latent Dirichlet allocation"
+author: "Jo Hardin"
+subtitle: "December 4, 2024"
+format:
+  revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    html-math-method: mathjax
+execute:
+  echo: true
+  warning: false
+  message: false
+bibliography: 
+  - ../slides.bib
+---
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(mosaic)
+library(boot)
+library(skimr)
+```
+
+
+# Agenda 12/04/24
+
+1. LDA
+
+
+youtube video: https://www.youtube.com/watch?v=BaM1uiCpj_E
+
+
+reference: https://towardsdatascience.com/latent-dirichlet-allocation-lda-9d1cd064ffa2
+
+You decide to create k=2 sections in your album — nature and city. Naturally, the classification isn’t so clear as some photographs with city have trees and flowers while the nature ones might have some buildings in it. You, as a start, decide to assign the photographs which only have nature or city elements in them into their respective categories while you randomly assigned the rest.
+
+You notice that a lot of photographs in nature have the word tree in their captions. So you concluded that the word tree and topic nature must be closely related.
+
+Next, you pick the word building and check how many photographs are in nature because they have the word building in their caption. You don’t find many and now are less sure about building belonging to the topic nature and associate it more strongly with the topic city.
+
+You then pick a photograph which has the caption “The tree is in front of the building and behind a car” and see that it is in the category nature currently.
+You then chose the word tree, and calculate the first probability p(topic t | document d): other words in the caption are building and car, most photographs having captions with building or car in it are in city, so you get a low probability.
+Now the second probability p(word w| topic t): we know that a lot of photographs in nature have the word trees in it. So you get a high score here.
+You update the probability of tree belonging in nature by multiplying the two. You get a lower value than before for tree in topic nature because now you have seen that tree and words such as building/car in the same caption, implying that trees can also be found in cities.
+For the same reason, when you update the probability for tree belonging in topic city, you will notice that it will be greater than what it was before.
+
+After multiple iterations over all the photographs and for each topic, you will have accurate scores for each word with respect to each topic. Your guesses will keep getting better and better because you’ll conclude from the context that words such as buildings, sidewalk, subway appear together and hence must belong to the same topic, which we can easily guess is city.
+Words such as mountains, fields, beach which might not appear together in a lot of captions but they do appear often without city words and hence will have higher scores for nature.
+While words such as trees, flowers, dogs, sky will have almost the same probability of being in either as they occur in both topics.
+
+As for the photograph, you see that it has 1 word (with average probability) from category nature and 2 words (with high probability) from city, you conclude, it belongs to city more strongly than it does to nature and hence you decide to add it in city.
+
+
+
+

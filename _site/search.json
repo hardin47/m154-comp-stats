@@ -5639,14 +5639,14 @@
     "href": "slides/2024-11-18-cluster.html#partitioning-around-medoids-pam",
     "title": "Clustering",
     "section": "Partitioning Around Medoids (PAM)",
-    "text": "Partitioning Around Medoids (PAM)\nFind the observations (data values!) \\(m_k\\) that solve:\n\\[\\text{arg}\\,\\min\\limits_{C_1, \\ldots, C_k} \\Bigg\\{ \\sum_{k=1}^K \\sum_{i \\in C_k}d(x_i, m_k) \\Bigg\\}\\]"
+    "text": "Partitioning Around Medoids (PAM)\nFind the observations (data values!) \\(m_k\\) that solve:\n\\[\\text{arg}\\,\\min\\limits_{C_1, \\ldots, C_k} \\Bigg\\{ \\sum_{k=1}^K \\sum_{i \\in C_k}d(x_i, m_k) \\Bigg\\}\\]\nImportant: \\(m_k\\) is a data point. It is not an average of points or any other summary statistic."
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#evaluating-clustering-which-k",
     "href": "slides/2024-11-18-cluster.html#evaluating-clustering-which-k",
     "title": "Clustering",
     "section": "Evaluating clustering (which \\(k\\)?)",
-    "text": "Evaluating clustering (which \\(k\\)?)\n\nSilhouette Width (use \\(k\\) with smallest silhouette width)\nElbow plot (use \\(k\\) at elbow on plot of \\(k\\) vs. within cluster sum of squares)"
+    "text": "Evaluating clustering (which \\(k\\)?)\n\nSilhouette Width (use \\(k\\) with smallest silhouette width) – good for PAM (because uses any distance)\nElbow plot (use \\(k\\) at elbow on plot of \\(k\\) vs. within cluster sum of squares) – good for \\(k\\)-means (because based on Euclidean distance)"
   },
   {
     "objectID": "slides/2024-11-18-cluster.html#silhouette-width",
@@ -5864,5 +5864,33 @@
     "title": "Decision Trees",
     "section": "Best model – using CV params",
     "text": "Best model – using CV params\n\npenguin_opt &lt;- decision_tree(cost_complexity = 0, \n                             tree_depth = 5) |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_opt\n\nDecision Tree Model Specification (classification)\n\nMain Arguments:\n  cost_complexity = 0\n  tree_depth = 5\n\nComputational engine: rpart \n\npenguin_final_opt &lt;-\n  workflow() |&gt;\n  add_model(penguin_opt) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train)"
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#pam-algorithm",
+    "href": "slides/2024-11-18-cluster.html#pam-algorithm",
+    "title": "Clustering",
+    "section": "PAM algorithm",
+    "text": "PAM algorithm\n\nRandomly assign a number, from 1 to \\(K\\), to each of the observations to serve as initial cluster assignments for the observations.\nIterate until the cluster assignments stop changing:\n\n\n(Repeat for \\(k \\in \\{1, 2, ...K\\}\\)) For a given cluster, \\(C_k\\), find the observation in the cluster minimizing total distance to other points in that cluster: \\[i^*_k = \\text{arg}\\,\\min\\limits_{i \\in C_k} \\sum_{i' \\in C_k} d(x_i, x_{i'})\\] Then \\(m_k = x_{i^*_k}, k=1, 2, \\ldots, K\\) are the current estimates of the cluster centers.\nGiven a current set of cluster centers \\(\\{m_1, m_2, \\ldots, m_K\\}\\), minimize the total error by assigning each observation to the closest (current) cluster center: \\[C_i = \\text{arg}\\,\\min\\limits_{1 \\leq k \\leq K} d(x_i, m_k)\\]"
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#should-we-use-hierarchical-clustering",
+    "href": "slides/2024-11-18-cluster.html#should-we-use-hierarchical-clustering",
+    "title": "Clustering",
+    "section": "Should we use hierarchical clustering?",
+    "text": "Should we use hierarchical clustering?\nstrengths\n\nProvides a clustering for a range of values of \\(k\\).\nCan be used with any distance metric.\n\nshortcomings\n\nForces a hierarchical structure (almost always agglomerative)\nLinkage choice can change the outcome."
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#should-we-use-k-means",
+    "href": "slides/2024-11-18-cluster.html#should-we-use-k-means",
+    "title": "Clustering",
+    "section": "Should we use \\(k\\)-means?",
+    "text": "Should we use \\(k\\)-means?\nstrengths\n\nNo hierarchical structure / points can move from one cluster to another.\nCan run for a range of values of \\(k\\).\n\nshortcomings\n\n\\(k\\) has to be predefined to run the algorithm.\n\\(k\\)-means is based on Euclidean distance (only)."
+  },
+  {
+    "objectID": "slides/2024-11-18-cluster.html#should-we-use-pam",
+    "href": "slides/2024-11-18-cluster.html#should-we-use-pam",
+    "title": "Clustering",
+    "section": "Should we use PAM?",
+    "text": "Should we use PAM?\nstrengths\n\nNo hierarchical structure / points can move from one cluster to another.\nCan run for a range of values of \\(k\\).\nIt can use any distance measure.\n\nshortcomings\n\n\\(k\\) has to be predefined to run the algorithm."
   }
 ]
