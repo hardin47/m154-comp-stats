@@ -5786,7 +5786,7 @@
     "href": "posts/2024-11-18-unsupervised/index.html#slides",
     "title": "11. Unsupervised Learning",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides - clustering for 11/25/24 + 12/2/24.\nIn class slides - latent Dirichlet allocation for 12/4/24.\nWS 18 - hierarchical clustering\nWS 19 - k-means clustering\nWS 20 - latent Dirichlet allocation"
+    "text": "Slides \n\nIn class slides - clustering for 11/25/24 + 12/2/24.\nIn class slides - latent Dirichlet allocation for 12/4/24.\nWS 18 - hierarchical clustering\nWS 19 - k-means clustering"
   },
   {
     "objectID": "posts/2024-11-18-unsupervised/index.html#additional-resources",
@@ -6164,7 +6164,7 @@
     "href": "slides/2024-12-04-lda.html#example-from-math-154",
     "title": "latent Dirichlet allocation",
     "section": "Example (from Math 154)",
-    "text": "Example (from Math 154)\n\n\n\nLDA on TSL\n\n\nA few years ago, a few students did LDA on The Student Life articles for their computational statistics project: https://ziqixiong.shinyapps.io/TopicModeling/"
+    "text": "Example (from Math 154)\n\n\n\nLDA on TSL\n\n\nIn fall 2015, Benji Lu, Kai Fukutaki, and Ziqi Xiong performed LDA on The Student Life articles for their computational statistics project: https://ziqixiong.shinyapps.io/TopicModeling/"
   },
   {
     "objectID": "slides/2024-12-04-lda.html#statisticians-data-scientists",
