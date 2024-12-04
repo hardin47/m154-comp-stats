@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/slides/2024-11-04-rf.html</loc>
-    <lastmod>2024-11-08T22:26:58.135Z</lastmod>
+    <lastmod>2024-12-04T00:19:04.599Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2024-11-04-rf/index.html</loc>
@@ -162,7 +162,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/slides/2024-11-18-cluster.html</loc>
-    <lastmod>2024-12-02T05:45:07.264Z</lastmod>
+    <lastmod>2024-12-02T23:11:33.004Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2024-11-18-cluster/index.html</loc>
@@ -171,5 +171,9 @@
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2024-11-18-unsupervised/index.html</loc>
     <lastmod>2024-11-25T14:32:22.317Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/slides/2024-12-04-lda.html</loc>
+    <lastmod>2024-12-04T03:40:52.530Z</lastmod>
   </url>
 </urlset>

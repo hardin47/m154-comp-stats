@@ -494,6 +494,8 @@ $$b(i) = \min_{C_k \ne C_1} d(i,C_k) = \mbox{distance to the next closest neighb
 $$s(i) = \frac{b(i) - a(i)}{\max \{ a(i), b(i) \}}$$
 $$\mbox{average}_{i \in C_1} s(i) = \mbox{average silhouette width for cluster } C_1$$
 
-Note that if $a(i) < b(i)$ then $i$ is well classified with a maximum $s(i) = 1$.   If $a(i) > b(i)$ then $i$ is *not* well classified with a maximum $s(i) = -1$.
+Note that if $a(i) < b(i)$ then $i$ is well classified with a maximum $s(i) = 1$.   If $a(i) > b(i)$ then $i$ is *not* well classified with a minimum of $s(i) = -1$.
+
+We are looking for a large silhouette width.
 
 
