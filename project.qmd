@@ -112,7 +112,7 @@ On Friday/Thursday, December 6/12th, your group will make a 10-12 minute oral pr
 
 You should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Quarto slides (<a href = "https://quarto.org/docs/presentations/" target = "_blank">Quarto presentations</a>, <a href = "http://rmarkdown.rstudio.com/ioslides_presentation_format.html" target = "_blank">ioslides</a>, <a href = "http://rmarkdown.rstudio.com/slidy_presentation_format.html" target = "_blank">Slidy</a>, or <a href = "http://rmarkdown.rstudio.com/revealjs_presentation_format.html" target = "_blank">reveal.js</a>), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like <a href = "http://prezi.com/" target = "_blank">Prezi</a>. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!
 
-You will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to **not** hook up your laptop to the computer in Millikan 1021 (unless you have good reason and have spoken to me about it beforehand).
+You will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to **not** hook up your laptop to the computer in Estella 2141 (unless you have good reason and have spoken to me about it beforehand).
 
 ### Advice
 
