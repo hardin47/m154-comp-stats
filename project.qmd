@@ -228,11 +228,7 @@ Your project will be evaluated based on the following criteria:
 
 ## Presentation Evaluation
 
-The questions below will be used to evaluate the oral presentations.
-
-### Peer rubric
-
-Each of you will evaluate the presentations of your peers keeping the following grading rubrics in mind.
+The presentation will be evaluated by keeping the following in mind:
 
    * Mastery of the material (understanding of the material is strong and well communicated)
    * Background, completeness (thoroughly explains all key points)
