@@ -40,6 +40,8 @@ From https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation
 
 ## Toy example of LDA
 
+<!-- Another good blog with a toy example: https://medium.com/@corymaklin/latent-dirichlet-allocation-dfcea0b1fddc -->
+
 How can we figure out (unsupervised!) the underlying topic of each of a set of documents?[^1]
 
 [^1]: Heavily inspired by Luis Serrano's <a href = "https://www.youtube.com/watch?v=BaM1uiCpj_E" target = "_blank">youtube video</a>.
