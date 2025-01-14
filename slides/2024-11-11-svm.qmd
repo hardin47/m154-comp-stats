@@ -65,6 +65,13 @@ $\rightarrow$ see class notes for all technical details
 
 * Allow for points to cross the boundary using soft margins.
 
+## SVM applet
+
+Shiny app which allows different linear classifiers: <a href = "https://xzcai.shinyapps.io/SVM_app/" target = "_blank">https://xzcai.shinyapps.io/SVM_app/</a>
+
+```{=html}
+<iframe width="1000" height="500" src="https://xzcai.shinyapps.io/SVM_app/" title="SVM applet" data-external="1"></iframe>
+```
 
 
 # Agenda 11/13/24

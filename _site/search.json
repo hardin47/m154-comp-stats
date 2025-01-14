@@ -5464,7 +5464,7 @@
     "href": "posts/2024-11-11-svm/index.html#additional-resources",
     "title": "10. Support Vector Machines",
     "section": "Additional Resources ",
-    "text": "Additional Resources \n\nROC curve of science\nTidymodels SVM vignette\nJulia Silge’s blog SVMs to predict if a post office is in Hawaii\nJulia Silge’s blog SVMs to predict Netflix shows as TV or movies\n\n\n:::"
+    "text": "Additional Resources \n\nA Shiny app which allows different linear classifiers: https://xzcai.shinyapps.io/SVM_app/\nROC curve of science\nTidymodels SVM vignette\nJulia Silge’s blog SVMs to predict if a post office is in Hawaii\nJulia Silge’s blog SVMs to predict Netflix shows as TV or movies"
   },
   {
     "objectID": "slides/2024-11-11-svm.html#what-if-the-boundary-is-wiggly",
@@ -6172,5 +6172,12 @@
     "title": "latent Dirichlet allocation",
     "section": "Statisticians & Data Scientists",
     "text": "Statisticians & Data Scientists\nWho does statistics?\nconnecting, uplifting, and recognizing voices – a database of statisticians and data scientists."
+  },
+  {
+    "objectID": "slides/2024-11-11-svm.html#svm-applet",
+    "href": "slides/2024-11-11-svm.html#svm-applet",
+    "title": "Support Vector Machines",
+    "section": "SVM applet",
+    "text": "SVM applet\nShiny app which allows different linear classifiers: https://xzcai.shinyapps.io/SVM_app/"
   }
 ]

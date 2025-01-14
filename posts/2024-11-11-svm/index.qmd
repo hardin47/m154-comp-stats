@@ -79,7 +79,9 @@ knitr::include_graphics("../../images/monster_support.jpg")
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
-* <a href = "http://simplystatistics.org/2013/08/01/the-roc-curves-of-science/" target = "_blank">ROC curve of science</a>
+* A Shiny app which allows different linear classifiers: <a href = "https://xzcai.shinyapps.io/SVM_app/" target = "_blank">https://xzcai.shinyapps.io/SVM_app/</a>
+
+* <a href = "https://simplystatistics.org/posts/2013-08-01-the-roc-curves-of-science/" target = "_blank">ROC curve of science</a>
 
 * <a href = "https://www.tidymodels.org/learn/work/tune-svm/" target = "_blank">Tidymodels SVM vignette</a>
 
