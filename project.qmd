@@ -72,7 +72,7 @@ Prior to writing your initial proposal you should get together with your group-m
 
 The topic is completely open to your choice, but keep in mind the three main rules listed above. Try to think about how you will satisfy the criteria.
 
-### Content
+### To turn in
 
 Your initial (via Canvas) and revised (via GitHub) proposals should contain the following content:
 
@@ -113,6 +113,16 @@ On Friday/Thursday, December 6/12th, your group will make a 10-12 minute oral pr
 You should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Quarto slides (<a href = "https://quarto.org/docs/presentations/" target = "_blank">Quarto presentations</a>, <a href = "http://rmarkdown.rstudio.com/ioslides_presentation_format.html" target = "_blank">ioslides</a>, <a href = "http://rmarkdown.rstudio.com/slidy_presentation_format.html" target = "_blank">Slidy</a>, or <a href = "http://rmarkdown.rstudio.com/revealjs_presentation_format.html" target = "_blank">reveal.js</a>), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like <a href = "http://prezi.com/" target = "_blank">Prezi</a>. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!
 
 You will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to **not** hook up your laptop to the computer in Estella 2141 (unless you have good reason and have spoken to me about it beforehand).
+
+### Important logistics
+
+* The project mMust have substantial elements from what we did in class.
+* The work must be completely reproducible (either a single Quarto file or instructions on how to reproduce the work using other files)
+* All work must be done in R unless you clear use of other software in advance.
+* The introduction should start with some exploratory data analysis.  Introduce the reader to the data, explain the problem, show some graphs.
+* Graphs should include descriptive labels and captions.
+ 
+The report should be a write-up.  Not a homework assignment where you answer the rubric’s questions.  It should be a full analysis of the dataset and explanation of the project.
 
 ### Advice
 
@@ -252,6 +262,7 @@ The presentation will be evaluated by keeping the following in mind:
 * <a href = "https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2019.01316.x" target = "_blank">How to Measure Relative Bias in Media Coverage?</a> by Siddhartha Dalal, Berkay Adlim, and Michael Lesk.  (This article presents an analysis which is much bigger than a Math 154 project, but the ideas of using Reuters to scrape articles and ask questions might be perfect for a project.)
 * A complete analysis of the <a href = "https://twitter.com/kate_ptrv/status/1332398737604431874" target = "_blank">changes in candle scent perception</a> due to the COVID-19 pandemic by Kate Petrova @kate_ptrv, November 27, 2020.  The thread is <a href = "https://threadreaderapp.com/thread/1332398737604431874.html" target = "_blank">unrolled here</a>
 * <i class="fa-solid fa-award"></i> <a href = "https://bwhqci-kae999.shinyapps.io/groupa-music/" target = "_blank">PoemR</a>, a Shiny app to generate poems from song lyrics by Brian Bishop, Kamil English, and Danny Ta. 
+* <i class="fa-solid fa-award"></i> <a href = "https://mterdiman.shinyapps.io/shinycrime/" target = "_blank">Crime and Soccer</a>, a Shiny app to explore trends in crime (specifically relating to violence/sexual violence) around two major Premier League soccer stadiums. by Mira Terdiman and Hubery Hu.
 
 
 
