@@ -1,7 +1,7 @@
 ---
 title: "Schedule"
 description: |
-  Schedule for Math 154, Computational Statistics, Fall 2021
+  Schedule for Math 154, Computational Statistics, Fall 2025
 execute: 
   message: false
   warning: false
@@ -25,73 +25,88 @@ Each week, follow the general process outlined below:
 
 - Attend class, review slides <i class="fas fa-desktop" target="_blank"></i> for anything you missed on the agenda  
 
-- Complete the assignment (see Sakai messages for HW link)  
-
-- Discuss the reflection questions <i class="fas fa-lightbulb" target="_blank"></i> and ethics considerations <i class="fas fa-balance-scale"></i> with your classmates, mentor, and professor  
-
-
--   Homework assignments are found at the <a href = "https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">GitHub course organization</a>.  Due dates are provided on each assignment (roughly every other week).  See the <a href = "https://m154-comp-stats.netlify.app/github">course GitHub page</a> for more information on how to find, complete, and submit assignments.
+-   Homework assignments are found at the <a href = "https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> GitHub course organization</a>.  Due dates are provided on each assignment (roughly every other week).  See the <a href = "https://m154-comp-stats.netlify.app/github">course GitHub page</a> for more information on how to find, complete, and submit assignments.
 
 
 ```{r echo = FALSE}
 schedule <- tribble(
-  ~`date`, ~topic, ~`due dates`, 
-  "8.26.24", '<a href="posts/2024-08-26-getting-started/">starting with R + RStudio + Git</a>',
+  ~`week`, ~topic, ~`due dates`, ~`reading`,
+  "8.25.25", '<a href="posts/2025-08-25-getting-started/"><i class="fas fa-desktop" target="_blank"></i> starting with R + RStudio + Git</a>',
+  ' ',
+  '<a href = "https://happygitwithr.com/" target = "_blank"><i class="fas fa-book-open"></i> happygitwithR</a> <br> <a href = "https://st47s.com/Math154/Notes/01-intro.html" target = "_blank"><i class="fas fa-book-open"></i> introduction</a> <br> <a href = "https://st47s.com/Math154/Notes/02-viz.html#deconstruct" target = "_blank"><i class="fas fa-book-open"></i> data viz</a>',
+
+ "9.1.25", '<a href="posts/2025-09-01-dataviz/"><i class="fas fa-desktop" target="_blank"></i> data viz</a> <br> <a href="posts/2025-09-01-wrangling/"><i class="fas fa-desktop" target="_blank"></i> wrangling</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 1</a> - due 9.3',
+  '<a href = "https://st47s.com/Math154/Notes/02-viz.html#deconstruct" target = "_blank"><i class="fas fa-book-open"></i> data viz</a> <br> <a href = "https://st47s.com/Math154/Notes/03-wrangling.html" target = "_blank"><i class="fas fa-book-open"></i> wrangling</a>',
+  
+ "9.8.25", '<a href="posts/2025-09-08-functions/"><i class="fas fa-desktop" target="_blank"></i> functions</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 2</a> - due 9.10 <br> <i class="fa-regular fa-circle-question"></i> Quiz 1 (wrangling + ggplot) 9.10',
+  ' ',
+  
+   "9.15.25", '<a href="posts/2025-09-15-simulating/"><i class="fas fa-desktop" target="_blank"></i> simulating</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 3</a> - due 9.17',
   ' ',
 
- "9.2.24", '<a href="posts/2024-09-04-dataviz/">data viz</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 1</a> - due 9.3',
+   "9.22.25", '<a href="posts/2025-09-22-permutation/"><i class="fas fa-desktop" target="_blank"></i> permutation tests</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 4</a> - due 9.24 <br> <i class="fa-regular fa-circle-question"></i> Quiz 2 (functions + simulating) 9.24',
+  ' ',
 
- "9.9.24", '<a href="posts/2024-09-09-wrangling/">wrangling</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 2</a> - due 9.10 <br> Quiz 1 9.11',
+  "9.29.25", '<a href="posts/2025-09-22-permutation/"><i class="fas fa-desktop" target="_blank"></i> permutation tests</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 5</a> - due 10.1',
+  ' ',
 
-   "9.16.24", '<a href="posts/2024-09-09-wrangling/">wrangling</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 3</a> - due 9.17',
+  "10.6.25", '<a href="posts/2025-10-06-bootstrap/"><i class="fas fa-desktop" target="_blank"></i> bootstrapping</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 6</a> - due 10.8 <br> <i class="fa-regular fa-circle-question"></i> Quiz 3 (permutation tests) 10.8',
+  ' ',
 
-   "9.23.24", '<a href="posts/2024-09-23-simulating/">simulating</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 4</a> - due 9.24 <br> Quiz 2 9.25',
-
-  "9.30.24", '<a href="posts/2024-09-30-permutation/">permutation tests</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 5</a> - due 10.1',
-
-  "10.7.24", '<a href="posts/2024-10-07-bootstrap/">bootstrapping</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 6</a> - due 10.8 <br> Quiz 3 10.9',
-
-  "10.14.24", '<a href="posts/2024-10-07-bootstrap/">bootstrapping</a>',
+  "10.15.25", '<a href="posts/2025-10-06-bootstrap/"><i class="fas fa-desktop" target="_blank"></i> bootstrapping</a>',
+  ' ',
   ' ',
  
-  '<font color = "#114B5F"><b>10.16.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Initial Project Proposal due</b></font></a>', ' ',
+  '<font color = "#114B5F"><b>10.15.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Initial Project Proposal due</b></font></a>', 'to Canvas',
+  ' ',
 
  
- "10.21.24", '<a href="posts/2024-10-21-recipes">recipes + knn</a> <br>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 7</a> - due 10.22 <br> Quiz 4 10.23',
+ "10.20.25", '<a href="posts/2025-10-20-recipes"><i class="fas fa-desktop" target="_blank"></i> recipes + knn</a> <br>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 7</a> - due 10.22 <br> <i class="fa-regular fa-circle-question"></i> Quiz 4 (bootstrapping) 10.22',
+  ' ',
 
 
-  "10.28.24", '<a href="posts/2024-10-28-trees">trees + bagging</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 8</a> - due 10.29',
+  "10.27.25", '<a href="posts/2025-10-27-trees"><i class="fas fa-desktop" target="_blank"></i> trees + bagging</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 8</a> - due 10.29',
+  ' ',
 
-   '<font color = "#114B5F"><b>10.30.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Final Project Proposal due</b></font></a>', ' ',
+   '<font color = "#114B5F"><b>10.29.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Final Project Proposal due</b></font></a>', 'to GitHub',
+  ' ',
 
- "11.4.24", '<a href="posts/2024-11-04-rf">Random Forests</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 9</a> - due 11.5 <br> Quiz 5 11.6',
+ "11.3.25", '<a href="posts/2025-11-03-rf"><i class="fas fa-desktop" target="_blank"></i> Random Forests</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 9</a> - due 11.5',
+  ' ',
 
-"11.11.24", '<a href="https://m154-comp-stats.netlify.app/posts/2024-11-11-svm/">support vector machines</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 10</a> - due 11.12',
+"11.10.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-10-svm/"><i class="fas fa-desktop" target="_blank"></i> support vector machines</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 10</a> - due 11.12 <br> <i class="fa-regular fa-circle-question"></i> Quiz 5 11.12 (trees + forests)',
+  ' ',
 
-  '<font color = "#114B5F"><b>11.13.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Project Update</b></font></a>', ' ',
+  '<font color = "#114B5F"><b>11.12.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Project Update</b></font></a>', 'to GitHub',
+  ' ',
 
-"11.18.24", '<a href="https://m154-comp-stats.netlify.app/posts/2024-11-18-cluster/">clustering</a>',
-  '<i class="fas fa-code"></i> Quiz 6 11.20',
+"11.17.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-17-cluster/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
+  ' ',
+  ' ',
 
- "11.25.24", '<a href="">clustering</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 11</a> - due 11.26',
+ "11.24.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-17-cluster/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 11</a> - due 11.26',
+  ' ',
 
- "12.2.24", '<a href="">Latent Dirichlet allocation +  extensions</a>',
-  '<i class="fas fa-code"></i> <a href="https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">HW 12</a> - due 12.3.24',
+ "12.1.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-12-01-lda/"><i class="fas fa-desktop" target="_blank"></i> latent Dirichlet allocation +  extensions</a>',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 12</a> - due 12.3.25 <br> <i class="fa-regular fa-circle-question"></i> Quiz 6 (clustering) 12.3',
+  ' ',
 
- '<font color = "#114B5F"><b>12.6 + 12.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Group Presentations 2-5pm</b></font></a>', ' ',
+ '<font color = "#114B5F"><b>12.5.25 + 12.08.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Group Presentations</b></font></a>', 'in class, 2-5pm',
+  ' ',
 
-  '<font color = "#114B5F"><b>12.12.24</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Final write-up</b></font></a>', ' ')
+  '<font color = "#114B5F"><b>12.08.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Final write-up</b></font></a>', 'to GitHub',' '
+)
 ```
 
 
@@ -104,8 +119,8 @@ schedule <- tribble(
 schedule |> 
   gt::gt() |> 
   gt::fmt_markdown(columns = everything()) |> 
-    gt::cols_width(date ~ pct(20),
-                 everything() ~ pct(40))
+    gt::cols_width(week ~ pct(10),
+                 everything() ~ pct(30))
 ```
 
 

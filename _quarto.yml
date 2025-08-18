@@ -16,7 +16,7 @@ website:
   navbar:
     title: "Computational Statistics"
     description: |
-      Math 154, Computational Statistics, Pomona College, Fall 2024
+      Math 154, Computational Statistics, Pomona College, Fall 2025
     background: success
     foreground: secondary
     search: true
@@ -56,7 +56,7 @@ website:
       <a href="https://www.linkedin.com/in/jo-hardin-b91a4b55" target = "_blank"><i class="fa-brands fa-linkedin-in"></i></a>
     center:
       - text: |
-          <br> © Jo Hardin, 2024 -- <a href = "mailto: jo.hardin@pomona.edu">jo.hardin@pomona.edu</a> -- <a href="https://hardin47.netlify.app/">https://hardin47.netlify.app/</a> <br> <br>
+          <br> © Jo Hardin, 2025 -- <a href = "mailto: jo.hardin@pomona.edu">jo.hardin@pomona.edu</a> -- <a href="https://hardin47.netlify.app/">https://hardin47.netlify.app/</a> <br> <br>
           Math 154 -- Computational Statistics -- Pomona College <br>
 license: "CC BY"
 format:

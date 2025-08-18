@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://m154-comp-stats.netlify.app/index.html</loc>
-    <lastmod>2024-11-25T06:53:32.578Z</lastmod>
+    <lastmod>2025-08-18T23:30:30.061Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/daily.html</loc>
@@ -18,7 +18,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/syllabus.html</loc>
-    <lastmod>2024-10-08T23:20:46.000Z</lastmod>
+    <lastmod>2025-08-11T18:21:23.507Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/rubric.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/github.html</loc>
-    <lastmod>2024-11-22T21:55:57.448Z</lastmod>
+    <lastmod>2025-08-11T18:20:32.068Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/notes.html</loc>
@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/clicker.html</loc>
-    <lastmod>2024-11-19T04:30:44.281Z</lastmod>
+    <lastmod>2025-08-11T23:52:55.639Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/images/ma154-hwtest.html</loc>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/slides/2024-09-16-pivotjoin.html</loc>
-    <lastmod>2024-09-16T17:17:34.537Z</lastmod>
+    <lastmod>2025-08-11T23:27:13.795Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/slides/votedata.html</loc>
@@ -175,5 +175,17 @@
   <url>
     <loc>https://m154-comp-stats.netlify.app/slides/2024-12-04-lda.html</loc>
     <lastmod>2024-12-10T17:57:34.498Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/posts/2025-09-03-wrangling/index.html</loc>
+    <lastmod>2024-11-11T06:02:44.563Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/posts/2025-08-27-dataviz/index.html</loc>
+    <lastmod>2024-11-11T06:02:26.856Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/posts/2025-08-25-getting-started/index.html</loc>
+    <lastmod>2024-11-11T06:02:17.844Z</lastmod>
   </url>
 </urlset>

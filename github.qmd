@@ -81,7 +81,7 @@ See the **fantastic** posit::conf talk by Meghan Harris, <a href = "https://www.
 
 # Get the assignment materials from GitHub
 
-Each assignment will be provided within a separate GitHub repository. You will get to the specific repository via the <a href = "https://github.com/orgs/ST47S-CompStats-Fall2024/repositories" target = "_blank">course organization</a>. 
+Each assignment will be provided within a separate GitHub repository. You will get to the specific repository via the <a href = "https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank">course organization</a>. 
 
 
 
