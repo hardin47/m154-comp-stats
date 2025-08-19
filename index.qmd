@@ -31,11 +31,11 @@ Each week, follow the general process outlined below:
 ```{r echo = FALSE}
 schedule <- tribble(
   ~`week`, ~topic, ~`due dates`, ~`reading`,
-  "8.25.25", '<a href="posts/2025-08-25-getting-started/"><i class="fas fa-desktop" target="_blank"></i> starting with R + RStudio + Git</a>',
+  "8.25.25", '<a href="posts/2025-08-25-getting-started/"><i class="fas fa-desktop" target="_blank"></i> starting with R + RStudio + Git</a> <br> <a href="posts/2025-08-27-dataviz/"><i class="fas fa-desktop" target="_blank"></i> data viz</a>',
   ' ',
   '<a href = "https://happygitwithr.com/" target = "_blank"><i class="fas fa-book-open"></i> happygitwithR</a> <br> <a href = "https://st47s.com/Math154/Notes/01-intro.html" target = "_blank"><i class="fas fa-book-open"></i> introduction</a> <br> <a href = "https://st47s.com/Math154/Notes/02-viz.html#deconstruct" target = "_blank"><i class="fas fa-book-open"></i> data viz</a>',
 
- "9.1.25", '<a href="posts/2025-09-01-dataviz/"><i class="fas fa-desktop" target="_blank"></i> data viz</a> <br> <a href="posts/2025-09-01-wrangling/"><i class="fas fa-desktop" target="_blank"></i> wrangling</a>',
+ "9.1.25", '<a href="posts/2025-09-03-wrangling/"><i class="fas fa-desktop" target="_blank"></i> wrangling</a>',
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 1</a> - due 9.3',
   '<a href = "https://st47s.com/Math154/Notes/02-viz.html#deconstruct" target = "_blank"><i class="fas fa-book-open"></i> data viz</a> <br> <a href = "https://st47s.com/Math154/Notes/03-wrangling.html" target = "_blank"><i class="fas fa-book-open"></i> wrangling</a>',
   

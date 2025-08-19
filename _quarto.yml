@@ -37,8 +37,6 @@ website:
             href: rubric.qmd
           - text: "Data Sources"
             href: https://hardin47.netlify.app/courses/data-sources/
-      - text: "R tip"
-        href: R-tip.qmd
       - text: "Clicker Q"
         href: clicker_study.qmd
       - text: "GitHub"
