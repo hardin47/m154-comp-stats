@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://m154-comp-stats.netlify.app/index.html</loc>
-    <lastmod>2025-08-18T23:53:45.591Z</lastmod>
+    <lastmod>2025-08-20T01:45:00.376Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/daily.html</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/project.html</loc>
-    <lastmod>2025-07-16T18:46:14.849Z</lastmod>
+    <lastmod>2025-08-20T01:42:15.480Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/R-tip.html</loc>
@@ -182,10 +182,22 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2025-08-27-dataviz/index.html</loc>
-    <lastmod>2024-11-11T06:02:26.856Z</lastmod>
+    <lastmod>2025-08-20T02:06:53.937Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2025-08-25-getting-started/index.html</loc>
-    <lastmod>2024-11-11T06:02:17.844Z</lastmod>
+    <lastmod>2025-08-20T02:02:22.347Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/slides/2025-08-25-reprodGit.html</loc>
+    <lastmod>2025-08-20T01:57:25.197Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/slides/2025-08-27-grammarggplot.html</loc>
+    <lastmod>2025-08-20T02:18:03.800Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/posts/2024-09-03-wrangling/index.html</loc>
+    <lastmod>2024-11-11T06:02:44.563Z</lastmod>
   </url>
 </urlset>

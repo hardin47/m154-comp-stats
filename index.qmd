@@ -27,6 +27,10 @@ Each week, follow the general process outlined below:
 
 -   Homework assignments are found at the <a href = "https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> GitHub course organization</a>.  Due dates are provided on each assignment (roughly every other week).  See the <a href = "https://m154-comp-stats.netlify.app/github">course GitHub page</a> for more information on how to find, complete, and submit assignments.
 
+- Examine the reflection questions <i class="fas fa-lightbulb"></i> which are provided in the <a href = "https://m154-comp-stats.netlify.app/daily" target = "_blank">daily sections</a>.
+
+- Recognize and contemplate the ethics considerations <i class="fas fa-balance-scale"></i> which are provided in the <a href = "https://m154-comp-stats.netlify.app/daily" target = "_blank">daily sections</a>.
+
 
 ```{r echo = FALSE}
 schedule <- tribble(

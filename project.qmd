@@ -66,7 +66,7 @@ You may discuss your project with other students, but each group will have a dif
 
 ## Proposals
 
-Your initial proposal (via Canvas) is due by midnight on Wednesday, October 16th. The final proposal (via GitHub project site) will be due two weeks later on October 30th.
+Your initial proposal (to Canvas) is due by midnight on Wednesday, October 15th. The final proposal (to GitHub project site) will be due two weeks later on October 29th.
 
 Prior to writing your initial proposal you should get together with your group-mates and brainstorm a half dozen or so ideas before coalescing around one idea. Be ambitious! Once you decide on a topic that interests you, think about what you would like to end up with as a final result – without worrying about how to get there. Try to visualize what your end product will look like. Will it be an interactive map? A predictive model? A mobile application? Don't think about coding, or a particular data set, or what you know how to do now. If you come up with something ambitious and original, you'll be more motivated to learn new things as you go in order to accomplish your goal.
 
@@ -74,7 +74,7 @@ The topic is completely open to your choice, but keep in mind the three main rul
 
 ### To turn in
 
-Your initial (via Canvas) and revised (via GitHub) proposals should contain the following content:
+Your initial (to Canvas) and revised (to GitHub) proposals should contain the following content:
 
 1. Group Members: List the members of your group. For the revised proposal, add additional information about each person's role. Each member of the group should have two jobs: (1) a group dynamic role, (2) a project role. See <a href = "https://m154-comp-stats.netlify.app/roles.html" target="_blank">Group Roles</a> for more information on allocating tasks.
 
@@ -91,7 +91,7 @@ Your initial (via Canvas) and revised (via GitHub) proposals should contain the 
 
 ## Update
 
-Please respond to the following three questions (posted to your GitHub repo) by the end of the day Wednesday, November 13th.
+Please respond to the following three questions (posted to your GitHub repo) by the end of the day Wednesday, November 12th.
 
 1. Have you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.
 
@@ -104,7 +104,7 @@ Please respond to the following three questions (posted to your GitHub repo) by 
 
 An effective oral presentation is an integral part of this project. One of the objectives of this class is to give you experience conveying the results of a technical investigation to a non-technical audience in a way that they can understand. Whether you choose to stay in academia or pursue a career in industry, the ability to communicate clearly is of paramount importance. As a statistician (data scientist, software engineer, etc.), the burden of proof is on you to convince your audience that what you are saying is true. If your audience (who may very well be less knowledgeable about statistics than you are) cannot understand your results or their interpretations, then the technical merit of your project is irrelevant.
 
-On Friday/Thursday, December 6/12th, your group will make a 10-12 minute oral presentation to the class. You should make (good) slides. Your goal should be to convey to your audience a clear understanding of your research topic, along with a basic understanding of your project, and how well it addresses the research question you posed. You should **not** tell us everything that you did, or show a bunch of things that you tried that didn't work well. After hearing your talk, each student in the class should be able to answer:
+On Friday/Monday, December 5th/8th, your group will make a 10-12 minute oral presentation to the class. You should make (good) slides. Your goal should be to convey to your audience a clear understanding of your research topic, along with a basic understanding of your project, and how well it addresses the research question you posed. You should **not** tell us everything that you did, or show a bunch of things that you tried that didn't work well. After hearing your talk, each student in the class should be able to answer:
 
 1. What was your project about?  
 2. What format was the original data in, and what [downloading, data wrangling, data analysis] techniques did you apply to it?  

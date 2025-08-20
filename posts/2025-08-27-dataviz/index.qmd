@@ -5,7 +5,7 @@ description: |
 author:
   - name: Jo Hardin
     url: https://m154-comp-stats.netlify.app/
-date: 09-04-2024
+date: 08-27-2025
 citation: false
 embed-resources: true
 execute: 
@@ -22,14 +22,12 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 ## Agenda <i class="fas fa-calendar-alt"></i>
 
-### August 28, 2024
+### August 27, 2025
 
-1. GitHub
-2. NSSD
-3. Grammar of graphics
-4. ggplot
+1. Grammar of graphics
+2. ggplot
 
-
+<!--
 ### September 4, 2024
 
 1. Cholera: what went (didn't go) well with the graphics?
@@ -40,13 +38,15 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 * Another great reference is the following text: **Fundamentals of Data Visualization** by Wilke at http://serialmentor.com/dataviz/
 
-
+-->
 
 ## Readings <i class="fas fa-book-open"></i> 
 
 * Class notes: <a href = "https://st47s.com/Math154/Notes/02-viz.html" target= "_blank">Visualization</a>
 
+<!--
 * Tufte (1997) <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>.  (Use Google to find it.)
+-->
 
 * Wickham (2017) <a href = "https://r4ds.had.co.nz/data-visualisation.html" target = "_blank">Data Visualization</a> in R for Data Science.
 
@@ -68,16 +68,20 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 ## Slides <i class="fas fa-desktop"></i>
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-04-grammarggplot.html" target = "_blank">In class slides</a> for both 8/28/24 and 9/4/24.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2025-08-27-grammarggplot.html" target = "_blank">In class slides</a> for 8/27/25.
 
+<!--
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws3_m154_f24_tufte.pdf" target = "_blank">WS3 - ggplot</a>
+
+-->
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
+* Tufte (1997) <a href = "http://www.edwardtufte.com/tufte/books_textb" target = "_blank">Visual and Statistical Thinking: Displays of Evidence for Making Decisions</a>. 
 * DuBois's images <a href = "https://drawingmatter.org/w-e-b-du-bois-visionary-infographics/" target = "_blank">online</a> and in <a href = "https://bookshop.org/books/w-e-b-du-bois-s-data-portraits-visualizing-black-america/9781616897062" target = "_blank">W.E.B. Du Bois's Data Portraits: Visualizing Black America</a>, a compilation edited by Whitney Battle-Baptiste. 
 * Flowcharts for choosing appropriate plots, brief tutorials of viz types, and source code in R and Python: <a href="https://www.data-to-viz.com/" target = "_blank">from Data to Viz</a>
-* <a href="https://www.flickr.com/photos/walkingsf/sets/72157627140310742/" target = "_blank">See something or Say Something</a>
+* <a href="https://www.flickr.com/photos/walkingsf/sets/72157627140310742/" target = "_blank">See something or say something</a>
 * <a href="http://www.census.gov/dataviz/visualizations/055/" target = "_blank">Census trends visualized</a>
 * <a href="https://fivethirtyeight.com/features/were-looking-for-a-data-visualization-intern/" target = "_blank">Visualization Internship (Fall 2021) at 538</a>
 * visualizing data: <a href="https://www.visualisingdata.com/2021/06/best-of-the-visualisation-web-april-2021/" target= "_blank">Digest of the best visualizations from the past month</a>

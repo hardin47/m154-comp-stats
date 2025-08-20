@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR   introduction   data viz\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n data viz   wrangling\n\n\n9.8.25\n functions\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (functions + simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n HW 6 - due 10.8   Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.15.25\nInitial Project Proposal due\nto Canvas\n\n\n\n10.20.25\n recipes + knn \n HW 7 - due 10.22   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 8 - due 10.29\n\n\n\n10.29.25\nFinal Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 9 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 10 - due 11.12   Quiz 5 11.12 (trees + forests)\n\n\n\n11.12.25\nProject Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 11 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 12 - due 12.3.25   Quiz 6 (clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\nGroup Presentations\nin class, 2-5pm\n\n\n\n12.08.25\nFinal write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\nExamine the reflection questions  which are provided in the daily sections.\nRecognize and contemplate the ethics considerations  which are provided in the daily sections.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR   introduction   data viz\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n data viz   wrangling\n\n\n9.8.25\n functions\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (functions + simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n HW 6 - due 10.8   Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.15.25\nInitial Project Proposal due\nto Canvas\n\n\n\n10.20.25\n recipes + knn \n HW 7 - due 10.22   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 8 - due 10.29\n\n\n\n10.29.25\nFinal Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 9 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 10 - due 11.12   Quiz 5 11.12 (trees + forests)\n\n\n\n11.12.25\nProject Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 11 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 12 - due 12.3.25   Quiz 6 (clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\nGroup Presentations\nin class, 2-5pm\n\n\n\n12.08.25\nFinal write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "daily.html",
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": "01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 26, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nSep 4, 2024\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": "01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 25, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nAug 27, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 9, 2024\n\n\nJo Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -298,21 +298,21 @@
     "href": "project.html#proposals",
     "title": "Semester Project",
     "section": "Proposals",
-    "text": "Proposals\nYour initial proposal (via Canvas) is due by midnight on Wednesday, October 16th. The final proposal (via GitHub project site) will be due two weeks later on October 30th.\nPrior to writing your initial proposal you should get together with your group-mates and brainstorm a half dozen or so ideas before coalescing around one idea. Be ambitious! Once you decide on a topic that interests you, think about what you would like to end up with as a final result – without worrying about how to get there. Try to visualize what your end product will look like. Will it be an interactive map? A predictive model? A mobile application? Don’t think about coding, or a particular data set, or what you know how to do now. If you come up with something ambitious and original, you’ll be more motivated to learn new things as you go in order to accomplish your goal.\nThe topic is completely open to your choice, but keep in mind the three main rules listed above. Try to think about how you will satisfy the criteria.\n\nTo turn in\nYour initial (via Canvas) and revised (via GitHub) proposals should contain the following content:\n\nGroup Members: List the members of your group. For the revised proposal, add additional information about each person’s role. Each member of the group should have two jobs: (1) a group dynamic role, (2) a project role. See Group Roles for more information on allocating tasks.\nTitle: The title of your project\nPurpose: Describe the general topic/phenomenon you want to explore, as well some carefully considered questions that you hope to address. You should make an argument motivating your work. Why should someone be interested in what you are doing? What do you hope people will learn from your project?\nData: As best you can, describe where you will find your data, and what kind of data it is. Will you be working with spatial data in shapefiles? Do the data come from json files? Will you be accessing an API to a live data source? Be as specific as you can, listing URLs and file formats if possible.\nVariables: As much as possible, list, and briefly describe, each variable that you plan to incorporate. If you can, be specific about units, scale, etc.\nEnd Product: Describe what you hope to deliver as a final product. Will it be a Shiny application that will be posted on the Internet? Will it be a GoogleMaps mash-up? Will it be a package that provides an API to a live data source (e.g., twitteR)? Will it be a method that draws some statistical conclusions? Will it be a predictive model that forecasts future values of some quantity?"
+    "text": "Proposals\nYour initial proposal (to Canvas) is due by midnight on Wednesday, October 15th. The final proposal (to GitHub project site) will be due two weeks later on October 29th.\nPrior to writing your initial proposal you should get together with your group-mates and brainstorm a half dozen or so ideas before coalescing around one idea. Be ambitious! Once you decide on a topic that interests you, think about what you would like to end up with as a final result – without worrying about how to get there. Try to visualize what your end product will look like. Will it be an interactive map? A predictive model? A mobile application? Don’t think about coding, or a particular data set, or what you know how to do now. If you come up with something ambitious and original, you’ll be more motivated to learn new things as you go in order to accomplish your goal.\nThe topic is completely open to your choice, but keep in mind the three main rules listed above. Try to think about how you will satisfy the criteria.\n\nTo turn in\nYour initial (to Canvas) and revised (to GitHub) proposals should contain the following content:\n\nGroup Members: List the members of your group. For the revised proposal, add additional information about each person’s role. Each member of the group should have two jobs: (1) a group dynamic role, (2) a project role. See Group Roles for more information on allocating tasks.\nTitle: The title of your project\nPurpose: Describe the general topic/phenomenon you want to explore, as well some carefully considered questions that you hope to address. You should make an argument motivating your work. Why should someone be interested in what you are doing? What do you hope people will learn from your project?\nData: As best you can, describe where you will find your data, and what kind of data it is. Will you be working with spatial data in shapefiles? Do the data come from json files? Will you be accessing an API to a live data source? Be as specific as you can, listing URLs and file formats if possible.\nVariables: As much as possible, list, and briefly describe, each variable that you plan to incorporate. If you can, be specific about units, scale, etc.\nEnd Product: Describe what you hope to deliver as a final product. Will it be a Shiny application that will be posted on the Internet? Will it be a GoogleMaps mash-up? Will it be a package that provides an API to a live data source (e.g., twitteR)? Will it be a method that draws some statistical conclusions? Will it be a predictive model that forecasts future values of some quantity?"
   },
   {
     "objectID": "project.html#update",
     "href": "project.html#update",
     "title": "Semester Project",
     "section": "Update",
-    "text": "Update\nPlease respond to the following three questions (posted to your GitHub repo) by the end of the day Wednesday, November 13th.\n\nHave you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.\nWhat is the single biggest unresolved issue you are having? Please describe it briefly, and what your plan is for resolving this issue.\nWhat are the elements from outside of the course, if any, that you plan to incorporate into your project?"
+    "text": "Update\nPlease respond to the following three questions (posted to your GitHub repo) by the end of the day Wednesday, November 12th.\n\nHave you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.\nWhat is the single biggest unresolved issue you are having? Please describe it briefly, and what your plan is for resolving this issue.\nWhat are the elements from outside of the course, if any, that you plan to incorporate into your project?"
   },
   {
     "objectID": "project.html#presentation",
     "href": "project.html#presentation",
     "title": "Semester Project",
     "section": "Presentation",
-    "text": "Presentation\nAn effective oral presentation is an integral part of this project. One of the objectives of this class is to give you experience conveying the results of a technical investigation to a non-technical audience in a way that they can understand. Whether you choose to stay in academia or pursue a career in industry, the ability to communicate clearly is of paramount importance. As a statistician (data scientist, software engineer, etc.), the burden of proof is on you to convince your audience that what you are saying is true. If your audience (who may very well be less knowledgeable about statistics than you are) cannot understand your results or their interpretations, then the technical merit of your project is irrelevant.\nOn Friday/Thursday, December 6/12th, your group will make a 10-12 minute oral presentation to the class. You should make (good) slides. Your goal should be to convey to your audience a clear understanding of your research topic, along with a basic understanding of your project, and how well it addresses the research question you posed. You should not tell us everything that you did, or show a bunch of things that you tried that didn’t work well. After hearing your talk, each student in the class should be able to answer:\n\nWhat was your project about?\n\nWhat format was the original data in, and what [downloading, data wrangling, data analysis] techniques did you apply to it?\n\nWhat were your findings?\n\nYou should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Quarto slides (Quarto presentations, ioslides, Slidy, or reveal.js), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like Prezi. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!\nYou will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to not hook up your laptop to the computer in Estella 2141 (unless you have good reason and have spoken to me about it beforehand).\n\nImportant logistics\n\nThe project mMust have substantial elements from what we did in class.\nThe work must be completely reproducible (either a single Quarto file or instructions on how to reproduce the work using other files)\nAll work must be done in R unless you clear use of other software in advance.\nThe introduction should start with some exploratory data analysis. Introduce the reader to the data, explain the problem, show some graphs.\nGraphs should include descriptive labels and captions.\n\nThe report should be a write-up. Not a homework assignment where you answer the rubric’s questions. It should be a full analysis of the dataset and explanation of the project.\n\n\nAdvice\nThere are many sources of advice for how to make a good presentation, but an excellent place to start is a project called Technically Speaking.\nWatch the videos on this site to identify some common mistakes. Here is some general advice:\n\nBudget your time. You only have ~10 minutes, and we will be running a tight schedule. Plan for 8-10 minutes to talk, and 2 minutes to answer questions. If your talk runs too short or too long, it makes you seem unprepared. Rehearse your talk ahead of time (with your group) several times in order to get a better feel for your timing. Note also that you may have a tendency to talk faster during your actual talk than you will during your rehearsal. Talking faster in order to speed up is not a good strategy – you are much better off simply cutting material ahead of time.\n\nDon’t write too much on each slide. You don’t want people to have to read your slides, because if the audience is reading your slides, then they aren’t listening to you. You want your slides to provide visual cues to the points that you are making – not substitute for your spoken words. Concentrate on graphical displays and bullet-pointed lists of ideas (not sentences).\n\nPut your problem in context. Remember that most of your audience will have little or no knowledge of your subject matter. The easiest way to lose people is to dive right into technical details that require prior domain knowledge. Spend a few minutes at the beginning of your talk introducing your audience to the most basic aspects of your topic and present some motivation for what you are studying.\n\nSpeak loudly and clearly. Remember that you know more about your topic that anyone else in the room, so speak and act with confidence!\n\nTell a story – not necessarily the whole story. It is unrealistic to expect that you can tell your audience everything that you know about your topic in 10 minutes. You should strive to convey the big ideas in a clear fashion, but not dwell on the details. Your talk will be successful if your audience is able to walk away with an understanding of what your research question was, how you addressed it, and what the implications of your findings are."
+    "text": "Presentation\nAn effective oral presentation is an integral part of this project. One of the objectives of this class is to give you experience conveying the results of a technical investigation to a non-technical audience in a way that they can understand. Whether you choose to stay in academia or pursue a career in industry, the ability to communicate clearly is of paramount importance. As a statistician (data scientist, software engineer, etc.), the burden of proof is on you to convince your audience that what you are saying is true. If your audience (who may very well be less knowledgeable about statistics than you are) cannot understand your results or their interpretations, then the technical merit of your project is irrelevant.\nOn Friday/Monday, December 5th/8th, your group will make a 10-12 minute oral presentation to the class. You should make (good) slides. Your goal should be to convey to your audience a clear understanding of your research topic, along with a basic understanding of your project, and how well it addresses the research question you posed. You should not tell us everything that you did, or show a bunch of things that you tried that didn’t work well. After hearing your talk, each student in the class should be able to answer:\n\nWhat was your project about?\n\nWhat format was the original data in, and what [downloading, data wrangling, data analysis] techniques did you apply to it?\n\nWhat were your findings?\n\nYou should prepare electronic slides for your talk. PowerPoint is fine, but you might also want to consider Quarto slides (Quarto presentations, ioslides, Slidy, or reveal.js), Google Presentation, Beamer (LaTeX), or alternative, non-linear presentation software like Prezi. Use your creativity! One thing you should not do is walk us through your calculations in R Studio. If your project has any interactive elements, please demonstrate them for us!\nYou will need to email me and submit your slides to GitHub before your presentation, and as a back-up ideally the presentation will also live in the cloud somewhere. You should plan to not hook up your laptop to the computer in Estella 2141 (unless you have good reason and have spoken to me about it beforehand).\n\nImportant logistics\n\nThe project mMust have substantial elements from what we did in class.\nThe work must be completely reproducible (either a single Quarto file or instructions on how to reproduce the work using other files)\nAll work must be done in R unless you clear use of other software in advance.\nThe introduction should start with some exploratory data analysis. Introduce the reader to the data, explain the problem, show some graphs.\nGraphs should include descriptive labels and captions.\n\nThe report should be a write-up. Not a homework assignment where you answer the rubric’s questions. It should be a full analysis of the dataset and explanation of the project.\n\n\nAdvice\nThere are many sources of advice for how to make a good presentation, but an excellent place to start is a project called Technically Speaking.\nWatch the videos on this site to identify some common mistakes. Here is some general advice:\n\nBudget your time. You only have ~10 minutes, and we will be running a tight schedule. Plan for 8-10 minutes to talk, and 2 minutes to answer questions. If your talk runs too short or too long, it makes you seem unprepared. Rehearse your talk ahead of time (with your group) several times in order to get a better feel for your timing. Note also that you may have a tendency to talk faster during your actual talk than you will during your rehearsal. Talking faster in order to speed up is not a good strategy – you are much better off simply cutting material ahead of time.\n\nDon’t write too much on each slide. You don’t want people to have to read your slides, because if the audience is reading your slides, then they aren’t listening to you. You want your slides to provide visual cues to the points that you are making – not substitute for your spoken words. Concentrate on graphical displays and bullet-pointed lists of ideas (not sentences).\n\nPut your problem in context. Remember that most of your audience will have little or no knowledge of your subject matter. The easiest way to lose people is to dive right into technical details that require prior domain knowledge. Spend a few minutes at the beginning of your talk introducing your audience to the most basic aspects of your topic and present some motivation for what you are studying.\n\nSpeak loudly and clearly. Remember that you know more about your topic that anyone else in the room, so speak and act with confidence!\n\nTell a story – not necessarily the whole story. It is unrealistic to expect that you can tell your audience everything that you know about your topic in 10 minutes. You should strive to convey the big ideas in a clear fashion, but not dwell on the details. Your talk will be successful if your audience is able to walk away with an understanding of what your research question was, how you addressed it, and what the implications of your findings are."
   },
   {
     "objectID": "project.html#write-up",
@@ -6269,14 +6269,14 @@
     "href": "posts/2025-08-27-dataviz/index.html#agenda",
     "title": "02. Data Viz",
     "section": "Agenda ",
-    "text": "Agenda \n\nAugust 28, 2024\n\nGitHub\nNSSD\nGrammar of graphics\nggplot\n\n\n\nSeptember 4, 2024\n\nCholera: what went (didn’t go) well with the graphics?\nChallenger: what didn’t go (went) well with the graphics?\nThoughts on plotting (with example(s))\n\n\nClass discussion will be based on Tufte (1997) Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nAnother great reference is the following text: Fundamentals of Data Visualization by Wilke at http://serialmentor.com/dataviz/"
+    "text": "Agenda \n\nAugust 27, 2025\n\nGrammar of graphics\nggplot"
   },
   {
     "objectID": "posts/2025-08-27-dataviz/index.html#readings",
     "href": "posts/2025-08-27-dataviz/index.html#readings",
     "title": "02. Data Viz",
     "section": "Readings ",
-    "text": "Readings \n\nClass notes: Visualization\nTufte (1997) Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\nWickham (2017) Data Visualization in R for Data Science."
+    "text": "Readings \n\nClass notes: Visualization\n\n\n\nWickham (2017) Data Visualization in R for Data Science."
   },
   {
     "objectID": "posts/2025-08-27-dataviz/index.html#reflection-questions",
@@ -6297,14 +6297,14 @@
     "href": "posts/2025-08-27-dataviz/index.html#slides",
     "title": "02. Data Viz",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 8/28/24 and 9/4/24.\nWS3 - ggplot"
+    "text": "Slides \n\nIn class slides for 8/27/25."
   },
   {
     "objectID": "posts/2025-08-27-dataviz/index.html#additional-resources",
     "href": "posts/2025-08-27-dataviz/index.html#additional-resources",
     "title": "02. Data Viz",
     "section": "Additional Resources ",
-    "text": "Additional Resources \n\nDuBois’s images online and in W.E.B. Du Bois’s Data Portraits: Visualizing Black America, a compilation edited by Whitney Battle-Baptiste.\nFlowcharts for choosing appropriate plots, brief tutorials of viz types, and source code in R and Python: from Data to Viz\nSee something or Say Something\nCensus trends visualized\nVisualization Internship (Fall 2021) at 538\nvisualizing data: Digest of the best visualizations from the past month\nA regular NYT column on visualizations: What’s Going on in this Graph?\nStudies about visualizations and perception\nFundamentals of Data Visualization\nAllison Horst’s amazing illustrations\nMakeover Mondays, a weekly data project for making more effective visualizations."
+    "text": "Additional Resources \n\nTufte (1997) Visual and Statistical Thinking: Displays of Evidence for Making Decisions.\nDuBois’s images online and in W.E.B. Du Bois’s Data Portraits: Visualizing Black America, a compilation edited by Whitney Battle-Baptiste.\nFlowcharts for choosing appropriate plots, brief tutorials of viz types, and source code in R and Python: from Data to Viz\nSee something or say something\nCensus trends visualized\nVisualization Internship (Fall 2021) at 538\nvisualizing data: Digest of the best visualizations from the past month\nA regular NYT column on visualizations: What’s Going on in this Graph?\nStudies about visualizations and perception\nFundamentals of Data Visualization\nAllison Horst’s amazing illustrations\nMakeover Mondays, a weekly data project for making more effective visualizations."
   },
   {
     "objectID": "posts/2025-08-25-getting-started/index.html",
@@ -6318,7 +6318,7 @@
     "href": "posts/2025-08-25-getting-started/index.html#agenda",
     "title": "01. Start with R + Git",
     "section": "Agenda ",
-    "text": "Agenda \n\nAugust 26, 2024\n\nSyllabus & Course Outline\nStitch Fix Algorithm\nCan Twitter predict election results?\n\nBefore Wednesday, listen to the full conversation of Not So Standard Deviations - Compromised Shoe Situation.\n\n\nAugust 28, 2024\n\nReproducibility & GitHub\nDesign Challenge (Not So Standard Deviations)\n\nBefore next Thursday, read: Tufte. 1997. Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)"
+    "text": "Agenda \n\nAugust 25, 2025\n\nSyllabus & Course Outline\nReproducibility & GitHub"
   },
   {
     "objectID": "posts/2025-08-25-getting-started/index.html#readings",
@@ -6346,7 +6346,7 @@
     "href": "posts/2025-08-25-getting-started/index.html#slides",
     "title": "01. Start with R + Git",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 8/26/24 and 8/28/24.\nWS1 - Twitter\nWS2 - working with R"
+    "text": "Slides \n\nIn class slides for 8/25/25."
   },
   {
     "objectID": "posts/2025-08-25-getting-started/index.html#additional-resources",
@@ -6354,5 +6354,1013 @@
     "title": "01. Start with R + Git",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nGreat algorithm for the whole process\nDesign Challenge (Not So Standard Deviations), listen to the full conversation.\nVideo (less than 2 min) on the strengths of reproducible research\nR vs. Python? (My personal opinion is that neither of the languages is “best”.)\n2017 Kaggle user survey and  2019 Stack Overflow Developer Survey\nPNAS paper retracted due to problems with figure and reproducibility (April 2016)\nAnalysis of Trump’s tweets with evidence that someone else tweets from his account using an iPhone part 1 and part 2"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#course-structure",
+    "href": "slides/2025-08-25-reprodGit.html#course-structure",
+    "title": "Introduction to Computational Statistics",
+    "section": "Course structure",
+    "text": "Course structure\n\nweekly HW (to GitHub + Gradescope)\nbi-weekly quizzes\ndata project\nin-class activities / clickers\nethical considerations"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#additional-details",
+    "href": "slides/2025-08-25-reprodGit.html#additional-details",
+    "title": "Introduction to Computational Statistics",
+    "section": "Additional details",
+    "text": "Additional details\n\nCanvas has all the links\n\ncourse website – almost everything\nclass notes\nCanvas page – solutions and assignments\n\nno computers (tablets fine)\ngood communication\nTidyTuesday"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#syllabus",
+    "href": "slides/2025-08-25-reprodGit.html#syllabus",
+    "title": "Introduction to Computational Statistics",
+    "section": "Syllabus",
+    "text": "Syllabus\n\n\n\noffice hours\nmentor sessions\nanonymous feedback\ndates for assignments\n\n\n\nlinks to resources\nHW grading\nproject information\n\n\n\n\n\n\n\n\nImportant\n\n\nI need your GitHub user name - please email it to me."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#learning-goals",
+    "href": "slides/2025-08-25-reprodGit.html#learning-goals",
+    "title": "Introduction to Computational Statistics",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of the course, you will be able to…\n\n\ngain insight from data\ngain insight from data, reproducibly\ngain insight from data, reproducibly, using modern programming tools and techniques\ngain insight from data, reproducibly (with literate programming and version control), using modern programming tools and techniques\nethically gain insight from data, reproducibly (with literate programming and version control), using modern programming tools and techniques"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#workflow",
+    "href": "slides/2025-08-25-reprodGit.html#workflow",
+    "title": "Introduction to Computational Statistics",
+    "section": "Workflow",
+    "text": "Workflow"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#stitch-fix",
+    "href": "slides/2025-08-25-reprodGit.html#stitch-fix",
+    "title": "Introduction to Computational Statistics",
+    "section": "Stitch Fix",
+    "text": "Stitch Fix\nExample of how data and algorithms are used to make decisions.\n\nhttp://algorithms-tour.stitchfix.com/"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#what-cancant-statistics-data-science-do",
+    "href": "slides/2025-08-25-reprodGit.html#what-cancant-statistics-data-science-do",
+    "title": "Introduction to Computational Statistics",
+    "section": "What can/can’t statistics & data science do?",
+    "text": "What can/can’t statistics & data science do?\n\nCan model the data at hand!\nCan find patterns & visualizations in large datasets.\nCan’t establish causation (mostly).\nCan’t represent data if it isn’t there."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#twitter",
+    "href": "slides/2025-08-25-reprodGit.html#twitter",
+    "title": "Introduction to Computational Statistics",
+    "section": "Twitter",
+    "text": "Twitter\nIn 2013, DiGrazia et al. published a provocative paper suggesting that polling could now be replaced by analyzing social media data. They analyzed 406 competitive US congressional races using over 3.5 billion tweets. In an article in The Washington Post one of the co-authors, Rojas, writes: “Anyone with programming skills can write a program that will harvest tweets, sort them for content and analyze the results. This can be done with nothing more than a laptop computer.” (Rojas, 2013)\n\nThe data come from neither an experiment nor a random sample - there must be careful thought applied to the question of to whom the analysis can be generalized. The data were also scraped from the internet.\nThe analysis was done combining domain knowledge (about congressional races) with a data source that seems completely irrelevant at the outset (tweets).\nThe dataset was quite large! 3.5 billion tweets were collected and a random sample of 500,000 tweets were analyzed.\nThe researchers were from sociology and computer science - a truly collaborative endeavor, and one that is often quite efficient at producing high quality analyses."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#activity",
+    "href": "slides/2025-08-25-reprodGit.html#activity",
+    "title": "Introduction to Computational Statistics",
+    "section": "Activity",
+    "text": "Activity\nSpend a few minutes reading the Rojas editorial. Be sure to consider Figure 1 carefully, and address the following questions."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#statistics-hat",
+    "href": "slides/2025-08-25-reprodGit.html#statistics-hat",
+    "title": "Introduction to Computational Statistics",
+    "section": "Statistics Hat",
+    "text": "Statistics Hat\n\nDiscuss Figure 1 with your neighbor. What is its purpose? What does it convey? Think critically about this data visualization. What would you do differently?\nHow would you improve the plot? I.e., annotate it to make it more convincing / communicative? Does it need enhancement?\nDo you think the study holds water? Why or why not? What are the shortcomings of this study?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#data-scientist-hat",
+    "href": "slides/2025-08-25-reprodGit.html#data-scientist-hat",
+    "title": "Introduction to Computational Statistics",
+    "section": "Data Scientist Hat",
+    "text": "Data Scientist Hat\nImagine that your boss, who does not have advanced technical skills or knowledge, asked you to reproduce the study you just read. Discuss the following with your neighbor.\n\nWhat steps are necessary to reproduce this study? Be as specific as you can! Try to list the subtasks that you would have to perform.\nWhat computational tools would you use for each task?\nIdentify all the steps necessary to conduct the study. Could you do it given your current abilities & knowledge? What about the practical considerations?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#advantages",
+    "href": "slides/2025-08-25-reprodGit.html#advantages",
+    "title": "Introduction to Computational Statistics",
+    "section": "Advantages",
+    "text": "Advantages\n\nCheap\nCan measure any political race (not just the wealthy ones)."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#disadvantages",
+    "href": "slides/2025-08-25-reprodGit.html#disadvantages",
+    "title": "Introduction to Computational Statistics",
+    "section": "Disadvantages",
+    "text": "Disadvantages\n\nIs it really reflective of the voting populace? Who would it bias toward?\nDoes simple mention of a candidate always reflect voting patterns? When wouldn’t it?\nMargin of error of 2.7%. How is that number typically calculated in a poll? Note: \\(2 \\cdot \\sqrt{(1/2)(1/2)/1000} = 0.0316\\).\nTweets feel more free in terms of what you are able to say - is that a good thing or a bad thing with respect to polling?\nCan’t measure any demographic information."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#what-could-be-done-differently",
+    "href": "slides/2025-08-25-reprodGit.html#what-could-be-done-differently",
+    "title": "Introduction to Computational Statistics",
+    "section": "What could be done differently?",
+    "text": "What could be done differently?\n\nGelman: look only at close races\nGelman: “It might make sense to flip it around and predict twitter mentions given candidate popularity. That is, rotate the graph 90 degrees, and see how much variation there is in tweet shares for elections of different degrees of closeness.”\nGelman: “And scale the size of each dot to the total number of tweets for the two candidates in the election.”\nGelman: Make the data publicly available so that others can try to reproduce the results\n\nhttps://statmodeling.stat.columbia.edu/2013/04/24/the-tweets-votes-curve/"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#reproducibility-checklist",
+    "href": "slides/2025-08-25-reprodGit.html#reproducibility-checklist",
+    "title": "Introduction to Computational Statistics",
+    "section": "Reproducibility checklist",
+    "text": "Reproducibility checklist\n\nWhat does it mean for a data analysis to be “reproducible”?\n\nShort-term goals:\n\nAre the tables and figures reproducible from the code and data?\nDoes the code actually do what you think it does?\nIn addition to what was done, is it clear why it was done?\n\nLong-term goals:\n\nCan the code be used for other data?\nCan you extend the code to do other things?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#toolkit-for-reproducibility",
+    "href": "slides/2025-08-25-reprodGit.html#toolkit-for-reproducibility",
+    "title": "Introduction to Computational Statistics",
+    "section": "Toolkit for reproducibility",
+    "text": "Toolkit for reproducibility\n\nScriptability \\(\\rightarrow\\) R\nLiterate programming (code, narrative, output in one place) \\(\\rightarrow\\) Quarto\nVersion control \\(\\rightarrow\\) Git / GitHub"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#r-and-rstudio-1",
+    "href": "slides/2025-08-25-reprodGit.html#r-and-rstudio-1",
+    "title": "Introduction to Computational Statistics",
+    "section": "R and RStudio",
+    "text": "R and RStudio\n\n\n\n\n\n\n\n\nR is an open-source statistical programming language\nR is also an environment for statistical computing and graphics\nIt’s easily extensible with packages\n\n\n\n\nRStudio is a convenient interface for R called an IDE (integrated development environment), e.g. “I write R code in the RStudio IDE”\nRStudio is not a requirement for programming with R, but it’s very commonly used by R programmers and data scientists"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#r-vs.-rstudio",
+    "href": "slides/2025-08-25-reprodGit.html#r-vs.-rstudio",
+    "title": "Introduction to Computational Statistics",
+    "section": "R vs. RStudio",
+    "text": "R vs. RStudio\n\n\n\n\n\n\n\nSource: Modern Dive."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#r-packages",
+    "href": "slides/2025-08-25-reprodGit.html#r-packages",
+    "title": "Introduction to Computational Statistics",
+    "section": "R packages",
+    "text": "R packages\n\nPackages: Fundamental units of reproducible R code, including reusable R functions, the documentation that describes how to use them, and sample data1\nAs of August 19, 2025, there are 22,532 R packages available on CRAN (the Comprehensive R Archive Network)2\nWe’re going to work with a small (but important) subset of these!\n\n\n\n1 Wickham and Bryan, R Packages.\n2 CRAN contributed packages."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#tour-r-rstudio",
+    "href": "slides/2025-08-25-reprodGit.html#tour-r-rstudio",
+    "title": "Introduction to Computational Statistics",
+    "section": "Tour: R + RStudio",
+    "text": "Tour: R + RStudio"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#tour-recap-r-rstudio",
+    "href": "slides/2025-08-25-reprodGit.html#tour-recap-r-rstudio",
+    "title": "Introduction to Computational Statistics",
+    "section": "Tour recap: R + RStudio",
+    "text": "Tour recap: R + RStudio"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#a-short-list-for-now-of-r-essentials",
+    "href": "slides/2025-08-25-reprodGit.html#a-short-list-for-now-of-r-essentials",
+    "title": "Introduction to Computational Statistics",
+    "section": "A short list (for now) of R essentials",
+    "text": "A short list (for now) of R essentials\n\nFunctions are (most often) verbs, followed by what they will be applied to in parentheses:\n\n\ndo_this(to_this)\ndo_that(to_this, to_that, with_those)\n\n\n\nPackages are installed with the install.packages() function and loaded with the library function, once per session:\n\n\ninstall.packages(\"package_name\")\nlibrary(package_name)"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#r-essentials-continued",
+    "href": "slides/2025-08-25-reprodGit.html#r-essentials-continued",
+    "title": "Introduction to Computational Statistics",
+    "section": "R essentials (continued)",
+    "text": "R essentials (continued)\n\nColumns (variables) in data frames are accessed with $:\n\n\ndataframe$var_name\n\n\n\nObject documentation can be accessed with ?\n\n\n?mean"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#tidyverse",
+    "href": "slides/2025-08-25-reprodGit.html#tidyverse",
+    "title": "Introduction to Computational Statistics",
+    "section": "tidyverse",
+    "text": "tidyverse\n\n\n\n\ntidyverse.org\n\nThe tidyverse is an opinionated collection of R packages designed for data science\nAll packages share an underlying philosophy and a common grammar"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#quarto-1",
+    "href": "slides/2025-08-25-reprodGit.html#quarto-1",
+    "title": "Introduction to Computational Statistics",
+    "section": "Quarto",
+    "text": "Quarto\n\nFully reproducible reports – each time you Render, the analysis is run from the beginning\nCode goes in chunks\nNarrative goes outside of chunks"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#tour-quarto",
+    "href": "slides/2025-08-25-reprodGit.html#tour-quarto",
+    "title": "Introduction to Computational Statistics",
+    "section": "Tour: Quarto",
+    "text": "Tour: Quarto"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#tour-recap-quarto",
+    "href": "slides/2025-08-25-reprodGit.html#tour-recap-quarto",
+    "title": "Introduction to Computational Statistics",
+    "section": "Tour recap: Quarto",
+    "text": "Tour recap: Quarto"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#environments",
+    "href": "slides/2025-08-25-reprodGit.html#environments",
+    "title": "Introduction to Computational Statistics",
+    "section": "Environments",
+    "text": "Environments\n\n\n\n\n\n\nImportant\n\n\nThe environment of your Quarto document is separate from the Console!\n\n\n\nRemember this, and expect it to bite you a few times as you’re learning to work with Quarto!"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#environments-1",
+    "href": "slides/2025-08-25-reprodGit.html#environments-1",
+    "title": "Introduction to Computational Statistics",
+    "section": "Environments",
+    "text": "Environments\n\n\nFirst, run the following in the console:\n\nx &lt;- 2\nx * 3\n\n\n\nAll looks good, eh?\n\n\nThen, add the following in an R chunk in your Quarto document\n\nx * 3\n\n\n\nWhat happens? Why the error?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#how-will-we-use-quarto",
+    "href": "slides/2025-08-25-reprodGit.html#how-will-we-use-quarto",
+    "title": "Introduction to Computational Statistics",
+    "section": "How will we use Quarto?",
+    "text": "How will we use Quarto?\n\nEvery assignment is an Quarto document.\nYou’ll always have a template Quarto document to start with.\nThe amount of scaffolding in the template will decrease over the semester."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#git-and-github",
+    "href": "slides/2025-08-25-reprodGit.html#git-and-github",
+    "title": "Introduction to Computational Statistics",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\n\n\n\n\n\n\n\n\nGit is a version control system – like “Track Changes” features from Microsoft Word, on steroids\nIt’s not the only version control system, but it’s a very popular one\n\n\n\n\n\n\n\n\nGitHub is the home for your Git-based projects on the internet – like DropBox but much, much better\nWe will use GitHub as a platform for web hosting and collaboration (and as our course management system!)"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#versioning---done-badly",
+    "href": "slides/2025-08-25-reprodGit.html#versioning---done-badly",
+    "title": "Introduction to Computational Statistics",
+    "section": "Versioning - done badly",
+    "text": "Versioning - done badly"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#versioning---done-better",
+    "href": "slides/2025-08-25-reprodGit.html#versioning---done-better",
+    "title": "Introduction to Computational Statistics",
+    "section": "Versioning - done better",
+    "text": "Versioning - done better"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#versioning---done-even-better",
+    "href": "slides/2025-08-25-reprodGit.html#versioning---done-even-better",
+    "title": "Introduction to Computational Statistics",
+    "section": "Versioning - done even better",
+    "text": "Versioning - done even better\nwith human readable messages"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github",
+    "href": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github",
+    "title": "Introduction to Computational Statistics",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github-1",
+    "href": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github-1",
+    "title": "Introduction to Computational Statistics",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github-2",
+    "href": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github-2",
+    "title": "Introduction to Computational Statistics",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github-3",
+    "href": "slides/2025-08-25-reprodGit.html#how-will-we-use-git-and-github-3",
+    "title": "Introduction to Computational Statistics",
+    "section": "How will we use Git and GitHub?",
+    "text": "How will we use Git and GitHub?"
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#git-and-github-tips",
+    "href": "slides/2025-08-25-reprodGit.html#git-and-github-tips",
+    "title": "Introduction to Computational Statistics",
+    "section": "Git and GitHub tips",
+    "text": "Git and GitHub tips\n\n\nThere are millions of git commands – ok, that’s an exaggeration, but there are a lot of them – and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.\nWe will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line – skip that and move on to the next resource unless you feel comfortable trying it out.\nThere is a great resource for working with git and R: happygitwithr.com. Some of the content in there is beyond the scope of this course, but it’s a good place to look for help."
+  },
+  {
+    "objectID": "slides/2025-08-25-reprodGit.html#tour-git-github",
+    "href": "slides/2025-08-25-reprodGit.html#tour-git-github",
+    "title": "Introduction to Computational Statistics",
+    "section": "Tour: Git + GitHub",
+    "text": "Tour: Git + GitHub"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html",
+    "href": "slides/2025-08-27-grammarggplot.html",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "",
+    "text": "GitHub\nNSSD\ngrammar of graphics\nggplot\n\n\n\n\n\n\n\nImportant\n\n\n\nBefore next Wednesday, read: Tufte. 1997. Visual and Statistical Thinking: Displays of Evidence for Making Decisions. (Use Google to find it.)\n\n\n\n\n\nWhat was Hilary trying to answer in her data collection?\nName two of Hilary’s main hurdles in gathering accurate data.\nWhich is better: high touch (manual) or low touch (automatic) data collection? Why?\nWhat additional covariates are needed / desired? Any problems with them?\nHow much data does she need?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#nssd",
+    "href": "slides/2025-08-27-grammarggplot.html#nssd",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "",
+    "text": "What was Hilary trying to answer in her data collection?\nName two of Hilary’s main hurdles in gathering accurate data.\nWhich is better: high touch (manual) or low touch (automatic) data collection? Why?\nWhat additional covariates are needed / desired? Any problems with them?\nHow much data does she need?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#grammar-of-graphics",
+    "href": "slides/2025-08-27-grammarggplot.html#grammar-of-graphics",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Grammar of graphics",
+    "text": "Grammar of graphics\nYau (2013) gives us nine visual cues, and Wickham (2014) translates them into a language using ggplot2.\n\nVisual Cues: the aspects of the figure where we should focus.\nPosition (numerical) where in relation to other things?\nLength (numerical) how big (in one dimension)?\nAngle (numerical) how wide? parallel to something else?\nDirection (numerical) at what slope? In a time series, going up or down?\nShape (categorical) belonging to what group?\nArea (numerical) how big (in two dimensions)? Beware of improper scaling!\nVolume (numerical) how big (in three dimensions)? Beware of improper scaling!\nShade (either) to what extent? how severely?\nColor (either) to what extent? how severely? Beware of red/green color blindness.\nCoordinate System: rectangular, polar, geographic, etc.\nScale: numeric (linear? logarithmic?), categorical (ordered?), time\nContext: in comparison to what (think back to ideas from Tufte)"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#pieces-of-the-graph",
+    "href": "slides/2025-08-27-grammarggplot.html#pieces-of-the-graph",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Pieces of the Graph",
+    "text": "Pieces of the Graph\n\n\nVisual Cues of Yau (2013):\nPosition (numerical)\nLength (numerical)\nAngle (numerical)\nDirection (numerical)\nShape (categorical)\nArea (numerical)\nVolume (numerical)\nShade (either)\nColor (either)"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#order-matters",
+    "href": "slides/2025-08-27-grammarggplot.html#order-matters",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Order Matters",
+    "text": "Order Matters"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#cues-together",
+    "href": "slides/2025-08-27-grammarggplot.html#cues-together",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Cues Together",
+    "text": "Cues Together"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#attributes",
+    "href": "slides/2025-08-27-grammarggplot.html#attributes",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Attributes",
+    "text": "Attributes\nAttributes can focus your reader’s attention.1"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-for-plotting",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-for-plotting",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\n\n\n\nAvoid having other graph elements interfere with data\nUse visually prominent symbols\nAvoid over-plotting (One way to avoid over plotting: jitter the values)\nDifferent values of data may obscure each other\nInclude all or nearly all of the data\nFill data region"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-1",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\n\n\n\nChart junk & stuff that adds no meaning, e.g. butterflies on top of barplots, background images\nExtra tick marks and grid lines\nUnnecessary text and arrows\nDecimal places beyond the measurement error or the level of difference"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-2",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\n\n\n\nPut juxtaposed plots on same scale\nMake it easy to distinguish elements of superposed plots (e.g. color)\nEmphasizes the important difference\nComparison: volume, area, height (be careful, volume can seem bigger than you mean it to)"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-3",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-3",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\n\n\n\nKeep scales on x and y axes the same for both plots to facilitate the comparison\nZoom in to focus on the region that contains the bulk of the data\nKeep the scale the same throughout the plot (i.e. don’t change it mid-axis)\nOrigin need not be on the scale\nChoose a scale that improves resolution\nAvoid jiggling the baseline"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-4",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-4",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\nHow to make a plot information rich\n\n\n\nDescribe what you see in the caption\nAdd context with reference markers (lines and points) including text\nAdd legends and labels\nUse color and plotting symbols to add more information\nPlot the same thing more than once in different ways/scales\nReduce clutter"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-5",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-5",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\nHow to make a plot information rich\nCaptions should\n\n\n\nBe comprehensive\nSelf-contained\nDescribe what has been graphed\nDraw attention to important features\nDescribe conclusions drawn from graph"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-6",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-for-plotting-6",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice for Plotting",
+    "text": "Advice for Plotting\n\n\n\nBasic plotting\nEliminate superfluous material\nFacilitate comparisons\nChoosing the scale\nHow to make a plot information rich\nCaptions should\nGood Plot Making Practice\n\n\n\nPut major conclusions in graphical form\nProvide reference information\nProof read for clarity and consistency\nGraphing is an iterative process\nMultiplicity is OK, i.e. two plots of the same variable may provide different messages\nMake plots data rich"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#getting-help",
+    "href": "slides/2025-08-27-grammarggplot.html#getting-help",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Getting help",
+    "text": "Getting help\n\nOne of the best ways to get started with ggplot is to Google what you want to do with the word ggplot. Then look through the images that come up. More often than not, the associated code is there. There are also ggplot galleries of images, one of them is here: https://plot.ly/ggplot2/\nLook at the end of this presentation and the syllabus. More help options there."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#what-are-the-visual-cues-on-this-plot",
+    "href": "slides/2025-08-27-grammarggplot.html#what-are-the-visual-cues-on-this-plot",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What are the visual cues on this plot?",
+    "text": "What are the visual cues on this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nposition\nlength\nshape\narea/volume\nshade/color"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#what-are-the-visual-cues-on-this-plot-1",
+    "href": "slides/2025-08-27-grammarggplot.html#what-are-the-visual-cues-on-this-plot-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What are the visual cues on this plot?",
+    "text": "What are the visual cues on this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nposition\nlength\nshape\narea/volume\nshade/color"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#what-are-the-visual-cues-on-this-plot-2",
+    "href": "slides/2025-08-27-grammarggplot.html#what-are-the-visual-cues-on-this-plot-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What are the visual cues on this plot?",
+    "text": "What are the visual cues on this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nposition\nlength\nshape\narea/volume\nshade/color"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#the-grammar-of-graphics-ggplot",
+    "href": "slides/2025-08-27-grammarggplot.html#the-grammar-of-graphics-ggplot",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "The grammar of graphics ggplot",
+    "text": "The grammar of graphics ggplot\ngeom: the geometric “shape” used to display data\n\nbar, point, line, ribbon, text, etc.\n\naesthetic: an attribute controlling how geom is displayed with respect to variables\n\nx position, y position, color, fill, shape, size, etc.\n\n\nguide: helps user convert visual data back into raw data (legends, axes)\nstat: a transformation applied to data before geom gets it\n\nexample: histograms work on binned data"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#set-up",
+    "href": "slides/2025-08-27-grammarggplot.html#set-up",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Set up",
+    "text": "Set up\n\nlibrary(mosaic)\ndata(Births78)\n\n\nhead(Births78) \n\n\n\n\n\n\n\n\n\ndate\nbirths\nwday\nyear\nmonth\nday_of_year\nday_of_month\nday_of_week\n\n\n\n\n1978-01-01\n7701\nSun\n1978\n1\n1\n1\n1\n\n\n1978-01-02\n7527\nMon\n1978\n1\n2\n2\n2\n\n\n1978-01-03\n8825\nTue\n1978\n1\n3\n3\n3\n\n\n1978-01-04\n8859\nWed\n1978\n1\n4\n4\n4\n\n\n1978-01-05\n9043\nThu\n1978\n1\n5\n5\n5\n\n\n1978-01-06\n9208\nFri\n1978\n1\n6\n6\n6"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nTwo Questions:\n\nWhat do we want R to do? (What is the goal?)\nWhat does R need to know?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-1",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoal: scatterplot = a plot with points\nWhat does R need to know?\n\ndata source: Births78\naesthetics:\n\ndate -&gt; x\nbirths -&gt; y\npoints (!)"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-2",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point() +\n  labs(title = \"US Births in 1978\")\n\nggplot() +\n  geom_point(data = Births78, \n             aes(x = date, y = births)) +\n  labs(title = \"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#layers",
+    "href": "slides/2025-08-27-grammarggplot.html#layers",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers",
+    "text": "Layers\n\nLayer 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births))"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#layers-1",
+    "href": "slides/2025-08-27-grammarggplot.html#layers-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers",
+    "text": "Layers\n\nLayer 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#layers-2",
+    "href": "slides/2025-08-27-grammarggplot.html#layers-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers",
+    "text": "Layers\n\nLayer 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point() +\n  labs(title = \"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-3",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-3",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-4",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-4",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nWhat has changed?\n\nnew aesthetic: mapping color to day of week"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-5",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-5",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births, \n           color = wday)) +\n  geom_point() +\n  labs(title = \"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-6",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-6",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-7",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-7",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nlines instead of dots!\n\nggplot(data = Births78,\n         aes(x = date, \n             y = births,\n             color = wday)) +\n  geom_line() +\n  labs(title = \"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-8",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-8",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-9",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-9",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\nNow there are two layers: one with points and one with lines\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births,\n           color = wday)) + \n  geom_point() +  \n  geom_line() +\n  labs(title = \"US Births in 1978\")\n\n\nThe layers are placed one on top of the other: the points are below and the lines are above.\ndata and aes specified in ggplot() affect all geoms"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#what-does-this-code-do",
+    "href": "slides/2025-08-27-grammarggplot.html#what-does-this-code-do",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What does this code do?",
+    "text": "What does this code do?\n\nggplot(data = Births78,\n       aes(x = date, y = births, color = \"navy\")) + \n  geom_point() +\n  labs(title = \"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#what-does-this-code-do-1",
+    "href": "slides/2025-08-27-grammarggplot.html#what-does-this-code-do-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What does this code do?",
+    "text": "What does this code do?\n\nggplot(data = Births78,\n       aes(x = date, y = births, color = \"navy\")) + \n  geom_point()  +\n  labs(title = \"US Births in 1978\")\n\n\nThis is mapping the color aesthetic to a new variable with only one value (“navy”).\nSo all the dots get set to the same color, but it’s not navy."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#setting-vs.-mapping",
+    "href": "slides/2025-08-27-grammarggplot.html#setting-vs.-mapping",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Setting vs. Mapping",
+    "text": "Setting vs. Mapping\nIf we want to set the color to be navy for all of the dots, we do it outside the aes() designation:\n\nggplot(data = Births78,\n       aes(x = date, y = births)) +   # map variables \n  geom_point(color = \"navy\")      +   # set attributes\n  labs(title = \"US Births in 1978\")\n\n\n\nNote that color = \"navy\" is now outside of the aesthetics list. aes() is how ggplot2 distinguishes between mapping and setting."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-10",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-10",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-11",
+    "href": "slides/2025-08-27-grammarggplot.html#how-do-we-make-this-plot-11",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How do we make this plot?",
+    "text": "How do we make this plot?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births)) + \n  geom_line(aes(color = wday)) +      \n  geom_point(color = \"navy\")  +         \n  labs(title = \"US Births in 1978\")\n\n\nggplot() establishes the default data and aesthetics for the geoms, but each geom may change these defaults.\ngood practice: put into ggplot() the things that affect all (or most) of the layers; put the rest in geom_*()"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#setting-vs.-mapping-again",
+    "href": "slides/2025-08-27-grammarggplot.html#setting-vs.-mapping-again",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Setting vs. Mapping (again)",
+    "text": "Setting vs. Mapping (again)\nInformation gets passed to the plot via:\n\nmap the variable information inside the aes() (aesthetic) function\nset the non-variable information outside the aes() (aesthetic) function"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#other-geoms",
+    "href": "slides/2025-08-27-grammarggplot.html#other-geoms",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Other geoms",
+    "text": "Other geoms\n\napropos(\"^geom_\")\n\n [1] \"geom_abline\"            \"geom_area\"              \"geom_ash\"              \n [4] \"geom_bar\"               \"geom_bin_2d\"            \"geom_bin2d\"            \n [7] \"geom_blank\"             \"geom_boxplot\"           \"geom_col\"              \n[10] \"geom_contour\"           \"geom_contour_filled\"    \"geom_count\"            \n[13] \"geom_crossbar\"          \"geom_curve\"             \"geom_density\"          \n[16] \"geom_density_2d\"        \"geom_density_2d_filled\" \"geom_density2d\"        \n[19] \"geom_density2d_filled\"  \"geom_dotplot\"           \"geom_errorbar\"         \n[22] \"geom_errorbarh\"         \"geom_freqpoly\"          \"geom_function\"         \n[25] \"geom_hex\"               \"geom_histogram\"         \"geom_hline\"            \n[28] \"geom_jitter\"            \"geom_label\"             \"geom_line\"             \n[31] \"geom_linerange\"         \"geom_lm\"                \"geom_map\"              \n[34] \"geom_path\"              \"geom_point\"             \"geom_pointrange\"       \n[37] \"geom_polygon\"           \"geom_qq\"                \"geom_qq_line\"          \n[40] \"geom_quantile\"          \"geom_rangeframe\"        \"geom_raster\"           \n[43] \"geom_rect\"              \"geom_ribbon\"            \"geom_rug\"              \n[46] \"geom_segment\"           \"geom_sf\"                \"geom_sf_label\"         \n[49] \"geom_sf_text\"           \"geom_smooth\"            \"geom_spline\"           \n[52] \"geom_spoke\"             \"geom_step\"              \"geom_text\"             \n[55] \"geom_tile\"              \"geom_tufteboxplot\"      \"geom_violin\"           \n[58] \"geom_vline\""
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#other-geoms-1",
+    "href": "slides/2025-08-27-grammarggplot.html#other-geoms-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Other geoms",
+    "text": "Other geoms\nhelp pages will tell you their aesthetics, default stats, etc.\n\n?geom_area             # for example"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#lets-try-geom_area",
+    "href": "slides/2025-08-27-grammarggplot.html#lets-try-geom_area",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Let’s try geom_area",
+    "text": "Let’s try geom_area\n\n\n\nggplot(data = Births78,\n       aes(x = date,\n           y = births, \n           fill = wday)) + \n  geom_area() +\n  labs(title = \"US Births in 1978\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#lets-try-geom_area-1",
+    "href": "slides/2025-08-27-grammarggplot.html#lets-try-geom_area-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Let’s try geom_area",
+    "text": "Let’s try geom_area\n\n\n\nggplot(data = Births78,\n       aes(x = date, y = births, fill = wday)) + \n  geom_area() +\n  labs(title = \"US Births in 1978\")\n\n\n\n\n\n\n\n\n\n… not a good plot\n\noverplotting is hiding much of the data\nextending y-axis to 0 may or may not be desirable."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#side-note-what-makes-a-plot-good",
+    "href": "slides/2025-08-27-grammarggplot.html#side-note-what-makes-a-plot-good",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Side note: what makes a plot good?",
+    "text": "Side note: what makes a plot good?\nMost (all?) graphics are intended to help us make comparisons\n\nHow does something change over time?\nDo my treatments matter? How much?\nDo treatment and control respond the same way?\n\n\n\n\n\n\n\nKey plot metric\n\n\nDoes my plot make the comparisons I am interested in:\n\neasily, and\naccurately?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#time-for-some-different-data",
+    "href": "slides/2025-08-27-grammarggplot.html#time-for-some-different-data",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Time for some different data",
+    "text": "Time for some different data\nHELPrct: Health Evaluation and Linkage to Primary care randomized clinical trial. Subjects admitted for treatment for addiction to one of three substances.\n\nhead(HELPrct)\n\n\n\n\n\n\n\n\n\nage\nanysubstatus\nanysub\ncesd\nd1\ndaysanysub\ndayslink\ndrugrisk\ne2b\nfemale\nsex\ng1b\nhomeless\ni1\ni2\nid\nindtot\nlinkstatus\nlink\nmcs\npcs\npss_fr\nracegrp\nsatreat\nsexrisk\nsubstance\ntreat\navg_drinks\nmax_drinks\nhospitalizations\n\n\n\n\n37\n1\nyes\n49\n3\n177\n225\n0\nNA\n0\nmale\nyes\nhoused\n13\n26\n1\n39\n1\nyes\n25.111990\n58.41369\n0\nblack\nno\n4\ncocaine\nyes\n13\n26\n3\n\n\n37\n1\nyes\n30\n22\n2\nNA\n0\nNA\n0\nmale\nyes\nhomeless\n56\n62\n2\n43\nNA\nNA\n26.670307\n36.03694\n1\nwhite\nno\n7\nalcohol\nyes\n56\n62\n22\n\n\n26\n1\nyes\n39\n0\n3\n365\n20\nNA\n0\nmale\nno\nhoused\n0\n0\n3\n41\n0\nno\n6.762923\n74.80633\n13\nblack\nno\n2\nheroin\nno\n0\n0\n0\n\n\n39\n1\nyes\n15\n2\n189\n343\n0\n1\n1\nfemale\nno\nhoused\n5\n5\n4\n28\n0\nno\n43.967880\n61.93168\n11\nwhite\nyes\n4\nheroin\nno\n5\n5\n2\n\n\n32\n1\nyes\n39\n12\n2\n57\n0\n1\n0\nmale\nno\nhomeless\n10\n13\n5\n38\n1\nyes\n21.675755\n37.34558\n10\nblack\nno\n6\ncocaine\nno\n10\n13\n12\n\n\n47\n1\nyes\n6\n1\n31\n365\n0\nNA\n1\nfemale\nno\nhoused\n4\n4\n6\n29\n0\nno\n55.508991\n46.47521\n5\nblack\nno\n5\ncocaine\nyes\n4\n4\n1"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#who-are-the-people-in-the-study",
+    "href": "slides/2025-08-27-grammarggplot.html#who-are-the-people-in-the-study",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Who are the people in the study?",
+    "text": "Who are the people in the study?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = substance)) + \n  geom_bar() +\n  labs(title = \"HELP trial\")\n\n\nHmm. What’s up with y?\n\nstat_bin() is being applied to the data before the geom_bar() gets to do its thing. Binning creates the y values."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#who-are-the-people-in-the-study-1",
+    "href": "slides/2025-08-27-grammarggplot.html#who-are-the-people-in-the-study-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Who are the people in the study?",
+    "text": "Who are the people in the study?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = substance,\n           fill = children)) + \n  geom_bar() +\n  labs(title = \"HELP trial\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#who-are-the-people-in-the-study-2",
+    "href": "slides/2025-08-27-grammarggplot.html#who-are-the-people-in-the-study-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Who are the people in the study?",
+    "text": "Who are the people in the study?\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(HELP_data,\n       aes(x = substance,\n           fill = children)) + \n  geom_bar(position = \"fill\") +\n  labs(title = \"HELP trial\",\n       y = \"actually, percent\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-old-are-people-in-the-help-study",
+    "href": "slides/2025-08-27-grammarggplot.html#how-old-are-people-in-the-help-study",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How old are people in the HELP study?",
+    "text": "How old are people in the HELP study?\n\n\n\n\n`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_histogram() +\n  labs(title = \"HELP trial\")\n\nNotice the messages\n\nstat_bin: Histograms are not mapping the raw data but binned data.\nstat_bin() performs the data transformation.\nbinwidth: a default binwidth has been selected, but we should really choose our own."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#setting-the-binwidth-manually",
+    "href": "slides/2025-08-27-grammarggplot.html#setting-the-binwidth-manually",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Setting the binwidth manually",
+    "text": "Setting the binwidth manually\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_histogram(binwidth=2) +\n  labs(title = \"HELP trial\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-old-are-people-in-the-help-study-other-geoms",
+    "href": "slides/2025-08-27-grammarggplot.html#how-old-are-people-in-the-help-study-other-geoms",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How old are people in the HELP study? – Other geoms",
+    "text": "How old are people in the HELP study? – Other geoms\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_freqpoly(binwidth=2) +\n  labs(title = \"HELP clinical trial at detoxification unit\")\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_density() +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#selecting-stat-and-geom-manually",
+    "href": "slides/2025-08-27-grammarggplot.html#selecting-stat-and-geom-manually",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Selecting stat and geom manually",
+    "text": "Selecting stat and geom manually\nEvery geom comes with a default stat\n\nfor simple cases, the stat is stat_identity() which does nothing\nwe can mix and match geoms and stats however we like\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_line(stat = \"density\") +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#selecting-stat-and-geom-manually-1",
+    "href": "slides/2025-08-27-grammarggplot.html#selecting-stat-and-geom-manually-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Selecting stat and geom manually",
+    "text": "Selecting stat and geom manually\nEvery stat comes with a default geom, every geom with a default stat\n\nwe can specify stats instead of geom, if we prefer\nwe can mix and match geoms and stats however we like\n\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  stat_density(geom = \"line\") +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#more-combinations",
+    "href": "slides/2025-08-27-grammarggplot.html#more-combinations",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "More combinations",
+    "text": "More combinations\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_point(stat = \"bin\", binwidth=3) + \n  geom_line(stat = \"bin\", binwidth=3)  +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#more-combinations-1",
+    "href": "slides/2025-08-27-grammarggplot.html#more-combinations-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "More combinations",
+    "text": "More combinations\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_area(stat = \"bin\", binwidth=3)  +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#more-combinations-2",
+    "href": "slides/2025-08-27-grammarggplot.html#more-combinations-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "More combinations",
+    "text": "More combinations\n\nggplot(data = HELP_data,\n       aes(x = age)) + \n  geom_point(stat = \"bin\", \n             binwidth=3, \n             aes(size = ..count..)) +\n  geom_line(stat = \"bin\", binwidth=3) +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-much-drinking-i1",
+    "href": "slides/2025-08-27-grammarggplot.html#how-much-drinking-i1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How much drinking? (i1)",
+    "text": "How much drinking? (i1)\n\nggplot(data = HELP_data,\n       aes(x = i1)) + geom_histogram() +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-much-drinking-i1-1",
+    "href": "slides/2025-08-27-grammarggplot.html#how-much-drinking-i1-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How much drinking? (i1)",
+    "text": "How much drinking? (i1)\n\nggplot(data = HELP_data,\n       aes(x = i1)) + \n  geom_density() +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#how-much-drinking-i1-2",
+    "href": "slides/2025-08-27-grammarggplot.html#how-much-drinking-i1-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "How much drinking? (i1)",
+    "text": "How much drinking? (i1)\n\nggplot(data = HELP_data, \n       aes(x = i1)) + \n  geom_area(stat = \"density\") +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#covariates-adding-in-more-variables",
+    "href": "slides/2025-08-27-grammarggplot.html#covariates-adding-in-more-variables",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Covariates: Adding in more variables",
+    "text": "Covariates: Adding in more variables\nUsing color and linetype:\n\nggplot(data = HELP_data,\n       aes(x = i1,\n           color = substance,\n           linetype = children)) + \n  geom_line(stat = \"density\") +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#using-color-and-facets",
+    "href": "slides/2025-08-27-grammarggplot.html#using-color-and-facets",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Using color and facets",
+    "text": "Using color and facets\n\nggplot(data = HELP_data,\n       aes(x = i1, color = substance)) + \n  geom_line(stat = \"density\") + \n  facet_grid( . ~ children ) +\n  labs(title = \"HELP clinical trial at detoxification unit\")\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = i1, color = substance)) + \n  geom_line(stat = \"density\") + \n  facet_grid( children ~ . ) +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#boxplots",
+    "href": "slides/2025-08-27-grammarggplot.html#boxplots",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Boxplots",
+    "text": "Boxplots\nBoxplots use stat_quantile() (five number summary).\nThe quantitative variable must be y, and there must be an additional x variable.\n\nggplot(data = HELP_data,\n       aes(x = substance, y = age, color = children)) + \n  geom_boxplot() +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#horizontal-boxplots",
+    "href": "slides/2025-08-27-grammarggplot.html#horizontal-boxplots",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Horizontal boxplots",
+    "text": "Horizontal boxplots\n\ncoord_flip() may be used with other plots as well to reverse the roles f x and y on the plot.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = substance, \n           y = age, \n           color = children)) + \n  geom_boxplot() +\n  coord_flip() +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#axes-scaling-with-boxplots",
+    "href": "slides/2025-08-27-grammarggplot.html#axes-scaling-with-boxplots",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Axes scaling with boxplots",
+    "text": "Axes scaling with boxplots\nWe can scale the continuous axis\n\nggplot(data = HELP_data,\n       aes(x = substance, \n           y = age, \n           color = children)) + \n  geom_boxplot() +\n  coord_trans(y = \"exp\") +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#give-me-some-space",
+    "href": "slides/2025-08-27-grammarggplot.html#give-me-some-space",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Give me some space",
+    "text": "Give me some space\nWe’ve triggered a new feature: dodge (for dodging things left/right). We can control how much if we set the dodge manually.\n\nggplot(data = HELP_data,\n       aes(x = substance, \n           y = age, \n           color = children)) + \n  geom_boxplot(position = position_dodge(width=1)) +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#issues-with-bigger-data",
+    "href": "slides/2025-08-27-grammarggplot.html#issues-with-bigger-data",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Issues with bigger data",
+    "text": "Issues with bigger data\n\nAlthough we can see a generally positive association (as we would expect), the overplotting may be hiding information.\n\n\nlibrary(NHANES)\ndim(NHANES)\n\n[1] 10000    76\n\n\n\nhead(NHANES)\n\n\n\n\n\n\n\n\n\nID\nSurveyYr\nGender\nAge\nAgeDecade\nAgeMonths\nRace1\nRace3\nEducation\nMaritalStatus\nHHIncome\nHHIncomeMid\nPoverty\nHomeRooms\nHomeOwn\nWork\nWeight\nLength\nHeadCirc\nHeight\nBMI\nBMICatUnder20yrs\nBMI_WHO\nPulse\nBPSysAve\nBPDiaAve\nBPSys1\nBPDia1\nBPSys2\nBPDia2\nBPSys3\nBPDia3\nTestosterone\nDirectChol\nTotChol\nUrineVol1\nUrineFlow1\nUrineVol2\nUrineFlow2\nDiabetes\nDiabetesAge\nHealthGen\nDaysPhysHlthBad\nDaysMentHlthBad\nLittleInterest\nDepressed\nnPregnancies\nnBabies\nAge1stBaby\nSleepHrsNight\nSleepTrouble\nPhysActive\nPhysActiveDays\nTVHrsDay\nCompHrsDay\nTVHrsDayChild\nCompHrsDayChild\nAlcohol12PlusYr\nAlcoholDay\nAlcoholYear\nSmokeNow\nSmoke100\nSmoke100n\nSmokeAge\nMarijuana\nAgeFirstMarij\nRegularMarij\nAgeRegMarij\nHardDrugs\nSexEver\nSexAge\nSexNumPartnLife\nSexNumPartYear\nSameSex\nSexOrientation\nPregnantNow\n\n\n\n\n51624\n2009_10\nmale\n34\n30-39\n409\nWhite\nNA\nHigh School\nMarried\n25000-34999\n30000\n1.36\n6\nOwn\nNotWorking\n87.4\nNA\nNA\n164.7\n32.22\nNA\n30.0_plus\n70\n113\n85\n114\n88\n114\n88\n112\n82\nNA\n1.29\n3.49\n352\nNA\nNA\nNA\nNo\nNA\nGood\n0\n15\nMost\nSeveral\nNA\nNA\nNA\n4\nYes\nNo\nNA\nNA\nNA\nNA\nNA\nYes\nNA\n0\nNo\nYes\nSmoker\n18\nYes\n17\nNo\nNA\nYes\nYes\n16\n8\n1\nNo\nHeterosexual\nNA\n\n\n51624\n2009_10\nmale\n34\n30-39\n409\nWhite\nNA\nHigh School\nMarried\n25000-34999\n30000\n1.36\n6\nOwn\nNotWorking\n87.4\nNA\nNA\n164.7\n32.22\nNA\n30.0_plus\n70\n113\n85\n114\n88\n114\n88\n112\n82\nNA\n1.29\n3.49\n352\nNA\nNA\nNA\nNo\nNA\nGood\n0\n15\nMost\nSeveral\nNA\nNA\nNA\n4\nYes\nNo\nNA\nNA\nNA\nNA\nNA\nYes\nNA\n0\nNo\nYes\nSmoker\n18\nYes\n17\nNo\nNA\nYes\nYes\n16\n8\n1\nNo\nHeterosexual\nNA\n\n\n51624\n2009_10\nmale\n34\n30-39\n409\nWhite\nNA\nHigh School\nMarried\n25000-34999\n30000\n1.36\n6\nOwn\nNotWorking\n87.4\nNA\nNA\n164.7\n32.22\nNA\n30.0_plus\n70\n113\n85\n114\n88\n114\n88\n112\n82\nNA\n1.29\n3.49\n352\nNA\nNA\nNA\nNo\nNA\nGood\n0\n15\nMost\nSeveral\nNA\nNA\nNA\n4\nYes\nNo\nNA\nNA\nNA\nNA\nNA\nYes\nNA\n0\nNo\nYes\nSmoker\n18\nYes\n17\nNo\nNA\nYes\nYes\n16\n8\n1\nNo\nHeterosexual\nNA\n\n\n51625\n2009_10\nmale\n4\n0-9\n49\nOther\nNA\nNA\nNA\n20000-24999\n22500\n1.07\n9\nOwn\nNA\n17.0\nNA\nNA\n105.4\n15.30\nNA\n12.0_18.5\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNo\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n4\n1\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n\n\n51630\n2009_10\nfemale\n49\n40-49\n596\nWhite\nNA\nSome College\nLivePartner\n35000-44999\n40000\n1.91\n5\nRent\nNotWorking\n86.7\nNA\nNA\n168.4\n30.57\nNA\n30.0_plus\n86\n112\n75\n118\n82\n108\n74\n116\n76\nNA\n1.16\n6.70\n77\n0.094\nNA\nNA\nNo\nNA\nGood\n0\n10\nSeveral\nSeveral\n2\n2\n27\n8\nYes\nNo\nNA\nNA\nNA\nNA\nNA\nYes\n2\n20\nYes\nYes\nSmoker\n38\nYes\n18\nNo\nNA\nYes\nYes\n12\n10\n1\nYes\nHeterosexual\nNA\n\n\n51638\n2009_10\nmale\n9\n0-9\n115\nWhite\nNA\nNA\nNA\n75000-99999\n87500\n1.84\n6\nRent\nNA\n29.8\nNA\nNA\n133.1\n16.82\nNA\n12.0_18.5\n82\n86\n47\n84\n50\n84\n50\n88\n44\nNA\n1.34\n4.86\n123\n1.538\nNA\nNA\nNo\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\n5\n0\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA\nNA"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#overplotting",
+    "href": "slides/2025-08-27-grammarggplot.html#overplotting",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Overplotting",
+    "text": "Overplotting\n\nggplot(data = NHANES,\n       aes(x = Height, y = Weight)) +\n  geom_point() + \n  facet_grid( Gender ~ PregnantNow )"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#using-alpha-opacity",
+    "href": "slides/2025-08-27-grammarggplot.html#using-alpha-opacity",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Using alpha (opacity)",
+    "text": "Using alpha (opacity)\nOne way to deal with overplotting is to set the opacity low.\n\nggplot(data = NHANES,\n       aes(x = Height, y = Weight)) +\n  geom_point(alpha = 0.01) + \n  facet_grid( Gender ~ PregnantNow )"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#geom_density2d",
+    "href": "slides/2025-08-27-grammarggplot.html#geom_density2d",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "geom_density2d",
+    "text": "geom_density2d\nAlternatively (or simultaneously) we might prefer a different geom altogether.\n\nggplot(data = NHANES,\n       aes(x = Height, y = Weight)) +\n  geom_density2d() + \n  facet_grid( Gender ~ PregnantNow )"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#multiple-layers",
+    "href": "slides/2025-08-27-grammarggplot.html#multiple-layers",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Multiple layers",
+    "text": "Multiple layers\n\n\n\nggplot(data = HELP_data, \n       aes(x = children, y = age)) +\n  geom_boxplot(outlier.size = 0) +\n  geom_point(alpha = .6) +\n  coord_flip() +\n  labs(title = \"HELP clinical trial at detoxification unit\")\n\n\n\n\n\n\n\n\n\n\nggplot(data = HELP_data,\n       aes(x = children, y = age)) +\n  geom_boxplot(outlier.size = 0) +\n  geom_jitter(alpha = .6, width=0.1) +\n  coord_flip() +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#multiple-layers-1",
+    "href": "slides/2025-08-27-grammarggplot.html#multiple-layers-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Multiple layers",
+    "text": "Multiple layers\n\nggplot(data = HELP_data,\n       aes(x = children, y = age)) +\n  geom_boxplot(outlier.size = 0) +\n  geom_point(alpha = .6, \n             position = position_jitter(width = .1, height = 0)) +\n  coord_flip() +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#things-i-havent-mentioned-much",
+    "href": "slides/2025-08-27-grammarggplot.html#things-i-havent-mentioned-much",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Things I haven’t mentioned (much)",
+    "text": "Things I haven’t mentioned (much)\n\ncoords (coord_flip() is good to know about)\nthemes (for customizing appearance)\nposition (position_dodge(), position_jitterdodge() (for use with points on top of dodged boxplots), position_stack(), etc.)\ntransforming axes"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#themes",
+    "href": "slides/2025-08-27-grammarggplot.html#themes",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "themes",
+    "text": "themes\n\nlibrary(ggthemes)\nggplot(Births78, aes(x = date, y = births)) + \n  geom_point() + \n  theme_wsj()"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#jitterdodge",
+    "href": "slides/2025-08-27-grammarggplot.html#jitterdodge",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "jitterdodge()",
+    "text": "jitterdodge()\n\nggplot(data = HELP_data, \n       aes(x = substance, y = age, color = children)) +\n  geom_boxplot(position = position_dodge(width = 1)) +\n  geom_point(aes(color = children, \n                 fill = children), \n             position = position_jitterdodge(dodge.width = 1, jitter.width = 0.1), \n             size = 0.5) +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#a-little-bit-of-everything",
+    "href": "slides/2025-08-27-grammarggplot.html#a-little-bit-of-everything",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "A little bit of everything",
+    "text": "A little bit of everything\n\nggplot(data = HELP_data, aes(x = substance, y = age, color = children)) +\n  geom_boxplot(position = position_dodge(width=1)) +\n  geom_point(aes(fill = children), \n             alpha = .5, \n             position = position_jitterdodge(dodge.width = 1, jitter.width = 0.2)) + \n  facet_wrap(~homeless) +\n  labs(title = \"HELP clinical trial at detoxification unit\")"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#want-to-learn-more",
+    "href": "slides/2025-08-27-grammarggplot.html#want-to-learn-more",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Want to learn more?",
+    "text": "Want to learn more?\n\ndocs.ggplot2.org/\nR for Data Science by Hadley Wickham and Garrett Grolemund"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#whats-around-the-corner",
+    "href": "slides/2025-08-27-grammarggplot.html#whats-around-the-corner",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "What’s around the corner?",
+    "text": "What’s around the corner?\nshiny\n\ninteractive graphics / modeling\nhttps://shiny.rstudio.com/\n\nplotly\n\nPlotly is an R package for creating interactive web-based graphs via plotly’s JavaScript graphing library, plotly.js. The plotly R libary contains the ggplotly function , which will convert ggplot2 figures into a Plotly object. Furthermore, you have the option of manipulating the Plotly object with the style function.\n\n\nhttps://plot.ly/ggplot2/getting-started/\n\ngganimate\n\ngganimate tutorial"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#preliminaries",
+    "href": "slides/2025-08-27-grammarggplot.html#preliminaries",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Preliminaries",
+    "text": "Preliminaries\n\nMake the data stand out\nFacilitate comparison\nAdd information\n\n(Nolan and Perrett, 2016)"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#preliminaries-1",
+    "href": "slides/2025-08-27-grammarggplot.html#preliminaries-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Preliminaries",
+    "text": "Preliminaries\nTufte lists two main motivational steps to working with graphics as part of an argument.\n\n“An essential analytic task in making decisions based on evidence is to understand how things work.”\nMaking decisions based on evidence requires the appropriate display of that evidence.”"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#cholera---a-picture-tells-1000-words",
+    "href": "slides/2025-08-27-grammarggplot.html#cholera---a-picture-tells-1000-words",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Cholera - a picture tells 1000 words",
+    "text": "Cholera - a picture tells 1000 words\n\nHow many aspects of this graph can you point out which are relevant to figuring out that cholera infection was coming from a single pump? Are there any distracting aspects?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#cholera---difficult-to-interpret",
+    "href": "slides/2025-08-27-grammarggplot.html#cholera---difficult-to-interpret",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Cholera - difficult to interpret",
+    "text": "Cholera - difficult to interpret\n\nWhy would the outbreak already have begun to decline before the pump handle was removed?"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#challenger---problematic",
+    "href": "slides/2025-08-27-grammarggplot.html#challenger---problematic",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Challenger - Problematic",
+    "text": "Challenger - Problematic\n\nOne of the graphics which was particularly unconvincing in trying to explain that O-rings fail in the cold."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#challenger---better",
+    "href": "slides/2025-08-27-grammarggplot.html#challenger---better",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Challenger - Better????",
+    "text": "Challenger - Better????\n\nA different graph of the Challenger information, now sorted by temperature"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#challenger---improved",
+    "href": "slides/2025-08-27-grammarggplot.html#challenger---improved",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Challenger - Improved",
+    "text": "Challenger - Improved\n\nThe graphic the engineers should have led with in trying to persuade the administrators not to launch. It is evident that the number of O-ring failures is quite highly associated with the ambient temperature. Note the vital information on the x-axis associated with the large number of launches at warm temperatures that had zero O-ring failures.Note that the “improved” Challenger graphic was made by Tufte, not by the engineers working on the problem at the time."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#fonts-matter",
+    "href": "slides/2025-08-27-grammarggplot.html#fonts-matter",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Fonts matter",
+    "text": "Fonts matter"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-on-plotting-specific",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-on-plotting-specific",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice on plotting, specific",
+    "text": "Advice on plotting, specific\n\nAvoid having other graph elements interfere with data\nUse visually prominent symbols\nAvoid over-plotting (One way to avoid over plotting: jitter the values)\nDifferent values of data may obscure each other\nInclude all or nearly all of the data\nFill data region"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#advice-on-plotting-general",
+    "href": "slides/2025-08-27-grammarggplot.html#advice-on-plotting-general",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Advice on plotting, general",
+    "text": "Advice on plotting, general\n\nEliminate superfluous material\nFacilitate comparisons\nChoose the best scale\nMake the plot data / information rich\nUse good captions, alt text, conclusions"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#simplify",
+    "href": "slides/2025-08-27-grammarggplot.html#simplify",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Simplify",
+    "text": "Simplify\n\nimage credit: https://www.darkhorseanalytics.com/portfolio-data-looks-better-naked"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#simplified",
+    "href": "slides/2025-08-27-grammarggplot.html#simplified",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Simplified",
+    "text": "Simplified\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nimage credit: https://www.darkhorseanalytics.com/portfolio-data-looks-better-naked"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#nyt-9721",
+    "href": "slides/2025-08-27-grammarggplot.html#nyt-9721",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "NYT 9/7/21",
+    "text": "NYT 9/7/21\n\nData VizWhat they did well\n\n\n\n\n\n\n\nOne in 5,000, NYT, D. Leonhardt 9/7/21; image credit: https://www.nytimes.com/2021/09/07/briefing/risk-breakthrough-infections-delta.html\n\n\n\n\n\n\n\nlighter grid lines\nno extra information\ngood caption\nregression line to give context to the trend\ny-axis label horizontal, not vertical\na few states (and the US) are highlighted to draw the reader’s eye"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#worth-a-mention",
+    "href": "slides/2025-08-27-grammarggplot.html#worth-a-mention",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Worth a Mention",
+    "text": "Worth a Mention\n\n\nW.E.B. Du Bois (1868-1963)\n\nsociologist\ndata scientist]\n\n\n\n\n\n\n\nimage credit: wikipedia\n\n\n\n\n\nIn 1900 Du Bois contributed approximately 60 data visualizations to an exhibit at the Exposition Universelle in Paris, an exhibit designed to illustrate the progress made by African Americans since the end of slavery (only 37 years prior, in 1863)."
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#beautiful-informative-graphics",
+    "href": "slides/2025-08-27-grammarggplot.html#beautiful-informative-graphics",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Beautiful & Informative Graphics",
+    "text": "Beautiful & Informative Graphics\nhttps://drawingmatter.org/w-e-b-du-bois-visionary-infographics/"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#footnotes",
+    "href": "slides/2025-08-27-grammarggplot.html#footnotes",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nimage credit: Better Data Visualization by Schwabish↩︎"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#layers-layer-0",
+    "href": "slides/2025-08-27-grammarggplot.html#layers-layer-0",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers: layer 0",
+    "text": "Layers: layer 0\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot()"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#layers-layer-1",
+    "href": "slides/2025-08-27-grammarggplot.html#layers-layer-1",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers: layer 1",
+    "text": "Layers: layer 1\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births))"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#layers-layer-2",
+    "href": "slides/2025-08-27-grammarggplot.html#layers-layer-2",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers: layer 2",
+    "text": "Layers: layer 2\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point()"
+  },
+  {
+    "objectID": "slides/2025-08-27-grammarggplot.html#layers-layer-3",
+    "href": "slides/2025-08-27-grammarggplot.html#layers-layer-3",
+    "title": "Data Viz & Introduction to ggplot2",
+    "section": "Layers: layer 3",
+    "text": "Layers: layer 3\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(data = Births78, \n       aes(x = date, y = births)) + \n  geom_point() +\n  labs(title = \"US Births in 1978\")"
+  },
+  {
+    "objectID": "posts/2024-09-03-wrangling/index.html",
+    "href": "posts/2024-09-03-wrangling/index.html",
+    "title": "03. Wrangling",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2024-09-03-wrangling/index.html#agenda",
+    "href": "posts/2024-09-03-wrangling/index.html#agenda",
+    "title": "03. Wrangling",
+    "section": "Agenda ",
+    "text": "Agenda \n\nSeptember 9 + 11, 2024\n\nTidy data\nData verbs\n\n\n\nSeptember 16, 2024\n\nRelational data (_join)\npivoting\n\n\n\nSeptember 18, 2024\n\nmapping"
+  },
+  {
+    "objectID": "posts/2024-09-03-wrangling/index.html#readings",
+    "href": "posts/2024-09-03-wrangling/index.html#readings",
+    "title": "03. Wrangling",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Data Wrangling\nWickham (2017) Data transformation and Tidy data in R for Data Science.\nIf you aren’t super comfortable with R yet, check out Workflow: basics in R for Data Science."
+  },
+  {
+    "objectID": "posts/2024-09-03-wrangling/index.html#reflection-questions",
+    "href": "posts/2024-09-03-wrangling/index.html#reflection-questions",
+    "title": "03. Wrangling",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nHow and why is |&gt; used? And how is it different from the layering symbol + used in ggplot()?\nWhat are the main data wrangling verbs?\nHow do you distinguish the different _join functions? Are the _join keys formatted in the same way across the two datasets? Are the data recorded in the same way (e.g., is age birthday or age at recording?) ?\nWhat are some of the ways to distinguish a data verb from a typical function?"
+  },
+  {
+    "objectID": "posts/2024-09-03-wrangling/index.html#ethics-considerations",
+    "href": "posts/2024-09-03-wrangling/index.html#ethics-considerations",
+    "title": "03. Wrangling",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nWhat is Jan 31 plus one month? And why does it matter that every analysis we do is a series of decisions? Keeping in mind that each of us might make a different decision, and all decisions have consequences."
+  },
+  {
+    "objectID": "posts/2024-09-03-wrangling/index.html#slides",
+    "href": "posts/2024-09-03-wrangling/index.html#slides",
+    "title": "03. Wrangling",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides for both 9/9/24 and 9/11/24.\nIn class slides for 9/16/24.\nIn class slides for 9/18/24.\nWS4 - verbs\nWS5 - joins\nWS6 - mapping"
+  },
+  {
+    "objectID": "posts/2024-09-03-wrangling/index.html#additional-resources",
+    "href": "posts/2024-09-03-wrangling/index.html#additional-resources",
+    "title": "03. Wrangling",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nPosit cheatsheets\ntidyverse vignettes\npivoting"
   }
 ]

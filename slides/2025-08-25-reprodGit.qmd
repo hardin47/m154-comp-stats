@@ -1,0 +1,499 @@
+---
+title: "Introduction to Computational Statistics"
+subtitle: "Math 154"
+author: "Jo Hardin"
+date: "August 25, 2025"
+format: 
+  revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+<!--
+format: 
+  revealjs:
+    drop:
+      button: true
+      engine: webr
+      webr:
+        packages:
+          - tidyverse
+    embed-resources: true
+revealjs-plugins:
+  - drop
+execute:
+  echo: true
+fig-width: 6
+fig-asp: 0.618
+-->
+
+
+    
+```{r include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(mosaic)
+library(knitr)
+library(ggthemes)
+opts_chunk$set(
+  size='small',
+  tidy=FALSE
+  )
+library(lubridate)
+library(sysfonts)
+options(width=65)
+```
+
+
+# Agenda 8/25/25
+
+1. [Syllabus](../syllabus/)
+2. Tools
+
+<!--
+::: {.callout-important}
+Before Wednesday, listen to the <a href = "https://nssdeviations.com/71-compromised-shoe-situation" target = "_blank">full conversation</a> of Not So Standard Deviations - Compromised Shoe Situation.
+:::
+-->
+
+## Course structure
+* weekly HW (to GitHub + Gradescope)
+* bi-weekly quizzes 
+* data project
+* in-class activities / clickers
+* ethical considerations
+
+
+
+## Additional details
+* Canvas has all the links
+  1. course website -- almost everything
+  2. class notes
+  3. Canvas page -- solutions and assignments
+* no computers (tablets fine)
+* good communication
+* TidyTuesday
+
+
+## [Syllabus](../syllabus/)
+
+:::: {.columns}
+::: {.column width="50%"}
+* office hours
+* mentor sessions
+* anonymous feedback
+* dates for assignments
+:::
+
+::: {.column width="50%"}
+* links to resources
+* HW grading
+* project information
+:::
+::::
+
+::: {.callout-important}
+I need your GitHub user name - please email it to me.
+:::
+
+## Learning goals {.smaller}
+
+By the end of the course, you will be able to...
+
+::: incremental
+-   gain insight from data
+-   gain insight from data, **reproducibly**
+-   gain insight from data, reproducibly, **using modern programming tools and techniques**
+-   gain insight from data, reproducibly **(with literate programming and version control)**, using modern programming tools and techniques
+-   **ethically** gain insight from data, reproducibly (with literate programming and version control), using modern programming tools and techniques
+:::
+
+# Data Science Process
+
+## Workflow
+```{r, out.width = "800px", echo=FALSE}
+knitr::include_graphics("../images/AnalysisProcessBaumer.jpg")
+```
+
+
+## Stitch Fix
+
+Example of how data and algorithms are used to make decisions.
+
+```{r, out.width = "800px", echo=FALSE}
+knitr::include_graphics("../images/SFalg.jpg")
+```
+
+
+http://algorithms-tour.stitchfix.com/
+
+
+## What can/can't statistics & data science do?
+
+* Can model the data at hand!
+* Can find patterns & visualizations in large datasets.
+* Can't establish causation (mostly).
+* Can't represent data if it isn't there.
+
+
+
+
+## Twitter
+
+
+In 2013, DiGrazia et al. published a provocative paper suggesting that polling could now be replaced by analyzing social media data.  They analyzed 406 competitive US congressional races using over 3.5 billion tweets.  In an article in *The Washington Post* one of the co-authors, Rojas, writes: "Anyone with programming skills can write a program that will harvest tweets, sort them for content and analyze the results.  This can be done with nothing more than a laptop computer." (Rojas, 2013)
+
+
+1.  The data come from neither an experiment nor a random sample - there must be careful thought applied to the question of *to whom* the analysis can be generalized.  The data were also scraped from the internet.
+2. The analysis was done combining domain knowledge (about congressional races) with a data source that seems completely irrelevant at the outset (tweets).
+3. The dataset was quite large!  3.5 billion tweets were collected and a random sample of 500,000 tweets were analyzed.
+4. The researchers were from sociology and computer science - a truly collaborative endeavor, and one that is often quite efficient at producing high quality analyses.
+
+
+## Activity
+
+Spend a few minutes reading the Rojas editorial. Be sure to consider Figure 1 carefully, and address the following questions.
+
+```{r, out.width = "400px", echo=FALSE}
+knitr::include_graphics("../images/twitterscatter.jpg") 
+#knitr::include_graphics("../images/twitterreg.jpg")
+```
+
+
+## Statistics Hat
+
+1. Discuss Figure 1 with your neighbor. What is its purpose? What does it convey? Think critically about this data visualization. What would you do differently?
+
+2. How would you improve the plot?  I.e., annotate it to make it more convincing / communicative?  Does it need enhancement?
+
+3.  Do you think the study holds water? Why or why not? What are the shortcomings of this study?
+
+
+## Data Scientist Hat
+
+Imagine that your boss, who does not have advanced technical skills or knowledge, asked you to reproduce the study you just read. Discuss the following with your neighbor.
+
+1. What steps are necessary to reproduce this study? Be as specific as you can! Try to list the subtasks that you would have to perform.
+
+2.  What computational tools would you use for each task?
+
+3. Identify all the steps necessary to conduct the study.  Could you do it given your current abilities \& knowledge?  What about the practical considerations?  
+
+
+
+
+## Advantages
+
+1. Cheap
+
+2. Can measure any political race (not just the wealthy ones).
+
+## Disadvantages
+
+1. Is it really reflective of the voting populace?  Who would it bias toward?
+
+2. Does simple mention of a candidate always reflect voting patterns?  When wouldn't it?
+
+3. Margin of error of 2.7\%.  How is that number typically calculated in a poll?  Note: $2 \cdot \sqrt{(1/2)(1/2)/1000} = 0.0316$.
+
+4. Tweets feel more free in terms of what you are able to say - is that a good thing or a bad thing with respect to polling?
+
+5. Can't measure any demographic information.
+
+
+## What could be done differently?
+
+* Gelman:  look only at close races
+
+* Gelman: "It might make sense to flip it around and predict twitter mentions given candidate popularity. That is, rotate the graph 90 degrees, and see how much variation there is in tweet shares for elections of different degrees of closeness."
+
+* Gelman: "And scale the size of each dot to the total number of tweets for the two candidates in the election."
+
+* Gelman: Make the data publicly available so that others can try to reproduce the results
+
+https://statmodeling.stat.columbia.edu/2013/04/24/the-tweets-votes-curve/
+
+
+
+# Toolkit: Computing
+
+We use tools to do the things.
+But the tools are **not** the things.
+
+
+# Reproducible data analysis
+
+## Reproducibility checklist {.smaller}
+
+::: question
+What does it mean for a data analysis to be "reproducible"?
+:::
+
+**Short-term goals:**
+
+-   Are the tables and figures reproducible from the code and data?
+-   Does the code actually do what you think it does?
+-   In addition to what was done, is it clear *why* it was done?
+
+**Long-term goals:**
+
+-   Can the code be used for other data?
+-   Can you extend the code to do other things?
+
+## Toolkit for reproducibility
+
+-   Scriptability $\rightarrow$ R
+-   Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
+-   Version control $\rightarrow$ Git / GitHub
+
+# R and RStudio
+
+## R and RStudio {.smaller}
+
+::: columns
+::: {.column width="50%"}
+![](../images/r-logo.png){fig-alt="R logo" fig-align="center"}
+
+-   R is an open-source statistical **programming language**
+-   R is also an environment for statistical computing and graphics
+-   It's easily extensible with *packages*
+:::
+
+::: {.column .fragment width="50%"}
+![](../images/rstudio-logo.png){fig-alt="RStudio logo"}
+
+-   RStudio is a convenient interface for R called an **IDE** (integrated development environment), e.g. *"I write R code in the RStudio IDE"*
+-   RStudio is not a requirement for programming with R, but it's very commonly used by R programmers and data scientists
+:::
+:::
+
+## R vs. RStudio
+
+[![](../images/r_vs_rstudio.png){fig-alt="On the left: a car engine. On the right: a car dashboard. The engine is labelled R. The dashboard is labelled RStudio." fig-align="center" width="1001"}](https://moderndive.com/1-getting-started.html)
+
+::: aside
+Source: [Modern Dive](https://moderndive.com/1-getting-started.html).
+:::
+
+## R packages
+
+
+-   **Packages**: Fundamental units of reproducible R code, including reusable R functions, the documentation that describes how to use them, and sample data<sup>1</sup>
+
+-   As of August 19, 2025, there are 22,532 R packages available on **CRAN** (the Comprehensive R Archive Network)<sup>2</sup>
+
+-   We're going to work with a small (but important) subset of these!
+
+
+::: aside
+<sup>1</sup> Wickham and Bryan, [R Packages](https://r-pkgs.org/).
+
+<sup>2</sup> [CRAN contributed packages](https://cran.r-project.org/web/packages/).
+:::
+
+## Tour: R + RStudio {.smaller}
+
+## Tour recap: R + RStudio
+
+![](../images/tour-r-rstudio.png)
+
+## A short list (for now) of R essentials
+
+-   Functions are (most often) verbs, followed by what they will be applied to in parentheses:
+
+```{r}
+#| eval: false
+
+do_this(to_this)
+do_that(to_this, to_that, with_those)
+```
+
+. . .
+
+-   Packages are installed with the `install.packages()` function and loaded with the `library` function, once per session:
+
+```{r}
+#| eval: false
+
+install.packages("package_name")
+library(package_name)
+```
+
+<!--
+## R essentials (continued)
+
+-   Columns (variables) in data frames are accessed with `$`:
+
+```{r}
+#| eval: false
+
+dataframe$var_name
+```
+
+. . .
+
+-   Object documentation can be accessed with `?`
+
+```{r}
+#| eval: false
+
+?mean
+```
+-->
+
+
+## tidyverse
+
+::: columns
+::: {.column width="50%"}
+[![](../images/tidyverse.png){fig-alt="Hex logos for dplyr, ggplot2, forcats, tibble, readr, stringr, tidyr, and purrr"}](https://tidyverse.org)
+:::
+
+::: {.column width="50%"}
+[tidyverse.org](https://www.tidyverse.org/)
+
+-   The **tidyverse** is an opinionated collection of R packages designed for data science
+-   All packages share an underlying philosophy and a common grammar
+:::
+:::
+
+# Quarto
+
+## Quarto
+
+
+-   Fully reproducible reports -- each time you `Render`, the analysis is run from the beginning
+-   Code goes in chunks 
+-   Narrative goes outside of chunks
+
+
+## Tour: Quarto {.smaller}
+
+
+## Tour recap: Quarto
+
+![](../images/tour-quarto.png){fig-alt="RStudio IDE with a Quarto document, source code on the left and output on the right. Annotated to show the YAML, a link, a header, and a code chunk." fig-align="center"}
+
+## Environments
+
+::: {.callout-important}
+The environment of your Quarto document is separate from the Console!
+:::
+
+Remember this, and expect it to bite you a few times as you're learning to work with Quarto!
+
+## Environments
+
+::: columns
+::: {.column width="50%"}
+First, run the following in the console:
+
+```{r eval = FALSE}
+x <- 2
+x * 3
+```
+
+<br>
+
+::: {.question .fragment}
+All looks good, eh?
+:::
+:::
+
+::: {.column .fragment width="50%"}
+Then, add the following in an R chunk in your Quarto document
+
+```{r}
+#| eval: false
+
+x * 3
+```
+
+<br>
+
+::: {.question .fragment}
+What happens?
+Why the error?
+:::
+:::
+:::
+
+## How will we use Quarto?
+
+-   Every assignment is an Quarto document.
+-   You'll always have a template Quarto document to start with.
+-   The amount of scaffolding in the template will decrease over the semester.
+
+# Toolkit: Version control and collaboration
+
+## Git and GitHub {.smaller}
+
+::: columns
+::: {.column width="50%"}
+![](../images/git-logo.png){fig-alt="Git logo" fig-align="center" width="150"}
+
+-   Git is a version control system -- like "Track Changes" features from Microsoft Word, on steroids
+-   It's not the only version control system, but it's a very popular one
+:::
+
+::: {.column width="50%"}
+![](../images/github-logo.png){fig-alt="GitHub logo" fig-align="center" width="150"}
+
+-   GitHub is the home for your Git-based projects on the internet -- like DropBox but much, much better
+
+-   We will use GitHub as a platform for web hosting and collaboration (and as our course management system!)
+:::
+:::
+
+## Versioning - done badly
+
+![](../images/phd_comics_vc.gif){fig-align="center"}
+
+## Versioning - done better
+
+![](../images/lego-steps.png){fig-align="center"}
+
+## Versioning - done even better
+
+### with human readable messages
+
+![](../images/lego-steps-commit-messages.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-01.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-02.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-03.png){fig-align="center"}
+
+## How will we use Git and GitHub?
+
+![](../images/whole-game-04.png){fig-align="center"}
+
+## Git and GitHub tips {.smaller}
+
+::: incremental
+-   There are millions of git commands -- ok, that's an exaggeration, but there are a lot of them -- and very few people know them all. 99% of the time you will use git to add, commit, push, and pull.
+-   We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line -- skip that and move on to the next resource unless you feel comfortable trying it out.
+-   There is a great resource for working with git and R: [happygitwithr.com](http://happygitwithr.com/). Some of the content in there is beyond the scope of this course, but it's a good place to look for help.
+:::
+
+<!--
+## Tour: Git + GitHub
+
+-->
+
+
+
