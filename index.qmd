@@ -67,7 +67,7 @@ schedule <- tribble(
   ' ',
   ' ',
  
-  '<font color = "#114B5F"><b>10.15.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Initial Project Proposal due</b></font></a>', 'to Canvas',
+  '<font color = "#114B5F"><b>10.15.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><i class="fa-solid fa-chart-column"></i> <b>Initial Project Proposal due</b></font></a>', 'to Canvas',
   ' ',
 
  
@@ -80,7 +80,7 @@ schedule <- tribble(
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 8</a> - due 10.29',
   ' ',
 
-   '<font color = "#114B5F"><b>10.29.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Final Project Proposal due</b></font></a>', 'to GitHub',
+   '<font color = "#114B5F"><b>10.29.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"> <i class="fa-solid fa-chart-column"></i> <b>Final Project Proposal due</b></font></a>', 'to GitHub',
   ' ',
 
  "11.3.25", '<a href="posts/2025-11-03-rf"><i class="fas fa-desktop" target="_blank"></i> Random Forests</a>',
@@ -91,7 +91,7 @@ schedule <- tribble(
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 10</a> - due 11.12 <br> <i class="fa-regular fa-circle-question"></i> Quiz 5 11.12 (trees + forests)',
   ' ',
 
-  '<font color = "#114B5F"><b>11.12.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Project Update</b></font></a>', 'to GitHub',
+  '<font color = "#114B5F"><b>11.12.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><i class="fa-solid fa-chart-column"></i> <b>Project Update</b></font></a>', 'to GitHub',
   ' ',
 
 "11.17.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-17-cluster/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
@@ -106,10 +106,10 @@ schedule <- tribble(
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 12</a> - due 12.3.25 <br> <i class="fa-regular fa-circle-question"></i> Quiz 6 (clustering) 12.3',
   ' ',
 
- '<font color = "#114B5F"><b>12.5.25 + 12.08.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Group Presentations</b></font></a>', 'in class, 2-5pm',
+ '<font color = "#114B5F"><b>12.5.25 + 12.08.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><i class="fa-solid fa-chart-column"></i> <b>Group Presentations</b></font></a>', 'in class, 2-5pm',
   ' ',
 
-  '<font color = "#114B5F"><b>12.08.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><b>Final write-up</b></font></a>', 'to GitHub',' '
+  '<font color = "#114B5F"><b>12.08.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><i class="fa-solid fa-chart-column"></i> <b>Final write-up</b></font></a>', 'to GitHub',' '
 )
 ```
 

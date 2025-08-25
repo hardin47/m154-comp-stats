@@ -1,7 +1,8 @@
 ---
 title: "Data Viz & Introduction to ggplot2"
 author: 'Jo Hardin'
-subtitle: "August 27, 2025"
+date: "August 27, 2025"
+date-format: long
 format: 
   revealjs:
     incremental: false

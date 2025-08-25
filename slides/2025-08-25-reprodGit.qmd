@@ -3,6 +3,7 @@ title: "Introduction to Computational Statistics"
 subtitle: "Math 154"
 author: "Jo Hardin"
 date: "August 25, 2025"
+date-format: long
 format: 
   revealjs:
     incremental: false
