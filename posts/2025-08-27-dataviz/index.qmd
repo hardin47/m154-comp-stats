@@ -70,10 +70,8 @@ knitr::include_graphics("../../images/ggplot2_masterpiece.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2025-08-27-grammarggplot.html" target = "_blank">In class slides</a> for 8/27/25.
 
-<!--
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws3_m154_f24_tufte.pdf" target = "_blank">WS3 - ggplot</a>
 
--->
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws2_m154_f25_R.pdf" target = "_blank">WS2 - R</a>
 
 
 ## Additional Resources <i class="fas fa-laptop"></i> 

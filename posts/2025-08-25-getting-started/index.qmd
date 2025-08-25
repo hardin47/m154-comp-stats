@@ -69,9 +69,10 @@ Before next Thursday, read: Tufte. 1997. <a href = "http://www.edwardtufte.com/t
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2025-08-25-reprodGit.html" target = "_blank">In class slides</a> for 8/25/25.
 
-<!--
+
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws1_m154_f24_twitter.pdf" target = "_blank">WS1 - Twitter</a>
 
+<!--
 * <a href = "https://m154-comp-stats.netlify.app/slides/ws2_m154_f24_R.pdf" target = "_blank">WS2 - working with R</a>
 -->
 
