@@ -2796,22 +2796,22 @@
     "objectID": "slides/2024-09-18-map.html#purrr-for-functional-programming",
     "href": "slides/2024-09-18-map.html#purrr-for-functional-programming",
     "title": "Mapping",
-    "section": "purrr for functional programming",
-    "text": "purrr for functional programming\nfunctionals are functions that take function as input and return a vector / list / data frame as output.\n\nalternatives to loops\na functional is better than a for loop is better than while is better than repeat (in terms of computing efficiency)"
+    "section": "",
+    "text": "functionals are functions that take function as input and return a vector / list / data frame as output.\n\nalternatives to loops\na functional is better than a for loop is better than while is better than repeat (in terms of computing efficiency)"
   },
   {
     "objectID": "slides/2024-09-18-map.html#map",
     "href": "slides/2024-09-18-map.html#map",
     "title": "Mapping",
-    "section": "Map",
-    "text": "Map\nmap() has (at least) two arguments, a data object and a function. It performs the function on each element of the data object and returns a list. We can also pass additional arguments into the function."
+    "section": "",
+    "text": "map() has (at least) two arguments, a data object and a function. It performs the function on each element of the data object and returns a list. We can also pass additional arguments into the function."
   },
   {
     "objectID": "slides/2024-09-18-map.html#benefits",
     "href": "slides/2024-09-18-map.html#benefits",
     "title": "Mapping",
-    "section": "Benefits",
-    "text": "Benefits\n\nencourages function logic to be separated from iteration logic\ncan collapse into vectors/data frames easily"
+    "section": "",
+    "text": "encourages function logic to be separated from iteration logic\ncan collapse into vectors/data frames easily"
   },
   {
     "objectID": "slides/2024-09-18-map.html#example-1",
@@ -2824,8 +2824,8 @@
     "objectID": "slides/2024-09-18-map.html#variations-of-map_-functions",
     "href": "slides/2024-09-18-map.html#variations-of-map_-functions",
     "title": "Mapping",
-    "section": "variations of map_ functions",
-    "text": "variations of map_ functions\n\n\nThe map functions are named by they output the produce. For example:\n\nmap(.x, .f) is the main mapping function and returns a list\nmap_dbl(.x, .f) returns a numeric (double) vector\nmap_chr(.x, .f) returns a character vector\nmap_lgl(.x, .f) returns a logical vector\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object."
+    "section": "",
+    "text": "The map functions are named by they output the produce. For example:\n\nmap(.x, .f) is the main mapping function and returns a list\nmap_dbl(.x, .f) returns a numeric (double) vector\nmap_chr(.x, .f) returns a character vector\nmap_lgl(.x, .f) returns a logical vector\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object."
   },
   {
     "objectID": "slides/2024-09-18-map.html#example-map-variants",
@@ -2930,7 +2930,7 @@
     "href": "slides/2024-09-18-map.html#map_-variants-input",
     "title": "Mapping",
     "section": "map_*() variants (input)",
-    "text": "map_*() variants (input)\n\nWe’ve already described the difference between the columns. Now we cover the difference between the rows."
+    "text": "map_*() variants (input)\n\n\n\n\n\n\n\n\n\nWe’ve already described the difference between the columns. Now we cover the difference between the rows."
   },
   {
     "objectID": "slides/2024-09-18-map.html#map-variants-output",
@@ -2964,43 +2964,43 @@
     "objectID": "slides/2024-09-23-simulating.html#goals-of-simulating-complicated-models",
     "href": "slides/2024-09-23-simulating.html#goals-of-simulating-complicated-models",
     "title": "Simulating",
-    "section": "Goals of Simulating Complicated Models",
-    "text": "Goals of Simulating Complicated Models\nThe goal of simulating a complicated model is not only to create a program which will provide the desired results. We also hope to be able to write code such that:\n\nThe problem is broken down into small pieces.\nThe problem has checks in it to see what works (run the lines inside the functions!).\nuses simple code (as often as possible)."
+    "section": "",
+    "text": "The goal of simulating a complicated model is not only to create a program which will provide the desired results. We also hope to be able to write code such that:\n\nThe problem is broken down into small pieces.\nThe problem has checks in it to see what works (run the lines inside the functions!).\nuses simple code (as often as possible)."
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-ifelse",
     "href": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-ifelse",
     "title": "Simulating",
-    "section": "Aside: a few R functions (ifelse())",
-    "text": "Aside: a few R functions (ifelse())\n\ndata.frame(value = c(-2:2)) |&gt;\n  mutate(abs_value = ifelse(value &gt;=0, value, -value))  # abs val\n\n  value abs_value\n1    -2         2\n2    -1         1\n3     0         0\n4     1         1\n5     2         2"
+    "section": "",
+    "text": "data.frame(value = c(-2:2)) |&gt;\n  mutate(abs_value = ifelse(value &gt;=0, value, -value))  # abs val\n\n  value abs_value\n1    -2         2\n2    -1         1\n3     0         0\n4     1         1\n5     2         2"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-case_when",
     "href": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-case_when",
     "title": "Simulating",
-    "section": "Aside: a few R functions (case_when())",
-    "text": "Aside: a few R functions (case_when())\n\nset.seed(4747)\ndiamonds |&gt; select(carat, cut, color, price) |&gt;\n  sample_n(20) |&gt;\n  mutate(price_cat = case_when(\n    price &gt; 10000 ~ \"expensive\",\n    price &gt; 1500 ~ \"medium\", \n    TRUE ~ \"inexpensive\"))\n\n# A tibble: 20 × 5\n   carat cut       color price price_cat  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;int&gt; &lt;chr&gt;      \n 1  1.23 Very Good F     10276 expensive  \n 2  0.35 Premium   H       706 inexpensive\n 3  0.7  Good      E      2782 medium     \n 4  0.4  Ideal     D      1637 medium     \n 5  0.53 Ideal     G      1255 inexpensive\n 6  2.22 Ideal     G     14637 expensive  \n 7  0.3  Ideal     G       878 inexpensive\n 8  1.05 Ideal     H      4223 medium     \n 9  0.53 Premium   E      1654 medium     \n10  1.7  Ideal     H      7068 medium     \n11  0.31 Good      E       698 inexpensive\n12  0.31 Ideal     F       840 inexpensive\n13  1.03 Ideal     H      4900 medium     \n14  0.31 Premium   G       698 inexpensive\n15  1.56 Premium   G      8858 medium     \n16  1.71 Premium   G     11032 expensive  \n17  1    Good      E      5345 medium     \n18  1.86 Ideal     J     10312 expensive  \n19  1.08 Very Good E      3726 medium     \n20  0.31 Premium   E       698 inexpensive"
+    "section": "",
+    "text": "set.seed(4747)\ndiamonds |&gt; select(carat, cut, color, price) |&gt;\n  sample_n(20) |&gt;\n  mutate(price_cat = case_when(\n    price &gt; 10000 ~ \"expensive\",\n    price &gt; 1500 ~ \"medium\", \n    TRUE ~ \"inexpensive\"))\n\n# A tibble: 20 × 5\n   carat cut       color price price_cat  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;int&gt; &lt;chr&gt;      \n 1  1.23 Very Good F     10276 expensive  \n 2  0.35 Premium   H       706 inexpensive\n 3  0.7  Good      E      2782 medium     \n 4  0.4  Ideal     D      1637 medium     \n 5  0.53 Ideal     G      1255 inexpensive\n 6  2.22 Ideal     G     14637 expensive  \n 7  0.3  Ideal     G       878 inexpensive\n 8  1.05 Ideal     H      4223 medium     \n 9  0.53 Premium   E      1654 medium     \n10  1.7  Ideal     H      7068 medium     \n11  0.31 Good      E       698 inexpensive\n12  0.31 Ideal     F       840 inexpensive\n13  1.03 Ideal     H      4900 medium     \n14  0.31 Premium   G       698 inexpensive\n15  1.56 Premium   G      8858 medium     \n16  1.71 Premium   G     11032 expensive  \n17  1    Good      E      5345 medium     \n18  1.86 Ideal     J     10312 expensive  \n19  1.08 Very Good E      3726 medium     \n20  0.31 Premium   E       698 inexpensive"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-sample",
     "href": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-sample",
     "title": "Simulating",
-    "section": "Aside: a few R functions (sample())",
-    "text": "Aside: a few R functions (sample())\nsampling, shuffling, and resampling: sample()\n\nset.seed(47)\nalph &lt;- letters[1:10]\nalph\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\"\n\nsample(alph, 5, replace = FALSE) # sample (from a population)\n\n[1] \"i\" \"b\" \"g\" \"d\" \"a\"\n\nsample(alph, 5, replace = TRUE) # sample (from a population)\n\n[1] \"j\" \"g\" \"f\" \"i\" \"f\"\n\nsample(alph, 10, replace = FALSE)  # shuffle\n\n [1] \"f\" \"h\" \"i\" \"e\" \"g\" \"d\" \"c\" \"j\" \"b\" \"a\"\n\nsample(alph, 10, replace = TRUE)  # resample\n\n [1] \"e\" \"j\" \"e\" \"b\" \"e\" \"c\" \"f\" \"a\" \"e\" \"a\""
+    "section": "",
+    "text": "sampling, shuffling, and resampling: sample()\n\nset.seed(47)\nalph &lt;- letters[1:10]\nalph\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\"\n\nsample(alph, 5, replace = FALSE) # sample (from a population)\n\n[1] \"i\" \"b\" \"g\" \"d\" \"a\"\n\nsample(alph, 5, replace = TRUE) # sample (from a population)\n\n[1] \"j\" \"g\" \"f\" \"i\" \"f\"\n\nsample(alph, 10, replace = FALSE)  # shuffle\n\n [1] \"f\" \"h\" \"i\" \"e\" \"g\" \"d\" \"c\" \"j\" \"b\" \"a\"\n\nsample(alph, 10, replace = TRUE)  # resample\n\n [1] \"e\" \"j\" \"e\" \"b\" \"e\" \"c\" \"f\" \"a\" \"e\" \"a\""
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#why",
     "href": "slides/2024-09-23-simulating.html#why",
     "title": "Simulating",
-    "section": "Why?",
-    "text": "Why?\nThree simulation methods are used for different purposes:\n\nMonte Carlo methods - use repeated sampling from a population with known characteristics.\nRandomization / Permutation methods - use shuffling (sampling without replacement from a sample) to test hypotheses of “no effect”.\nBootstrap methods - use resampling (sampling with replacement from a sample) to establish confidence intervals."
+    "section": "",
+    "text": "Three simulation methods are used for different purposes:\n\nMonte Carlo methods - use repeated sampling from a population with known characteristics.\nRandomization / Permutation methods - use shuffling (sampling without replacement from a sample) to test hypotheses of “no effect”.\nBootstrap methods - use resampling (sampling with replacement from a sample) to establish confidence intervals."
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-set.seed",
     "href": "slides/2024-09-23-simulating.html#aside-a-few-r-functions-set.seed",
     "title": "Simulating",
-    "section": "Aside: a few R functions (set.seed())",
-    "text": "Aside: a few R functions (set.seed())\nWhat if we want to be able to generate the same random numbers (here on the interval from 0 to 1) over and over?\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470\n\nset.seed(123)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.2875775 0.7883051 0.4089769 0.8830174\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470"
+    "section": "",
+    "text": "What if we want to be able to generate the same random numbers (here on the interval from 0 to 1) over and over?\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470\n\nset.seed(123)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.2875775 0.7883051 0.4089769 0.8830174\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470"
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#sally-joan",
@@ -3322,14 +3322,14 @@
     "href": "slides/2024-09-23-simulating.html#presidential-election",
     "title": "Simulating",
     "section": "Presidential election",
-    "text": "Presidential election\n\nHarris is ahead in the national polling but behind in North Carolina, Arizona, and Georgia."
+    "text": "Presidential election\n\n\n\n\n\nHarris is ahead in the national polling but behind in North Carolina, Arizona, and Georgia."
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#presidential-election-1",
     "href": "slides/2024-09-23-simulating.html#presidential-election-1",
     "title": "Simulating",
     "section": "Presidential election",
-    "text": "Presidential election\n\n538 simulates many many elections to see how the individual state percentages play out."
+    "text": "Presidential election\n\n\n\n\n\n538 simulates many many elections to see how the individual state percentages play out."
   },
   {
     "objectID": "slides/2024-09-23-simulating.html#election-data",
@@ -4875,8 +4875,8 @@
     "objectID": "slides/2024-09-23-simulating.html#monte-carlo-from-a-population-to",
     "href": "slides/2024-09-23-simulating.html#monte-carlo-from-a-population-to",
     "title": "Simulating",
-    "section": "Monte Carlo from a population to…",
-    "text": "Monte Carlo from a population to…\n\n\n…simulate as easier than calculus for estimating probabilities.\n…simulate to understand complicated models.\n…simulate to consider statistical methods with fewer assumptions."
+    "section": "",
+    "text": "…simulate as easier than calculus for estimating probabilities.\n…simulate to understand complicated models.\n…simulate to consider statistical methods with fewer assumptions."
   },
   {
     "objectID": "slides/2024-10-28-cart.html#tidymodels-syntax",
@@ -7915,5 +7915,19 @@
     "title": "Wrangling Data I",
     "section": "summarize()",
     "text": "summarize()\nsummarize() collapses a data frame to a single row based on some function. It’s not very useful yet, but it will be.\n\nsummarize(flights, delay = mean(dep_delay, na.rm = TRUE))\n\n# A tibble: 1 × 1\n  delay\n  &lt;dbl&gt;\n1  12.6"
+  },
+  {
+    "objectID": "slides/2024-09-23-simulating.html",
+    "href": "slides/2024-09-23-simulating.html",
+    "title": "Simulating",
+    "section": "",
+    "text": "Why simulate?\nWhat makes a good simulation?\nSimulating to calculate probabilities\n\n\n\nThe goal of simulating a complicated model is not only to create a program which will provide the desired results. We also hope to be able to write code such that:\n\nThe problem is broken down into small pieces.\nThe problem has checks in it to see what works (run the lines inside the functions!).\nuses simple code (as often as possible).\n\n\n\n\n\ndata.frame(value = c(-2:2)) |&gt;\n  mutate(abs_value = ifelse(value &gt;=0, value, -value))  # abs val\n\n  value abs_value\n1    -2         2\n2    -1         1\n3     0         0\n4     1         1\n5     2         2\n\n\n\n\n\n\nset.seed(4747)\ndiamonds |&gt; select(carat, cut, color, price) |&gt;\n  sample_n(20) |&gt;\n  mutate(price_cat = case_when(\n    price &gt; 10000 ~ \"expensive\",\n    price &gt; 1500 ~ \"medium\", \n    TRUE ~ \"inexpensive\"))\n\n# A tibble: 20 × 5\n   carat cut       color price price_cat  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;int&gt; &lt;chr&gt;      \n 1  1.23 Very Good F     10276 expensive  \n 2  0.35 Premium   H       706 inexpensive\n 3  0.7  Good      E      2782 medium     \n 4  0.4  Ideal     D      1637 medium     \n 5  0.53 Ideal     G      1255 inexpensive\n 6  2.22 Ideal     G     14637 expensive  \n 7  0.3  Ideal     G       878 inexpensive\n 8  1.05 Ideal     H      4223 medium     \n 9  0.53 Premium   E      1654 medium     \n10  1.7  Ideal     H      7068 medium     \n11  0.31 Good      E       698 inexpensive\n12  0.31 Ideal     F       840 inexpensive\n13  1.03 Ideal     H      4900 medium     \n14  0.31 Premium   G       698 inexpensive\n15  1.56 Premium   G      8858 medium     \n16  1.71 Premium   G     11032 expensive  \n17  1    Good      E      5345 medium     \n18  1.86 Ideal     J     10312 expensive  \n19  1.08 Very Good E      3726 medium     \n20  0.31 Premium   E       698 inexpensive\n\n\n\n\n\nsampling, shuffling, and resampling: sample()\n\nset.seed(47)\nalph &lt;- letters[1:10]\nalph\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\"\n\nsample(alph, 5, replace = FALSE) # sample (from a population)\n\n[1] \"i\" \"b\" \"g\" \"d\" \"a\"\n\nsample(alph, 5, replace = TRUE) # sample (from a population)\n\n[1] \"j\" \"g\" \"f\" \"i\" \"f\"\n\nsample(alph, 10, replace = FALSE)  # shuffle\n\n [1] \"f\" \"h\" \"i\" \"e\" \"g\" \"d\" \"c\" \"j\" \"b\" \"a\"\n\nsample(alph, 10, replace = TRUE)  # resample\n\n [1] \"e\" \"j\" \"e\" \"b\" \"e\" \"c\" \"f\" \"a\" \"e\" \"a\"\n\n\n\n\n\nWhat if we want to be able to generate the same random numbers (here on the interval from 0 to 1) over and over?\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470\n\nset.seed(123)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.2875775 0.7883051 0.4089769 0.8830174\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470\n\n\n\n\n\nThree simulation methods are used for different purposes:\n\nMonte Carlo methods - use repeated sampling from a population with known characteristics.\nRandomization / Permutation methods - use shuffling (sampling without replacement from a sample) to test hypotheses of “no effect”.\nBootstrap methods - use resampling (sampling with replacement from a sample) to establish confidence intervals.\n\n\n\n\n\n\n…simulate as easier than calculus for estimating probabilities.\n…simulate to understand complicated models.\n…simulate to consider statistical methods with fewer assumptions."
+  },
+  {
+    "objectID": "slides/2024-09-18-map.html",
+    "href": "slides/2024-09-18-map.html",
+    "title": "Mapping",
+    "section": "",
+    "text": "mapping\n\n\n\nfunctionals are functions that take function as input and return a vector / list / data frame as output.\n\nalternatives to loops\na functional is better than a for loop is better than while is better than repeat (in terms of computing efficiency)\n\n\n\n\n\nencourages function logic to be separated from iteration logic\ncan collapse into vectors/data frames easily\n\n\n\n\nmap() has (at least) two arguments, a data object and a function. It performs the function on each element of the data object and returns a list. We can also pass additional arguments into the function.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe map functions are named by they output the produce. For example:\n\nmap(.x, .f) is the main mapping function and returns a list\nmap_dbl(.x, .f) returns a numeric (double) vector\nmap_chr(.x, .f) returns a character vector\nmap_lgl(.x, .f) returns a logical vector\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object."
   }
 ]
