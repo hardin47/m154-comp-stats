@@ -420,18 +420,18 @@ HELPrct |> group_by(substance) |>
 
 ```{r}
 library(mosaic)
-data(Births78)
+data(Births2015)
 ```
 
 ```{r}
 #| eval: false
-head(Births78) 
+head(Births2015) 
 ```
 
 
 ```{r}
 #| echo: false
-head(Births78) |> 
+head(Births2015) |> 
   gt::gt()
 ```
 
@@ -446,9 +446,9 @@ head(Births78) |>
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
 ggplot(
-  data = Births78, aes(x = date, y = births)) + 
+  data = Births2015, aes(x = date, y = births)) + 
   geom_point() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -469,9 +469,9 @@ Two Questions:
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
 ggplot(
-  data = Births78, aes(x = date, y = births)) + 
+  data = Births2015, aes(x = date, y = births)) + 
   geom_point() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -480,13 +480,14 @@ ggplot(
  
 2. What does R need to know?
  
-    * data source: `Births78`
+    * data source: `Births2015`
 
     * aesthetics: 
  
         * `date -> x`
         * `births -> y`
-        * points (!)
+
+    * points
 :::
 ::::
 
@@ -496,9 +497,9 @@ ggplot(
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
 ggplot(
-  data = Births78, aes(x = date, y = births)) + 
+  data = Births2015, aes(x = date, y = births)) + 
   geom_point() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -507,15 +508,15 @@ ggplot(
 #| echo: true
 #| eval: false
 #| code-line-numbers: "1,2,7,8"
-ggplot(data = Births78, 
+ggplot(data = Births2015, 
        aes(x = date, y = births)) + 
   geom_point() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 
 ggplot() +
-  geom_point(data = Births78, 
+  geom_point(data = Births2015, 
              aes(x = date, y = births)) +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 :::
@@ -549,7 +550,7 @@ ggplot()
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78, aes(x = date, y = births)) 
+ggplot(data = Births2015, aes(x = date, y = births)) 
 ```
 :::
 
@@ -558,7 +559,7 @@ ggplot(data = Births78, aes(x = date, y = births))
 #| echo: true
 #| eval: false
 #| code-line-numbers: "1,2"
-ggplot(data = Births78, 
+ggplot(data = Births2015, 
        aes(x = date, y = births)) 
 ```
 
@@ -572,7 +573,7 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78, aes(x = date, y = births)) + 
+ggplot(data = Births2015, aes(x = date, y = births)) + 
   geom_point()
 ```
 :::
@@ -582,7 +583,7 @@ ggplot(data = Births78, aes(x = date, y = births)) +
 #| echo: true
 #| eval: false
 #| code-line-numbers: "3"
-ggplot(data = Births78, 
+ggplot(data = Births2015, 
        aes(x = date, y = births)) + 
   geom_point()
 ```
@@ -596,9 +597,9 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78, aes(x = date, y = births)) + 
+ggplot(data = Births2015, aes(x = date, y = births)) + 
   geom_point() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -607,10 +608,10 @@ ggplot(data = Births78, aes(x = date, y = births)) +
 #| echo: true
 #| eval: false
 #| code-line-numbers: "4"
-ggplot(data = Births78, 
+ggplot(data = Births2015, 
        aes(x = date, y = births)) + 
   geom_point() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 :::
@@ -622,9 +623,9 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78) +
+ggplot(data = Births2015) +
   geom_point(aes(x = date, y = births, color = wday)) +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -636,9 +637,9 @@ ggplot(data = Births78) +
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78) +
+ggplot(data = Births2015) +
   geom_point(aes(x = date, y = births, color = wday)) +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -654,9 +655,9 @@ What has changed?
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78) +
+ggplot(data = Births2015) +
   geom_point(aes(x = date, y = births, color = wday)) +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -665,12 +666,12 @@ ggplot(data = Births78) +
 #| echo: true
 #| eval: false
 #| code-line-numbers: "4"
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date,
            y = births, 
            color = wday)) +
   geom_point() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 ::::
@@ -680,9 +681,9 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78) +
+ggplot(data = Births2015) +
   geom_line(aes(x = date, y = births, color = wday)) +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 ::::
@@ -692,9 +693,9 @@ ggplot(data = Births78) +
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78) +
+ggplot(data = Births2015) +
   geom_line(aes(x = date, y = births, color = wday)) +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -705,12 +706,12 @@ lines instead of dots!
 #| echo: true
 #| eval: false
 #| code-line-numbers: "5"
-ggplot(data = Births78,
+ggplot(data = Births2015,
          aes(x = date, 
              y = births,
              color = wday)) +
   geom_line() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 :::
@@ -721,11 +722,11 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78, 
+ggplot(data = Births2015, 
        aes(x = date, y = births, color = wday)) + 
   geom_point() + 
   geom_line() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 ::::
@@ -736,11 +737,11 @@ ggplot(data = Births78,
 ::: {.column width="40%"}
 ```{r}
 #| echo: false
-ggplot(data = Births78, 
+ggplot(data = Births2015, 
        aes(x = date, y = births, color = wday)) + 
   geom_point() + 
   geom_line() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -752,13 +753,13 @@ lines
 #| echo: true
 #| eval: false
 #| code-line-numbers: "5,6"
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date,
            y = births,
            color = wday)) + 
   geom_point() +  
   geom_line() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 
@@ -777,10 +778,10 @@ are *below* and the lines are *above*.
 #| echo: true
 #| eval: false
 #| code-line-numbers: "2"
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date, y = births, color = "navy")) + 
   geom_point() +
-  labs(title = "US Births in 1978") 
+  labs(title = "US Births in 2015") 
 ```
 
 
@@ -790,10 +791,10 @@ ggplot(data = Births78,
 #| echo: true
 #| eval: true
 #| code-line-numbers: "2"
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date, y = births, color = "navy")) + 
   geom_point()  +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 
@@ -811,10 +812,10 @@ it outside the `aes()` designation:
 #| echo: true
 #| eval: true
 #| code-line-numbers: "2,3"
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date, y = births)) +   # map variables 
   geom_point(color = "navy")      +   # set attributes
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 
@@ -827,11 +828,11 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="60%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date, y = births)) + 
   geom_line(aes(color = wday)) +       
   geom_point(color = "navy")  +          
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 ::::
@@ -841,12 +842,12 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="40%"}
 ```{r, echo=FALSE}
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date,
            y = births)) + 
   geom_line(aes(color = wday)) +       
   geom_point(color = "navy") +           
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -855,12 +856,12 @@ ggplot(data = Births78,
 #| echo: true
 #| eval: false
 #| code-line-numbers: "4,5"
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date,
            y = births)) + 
   geom_line(aes(color = wday)) +      
   geom_point(color = "navy")  +         
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 
@@ -903,12 +904,12 @@ help pages will tell you their aesthetics, default stats, etc.
 :::: {.columns} 
 ::: {.column width="50%"}
 ```{r, eval=TRUE}
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date,
            y = births, 
            fill = wday)) + 
   geom_area() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 
 :::
@@ -919,10 +920,10 @@ ggplot(data = Births78,
 :::: {.columns} 
 ::: {.column width="50%"}
 ```{r, eval=TRUE}
-ggplot(data = Births78,
+ggplot(data = Births2015,
        aes(x = date, y = births, fill = wday)) + 
   geom_area() +
-  labs(title = "US Births in 1978")
+  labs(title = "US Births in 2015")
 ```
 :::
 
@@ -1531,7 +1532,7 @@ ggplot(data = HELP_data,
 #| eval: true
 #| code-line-numbers: "4"
 library(ggthemes)
-ggplot(Births78, aes(x = date, y = births)) + 
+ggplot(Births2015, aes(x = date, y = births)) + 
   geom_point() + 
   theme_wsj()
 ```

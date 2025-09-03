@@ -5,7 +5,7 @@ description: |
 author:
   - name: Jo Hardin
     url: https://m154-comp-stats.netlify.app/
-date: 09-09-2024
+date: 09-03-2025
 citation: false
 embed-resources: true
 execute: 
@@ -30,14 +30,13 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 ## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
 
-### September 9 + 11, 2024
+### September 3 + 8, 2025
 
 1. Tidy data
 2. Data verbs
 
 
-
-### September 16, 2024
+### September 10, 2024
 
 1. Relational data (`_join`)
 2. `pivot`ing
@@ -74,17 +73,10 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 ## Slides <i class="fas fa-desktop"></i> 
 
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-09-verbs" target = "_blank">In class slides</a> for both 9/9/24 and 9/11/24.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2025-09-03-verbs" target = "_blank">In class slides</a> for 9/3/25.
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-16-pivotjoin" target = "_blank">In class slides</a> for 9/16/24.
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws3_m154_f25_verbs.pdf" target = "_blank">WS3 - verbs</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-09-18-map" target = "_blank">In class slides</a> for 9/18/24.
-
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws4_m154_f24_verbs.pdf" target = "_blank">WS4 - verbs</a>
-
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws5_m154_f24_join.pdf" target = "_blank">WS5 - joins</a>
-
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws6_m154_f24_map.pdf" target = "_blank">WS6 - mapping</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
