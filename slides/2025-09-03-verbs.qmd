@@ -38,7 +38,7 @@ Much of this material can be found at the <a href = "https://cran.r-project.org/
 
 1. Tidy data
 2. Data verbs
-
+3. pivoting
  
 
 # The data
@@ -185,7 +185,7 @@ The first argument of each data verb is the data frame.
 - `select()`
 - `mutate()`
 - `summarize()`
-
+- `group_by()`
  
 
 ## `filter()`
@@ -590,3 +590,142 @@ When `scale_size_area` is used, the default behavior is to scale the area of poi
 :::
 
  
+# `pivot`ing
+ 
+```{r out.width = '47%', fig.align='center', echo=FALSE, fig.show='hold'}
+#| fig-cap: 'image credit: https://www.garrickadenbuie.com/project/tidyexplain/'
+knitr::include_graphics("../images/tidyr-pivoting.gif")
+```
+ 
+ 
+## From wide to long and long to wide
+
+* <mark>`pivot_longer()`</mark> makes the data frame "longer" -- many columns into a few columns (more rows):
+
+`pivot_longer(data,cols,names_to=,value_to=)`
+
+* <mark>`pivot_wider()`</mark> makes the data frame "wider" -- a few columns into many columns (fewer rows):
+
+`pivot_wider(data,names_from=,values_from=)`
+
+
+## From wide to long and long to wide
+
+```{r out.width = '47%', fig.align='center', echo=FALSE, fig.show='hold'}
+knitr::include_graphics(c("../images/pivotlonger.png", "../images/pivotwider.png"))
+```
+
+ 
+  
+## `pivot_longer()`
+  
+`pivot_longer()` will be demonstrated using datasets from <a href = "https://www.gapminder.org/" target = "_blank">GapMinder</a>.
+
+`litF` represents country, year, and <mark>female literacy rate</mark>. 
+
+```{r message=FALSE}
+library(googlesheets4)
+gs4_deauth()
+litF <- read_sheet("https://docs.google.com/spreadsheets/d/1hDinTIRHQIaZg1RUn6Z_6mo12PtKwEPFIz_mJVF6P5I/pub?gid=0")
+
+litF |> 
+  gt::gt()
+```
+
+ 
+## `pivot_longer()`
+  
+```{r}
+litF <- litF |> 
+  select(country = starts_with("Adult"), everything()) |> 
+  pivot_longer(cols = -country,
+               names_to = "year", 
+               values_to = "litRateF") |> 
+  filter(!is.na(litRateF))
+
+litF |> 
+  gt::gt()
+```
+
+
+ 
+  
+## `pivot_longer()`
+  
+`GDP` represents country, year, and <mark>gdpval</mark> (in fixed 2000 US$).
+
+```{r message=FALSE}
+GDP <- read_sheet("https://docs.google.com/spreadsheets/d/1RctTQmKB0hzbm1E8rGcufYdMshRdhmYdeL29nXqmvsc/pub?gid=0")
+
+GDP <- GDP |>  
+  select(country = starts_with("Income"), everything()) |> 
+  pivot_longer(cols = -country, 
+               names_to = "year",
+               values_to = "gdpval") |> 
+  filter(!is.na(gdpval))
+
+GDP |> 
+  gt::gt()
+```
+
+ 
+  
+## `pivot_wider()`
+
+`pivot_wider()`  will be demonstrated using the `paralympic_1500` dataset in the **openintro** R package.
+
+```{r}
+library(openintro)
+
+paralympic_1500 |> 
+  gt::gt()
+```
+
+ 
+## `pivot_wider()` `paralympic_1500`
+
+
+```{r}
+paralympic_1500 |>  
+  filter(division == "Men" & type %in% c("Olympic", "T13")) |> 
+  select(year, type, time_min) |> 
+  gt::gt()
+```
+
+. . .
+
+```{r}
+paralympic_1500 |>  
+  filter(division == "Men" & type %in% c("Olympic", "T13")) |> 
+  select(year, type, time_min) |>
+  pivot_wider(names_from = type, values_from = time_min) |> 
+  gt::gt()
+```
+> https://www.paralympic.org/news/remarkable-finish-1500m-rio-2016
+
+
+## `pivot_wider()` `paralympic_1500`
+ 
+  
+```{r}
+paralympic_1500 |>  
+  filter(division == "Men" & type %in% c("Olympic", "T13")) |> 
+  select(year, type, time_min) |>
+  pivot_wider(names_from = type, values_from = time_min) |>
+  filter(!is.na(T13)) |> 
+  arrange(Olympic) |> 
+  gt::gt()
+```
+
+ 
+## `pivot_wider()` `paralympic_1500`
+  
+```{r}
+paralympic_1500 |>  
+  filter(division == "Men" & type %in% c("Olympic", "T13")) |> 
+  select(year, type, time_min) |>
+  pivot_wider(names_from = type, values_from = time_min) |> 
+  mutate(mintime = pmin(Olympic, T13, na.rm = TRUE)) |> 
+  arrange(mintime) |> 
+  gt::gt()
+```
