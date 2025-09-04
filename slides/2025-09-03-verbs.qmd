@@ -336,7 +336,7 @@ speed_data <- select(flights2, tailnum, speed)
 
 ## `group_by()`
 
-`summarize()` and `sample_n()` are even more powerful when combined with the idea of  "group by", repeating the operation separately on groups of observations within the dataset. 
+`summarize()` is even more powerful when combined with the idea of  "group by", repeating the operation separately on groups of observations within the dataset. 
 
 The `group_by()` function describes how to break a dataset down into groups of rows.
 

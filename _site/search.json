@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": "01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 25, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nAug 27, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 3, 2025\n\n\nJo Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": "01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 25, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nAug 27, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 3, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n04. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 8, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -7529,7 +7529,7 @@
     "href": "slides/2025-09-03-verbs.html#group_by",
     "title": "Wrangling Data I",
     "section": "group_by()",
-    "text": "group_by()\nsummarize() and sample_n() are even more powerful when combined with the idea of “group by”, repeating the operation separately on groups of observations within the dataset.\nThe group_by() function describes how to break a dataset down into groups of rows."
+    "text": "group_by()\nsummarize() is even more powerful when combined with the idea of “group by”, repeating the operation separately on groups of observations within the dataset.\nThe group_by() function describes how to break a dataset down into groups of rows."
   },
   {
     "objectID": "slides/2025-09-03-verbs.html#group_by-1",
@@ -7992,5 +7992,54 @@
     "title": "Wrangling Data I",
     "section": "pivot_wider() paralympic_1500",
     "text": "pivot_wider() paralympic_1500\n\nparalympic_1500 |&gt;  \n  filter(division == \"Men\" & type %in% c(\"Olympic\", \"T13\")) |&gt; \n  select(year, type, time_min) |&gt;\n  pivot_wider(names_from = type, values_from = time_min) |&gt; \n  mutate(mintime = pmin(Olympic, T13, na.rm = TRUE)) |&gt; \n  arrange(mintime) |&gt; \n  gt::gt()\n\n\n\n\n\n\n\nyear\nOlympic\nT13\nmintime\n\n\n\n\n2020\n3.472000\n3.900667\n3.472000\n\n\n2000\n3.534500\n3.949500\n3.534500\n\n\n1984\n3.542167\n4.241833\n3.542167\n\n\n2008\n3.551833\n4.101833\n3.551833\n\n\n2012\n3.568000\n3.805167\n3.568000\n\n\n2004\n3.569833\n3.851500\n3.569833\n\n\n1968\n3.581833\nNA\n3.581833\n\n\n1960\n3.593333\nNA\n3.593333\n\n\n1996\n3.596333\n3.958833\n3.596333\n\n\n1988\n3.599333\n4.185500\n3.599333\n\n\n1972\n3.605000\nNA\n3.605000\n\n\n1964\n3.635000\nNA\n3.635000\n\n\n1980\n3.640000\nNA\n3.640000\n\n\n1976\n3.652833\nNA\n3.652833\n\n\n1992\n3.668667\n4.037333\n3.668667\n\n\n1956\n3.686667\nNA\n3.686667\n\n\n1952\n3.753333\nNA\n3.753333\n\n\n1936\n3.796667\nNA\n3.796667\n\n\n2016\n3.833333\n3.804833\n3.804833\n\n\n1948\n3.830000\nNA\n3.830000\n\n\n1932\n3.853333\nNA\n3.853333\n\n\n1928\n3.886667\nNA\n3.886667\n\n\n1924\n3.893333\nNA\n3.893333\n\n\n1912\n3.946667\nNA\n3.946667\n\n\n1920\n4.030000\nNA\n4.030000\n\n\n1908\n4.056667\nNA\n4.056667\n\n\n1904\n4.090000\nNA\n4.090000\n\n\n1900\n4.103333\nNA\n4.103333\n\n\n1896\n4.553333\nNA\n4.553333"
+  },
+  {
+    "objectID": "posts/2025-09-08-simulating/index.html",
+    "href": "posts/2025-09-08-simulating/index.html",
+    "title": "04. Simulating",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2025-09-08-simulating/index.html#agenda",
+    "href": "posts/2025-09-08-simulating/index.html#agenda",
+    "title": "04. Simulating",
+    "section": "Agenda ",
+    "text": "Agenda \n\nSeptember 8, 2025\n\nWhy simulate?\nWhat makes a good simulation?\nExamples\n\n\n\nSeptember 25, 2024\n\nBias in modeling\nSimulating statistical inference"
+  },
+  {
+    "objectID": "posts/2025-09-08-simulating/index.html#readings",
+    "href": "posts/2025-09-08-simulating/index.html#readings",
+    "title": "04. Simulating",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Simulating\nBaumer, Horton, and Kaplan (2021), Iteration (Chp 7) in Modern Data Science for R."
+  },
+  {
+    "objectID": "posts/2025-09-08-simulating/index.html#reflection-questions",
+    "href": "posts/2025-09-08-simulating/index.html#reflection-questions",
+    "title": "04. Simulating",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nWhat are some reasons to simulate?\nWhat makes a good simulation?\nWhat does “90%” mean when describing a 90% confidence interval? (That is, 90% of what?)\nWhat does a type I error rate mean when doing hypothesis testing? (That is, rate of what?)\nThe p-value is the probability of obtaining the observed data or more extreme if the null hypothesis is true. If probability is interpreted in the long-run-frequency definition, what is happening repeatedly so as to conceptualize the probability of something happening?"
+  },
+  {
+    "objectID": "posts/2025-09-08-simulating/index.html#ethics-considerations",
+    "href": "posts/2025-09-08-simulating/index.html#ethics-considerations",
+    "title": "04. Simulating",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nHow can we use simulations to understand algorithmic bias or other types of problems in modeling?\nWhat does it mean for two different populations to have different feature distributions?"
+  },
+  {
+    "objectID": "posts/2025-09-08-simulating/index.html#slides",
+    "href": "posts/2025-09-08-simulating/index.html#slides",
+    "title": "04. Simulating",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides for both 9/23/24 and 9/25/24.\nWS7 - Simulating"
+  },
+  {
+    "objectID": "posts/2025-09-08-simulating/index.html#additional-resources",
+    "href": "posts/2025-09-08-simulating/index.html#additional-resources",
+    "title": "04. Simulating",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nPosit cheatsheets – there is one on purrr!\nSimulating who would be in the first GOP debate (NYT 7/29/15)\nBlog by Aaron Roth, Algorithmic Unfairness Without Any Bias Baked In.\nSimulating linear models from the ISCAM applets."
   }
 ]
