@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jo Hardin">
-<meta name="description" content="The plan, the details, the logistics.">
 
-<title>Syllabus – Computational Statistics</title>
+<title>superfluous material examples – Computational Statistics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -100,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Daily</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./syllabus.html" aria-current="page"> 
+    <a class="nav-link" href="./syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
@@ -155,32 +187,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Syllabus</h1>
+<h1 class="title">superfluous material examples</h1>
 </div>
 
-<div>
-  <div class="description">
-    <p>The plan, the details, the logistics.</p>
-  </div>
-</div>
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://m154-comp-stats.netlify.app/">Jo Hardin</a> </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            Pomona College
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    
   
     
   </div>
@@ -190,237 +204,229 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="computational-statistics" class="level1">
-<h1>Computational Statistics</h1>
-<section id="math-154-fall-2025" class="level2">
-<h2 class="anchored" data-anchor-id="math-154-fall-2025">Math 154, Fall 2025</h2>
-<p>Jo Hardin<br>
-2351 Estella<br>
-jo.hardin@pomona.edu</p>
-<p><strong>Office Hours: (Estella 2351)</strong><br>
-Monday: 2:30-5:00pm<br>
-Tuesday: 9-11am<br>
-Thursday: 1:15-3pm</p>
-<p><strong>Mentor Sessions:</strong> Tues 8-10pm<br>
-Estella 2141<br>
-Mentor: Tiernan Colby</p>
-<div class="cell" data-preview="true">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/debugging.jpg" class="img-fluid figure-img" alt="Monsters going through the phases of writing code." width="3364"></p>
-<figcaption>Artwork by <span class="citation" data-cites="allison_horst">@allison_horst</span>.</figcaption>
-</figure>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="an-okay-way-to-look-at-a-data-frame" class="level1">
+<h1>An okay way to look at a data frame</h1>
+<p>Sometimes the way the dataset is saved will make it print just the first few rows. This is totally okay in your rendered doc. Indeed, oftentimes printing the data to the screen is a great way to communicate aspects of the data (variable names, variable types, etc.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 336,776 × 19
+    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
+   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
+ 1  2013     1     1      517            515         2      830            819
+ 2  2013     1     1      533            529         4      850            830
+ 3  2013     1     1      542            540         2      923            850
+ 4  2013     1     1      544            545        -1     1004           1022
+ 5  2013     1     1      554            600        -6      812            837
+ 6  2013     1     1      554            558        -4      740            728
+ 7  2013     1     1      555            600        -5      913            854
+ 8  2013     1     1      557            600        -3      709            723
+ 9  2013     1     1      557            600        -3      838            846
+10  2013     1     1      558            600        -2      753            745
+# ℹ 336,766 more rows
+# ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
+#   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
+#   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
 </div>
 </div>
+</section>
+<section id="a-not-okay-way-to-look-at-a-data-frame" class="level1">
+<h1>A not okay way to look at a data frame</h1>
+<p>But sometimes, the formatting is such that the <strong>entire</strong> dataset is printed in the output!!! Having all the data print out isn’t helpful for your reader who is overwhelmed by pages of numbers.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>smokecancer <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">action =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"non-smoker"</span>, <span class="dv">51</span>), <span class="fu">rep</span>(<span class="st">"smoker"</span>, <span class="dv">69</span>)),</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">outcome =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"lung_cancer"</span>, <span class="dv">19</span>), <span class="fu">rep</span>(<span class="st">"healthy"</span>, <span class="dv">32</span>), </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">rep</span>(<span class="st">"lung_cancer"</span>, <span class="dv">41</span>), <span class="fu">rep</span>(<span class="st">"healthy"</span>, <span class="dv">28</span>)))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>smokecancer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        action     outcome
+1   non-smoker lung_cancer
+2   non-smoker lung_cancer
+3   non-smoker lung_cancer
+4   non-smoker lung_cancer
+5   non-smoker lung_cancer
+6   non-smoker lung_cancer
+7   non-smoker lung_cancer
+8   non-smoker lung_cancer
+9   non-smoker lung_cancer
+10  non-smoker lung_cancer
+11  non-smoker lung_cancer
+12  non-smoker lung_cancer
+13  non-smoker lung_cancer
+14  non-smoker lung_cancer
+15  non-smoker lung_cancer
+16  non-smoker lung_cancer
+17  non-smoker lung_cancer
+18  non-smoker lung_cancer
+19  non-smoker lung_cancer
+20  non-smoker     healthy
+21  non-smoker     healthy
+22  non-smoker     healthy
+23  non-smoker     healthy
+24  non-smoker     healthy
+25  non-smoker     healthy
+26  non-smoker     healthy
+27  non-smoker     healthy
+28  non-smoker     healthy
+29  non-smoker     healthy
+30  non-smoker     healthy
+31  non-smoker     healthy
+32  non-smoker     healthy
+33  non-smoker     healthy
+34  non-smoker     healthy
+35  non-smoker     healthy
+36  non-smoker     healthy
+37  non-smoker     healthy
+38  non-smoker     healthy
+39  non-smoker     healthy
+40  non-smoker     healthy
+41  non-smoker     healthy
+42  non-smoker     healthy
+43  non-smoker     healthy
+44  non-smoker     healthy
+45  non-smoker     healthy
+46  non-smoker     healthy
+47  non-smoker     healthy
+48  non-smoker     healthy
+49  non-smoker     healthy
+50  non-smoker     healthy
+51  non-smoker     healthy
+52      smoker lung_cancer
+53      smoker lung_cancer
+54      smoker lung_cancer
+55      smoker lung_cancer
+56      smoker lung_cancer
+57      smoker lung_cancer
+58      smoker lung_cancer
+59      smoker lung_cancer
+60      smoker lung_cancer
+61      smoker lung_cancer
+62      smoker lung_cancer
+63      smoker lung_cancer
+64      smoker lung_cancer
+65      smoker lung_cancer
+66      smoker lung_cancer
+67      smoker lung_cancer
+68      smoker lung_cancer
+69      smoker lung_cancer
+70      smoker lung_cancer
+71      smoker lung_cancer
+72      smoker lung_cancer
+73      smoker lung_cancer
+74      smoker lung_cancer
+75      smoker lung_cancer
+76      smoker lung_cancer
+77      smoker lung_cancer
+78      smoker lung_cancer
+79      smoker lung_cancer
+80      smoker lung_cancer
+81      smoker lung_cancer
+82      smoker lung_cancer
+83      smoker lung_cancer
+84      smoker lung_cancer
+85      smoker lung_cancer
+86      smoker lung_cancer
+87      smoker lung_cancer
+88      smoker lung_cancer
+89      smoker lung_cancer
+90      smoker lung_cancer
+91      smoker lung_cancer
+92      smoker lung_cancer
+93      smoker     healthy
+94      smoker     healthy
+95      smoker     healthy
+96      smoker     healthy
+97      smoker     healthy
+98      smoker     healthy
+99      smoker     healthy
+100     smoker     healthy
+101     smoker     healthy
+102     smoker     healthy
+103     smoker     healthy
+104     smoker     healthy
+105     smoker     healthy
+106     smoker     healthy
+107     smoker     healthy
+108     smoker     healthy
+109     smoker     healthy
+110     smoker     healthy
+111     smoker     healthy
+112     smoker     healthy
+113     smoker     healthy
+114     smoker     healthy
+115     smoker     healthy
+116     smoker     healthy
+117     smoker     healthy
+118     smoker     healthy
+119     smoker     healthy
+120     smoker     healthy</code></pre>
+</div>
+</div>
+<section id="solutions" class="level2">
+<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
+<p>One way to print only the top of the data frame is to use the <code>head()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>smokecancer <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      action     outcome
+1 non-smoker lung_cancer
+2 non-smoker lung_cancer
+3 non-smoker lung_cancer
+4 non-smoker lung_cancer
+5 non-smoker lung_cancer
+6 non-smoker lung_cancer</code></pre>
+</div>
+</div>
+<p>Another way to print only the top few rows is to change the object from a <code>data.frame</code> into a <code>tibble</code> (a <code>tibble</code> is like a <code>data.frame</code> but it has nice printing options). Note that one benefit of <code>tibble()</code> over <code>head()</code> is that the reader can see the size of the data frame (number of rows and columns).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>smokecancer <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 120 × 2
+   action     outcome    
+   &lt;chr&gt;      &lt;chr&gt;      
+ 1 non-smoker lung_cancer
+ 2 non-smoker lung_cancer
+ 3 non-smoker lung_cancer
+ 4 non-smoker lung_cancer
+ 5 non-smoker lung_cancer
+ 6 non-smoker lung_cancer
+ 7 non-smoker lung_cancer
+ 8 non-smoker lung_cancer
+ 9 non-smoker lung_cancer
+10 non-smoker lung_cancer
+# ℹ 110 more rows</code></pre>
+</div>
 </div>
 </section>
-<section id="the-course" class="level2">
-<h2 class="anchored" data-anchor-id="the-course">The course</h2>
-<p><strong>Computational Statistics</strong> will be an introduction to those statistical methods that rely heavily on the use of computers. The course will generally have two parts. The first section will include communicating and working with data in a modern era, which includes data wrangling, data visualization, data ethics, and collaborative research (via GitHub). Additionally, we will focus on traditional statistical inference done through computational methods (e.g., simulation, permutation tests, and bootstrapping). The second part of the course will focus on machine learning ideas such as classification, clustering, and dimension reduction techniques. Some of the methods were invented before the ubiquitous use of personal computers, but only because the calculus used to solve the problem was relatively straightforward (or because the method wasn’t actually ever used). Some of the methods have been developed quite recently.</p>
-<p><strong>Anonymous Feedback</strong> As someone who is constantly learning and growing in many ways, I welcome your feedback about the course, the classroom dynamics, or anything else you’d like me to know. There is a link to an anonymous feedback form on the landing page of our Canvas webpage. Please provide me with feedback at any time!</p>
 </section>
-<section id="student-learning-outcomes." class="level2">
-<h2 class="anchored" data-anchor-id="student-learning-outcomes.">Student Learning Outcomes.</h2>
-<p>By the end of the term, students will be able to:</p>
-<ul>
-<li>work through the entire computational statistics flow chart as a data analyst.</li>
-<li>use graphical representations of data to communicate ideas about the data.</li>
-<li>identify, understand, and describe the uses and misuses of algorithms and data collection from an ethical lens with the purpose of preventing harms from data science.</li>
-<li>critically evaluate analyses / graphics of data (typically big data or dynamic data).</li>
-<li>communicate results effectively.</li>
-</ul>
-</section>
-<section id="diversity-and-inclusion-statement" class="level2">
-<h2 class="anchored" data-anchor-id="diversity-and-inclusion-statement">Diversity and Inclusion Statement</h2>
-<p>(adapted from Monica Linden, Brown University):</p>
-<p>In an ideal world, science would be objective. However, much of science is subjective and is historically built on a small subset of privileged voices. In this class, we will make an effort to recognize how science (and statistics!) has played a role in both understanding diversity as well as in promoting systems of power and privilege. I acknowledge that it is possible that there may be both overt and covert biases in the material due to the lens with which it was written, even though the material is primarily of a scientific nature. Integrating a diverse set of experiences is important for a more comprehensive understanding of science. I would like to discuss issues of diversity in statistics as part of the course from time to time.</p>
-<p>Please contact me if you have any suggestions to improve the quality of the course materials.</p>
-<p>Furthermore, I would like to create a learning environment for my students that supports a diversity of thoughts, perspectives and experiences, and honors your identities (including race, gender, class, sexuality, religion, ability, etc.) To help accomplish this:</p>
-<ul>
-<li>If you have a name and/or set of pronouns that differ from those that appear in your official records, please let me know!</li>
-<li>If you feel like your performance in the class is being impacted by your experiences outside of class, please don’t hesitate to come and talk with me. You can also relay information to me via your mentors.</li>
-<li>I want to be a resource for you. If you prefer to speak with someone outside of the course, the math liaisons, Dean of Students, or QSC staff are all excellent resources.</li>
-<li>I (like many people) am still in the process of learning about diverse perspectives and identities. If something was said in class (by anyone) that made you feel uncomfortable, please talk to me about it.</li>
-<li>As a participant in course discussions, you should also strive to honor the diversity of your classmates.</li>
-</ul>
-</section>
-<section id="technical-details" class="level2">
-<h2 class="anchored" data-anchor-id="technical-details">Technical Details</h2>
-<section id="texts" class="level4">
-<h4 class="anchored" data-anchor-id="texts">Texts:</h4>
-<p>All resources are freely available. They also all have print versions which can be purchased. Using the online version of the books is expected.</p>
-</section>
-<section id="first-section-of-the-course-data-science-data-viz-wrangling-simulating-permutation-tests-bootstrapping-ethics" class="level3">
-<h3 class="anchored" data-anchor-id="first-section-of-the-course-data-science-data-viz-wrangling-simulating-permutation-tests-bootstrapping-ethics">First section of the course (data science, data viz, wrangling, simulating, permutation tests, bootstrapping, ethics)</h3>
-<div class="note">
-<ul>
-<li>Content: <strong>Modern Data Science with R</strong>; Baumer, Kaplan, and Horton, <a href="https://mdsr-book.github.io/mdsr3e/" target="_blank">https://mdsr-book.github.io/mdsr3e/</a><br>
-</li>
-<li>R resource: <strong>R for Data Science</strong>, Wickham, <a href="https://r4ds.hadley.nz/" target="_blank">https://r4ds.hadley.nz/</a><br>
-</li>
-</ul>
+<section id="messages-and-warnings-that-the-reader-doesnt-need" class="level1">
+<h1>Messages and warnings that the reader doesn’t need</h1>
+<p>Ususally, at the top (in the YAML), I’ll scaffold the assignment to make the messages and warnings <code>false</code>. That is, I’ll instruct the computer to not print messages. But for your project (where you don’t have a template), you’ll have to remember to do this! (Look at the HW YAML.)</p>
+<p>This is what it looks like if you have set the messages to <code>true</code>. Again, not very helpful for your reader (unless you are trying to communicate something specific about the versioning of the R package).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-<!--
-* Recommended: Visual and Statistical Thinking: Displays of Evidence for Making Decisions; Tufte <a href="http://www.edwardtufte.com/tufte/books_textb" target="_blank">http://www.edwardtufte.com/tufte/books_textb</a> (or find online)
--->
-</section>
-<section id="second-section-of-the-course-bootstrapping-knn-trees-bagging-random-forests-support-vector-machines-clustering" class="level3">
-<h3 class="anchored" data-anchor-id="second-section-of-the-course-bootstrapping-knn-trees-bagging-random-forests-support-vector-machines-clustering">Second section of the course (bootstrapping, knn, trees, bagging, random forests, support vector machines, clustering)</h3>
-<div class="note">
-<ul>
-<li>Content: <strong>An Introduction to Statistical Learning with applications in R</strong>; James, Witten, Hastie, and Tibshirani <a href="https://www.statlearning.com/" target="_blank">https://www.statlearning.com/</a><br>
-</li>
-<li>R resource: <strong>Tidy Modeling with R</strong>; Kuhn and Silge <a href="https://www.tmwr.org/" target="_blank">https://www.tmwr.org/</a></li>
-</ul>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: airports
+Loading required package: cherryblossom
+Loading required package: usdata</code></pre>
 </div>
-</section>
-</section>
-<section id="important-dates" class="level2">
-<h2 class="anchored" data-anchor-id="important-dates">Important Dates:</h2>
-<div class="note">
-<ul>
-<li>Check-in quizzes on 9.10, 9.24, 10.8, 10.22, 11.12, and 12.3 (in class)</li>
-<li>10.15.25 Initial Project Proposal due (to Canvas by midnight)</li>
-<li>10.29.25 Final Project Proposal due (to GitHub by midnight)</li>
-<li>11.12.25 Project Update due (to GitHub by midnight) <!--* 12.02.25 (4:15pm) Data Science Panel with industry data scientists--></li>
-<li>12.05.25 (Friday) or 12.08.25 (Monday) Group Presentations (both 2-5pm)</li>
-<li>12.8.25 Final write-up due (to GitHub by midnight)</li>
-</ul>
-</div>
-</section>
-<section id="links-to-resources" class="level2">
-<h2 class="anchored" data-anchor-id="links-to-resources">Links to resources:</h2>
-<section id="git-resources" class="level3">
-<h3 class="anchored" data-anchor-id="git-resources">Git resources</h3>
-<div class="note">
-<ul>
-<li>Best and most comprehensive Git help: <a href="http://happygitwithr.com/" target="_blank">http://happygitwithr.com/</a></li>
-<li><a href="http://swcarpentry.github.io/git-novice/" target="_blank">Version control with Git</a></li>
-<li><a href="https://aberdeenstudygroup.github.io/studyGroup/lessons/SG-T1-GitHubVersionControl/VersionControl/#2.4.2." target="_blank">More on Git</a></li>
-<li><a href="https://git-scm.com/book/en/v2" target="_blank">Online Git book</a> with lots of info</li>
-</ul>
-</div>
-</section>
-<section id="r-resources" class="level3">
-<h3 class="anchored" data-anchor-id="r-resources">R resources</h3>
-<div class="note">
-<!--* <a href="https://rstudio.cloud/learn/primers" target="_blank">interactive tutorials</a> for working through "R for Data Science"
-* <a href="https://education.rstudio.com/learn/" target="_blank">for a good start</a> to R in general
-* some <a href = "someRideas.html" target="_blank">R ideas</a> that I wrote up 
--->
-<ul>
-<li>A fantastic <a href="https://www.cedricscherer.com/2019/08/05/a-ggplot2-tutorial-for-beautiful-plotting-in-r/" target="_blank">ggplot2 tutorial</a></li>
-<li>Great tutorials through the <a href="https://ourcodingclub.github.io/tutorials/" target="_blank">Coding Club</a></li>
-<li><a href="http://www.rseek.org/" target="_blank">Google for R</a></li>
-<li>Incredibly helpful <a href="https://posit.co/resources/cheatsheets/" target="_blank">cheatsheets</a> from RStudio.
-<ul>
-<li><a href="https://rstudio.github.io/cheatsheets/html/data-transformation.html" target="_blank">data wrangling</a></li>
-<li><a href="https://rstudio.github.io/cheatsheets/html/data-visualization.html" target="_blank">ggplot2</a></li>
-<li><a href="https://rstudio.github.io/cheatsheets/html/shiny.html" target="_blank">Shiny</a></li>
-<li><a href="https://rstudio.github.io/cheatsheets/html/quarto.html" target="_blank">Quarto</a></li>
-<li><a href="https://rstudio.github.io/cheatsheets/html/rstudio-ide.html" target="_blank">RStudio IDE</a></li>
-</ul></li>
-</ul>
-</div>
-</section>
-</section>
-<section id="homework" class="level2">
-<h2 class="anchored" data-anchor-id="homework">Homework:</h2>
-<p>Weekly homework will be assigned from the text(s) with some additional problems. One homework grade will be dropped. Homework will be done using the statistical software package R (in the RStudio IDE) and posted to GitHub + Gradescope. All homework must be done in Quarto and compiled to pdf.</p>
-<ul>
-<li>Homework will be due on Wednesdays by 11:59pm to GitHub + Gradescope.</li>
-<li>HW should be turned in to your GitHub repository and posted to Gradescope by Wednesday at 11:59pm.</li>
-<li>Always post both a PDF (.pdf) and a Quarto file (.qmd) to GitHub and to Gradescope, unless otherwise requested.</li>
-<li>HW is graded on a scale of 5/4/3/2/1. See below.</li>
-<li>HW file should be in the format of: ma154-hw#-lname-fname.pdf</li>
-</ul>
-<section id="hw-format" class="level5">
-<h5 class="anchored" data-anchor-id="hw-format">HW format</h5>
-<ul>
-<li>please be neat and organized which will help me, the grader, and you (in the future) to follow your work.</li>
-<li>write your name on your assignment.</li>
-<li>please include at least the number of the problem, or a summary of the question (which will also be helpful to you in the future to prepare for exams).</li>
-<li>it is strongly recommended that you look through the questions as soon as you get the assignment. This will help you to start thinking how to solve them!</li>
-<li>for R problems, it is required to use Quarto
-<ul>
-<li>in case of questions, or if you get stuck please don’t hesitate to email me (though I’m much less sympathetic to such questions if I receive emails within 24 hours of the due date for the assignment).</li>
-</ul></li>
-</ul>
-</section>
-<section id="hw-grading" class="level5">
-<h5 class="anchored" data-anchor-id="hw-grading">HW Grading</h5>
-<p>Homework assignments will be graded out of 5 points, which are based on a combination of accuracy and effort. Below are rough guidelines for grading.</p>
-<p>[5] All problems completed with detailed solutions provided and 75% or more of the problems are fully correct. Additionally, there are no extraneous messages, warnings, or printed lists of numbers.<br>
-[4] All problems completed with detailed solutions and 50-75% correct; OR close to all problems completed and 75%-100% correct. Or all problems are completed and there are extraneous messages, warnings, or printed lists of numbers. [<a href="https://m154-comp-stats.netlify.app/superfluous_material.html" target="_blank">Here is an example</a> of extraneous messages and printed lists of numbers.]<br>
-[3] Close to all problems completed with less than 75% correct.<br>
-[2] More than half but fewer than all problems completed and &gt; 75% correct.<br>
-[1] More than half but fewer than all problems completed and &lt; 75% correct; OR less than half of problems completed.<br>
-[0] No work submitted, OR half or less than half of the problems submitted and without any detail/work shown to explain the solutions. You will get a zero if your file is not compiled and submitted on GitHub.</p>
-</section>
-</section>
-<section id="projects" class="level2">
-<h2 class="anchored" data-anchor-id="projects">Projects:</h2>
-<p>There will be a semester long group project. Your task is to use data to tell us something interesting. This project is deliberately open-ended to allow you to fully explore your creativity. There are three main rules that must be followed: (1) data centered, (2) tell us something, (3) do something new that expands on what you’ve learned in the course. Project information is available here: <a href="./project/">Math 154 Semester Project</a></p>
-</section>
-<section id="computing" class="level2">
-<h2 class="anchored" data-anchor-id="computing">Computing:</h2>
-<ul>
-<li><p>GitHub will be used as a way to practice reproducible and collaborative science. There may be a slight learning curve, but knowing Git will be an extremely useful skill as you venture beyond this class.</p></li>
-<li><p>R will be used for all homework assignments. R is freely available at <a href="http://www.r-project.org/" target="_blank">http://www.r-project.org/</a> and is already installed on college computers. Additionally, you need to install R Studio in order to use Quarto, <a href="https://posit.co/downloads/" target="_blank">https://posit.co/downloads/</a>. If you are not already familiar with R, please work through some of the materials provided ASAP.</p></li>
-<li><p>You are welcome to use Pomona’s R Studio server at <a href="https://rstudio.campus.pomona.edu/" target="_blank">https://rstudio.campus.pomona.edu/</a> (or <a href="https://rstudio.pomona.edu" target="_blank">https://rstudio.pomona.edu</a> if you are off campus). If you use the server, you can connect directly to your Git account without installing Git locally on your own computer. [If you are not a Pomona student, you will need to get an account from Pomona’s ITS. Go to ITS, tell them that you are taking a Pomona course, and ask for an account for using RStudio.]</p></li>
-</ul>
-</section>
-<section id="engagement" class="level2">
-<h2 class="anchored" data-anchor-id="engagement">Engagement:</h2>
-<ul>
-<li><p>This class will be interactive, and your engagement is expected (every day in class). Although notes will be posted, your engagement is an integral part of the in-class learning process.</p></li>
-<li><p>In class: after answering one question, wait until 5 other people have spoken before answering another question. [Feel free to ask as many questions as often as you like!]</p></li>
-</ul>
-</section>
-<section id="academic-honesty" class="level2">
-<h2 class="anchored" data-anchor-id="academic-honesty">Academic Honesty:</h2>
-<p>You are on your honor to present only your work as part of your course assessments. Below, I’ve provided Pomona’s academic honesty policy. But before the policy, I’ve given some thoughts on cheating which I have taken from Nick Ball’s CHEM 147 Collective (thank you, Prof Ball!). Prof Ball gives us all something to think about when we are learning in a classroom as well as on our journey to become scientists and professionals:</p>
-<p>There are many known reasons why we may feel the need to “cheat” on problem sets or exams:</p>
-<div class="note">
-<ul>
-<li>An academic environment that values grades above learning.</li>
-<li>Financial aid is critical for remaining in school that places undue pressure on maintaining a high GPA.</li>
-<li>Navigating school, work, and/or family obligations that have diverted focus from class.</li>
-<li>Challenges balancing coursework and mental health.</li>
-<li>Balancing academic, family, peer, or personal issues.</li>
-</ul>
-</div>
-<p>Being accused of cheating – whether it has occurred or not – can be devastating for students. The college requires me to respond to potential academic dishonesty with a process that is very long and damaging. As your instructor, I care about you and want to offer alternatives to prevent us from having to go through this process. If you find yourself in a situation where “cheating” seems like the only option:</p>
-<p><strong>Please come talk to me. We will figure this out together.</strong></p>
-<p>Pomona College is an academic community, all of whose members are expected to abide by ethical standards both in their conduct and in their exercise of responsibilities toward other members of the community. The college expects students to understand and adhere to basic standards of honesty and academic integrity. These standards include, but are not limited to, the following:</p>
-<div class="note">
-<ul>
-<li>In projects and assignments prepared independently, students never represent the ideas or the language of others as their own.</li>
-<li>Students do not destroy or alter either the work of other students or the educational resources and materials of the College.</li>
-<li>Students neither give nor receive assistance in examinations.</li>
-<li>Students do not take unfair advantage of fellow students by representing work completed for one course as original work for another or by deliberately disregarding course rules and regulations.</li>
-<li>In laboratory or research projects involving the collection of data, students accurately report data observed and do not alter these data for any reason.</li>
-</ul>
-</div>
-</section>
-<section id="advice" class="level2">
-<h2 class="anchored" data-anchor-id="advice">Advice:</h2>
-<p>Please email and / or set up a time to talk if you have any questions about or difficulty with the material, the computing, or the course. Talk to me as soon as possible if you find yourself struggling. The material will build on itself, so it will be much easier to catch up if the concepts get clarified earlier rather than later. <strong>This semester is going to be fun.</strong> Let’s do it.</p>
-<section id="grading" class="level3">
-<h3 class="anchored" data-anchor-id="grading">Grading:</h3>
-<div class="note">
-<ul>
-<li>30% Homework</li>
-<li>30% Quizzes</li>
-<li>30% Group Project &amp; Presentation</li>
-<li>10% Class engagement</li>
-</ul>
 </div>
 
 
-</section>
-</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
