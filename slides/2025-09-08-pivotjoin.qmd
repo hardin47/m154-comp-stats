@@ -31,7 +31,7 @@ library(lubridate)
 
 
 
-# Agenda  9/8/25
+# Agenda  ~~9/8/25~~ ... some time when we need to know the ideas
 
 
 1. `pivot`ing
@@ -179,8 +179,9 @@ paralympic_1500 |>
 
  
 
-## Relational data (multiple data frames)
+# Relational data (combining multiple data frames)
 
+## All the joins
 
 ```{r out.width = '70%', fig.align='center', echo=FALSE}
 knitr::include_graphics("../images/dplyr-joins.png")

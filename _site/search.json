@@ -6220,7 +6220,7 @@
     "href": "posts/2025-09-03-wrangling/index.html#agenda",
     "title": "03. Wrangling",
     "section": "Agenda ",
-    "text": "Agenda \n\nSeptember 3 + 8, 2025\n\nTidy data\nData verbs\n\n\n\nSeptember 10, 2024\n\nRelational data (_join)\npivoting\n\n\n\nSeptember 18, 2024\n\nmapping"
+    "text": "Agenda \n\nSeptember 3, 2025\n\nTidy data\nData verbs\n\n\n\nSeptember 10, 2025 when we need it\n\nRelational data (_join)\npivoting"
   },
   {
     "objectID": "posts/2025-09-03-wrangling/index.html#readings",
@@ -6248,7 +6248,7 @@
     "href": "posts/2025-09-03-wrangling/index.html#slides",
     "title": "03. Wrangling",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for 9/3/25.\nWS3 - verbs"
+    "text": "Slides \n\nData Wrangling I, in-class slidesfor 9/3/25.\nData Wrangling II, slides which we’ll use when / if we need ideas of pivoting and joining.\nWS3 - verbs"
   },
   {
     "objectID": "posts/2025-09-03-wrangling/index.html#additional-resources",
@@ -8055,5 +8055,12 @@
     "title": "superfluous material examples",
     "section": "Solutions",
     "text": "Solutions\nOne way to print only the top of the data frame is to use the head() function:\n\nsmokecancer |&gt; \n  head()\n\n      action     outcome\n1 non-smoker lung_cancer\n2 non-smoker lung_cancer\n3 non-smoker lung_cancer\n4 non-smoker lung_cancer\n5 non-smoker lung_cancer\n6 non-smoker lung_cancer\n\n\nAnother way to print only the top few rows is to change the object from a data.frame into a tibble (a tibble is like a data.frame but it has nice printing options). Note that one benefit of tibble() over head() is that the reader can see the size of the data frame (number of rows and columns).\n\nsmokecancer |&gt; \n  tibble()\n\n# A tibble: 120 × 2\n   action     outcome    \n   &lt;chr&gt;      &lt;chr&gt;      \n 1 non-smoker lung_cancer\n 2 non-smoker lung_cancer\n 3 non-smoker lung_cancer\n 4 non-smoker lung_cancer\n 5 non-smoker lung_cancer\n 6 non-smoker lung_cancer\n 7 non-smoker lung_cancer\n 8 non-smoker lung_cancer\n 9 non-smoker lung_cancer\n10 non-smoker lung_cancer\n# ℹ 110 more rows"
+  },
+  {
+    "objectID": "slides/2025-09-08-pivotjoin.html#all-the-joins",
+    "href": "slides/2025-09-08-pivotjoin.html#all-the-joins",
+    "title": "Wrangling Data II",
+    "section": "All the joins",
+    "text": "All the joins\n\nSee the Posit cheatsheets on wrangling & joining and pivoting."
   }
 ]

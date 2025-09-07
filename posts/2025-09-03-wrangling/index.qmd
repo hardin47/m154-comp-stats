@@ -30,20 +30,17 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 
 ## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
 
-### September 3 + 8, 2025
+### September 3, 2025
 
 1. Tidy data
 2. Data verbs
 
 
-### September 10, 2024
+### ~~September 10, 2025~~ when we need it
 
 1. Relational data (`_join`)
 2. `pivot`ing
 
-
-### September 18, 2024
-1. `map`ping
 
 ## Readings <i class="fas fa-book-open"></i> 
 
@@ -73,7 +70,9 @@ knitr::include_graphics("../../images/dplyr_wrangling.png")
 ## Slides <i class="fas fa-desktop"></i> 
 
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2025-09-03-verbs" target = "_blank">In class slides</a> for 9/3/25.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2025-09-03-verbs" target = "_blank">Data Wrangling I</a>, in-class slidesfor 9/3/25.
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/2025-09-03-verbs" target = "_blank">Data Wrangling II</a>, slides which we'll use when / if we need ideas of pivoting and joining.
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws3_m154_f25_verbs.pdf" target = "_blank">WS3 - verbs</a>
 
