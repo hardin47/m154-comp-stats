@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://m154-comp-stats.netlify.app/index.html</loc>
-    <lastmod>2025-08-23T17:59:08.350Z</lastmod>
+    <lastmod>2025-09-07T18:44:25.334Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/daily.html</loc>
@@ -210,10 +210,18 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/posts/2025-09-08-simulating/index.html</loc>
-    <lastmod>2025-09-04T04:29:19.592Z</lastmod>
+    <lastmod>2025-09-08T04:50:37.688Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/superfluous_material.html</loc>
     <lastmod>2025-09-05T16:54:50.754Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/slides/2025-09-10-map.html</loc>
+    <lastmod>2025-09-08T04:35:19.633Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/slides/2025-09-08-simulating.html</loc>
+    <lastmod>2025-09-08T05:33:11.265Z</lastmod>
   </url>
 </urlset>

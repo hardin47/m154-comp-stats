@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\nExamine the reflection questions  which are provided in the daily sections.\nRecognize and contemplate the ethics considerations  which are provided in the daily sections.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR   introduction   data viz\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n data viz   wrangling\n\n\n9.8.25\n functions\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (functions + simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n HW 6 - due 10.8   Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.15.25\n Initial Project Proposal due\nto Canvas\n\n\n\n10.20.25\n recipes + knn \n HW 7 - due 10.22   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 8 - due 10.29\n\n\n\n10.29.25\n  Final Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 9 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 10 - due 11.12   Quiz 5 11.12 (trees + forests)\n\n\n\n11.12.25\n Project Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 11 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 12 - due 12.3.25   Quiz 6 (clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\n Group Presentations\nin class, 2-5pm\n\n\n\n12.08.25\n Final write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\nExamine the reflection questions  which are provided in the daily sections.\nRecognize and contemplate the ethics considerations  which are provided in the daily sections.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR   introduction   data viz\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n data viz   wrangling\n\n\n9.8.25\n simulating\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n HW 6 - due 10.8   Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.15.25\n Initial Project Proposal due\nto Canvas\n\n\n\n10.20.25\n recipes + knn \n HW 7 - due 10.22   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 8 - due 10.29\n\n\n\n10.29.25\n  Final Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 9 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 10 - due 11.12   Quiz 5 11.12 (trees + forests)\n\n\n\n11.12.25\n Project Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 11 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 12 - due 12.3.25   Quiz 6 (clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\n Group Presentations\nin class, 2-5pm\n\n\n\n12.08.25\n Final write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "daily.html",
@@ -8033,7 +8033,7 @@
     "href": "posts/2025-09-08-simulating/index.html#slides",
     "title": "04. Simulating",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for both 9/23/24 and 9/25/24.\nWS7 - Simulating"
+    "text": "Slides \n\nmapping, in-class slides for 9/08/25 and 9/10/25.\nsimulating, in-class slides for 9/08/25 through 9/17/25.\nWS4 - Bias-Variance Trade-off"
   },
   {
     "objectID": "posts/2025-09-08-simulating/index.html#additional-resources",
@@ -8062,5 +8062,390 @@
     "title": "Wrangling Data II",
     "section": "All the joins",
     "text": "All the joins\n\nSee the Posit cheatsheets on wrangling & joining and pivoting."
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#purrr-for-functional-programming",
+    "href": "slides/2025-09-10-map.html#purrr-for-functional-programming",
+    "title": "Mapping",
+    "section": "purrr for functional programming",
+    "text": "purrr for functional programming\nfunctionals are functions that take function as input and return a vector / list / data frame as output.\n\nalternatives to loops\na functional is better than a for loop is better than while is better than repeat (in terms of computing efficiency)"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#benefits",
+    "href": "slides/2025-09-10-map.html#benefits",
+    "title": "Mapping",
+    "section": "Benefits",
+    "text": "Benefits\n\nencourages function logic to be separated from iteration logic\ncan collapse into vectors/data frames easily"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#map",
+    "href": "slides/2025-09-10-map.html#map",
+    "title": "Mapping",
+    "section": "Map",
+    "text": "Map\nmap() has (at least) two arguments, a data object and a function. It performs the function on each element of the data object and returns a list. We can also pass additional arguments into the function."
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#variations-of-map_-functions",
+    "href": "slides/2025-09-10-map.html#variations-of-map_-functions",
+    "title": "Mapping",
+    "section": "variations of map_ functions",
+    "text": "variations of map_ functions\n\n\nThe map functions are named by they output the produce. For example:\n\nmap(.x, .f) is the main mapping function and returns a list\nmap_dbl(.x, .f) returns a numeric (double) vector\nmap_chr(.x, .f) returns a character vector\nmap_lgl(.x, .f) returns a logical vector\n\n\n\n\n\n\n\n\n\n\n\n\nNote that the first argument is always the data object and the second object is always the function you want to iteratively apply to each element in the input object."
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#map-variants-output",
+    "href": "slides/2025-09-10-map.html#map-variants-output",
+    "title": "Mapping",
+    "section": "map() variants (output)",
+    "text": "map() variants (output)\n\ntriple &lt;- function(x) x * 3\nmap(.x = c(1:3), .f = triple)\n\n[[1]]\n[1] 3\n\n[[2]]\n[1] 6\n\n[[3]]\n[1] 9\n\nmap_dbl(.x = c(1:3), .f = triple)\n\n[1] 3 6 9\n\nmap_lgl (.x = c(1:3), .f = triple)\n\nError in `map_lgl()`:\nℹ In index: 1.\nCaused by error:\n! Can't coerce from a number to a logical.\n\nmap_lgl(.x = c(1, NA, 3), .f = is.na)\n\n[1] FALSE  TRUE FALSE"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#fastfood-dataset-from-openintro",
+    "href": "slides/2025-09-10-map.html#fastfood-dataset-from-openintro",
+    "title": "Mapping",
+    "section": "fastfood dataset from openintro",
+    "text": "fastfood dataset from openintro\n\nlibrary(openintro)\nfastfood\n\n# A tibble: 515 × 17\n   restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol\n   &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n 1 Mcdonalds  Artisan …      380      60         7       2       0            95\n 2 Mcdonalds  Single B…      840     410        45      17       1.5         130\n 3 Mcdonalds  Double B…     1130     600        67      27       3           220\n 4 Mcdonalds  Grilled …      750     280        31      10       0.5         155\n 5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120\n 6 Mcdonalds  Big Mac        540     250        28      10       1            80\n 7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40\n 8 Mcdonalds  Classic …      510     210        24       4       0            65\n 9 Mcdonalds  Double C…      430     190        21      11       1            85\n10 Mcdonalds  Double Q…      770     400        45      21       2.5         175\n# ℹ 505 more rows\n# ℹ 9 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;,\n#   protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;chr&gt;\n\n\nFrom TidyTuesday Fast food entree data on September 4, 2018."
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#anonymous-functions-and-shortcuts",
+    "href": "slides/2025-09-10-map.html#anonymous-functions-and-shortcuts",
+    "title": "Mapping",
+    "section": "Anonymous functions and shortcuts",
+    "text": "Anonymous functions and shortcuts\n\nuse ~ to set a formula (when the function is neither a single name nor defined by function(...) { ...})\nuse .x to reference the input map(.x = ..., .f = )\n\n\nmap_dbl(.x = fastfood, .f = function(dog) mean(dog, na.rm = TRUE))\n\n  restaurant         item     calories      cal_fat    total_fat      sat_fat \n          NA           NA  530.9126214  238.8135922   26.5902913    8.1533981 \n   trans_fat  cholesterol       sodium   total_carb        fiber        sugar \n   0.4650485   72.4563107 1246.7378641   45.6640777    4.1371769    7.2621359 \n     protein        vit_a        vit_c      calcium        salad \n  27.8910506   18.8571429   20.1704918   24.8524590           NA \n\n\n\nmap_dbl(.x = fastfood,  .f = ~mean(.x, na.rm = TRUE))\n\n  restaurant         item     calories      cal_fat    total_fat      sat_fat \n          NA           NA  530.9126214  238.8135922   26.5902913    8.1533981 \n   trans_fat  cholesterol       sodium   total_carb        fiber        sugar \n   0.4650485   72.4563107 1246.7378641   45.6640777    4.1371769    7.2621359 \n     protein        vit_a        vit_c      calcium        salad \n  27.8910506   18.8571429   20.1704918   24.8524590           NA \n\n\n\nmap_dbl(.x = fastfood, .f = mean, na.rm = TRUE)\n\n  restaurant         item     calories      cal_fat    total_fat      sat_fat \n          NA           NA  530.9126214  238.8135922   26.5902913    8.1533981 \n   trans_fat  cholesterol       sodium   total_carb        fiber        sugar \n   0.4650485   72.4563107 1246.7378641   45.6640777    4.1371769    7.2621359 \n     protein        vit_a        vit_c      calcium        salad \n  27.8910506   18.8571429   20.1704918   24.8524590           NA \n\n\n\nmap_dbl(.x = fastfood, .f = mean)\n\n  restaurant         item     calories      cal_fat    total_fat      sat_fat \n          NA           NA  530.9126214  238.8135922   26.5902913    8.1533981 \n   trans_fat  cholesterol       sodium   total_carb        fiber        sugar \n   0.4650485   72.4563107 1246.7378641   45.6640777           NA    7.2621359 \n     protein        vit_a        vit_c      calcium        salad \n          NA           NA           NA           NA           NA"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#the-same-thing-many-ways",
+    "href": "slides/2025-09-10-map.html#the-same-thing-many-ways",
+    "title": "Mapping",
+    "section": "The same thing, many ways",
+    "text": "The same thing, many ways\nNote that .x is the name of the first argument in map() (.f is the name of the second argument).\n\n# the task\nmap_dbl(fastfood, function(x) length(unique(x)))\n\n restaurant        item    calories     cal_fat   total_fat     sat_fat \n          8         505         113         117          80          40 \n  trans_fat cholesterol      sodium  total_carb       fiber       sugar \n         10          52         197         103          19          31 \n    protein       vit_a       vit_c     calcium       salad \n         71          22          24          27           1 \n\nmap_dbl(fastfood, function(unicorn) length(unique(unicorn)))\n\n restaurant        item    calories     cal_fat   total_fat     sat_fat \n          8         505         113         117          80          40 \n  trans_fat cholesterol      sodium  total_carb       fiber       sugar \n         10          52         197         103          19          31 \n    protein       vit_a       vit_c     calcium       salad \n         71          22          24          27           1 \n\nmap_dbl(fastfood, ~length(unique(.x)))\n\n restaurant        item    calories     cal_fat   total_fat     sat_fat \n          8         505         113         117          80          40 \n  trans_fat cholesterol      sodium  total_carb       fiber       sugar \n         10          52         197         103          19          31 \n    protein       vit_a       vit_c     calcium       salad \n         71          22          24          27           1 \n\nmap_dbl(fastfood, ~length(unique(..1)))\n\n restaurant        item    calories     cal_fat   total_fat     sat_fat \n          8         505         113         117          80          40 \n  trans_fat cholesterol      sodium  total_carb       fiber       sugar \n         10          52         197         103          19          31 \n    protein       vit_a       vit_c     calcium       salad \n         71          22          24          27           1 \n\nmap_dbl(fastfood, ~length(unique(.)))\n\n restaurant        item    calories     cal_fat   total_fat     sat_fat \n          8         505         113         117          80          40 \n  trans_fat cholesterol      sodium  total_carb       fiber       sugar \n         10          52         197         103          19          31 \n    protein       vit_a       vit_c     calcium       salad \n         71          22          24          27           1 \n\n# not the task\nmap_dbl(fastfood, length)\n\n restaurant        item    calories     cal_fat   total_fat     sat_fat \n        515         515         515         515         515         515 \n  trans_fat cholesterol      sodium  total_carb       fiber       sugar \n        515         515         515         515         515         515 \n    protein       vit_a       vit_c     calcium       salad \n        515         515         515         515         515 \n\n\n\n#error\nmap_dbl(fastfood, ~length)\n\nError in `map_dbl()`:\nℹ In index: 1.\nℹ With name: restaurant.\nCaused by error:\n! Can't coerce from a primitive function to a double.\n\n#error\nmap_dbl(fastfood, length(unique()))\n\nError in unique.default(): argument \"x\" is missing, with no default\n\n#error\nmap_dbl(fastfood, ~length(unique(x)))\n\nError in `map_dbl()`:\nℹ In index: 1.\nℹ With name: restaurant.\nCaused by error in `.f()`:\n! object 'x' not found"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#map_-variants-input",
+    "href": "slides/2025-09-10-map.html#map_-variants-input",
+    "title": "Mapping",
+    "section": "map_*() variants (input)",
+    "text": "map_*() variants (input)\n\nWe’ve already described the difference between the columns. Now we cover the difference between the rows."
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#map2_",
+    "href": "slides/2025-09-10-map.html#map2_",
+    "title": "Mapping",
+    "section": "map2_*()",
+    "text": "map2_*()\n\nmap2_*() has two arguments, .x and .y\nraise each value of .x to the power of 2\n\n\nmap_dbl(\n  .x = c(1:5), \n  .f = function(x) x ^ 2\n)\n\n[1]  1  4  9 16 25\n\n\n\nraise each value .x to the power .y\n\n\nmap2_dbl(\n  .x = c(1:5), \n  .y = c(2:6), \n  .f = ~ (.x ^ .y)\n)\n\n[1]     1     8    81  1024 15625"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#imap",
+    "href": "slides/2025-09-10-map.html#imap",
+    "title": "Mapping",
+    "section": "imap()",
+    "text": "imap()\n\nimap() is like map2()except that .y is derived from names(.x) if the data frame has names.\nIf not, .y is 1, 2, 3, … \\(n\\) where \\(n\\) is the number of items in .x. (A data frame has \\(n\\) columns.)\nThese two calls produce the same result\n\n\nimap_chr(.x = fastfood, \n         .f = ~ paste(.y, \"has a mean of\", round(mean(.x), 1))) |&gt; \nhead()\n\n                    restaurant                           item \n \"restaurant has a mean of NA\"        \"item has a mean of NA\" \n                      calories                        cal_fat \n\"calories has a mean of 530.9\"  \"cal_fat has a mean of 238.8\" \n                     total_fat                        sat_fat \n\"total_fat has a mean of 26.6\"    \"sat_fat has a mean of 8.2\" \n\nmap2_chr(.x = fastfood, \n         .y = names(fastfood),\n         .f = ~ paste(.y, \"has a mean of\", round(mean(.x), 1))) |&gt; \nhead()\n\n                    restaurant                           item \n \"restaurant has a mean of NA\"        \"item has a mean of NA\" \n                      calories                        cal_fat \n\"calories has a mean of 530.9\"  \"cal_fat has a mean of 238.8\" \n                     total_fat                        sat_fat \n\"total_fat has a mean of 26.6\"    \"sat_fat has a mean of 8.2\""
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#pmap",
+    "href": "slides/2025-09-10-map.html#pmap",
+    "title": "Mapping",
+    "section": "pmap()",
+    "text": "pmap()\n\nyou can pass a named list or dataframe as arguments to a function\nfor example runif() has the parameters n, min and max\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\npmap(params, runif)\n\n[[1]]\n[1] 5.347505\n\n[[2]]\n[1] 52.04444 93.07860\n\n[[3]]\n[1] 479.3029 918.0214 154.6309\n\n\nOr use the pipe into pmap():\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 6.715769\n\n[[2]]\n[1] 14.98978 83.14187\n\n[[3]]\n[1] 943.7182 407.8529 639.4908"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#an-aside",
+    "href": "slides/2025-09-10-map.html#an-aside",
+    "title": "Mapping",
+    "section": "An aside…",
+    "text": "An aside…\nInterestingly, runif() will take either a scalar or a vector as its first argument. If the first argument is a vector, runif() will return N random uniforms, where N is the length of the vector.\n\nrunif(n = 3)\n\n[1] 0.30479935 0.03860235 0.85546161\n\nrunif(n = c(1,3))\n\n[1] 0.6302212 0.0961391\n\nrunif(n = c(10000,12321412424))\n\n[1] 0.2455305 0.4797139\n\nrunif(n = c(\"rainbow\", \"unicorn\"))\n\n[1] 0.29153184 0.07646015"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#pmap-vs-map",
+    "href": "slides/2025-09-10-map.html#pmap-vs-map",
+    "title": "Mapping",
+    "section": "pmap() vs map()",
+    "text": "pmap() vs map()\nWhich means that the pmap() code will “work” in map() as well:\n\nparamspmapmap\n\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\n\n\n\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 7.032227\n\n[[2]]\n[1] 35.44360 70.07807\n\n[[3]]\n[1] 757.6589 568.5014 101.7332\n\n\n\n\n\nparams |&gt; \n  map(runif)\n\n$n\n[1] 0.3883345 0.9305749 0.9974134\n\n$min\n[1] 0.1150240 0.1779996 0.3095298\n\n$max\n[1] 0.5704983 0.5634095 0.7519701"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#pmap-with-expand_grid",
+    "href": "slides/2025-09-10-map.html#pmap-with-expand_grid",
+    "title": "Mapping",
+    "section": "pmap() with expand_grid()",
+    "text": "pmap() with expand_grid()\n\nI like to use expand_grid() when I want all possible parameter combinations.\n\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) \n\n# A tibble: 12 × 3\n       n   min   max\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     1    10\n 2     1     1   100\n 3     1    10    10\n 4     1    10   100\n 5     2     1    10\n 6     2     1   100\n 7     2    10    10\n 8     2    10   100\n 9     3     1    10\n10     3     1   100\n11     3    10    10\n12     3    10   100\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) |&gt; \npmap(runif)\n\n[[1]]\n[1] 5.769279\n\n[[2]]\n[1] 30.93094\n\n[[3]]\n[1] 10\n\n[[4]]\n[1] 24.66541\n\n[[5]]\n[1] 2.368047 6.213135\n\n[[6]]\n[1] 87.78418 94.81645\n\n[[7]]\n[1] 10 10\n\n[[8]]\n[1] 51.99410 57.60292\n\n[[9]]\n[1] 8.460044 2.052597 3.038084\n\n[[10]]\n[1] 49.39378 69.23568 29.68980\n\n[[11]]\n[1] 10 10 10\n\n[[12]]\n[1] 32.09189 26.57233 83.83990"
+  },
+  {
+    "objectID": "slides/2025-09-10-map.html#mapping-to-a-data-frame",
+    "href": "slides/2025-09-10-map.html#mapping-to-a-data-frame",
+    "title": "Mapping",
+    "section": "mapping to a data frame",
+    "text": "mapping to a data frame\nWould be great if the results were a data frame!\n\nresults as rows: map() |&gt; list_rbind()\nresults as columns: map() |&gt; list_cbind()\n\n\nfunctionmap()with list_rbind()with list_cbind()\n\n\n\ncol_stats &lt;- function(n) {\n  head(fastfood, n) |&gt; \n    summarise_all(mean, na.rm = TRUE) |&gt; \n    mutate_all(floor) |&gt; \n    mutate(n = paste(\"N =\", n))\n}\n\n\n\n\nout1 &lt;- map(c(10,20), col_stats)\n\nout1\n\n[[1]]\n# A tibble: 1 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat cholesterol\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1         NA    NA      657     291        32      11         1         116\n# ℹ 10 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;,\n#   sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;,\n#   salad &lt;dbl&gt;, n &lt;chr&gt;\n\n[[2]]\n# A tibble: 1 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat cholesterol\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1         NA    NA      582     247        27       9         0          99\n# ℹ 10 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;,\n#   sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;,\n#   salad &lt;dbl&gt;, n &lt;chr&gt;\n\n\n\n\n\nout2 &lt;- map(c(10,20), col_stats) |&gt; list_rbind()\n\nout2\n\n# A tibble: 2 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat cholesterol\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1         NA    NA      657     291        32      11         1         116\n2         NA    NA      582     247        27       9         0          99\n# ℹ 10 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;,\n#   sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;,\n#   salad &lt;dbl&gt;, n &lt;chr&gt;\n\n\n\n\n\nout3 &lt;- map(c(10,20), col_stats) |&gt; list_cbind()\n\nout3\n\n# A tibble: 1 × 36\n  restaurant...1 item...2 calories...3 cal_fat...4 total_fat...5 sat_fat...6\n           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;\n1             NA       NA          657         291            32          11\n# ℹ 30 more variables: trans_fat...7 &lt;dbl&gt;, cholesterol...8 &lt;dbl&gt;,\n#   sodium...9 &lt;dbl&gt;, total_carb...10 &lt;dbl&gt;, fiber...11 &lt;dbl&gt;,\n#   sugar...12 &lt;dbl&gt;, protein...13 &lt;dbl&gt;, vit_a...14 &lt;dbl&gt;, vit_c...15 &lt;dbl&gt;,\n#   calcium...16 &lt;dbl&gt;, salad...17 &lt;dbl&gt;, n...18 &lt;chr&gt;, restaurant...19 &lt;dbl&gt;,\n#   item...20 &lt;dbl&gt;, calories...21 &lt;dbl&gt;, cal_fat...22 &lt;dbl&gt;,\n#   total_fat...23 &lt;dbl&gt;, sat_fat...24 &lt;dbl&gt;, trans_fat...25 &lt;dbl&gt;,\n#   cholesterol...26 &lt;dbl&gt;, sodium...27 &lt;dbl&gt;, total_carb...28 &lt;dbl&gt;, …"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#goals-of-simulating-complicated-models",
+    "href": "slides/2025-09-08-simulating.html#goals-of-simulating-complicated-models",
+    "title": "Simulating",
+    "section": "Goals of Simulating Complicated Models",
+    "text": "Goals of Simulating Complicated Models\nThe goal of simulating a complicated model is not only to create a program which will provide the desired results. We also hope to be able to write code such that:\n\nThe problem is broken down into small pieces.\nThe problem has checks in it to see what works (run the lines inside the functions!).\nuses simple code (as often as possible)."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-ifelse",
+    "href": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-ifelse",
+    "title": "Simulating",
+    "section": "Aside: a few R functions (ifelse())",
+    "text": "Aside: a few R functions (ifelse())\n\ndata.frame(value = c(-2:2)) |&gt;\n  mutate(abs_value = ifelse(value &gt;=0, value, -value))  # abs val\n\n  value abs_value\n1    -2         2\n2    -1         1\n3     0         0\n4     1         1\n5     2         2"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-case_when",
+    "href": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-case_when",
+    "title": "Simulating",
+    "section": "Aside: a few R functions (case_when())",
+    "text": "Aside: a few R functions (case_when())\n\nset.seed(4747)\ndiamonds |&gt; select(carat, cut, color, price) |&gt;\n  sample_n(20) |&gt;\n  mutate(price_cat = case_when(\n    price &gt; 10000 ~ \"expensive\",\n    price &gt; 1500 ~ \"medium\", \n    TRUE ~ \"inexpensive\"))\n\n# A tibble: 20 × 5\n   carat cut       color price price_cat  \n   &lt;dbl&gt; &lt;ord&gt;     &lt;ord&gt; &lt;int&gt; &lt;chr&gt;      \n 1  1.23 Very Good F     10276 expensive  \n 2  0.35 Premium   H       706 inexpensive\n 3  0.7  Good      E      2782 medium     \n 4  0.4  Ideal     D      1637 medium     \n 5  0.53 Ideal     G      1255 inexpensive\n 6  2.22 Ideal     G     14637 expensive  \n 7  0.3  Ideal     G       878 inexpensive\n 8  1.05 Ideal     H      4223 medium     \n 9  0.53 Premium   E      1654 medium     \n10  1.7  Ideal     H      7068 medium     \n11  0.31 Good      E       698 inexpensive\n12  0.31 Ideal     F       840 inexpensive\n13  1.03 Ideal     H      4900 medium     \n14  0.31 Premium   G       698 inexpensive\n15  1.56 Premium   G      8858 medium     \n16  1.71 Premium   G     11032 expensive  \n17  1    Good      E      5345 medium     \n18  1.86 Ideal     J     10312 expensive  \n19  1.08 Very Good E      3726 medium     \n20  0.31 Premium   E       698 inexpensive"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-sample",
+    "href": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-sample",
+    "title": "Simulating",
+    "section": "Aside: a few R functions (sample())",
+    "text": "Aside: a few R functions (sample())\nsampling, shuffling, and resampling: sample()\n\nset.seed(47)\nalph &lt;- letters[1:10]\nalph\n\n [1] \"a\" \"b\" \"c\" \"d\" \"e\" \"f\" \"g\" \"h\" \"i\" \"j\"\n\nsample(alph, 5, replace = FALSE) # sample (from a population)\n\n[1] \"i\" \"b\" \"g\" \"d\" \"a\"\n\nsample(alph, 5, replace = TRUE) # sample (from a population)\n\n[1] \"j\" \"g\" \"f\" \"i\" \"f\"\n\nsample(alph, 10, replace = FALSE)  # shuffle\n\n [1] \"f\" \"h\" \"i\" \"e\" \"g\" \"d\" \"c\" \"j\" \"b\" \"a\"\n\nsample(alph, 10, replace = TRUE)  # resample\n\n [1] \"e\" \"j\" \"e\" \"b\" \"e\" \"c\" \"f\" \"a\" \"e\" \"a\""
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-set.seed",
+    "href": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-set.seed",
+    "title": "Simulating",
+    "section": "Aside: a few R functions (set.seed())",
+    "text": "Aside: a few R functions (set.seed())\nWhat if we want to be able to generate the same random numbers (here on the interval from 0 to 1) over and over?\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470\n\nset.seed(123)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.2875775 0.7883051 0.4089769 0.8830174\n\nset.seed(4747)\nrunif(4, 0, 1) # random uniform numbers\n\n[1] 0.1949071 0.3390270 0.5147919 0.4516470"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#why",
+    "href": "slides/2025-09-08-simulating.html#why",
+    "title": "Simulating",
+    "section": "Why?",
+    "text": "Why?\nThree simulation methods are used for different purposes:\n\nMonte Carlo methods - use repeated sampling from a population with known characteristics.\nRandomization / Permutation methods - use shuffling (sampling without replacement from a sample) to test hypotheses of “no effect”.\nBootstrap methods - use resampling (sampling with replacement from a sample) to establish confidence intervals."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#monte-carlo-from-a-population-to",
+    "href": "slides/2025-09-08-simulating.html#monte-carlo-from-a-population-to",
+    "title": "Simulating",
+    "section": "Monte Carlo from a population to…",
+    "text": "Monte Carlo from a population to…\n\n\n…simulate as easier than calculus for estimating probabilities.\n…simulate to understand complicated models.\n…simulate to consider statistical methods with fewer assumptions."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#sally-joan",
+    "href": "slides/2025-09-08-simulating.html#sally-joan",
+    "title": "Simulating",
+    "section": "Sally & Joan",
+    "text": "Sally & Joan\nConsider a situation where Sally and Joan plan to meet to study in their college campus center (Mosteller 1987; Baumer, Kaplan, and Horton 2021). They are both impatient people who will wait only 10 minutes for the other before leaving.\nBut their planning was incomplete. Sally said, “Meet me between 7 and 8 tonight at the student center.” When should Joan plan to arrive at the campus center? And what is the probability that they actually meet?"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#simulate-their-meeting",
+    "href": "slides/2025-09-08-simulating.html#simulate-their-meeting",
+    "title": "Simulating",
+    "section": "Simulate their meeting",
+    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.414 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.979 sec elapsed"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#results",
+    "href": "slides/2025-09-08-simulating.html#results",
+    "title": "Simulating",
+    "section": "Results",
+    "text": "Results\nThe results themselves are equivalent. Differing values due to randomness in the simulation.\n\nvectorizedmap()for() loop\n\n\n\nmeet_vect |&gt; \n  group_by(result) |&gt; \n  summarize(number = n()) |&gt; \n  mutate(proprotion = number / sum(number))\n\n# A tibble: 2 × 3\n  result      number proprotion\n  &lt;chr&gt;        &lt;int&gt;      &lt;dbl&gt;\n1 They do not   6966      0.697\n2 They meet     3034      0.303\n\n\n\n\n\nmeet_map |&gt; \n  group_by(result) |&gt; \n  summarize(number = n())|&gt; \n  mutate(proprotion = number / sum(number))\n\n# A tibble: 2 × 3\n  result      number proprotion\n  &lt;chr&gt;        &lt;int&gt;      &lt;dbl&gt;\n1 They do not   7087      0.709\n2 They meet     2913      0.291\n\n\n\n\n\nmeet_for |&gt; \n  group_by(result) |&gt; \n  summarize(number = n())|&gt; \n  mutate(proprotion = number / sum(number))\n\n# A tibble: 2 × 3\n  result      number proprotion\n  &lt;chr&gt;        &lt;int&gt;      &lt;dbl&gt;\n1 They do not   6942      0.694\n2 They meet     3058      0.306"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#visualizing-the-meet-up",
+    "href": "slides/2025-09-08-simulating.html#visualizing-the-meet-up",
+    "title": "Simulating",
+    "section": "Visualizing the meet up",
+    "text": "Visualizing the meet up\n\nmeet_map |&gt; \n  ggplot(aes(x = joan, y = sally, color = result)) +\n  geom_point(alpha = 0.3) + \n  geom_abline(intercept = 10, slope = 1) + \n  geom_abline(intercept = -10, slope = 1) + \n  scale_color_brewer(palette = \"Paired\")"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#simulation-best-practices",
+    "href": "slides/2025-09-08-simulating.html#simulation-best-practices",
+    "title": "Simulating",
+    "section": "Simulation best practices",
+    "text": "Simulation best practices\n\nno magic numbers\ncomment your code\nuse informative names\nset a seed for reproducibility"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#thoughts-on-simulating",
+    "href": "slides/2025-09-08-simulating.html#thoughts-on-simulating",
+    "title": "Simulating",
+    "section": "Thoughts on simulating",
+    "text": "Thoughts on simulating\n\nbreak down the problem into small steps\ncheck to see what works\nsimple is better"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#t-test-with-poisson-data",
+    "href": "slides/2025-09-08-simulating.html#t-test-with-poisson-data",
+    "title": "Simulating",
+    "section": "t-test with Poisson data",
+    "text": "t-test with Poisson data\nThe t-test says that if the null hypothesis is true, we’d expect to reject a true null hypothesis \\(\\alpha \\cdot 100\\) percent of the time. That is, if \\(\\alpha = 0.05\\), we’d reject true null hypotheses 5% of the time.\n\nThe guarantee of 5% (across many tests) happens only when the data are normal (or reasonably normal)."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#non-normal-data",
+    "href": "slides/2025-09-08-simulating.html#non-normal-data",
+    "title": "Simulating",
+    "section": "Non-normal data",
+    "text": "Non-normal data\n\ndata.frame(pois_data = rpois(n = 100000, lambda = 1)) |&gt; \n  ggplot(aes(x = pois_data)) +\n  geom_histogram()"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#t-test-function",
+    "href": "slides/2025-09-08-simulating.html#t-test-function",
+    "title": "Simulating",
+    "section": "t-test function",
+    "text": "t-test function\n\nt.test.pval &lt;- function(data1, data2){\n  t.test(data1, data2) |&gt; \n    broom::tidy() |&gt; \n    select(p.value)\n}\n\nt.test.pval(rpois(n = 10, lambda = 1), rpois(n = 7, lambda = 1))\n\n# A tibble: 1 × 1\n  p.value\n    &lt;dbl&gt;\n1   0.696"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#t-test-10-times",
+    "href": "slides/2025-09-08-simulating.html#t-test-10-times",
+    "title": "Simulating",
+    "section": "t-test 10 times",
+    "text": "t-test 10 times\n\nmap(1:10, ~t.test.pval(rpois(n = 10, lambda = 1),\n                       rpois(n = 7, lambda = 1))) |&gt; \n          list_rbind()\n\n# A tibble: 10 × 1\n   p.value\n     &lt;dbl&gt;\n 1  0.643 \n 2  0.304 \n 3  0.784 \n 4  0.0874\n 5  0.0379\n 6  0.361 \n 7  0.0215\n 8  0.532 \n 9  0.319 \n10  0.539"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#t-test-many-times",
+    "href": "slides/2025-09-08-simulating.html#t-test-many-times",
+    "title": "Simulating",
+    "section": "t-test many times",
+    "text": "t-test many times\n\nmap()plotreject \\(H_0\\)\n\n\n\nset.seed(4747)\nresults &lt;- map(1:10000, \n               ~t.test.pval(rpois(n = 8, lambda = 1),\n                            rpois(n = 5, lambda = 1))) |&gt; \n  list_rbind() \n\n\n\n\nresults |&gt; \n  ggplot(aes(x = p.value)) + \n  geom_histogram(bins = 30) + \n  labs(x = \"p.values\")\n\n\n\n\n\n\n\n\n\n\n\nresults |&gt; \n  summarize(type1 = mean(p.value &lt; 0.05))\n\n# A tibble: 1 × 1\n   type1\n   &lt;dbl&gt;\n1 0.0498"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#plot-of-data",
+    "href": "slides/2025-09-08-simulating.html#plot-of-data",
+    "title": "Simulating",
+    "section": "Plot of data",
+    "text": "Plot of data"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#capture-the-slope-parameter",
+    "href": "slides/2025-09-08-simulating.html#capture-the-slope-parameter",
+    "title": "Simulating",
+    "section": "Capture the slope parameter?",
+    "text": "Capture the slope parameter?\n\nWe know the truth (!!!!!)\n\nWe can create a single CI for the parameter given a single data set\n\nIs the parameter in the interval?\n\nShould it always be in the interval? How often should it be?\n\nRepeat the process to see whether the confidence interval captures the parameter at the claimed rate.\n\nSee: Rossman Chance regression applet"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#running-a-linear-model",
+    "href": "slides/2025-09-08-simulating.html#running-a-linear-model",
+    "title": "Simulating",
+    "section": "Running a linear model",
+    "text": "Running a linear model\n\nCI &lt;- lm(y~x1+x2) |&gt; tidy(conf.int=TRUE) |&gt; data.frame()\nCI\n\n         term   estimate std.error statistic      p.value    conf.low\n1 (Intercept) -0.9291632 0.1424025 -6.524909 3.098281e-09 -1.21179266\n2          x1  0.3304882 0.2016861  1.638627 1.045307e-01 -0.06980279\n3          x2  1.4447884 0.1919184  7.528137 2.662556e-11  1.06388341\n   conf.high\n1 -0.6465337\n2  0.7307792\n3  1.8256934\n\nCI |&gt;\n  filter(term == \"x2\") |&gt;\n  select(term, estimate, conf.low, conf.high) |&gt;\n  mutate(inside = between(beta2, conf.low, conf.high))\n\n  term estimate conf.low conf.high inside\n1   x2 1.444788 1.063883  1.825693   TRUE"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#what-happens-to-the-ci-of-coefficients-in-repeated-samples-eq-var",
+    "href": "slides/2025-09-08-simulating.html#what-happens-to-the-ci-of-coefficients-in-repeated-samples-eq-var",
+    "title": "Simulating",
+    "section": "What happens to the CI of coefficients in repeated samples? (eq var)",
+    "text": "What happens to the CI of coefficients in repeated samples? (eq var)\n\nDatasetsFunctionmap()\n\n\n\neqvar_data &lt;- data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(0,1), each = n()/2),\n    x2 = runif(n(), min = -1, max = 1),\n    y = beta0 + beta1*x1 + beta2*x2 + rnorm(n(), mean = 0, sd = 1)\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\neqvar_data\n\n# A tibble: 1,000 × 2\n# Groups:   sim_id [1,000]\n   sim_id data              \n    &lt;int&gt; &lt;list&gt;            \n 1      1 &lt;tibble [100 × 4]&gt;\n 2      2 &lt;tibble [100 × 4]&gt;\n 3      3 &lt;tibble [100 × 4]&gt;\n 4      4 &lt;tibble [100 × 4]&gt;\n 5      5 &lt;tibble [100 × 4]&gt;\n 6      6 &lt;tibble [100 × 4]&gt;\n 7      7 &lt;tibble [100 × 4]&gt;\n 8      8 &lt;tibble [100 × 4]&gt;\n 9      9 &lt;tibble [100 × 4]&gt;\n10     10 &lt;tibble [100 × 4]&gt;\n# ℹ 990 more rows\n\n\n\n\n\nbeta_coef &lt;- function(df){\n  lm(y ~ x1 + x2, data = df) |&gt;\n    tidy(conf.int = TRUE) |&gt;\n    filter(term == \"x2\") |&gt;\n    select(estimate, conf.low, conf.high, p.value) \n}\n\n\n\n\neqvar_data |&gt; \n  mutate(b2_vals = map(data, beta_coef)) |&gt;\n  select(b2_vals) |&gt; \n  unnest(b2_vals) |&gt;\n  summarize(capture = between(beta2, conf.low, conf.high)) |&gt;\n  summarize(capture_rate = sum(capture)/reps)\n\n# A tibble: 1 × 1\n  capture_rate\n         &lt;dbl&gt;\n1        0.953"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#sensitivity-of-ci-to-tech-conditions-1",
+    "href": "slides/2025-09-08-simulating.html#sensitivity-of-ci-to-tech-conditions-1",
+    "title": "Simulating",
+    "section": "Sensitivity of CI to tech conditions",
+    "text": "Sensitivity of CI to tech conditions\nConsider the following set up (note the difference in variability):\n\nset.seed(470)\nbeta0 &lt;- -1; beta1 &lt;- 0.5; beta2 &lt;- 1.5\nn_obs &lt;- 100; reps &lt;- 1000\n\n  x1 &lt;- rep(c(0,1), each=n_obs/2)\n  x2 &lt;- runif(n_obs, min=-1, max=1)\n  y &lt;- beta0 + beta1*x1 + beta2*x2 + \n             rnorm(n_obs, mean=0, sd = 1 + x1 + 10*abs(x2))"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#plot-of-data-1",
+    "href": "slides/2025-09-08-simulating.html#plot-of-data-1",
+    "title": "Simulating",
+    "section": "Plot of data",
+    "text": "Plot of data"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#what-happens-to-the-ci-of-coefficients-in-repeated-samples-uneq-var",
+    "href": "slides/2025-09-08-simulating.html#what-happens-to-the-ci-of-coefficients-in-repeated-samples-uneq-var",
+    "title": "Simulating",
+    "section": "What happens to the CI of coefficients in repeated samples? (uneq var)",
+    "text": "What happens to the CI of coefficients in repeated samples? (uneq var)\n\nDatasetsmap()\n\n\n\nuneqvar_data &lt;- data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(sim_id = rep(1:reps, n_obs), \n         x1 = rep(c(0,1), each = n()/2),\n         x2 = runif(n(), min = -1, max = 1),\n         y = beta0 + beta1*x1 + beta2*x2 + \n              rnorm(n(), mean = 0, sd = 1 + x1 + 10*abs(x2))  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt; nest() \n\n\n\n\nuneqvar_data |&gt; \n  mutate(b2_vals = map(data, beta_coef)) |&gt;\n  select(b2_vals) |&gt; unnest(b2_vals) |&gt;\n  summarize(capture = between(beta2, conf.low, conf.high)) |&gt;\n  summarize(capture_rate = sum(capture)/reps)\n\n# A tibble: 1 × 1\n  capture_rate\n         &lt;dbl&gt;\n1        0.877"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#equal-variance-type-i-error",
+    "href": "slides/2025-09-08-simulating.html#equal-variance-type-i-error",
+    "title": "Simulating",
+    "section": "Equal variance: type I error?",
+    "text": "Equal variance: type I error?\nAnother method for thinking about type I error rates. With equal variance, the type I error rate is close to what we’d expect, 5%.\n\nfunctiongenerate datasummarize p-values\n\n\n\nt_test_pval &lt;- function(df){\n  t.test(y ~ x1, data = df, var.equal = TRUE) |&gt;\n    tidy() |&gt;\n    select(estimate, p.value) \n}\n\n\n\n\nset.seed(470)\nreps &lt;- 1000\nn_obs &lt;- 20\nnull_data_equal &lt;- \n  data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(\"group1\", \"group2\"), each = n()/2),\n    y = rnorm(n(), mean = 10, \n               sd = rep(c(1,1), each = n()/2))\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\n\n\n\nnull_data_equal |&gt; \n  mutate(t_vals = map(data,t_test_pval)) |&gt;\n  select(t_vals) |&gt; \n  unnest(t_vals) |&gt;\n  ungroup(sim_id) |&gt;\n  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)\n\n# A tibble: 1 × 1\n  type1error_rate\n            &lt;dbl&gt;\n1           0.045"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#unequal-variance-type-i-error",
+    "href": "slides/2025-09-08-simulating.html#unequal-variance-type-i-error",
+    "title": "Simulating",
+    "section": "Unequal variance: type I error?",
+    "text": "Unequal variance: type I error?\nWith unequal variance, the type I error rate is much higher than we set. We set the the type I error rate to be 5%, but the simulated rate was 6.36%.\n\ngenerate datasummarize p-values\n\n\n\nset.seed(470)\nreps &lt;- 1000\nn_obs &lt;- 20\nnull_data_unequal &lt;- \n  data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(\"group1\", \"group2\"), each = n()/2),\n    y = rnorm(n(), mean = 10, \n               sd = rep(c(1,100), each = n()/2))\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\n\n\n\nnull_data_unequal |&gt; \n  mutate(t_vals = map(data,t_test_pval)) |&gt;\n  select(t_vals) |&gt; \n  unnest(t_vals) |&gt;\n  ungroup(sim_id) |&gt;\n  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)\n\n# A tibble: 1 × 1\n  type1error_rate\n            &lt;dbl&gt;\n1           0.057"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#references",
+    "href": "slides/2025-09-08-simulating.html#references",
+    "title": "Simulating",
+    "section": "References",
+    "text": "References\n\n\n\n\n\nBaumer, Ben, Daniel Kaplan, and Nicholas Horton. 2021. Modern Data Science with r. CRC Press. https://mdsr-book.github.io/mdsr2e/.\n\n\nMosteller, Frederick. 1987. Fifty Challenging Problems in Probability with Solutions. Dover Publications: Mineola, NY."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#what-is-variance-what-is-bias",
+    "href": "slides/2025-09-08-simulating.html#what-is-variance-what-is-bias",
+    "title": "Simulating",
+    "section": "What is variance? What is bias?",
+    "text": "What is variance? What is bias?\nVariance refers to the amount by which \\(\\hat{f}\\) would change if we estimated it using a different training set.\nBias refers to the error that is introduced by approximating the “truth” by a model which is too simple."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#mathematically",
+    "href": "slides/2025-09-08-simulating.html#mathematically",
+    "title": "Simulating",
+    "section": "Mathematically",
+    "text": "Mathematically\nWe can measure how well a model does by looking at how close the fit of the model (\\(\\hat{f}\\)) is to the observed data (\\(y\\)).\n\\[MSE = E\\bigg[(y - \\hat{f}(x))^2\\bigg]\\]\nBecause \\(\\hat{f}(x) = f(x) + \\epsilon\\), we know that:\n\\[\\begin{eqnarray*}\nMSE &=& E\\bigg[(y - \\hat{f}(x))^2\\bigg]\\\\\n&=& E\\bigg[(f(x) + \\epsilon - \\hat{f}(x))^2\\bigg]\\\\\n&=& E\\bigg[(f(x) - \\hat{f}(x))^2\\bigg] + 2 E\\bigg[(f(x) - \\hat{f}(x)) \\cdot \\epsilon \\bigg] + E[\\epsilon^2]\n\\end{eqnarray*}\\]\nTerm 3: The third term is \\(\\sigma^2\\), the irreducible error (the part that even the perfect model can’t predict).\nTerm 2: Turns out to be zero because the errors are assumped to be independent of the explanatory variable, so the expected value can filter through.\nTerm 1: Takes a little bit of work to expand (something you’d do in, say, Math 152)1.\nThe expected value here is over the model \\(\\hat{f}(x)\\), not over the random variable \\(X\\). That is, \\(\\epsilon\\) is the thing that varies."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#simplified-mse",
+    "href": "slides/2025-09-08-simulating.html#simplified-mse",
+    "title": "Simulating",
+    "section": "Simplified MSE",
+    "text": "Simplified MSE\n\\[E\\bigg[(f(x) - \\hat{f}(x))^2\\bigg] = \\bigg( f(x) - E[\\hat{f}(x)] \\bigg)^2 + E\\bigg[ (E[\\hat{f}(x)] - \\hat{f}(x))^2 \\bigg]\\]\nWhere:\n\\(\\bigg[\\) Bias of \\(\\hat{f}(x) \\bigg]^2\\) is \\(\\bigg( f(x) - E[\\hat{f}(x)] \\bigg)^2\\)\nVariance of \\(\\hat{f}(x)\\) is \\(E\\bigg[ (E[\\hat{f}(x)] - \\hat{f}(x))^2 \\bigg]\\)"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#simulation",
+    "href": "slides/2025-09-08-simulating.html#simulation",
+    "title": "Simulating",
+    "section": "Simulation",
+    "text": "Simulation\nLet’s consider a model: \\(Y = f(x) + \\epsilon\\)\n\nplotcode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nnum_x &lt;- length(seq(0, 10, by = 0.5))\nset.seed(4774)\nbias_var_data &lt;- tibble(ex = seq(0, 10, by = 0.5),\n                        eps = rnorm(num_x, mean = 0, sd = 5),\n                        why = ex^2 + eps) |&gt; \n  mutate(underfit = lm(why ~ ex)$fitted,\n         `good fit` = lm(why ~ ex + I(ex^2))$fitted,\n         overfit = lm(why ~ ex + I(ex^2) + I(ex^3) + I(ex^4) + I(ex^5) + I(ex^6) + I(ex^7) + I(ex^8) + I(ex^9) + I(ex^10) )$fitted) |&gt; \n  pivot_longer(cols = underfit:overfit, \n               names_to = \"fit\", \n               values_to = \"prediction\") |&gt; \n  mutate(fit = factor(fit, \n                        levels = c(\"underfit\", \"good fit\", \"overfit\") ))\n\nbias_var_data |&gt; \n  ggplot(aes(x = ex, y = why)) + \n  geom_point() + \n  geom_line(aes(y = prediction)) + \n  facet_grid(~ fit)"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#errors",
+    "href": "slides/2025-09-08-simulating.html#errors",
+    "title": "Simulating",
+    "section": "Errors",
+    "text": "Errors\nWhich is worse? Underfitting or overfitting? How can we measure the error?\n\nresultcode\n\n\n\n\n# A tibble: 3 × 2\n  fit      MSE_OG\n  &lt;fct&gt;     &lt;dbl&gt;\n1 underfit   74.8\n2 good fit   21.9\n3 overfit    10.5\n\n\n\n\n\nbias_var_data |&gt; \n  group_by(fit) |&gt; \n  summarize(MSE_OG = mean((why - prediction)^2))"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#fit-to-new-data",
+    "href": "slides/2025-09-08-simulating.html#fit-to-new-data",
+    "title": "Simulating",
+    "section": "Fit to new data",
+    "text": "Fit to new data\nWAIT! We don’t want the error on the data that built the model, we want the error on the population.\n\nresultscode\n\n\n\n\n\n\n\n\n\n\n\n\n\n# A tibble: 3 × 2\n  fit      MSE_newdata\n  &lt;fct&gt;          &lt;dbl&gt;\n1 underfit        98.6\n2 good fit        27.3\n3 overfit         35.8\n\n\n\n\n\nset.seed(470)\nnew_data &lt;- tibble(ex = seq(0, 10, by = 0.5),\n                   eps = rnorm(num_x, mean = 0, sd = 5),\n                   why = ex^2 + eps)\n\nbias_var_data |&gt; \n  ggplot(aes(x = ex, y = why)) + \n  geom_point(data = new_data, aes(x = ex, y = why)) + \n  geom_line(aes(y = prediction)) + \n  facet_grid(~ fit)\n\n\nlm1 &lt;- bias_var_data |&gt; \n  filter(fit == \"underfit\") |&gt; \n  lm(why ~ ex, data = _)\n\nlm2 &lt;- bias_var_data |&gt; \n  filter(fit == \"good fit\") |&gt; \n  lm(why ~ ex + I(ex^2), data = _)\n\nlm3 &lt;- bias_var_data |&gt; \n  filter(fit == \"overfit\") |&gt; \n  lm(why ~ ex + I(ex^2) + I(ex^3) + I(ex^4) + I(ex^5) + \n       I(ex^6) + I(ex^7) + I(ex^8) + I(ex^9) + I(ex^10), data = _)\n\nnew_data |&gt; \n  mutate(underfit = predict.lm(lm1, newdata = new_data),\n         `good fit` = predict(lm2, newdata = new_data),\n         overfit = predict(lm3, newdata = new_data)) |&gt; \n  pivot_longer(cols = underfit:overfit, \n               names_to = \"fit\", \n               values_to = \"prediction\") |&gt; \n  mutate(fit = factor(fit, \n                        levels = c(\"underfit\", \"good fit\", \"overfit\") )) |&gt; \n  group_by(fit) |&gt; \n  summarize(MSE_newdata = mean((why - prediction)^2))"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#results-1",
+    "href": "slides/2025-09-08-simulating.html#results-1",
+    "title": "Simulating",
+    "section": "Results",
+    "text": "Results\nThe results themselves are equivalent. Differing values due to randomness in the simulation.\n\nvectorizedmap()for() loop\n\n\n\nmeet_vect |&gt; \n  group_by(result) |&gt; \n  summarize(number = n()) |&gt; \n  mutate(proprotion = number / sum(number))\n\n# A tibble: 2 × 3\n  result      number proprotion\n  &lt;chr&gt;        &lt;int&gt;      &lt;dbl&gt;\n1 They do not   6966      0.697\n2 They meet     3034      0.303\n\n\n\n\n\nmeet_map |&gt; \n  group_by(result) |&gt; \n  summarize(number = n())|&gt; \n  mutate(proprotion = number / sum(number))\n\n# A tibble: 2 × 3\n  result      number proprotion\n  &lt;chr&gt;        &lt;int&gt;      &lt;dbl&gt;\n1 They do not   7087      0.709\n2 They meet     2913      0.291\n\n\n\n\n\nmeet_for |&gt; \n  group_by(result) |&gt; \n  summarize(number = n())|&gt; \n  mutate(proprotion = number / sum(number))\n\n# A tibble: 2 × 3\n  result      number proprotion\n  &lt;chr&gt;        &lt;int&gt;      &lt;dbl&gt;\n1 They do not   6942      0.694\n2 They meet     3058      0.306"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#simplified-term-1",
+    "href": "slides/2025-09-08-simulating.html#simplified-term-1",
+    "title": "Simulating",
+    "section": "Simplified Term 1",
+    "text": "Simplified Term 1\n\\[E\\bigg[(f(x) - \\hat{f}(x))^2\\bigg] = \\bigg( f(x) - E[\\hat{f}(x)] \\bigg)^2 + E\\bigg[ (E[\\hat{f}(x)] - \\hat{f}(x))^2 \\bigg]\\]\nWhere:\n\\(\\bigg[\\) Bias of \\(\\hat{f}(x) \\bigg]^2\\) is \\(\\bigg( f(x) - E[\\hat{f}(x)] \\bigg)^2\\)\nVariance of \\(\\hat{f}(x)\\) is \\(E\\bigg[ (E[\\hat{f}(x)] - \\hat{f}(x))^2 \\bigg]\\)"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#mse",
+    "href": "slides/2025-09-08-simulating.html#mse",
+    "title": "Simulating",
+    "section": "MSE",
+    "text": "MSE\n\\[\\begin{eqnarray*}\nMSE &=& E\\bigg[(y - \\hat{f}(x))^2\\bigg]\\\\\n&=& \\bigg[ \\mbox{ Bias of } \\hat{f}(x) \\bigg]^2 + \\mbox{ Variance of } \\hat{f}(x) + \\sigma^2\n\\end{eqnarray*}\\]"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#back-to-bias-and-variance",
+    "href": "slides/2025-09-08-simulating.html#back-to-bias-and-variance",
+    "title": "Simulating",
+    "section": "Back to bias and variance",
+    "text": "Back to bias and variance\n\nmodel 1: y ~ xmodel 2: y ~ x + x^2model 3: y ~ x + x^2 + x^3 + x^4 + x^5 + x^6 + x^7 + x^8 + x^9 + x^10code\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nset.seed(47)\ndatasets &lt;- 1:9 |&gt; \n  map_dfr(\\(i) {\n    tibble(\n      ex  = seq(0, 10, by = 0.5),\n      eps = rnorm(num_x, mean = 0, sd = 5),\n      why = ex^2 + eps,\n      dataset = i\n    )\n  }) |&gt; \n  group_by(dataset) |&gt; \n  mutate(underfit = lm(why ~ ex)$fitted,\n         `good fit` = lm(why ~ ex + I(ex^2))$fitted,\n         overfit = lm(why ~ ex + I(ex^2) + I(ex^3) + I(ex^4) + I(ex^5) + I(ex^6) + I(ex^7) + I(ex^8) + I(ex^9) + I(ex^10) )$fitted) |&gt; \n  pivot_longer(cols = underfit:overfit, \n               names_to = \"fit\", \n               values_to = \"prediction\") |&gt; \n  mutate(fit = factor(fit, \n                        levels = c(\"underfit\", \"good fit\", \"overfit\") ))\n\ndatasets\n\n\ndatasets |&gt; \n  filter(fit == \"underfit\") |&gt; \n  ggplot(aes(x = ex, y = why)) + \n  geom_point(size = 0.25) + \n  geom_line(aes(y = prediction)) + \n  facet_wrap(~ dataset)\n\n\ndatasets |&gt; \n  filter(fit == \"good fit\") |&gt; \n  ggplot(aes(x = ex, y = why)) + \n  geom_point(size = 0.25) + \n  geom_line(aes(y = prediction)) + \n  facet_wrap(~ dataset)\n\n\ndatasets |&gt; \n  filter(fit == \"overfit\") |&gt; \n  ggplot(aes(x = ex, y = why)) + \n  geom_point(size = 0.25) + \n  geom_line(aes(y = prediction)) + \n  facet_wrap(~ dataset)"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#what-we-know-about-bias-variance-trade-off",
+    "href": "slides/2025-09-08-simulating.html#what-we-know-about-bias-variance-trade-off",
+    "title": "Simulating",
+    "section": "What we know about bias-variance trade-off",
+    "text": "What we know about bias-variance trade-off\n\nThe underfit model looks the same for every dataset! That is, the model has low variance.\nThe underfit model doesn’t fit the data very well. The model has high bias.\nThe overfit model model is very flexible, and looks like it fits the data very well. It has low bias.\nThe fitted models look quite different across the different datasets. The overfit model has high variance."
   }
 ]

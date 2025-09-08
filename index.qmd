@@ -43,16 +43,16 @@ schedule <- tribble(
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 1</a> - due 9.3',
   '<a href = "https://st47s.com/Math154/Notes/02-viz.html#deconstruct" target = "_blank"><i class="fas fa-book-open"></i> data viz</a> <br> <a href = "https://st47s.com/Math154/Notes/03-wrangling.html" target = "_blank"><i class="fas fa-book-open"></i> wrangling</a>',
   
- "9.8.25", '<a href="posts/2025-09-08-functions/"><i class="fas fa-desktop" target="_blank"></i> functions</a>',
+ "9.8.25", '<a href="posts/2025-09-08-simulating/"><i class="fas fa-desktop" target="_blank"></i> simulating</a>',
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 2</a> - due 9.10 <br> <i class="fa-regular fa-circle-question"></i> Quiz 1 (wrangling + ggplot) 9.10',
   ' ',
   
-   "9.15.25", '<a href="posts/2025-09-15-simulating/"><i class="fas fa-desktop" target="_blank"></i> simulating</a>',
+   "9.15.25", '<a href="posts/2025-09-08-simulating/"><i class="fas fa-desktop" target="_blank"></i> simulating</a>',
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 3</a> - due 9.17',
   ' ',
 
    "9.22.25", '<a href="posts/2025-09-22-permutation/"><i class="fas fa-desktop" target="_blank"></i> permutation tests</a>',
-  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 4</a> - due 9.24 <br> <i class="fa-regular fa-circle-question"></i> Quiz 2 (functions + simulating) 9.24',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 4</a> - due 9.24 <br> <i class="fa-regular fa-circle-question"></i> Quiz 2 (simulating) 9.24',
   ' ',
 
   "9.29.25", '<a href="posts/2025-09-22-permutation/"><i class="fas fa-desktop" target="_blank"></i> permutation tests</a>',
