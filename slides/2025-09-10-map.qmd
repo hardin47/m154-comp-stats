@@ -26,7 +26,7 @@ options(pillar.width = 70)
 
 
 
-# Agenda  9/18/24
+# Agenda  9/10/25
 
 
 1. `map`ping

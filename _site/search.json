@@ -8145,28 +8145,28 @@
     "href": "slides/2025-09-10-map.html#pmap",
     "title": "Mapping",
     "section": "pmap()",
-    "text": "pmap()\n\nyou can pass a named list or dataframe as arguments to a function\nfor example runif() has the parameters n, min and max\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\npmap(params, runif)\n\n[[1]]\n[1] 4.452536\n\n[[2]]\n[1] 93.34062 74.97663\n\n[[3]]\n[1] 838.9066 379.5256 589.1128\n\n\nOr use the pipe into pmap():\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 1.77418\n\n[[2]]\n[1] 62.15411 95.94745\n\n[[3]]\n[1] 932.7449 988.9743 630.2246"
+    "text": "pmap()\n\nyou can pass a named list or dataframe as arguments to a function\nfor example runif() has the parameters n, min and max\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\npmap(params, runif)\n\n[[1]]\n[1] 8.539171\n\n[[2]]\n[1] 41.65993 93.66701\n\n[[3]]\n[1] 738.8183 729.6829 666.3807\n\n\nOr use the pipe into pmap():\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 6.487127\n\n[[2]]\n[1] 22.89620 12.22851\n\n[[3]]\n[1] 468.9040 495.1855 920.2273"
   },
   {
     "objectID": "slides/2025-09-10-map.html#an-aside",
     "href": "slides/2025-09-10-map.html#an-aside",
     "title": "Mapping",
     "section": "An aside…",
-    "text": "An aside…\nInterestingly, runif() will take either a scalar or a vector as its first argument. If the first argument is a vector, runif() will return N random uniforms, where N is the length of the vector.\n\nrunif(n = 3)\n\n[1] 0.1675987 0.1242060 0.5683906\n\nrunif(n = c(1,3))\n\n[1] 0.1485473 0.8844902\n\nrunif(n = c(10000,12321412424))\n\n[1] 0.5628303 0.1622899\n\nrunif(n = c(\"rainbow\", \"unicorn\"))\n\n[1] 0.8209232 0.1329418"
+    "text": "An aside…\nInterestingly, runif() will take either a scalar or a vector as its first argument. If the first argument is a vector, runif() will return N random uniforms, where N is the length of the vector.\n\nrunif(n = 3)\n\n[1] 0.80592746 0.03661923 0.15432944\n\nrunif(n = c(1,3))\n\n[1] 0.8884210 0.7207189\n\nrunif(n = c(10000,12321412424))\n\n[1] 0.5735507 0.0129551\n\nrunif(n = c(\"rainbow\", \"unicorn\"))\n\n[1] 0.4595933 0.1616399"
   },
   {
     "objectID": "slides/2025-09-10-map.html#pmap-vs-map",
     "href": "slides/2025-09-10-map.html#pmap-vs-map",
     "title": "Mapping",
     "section": "pmap() vs map()",
-    "text": "pmap() vs map()\nWhich means that the pmap() code will “work” in map() as well:\n\nparamspmapmap\n\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\n\n\n\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 2.364639\n\n[[2]]\n[1] 28.57449 32.91040\n\n[[3]]\n[1] 430.9804 987.4835 255.8916\n\n\n\n\n\nparams |&gt; \n  map(runif)\n\n$n\n[1] 0.1182542 0.7382065 0.6972047\n\n$min\n[1] 0.7510093 0.4560355 0.1147249\n\n$max\n[1] 0.5709091 0.4371689 0.6639370"
+    "text": "pmap() vs map()\nWhich means that the pmap() code will “work” in map() as well:\n\nparamspmapmap\n\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\n\n\n\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 6.018061\n\n[[2]]\n[1] 77.35889 86.16681\n\n[[3]]\n[1] 703.1789 535.4145 344.2819\n\n\n\n\n\nparams |&gt; \n  map(runif)\n\n$n\n[1] 0.6415199 0.1694182 0.7042502\n\n$min\n[1] 0.6426690 0.8662534 0.5158804\n\n$max\n[1] 0.07162752 0.85175781 0.21090068"
   },
   {
     "objectID": "slides/2025-09-10-map.html#pmap-with-expand_grid",
     "href": "slides/2025-09-10-map.html#pmap-with-expand_grid",
     "title": "Mapping",
     "section": "pmap() with expand_grid()",
-    "text": "pmap() with expand_grid()\n\nI like to use expand_grid() when I want all possible parameter combinations.\n\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) \n\n# A tibble: 12 × 3\n       n   min   max\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     1    10\n 2     1     1   100\n 3     1    10    10\n 4     1    10   100\n 5     2     1    10\n 6     2     1   100\n 7     2    10    10\n 8     2    10   100\n 9     3     1    10\n10     3     1   100\n11     3    10    10\n12     3    10   100\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) |&gt; \npmap(runif)\n\n[[1]]\n[1] 5.201441\n\n[[2]]\n[1] 43.19342\n\n[[3]]\n[1] 10\n\n[[4]]\n[1] 68.36863\n\n[[5]]\n[1] 8.861738 5.594167\n\n[[6]]\n[1] 99.72795 94.83531\n\n[[7]]\n[1] 10 10\n\n[[8]]\n[1] 90.09462 60.36867\n\n[[9]]\n[1] 8.216249 2.974479 2.861877\n\n[[10]]\n[1] 14.74534 82.54662 79.95645\n\n[[11]]\n[1] 10 10 10\n\n[[12]]\n[1] 39.24711 12.26114 67.93423"
+    "text": "pmap() with expand_grid()\n\nI like to use expand_grid() when I want all possible parameter combinations.\n\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) \n\n# A tibble: 12 × 3\n       n   min   max\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     1    10\n 2     1     1   100\n 3     1    10    10\n 4     1    10   100\n 5     2     1    10\n 6     2     1   100\n 7     2    10    10\n 8     2    10   100\n 9     3     1    10\n10     3     1   100\n11     3    10    10\n12     3    10   100\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) |&gt; \npmap(runif)\n\n[[1]]\n[1] 6.225309\n\n[[2]]\n[1] 98.24453\n\n[[3]]\n[1] 10\n\n[[4]]\n[1] 33.18636\n\n[[5]]\n[1] 8.901332 8.745270\n\n[[6]]\n[1] 98.40492 94.04735\n\n[[7]]\n[1] 10 10\n\n[[8]]\n[1] 11.35009 89.26272\n\n[[9]]\n[1] 2.177178 8.999381 9.398265\n\n[[10]]\n[1] 71.98189 97.01584 16.58186\n\n[[11]]\n[1] 10 10 10\n\n[[12]]\n[1] 52.50182 43.73417 39.43322"
   },
   {
     "objectID": "slides/2025-09-10-map.html#mapping-to-a-data-frame",
