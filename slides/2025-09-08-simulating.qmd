@@ -24,10 +24,11 @@ library(tidyverse)
 library(knitr)
 library(lubridate)
 library(openintro)
+options(pillar.width = 70)
 ```
 
 
-# Agenda  9/23/24
+# Agenda  9/8/25
 
 1. Simulating to understand bias-variance trade-off
 2. `map()`
@@ -46,12 +47,12 @@ library(openintro)
 
 We can measure how well a model does by looking at how close the fit of the model ($\hat{f}$) is to the observed data ($y$). 
 
-$$MSE = E\bigg[(y - \hat{f}(x))^2\bigg]$$
+$$MSE = E\bigg[(Y - \hat{f}(x))^2\bigg]$$
 
-Because $\hat{f}(x) = f(x) + \epsilon$, we know that:
+Because $Y = f(x) + \epsilon$, we know that:
 
 \begin{eqnarray*}
-MSE &=& E\bigg[(y - \hat{f}(x))^2\bigg]\\
+MSE &=& E\bigg[(Y - \hat{f}(x))^2\bigg]\\
 &=& E\bigg[(f(x) + \epsilon - \hat{f}(x))^2\bigg]\\
 &=& E\bigg[(f(x) - \hat{f}(x))^2\bigg] + 2 E\bigg[(f(x) - \hat{f}(x)) \cdot \epsilon \bigg] + E[\epsilon^2]
 \end{eqnarray*}
@@ -75,7 +76,7 @@ Variance of $\hat{f}(x)$ is $E\bigg[ (E[\hat{f}(x)] - \hat{f}(x))^2 \bigg]$
 ## MSE
 
 \begin{eqnarray*}
-MSE &=& E\bigg[(y - \hat{f}(x))^2\bigg]\\
+MSE &=& E\bigg[(Y - \hat{f}(x))^2\bigg]\\
 &=& \bigg[ \mbox{ Bias of } \hat{f}(x) \bigg]^2 + \mbox{ Variance of } \hat{f}(x) + \sigma^2
 \end{eqnarray*}
 
@@ -791,7 +792,7 @@ iterations <- 10000
 -->
 
 
-# Agenda  9/25/24
+# Agenda  9/15/25
 
 1. Simulating to understand complicated models
 2. Simulating to consider statistical methods with fewer assumptions

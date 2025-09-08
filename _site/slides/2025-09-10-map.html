@@ -1085,6 +1085,7 @@ Jo Hardin
 <ul>
 <li><p>encourages function logic to be separated from iteration logic</p></li>
 <li><p>can collapse into vectors/data frames easily</p></li>
+<li><p>direct connection to parallel processing</p></li>
 </ul>
 </section>
 <section id="map" class="slide level2">
@@ -1140,7 +1141,7 @@ Jo Hardin
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3 6 9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">map_lgl</span> (<span class="at">.x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">.f =</span> triple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">map_lgl</span>(<span class="at">.x =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">.f =</span> triple)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `map_lgl()`:
 ℹ In index: 1.
@@ -1160,21 +1161,22 @@ Caused by error:
 <span id="cb9-2"><a></a>fastfood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 515 × 17
-   restaurant item      calories cal_fat total_fat sat_fat trans_fat cholesterol
-   &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
- 1 Mcdonalds  Artisan …      380      60         7       2       0            95
- 2 Mcdonalds  Single B…      840     410        45      17       1.5         130
- 3 Mcdonalds  Double B…     1130     600        67      27       3           220
- 4 Mcdonalds  Grilled …      750     280        31      10       0.5         155
- 5 Mcdonalds  Crispy B…      920     410        45      12       0.5         120
- 6 Mcdonalds  Big Mac        540     250        28      10       1            80
- 7 Mcdonalds  Cheesebu…      300     100        12       5       0.5          40
- 8 Mcdonalds  Classic …      510     210        24       4       0            65
- 9 Mcdonalds  Double C…      430     190        21      11       1            85
-10 Mcdonalds  Double Q…      770     400        45      21       2.5         175
+   restaurant item        calories cal_fat total_fat sat_fat trans_fat
+   &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Mcdonalds  Artisan Gr…      380      60         7       2       0  
+ 2 Mcdonalds  Single Bac…      840     410        45      17       1.5
+ 3 Mcdonalds  Double Bac…     1130     600        67      27       3  
+ 4 Mcdonalds  Grilled Ba…      750     280        31      10       0.5
+ 5 Mcdonalds  Crispy Bac…      920     410        45      12       0.5
+ 6 Mcdonalds  Big Mac          540     250        28      10       1  
+ 7 Mcdonalds  Cheeseburg…      300     100        12       5       0.5
+ 8 Mcdonalds  Classic Ch…      510     210        24       4       0  
+ 9 Mcdonalds  Double Che…      430     190        21      11       1  
+10 Mcdonalds  Double Qua…      770     400        45      21       2.5
 # ℹ 505 more rows
-# ℹ 9 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;,
-#   protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;chr&gt;</code></pre>
+# ℹ 10 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,
+#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,
+#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;chr&gt;</code></pre>
 </div>
 </div>
 <p>From <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2018/2018-09-04">TidyTuesday Fast food entree data</a> on September 4, 2018.</p>
@@ -1408,13 +1410,13 @@ Caused by error in `.f()`:
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">pmap</span>(params, runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 5.347505
+[1] 4.452536
 
 [[2]]
-[1] 52.04444 93.07860
+[1] 93.34062 74.97663
 
 [[3]]
-[1] 479.3029 918.0214 154.6309</code></pre>
+[1] 838.9066 379.5256 589.1128</code></pre>
 </div>
 </div>
 <p>Or use the pipe into <code>pmap()</code>:</p>
@@ -1423,13 +1425,13 @@ Caused by error in `.f()`:
 <span id="cb49-2"><a></a>  <span class="fu">pmap</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 6.715769
+[1] 1.77418
 
 [[2]]
-[1] 14.98978 83.14187
+[1] 62.15411 95.94745
 
 [[3]]
-[1] 943.7182 407.8529 639.4908</code></pre>
+[1] 932.7449 988.9743 630.2246</code></pre>
 </div>
 </div>
 </section>
@@ -1439,19 +1441,19 @@ Caused by error in `.f()`:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.30479935 0.03860235 0.85546161</code></pre>
+<pre><code>[1] 0.1675987 0.1242060 0.5683906</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6302212 0.0961391</code></pre>
+<pre><code>[1] 0.1485473 0.8844902</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">10000</span>,<span class="dv">12321412424</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2455305 0.4797139</code></pre>
+<pre><code>[1] 0.5628303 0.1622899</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="st">&quot;rainbow&quot;</span>, <span class="st">&quot;unicorn&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.29153184 0.07646015</code></pre>
+<pre><code>[1] 0.8209232 0.1329418</code></pre>
 </div>
 </div>
 </section>
@@ -1480,13 +1482,13 @@ Caused by error in `.f()`:
 <span id="cb61-2"><a></a>  <span class="fu">pmap</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 7.032227
+[1] 2.364639
 
 [[2]]
-[1] 35.44360 70.07807
+[1] 28.57449 32.91040
 
 [[3]]
-[1] 757.6589 568.5014 101.7332</code></pre>
+[1] 430.9804 987.4835 255.8916</code></pre>
 </div>
 </div>
 </div>
@@ -1496,13 +1498,13 @@ Caused by error in `.f()`:
 <span id="cb63-2"><a></a>  <span class="fu">map</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$n
-[1] 0.3883345 0.9305749 0.9974134
+[1] 0.1182542 0.7382065 0.6972047
 
 $min
-[1] 0.1150240 0.1779996 0.3095298
+[1] 0.7510093 0.4560355 0.1147249
 
 $max
-[1] 0.5704983 0.5634095 0.7519701</code></pre>
+[1] 0.5709091 0.4371689 0.6639370</code></pre>
 </div>
 </div>
 </div>
@@ -1527,13 +1529,13 @@ pmap(runif)
 
 ```
 [[1]]
-[1] 3.120942
+[1] 6.669792
 
 [[2]]
-[1] 23.60263 59.17961
+[1] 38.88664 69.70470
 
 [[3]]
-[1] 326.1541 413.5911 991.6700
+[1] 952.9750 587.2647 353.2121
 ```
 
 
@@ -1575,40 +1577,40 @@ pmap(runif)
 <span id="cb67-4"><a></a><span class="fu">pmap</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 5.769279
+[1] 5.201441
 
 [[2]]
-[1] 30.93094
+[1] 43.19342
 
 [[3]]
 [1] 10
 
 [[4]]
-[1] 24.66541
+[1] 68.36863
 
 [[5]]
-[1] 2.368047 6.213135
+[1] 8.861738 5.594167
 
 [[6]]
-[1] 87.78418 94.81645
+[1] 99.72795 94.83531
 
 [[7]]
 [1] 10 10
 
 [[8]]
-[1] 51.99410 57.60292
+[1] 90.09462 60.36867
 
 [[9]]
-[1] 8.460044 2.052597 3.038084
+[1] 8.216249 2.974479 2.861877
 
 [[10]]
-[1] 49.39378 69.23568 29.68980
+[1] 14.74534 82.54662 79.95645
 
 [[11]]
 [1] 10 10 10
 
 [[12]]
-[1] 32.09189 26.57233 83.83990</code></pre>
+[1] 39.24711 12.26114 67.93423</code></pre>
 </div>
 </div>
 </section>
@@ -1640,21 +1642,21 @@ pmap(runif)
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 # A tibble: 1 × 18
-  restaurant  item calories cal_fat total_fat sat_fat trans_fat cholesterol
-       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-1         NA    NA      657     291        32      11         1         116
-# ℹ 10 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;,
-#   sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;,
-#   salad &lt;dbl&gt;, n &lt;chr&gt;
+  restaurant  item calories cal_fat total_fat sat_fat trans_fat
+       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1         NA    NA      657     291        32      11         1
+# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,
+#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,
+#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;
 
 [[2]]
 # A tibble: 1 × 18
-  restaurant  item calories cal_fat total_fat sat_fat trans_fat cholesterol
-       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-1         NA    NA      582     247        27       9         0          99
-# ℹ 10 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;,
-#   sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;,
-#   salad &lt;dbl&gt;, n &lt;chr&gt;</code></pre>
+  restaurant  item calories cal_fat total_fat sat_fat trans_fat
+       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1         NA    NA      582     247        27       9         0
+# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,
+#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,
+#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -1665,13 +1667,13 @@ pmap(runif)
 <span id="cb72-3"><a></a>out2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 18
-  restaurant  item calories cal_fat total_fat sat_fat trans_fat cholesterol
-       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
-1         NA    NA      657     291        32      11         1         116
-2         NA    NA      582     247        27       9         0          99
-# ℹ 10 more variables: sodium &lt;dbl&gt;, total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;,
-#   sugar &lt;dbl&gt;, protein &lt;dbl&gt;, vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;,
-#   salad &lt;dbl&gt;, n &lt;chr&gt;</code></pre>
+  restaurant  item calories cal_fat total_fat sat_fat trans_fat
+       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+1         NA    NA      657     291        32      11         1
+2         NA    NA      582     247        27       9         0
+# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,
+#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,
+#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -1682,16 +1684,16 @@ pmap(runif)
 <span id="cb74-3"><a></a>out3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 36
-  restaurant...1 item...2 calories...3 cal_fat...4 total_fat...5 sat_fat...6
-           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
-1             NA       NA          657         291            32          11
-# ℹ 30 more variables: trans_fat...7 &lt;dbl&gt;, cholesterol...8 &lt;dbl&gt;,
-#   sodium...9 &lt;dbl&gt;, total_carb...10 &lt;dbl&gt;, fiber...11 &lt;dbl&gt;,
-#   sugar...12 &lt;dbl&gt;, protein...13 &lt;dbl&gt;, vit_a...14 &lt;dbl&gt;, vit_c...15 &lt;dbl&gt;,
-#   calcium...16 &lt;dbl&gt;, salad...17 &lt;dbl&gt;, n...18 &lt;chr&gt;, restaurant...19 &lt;dbl&gt;,
+  restaurant...1 item...2 calories...3 cal_fat...4 total_fat...5
+           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+1             NA       NA          657         291            32
+# ℹ 31 more variables: sat_fat...6 &lt;dbl&gt;, trans_fat...7 &lt;dbl&gt;,
+#   cholesterol...8 &lt;dbl&gt;, sodium...9 &lt;dbl&gt;, total_carb...10 &lt;dbl&gt;,
+#   fiber...11 &lt;dbl&gt;, sugar...12 &lt;dbl&gt;, protein...13 &lt;dbl&gt;,
+#   vit_a...14 &lt;dbl&gt;, vit_c...15 &lt;dbl&gt;, calcium...16 &lt;dbl&gt;,
+#   salad...17 &lt;dbl&gt;, n...18 &lt;chr&gt;, restaurant...19 &lt;dbl&gt;,
 #   item...20 &lt;dbl&gt;, calories...21 &lt;dbl&gt;, cal_fat...22 &lt;dbl&gt;,
-#   total_fat...23 &lt;dbl&gt;, sat_fat...24 &lt;dbl&gt;, trans_fat...25 &lt;dbl&gt;,
-#   cholesterol...26 &lt;dbl&gt;, sodium...27 &lt;dbl&gt;, total_carb...28 &lt;dbl&gt;, …</code></pre>
+#   total_fat...23 &lt;dbl&gt;, sat_fat...24 &lt;dbl&gt;, trans_fat...25 &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
 </div>
