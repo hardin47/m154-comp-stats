@@ -517,6 +517,21 @@ runif(4, 0, 1) # random uniform numbers
 
 
 
+## Aside: a few R functions (`n()` and `n_distinct()`)
+
+`n()` counts the number of rows.  `n_distinct()` counts the number of distinct rows.
+
+
+```{r}
+library(nycflights13)
+
+flights |> 
+  select(origin, dest) |> 
+  group_by(origin) |> 
+  summarize(num_flt = n(), num_dest =  n_distinct(dest))
+```
+
+
 
 ## Monte Carlo sample from a population to...
 
