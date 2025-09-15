@@ -63,6 +63,7 @@ knitr::include_graphics("../../images/map_frosting.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws4_m154_f25_biasvar.pdf" target = "_blank">WS4 - Bias-Variance Trade-off</a>
 
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws5_m154_f25_HT.pdf" target = "_blank">WS5 - Hypothesis Testing</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

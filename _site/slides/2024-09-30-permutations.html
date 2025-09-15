@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jo Hardin">
+
+<title>Permutation Tests – Computational Statistics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/favicon.ico" rel="icon">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-643cb54a90563409bf607ca7ddb324ba.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="https://m154-comp-stats.netlify.app/" class="navbar-brand navbar-brand-logo">
+    <img src="../images/st47s.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="https://m154-comp-stats.netlify.app/">
+    <span class="navbar-title">Computational Statistics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../daily.html"> 
+<span class="menu-text">Daily</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notes.html"> 
+<span class="menu-text">Class Notes</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-project" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Project</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-project">    
+        <li>
+    <a class="dropdown-item" href="../project.html">
+ <span class="dropdown-text">Project Assignment</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../roles.html">
+ <span class="dropdown-text">Group Roles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../rubric.html">
+ <span class="dropdown-text">Rubric</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://hardin47.netlify.app/courses/data-sources/">
+ <span class="dropdown-text">Data Sources</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../clicker_study.html"> 
+<span class="menu-text">Clicker Q</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../github.html"> 
+<span class="menu-text">GitHub</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="2024-09-30-permutations.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Permutation Tests</h1>
+<p class="subtitle lead">September 30 + October 2, 2024</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jo Hardin </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="agenda-93024" class="level1">
+<h1>Agenda 9/30/24</h1>
+<ol type="1">
+<li>Review: logic of hypothesis testing</li>
+<li>Logic of permutation tests</li>
+<li>Examples - 2 samples and beyond</li>
+</ol>
+<section id="statistics-without-the-agonizing-pain" class="level2">
+<h2 class="anchored" data-anchor-id="statistics-without-the-agonizing-pain">Statistics Without the Agonizing Pain</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/rauser.png" class="img-fluid figure-img" style="width:40.0%" alt="Image of John Rauser who gave a keynote address  on permutation tests at the Strat + Hadoop conference in 2014."></p>
+<figcaption>John Rauser of Pintrest (now Amazon), speaking at Strata + Hadoop 2014. https://blog.revolutionanalytics.com/2014/10/statistics-doesnt-have-to-be-that-hard.html</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="logic-of-hypothesis-tests" class="level2">
+<h2 class="anchored" data-anchor-id="logic-of-hypothesis-tests">Logic of hypothesis tests</h2>
+<ol type="1">
+<li><p>Choose a statistic that measures the effect</p></li>
+<li><p>Construct the sampling distribution under <span class="math inline">\(H_0\)</span></p></li>
+<li><p>Locate the observed statistic in the null sampling distribution</p></li>
+<li><p><strong>p-value</strong> is the probability of the observed data or more extreme if the null hypothesis is true</p></li>
+</ol>
+</section>
+<section id="logic-of-permutation-tests" class="level2">
+<h2 class="anchored" data-anchor-id="logic-of-permutation-tests">Logic of permutation tests</h2>
+<ol type="1">
+<li><p>Choose a test statistic</p></li>
+<li><p>Shuffle the data (force the null hypothesis to be true)</p></li>
+<li><p>Create a null sampling distribution of the test statistic (under <span class="math inline">\(H_0\)</span>)</p></li>
+<li><p>Find the observed test statistic on the null sampling distribution and compute the p-value (observed data or more extreme). The p-value can be one or two-sided.</p></li>
+</ol>
+</section>
+<section id="consider-the-nhanes-dataset." class="level2">
+<h2 class="anchored" data-anchor-id="consider-the-nhanes-dataset.">Consider the NHANES dataset.</h2>
+<ul>
+<li>Income
+<ul>
+<li>(HHIncomeMid - Numerical version of HHIncome derived from the middle income in each category)</li>
+</ul></li>
+<li>Health
+<ul>
+<li>(HealthGen - Self-reported rating of participant’s health in general Reported for participants aged 12 years or older. One of Excellent, Vgood, Good, Fair, or Poor.)</li>
+</ul></li>
+</ul>
+</section>
+<section id="summary-of-the-variables-of-interest" class="level2">
+<h2 class="anchored" data-anchor-id="summary-of-the-variables-of-interest">Summary of the variables of interest</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>NHANES  <span class="sc">|&gt;</span> <span class="fu">select</span>(HealthGen)  <span class="sc">|&gt;</span> <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HealthGen
+Excellent     Vgood      Good      Fair      Poor 
+      878      2508      2956      1010       187 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>NHANES  <span class="sc">|&gt;</span> <span class="fu">select</span>(HHIncomeMid)  <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  HHIncomeMid    
+ Min.   :  2500  
+ 1st Qu.: 30000  
+ Median : 50000  
+ Mean   : 57206  
+ 3rd Qu.: 87500  
+ Max.   :100000  
+ NA's   :811     </code></pre>
+</div>
+</div>
+</section>
+<section id="mean-income-broken-down-by-health" class="level2">
+<h2 class="anchored" data-anchor-id="mean-income-broken-down-by-health">Mean Income broken down by Health</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>NH.means <span class="ot">&lt;-</span> NHANES  <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HealthGen) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(HHIncomeMid))  <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(HealthGen)  <span class="sc">|&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">IncMean =</span> <span class="fu">mean</span>(HHIncomeMid), <span class="at">count=</span><span class="fu">n</span>())</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>NH.means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  HealthGen IncMean count
+  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;
+1 Excellent  69354.   817
+2 Vgood      65011.  2342
+3 Good       55662.  2744
+4 Fair       44194.   899
+5 Poor       37027.   164</code></pre>
+</div>
+</div>
+<p>Are the differences in means simply due to random chance??</p>
+</section>
+<section id="income-and-health" class="level2">
+<h2 class="anchored" data-anchor-id="income-and-health">Income and Health</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>NHANES  <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HealthGen)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(HHIncomeMid))  <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>HealthGen, <span class="at">y=</span>HHIncomeMid)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2024-09-30-permutations_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="differences-in-income" class="level2">
+<h2 class="anchored" data-anchor-id="differences-in-income">Differences in Income ($)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>           Excellent      Vgood      Good      Fair      Poor
+Excellent      0.000   4343.671  13691.99 25160.797 32326.906
+Vgood      -4343.671      0.000   9348.32 20817.126 27983.236
+Good      -13691.991  -9348.320      0.00 11468.806 18634.915
+Fair      -25160.797 -20817.126 -11468.81     0.000  7166.109
+Poor      -32326.906 -27983.236 -18634.92 -7166.109     0.000</code></pre>
+</div>
+</div>
+</section>
+<section id="overall-difference" class="level2">
+<h2 class="anchored" data-anchor-id="overall-difference">Overall difference</h2>
+<p>We can measure the overall differences as the amount of variability between each of the means and the overall mean:</p>
+<p><span class="math display">\[F = \frac{\text{between-group variability}}{\text{within-group variability}}\]</span> <span class="math display">\[F = \frac{\sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2/(K-1)}{\sum_{ij} (X_{ij}-\overline{X}_{i\cdot})^2/(N-K)}\]</span> <span class="math display">\[SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2\]</span></p>
+</section>
+<section id="creating-a-test-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-test-statistic">Creating a test statistic</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>NHANES  <span class="sc">|&gt;</span> <span class="fu">select</span>(HHIncomeMid, HealthGen)  <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HealthGen)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(HHIncomeMid))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6,966 × 2
+   HHIncomeMid HealthGen
+         &lt;int&gt; &lt;fct&gt;    
+ 1       30000 Good     
+ 2       30000 Good     
+ 3       30000 Good     
+ 4       40000 Good     
+ 5       87500 Vgood    
+ 6       87500 Vgood    
+ 7       87500 Vgood    
+ 8       30000 Vgood    
+ 9      100000 Vgood    
+10       70000 Fair     
+# ℹ 6,956 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-test-statistic-1" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-test-statistic-1">Creating a test statistic</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>GM <span class="ot">&lt;-</span> NHANES  <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">mean</span>(HHIncomeMid, <span class="at">na.rm=</span><span class="cn">TRUE</span>))  <span class="sc">|&gt;</span> <span class="fu">pull</span>()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>GM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 57206.17</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>NH.means</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  HealthGen IncMean count
+  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;
+1 Excellent  69354.   817
+2 Vgood      65011.  2342
+3 Good       55662.  2744
+4 Fair       44194.   899
+5 Poor       37027.   164</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-test-statistic-2" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-test-statistic-2">Creating a test statistic</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>NH.means  <span class="sc">|&gt;</span> <span class="fu">select</span>(IncMean)  <span class="sc">|&gt;</span> <span class="fu">pull</span>() <span class="sc">-</span> GM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  12148.175   7804.504  -1543.816 -13012.622 -20178.731</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(NH.means  <span class="sc">|&gt;</span> <span class="fu">select</span>(IncMean)  <span class="sc">|&gt;</span> <span class="fu">pull</span>() <span class="sc">-</span> GM)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 147578150  60910286   2383368 169328332 407181201</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>NH.means  <span class="sc">|&gt;</span> <span class="fu">select</span>(count)  <span class="sc">|&gt;</span> <span class="fu">pull</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  817 2342 2744  899  164</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>NH.means  <span class="sc">|&gt;</span> <span class="fu">select</span>(count)  <span class="sc">|&gt;</span> <span class="fu">pull</span>() <span class="sc">*</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  (NH.means  <span class="sc">|&gt;</span> <span class="fu">select</span>(IncMean)  <span class="sc">|&gt;</span> <span class="fu">pull</span>() <span class="sc">-</span> GM)<span class="sc">^</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 120571348234 142651889943   6539963000 152226170649  66777716928</code></pre>
+</div>
+</div>
+</section>
+<section id="creating-a-test-statistic-3" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-test-statistic-3">Creating a test statistic</h2>
+<p><span class="math display">\[SumSqBtwn = \sum_i n_i(\overline{X}_{i\cdot} - \overline{X})^2\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(NH.means  <span class="sc">|&gt;</span> <span class="fu">select</span>(count)  <span class="sc">|&gt;</span> <span class="fu">pull</span>() <span class="sc">*</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>      (NH.means  <span class="sc">|&gt;</span> <span class="fu">select</span>(IncMean)  <span class="sc">|&gt;</span> <span class="fu">pull</span>() <span class="sc">-</span> GM)<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 488767088754</code></pre>
+</div>
+</div>
+</section>
+<section id="permuting-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="permuting-the-data">Permuting the data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>NHANES  <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HealthGen)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(HHIncomeMid))  <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IncomePerm =</span> <span class="fu">sample</span>(HHIncomeMid, <span class="at">replace=</span><span class="cn">FALSE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(HealthGen, HHIncomeMid, IncomePerm) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6,966 × 3
+   HealthGen HHIncomeMid IncomePerm
+   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;
+ 1 Good            30000     100000
+ 2 Good            30000     100000
+ 3 Good            30000      40000
+ 4 Good            40000      30000
+ 5 Vgood           87500      40000
+ 6 Vgood           87500      12500
+ 7 Vgood           87500      70000
+ 8 Vgood           30000     100000
+ 9 Vgood          100000      87500
+10 Fair            70000     100000
+# ℹ 6,956 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="permuting-the-data-a-new-test-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="permuting-the-data-a-new-test-statistic">Permuting the data &amp; a new test statistic</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>NHANES  <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HealthGen)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(HHIncomeMid))  <span class="sc">|&gt;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IncomePerm =</span> <span class="fu">sample</span>(HHIncomeMid, <span class="at">replace=</span><span class="cn">FALSE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(HealthGen)  <span class="sc">|&gt;</span> </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">IncMeanP =</span> <span class="fu">mean</span>(IncomePerm), <span class="at">count=</span><span class="fu">n</span>())  <span class="sc">|&gt;</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">teststat =</span> <span class="fu">sum</span>(count<span class="sc">*</span>(IncMeanP <span class="sc">-</span> GM)<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+      teststat
+         &lt;dbl&gt;
+1 15397250007.</code></pre>
+</div>
+</div>
+</section>
+<section id="lots-of-times" class="level2">
+<h2 class="anchored" data-anchor-id="lots-of-times">Lots of times…</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>SSB_perm_func <span class="ot">&lt;-</span> <span class="cf">function</span>(.x){</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  NHANES  <span class="sc">|&gt;</span> </span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HealthGen)<span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(HHIncomeMid))  <span class="sc">|&gt;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(<span class="at">IncomePerm =</span> <span class="fu">sample</span>(HHIncomeMid, <span class="at">replace=</span><span class="cn">FALSE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">group_by</span>(HealthGen)  <span class="sc">|&gt;</span> </span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summarize</span>(<span class="at">IncMeanP =</span> <span class="fu">mean</span>(IncomePerm), <span class="at">count=</span><span class="fu">n</span>())  <span class="sc">|&gt;</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summarize</span>(<span class="at">teststat =</span> <span class="fu">sum</span>(count<span class="sc">*</span>(IncMeanP <span class="sc">-</span> GM)<span class="sc">^</span><span class="dv">2</span>)) </span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>SSB_perm_val <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>reps, SSB_perm_func) <span class="sc">|&gt;</span> </span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>SSB_perm_val</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,000 × 1
+       teststat
+          &lt;dbl&gt;
+ 1 13765108404.
+ 2 13674693002.
+ 3 14993720191.
+ 4 15999631524.
+ 5 19505133840.
+ 6 11888626574.
+ 7 13903654157.
+ 8 12432195571.
+ 9 17200501281.
+10 13326819094.
+# ℹ 990 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="compared-to-the-real-data" class="level2">
+<h2 class="anchored" data-anchor-id="compared-to-the-real-data">Compared to the real data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>SSB_obs <span class="ot">&lt;-</span> NHANES  <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HealthGen) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(HHIncomeMid))  <span class="sc">|&gt;</span> </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(HealthGen)  <span class="sc">|&gt;</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">IncMean =</span> <span class="fu">mean</span>(HHIncomeMid), <span class="at">count=</span><span class="fu">n</span>())  <span class="sc">|&gt;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">obs_teststat =</span> <span class="fu">sum</span>(count<span class="sc">*</span>(IncMean <span class="sc">-</span> GM)<span class="sc">^</span><span class="dv">2</span>)) </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>SSB_obs </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+   obs_teststat
+          &lt;dbl&gt;
+1 488767088754.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(SSB_perm_val  <span class="sc">|&gt;</span> <span class="fu">pull</span>() <span class="sc">&gt;</span> SSB_obs  <span class="sc">|&gt;</span> <span class="fu">pull</span>() ) <span class="sc">/</span> reps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+</section>
+<section id="compared-to-the-observed-test-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="compared-to-the-observed-test-statistic">Compared to the observed test statistic</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2024-09-30-permutations_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="agenda-10224" class="level1">
+<h1>Agenda 10/2/24</h1>
+<ol type="1">
+<li>Conditions, exchangeability, random structure</li>
+<li>Different structures and statistics</li>
+</ol>
+<section id="exchangeability" class="level2">
+<h2 class="anchored" data-anchor-id="exchangeability">Exchangeability</h2>
+<blockquote class="blockquote">
+<p><em>If the null hypothesis is true, the labels assigning groups are interchangeable with respect to the probability distribution.</em></p>
+</blockquote>
+<p>typically (with the two group setting),</p>
+<p><span class="math display">\[H_0: F_1(x) = F_2(x)\]</span></p>
+<p>(there are no distributional or parametric conditions)</p>
+</section>
+<section id="exchangeability-1" class="level2">
+<h2 class="anchored" data-anchor-id="exchangeability-1">Exchangeability</h2>
+<p>More generally, we might use the following exchangeability definition</p>
+<blockquote class="blockquote">
+<p>Data are <strong>exchangeable</strong> under the null hypothesis if the joint distribution from which the data came is the same before permutation as after permutation when the null hypothesis is true.</p>
+</blockquote>
+</section>
+<section id="probability-as-measured-by-what" class="level2">
+<h2 class="anchored" data-anchor-id="probability-as-measured-by-what">Probability as measured by what?</h2>
+<ul>
+<li><p><strong>Random Sample</strong> The concept of a p-value usually comes from the idea of taking a sample from a population and comparing it to a sampling distribution (from many many random samples).</p></li>
+<li><p><strong>Randomized Experiment</strong> The p-value represents the observed data compared to the treatment variable being allocated to the groups “by chance.”</p></li>
+</ul>
+</section>
+<section id="permuting-independent-observations" class="level2">
+<h2 class="anchored" data-anchor-id="permuting-independent-observations">Permuting independent observations</h2>
+<p>Consider a “family” structure where some individuals are exposed and others are not (control).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/indep_perm.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="permuting-homogenous-cluster" class="level2">
+<h2 class="anchored" data-anchor-id="permuting-homogenous-cluster">Permuting homogenous cluster</h2>
+<p>Consider a “family” structure where individuals in a cluster always have the same treatment.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/perm_homo.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="permuting-herterogenous-cluster" class="level2">
+<h2 class="anchored" data-anchor-id="permuting-herterogenous-cluster">Permuting herterogenous cluster</h2>
+<p>Consider a “family” structure where individuals in a cluster always have the opposite treatment.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/perm_hetero.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gender-bias-in-teaching-evaluations" class="level2">
+<h2 class="anchored" data-anchor-id="gender-bias-in-teaching-evaluations">Gender bias in teaching evaluations</h2>
+<p><em>The Economist</em>, Sep 21, 2017</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/genderbias2a.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/genderbias2b.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gender-bias-in-teaching-evaluations-1" class="level2">
+<h2 class="anchored" data-anchor-id="gender-bias-in-teaching-evaluations-1">Gender bias in teaching evaluations</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/genderbias.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gender-bias-in-teaching-evaluations-2" class="level2">
+<h2 class="anchored" data-anchor-id="gender-bias-in-teaching-evaluations-2">Gender bias in teaching evaluations</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/genderbias3a.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Innovative Higher Education</em>, <strong>40</strong>, pages 291–303 (2015).</p>
+</section>
+<section id="gender-bias-in-teaching-evaluations-3" class="level2">
+<h2 class="anchored" data-anchor-id="gender-bias-in-teaching-evaluations-3">Gender bias in teaching evaluations</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/genderbias3b.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="gender-bias-macnell-data" class="level2">
+<h2 class="anchored" data-anchor-id="gender-bias-macnell-data">Gender bias: MacNell data</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2024-09-30-permutations_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="analysis-goal" class="level2">
+<h2 class="anchored" data-anchor-id="analysis-goal">Analysis goal</h2>
+<p>Want to know if the population average score for the <strong>perceived</strong> gender is different.</p>
+<p><span class="math display">\[H_0:  \mu_{ID.Female} = \mu_{ID.Male}\]</span></p>
+<blockquote class="blockquote">
+<p>Although for the permutation test, under the null hypothesis not only are the means of the population distributions the same, but the variance and all other aspects of the distributions across perceived gender.</p>
+</blockquote>
+</section>
+<section id="macnell-data-without-permutation" class="level2">
+<h2 class="anchored" data-anchor-id="macnell-data-without-permutation">MacNell Data without permutation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>macnell  <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(overall, tagender, taidgender) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 47 × 3
+   overall tagender taidgender
+     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+ 1       4        0          1
+ 2       4        0          1
+ 3       5        0          1
+ 4       5        0          1
+ 5       5        0          1
+ 6       4        0          1
+ 7       4        0          1
+ 8       5        0          1
+ 9       4        0          1
+10       3        0          1
+# ℹ 37 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="permuting-macnell-data" class="level2">
+<h2 class="anchored" data-anchor-id="permuting-macnell-data">Permuting MacNell data</h2>
+<p>Conceptually, there are two levels of randomization:</p>
+<ol type="1">
+<li><p><span class="math inline">\(N_m\)</span> students are randomly assigned to the male instructor and <span class="math inline">\(N_f\)</span> are assigned to the female instructor.</p></li>
+<li><p>Of the <span class="math inline">\(N_j\)</span> assigned to instructor <span class="math inline">\(j\)</span>, <span class="math inline">\(N_{jm}\)</span> are told that the instructor is male, and <span class="math inline">\(N_{jf}\)</span> are told that the instructor is female for <span class="math inline">\(j=m,f\)</span>.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>macnell  <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tagender, taidgender)  <span class="sc">|&gt;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 3
+# Groups:   tagender [2]
+  tagender taidgender `n()`
+     &lt;dbl&gt;      &lt;dbl&gt; &lt;int&gt;
+1        0          0    11
+2        0          1    12
+3        1          0    13
+4        1          1    11</code></pre>
+</div>
+</div>
+</section>
+<section id="stratified-two-sample-test" class="level2">
+<h2 class="anchored" data-anchor-id="stratified-two-sample-test">Stratified two-sample test:</h2>
+<ul>
+<li><strong>For each instructor</strong>, permute <em>perceived</em> gender assignments.</li>
+<li>Use difference in mean ratings for female-identified vs male-identified instructors.</li>
+</ul>
+</section>
+<section id="macnell-data-with-permutation" class="level2">
+<h2 class="anchored" data-anchor-id="macnell-data-with-permutation">MacNell Data with permutation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>macnell  <span class="sc">|&gt;</span> </span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">group_by</span>(tagender)  <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">mutate</span>(<span class="at">permTAID =</span> <span class="fu">sample</span>(taidgender, <span class="at">replace=</span><span class="cn">FALSE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">select</span>(overall, tagender, taidgender, permTAID) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 47 × 4
+# Groups:   tagender [2]
+   overall tagender taidgender permTAID
+     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+ 1       4        0          1        0
+ 2       4        0          1        1
+ 3       5        0          1        1
+ 4       5        0          1        0
+ 5       5        0          1        0
+ 6       4        0          1        1
+ 7       4        0          1        0
+ 8       5        0          1        0
+ 9       4        0          1        1
+10       3        0          1        1
+# ℹ 37 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="macnell-data-with-permutation-1" class="level2">
+<h2 class="anchored" data-anchor-id="macnell-data-with-permutation-1">MacNell Data with permutation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>macnell  <span class="sc">|&gt;</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">group_by</span>(tagender)  <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">mutate</span>(<span class="at">permTAID =</span> <span class="fu">sample</span>(taidgender, <span class="at">replace=</span><span class="cn">FALSE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">ungroup</span>(tagender)  <span class="sc">|&gt;</span></span>
+<span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">group_by</span>(permTAID)  <span class="sc">|&gt;</span></span>
+<span id="cb41-6"><a href="#cb41-6"></a>  <span class="fu">summarize</span>(<span class="at">pmeans =</span> <span class="fu">mean</span>(overall, <span class="at">na.rm=</span><span class="cn">TRUE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb41-7"><a href="#cb41-7"></a>  <span class="fu">summarize</span>(<span class="fu">diff</span>(pmeans))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  `diff(pmeans)`
+           &lt;dbl&gt;
+1          0.461</code></pre>
+</div>
+</div>
+</section>
+<section id="macnell-data-with-permutation-2" class="level2">
+<h2 class="anchored" data-anchor-id="macnell-data-with-permutation-2">MacNell Data with permutation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>diff_means_func <span class="ot">&lt;-</span> <span class="cf">function</span>(.x){</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  macnell  <span class="sc">|&gt;</span> <span class="fu">group_by</span>(tagender)  <span class="sc">|&gt;</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">permTAID =</span> <span class="fu">sample</span>(taidgender, <span class="at">replace=</span><span class="cn">FALSE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>(tagender)  <span class="sc">|&gt;</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(permTAID)  <span class="sc">|&gt;</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">pmeans =</span> <span class="fu">mean</span>(overall, <span class="at">na.rm=</span><span class="cn">TRUE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">diff_mean =</span> <span class="fu">diff</span>(pmeans))</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, diff_means_func) <span class="sc">|&gt;</span> </span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 1
+  diff_mean
+      &lt;dbl&gt;
+1   0.556  
+2   0.567  
+3   0.370  
+4  -0.00216
+5  -0.281  </code></pre>
+</div>
+</div>
+</section>
+<section id="observed-vs.-permuted-statistic" class="level2">
+<h2 class="anchored" data-anchor-id="observed-vs.-permuted-statistic">Observed vs.&nbsp;Permuted statistic</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># observed</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>macnell  <span class="sc">|&gt;</span> </span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(taidgender)  <span class="sc">|&gt;</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">pmeans =</span> <span class="fu">mean</span>(overall, <span class="at">na.rm=</span><span class="cn">TRUE</span>))  <span class="sc">|&gt;</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">diff_mean =</span> <span class="fu">diff</span>(pmeans))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  diff_mean
+      &lt;dbl&gt;
+1     0.474</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># permuted</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">47</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>perm_diff_means <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>reps, diff_means_func) <span class="sc">|&gt;</span> </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list_rbind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="macnell-data-with-permutation-3" class="level2">
+<h2 class="anchored" data-anchor-id="macnell-data-with-permutation-3">MacNell Data with permutation</h2>
+<p>permutation sampling distribution:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2024-09-30-permutations_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># permutation p-value</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>perm_diff_means  <span class="sc">|&gt;</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">p_val =</span> </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sum</span>(diff_mean <span class="sc">&gt;</span> <span class="fl">0.474</span>) <span class="sc">/</span> </span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>      reps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 1
+  p_val
+  &lt;dbl&gt;
+1 0.048</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="macnell-results" class="level2">
+<h2 class="anchored" data-anchor-id="macnell-results">MacNell results</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/genderbias3c.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="other-test-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="other-test-statistics">Other Test Statistics</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 28%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Data</th>
+<th style="text-align: center;">Hypothesis Question</th>
+<th style="text-align: center;">Statistic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2 categorical</td>
+<td style="text-align: center;">diff in prop</td>
+<td style="text-align: center;"><span class="math inline">\(\hat{p}_1 - \hat{p}_2\)</span> or <span class="math inline">\(\chi^2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">variables</td>
+<td style="text-align: center;">ratio of prop</td>
+<td style="text-align: center;"><span class="math inline">\(\hat{p}_1 /  \hat{p}_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 numeric</td>
+<td style="text-align: center;">diff in means</td>
+<td style="text-align: center;"><span class="math inline">\(\overline{X}_1 - \overline{X}_2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1 binary</td>
+<td style="text-align: center;">ratio of means</td>
+<td style="text-align: center;"><span class="math inline">\(\overline{X}_1 / \overline{X}_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">diff in medians</td>
+<td style="text-align: center;"><span class="math inline">\(\mbox{median}_1 - \mbox{median}_2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">ratio of medians</td>
+<td style="text-align: center;"><span class="math inline">\(\mbox{median}_1 / \mbox{median}_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">diff in SD</td>
+<td style="text-align: center;"><span class="math inline">\(s_1 - s_2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">diff in var</td>
+<td style="text-align: center;"><span class="math inline">\(s^2_1 - s^2_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">ratio of SD or VAR</td>
+<td style="text-align: center;"><span class="math inline">\(s_1 / s_2\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1 numeric</td>
+<td style="text-align: center;">diff in means</td>
+<td style="text-align: center;"><span class="math inline">\(\sum n_i (\overline{X}_i - \overline{X})^2\)</span> or</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">k groups</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">F stat</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">paired or</td>
+<td style="text-align: center;">(permute <em>within</em> row)</td>
+<td style="text-align: center;"><span class="math inline">\(\overline{X}_1 - \overline{X}_2\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">repeated measures</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">regression</td>
+<td style="text-align: center;">correlation</td>
+<td style="text-align: center;">least sq slope</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">time series</td>
+<td style="text-align: center;">no serial corr</td>
+<td style="text-align: center;">lag 1 autocross</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/m154-comp-stats\.netlify\.app\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p><a href="https://hardin47.netlify.app/research/"><i class="fa-solid fa-book" aria-label="book"></i></a> <a href="https://hardin47.netlify.app/resume.pdf" target="_blank"><i class="fa-solid fa-bookmark"></i></a> <a href="mailto:jo.hardin@pomona.edu" target="_blank"><i class="fa-solid fa-at"></i></a> <a href="https://scholar.google.com/citations?user=c5Y77poAAAAJ&amp;hl=en" target="_blank"><i class="fa-brands fa-google-scholar"></i></a> <a href="https://www.researchgate.net/scientific-contributions/Johanna-Hardin-9764530" target="_blank"><i class="fa-brands fa-researchgate"></i></a><br>
+<a href="https://github.com/hardin47" target="_blank"><i class="fa-brands fa-github"></i></a> <a href="https://www.linkedin.com/in/jo-hardin-b91a4b55" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></p>
+</div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <br> © Jo Hardin, 2025 -- <a href="mailto: jo.hardin@pomona.edu">jo.hardin@pomona.edu</a> -- <a href="https://hardin47.netlify.app/">https://hardin47.netlify.app/</a> <br> <br>
+Math 154 -- Computational Statistics -- Pomona College <br>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
