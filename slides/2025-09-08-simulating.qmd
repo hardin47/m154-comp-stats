@@ -59,7 +59,7 @@ MSE &=& E\bigg[(Y - \hat{f}(x))^2\bigg]\\
 
 Term 3: The third term is $\sigma^2$, the irreducible error (the part that even the perfect model can't predict).
 
-Term 2: Turns out to be zero because the errors are assumped to be independent of the explanatory variable, so the expected value can filter through.
+Term 2: Turns out to be zero because the errors are assumed to be independent of the explanatory variable, so the expected value can filter through.
 
 Term 1: Takes a little bit of work to expand (something you'd do in, say, Math 152)^[The expected value here is over the model $\hat{f}(x)$, not over the random variable $X$. That is, $\epsilon$ is the thing that varies.].
 
@@ -467,6 +467,21 @@ diamonds |> select(carat, cut, color, price) |>
     TRUE ~ "inexpensive"))
 ```
 
+
+## Aside: a few R functions (`sample_n()`)
+
+We took a random sample of 20 rows from the `diamonds` dataset.
+
+```{r}
+set.seed(4747)
+diamonds |> select(carat, cut, color, price) |>
+  sample_n(20) |>
+  mutate(price_cat = case_when(
+    price > 10000 ~ "expensive",
+    price > 1500 ~ "medium", 
+    TRUE ~ "inexpensive"))
+```
+
 ## Aside: a few R functions (`sample()`)
 
 *sampling*, *shuffling*,  and *resampling*: `sample()` 
@@ -503,7 +518,7 @@ runif(4, 0, 1) # random uniform numbers
 
 
 
-## Monte Carlo sampe from a population to...
+## Monte Carlo sample from a population to...
 
 * [...simulate to understand complicated models.]{.semi-transparent}
 * ...simulate as easier than calculus for estimating probabilities.
