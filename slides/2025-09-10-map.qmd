@@ -327,7 +327,7 @@ Would be great if the results were a data frame!
 col_stats <- function(n) {
   head(fastfood, n) |> 
     summarise_all(mean, na.rm = TRUE) |> 
-    mutate_all(floor) |> 
+    mutate_all(floor) |> # round down
     mutate(n = paste("N =", n))
 }
 ```

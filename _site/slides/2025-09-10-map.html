@@ -1410,13 +1410,13 @@ Caused by error in `.f()`:
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">pmap</span>(params, runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 8.539171
+[1] 8.940795
 
 [[2]]
-[1] 41.65993 93.66701
+[1] 46.11157 99.05758
 
 [[3]]
-[1] 738.8183 729.6829 666.3807</code></pre>
+[1] 719.2258 347.8249 899.3251</code></pre>
 </div>
 </div>
 <p>Or use the pipe into <code>pmap()</code>:</p>
@@ -1425,13 +1425,13 @@ Caused by error in `.f()`:
 <span id="cb49-2"><a></a>  <span class="fu">pmap</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 6.487127
+[1] 2.759777
 
 [[2]]
-[1] 22.89620 12.22851
+[1] 38.46107 54.02023
 
 [[3]]
-[1] 468.9040 495.1855 920.2273</code></pre>
+[1] 662.2607 531.0948 304.7521</code></pre>
 </div>
 </div>
 </section>
@@ -1441,19 +1441,19 @@ Caused by error in `.f()`:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.80592746 0.03661923 0.15432944</code></pre>
+<pre><code>[1] 0.9601774 0.5679648 0.5474585</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.8884210 0.7207189</code></pre>
+<pre><code>[1] 0.2229595 0.7244141</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="dv">10000</span>,<span class="dv">12321412424</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.5735507 0.0129551</code></pre>
+<pre><code>[1] 0.5067011 0.6437660</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="fu">c</span>(<span class="st">&quot;rainbow&quot;</span>, <span class="st">&quot;unicorn&quot;</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4595933 0.1616399</code></pre>
+<pre><code>[1] 0.9116760 0.8063012</code></pre>
 </div>
 </div>
 </section>
@@ -1482,13 +1482,13 @@ Caused by error in `.f()`:
 <span id="cb61-2"><a></a>  <span class="fu">pmap</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 6.018061
+[1] 7.879366
 
 [[2]]
-[1] 77.35889 86.16681
+[1] 63.69208 26.90827
 
 [[3]]
-[1] 703.1789 535.4145 344.2819</code></pre>
+[1] 419.3628 920.8644 667.2142</code></pre>
 </div>
 </div>
 </div>
@@ -1498,13 +1498,13 @@ Caused by error in `.f()`:
 <span id="cb63-2"><a></a>  <span class="fu">map</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$n
-[1] 0.6415199 0.1694182 0.7042502
+[1] 0.4550416 0.7083844 0.1961872
 
 $min
-[1] 0.6426690 0.8662534 0.5158804
+[1] 0.5825179 0.1055289 0.0716758
 
 $max
-[1] 0.07162752 0.85175781 0.21090068</code></pre>
+[1] 0.9910877 0.9648873 0.4984275</code></pre>
 </div>
 </div>
 </div>
@@ -1529,13 +1529,13 @@ pmap(runif)
 
 ```
 [[1]]
-[1] 5.470675
+[1] 9.164618
 
 [[2]]
-[1] 40.20705 98.53471
+[1] 42.03536 44.00054
 
 [[3]]
-[1] 208.6189 711.0152 581.5997
+[1] 201.8526 384.8362 782.6415
 ```
 
 
@@ -1577,40 +1577,40 @@ pmap(runif)
 <span id="cb67-4"><a></a><span class="fu">pmap</span>(runif)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-[1] 6.225309
+[1] 5.728595
 
 [[2]]
-[1] 98.24453
+[1] 72.66697
 
 [[3]]
 [1] 10
 
 [[4]]
-[1] 33.18636
+[1] 35.10893
 
 [[5]]
-[1] 8.901332 8.745270
+[1] 1.978005 5.660739
 
 [[6]]
-[1] 98.40492 94.04735
+[1] 25.47767 22.37232
 
 [[7]]
 [1] 10 10
 
 [[8]]
-[1] 11.35009 89.26272
+[1] 25.16982 43.18181
 
 [[9]]
-[1] 2.177178 8.999381 9.398265
+[1] 4.790222 7.232453 5.544764
 
 [[10]]
-[1] 71.98189 97.01584 16.58186
+[1] 36.50606 75.17531 79.35584
 
 [[11]]
 [1] 10 10 10
 
 [[12]]
-[1] 52.50182 43.73417 39.43322</code></pre>
+[1] 13.97496 80.37727 91.83911</code></pre>
 </div>
 </div>
 </section>
@@ -1629,7 +1629,7 @@ pmap(runif)
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a>col_stats <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
 <span id="cb69-2"><a></a>  <span class="fu">head</span>(fastfood, n) <span class="sc">|&gt;</span> </span>
 <span id="cb69-3"><a></a>    <span class="fu">summarise_all</span>(mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb69-4"><a></a>    <span class="fu">mutate_all</span>(floor) <span class="sc">|&gt;</span> </span>
+<span id="cb69-4"><a></a>    <span class="fu">mutate_all</span>(floor) <span class="sc">|&gt;</span> <span class="co"># round down</span></span>
 <span id="cb69-5"><a></a>    <span class="fu">mutate</span>(<span class="at">n =</span> <span class="fu">paste</span>(<span class="st">&quot;N =&quot;</span>, n))</span>
 <span id="cb69-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

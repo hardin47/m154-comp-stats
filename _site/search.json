@@ -8145,42 +8145,42 @@
     "href": "slides/2025-09-10-map.html#pmap",
     "title": "Mapping",
     "section": "pmap()",
-    "text": "pmap()\n\nyou can pass a named list or dataframe as arguments to a function\nfor example runif() has the parameters n, min and max\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\npmap(params, runif)\n\n[[1]]\n[1] 8.539171\n\n[[2]]\n[1] 41.65993 93.66701\n\n[[3]]\n[1] 738.8183 729.6829 666.3807\n\n\nOr use the pipe into pmap():\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 6.487127\n\n[[2]]\n[1] 22.89620 12.22851\n\n[[3]]\n[1] 468.9040 495.1855 920.2273"
+    "text": "pmap()\n\nyou can pass a named list or dataframe as arguments to a function\nfor example runif() has the parameters n, min and max\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\npmap(params, runif)\n\n[[1]]\n[1] 8.940795\n\n[[2]]\n[1] 46.11157 99.05758\n\n[[3]]\n[1] 719.2258 347.8249 899.3251\n\n\nOr use the pipe into pmap():\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 2.759777\n\n[[2]]\n[1] 38.46107 54.02023\n\n[[3]]\n[1] 662.2607 531.0948 304.7521"
   },
   {
     "objectID": "slides/2025-09-10-map.html#an-aside",
     "href": "slides/2025-09-10-map.html#an-aside",
     "title": "Mapping",
     "section": "An aside…",
-    "text": "An aside…\nInterestingly, runif() will take either a scalar or a vector as its first argument. If the first argument is a vector, runif() will return N random uniforms, where N is the length of the vector.\n\nrunif(n = 3)\n\n[1] 0.80592746 0.03661923 0.15432944\n\nrunif(n = c(1,3))\n\n[1] 0.8884210 0.7207189\n\nrunif(n = c(10000,12321412424))\n\n[1] 0.5735507 0.0129551\n\nrunif(n = c(\"rainbow\", \"unicorn\"))\n\n[1] 0.4595933 0.1616399"
+    "text": "An aside…\nInterestingly, runif() will take either a scalar or a vector as its first argument. If the first argument is a vector, runif() will return N random uniforms, where N is the length of the vector.\n\nrunif(n = 3)\n\n[1] 0.9601774 0.5679648 0.5474585\n\nrunif(n = c(1,3))\n\n[1] 0.2229595 0.7244141\n\nrunif(n = c(10000,12321412424))\n\n[1] 0.5067011 0.6437660\n\nrunif(n = c(\"rainbow\", \"unicorn\"))\n\n[1] 0.9116760 0.8063012"
   },
   {
     "objectID": "slides/2025-09-10-map.html#pmap-vs-map",
     "href": "slides/2025-09-10-map.html#pmap-vs-map",
     "title": "Mapping",
     "section": "pmap() vs map()",
-    "text": "pmap() vs map()\nWhich means that the pmap() code will “work” in map() as well:\n\nparamspmapmap\n\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\n\n\n\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 6.018061\n\n[[2]]\n[1] 77.35889 86.16681\n\n[[3]]\n[1] 703.1789 535.4145 344.2819\n\n\n\n\n\nparams |&gt; \n  map(runif)\n\n$n\n[1] 0.6415199 0.1694182 0.7042502\n\n$min\n[1] 0.6426690 0.8662534 0.5158804\n\n$max\n[1] 0.07162752 0.85175781 0.21090068"
+    "text": "pmap() vs map()\nWhich means that the pmap() code will “work” in map() as well:\n\nparamspmapmap\n\n\n\nparams\n\n# A tibble: 3 × 3\n      n   min   max\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     1    10\n2     2    10   100\n3     3   100  1000\n\n\n\n\n\nparams |&gt; \n  pmap(runif)\n\n[[1]]\n[1] 7.879366\n\n[[2]]\n[1] 63.69208 26.90827\n\n[[3]]\n[1] 419.3628 920.8644 667.2142\n\n\n\n\n\nparams |&gt; \n  map(runif)\n\n$n\n[1] 0.4550416 0.7083844 0.1961872\n\n$min\n[1] 0.5825179 0.1055289 0.0716758\n\n$max\n[1] 0.9910877 0.9648873 0.4984275"
   },
   {
     "objectID": "slides/2025-09-10-map.html#pmap-with-expand_grid",
     "href": "slides/2025-09-10-map.html#pmap-with-expand_grid",
     "title": "Mapping",
     "section": "pmap() with expand_grid()",
-    "text": "pmap() with expand_grid()\n\nI like to use expand_grid() when I want all possible parameter combinations.\n\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) \n\n# A tibble: 12 × 3\n       n   min   max\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     1    10\n 2     1     1   100\n 3     1    10    10\n 4     1    10   100\n 5     2     1    10\n 6     2     1   100\n 7     2    10    10\n 8     2    10   100\n 9     3     1    10\n10     3     1   100\n11     3    10    10\n12     3    10   100\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) |&gt; \npmap(runif)\n\n[[1]]\n[1] 6.225309\n\n[[2]]\n[1] 98.24453\n\n[[3]]\n[1] 10\n\n[[4]]\n[1] 33.18636\n\n[[5]]\n[1] 8.901332 8.745270\n\n[[6]]\n[1] 98.40492 94.04735\n\n[[7]]\n[1] 10 10\n\n[[8]]\n[1] 11.35009 89.26272\n\n[[9]]\n[1] 2.177178 8.999381 9.398265\n\n[[10]]\n[1] 71.98189 97.01584 16.58186\n\n[[11]]\n[1] 10 10 10\n\n[[12]]\n[1] 52.50182 43.73417 39.43322"
+    "text": "pmap() with expand_grid()\n\nI like to use expand_grid() when I want all possible parameter combinations.\n\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) \n\n# A tibble: 12 × 3\n       n   min   max\n   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     1     1    10\n 2     1     1   100\n 3     1    10    10\n 4     1    10   100\n 5     2     1    10\n 6     2     1   100\n 7     2    10    10\n 8     2    10   100\n 9     3     1    10\n10     3     1   100\n11     3    10    10\n12     3    10   100\n\nexpand_grid(n = c(1, 2, 3), \n            min = c(1, 10),\n            max = c(10, 100)) |&gt; \npmap(runif)\n\n[[1]]\n[1] 5.728595\n\n[[2]]\n[1] 72.66697\n\n[[3]]\n[1] 10\n\n[[4]]\n[1] 35.10893\n\n[[5]]\n[1] 1.978005 5.660739\n\n[[6]]\n[1] 25.47767 22.37232\n\n[[7]]\n[1] 10 10\n\n[[8]]\n[1] 25.16982 43.18181\n\n[[9]]\n[1] 4.790222 7.232453 5.544764\n\n[[10]]\n[1] 36.50606 75.17531 79.35584\n\n[[11]]\n[1] 10 10 10\n\n[[12]]\n[1] 13.97496 80.37727 91.83911"
   },
   {
     "objectID": "slides/2025-09-10-map.html#mapping-to-a-data-frame",
     "href": "slides/2025-09-10-map.html#mapping-to-a-data-frame",
     "title": "Mapping",
     "section": "mapping to a data frame",
-    "text": "mapping to a data frame\nWould be great if the results were a data frame!\n\nresults as rows: map() |&gt; list_rbind()\nresults as columns: map() |&gt; list_cbind()\n\n\nfunctionmap()with list_rbind()with list_cbind()\n\n\n\ncol_stats &lt;- function(n) {\n  head(fastfood, n) |&gt; \n    summarise_all(mean, na.rm = TRUE) |&gt; \n    mutate_all(floor) |&gt; \n    mutate(n = paste(\"N =\", n))\n}\n\n\n\n\nout1 &lt;- map(c(10,20), col_stats)\n\nout1\n\n[[1]]\n# A tibble: 1 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1         NA    NA      657     291        32      11         1\n# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,\n#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,\n#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;\n\n[[2]]\n# A tibble: 1 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1         NA    NA      582     247        27       9         0\n# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,\n#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,\n#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;\n\n\n\n\n\nout2 &lt;- map(c(10,20), col_stats) |&gt; list_rbind()\n\nout2\n\n# A tibble: 2 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1         NA    NA      657     291        32      11         1\n2         NA    NA      582     247        27       9         0\n# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,\n#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,\n#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;\n\n\n\n\n\nout3 &lt;- map(c(10,20), col_stats) |&gt; list_cbind()\n\nout3\n\n# A tibble: 1 × 36\n  restaurant...1 item...2 calories...3 cal_fat...4 total_fat...5\n           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;\n1             NA       NA          657         291            32\n# ℹ 31 more variables: sat_fat...6 &lt;dbl&gt;, trans_fat...7 &lt;dbl&gt;,\n#   cholesterol...8 &lt;dbl&gt;, sodium...9 &lt;dbl&gt;, total_carb...10 &lt;dbl&gt;,\n#   fiber...11 &lt;dbl&gt;, sugar...12 &lt;dbl&gt;, protein...13 &lt;dbl&gt;,\n#   vit_a...14 &lt;dbl&gt;, vit_c...15 &lt;dbl&gt;, calcium...16 &lt;dbl&gt;,\n#   salad...17 &lt;dbl&gt;, n...18 &lt;chr&gt;, restaurant...19 &lt;dbl&gt;,\n#   item...20 &lt;dbl&gt;, calories...21 &lt;dbl&gt;, cal_fat...22 &lt;dbl&gt;,\n#   total_fat...23 &lt;dbl&gt;, sat_fat...24 &lt;dbl&gt;, trans_fat...25 &lt;dbl&gt;, …"
+    "text": "mapping to a data frame\nWould be great if the results were a data frame!\n\nresults as rows: map() |&gt; list_rbind()\nresults as columns: map() |&gt; list_cbind()\n\n\nfunctionmap()with list_rbind()with list_cbind()\n\n\n\ncol_stats &lt;- function(n) {\n  head(fastfood, n) |&gt; \n    summarise_all(mean, na.rm = TRUE) |&gt; \n    mutate_all(floor) |&gt; # round down\n    mutate(n = paste(\"N =\", n))\n}\n\n\n\n\nout1 &lt;- map(c(10,20), col_stats)\n\nout1\n\n[[1]]\n# A tibble: 1 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1         NA    NA      657     291        32      11         1\n# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,\n#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,\n#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;\n\n[[2]]\n# A tibble: 1 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1         NA    NA      582     247        27       9         0\n# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,\n#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,\n#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;\n\n\n\n\n\nout2 &lt;- map(c(10,20), col_stats) |&gt; list_rbind()\n\nout2\n\n# A tibble: 2 × 18\n  restaurant  item calories cal_fat total_fat sat_fat trans_fat\n       &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;\n1         NA    NA      657     291        32      11         1\n2         NA    NA      582     247        27       9         0\n# ℹ 11 more variables: cholesterol &lt;dbl&gt;, sodium &lt;dbl&gt;,\n#   total_carb &lt;dbl&gt;, fiber &lt;dbl&gt;, sugar &lt;dbl&gt;, protein &lt;dbl&gt;,\n#   vit_a &lt;dbl&gt;, vit_c &lt;dbl&gt;, calcium &lt;dbl&gt;, salad &lt;dbl&gt;, n &lt;chr&gt;\n\n\n\n\n\nout3 &lt;- map(c(10,20), col_stats) |&gt; list_cbind()\n\nout3\n\n# A tibble: 1 × 36\n  restaurant...1 item...2 calories...3 cal_fat...4 total_fat...5\n           &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;\n1             NA       NA          657         291            32\n# ℹ 31 more variables: sat_fat...6 &lt;dbl&gt;, trans_fat...7 &lt;dbl&gt;,\n#   cholesterol...8 &lt;dbl&gt;, sodium...9 &lt;dbl&gt;, total_carb...10 &lt;dbl&gt;,\n#   fiber...11 &lt;dbl&gt;, sugar...12 &lt;dbl&gt;, protein...13 &lt;dbl&gt;,\n#   vit_a...14 &lt;dbl&gt;, vit_c...15 &lt;dbl&gt;, calcium...16 &lt;dbl&gt;,\n#   salad...17 &lt;dbl&gt;, n...18 &lt;chr&gt;, restaurant...19 &lt;dbl&gt;,\n#   item...20 &lt;dbl&gt;, calories...21 &lt;dbl&gt;, cal_fat...22 &lt;dbl&gt;,\n#   total_fat...23 &lt;dbl&gt;, sat_fat...24 &lt;dbl&gt;, trans_fat...25 &lt;dbl&gt;, …"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#goals-of-simulating-complicated-models",
     "href": "slides/2025-09-08-simulating.html#goals-of-simulating-complicated-models",
     "title": "Simulating",
-    "section": "Goals of Simulating Complicated Models",
-    "text": "Goals of Simulating Complicated Models\nThe goal of simulating a complicated model is not only to create a program which will provide the desired results. We also hope to be able to write code such that:\n\nThe problem is broken down into small pieces.\nThe problem has checks in it to see what works (run the lines inside the functions!).\nuses simple code (as often as possible)."
+    "section": "Goals of simulating complicated models",
+    "text": "Goals of simulating complicated models\nThe goal of simulating a complicated model is not only to create a program which will provide the desired results. We also hope to be able to write code such that:\n\nThe problem is broken down into small pieces.\nThe problem has checks in it to see what works (run the lines inside the functions!).\nuses simple code (as often as possible)."
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#aside-a-few-r-functions-ifelse",
@@ -8236,7 +8236,7 @@
     "href": "slides/2025-09-08-simulating.html#simulate-their-meeting",
     "title": "Simulating",
     "section": "Simulate their meeting",
-    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.273 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.917 sec elapsed"
+    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.233 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.693 sec elapsed"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#results",
@@ -8320,7 +8320,7 @@
     "href": "slides/2025-09-08-simulating.html#running-a-linear-model",
     "title": "Simulating",
     "section": "Running a linear model",
-    "text": "Running a linear model\n\nCI &lt;- lm(y~x1+x2) |&gt; tidy(conf.int=TRUE) |&gt; data.frame()\nCI\n\n         term   estimate std.error statistic      p.value    conf.low\n1 (Intercept) -0.9291632 0.1424025 -6.524909 3.098281e-09 -1.21179266\n2          x1  0.3304882 0.2016861  1.638627 1.045307e-01 -0.06980279\n3          x2  1.4447884 0.1919184  7.528137 2.662556e-11  1.06388341\n   conf.high\n1 -0.6465337\n2  0.7307792\n3  1.8256934\n\nCI |&gt;\n  filter(term == \"x2\") |&gt;\n  select(term, estimate, conf.low, conf.high) |&gt;\n  mutate(inside = between(beta2, conf.low, conf.high))\n\n  term estimate conf.low conf.high inside\n1   x2 1.444788 1.063883  1.825693   TRUE"
+    "text": "Running a linear model\n\nCI &lt;- lm(y~x1+x2) |&gt; tidy(conf.int=TRUE) \nCI\n\n# A tibble: 3 × 7\n  term        estimate std.error statistic  p.value conf.low conf.high\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;\n1 (Intercept)   -0.929     0.142     -6.52 3.10e- 9  -1.21      -0.647\n2 x1             0.330     0.202      1.64 1.05e- 1  -0.0698     0.731\n3 x2             1.44      0.192      7.53 2.66e-11   1.06       1.83 \n\nCI |&gt;\n  filter(term == \"x2\") |&gt;\n  select(term, estimate, conf.low, conf.high) |&gt;\n  mutate(inside = between(beta2, conf.low, conf.high))\n\n# A tibble: 1 × 5\n  term  estimate conf.low conf.high inside\n  &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;lgl&gt; \n1 x2        1.44     1.06      1.83 TRUE"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#what-happens-to-the-ci-of-coefficients-in-repeated-samples-eq-var",
@@ -8355,21 +8355,21 @@
     "href": "slides/2025-09-08-simulating.html#equal-variance-type-i-error",
     "title": "Simulating",
     "section": "Equal variance: type I error?",
-    "text": "Equal variance: type I error?\nAnother method for thinking about type I error rates. With equal variance, the type I error rate is close to what we’d expect, 5%.\n\nfunctiongenerate datasummarize p-values\n\n\n\nt_test_pval &lt;- function(df){\n  t.test(y ~ x1, data = df, var.equal = TRUE) |&gt;\n    tidy() |&gt;\n    select(estimate, p.value) \n}\n\n\n\n\nset.seed(470)\nreps &lt;- 1000\nn_obs &lt;- 20\nnull_data_equal &lt;- \n  data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(\"group1\", \"group2\"), each = n()/2),\n    y = rnorm(n(), mean = 10, \n               sd = rep(c(1,1), each = n()/2))\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\n\n\n\nnull_data_equal |&gt; \n  mutate(t_vals = map(data,t_test_pval)) |&gt;\n  select(t_vals) |&gt; \n  unnest(t_vals) |&gt;\n  ungroup(sim_id) |&gt;\n  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)\n\n# A tibble: 1 × 1\n  type1error_rate\n            &lt;dbl&gt;\n1           0.045"
+    "text": "Equal variance: type I error?\nAnother method for thinking about type I error rates. With equal variance, the type I error rate is close to what we’d expect, 5%.\n\nfunctiongenerate dataplot datasummarize p-values\n\n\n\nt_test_pval &lt;- function(df){\n  t.test(y ~ x1, data = df, var.equal = TRUE) |&gt;\n    tidy() |&gt;\n    select(estimate, p.value) \n}\n\n\n\n\nset.seed(470)\nreps &lt;- 1000\nn_obs &lt;- 20\nnull_data_equal &lt;- \n  data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(\"group1\", \"group2\"), each = n()/2),\n    y = rnorm(n(), mean = 10, \n               sd = rep(c(1,1), each = n()/2))\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\n\n\n\nnull_data_equal |&gt; \n  filter(sim_id == 47) |&gt; \n  unnest(cols = c(data)) |&gt; \n  ggplot(aes(x = x1, y = y)) + \n  geom_boxplot() + \n  geom_jitter()\n\n\n\n\n\n\n\n\n\n\n\nnull_data_equal |&gt; \n  mutate(t_vals = map(data,t_test_pval)) |&gt;\n  select(t_vals) |&gt; \n  unnest(t_vals) |&gt;\n  ungroup(sim_id) |&gt;\n  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)\n\n# A tibble: 1 × 1\n  type1error_rate\n            &lt;dbl&gt;\n1           0.045"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#unequal-variance-type-i-error",
     "href": "slides/2025-09-08-simulating.html#unequal-variance-type-i-error",
     "title": "Simulating",
     "section": "Unequal variance: type I error?",
-    "text": "Unequal variance: type I error?\nWith unequal variance, the type I error rate is much higher than we set. We set the the type I error rate to be 5%, but the simulated rate was 6.36%.\n\ngenerate datasummarize p-values\n\n\n\nset.seed(470)\nreps &lt;- 1000\nn_obs &lt;- 20\nnull_data_unequal &lt;- \n  data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(\"group1\", \"group2\"), each = n()/2),\n    y = rnorm(n(), mean = 10, \n               sd = rep(c(1,100), each = n()/2))\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\n\n\n\nnull_data_unequal |&gt; \n  mutate(t_vals = map(data,t_test_pval)) |&gt;\n  select(t_vals) |&gt; \n  unnest(t_vals) |&gt;\n  ungroup(sim_id) |&gt;\n  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)\n\n# A tibble: 1 × 1\n  type1error_rate\n            &lt;dbl&gt;\n1           0.057"
+    "text": "Unequal variance: type I error?\nWith unequal variance, the type I error rate is much higher than we set. We set the the type I error rate to be 5%, but the simulated rate was 6.8%.\n\ngenerate dataplot datasummarize p-values\n\n\n\nset.seed(47)\nreps &lt;- 1000\nn_obs &lt;- 20\nnull_data_unequal &lt;- \n  data.frame(row_id = seq(1, n_obs, 1)) |&gt;\n  slice(rep(row_id, each = reps)) |&gt;\n  mutate(\n    sim_id = rep(1:reps, n_obs),\n    x1 = rep(c(\"group1\", \"group2\"), each = n()/2),\n    y = rnorm(n(), mean = 10, \n               sd = rep(c(1,100), each = n()/2))\n  ) |&gt;\n  arrange(sim_id, row_id) |&gt;\n  group_by(sim_id) |&gt;\n  nest()\n\n\n\n\nnull_data_unequal |&gt; \n  filter(sim_id == 47) |&gt; \n  unnest(cols = c(data)) |&gt; \n  ggplot(aes(x = x1, y = y)) + \n  geom_boxplot() + \n  geom_jitter()\n\n\n\n\n\n\n\n\n\n\n\nnull_data_unequal |&gt; \n  mutate(t_vals = map(data,t_test_pval)) |&gt;\n  select(t_vals) |&gt; \n  unnest(t_vals) |&gt;\n  ungroup(sim_id) |&gt;\n  summarize(type1error_rate = sum(p.value &lt; 0.05)/reps)\n\n# A tibble: 1 × 1\n  type1error_rate\n            &lt;dbl&gt;\n1           0.068"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#references",
     "href": "slides/2025-09-08-simulating.html#references",
     "title": "Simulating",
     "section": "References",
-    "text": "References\n\n\n\n\n\nBaumer, Ben, Daniel Kaplan, and Nicholas Horton. 2021. Modern Data Science with r. CRC Press. https://mdsr-book.github.io/mdsr2e/.\n\n\nMosteller, Frederick. 1987. Fifty Challenging Problems in Probability with Solutions. Dover Publications: Mineola, NY."
+    "text": "References\n\n\n\n\nBaumer, Ben, Daniel Kaplan, and Nicholas Horton. 2021. Modern Data Science with r. CRC Press. https://mdsr-book.github.io/mdsr2e/.\n\n\nMosteller, Frederick. 1987. Fifty Challenging Problems in Probability with Solutions. Dover Publications: Mineola, NY."
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#what-is-variance-what-is-bias",
@@ -8447,5 +8447,47 @@
     "title": "Simulating",
     "section": "What we know about bias-variance trade-off",
     "text": "What we know about bias-variance trade-off\n\nThe underfit model looks the same for every dataset! That is, the model has low variance.\nThe underfit model doesn’t fit the data very well. The model has high bias.\nThe overfit model model is very flexible, and looks like it fits the data very well. It has low bias.\nThe fitted models look quite different across the different datasets. The overfit model has high variance."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#monte-carlo-sampe-from-a-population-to",
+    "href": "slides/2025-09-08-simulating.html#monte-carlo-sampe-from-a-population-to",
+    "title": "Simulating",
+    "section": "Monte Carlo sampe from a population to…",
+    "text": "Monte Carlo sampe from a population to…\n\n…simulate to understand complicated models.\n…simulate as easier than calculus for estimating probabilities.\n…simulate to consider statistical inference with fewer assumptions."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#examples",
+    "href": "slides/2025-09-08-simulating.html#examples",
+    "title": "Simulating",
+    "section": "Examples",
+    "text": "Examples\n\nbias-variance trade-off\nsee class notes for more examples"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#monte-carlo-sampe-from-a-population-to-1",
+    "href": "slides/2025-09-08-simulating.html#monte-carlo-sampe-from-a-population-to-1",
+    "title": "Simulating",
+    "section": "Monte Carlo sampe from a population to…",
+    "text": "Monte Carlo sampe from a population to…\n\n…simulate to understand complicated models.\n…simulate as easier than calculus for estimating probabilities.\n…simulate to consider statistical inference with fewer assumptions."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#approach-to-simulating",
+    "href": "slides/2025-09-08-simulating.html#approach-to-simulating",
+    "title": "Simulating",
+    "section": "Approach to simulating",
+    "text": "Approach to simulating\n\nbreak down the problem into small steps\ncheck to see what works\nsimple is better"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#examples-1",
+    "href": "slides/2025-09-08-simulating.html#examples-1",
+    "title": "Simulating",
+    "section": "Examples",
+    "text": "Examples\n\nsee class notes for more probability examples\n\npass the pigs\nblackjack\nroulette"
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#monte-carlo-sample-from-a-population-to",
+    "href": "slides/2025-09-08-simulating.html#monte-carlo-sample-from-a-population-to",
+    "title": "Simulating",
+    "section": "Monte Carlo sample from a population to…",
+    "text": "Monte Carlo sample from a population to…\n\n\n…simulate to understand complicated models.\n…simulate as easier than calculus for estimating probabilities.\n…simulate to consider statistical inference with fewer assumptions."
   }
 ]

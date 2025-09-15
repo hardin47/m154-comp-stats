@@ -9,7 +9,7 @@ format:
     slide-number: true
     show-slide-number: all
     embed-resources: true
-    math: mathjax
+    html-math-method: mathjax
 execute:
   echo: true
   warning: false
@@ -397,13 +397,56 @@ datasets |>
 
 
 
-## Goals of Simulating Complicated Models
+
+
+# Agenda  9/15/25
+
+1. Monte Carlo sampling
+2. Simulating to estimate probabilities
+3. Simulating to consider statistical inference with fewer assumptions.
+
+# Simulating: the big picture.
+
+## Why?
+
+Three simulation methods are used for different purposes:
+
+1. Monte Carlo methods - use repeated *sampling* from a **population** with known characteristics.
+
+2. Randomization / Permutation methods - use *shuffling* (sampling without replacement from a **sample**) to test hypotheses of "no effect".
+
+
+3. Bootstrap methods - use *resampling* (sampling with replacement from a **sample**) to establish confidence intervals.
+
+
+
+## Monte Carlo sample from a population to...
+
+```{=html}
+<style>
+.semi-transparent {
+  opacity: 0.5;
+}
+</style>
+```
+
+* ...simulate to understand complicated models.
+* [...simulate as easier than calculus for estimating probabilities.]{.semi-transparent}
+* [...simulate to consider statistical inference with fewer assumptions.]{.semi-transparent}
+
+## Goals of simulating complicated models
 
 The goal of simulating a complicated model is not only to create a program which will provide the desired results.  We also hope to be able to write code such that:
 
 1. The problem is broken down into small pieces.
 2. The problem has checks in it to see what works (run the lines *inside* the functions!).
 3. uses simple code (as often as possible).
+
+
+## Examples
+
+* bias-variance trade-off
+* see <a href = "https://st47s.com/Math154/Notes/04-simulating.html#simmodels" target = "_blank">class notes</a> for more examples
 
 
 ## Aside: a few R functions (`ifelse()`)
@@ -458,36 +501,17 @@ runif(4, 0, 1) # random uniform numbers
 ```
 
 
-## Why?
-
-Three simulation methods are used for different purposes:
-
-1. Monte Carlo methods - use repeated *sampling* from a **population** with known characteristics.
-
-2. Randomization / Permutation methods - use *shuffling* (sampling without replacement from a **sample**) to test hypotheses of "no effect".
 
 
-3. Bootstrap methods - use *resampling* (sampling with replacement from a **sample**) to establish confidence intervals.
+## Monte Carlo sampe from a population to...
 
-
-
-## Monte Carlo from a population to...
-
-
-```{=html}
-<style>
-.semi-transparent {
-  opacity: 0.5;
-}
-</style>
-```
-
-
-* ...simulate as easier than calculus for estimating probabilities.
 * [...simulate to understand complicated models.]{.semi-transparent}
-* [...simulate to consider statistical methods with fewer assumptions.]{.semi-transparent}
+* ...simulate as easier than calculus for estimating probabilities.
+* [...simulate to consider statistical inference with fewer assumptions.]{.semi-transparent}
 
-# Small simulation example
+
+
+# Small simulation example to calculate a probability
 
 ## Sally & Joan
 
@@ -621,13 +645,18 @@ meet_map |>
 * set a seed for reproducibility
 
 
-# Bigger simulation example
-
-## Thoughts on simulating
+## Approach to simulating
 
 * break down the problem into **small** steps
 * check to see what works
 * simple is better
+
+## Examples
+* see <a href = "https://st47s.com/Math154/Notes/04-simulating.html#more-probability-examples" target = "_blank">class notes</a> for more probability examples
+   * pass the pigs
+   * blackjack
+   * roulette
+   
 
 <!--
 ## Roulette
@@ -791,17 +820,6 @@ iterations <- 10000
 ```
 -->
 
-
-# Agenda  9/15/25
-
-1. Simulating to understand complicated models
-2. Simulating to consider statistical methods with fewer assumptions
-
-# Modeling
-
-* [Simulation as easier than calculus for estimating probabilities.]{.semi-transparent}
-* Simulation to understand complicated models.
-* [Simulation to consider statistical methods with fewer assumptions.]{.semi-transparent}
 
 
 <!--
@@ -1225,12 +1243,12 @@ map(1:1000, election, data = poll_data) |>
 
 -->
 
-# Sensitivity of assumptions
 
+# Sensitivity of inferential assumptions
 
-* [Simulation as easier than calculus for estimating probabilities.]{.semi-transparent}
 * [Simulation to understand complicated models..]{.semi-transparent}
-* Simulation to consider statistical methods with fewer assumptions
+* [Simulation as easier than calculus for estimating probabilities.]{.semi-transparent}
+* Simulation to consider statistical inference with fewer assumptions
 
 ## t-test with Poisson data
 
@@ -1355,7 +1373,7 @@ See: [Rossman Chance regression applet](https://www.rossmanchance.com/applets/20
 ## Running a linear model
 
 ```{r}
-CI <- lm(y~x1+x2) |> tidy(conf.int=TRUE) |> data.frame()
+CI <- lm(y~x1+x2) |> tidy(conf.int=TRUE) 
 CI
 
 CI |>
@@ -1511,6 +1529,16 @@ null_data_equal <-
   nest()
 ```
 
+## plot data
+
+```{r}
+null_data_equal |> 
+  filter(sim_id == 47) |> 
+  unnest(cols = c(data)) |> 
+  ggplot(aes(x = x1, y = y)) + 
+  geom_boxplot() + 
+  geom_jitter()
+```
 
 ## summarize p-values
 ```{r}
@@ -1528,7 +1556,7 @@ null_data_equal |>
 
 ## Unequal variance: type I error?
 
-With unequal variance, the type I error rate is much higher than we set.  We set the the type I error rate to be 5%, but the simulated rate was 6.36%.
+With unequal variance, the type I error rate is much higher than we set.  We set the the type I error rate to be 5%, but the simulated rate was 6.8%.
 
 ::: {.panel-tabset}
 ```{r}
@@ -1541,7 +1569,7 @@ t_test_pval <- function(df){
 
 ## generate data
 ```{r unequal-ttest}
-set.seed(470)
+set.seed(47)
 reps <- 1000
 n_obs <- 20
 null_data_unequal <- 
@@ -1558,6 +1586,16 @@ null_data_unequal <-
   nest()
 ```
 
+## plot data
+
+```{r}
+null_data_unequal |> 
+  filter(sim_id == 47) |> 
+  unnest(cols = c(data)) |> 
+  ggplot(aes(x = x1, y = y)) + 
+  geom_boxplot() + 
+  geom_jitter()
+```
 
 
 ## summarize p-values
