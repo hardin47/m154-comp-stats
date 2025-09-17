@@ -403,7 +403,7 @@ datasets |>
 
 1. Monte Carlo sampling
 2. Simulating to estimate probabilities
-3. Simulating to consider statistical inference with fewer assumptions.
+3. Simulating to consider statistical inference with fewer conditions.
 
 # Simulating: the big picture.
 
@@ -432,7 +432,7 @@ Three simulation methods are used for different purposes:
 
 * ...simulate to understand complicated models.
 * [...simulate as easier than calculus for estimating probabilities.]{.semi-transparent}
-* [...simulate to consider statistical inference with fewer assumptions.]{.semi-transparent}
+* [...simulate to consider statistical inference with fewer conditions.]{.semi-transparent}
 
 ## Goals of simulating complicated models
 
@@ -537,7 +537,7 @@ flights |>
 
 * [...simulate to understand complicated models.]{.semi-transparent}
 * ...simulate as easier than calculus for estimating probabilities.
-* [...simulate to consider statistical inference with fewer assumptions.]{.semi-transparent}
+* [...simulate to consider statistical inference with fewer conditions.]{.semi-transparent}
 
 
 
@@ -1273,14 +1273,17 @@ map(1:1000, election, data = poll_data) |>
 
 -->
 
+# Agenda  9/17/25
 
-# Sensitivity of inferential assumptions
+1. Simulating to consider statistical inference -- changes in technical conditions / assumptions.
+
+# Sensitivity of inferential conditions
 
 * [Simulation to understand complicated models..]{.semi-transparent}
 * [Simulation as easier than calculus for estimating probabilities.]{.semi-transparent}
-* Simulation to consider statistical inference with fewer assumptions
+* Simulation to consider statistical inference with fewer conditions
 
-## t-test with Poisson data
+## t-test with exponential data
 
 The t-test says that if the null hypothesis is true, we'd expect to reject a true null hypothesis $\alpha \cdot 100$ percent of the time.  That is, if $\alpha = 0.05$, we'd reject true null hypotheses 5% of the time.
 
@@ -1291,8 +1294,8 @@ The guarantee of 5% (across many tests) happens only when the data are normal (o
 ## Non-normal data
 
 ```{r}
-data.frame(pois_data = rpois(n = 100000, lambda = 1)) |> 
-  ggplot(aes(x = pois_data)) +
+data.frame(exp_data = rexp(n = 100000, rate = 20)) |> 
+  ggplot(aes(x = exp_data)) +
   geom_histogram()
 ```
 
@@ -1305,15 +1308,15 @@ t.test.pval <- function(data1, data2){
     select(p.value)
 }
 
-t.test.pval(rpois(n = 10, lambda = 1), rpois(n = 7, lambda = 1))
+t.test.pval(rexp(n = 10, rate = 20), rexp(n = 7, rate = 20))
 
 ```
 
 ## t-test 10 times
 
 ```{r}
-map(1:10, ~t.test.pval(rpois(n = 10, lambda = 1),
-                       rpois(n = 7, lambda = 1))) |> 
+map(1:10, ~t.test.pval(rexp(n = 10, rate = 20),
+                       rexp(n = 7, rate = 20))) |> 
           list_rbind()
 ```
 
@@ -1324,10 +1327,11 @@ map(1:10, ~t.test.pval(rpois(n = 10, lambda = 1),
 ## `map()`
 
 ```{r}
-set.seed(4747)
+set.seed(47)
+
 results <- map(1:10000, 
-               ~t.test.pval(rpois(n = 8, lambda = 1),
-                            rpois(n = 5, lambda = 1))) |> 
+               ~t.test.pval(rexp(n = 8, rate = 20),
+                            rexp(n = 5, rate = 20))) |> 
   list_rbind() 
 
 ```
@@ -1336,8 +1340,8 @@ results <- map(1:10000,
 ```{r}
 results |> 
   ggplot(aes(x = p.value)) + 
-  geom_histogram(bins = 30) + 
-  labs(x = "p.values")
+  geom_histogram(breaks = seq(0, 1, by=0.05)) + 
+  labs(x = "p-values")
 ```
 
 ## reject $H_0$

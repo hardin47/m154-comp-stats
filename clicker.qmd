@@ -923,6 +923,16 @@ ifelse(data > 5, "cat", data)
 
 ---
 
+(@) Which is the best conclusion to the following?  Changes in the technical conditions change the...[^48a]
+     a. choice of test statistic
+     b. distribution of the test statistic (the sampling distribution)
+     c. computation of the p-value using standard software
+     d. hypotheses
+
+[^48a]: b. distribution of the test statistic (the sampling distribution)
+
+---
+
 (@) If I aim to create a 95% confidence interval, and the technical conditions hold, what is the probability that the CI will contain the true value of the parameter?[^49]
    a. 0.90
    b. 0.95

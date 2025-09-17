@@ -65,6 +65,8 @@ knitr::include_graphics("../../images/map_frosting.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws5_m154_f25_HT.pdf" target = "_blank">WS5 - Hypothesis Testing</a>
 
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws6_m154_f25_CI.pdf" target = "_blank">WS6 - Confidence Intervals</a>
+
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
 
