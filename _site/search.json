@@ -8236,7 +8236,7 @@
     "href": "slides/2025-09-08-simulating.html#simulate-their-meeting",
     "title": "Simulating",
     "section": "Simulate their meeting",
-    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.001 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.354 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.807 sec elapsed"
+    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.33 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.86 sec elapsed"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#results",
@@ -8285,7 +8285,7 @@
     "href": "slides/2025-09-08-simulating.html#t-test-function",
     "title": "Simulating",
     "section": "t-test function",
-    "text": "t-test function\n\nt.test.pval &lt;- function(data1, data2){\n  t.test(data1, data2) |&gt; \n    broom::tidy() |&gt; \n    select(p.value)\n}\n\nt.test.pval(rexp(n = 10, rate = 20), rexp(n = 7, rate = 20))\n\n# A tibble: 1 × 1\n  p.value\n    &lt;dbl&gt;\n1   0.160"
+    "text": "t-test function\n\nt.test.pval &lt;- function(data1, data2){\n  t.test(data1, data2) |&gt; # does the t-test\n    broom::tidy() |&gt;      # modifies the output to be a data frame\n    select(p.value)       # selectes only the p-value from the output\n}\n\nt.test.pval(rexp(n = 10, rate = 20), rexp(n = 7, rate = 20))\n\n# A tibble: 1 × 1\n  p.value\n    &lt;dbl&gt;\n1   0.160"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#t-test-10-times",
@@ -8299,7 +8299,7 @@
     "href": "slides/2025-09-08-simulating.html#t-test-many-times",
     "title": "Simulating",
     "section": "t-test many times",
-    "text": "t-test many times\n\nmap()plotreject \\(H_0\\)\n\n\n\nset.seed(47)\n\nresults &lt;- map(1:10000, \n               ~t.test.pval(rexp(n = 8, rate = 20),\n                            rexp(n = 5, rate = 20))) |&gt; \n  list_rbind() \n\n\n\n\nresults |&gt; \n  ggplot(aes(x = p.value)) + \n  geom_histogram(breaks = seq(0, 1, by=0.05)) + \n  labs(x = \"p-values\")\n\n\n\n\n\n\n\n\n\n\n\nresults |&gt; \n  summarize(type1 = mean(p.value &lt; 0.05))\n\n# A tibble: 1 × 1\n   type1\n   &lt;dbl&gt;\n1 0.0363"
+    "text": "t-test many times\n\nmap()plotreject \\(H_0\\)\n\n\n\nset.seed(4747)\n\nresults &lt;- map(1:10000, \n               ~t.test.pval(rexp(n = 10, rate = 20),\n                            rexp(n = 7, rate = 20))) |&gt; \n  list_rbind() \n\n\n\n\nresults |&gt; \n  ggplot(aes(x = p.value)) + \n  geom_histogram(breaks = seq(0, 1, by=0.05)) + \n  labs(x = \"p-values\")\n\n\n\n\n\n\n\n\n\n\n\nresults |&gt; \n  summarize(type1 = mean(p.value &lt; 0.05))\n\n# A tibble: 1 × 1\n   type1\n   &lt;dbl&gt;\n1 0.0377"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#plot-of-data",
@@ -8573,5 +8573,26 @@
     "title": "Simulating",
     "section": "t-test with exponential data",
     "text": "t-test with exponential data\nThe t-test says that if the null hypothesis is true, we’d expect to reject a true null hypothesis \\(\\alpha \\cdot 100\\) percent of the time. That is, if \\(\\alpha = 0.05\\), we’d reject true null hypotheses 5% of the time.\n\nThe guarantee of 5% (across many tests) happens only when the data are normal (or reasonably normal)."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#take-away-ideas",
+    "href": "slides/2025-09-08-simulating.html#take-away-ideas",
+    "title": "Simulating",
+    "section": "Take-away ideas",
+    "text": "Take-away ideas\n\nsmall take-away: we shouldn’t necessarily use the t-test without checking the technical conditions (note here that there were pretty small sample sizes, which is also important).\nbigger take-away: we can use simulation to understand the error rates for hypothesis tests under particular initial conditions."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#take-away-ideas-1",
+    "href": "slides/2025-09-08-simulating.html#take-away-ideas-1",
+    "title": "Simulating",
+    "section": "Take-away ideas",
+    "text": "Take-away ideas\n\nsmall take-away: the linear model condition of equal variance will impact what the actual capture rate is for a confidence interval.\nbigger take-away: we can use simulations to understand whether the confidence interval procedure is capturing the parameter at the rate we want."
+  },
+  {
+    "objectID": "slides/2025-09-08-simulating.html#take-away-ideas-2",
+    "href": "slides/2025-09-08-simulating.html#take-away-ideas-2",
+    "title": "Simulating",
+    "section": "Take-away ideas",
+    "text": "Take-away ideas\n\nsmall take-away: we shouldn’t use the t-test without checking the technical conditions, here the problem was unequal variance (again, small sample sizes were part of the problem).\nbigger take-away: we can use simulation to understand the error rates for hypothesis tests under particular initial conditions."
   }
 ]
