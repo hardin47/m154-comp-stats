@@ -75,9 +75,9 @@ knitr::include_graphics("../../images/not_normal.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2025-09-22-permutations" target = "_blank">In class slides</a> for both 9/22/25 and 9/24/25.
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws7_m154_f24_sample.pdf" target = "_blank">WS7 - Sampling</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws7_m154_f25_sample.pdf" target = "_blank">WS7 - Sampling</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws8_m154_f24_permute.pdf" target = "_blank">WS8 - Permuting</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws8_m154_f25_permute.pdf" target = "_blank">WS8 - Permuting</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

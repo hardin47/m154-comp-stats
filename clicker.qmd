@@ -996,6 +996,27 @@ ifelse(data > 5, "cat", data)
 
 ---
 
+(@) Why care about the distribution of the test statistic?[^55]
+   a. Better estimator
+   b. So we can find rejection region
+   c. So we can control power
+   d. Because we love the CLT
+   
+[^55]: b. So we can find rejection region
+
+---
+
+(@) Given statistic T = r(X), how do we find a (sensible) test?[^56]
+   a. Maximize power
+   b. Minimize type I error
+   c. Control type I error
+   d. Minimize type II error
+   e. Control type II error
+
+[^56]: c. Control type I error
+
+---
+
 The group averages for the next few questions:
 
 ```{r}
@@ -1081,26 +1102,6 @@ NH.means  |> select(count)  |> pull() *
 
 [^54d]: e. $n_i \cdot (\overline{X}_{i\cdot} - \overline{X})^2$
 
----
-
-(@) Why care about the distribution of the test statistic?[^55]
-   a. Better estimator
-   b. So we can find rejection region
-   c. So we can control power
-   d. Because we love the CLT
-   
-[^55]: b. So we can find rejection region
-
----
-
-(@) Given statistic T = r(X), how do we find a (sensible) test?[^56]
-   a. Maximize power
-   b. Minimize type I error
-   c. Control type I error
-   d. Minimize type II error
-   e. Control type II error
-
-[^56]: c. Control type I error
 
 ---
 
