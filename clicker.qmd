@@ -993,6 +993,94 @@ ifelse(data > 5, "cat", data)
 
 [^54]: b. FALSE
 
+
+---
+
+The group averages for the next few questions:
+
+```{r}
+#| echo: true
+library(NHANES)
+GM <- NHANES  |> summarize(mean(HHIncomeMid, na.rm=TRUE))  |> pull()
+
+NH.means <- NHANES  |> 
+  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |> 
+  group_by(HealthGen)  |> 
+  summarize(IncMean = mean(HHIncomeMid), count=n())
+NH.means
+```
+
+
+---
+
+(@) The following code calculates which part of the test statistic?[^54a]
+     a. $\overline{X}$
+     b. $(\overline{X}_{i\cdot} - \overline{X})$
+     c. $(\overline{X}_{i\cdot} - \overline{X})^2$
+     d. $n_i$
+     e. $n_i \cdot (\overline{X}_{i\cdot} - \overline{X})^2$
+
+```{r}
+#| eval: true
+#| echo: true
+NH.means  |> select(IncMean)  |> pull() - GM
+```
+
+
+[^54a]: b. $(\overline{X}_{i\cdot} - \overline{X})$
+
+---
+
+(@) The following code calculates which part of the test statistic?[^54b]
+     a. $\overline{X}$
+     b. $(\overline{X}_{i\cdot} - \overline{X})$
+     c. $(\overline{X}_{i\cdot} - \overline{X})^2$
+     d. $n_i$
+     e. $n_i \cdot (\overline{X}_{i\cdot} - \overline{X})^2$
+     
+```{r}     
+#| eval: true
+#| echo: true
+(NH.means  |> select(IncMean)  |> pull() - GM)^2
+```
+
+[^54b]: c. $(\overline{X}_{i\cdot} - \overline{X})^2$
+
+---
+
+(@) The following code calculates which part of the test statistic?[^54c]
+     a. $\overline{X}$
+     b. $(\overline{X}_{i\cdot} - \overline{X})$
+     c. $(\overline{X}_{i\cdot} - \overline{X})^2$
+     d. $n_i$
+     e. $n_i \cdot (\overline{X}_{i\cdot} - \overline{X})^2$
+     
+```{r}
+#| eval: true
+#| echo: true
+NH.means  |> select(count)  |> pull()
+```
+
+[^54c]: d. $n_i$
+
+---
+
+(@) The following code calculates which part of the test statistic?[^54d]
+     a. $\overline{X}$
+     b. $(\overline{X}_{i\cdot} - \overline{X})$
+     c. $(\overline{X}_{i\cdot} - \overline{X})^2$
+     d. $n_i$
+     e. $n_i \cdot (\overline{X}_{i\cdot} - \overline{X})^2$
+
+```{r}
+#| eval: true
+#| echo: true
+NH.means  |> select(count)  |> pull() * 
+  (NH.means  |> select(IncMean)  |> pull() - GM)^2
+```
+
+[^54d]: e. $n_i \cdot (\overline{X}_{i\cdot} - \overline{X})^2$
+
 ---
 
 (@) Why care about the distribution of the test statistic?[^55]
