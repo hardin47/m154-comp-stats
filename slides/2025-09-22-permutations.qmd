@@ -150,6 +150,9 @@ NHANES  |> select(HHIncomeMid, HealthGen)  |>
  
 
 ## Creating a test statistic
+
+The `pull()` function create a single value (or vector) instead of a data frame.
+
 ```{r}
 GM <- NHANES  |> summarize(mean(HHIncomeMid, na.rm=TRUE))  |> pull()
 GM
@@ -161,12 +164,16 @@ NH.means
 
 ## Creating a test statistic
 
+I've tried to break down the process of creating the test statistic, but the syntax is slighlty different from what we would do in the actual tidy pipeline. It might be easier to understand the calculation of the observed test statistic two slides forward.
+
 ```{r}
 NH.means  |> select(IncMean)  |> pull() - GM
 (NH.means  |> select(IncMean)  |> pull() - GM)^2
 NH.means  |> select(count)  |> pull()
 NH.means  |> select(count)  |> pull() * 
   (NH.means  |> select(IncMean)  |> pull() - GM)^2
+sum(NH.means  |> select(count)  |> pull() * 
+  (NH.means  |> select(IncMean)  |> pull() - GM)^2)
 ```
 
  
@@ -179,6 +186,20 @@ sum(NH.means  |> select(count)  |> pull() *
       (NH.means  |> select(IncMean)  |> pull() - GM)^2)
 ```
 
+## The observed test statistic
+
+```{r}
+GM <- NHANES  |> summarize(mean(HHIncomeMid, na.rm=TRUE))  |> pull()
+GM
+
+SSB_obs <- NHANES  |>
+  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |> 
+  group_by(HealthGen)  |> 
+  summarize(IncMean = mean(HHIncomeMid), count=n())  |>
+  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) 
+
+SSB_obs
+```
 
 
  

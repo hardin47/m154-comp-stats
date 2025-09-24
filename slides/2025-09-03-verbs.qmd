@@ -131,7 +131,7 @@ head(movies,3)
  
 ## Reading in data from a package
 
-For now, we'll work with all flights out of the three NYC airports in 2013.
+For now, we'll work with all flights **out of** the three NYC airports in 2013.
 
 1. Download and install the package from CRAN (done in the Console, only once).
 ```{r}

@@ -8670,14 +8670,14 @@
     "href": "slides/2025-09-22-permutations.html#creating-a-test-statistic-1",
     "title": "Permutation Tests",
     "section": "Creating a test statistic",
-    "text": "Creating a test statistic\n\nGM &lt;- NHANES  |&gt; summarize(mean(HHIncomeMid, na.rm=TRUE))  |&gt; pull()\nGM\n\n[1] 57206.17\n\nNH.means\n\n# A tibble: 5 × 3\n  HealthGen IncMean count\n  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;\n1 Excellent  69354.   817\n2 Vgood      65011.  2342\n3 Good       55662.  2744\n4 Fair       44194.   899\n5 Poor       37027.   164"
+    "text": "Creating a test statistic\nThe pull() function create a single value (or vector) instead of a data frame.\n\nGM &lt;- NHANES  |&gt; summarize(mean(HHIncomeMid, na.rm=TRUE))  |&gt; pull()\nGM\n\n[1] 57206.17\n\nNH.means\n\n# A tibble: 5 × 3\n  HealthGen IncMean count\n  &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;\n1 Excellent  69354.   817\n2 Vgood      65011.  2342\n3 Good       55662.  2744\n4 Fair       44194.   899\n5 Poor       37027.   164"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#creating-a-test-statistic-2",
     "href": "slides/2025-09-22-permutations.html#creating-a-test-statistic-2",
     "title": "Permutation Tests",
     "section": "Creating a test statistic",
-    "text": "Creating a test statistic\n\nNH.means  |&gt; select(IncMean)  |&gt; pull() - GM\n\n[1]  12148.175   7804.504  -1543.816 -13012.622 -20178.731\n\n(NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 147578150  60910286   2383368 169328332 407181201\n\nNH.means  |&gt; select(count)  |&gt; pull()\n\n[1]  817 2342 2744  899  164\n\nNH.means  |&gt; select(count)  |&gt; pull() * \n  (NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 120571348234 142651889943   6539963000 152226170649  66777716928"
+    "text": "Creating a test statistic\nI’ve tried to break down the process of creating the test statistic, but the syntax is slighlty different from what we would do in the actual tidy pipeline. It might be easier to understand the calculation of the observed test statistic two slides forward.\n\nNH.means  |&gt; select(IncMean)  |&gt; pull() - GM\n\n[1]  12148.175   7804.504  -1543.816 -13012.622 -20178.731\n\n(NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 147578150  60910286   2383368 169328332 407181201\n\nNH.means  |&gt; select(count)  |&gt; pull()\n\n[1]  817 2342 2744  899  164\n\nNH.means  |&gt; select(count)  |&gt; pull() * \n  (NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2\n\n[1] 120571348234 142651889943   6539963000 152226170649  66777716928\n\nsum(NH.means  |&gt; select(count)  |&gt; pull() * \n  (NH.means  |&gt; select(IncMean)  |&gt; pull() - GM)^2)\n\n[1] 488767088754"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#creating-a-test-statistic-3",
@@ -8691,21 +8691,21 @@
     "href": "slides/2025-09-22-permutations.html#permuting-the-data",
     "title": "Permutation Tests",
     "section": "Permuting the data",
-    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000      70000\n 2 Good            30000       2500\n 3 Good            30000      40000\n 4 Good            40000     100000\n 5 Vgood           87500     100000\n 6 Vgood           87500     100000\n 7 Vgood           87500      87500\n 8 Vgood           30000       7500\n 9 Vgood          100000      12500\n10 Fair            70000       7500\n# ℹ 6,956 more rows"
+    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000      30000\n 2 Good            30000      12500\n 3 Good            30000      87500\n 4 Good            40000      50000\n 5 Vgood           87500      40000\n 6 Vgood           87500     100000\n 7 Vgood           87500      50000\n 8 Vgood           30000      60000\n 9 Vgood          100000     100000\n10 Fair            70000      50000\n# ℹ 6,956 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#permuting-the-data-a-new-test-statistic",
     "href": "slides/2025-09-22-permutations.html#permuting-the-data-a-new-test-statistic",
     "title": "Permutation Tests",
     "section": "Permuting the data & a new test statistic",
-    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 16468585449."
+    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 17376910002."
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#lots-of-times",
     "href": "slides/2025-09-22-permutations.html#lots-of-times",
     "title": "Permutation Tests",
     "section": "Lots of times…",
-    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 14778901842.\n 2 14935875069.\n 3 14533266280.\n 4 18401572218.\n 5 17469661267.\n 6 15108288165.\n 7 16198999525.\n 8 14481162122.\n 9 13314883931.\n10 17700184573.\n# ℹ 990 more rows"
+    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 16249848217.\n 2 16300882522.\n 3 14269862928.\n 4 15639263374.\n 5 15264394651.\n 6 14905748559.\n 7 22752242011.\n 8 12496270514.\n 9 14413478999.\n10 17224370433.\n# ℹ 990 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#compared-to-the-real-data",
@@ -8831,21 +8831,21 @@
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        0\n 2       4        0          1        1\n 3       5        0          1        0\n 4       5        0          1        1\n 5       5        0          1        0\n 6       4        0          1        1\n 7       4        0          1        1\n 8       5        0          1        1\n 9       4        0          1        0\n10       3        0          1        0\n# ℹ 37 more rows"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        1\n 2       4        0          1        0\n 3       5        0          1        1\n 4       5        0          1        1\n 5       5        0          1        1\n 6       4        0          1        1\n 7       4        0          1        0\n 8       5        0          1        1\n 9       4        0          1        0\n10       3        0          1        0\n# ℹ 37 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-1",
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-1",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.188"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.184"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-2",
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-2",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1    0.461 \n2   -0.100 \n3    0.0909\n4    0.461 \n5   -0.0909"
+    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1     0.277\n2    -0.188\n3    -0.281\n4     0.184\n5    -0.281"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#observed-vs.-permuted-statistic",
@@ -8923,5 +8923,12 @@
     "title": "05. Permutation Tests",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nRossman & Chance applets:\n\nanalytic test of 2 means (t-test)\npermutation test of 2 means\nanalytic test of many means (ANOVA)\npermutation test of many means\nconfidence intervals\npower\n\nlinear models\n\nStatistics without the agonizing pain - John Rauser at Strata + Hadoop 2014\nThe algorithm that could end partisan gerrymandering\nPosit cheatsheets – there is one on purrr!"
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#the-observed-test-statistic",
+    "href": "slides/2025-09-22-permutations.html#the-observed-test-statistic",
+    "title": "Permutation Tests",
+    "section": "The observed test statistic",
+    "text": "The observed test statistic\n\nGM &lt;- NHANES  |&gt; summarize(mean(HHIncomeMid, na.rm=TRUE))  |&gt; pull()\nGM\n\n[1] 57206.17\n\nSSB_obs &lt;- NHANES  |&gt;\n  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |&gt; \n  group_by(HealthGen)  |&gt; \n  summarize(IncMean = mean(HHIncomeMid), count=n())  |&gt;\n  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) \n\nSSB_obs\n\n# A tibble: 1 × 1\n   obs_teststat\n          &lt;dbl&gt;\n1 488767088754."
   }
 ]
