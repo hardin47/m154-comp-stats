@@ -651,3 +651,98 @@ knitr::include_graphics("../images/genderbias3c.png")
 | time series | no serial corr | lag 1 autocross |
 ||||
 :::
+
+
+
+# Multiple Linear Regression
+
+Consider the following model where interest is in $\beta_1$
+
+$$E[Y] = \beta_{0\cdot 1, 2} + \beta_{1 \cdot 2} X_1 + \beta_{2 \cdot 1} X_2$$
+
+## Hypothesis testing
+
+The research question of interest is to understand the relationship between $E[Y]$ and $X_1$. 
+
+$$H_0: \beta_{1 \cdot 2} = 0$$
+$$H_A: \beta_{1 \cdot 2} \ne 0$$
+
+
+For each dataset, we run a least squares regression to get the sample values (parameter estimates):
+
+$$\hat{Y} = b_{0 \cdot 1, 2} + b_{1 \cdot 2} X_1 + b_{2 \cdot 1} X_2$$
+
+## Permuting $Y$ - algorithm
+
+1. Fit the original model and obtain coefficient estimates $(b_{0\cdot 1,2},$ $b_{1\cdot 2},$ and $b_{2\cdot 1})$ and corresponding standard error estimates ($SE(b_{0\cdot 1,2}),$ $SE(b_{1\cdot 2}),$ and $SE(b_{2\cdot 1})):$
+        $$\widehat{Y} = b_{0\cdot1,2} + b_{1\cdot2}X_1 + b_{2\cdot1}X_2$$
+2. Permute $Y$ to obtain $Y^*$.
+        
+3. Fit a model on the permuted $Y^*$ values to obtain permuted coefficient estimates ($b^*_{0\cdot 1,2}$, $b^*_{1\cdot 2}$, and $b^*_{2\cdot 1}$) and corresponding standard error estimates ($SE(b^*_{0\cdot 1,2})$, $SE(b^*_{1\cdot 2})$, and $SE(b^*_{2\cdot 1})$): 
+$$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
+4. Repeat steps 2 and 3 $P$ times. For example, $P$ = 1000.
+
+5. From the $P$ copies of $b^*_{1\cdot 2}$ and $P$ copies of $SE(b^*_{1\cdot 2})$, calculate $P$ copies of $t^*$ to form the permuted null sampling distribution: \begin{equation}t^* = \frac{b_{1\cdot2}^* - 0}{SE(b_{1\cdot2}^*)} \label{t_y} \end{equation}
+6. Compare the observed test statistic to the permuted null sampling distribution from step 5: $$t_{obs} = \frac{b_{1\cdot2} - 0}{SE(b_{1\cdot2})}$$
+
+
+## Permuting $Y$ - consequences
+
+* Indeed, permuting $Y$ will break the relationship between $Y$ and $X_1$, which will force the null hypothesis to be true (which is what we want for testing).
+
+
+* However, permuting $Y$ will also simultaneously break the relationship between $Y$ and $X_2,$ which may not be acceptable if we need to preserve the relationship to mirror the original data structure.
+
+## Permuting $X_1$ - algorithm
+
+1. Fit the original model and obtain coefficient estimates and corresponding standard error estimates: $$\widehat{Y} = b_{0\cdot1,2} + b_{1\cdot2}X_1 + b_{2\cdot1}X_2$$
+2. Permute $X_1$ to obtain $X^*_1$.
+
+3. Fit a model on the permuted $X_1^*$ values to obtain permuted coefficient estimates and corresponding standard error estimates: $$\widehat{Y} = b^*_{0\cdot1,2} + b^*_{1\cdot2}X^*_1 + b^*_{2\cdot1}X_2$$
+4. Repeat steps 2 and 3 $P$ times. 
+
+5. From the $P$ copies of $b_{1\cdot2}^*$ and $P$ copies of $SE(b_{1\cdot2}^*)$, calculate $P$ copies of $t^*$ to form the permuted null sampling distribution: \begin{equation}t^* = \frac{b_{1\cdot2}^* - 0}{SE(b_{1\cdot2}^*)} \label{t_x1} \end{equation}
+6. Compare the observed test statistic to the permuted null sampling distribution from step 5: $$t_{obs} = \frac{b_{1\cdot2} - 0}{SE(b_{1\cdot2})}$$
+
+## Permuting $X_1$ - consequences
+
+
+* The permutation distribution created from permuting $X_1$ will force the null hypothesis to be true.
+
+* However, permuting $X_1$ has the side effect that the relationship between $X_1$ and $X_2$ will be broken in the permuted data.
+
+* If the data come from, for example, a randomized clinical trial (where $X_1$ is the treatment variable), then $X_1$ and $X_2$ will be independent in the original dataset, and permuting of $X_1$ will **not** violate the exchangeability condition.
+
+* If $X_1$ and $X_2$ are correlated in the original dataset, then permuting $X_1$ violates the exchangeability condition.
+
+
+## Permuting reduced model residuals - algorithm
+
+1. Fit the original model on $X_2$ only and obtain coefficient estimates and corresponding standard error estimates of the reduced model: $$\widehat{Y} = b_{0\cdot2} + b_{2}X_2$$
+2. Let the residuals $R_{Y\cdot2} = Y - b_{0\cdot2} - b_{2}X_2$, and permute $R_{Y\cdot2}$ to obtain $R^*_{Y\cdot2}.$ Define the permuted outcome variable as $Y^* = b_{0\cdot2} + b_{2}X_2 + R^*_{Y\cdot2}.$
+
+3. Fit a model on the permuted $Y^*$ values to obtain permuted coefficient estimates and corresponding standard error estimates: $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
+4. Repeat steps 2 and 3 $P$ times. 
+
+5. From the $P$ copies of $b_{1\cdot2}^*$ and $P$ copies of $SE(b_{1\cdot2}^*)$, calculate $P$ copies of $t^*$ to form the permuted null sampling distribution: \begin{equation}t^* = \frac{b_{1\cdot2}^* - 0}{SE(b_{1\cdot2}^*)} \label{t_red} \end{equation}
+6. Compare the observed test statistic to the permuted null sampling distribution from step 5: $$t_{obs} = \frac{b_{1\cdot2} - 0}{SE(b_{1\cdot2})}$$
+
+## Permuting reduced model residuals - consequences
+
+
+* The permutation preserves the relationship between $X_1$ & $X_2$ as well as the relationship between $X_2$ & $Y$.
+
+* However, in order for the relationship between $X_1$ & $Y$ to be broken (i.e., to obtain a null sampling distribution for the test of $H_0: \beta_{1\cdot2} = 0),$ $X_1$ and $X_2$ must not be associated.
+
+## Relationships
+
+|Permutation                           |Broken Relationships | Preserved Relationships|
+|:-------------------------------------|:--------------------------|:-----------------------|
+|**Permute $Y$**   |$X_1$ & $Y$ | $X_1$ & $X_2$| 
+| |$X_2$ & $Y$ |     | 
+|--------------------------------------|---------------------------|------------------------|
+|**Permute $X_1$** |$X_1$ & $X_2$ | $X_2$ & $Y$| 
+|   |$X_1$ & $Y$ |     |
+|--------------------------------------|---------------------------|------------------------|
+|**Permute reduced model residuals** |$X_1$ & $Y$ (if $X_1$ & $X_2$ are uncorrelated) | $X_1$ & $X_2$| 
+|  |  |   $X_2$ & $Y$  |

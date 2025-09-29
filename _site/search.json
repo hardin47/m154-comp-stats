@@ -8236,7 +8236,7 @@
     "href": "slides/2025-09-08-simulating.html#simulate-their-meeting",
     "title": "Simulating",
     "section": "Simulate their meeting",
-    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.33 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.86 sec elapsed"
+    "text": "Simulate their meeting\nAssume that Sally and Joan are both equally likely to arrive at the campus center anywhere between 7pm and 8pm.\n\nvectorizedfunctionmap()for() loop\n\n\n\nlibrary(tictoc)\nn &lt;- 10000\n\ntic()\nmeet_vect &lt;- tibble(\n  sally = runif(n, min = 0, max = 60),\n  joan = runif(n, min = 0, max = 60),\n  result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n)\ntoc()\n\n0.002 sec elapsed\n\n\n\n\n\nmeet_func &lt;- function(nada){\n  tibble(\n    sally = runif(1, min = 0, max = 60),\n    joan = runif(1, min = 0, max = 60),\n    result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )\n  )\n}\n\n\n\n\ntic()\nmeet_map &lt;- 1:n |&gt; \n  map(meet_func) |&gt; \n  list_rbind()\ntoc()\n\n2.489 sec elapsed\n\n\n\n\n\ntic()\nmeet_for &lt;- data.frame()\nfor(i in 1:n){\n  meet_for &lt;- meet_for |&gt; rbind(\n    tibble(\n      sally = runif(1, min = 0, max = 60),\n      joan = runif(1, min = 0, max = 60),\n      result = ifelse(\n    abs(sally - joan) &lt;= 10, \"They meet\", \"They do not\"\n  )))\n}\ntoc()\n\n3.708 sec elapsed"
   },
   {
     "objectID": "slides/2025-09-08-simulating.html#results",
@@ -8691,21 +8691,21 @@
     "href": "slides/2025-09-22-permutations.html#permuting-the-data",
     "title": "Permutation Tests",
     "section": "Permuting the data",
-    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000      30000\n 2 Good            30000      12500\n 3 Good            30000      87500\n 4 Good            40000      50000\n 5 Vgood           87500      40000\n 6 Vgood           87500     100000\n 7 Vgood           87500      50000\n 8 Vgood           30000      60000\n 9 Vgood          100000     100000\n10 Fair            70000      50000\n# ℹ 6,956 more rows"
+    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000     100000\n 2 Good            30000      17500\n 3 Good            30000      30000\n 4 Good            40000      50000\n 5 Vgood           87500      50000\n 6 Vgood           87500     100000\n 7 Vgood           87500      17500\n 8 Vgood           30000      87500\n 9 Vgood          100000     100000\n10 Fair            70000     100000\n# ℹ 6,956 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#permuting-the-data-a-new-test-statistic",
     "href": "slides/2025-09-22-permutations.html#permuting-the-data-a-new-test-statistic",
     "title": "Permutation Tests",
     "section": "Permuting the data & a new test statistic",
-    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 17376910002."
+    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 18209933705."
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#lots-of-times",
     "href": "slides/2025-09-22-permutations.html#lots-of-times",
     "title": "Permutation Tests",
     "section": "Lots of times…",
-    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 16249848217.\n 2 16300882522.\n 3 14269862928.\n 4 15639263374.\n 5 15264394651.\n 6 14905748559.\n 7 22752242011.\n 8 12496270514.\n 9 14413478999.\n10 17224370433.\n# ℹ 990 more rows"
+    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 14093243168.\n 2 16778750641.\n 3 19979522992.\n 4 15304465146.\n 5 13528709079.\n 6 16201773757.\n 7 16248810452.\n 8 17206599648.\n 9 11861174615.\n10 12369805696.\n# ℹ 990 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#compared-to-the-real-data",
@@ -8831,21 +8831,21 @@
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        1\n 2       4        0          1        0\n 3       5        0          1        1\n 4       5        0          1        1\n 5       5        0          1        1\n 6       4        0          1        1\n 7       4        0          1        0\n 8       5        0          1        1\n 9       4        0          1        0\n10       3        0          1        0\n# ℹ 37 more rows"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        0\n 2       4        0          1        1\n 3       5        0          1        1\n 4       5        0          1        1\n 5       5        0          1        0\n 6       4        0          1        0\n 7       4        0          1        0\n 8       5        0          1        0\n 9       4        0          1        0\n10       3        0          1        0\n# ℹ 37 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-1",
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-1",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.184"
+    "text": "MacNell Data with permutation\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1         0.0952"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-2",
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-2",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1     0.277\n2    -0.188\n3    -0.281\n4     0.184\n5    -0.281"
+    "text": "MacNell Data with permutation\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1   0.180  \n2   0.463  \n3  -0.00216\n4  -0.193  \n5  -0.00216"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#observed-vs.-permuted-statistic",
@@ -8930,5 +8930,61 @@
     "title": "Permutation Tests",
     "section": "The observed test statistic",
     "text": "The observed test statistic\n\nGM &lt;- NHANES  |&gt; summarize(mean(HHIncomeMid, na.rm=TRUE))  |&gt; pull()\nGM\n\n[1] 57206.17\n\nSSB_obs &lt;- NHANES  |&gt;\n  filter(!is.na(HealthGen) & !is.na(HHIncomeMid))  |&gt; \n  group_by(HealthGen)  |&gt; \n  summarize(IncMean = mean(HHIncomeMid), count=n())  |&gt;\n  summarize(obs_teststat = sum(count*(IncMean - GM)^2)) \n\nSSB_obs\n\n# A tibble: 1 × 1\n   obs_teststat\n          &lt;dbl&gt;\n1 488767088754."
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#hypothesis-testing",
+    "href": "slides/2025-09-22-permutations.html#hypothesis-testing",
+    "title": "Permutation Tests",
+    "section": "Hypothesis testing",
+    "text": "Hypothesis testing\nThe research question of interest is to understand the relationship between \\(E[Y]\\) and \\(X_1\\).\n\\[H_0: \\beta_{1 \\cdot 2} = 0\\] \\[H_A: \\beta_{1 \\cdot 2} \\ne 0\\]\nFor each dataset, we run a least squares regression to get the sample values (parameter estimates):\n\\[\\hat{Y} = b_{0 \\cdot 1, 2} + b_{1 \\cdot 2} X_1 + b_{2 \\cdot 1} X_2\\]"
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#relationships",
+    "href": "slides/2025-09-22-permutations.html#relationships",
+    "title": "Permutation Tests",
+    "section": "Relationships",
+    "text": "Relationships\n\n\n\n\n\n\n\n\nPermutation\nBroken Relationships\nPreserved Relationships\n\n\n\n\nPermute \\(Y\\)\n\\(X_1\\) & \\(Y\\)\n\\(X_1\\) & \\(X_2\\)\n\n\n\n\\(X_2\\) & \\(Y\\)\n\n\n\n————————————–\n—————————\n————————\n\n\nPermute \\(X_1\\)\n\\(X_1\\) & \\(X_2\\)\n\\(X_2\\) & \\(Y\\)\n\n\n\n\\(X_1\\) & \\(Y\\)\n\n\n\n————————————–\n—————————\n————————\n\n\nPermute reduced model residuals\n\\(X_1\\) & \\(Y\\) (if \\(X_1\\) & \\(X_2\\) are uncorrelated)\n\\(X_1\\) & \\(X_2\\)\n\n\n\n\n\\(X_2\\) & \\(Y\\)"
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#permuting-y---algorithm",
+    "href": "slides/2025-09-22-permutations.html#permuting-y---algorithm",
+    "title": "Permutation Tests",
+    "section": "Permuting \\(Y\\) - algorithm",
+    "text": "Permuting \\(Y\\) - algorithm\n\nFit the original model and obtain coefficient estimates \\((b_{0\\cdot 1,2},\\) \\(b_{1\\cdot 2},\\) and \\(b_{2\\cdot 1})\\) and corresponding standard error estimates (\\(SE(b_{0\\cdot 1,2}),\\) \\(SE(b_{1\\cdot 2}),\\) and \\(SE(b_{2\\cdot 1})):\\) \\[\\widehat{Y} = b_{0\\cdot1,2} + b_{1\\cdot2}X_1 + b_{2\\cdot1}X_2\\]\nPermute \\(Y\\) to obtain \\(Y^*\\).\nFit a model on the permuted \\(Y^*\\) values to obtain permuted coefficient estimates (\\(b^*_{0\\cdot 1,2}\\), \\(b^*_{1\\cdot 2}\\), and \\(b^*_{2\\cdot 1}\\)) and corresponding standard error estimates (\\(SE(b^*_{0\\cdot 1,2})\\), \\(SE(b^*_{1\\cdot 2})\\), and \\(SE(b^*_{2\\cdot 1})\\)): \\[\\widehat{Y}^* = b^*_{0\\cdot1,2} + b^*_{1\\cdot2}X_1 + b^*_{2\\cdot1}X_2\\]\nRepeat steps 2 and 3 \\(P\\) times. For example, \\(P\\) = 1000.\nFrom the \\(P\\) copies of \\(b^*_{1\\cdot 2}\\) and \\(P\\) copies of \\(SE(b^*_{1\\cdot 2})\\), calculate \\(P\\) copies of \\(t^*\\) to form the permuted null sampling distribution: \\[\\begin{equation}t^* = \\frac{b_{1\\cdot2}^* - 0}{SE(b_{1\\cdot2}^*)} \\label{t_y} \\end{equation}\\]\nCompare the observed test statistic to the permuted null sampling distribution from step 5: \\[t_{obs} = \\frac{b_{1\\cdot2} - 0}{SE(b_{1\\cdot2})}\\]"
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#permuting-y---consequences",
+    "href": "slides/2025-09-22-permutations.html#permuting-y---consequences",
+    "title": "Permutation Tests",
+    "section": "Permuting \\(Y\\) - consequences",
+    "text": "Permuting \\(Y\\) - consequences\n\nIndeed, permuting \\(Y\\) will break the relationship between \\(Y\\) and \\(X_1\\), which will force the null hypothesis to be true (which is what we want for testing).\nHowever, permuting \\(Y\\) will also simultaneously break the relationship between \\(Y\\) and \\(X_2,\\) which may not be acceptable if we need to preserve the relationship to mirror the original data structure."
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#permuting-x_1---algorithm",
+    "href": "slides/2025-09-22-permutations.html#permuting-x_1---algorithm",
+    "title": "Permutation Tests",
+    "section": "Permuting \\(X_1\\) - algorithm",
+    "text": "Permuting \\(X_1\\) - algorithm\n\nFit the original model and obtain coefficient estimates and corresponding standard error estimates: \\[\\widehat{Y} = b_{0\\cdot1,2} + b_{1\\cdot2}X_1 + b_{2\\cdot1}X_2\\]\nPermute \\(X_1\\) to obtain \\(X^*_1\\).\nFit a model on the permuted \\(X_1^*\\) values to obtain permuted coefficient estimates and corresponding standard error estimates: \\[\\widehat{Y} = b^*_{0\\cdot1,2} + b^*_{1\\cdot2}X^*_1 + b^*_{2\\cdot1}X_2\\]\nRepeat steps 2 and 3 \\(P\\) times.\nFrom the \\(P\\) copies of \\(b_{1\\cdot2}^*\\) and \\(P\\) copies of \\(SE(b_{1\\cdot2}^*)\\), calculate \\(P\\) copies of \\(t^*\\) to form the permuted null sampling distribution: \\[\\begin{equation}t^* = \\frac{b_{1\\cdot2}^* - 0}{SE(b_{1\\cdot2}^*)} \\label{t_x1} \\end{equation}\\]\nCompare the observed test statistic to the permuted null sampling distribution from step 5: \\[t_{obs} = \\frac{b_{1\\cdot2} - 0}{SE(b_{1\\cdot2})}\\]"
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#permuting-x_1---consequences",
+    "href": "slides/2025-09-22-permutations.html#permuting-x_1---consequences",
+    "title": "Permutation Tests",
+    "section": "Permuting \\(X_1\\) - consequences",
+    "text": "Permuting \\(X_1\\) - consequences\n\nThe permutation distribution created from permuting \\(X_1\\) will force the null hypothesis to be true.\nHowever, permuting \\(X_1\\) has the side effect that the relationship between \\(X_1\\) and \\(X_2\\) will be broken in the permuted data.\nIf the data come from, for example, a randomized clinical trial (where \\(X_1\\) is the treatment variable), then \\(X_1\\) and \\(X_2\\) will be independent in the original dataset, and permuting of \\(X_1\\) will not violate the exchangeability condition.\nIf \\(X_1\\) and \\(X_2\\) are correlated in the original dataset, then permuting \\(X_1\\) violates the exchangeability condition."
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#permuting-reduced-model-residuals---algorithm",
+    "href": "slides/2025-09-22-permutations.html#permuting-reduced-model-residuals---algorithm",
+    "title": "Permutation Tests",
+    "section": "Permuting reduced model residuals - algorithm",
+    "text": "Permuting reduced model residuals - algorithm\n\nFit the original model on \\(X_2\\) only and obtain coefficient estimates and corresponding standard error estimates of the reduced model: \\[\\widehat{Y} = b_{0\\cdot2} + b_{2}X_2\\]\nLet the residuals \\(R_{Y\\cdot2} = Y - b_{0\\cdot2} - b_{2}X_2\\), and permute \\(R_{Y\\cdot2}\\) to obtain \\(R^*_{Y\\cdot2}.\\) Define the permuted outcome variable as \\(Y^* = b_{0\\cdot2} + b_{2}X_2 + R^*_{Y\\cdot2}.\\)\nFit a model on the permuted \\(Y^*\\) values to obtain permuted coefficient estimates and corresponding standard error estimates: \\[\\widehat{Y}^* = b^*_{0\\cdot1,2} + b^*_{1\\cdot2}X_1 + b^*_{2\\cdot1}X_2\\]\nRepeat steps 2 and 3 \\(P\\) times.\nFrom the \\(P\\) copies of \\(b_{1\\cdot2}^*\\) and \\(P\\) copies of \\(SE(b_{1\\cdot2}^*)\\), calculate \\(P\\) copies of \\(t^*\\) to form the permuted null sampling distribution: \\[\\begin{equation}t^* = \\frac{b_{1\\cdot2}^* - 0}{SE(b_{1\\cdot2}^*)} \\label{t_red} \\end{equation}\\]\nCompare the observed test statistic to the permuted null sampling distribution from step 5: \\[t_{obs} = \\frac{b_{1\\cdot2} - 0}{SE(b_{1\\cdot2})}\\]"
+  },
+  {
+    "objectID": "slides/2025-09-22-permutations.html#permuting-reduced-model-residuals---consequences",
+    "href": "slides/2025-09-22-permutations.html#permuting-reduced-model-residuals---consequences",
+    "title": "Permutation Tests",
+    "section": "Permuting reduced model residuals - consequences",
+    "text": "Permuting reduced model residuals - consequences\n\nThe permutation preserves the relationship between \\(X_1\\) & \\(X_2\\) as well as the relationship between \\(X_2\\) & \\(Y\\).\nHowever, in order for the relationship between \\(X_1\\) & \\(Y\\) to be broken (i.e., to obtain a null sampling distribution for the test of \\(H_0: \\beta_{1\\cdot2} = 0),\\) \\(X_1\\) and \\(X_2\\) must not be associated."
   }
 ]

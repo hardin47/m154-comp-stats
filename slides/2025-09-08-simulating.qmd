@@ -563,7 +563,7 @@ n <- 10000
 
 tic()
 meet_vect <- tibble(
-  sally = runif(n, 0, max = 60),
+  sally = runif(n, min = 0, max = 60),
   joan = runif(n, min = 0, max = 60),
   result = ifelse(
     abs(sally - joan) <= 10, "They meet", "They do not"
