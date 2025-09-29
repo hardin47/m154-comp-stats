@@ -8691,21 +8691,21 @@
     "href": "slides/2025-09-22-permutations.html#permuting-the-data",
     "title": "Permutation Tests",
     "section": "Permuting the data",
-    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000     100000\n 2 Good            30000      40000\n 3 Good            30000      17500\n 4 Good            40000      87500\n 5 Vgood           87500      30000\n 6 Vgood           87500      17500\n 7 Vgood           87500     100000\n 8 Vgood           30000       7500\n 9 Vgood          100000       2500\n10 Fair            70000      40000\n# ℹ 6,956 more rows"
+    "text": "Permuting the data\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  select(HealthGen, HHIncomeMid, IncomePerm) \n\n# A tibble: 6,966 × 3\n   HealthGen HHIncomeMid IncomePerm\n   &lt;fct&gt;           &lt;int&gt;      &lt;int&gt;\n 1 Good            30000      40000\n 2 Good            30000     100000\n 3 Good            30000      22500\n 4 Good            40000     100000\n 5 Vgood           87500      87500\n 6 Vgood           87500     100000\n 7 Vgood           87500     100000\n 8 Vgood           30000      87500\n 9 Vgood          100000     100000\n10 Fair            70000     100000\n# ℹ 6,956 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#permuting-the-data-a-new-test-statistic",
     "href": "slides/2025-09-22-permutations.html#permuting-the-data-a-new-test-statistic",
     "title": "Permutation Tests",
     "section": "Permuting the data & a new test statistic",
-    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 20191384236."
+    "text": "Permuting the data & a new test statistic\n\nNHANES  |&gt; \n  filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n  mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n  group_by(HealthGen)  |&gt; \n  summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n  summarize(teststat = sum(count*(IncMeanP - GM)^2))\n\n# A tibble: 1 × 1\n      teststat\n         &lt;dbl&gt;\n1 13087971389."
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#lots-of-times",
     "href": "slides/2025-09-22-permutations.html#lots-of-times",
     "title": "Permutation Tests",
     "section": "Lots of times…",
-    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 15951738213.\n 2 17839956034.\n 3 12133931525.\n 4 19416483593.\n 5 13239882883.\n 6 15220106957.\n 7 13298691386.\n 8 14777693498.\n 9 18583793401.\n10 12584762514.\n# ℹ 990 more rows"
+    "text": "Lots of times…\n\nreps &lt;- 1000\n\nSSB_perm_func &lt;- function(.x){\n  NHANES  |&gt; \n        filter(!is.na(HealthGen)& !is.na(HHIncomeMid))  |&gt;\n        mutate(IncomePerm = sample(HHIncomeMid, replace=FALSE))  |&gt;\n        group_by(HealthGen)  |&gt; \n        summarize(IncMeanP = mean(IncomePerm), count=n())  |&gt;\n        summarize(teststat = sum(count*(IncMeanP - GM)^2)) \n}\n\nSSB_perm_val &lt;- map(1:reps, SSB_perm_func) |&gt; \n  list_rbind()\n\nSSB_perm_val\n\n# A tibble: 1,000 × 1\n       teststat\n          &lt;dbl&gt;\n 1 22474731375.\n 2 16532542900.\n 3 14740591493.\n 4 17507319849.\n 5 14951424421.\n 6 21707251067.\n 7 17320481949.\n 8 13382164753.\n 9 12644340495.\n10 13415873345.\n# ℹ 990 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#compared-to-the-real-data",
@@ -8831,21 +8831,21 @@
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\ntaidgender indicates perceived gender.\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        0\n 2       4        0          1        1\n 3       5        0          1        1\n 4       5        0          1        0\n 5       5        0          1        0\n 6       4        0          1        0\n 7       4        0          1        1\n 8       5        0          1        1\n 9       4        0          1        0\n10       3        0          1        0\n# ℹ 37 more rows"
+    "text": "MacNell Data with permutation\ntaidgender indicates perceived gender.\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  select(overall, tagender, taidgender, permTAID) \n\n# A tibble: 47 × 4\n# Groups:   tagender [2]\n   overall tagender taidgender permTAID\n     &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;\n 1       4        0          1        0\n 2       4        0          1        0\n 3       5        0          1        0\n 4       5        0          1        1\n 5       5        0          1        1\n 6       4        0          1        1\n 7       4        0          1        0\n 8       5        0          1        0\n 9       4        0          1        0\n10       3        0          1        1\n# ℹ 37 more rows"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-1",
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-1",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\ntaidgender indicates perceived gender.\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.370"
+    "text": "MacNell Data with permutation\ntaidgender indicates perceived gender.\n\nmacnell  |&gt; \n  group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff(pmeans))\n\n# A tibble: 1 × 1\n  `diff(pmeans)`\n           &lt;dbl&gt;\n1          0.180"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-2",
     "href": "slides/2025-09-22-permutations.html#macnell-data-with-permutation-2",
     "title": "Permutation Tests",
     "section": "MacNell Data with permutation",
-    "text": "MacNell Data with permutation\ntaidgender indicates perceived gender.\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1    0.654 \n2    0.0952\n3   -0.374 \n4   -0.380 \n5    0.468"
+    "text": "MacNell Data with permutation\ntaidgender indicates perceived gender.\n\ndiff_means_func &lt;- function(.x){\n  macnell  |&gt; group_by(tagender)  |&gt;\n  mutate(permTAID = sample(taidgender, replace=FALSE))  |&gt;\n  ungroup(tagender)  |&gt;\n  group_by(permTAID)  |&gt;\n  summarize(pmeans = mean(overall, na.rm=TRUE))  |&gt;\n  summarize(diff_mean = diff(pmeans))\n  }\n\nmap(1:5, diff_means_func) |&gt; \n  list_rbind()\n\n# A tibble: 5 × 1\n  diff_mean\n      &lt;dbl&gt;\n1   0.100  \n2  -0.00652\n3   0.556  \n4   0.0870 \n5  -0.100"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#observed-vs.-permuted-statistic",
@@ -8943,7 +8943,7 @@
     "href": "slides/2025-09-22-permutations.html#relationships",
     "title": "Permutation Tests",
     "section": "Relationships",
-    "text": "Relationships\n\n\n\n\n\n\n\n\nPermutation\nBroken Relationships\nPreserved Relationships\n\n\n\n\nPermute \\(Y\\)\n\\(X_1\\) & \\(Y\\)\n\\(X_1\\) & \\(X_2\\)\n\n\n\n\\(X_2\\) & \\(Y\\)\n\n\n\n————————————–\n—————————\n————————\n\n\nPermute \\(X_1\\)\n\\(X_1\\) & \\(X_2\\)\n\\(X_2\\) & \\(Y\\)\n\n\n\n\\(X_1\\) & \\(Y\\)\n\n\n\n————————————–\n—————————\n————————\n\n\nPermute reduced model residuals\n\\(X_1\\) & \\(Y\\) (if \\(X_1\\) & \\(X_2\\) are uncorrelated)\n\\(X_1\\) & \\(X_2\\)\n\n\n\n\n\\(X_2\\) & \\(Y\\)"
+    "text": "Relationships\n\n\n\n\n\n\n\n\n\n\n\n\nPermutation\nBroken Relationships\nPreserved Relationships\n\n\n\n\nPermute \\(Y\\)\n\\(X_1\\) & \\(Y\\)\n\\(X_1\\) & \\(X_2\\)\n\n\n\n\\(X_2\\) & \\(Y\\)\n\n\n\nPermute \\(X_1\\)\n\\(X_1\\) & \\(X_2\\)\n\\(X_2\\) & \\(Y\\)\n\n\n\n\\(X_1\\) & \\(Y\\)\n\n\n\nPermute reduced model residuals\n\\(X_1\\) & \\(Y\\) (if \\(X_1\\) & \\(X_2\\) are uncorrelated)\n\\(X_1\\) & \\(X_2\\)\n\n\n\n\n\\(X_2\\) & \\(Y\\)"
   },
   {
     "objectID": "slides/2025-09-22-permutations.html#permuting-y---algorithm",

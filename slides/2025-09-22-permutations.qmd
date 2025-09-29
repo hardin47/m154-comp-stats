@@ -746,13 +746,36 @@ $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
 
 ## Relationships
 
+```{css}
+#| echo: false
+
+.mytable2 table {
+  border-collapse: collapse;
+}
+
+.mytable2 td, .mytable2 th {
+  border-bottom: 1px solid black; /* default */
+  padding: 4px 8px;
+}
+
+/* Rows 3–9: make bottom border light grey */
+.mytable2 tr:nth-child(1) td,
+.mytable2 tr:nth-child(3) td,
+.mytable2 tr:nth-child(5) td {
+  border-bottom: 1px solid white;
+}
+
+```
+
+::: {.mytable2}
 |Permutation                           |Broken Relationships | Preserved Relationships|
 |:-------------------------------------|:--------------------------|:-----------------------|
 |**Permute $Y$**   |$X_1$ & $Y$ | $X_1$ & $X_2$| 
 | |$X_2$ & $Y$ |     | 
-|--------------------------------------|---------------------------|------------------------|
 |**Permute $X_1$** |$X_1$ & $X_2$ | $X_2$ & $Y$| 
 |   |$X_1$ & $Y$ |     |
-|--------------------------------------|---------------------------|------------------------|
 |**Permute reduced model residuals** |$X_1$ & $Y$ (if $X_1$ & $X_2$ are uncorrelated) | $X_1$ & $X_2$| 
 |  |  |   $X_2$ & $Y$  |
+||||
+:::
+
