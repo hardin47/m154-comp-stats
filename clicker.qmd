@@ -1185,6 +1185,37 @@ NH.means  |> select(count)  |> pull() *
 
 ---
 
+(@) For the MacNell study, how should the data be permuted to address the question about *perceived* gender?[^65a]
+    a. Permute the identity variable (perceived gender)
+    b. Permute the gender variable (actual gender)
+    c. Permute the gender variable after grouping by the identity variable
+    d. Permute the identity variable after grouping by the gender variable
+
+[^65a]: d. Permute the identity variable after grouping by the gender variable
+
+---
+
+(@) In order to "Permute the identity variable after grouping by the gender variable" we should `group_by()`:[^65b]
+    a. the identity variable (perceived gender)
+    b. the gender variable (actual gender)
+    c. both the gender variable and the identity variable
+    d. neither the identity variable nor the gender variable
+
+[^65b]: b. the gender variable (actual gender)
+
+---
+
+(@) In order to calculate the statistic (difference in avereage score), we should `group_by()`:[^65c]
+    a. the identity variable (perceived gender)
+    b. the gender variable (actual gender)
+    c. both the gender variable and the identity variable
+    d. the permuted identity varible
+    e. we don't need to use `group_by()`
+
+[^65c]: d. the permuted identity varible
+
+---
+
 (@) What is the primary reason to use a permutation test (instead of a test built on calculus)?[^66]
    a. more power
    b. lower type I error

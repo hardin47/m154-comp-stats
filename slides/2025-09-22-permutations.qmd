@@ -406,9 +406,9 @@ ggplot(aes(y=TAGend, x=overall, group = interaction(TAGend, TAID),
                position=position_dodge(width=0.4)) +
   coord_flip() +
   labs(x = "",
-       y = "TA gender",
-       color = "TA identifier",
-       fill = "TA identifier",
+       y = "TA actual gender",
+       color = "TA perceived ID",
+       fill = "TA perceived ID",
        title = "Overall teaching effectiveness score")
 ```
 
@@ -428,6 +428,8 @@ $$H_0:  \mu_{ID.Female} = \mu_{ID.Male}$$
 
 ## MacNell Data without permutation
 
+`taidgender` indicates *perceived* gender.
+
 ```{r}
 macnell  |>
   select(overall, tagender, taidgender) 
@@ -445,6 +447,8 @@ Conceptually, there are two levels of randomization:
 
 2.  Of the $N_j$ assigned to instructor $j$, $N_{jm}$ are told that the instructor is male, and $N_{jf}$ are told that the instructor is female for $j=m,f$.
 
+`taidgender` indicates *perceived* gender.
+
 ```{r}
 macnell  |>
   group_by(tagender, taidgender)  |>
@@ -461,6 +465,8 @@ macnell  |>
 
 ## MacNell Data with permutation
 
+`taidgender` indicates *perceived* gender.
+
 ```{r mac1}
 #| code-line-numbers: "2"
 macnell  |> 
@@ -471,6 +477,8 @@ macnell  |>
 
 
 ## MacNell Data with permutation
+
+`taidgender` indicates *perceived* gender.
 
 ```{r mac2}
 #| code-line-numbers: "2,5"
@@ -486,6 +494,8 @@ macnell  |>
 
 
 ## MacNell Data with permutation
+
+`taidgender` indicates *perceived* gender.
 
 ```{r mac3}
 diff_means_func <- function(.x){
