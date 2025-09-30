@@ -1352,11 +1352,11 @@ results |>
 ```
 :::
 
-## Take-away ideas
+## Takeaway ideas
 
-* small take-away: we shouldn't necessarily use the t-test without checking the technical conditions (note here that there were pretty small sample sizes, which is also important).
+* small takeaway: we shouldn't necessarily use the t-test without checking the technical conditions (note here that there were pretty small sample sizes, which is also important).
 
-* bigger take-away: we can use simulation to understand the error rates for hypothesis tests under particular initial conditions.
+* bigger takeaway: we can use simulation to understand the error rates for hypothesis tests under particular initial conditions.
 
 # Sensitivity of CI to tech conditions
 
@@ -1591,11 +1591,11 @@ null_data_equal |>
 
 :::
 
-## Take-away ideas
+## Takeaway ideas
 
-* small take-away: the linear model condition of equal variance will impact what the actual capture rate is for a confidence interval.
+* small takeaway: the linear model condition of equal variance will impact what the actual capture rate is for a confidence interval.
 
-* bigger take-away: we can use simulations to understand whether the confidence interval procedure is capturing the parameter at the rate we want.
+* bigger takeaway: we can use simulations to understand whether the confidence interval procedure is capturing the parameter at the rate we want.
 
 ## Unequal variance: type I error?
 
@@ -1653,11 +1653,11 @@ null_data_unequal |>
 :::
 
 
-## Take-away ideas
+## Takeaway ideas
 
-* small take-away: we shouldn't use the t-test without checking the technical conditions, here the problem was unequal variance (again, small sample sizes were part of the problem).
+* small takeaway: we shouldn't use the t-test without checking the technical conditions, here the problem was unequal variance (again, small sample sizes were part of the problem).
 
-* bigger take-away: we can use simulation to understand the error rates for hypothesis tests under particular initial conditions.
+* bigger takeaway: we can use simulation to understand the error rates for hypothesis tests under particular initial conditions.
 
 ## References
 

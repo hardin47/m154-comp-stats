@@ -164,7 +164,7 @@ NH.means
 
 ## Creating a test statistic
 
-I've tried to break down the process of creating the test statistic, but the syntax is slighlty different from what we would do in the actual tidy pipeline. It might be easier to understand the calculation of the observed test statistic two slides forward.
+I've tried to break down the process of creating the test statistic, but the syntax is slightly different from what we would do in the actual tidy pipeline. It might be easier to understand the calculation of the observed test statistic two slides forward.
 
 ```{r}
 NH.means  |> select(IncMean)  |> pull() - GM
@@ -340,6 +340,11 @@ knitr::include_graphics("../images/perm_hetero.jpg")
 ```
  
 
+# Agenda  9/29/25
+
+* Exchangeability
+* Nested permutations -- MacNell evaluations
+* Multiple linear regression
 
 ## Gender bias in teaching evaluations
 
@@ -355,6 +360,7 @@ knitr::include_graphics(c("../images/genderbias2a.png", "../images/genderbias2b.
 ## Gender bias in teaching evaluations
 
 ```{r out.width='100%', fig.align="center",  echo=FALSE}
+#| fig_cap: "Gender bias seen in study on 20,000 students. The students knew the gender of their prof, but did not choose their class. https://doi.org/10.1093/jeea/jvx057"
 knitr::include_graphics("../images/genderbias.png")
 
 ```
@@ -365,9 +371,10 @@ knitr::include_graphics("../images/genderbias.png")
 
 
 ```{r out.width='100%', fig.align="center", echo=FALSE}
+#| fig_cap: "86 students assigned randomly to the TA section. *Innovative Higher Education*, **40**, pages 291–303 (2015). https://doi.org/10.58188/1941-8043.1509"
 knitr::include_graphics("../images/genderbias3a.png")
 ```
-*Innovative Higher Education*, **40**, pages 291–303 (2015).
+
  
 
 ## Gender bias in teaching evaluations
@@ -387,6 +394,16 @@ knitr::include_graphics("../images/genderbias3b.png")
 macnell <- readr::read_csv("https://raw.githubusercontent.com/statlab/permuter/master/data-raw/macnell.csv", na = "NaN")
 #data(macnell)  # is in the permuter package
 ```
+
+
+```{r}
+temp <- macnell |> 
+  group_by(tagender) |> 
+  mutate(perm = sample(taidgender, replace = FALSE)) |> 
+  select(overall,tagender, taidgender, perm) |> 
+  arrange(tagender)
+```
+
 
 
 
@@ -593,7 +610,7 @@ macnell  |> group_by(taidgender)  |>
 ## MacNell Data with different permutation tests
 
 
-# brute force permuation
+# brute force permutation
 2*sum(ov.stats > 0.47) / reps
 
 # mean(x) - mean(y)
@@ -607,6 +624,7 @@ t2p(-1.56, distr2, alternative="two-sided")
 ## MacNell results
 
 ```{r out.width = '80%', fig.align="center", echo=FALSE}
+#| fig_cap: "Analysis was done using t-tests. https://doi.org/10.58188/1941-8043.1509"
 knitr::include_graphics("../images/genderbias3c.png")
 ```
 
@@ -666,7 +684,7 @@ knitr::include_graphics("../images/genderbias3c.png")
 
 # Multiple Linear Regression
 
-Consider the following model where interest is in $\beta_1$
+Consider the following model where interest is in $\beta_{1 \cdot 2}$
 
 $$E[Y] = \beta_{0\cdot 1, 2} + \beta_{1 \cdot 2} X_1 + \beta_{2 \cdot 1} X_2$$
 
@@ -684,16 +702,18 @@ $$\hat{Y} = b_{0 \cdot 1, 2} + b_{1 \cdot 2} X_1 + b_{2 \cdot 1} X_2$$
 
 ## Permuting $Y$ - algorithm
 
-1. Fit the original model and obtain coefficient estimates $(b_{0\cdot 1,2},$ $b_{1\cdot 2},$ and $b_{2\cdot 1})$ and corresponding standard error estimates ($SE(b_{0\cdot 1,2}),$ $SE(b_{1\cdot 2}),$ and $SE(b_{2\cdot 1})):$
-        $$\widehat{Y} = b_{0\cdot1,2} + b_{1\cdot2}X_1 + b_{2\cdot1}X_2$$
+1. Fit the original model to the data and get the coefficient estimate: $b_{1\cdot 2}$
+
 2. Permute $Y$ to obtain $Y^*$.
         
-3. Fit a model on the permuted $Y^*$ values to obtain permuted coefficient estimates ($b^*_{0\cdot 1,2}$, $b^*_{1\cdot 2}$, and $b^*_{2\cdot 1}$) and corresponding standard error estimates ($SE(b^*_{0\cdot 1,2})$, $SE(b^*_{1\cdot 2})$, and $SE(b^*_{2\cdot 1})$): 
+3. Fit a model on the permuted $Y^*$ values to obtain a permuted coefficient estimate: $b^*_{1\cdot 2}$
+
 $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
 4. Repeat steps 2 and 3 $P$ times. For example, $P$ = 1000.
 
-5. From the $P$ copies of $b^*_{1\cdot 2}$ and $P$ copies of $SE(b^*_{1\cdot 2})$, calculate $P$ copies of $t^*$ to form the permuted null sampling distribution: \begin{equation}t^* = \frac{b_{1\cdot2}^* - 0}{SE(b_{1\cdot2}^*)} \label{t_y} \end{equation}
-6. Compare the observed test statistic to the permuted null sampling distribution from step 5: $$t_{obs} = \frac{b_{1\cdot2} - 0}{SE(b_{1\cdot2})}$$
+5. Create a null sampling distribution of the $P$ copies of $b^*_{1\cdot 2}$.
+
+6. Compare the observed test statistic to the permuted null sampling distribution from step 5.
 
 
 ## Permuting $Y$ - consequences
@@ -705,14 +725,19 @@ $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
 
 ## Permuting $X_1$ - algorithm
 
-1. Fit the original model and obtain coefficient estimates and corresponding standard error estimates: $$\widehat{Y} = b_{0\cdot1,2} + b_{1\cdot2}X_1 + b_{2\cdot1}X_2$$
+1. Fit the original model to the data and get the coefficient estimates:$b_{1\cdot 2}$
+
 2. Permute $X_1$ to obtain $X^*_1$.
 
-3. Fit a model on the permuted $X_1^*$ values to obtain permuted coefficient estimates and corresponding standard error estimates: $$\widehat{Y} = b^*_{0\cdot1,2} + b^*_{1\cdot2}X^*_1 + b^*_{2\cdot1}X_2$$
-4. Repeat steps 2 and 3 $P$ times. 
+3. Fit a model on the permuted $X_1^*$ values to obtain a permuted coefficient estimate: 
 
-5. From the $P$ copies of $b_{1\cdot2}^*$ and $P$ copies of $SE(b_{1\cdot2}^*)$, calculate $P$ copies of $t^*$ to form the permuted null sampling distribution: \begin{equation}t^* = \frac{b_{1\cdot2}^* - 0}{SE(b_{1\cdot2}^*)} \label{t_x1} \end{equation}
-6. Compare the observed test statistic to the permuted null sampling distribution from step 5: $$t_{obs} = \frac{b_{1\cdot2} - 0}{SE(b_{1\cdot2})}$$
+$$\widehat{Y} = b^*_{0\cdot1,2} + b^*_{1\cdot2}X^*_1 + b^*_{2\cdot1}X_2$$
+
+4. Repeat steps 2 and 3 $P$ times. For example, $P$ = 1000.
+
+5. Create a null sampling distribution of the $P$ copies of $b^*_{1\cdot 2}$.
+
+6. Compare the observed test statistic to the permuted null sampling distribution from step 5.
 
 ## Permuting $X_1$ - consequences
 
@@ -728,14 +753,19 @@ $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
 
 ## Permuting reduced model residuals - algorithm
 
-1. Fit the original model on $X_2$ only and obtain coefficient estimates and corresponding standard error estimates of the reduced model: $$\widehat{Y} = b_{0\cdot2} + b_{2}X_2$$
+1. Fit the original model on $X_2$ **only** and obtain coefficient estimate: $b_2$ 
+
+$$\widehat{Y} = b_{0\cdot2} + b_{2}X_2$$
 2. Let the residuals $R_{Y\cdot2} = Y - b_{0\cdot2} - b_{2}X_2$, and permute $R_{Y\cdot2}$ to obtain $R^*_{Y\cdot2}.$ Define the permuted outcome variable as $Y^* = b_{0\cdot2} + b_{2}X_2 + R^*_{Y\cdot2}.$
 
-3. Fit a model on the permuted $Y^*$ values to obtain permuted coefficient estimates and corresponding standard error estimates: $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
+3. Fit a model on the permuted $Y^*$ values (regress $Y^*$ on both $X_1$ and $X_2$) to obtain permuted coefficient estimate: $b^*_{1\cdot2}$ 
+$$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
+
 4. Repeat steps 2 and 3 $P$ times. 
 
-5. From the $P$ copies of $b_{1\cdot2}^*$ and $P$ copies of $SE(b_{1\cdot2}^*)$, calculate $P$ copies of $t^*$ to form the permuted null sampling distribution: \begin{equation}t^* = \frac{b_{1\cdot2}^* - 0}{SE(b_{1\cdot2}^*)} \label{t_red} \end{equation}
-6. Compare the observed test statistic to the permuted null sampling distribution from step 5: $$t_{obs} = \frac{b_{1\cdot2} - 0}{SE(b_{1\cdot2})}$$
+5. Create a null sampling distribution of the $P$ copies of $b^*_{1\cdot 2}$.
+
+6. Compare the observed test statistic to the permuted null sampling distribution from step 5.
 
 ## Permuting reduced model residuals - consequences
 
@@ -743,6 +773,14 @@ $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
 * The permutation preserves the relationship between $X_1$ & $X_2$ as well as the relationship between $X_2$ & $Y$.
 
 * However, in order for the relationship between $X_1$ & $Y$ to be broken (i.e., to obtain a null sampling distribution for the test of $H_0: \beta_{1\cdot2} = 0),$ $X_1$ and $X_2$ must not be associated.
+
+## Takeaways
+
+* small takeaway -- it turns out that even when both the normality conditions and the exchangeability are modestly violated, all three of the permutation test methods described below do reasonably well at controlling Type I errors [@AndersonLegendre99;@Winkler2014].
+
+* big takeaway -- we can use the ideas of permutation tests in MLR to understand what exchangeability means. Exchangeability **is** the technical condition for permutation tests. 
+
+* once you fully understand exchangeability, you'll be able to perform permutation tests in much more complicated experimental designs.
 
 ## Relationships
 
@@ -779,3 +817,4 @@ $$\widehat{Y}^* = b^*_{0\cdot1,2} + b^*_{1\cdot2}X_1 + b^*_{2\cdot1}X_2$$
 ||||
 :::
 
+## References

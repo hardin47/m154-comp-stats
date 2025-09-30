@@ -1205,10 +1205,10 @@ NH.means  |> select(count)  |> pull() *
 
 ---
 
-(@) In order to calculate the statistic (difference in avereage score), we should `group_by()`:[^65c]
+(@) In order to create a null sampling distribution, we need to calculate the statistic (difference in avereage score), which requires a `group_by()` of:[^65c]
     a. the identity variable (perceived gender)
     b. the gender variable (actual gender)
-    c. both the gender variable and the identity variable
+    c. both the gender variable and the permuted identity variable
     d. the permuted identity varible
     e. we don't need to use `group_by()`
 
