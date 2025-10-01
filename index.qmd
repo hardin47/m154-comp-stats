@@ -59,11 +59,11 @@ schedule <- tribble(
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 5</a> - due 10.1',
   ' ',
 
-  "10.6.25", '<a href="posts/2025-10-06-bootstrap/"><i class="fas fa-desktop" target="_blank"></i> bootstrapping</a>',
+  "10.6.25", '<a href="posts/2025-10-01-bootstrap/"><i class="fas fa-desktop" target="_blank"></i> bootstrapping</a>',
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 6</a> - due 10.8 <br> <i class="fa-regular fa-circle-question"></i> Quiz 3 (permutation tests) 10.8',
   ' ',
 
-  "10.15.25", '<a href="posts/2025-10-06-bootstrap/"><i class="fas fa-desktop" target="_blank"></i> bootstrapping</a>',
+  "10.15.25", '<a href="posts/2025-10-01-bootstrap/"><i class="fas fa-desktop" target="_blank"></i> bootstrapping</a>',
   ' ',
   ' ',
  
