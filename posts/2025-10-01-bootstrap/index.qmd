@@ -70,7 +70,7 @@ knitr::include_graphics("../../images/dotplot.png")
 ## Slides <i class="fas fa-desktop"></i> 
 
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2025-10-01-bootstrap" target = "_blank">In class slides</a> for both 10/1 + 6 + 8 + 15/25.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2025-10-01-bootstrap" target = "_blank">In class slides</a> for 10/1 + 6 + 8 + 15/25.
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws9_m154_f25_SE.pdf" target = "_blank">WU9 - standard errors</a>
 
