@@ -54,7 +54,7 @@ Motivation:
 
 ## Intuitive understanding
 
-See in the applets for an intuitive understanding of both confidence intervals and boostrapping:
+See in the applets for an intuitive understanding of both confidence intervals and bootstrapping:
 
 * <a href = "http://www.lock5stat.com/StatKey/" target = "_blank">StatKey applets</a> which demonstrate bootstrapping.
 
@@ -180,7 +180,7 @@ heroin |>
 
 
 
-##  Bootstrapping with `map()`. 
+##  Bootstrapping with `map()` 
 
 ::: {.panel-tabset}
 
@@ -311,8 +311,33 @@ ggplot(boot_stats, aes(x=boot_tr_mean)) +
 See in class notes on [bootstrapping](https://st47s.com/Math154/Notes/06-bootstrap.html) for the technical details on how to create different bootstrap intervals.
 
 
+## Bootstrap condition:
 
-## Bootstrapping with `map`
+The sampling distribution we generate with bootstrap resamples asymptotically approaches the true sampling distribution of $\hat{\theta}$ as the sample size of the data goes up: $n \rightarrow \infty$.
+
+\begin{align}
+\hat{F}\Big(\frac{\hat{\theta}^*(b) - \hat{\theta}}{\hat{SE}^*(b)} \Big) \rightarrow F\Big(\frac{\hat{\theta} - \theta}{SE(\hat{\theta})}\Big)
+\end{align}
+
+# Normal CI using bootstrap SE
+
+Building on derivation for CI from introductory statistics, we can use the bootstrap standard error.
+
+## CI for $\theta$
+
+If: $\hat{\theta} \sim N$
+
+\begin{align}
+P\bigg(z_{(\alpha/2)} \leq \frac{\hat{\theta} - \theta}{SE(\hat{\theta})} \leq z_{(1-\alpha/2)}\bigg)&= 1 - \alpha\\
+P\bigg(\hat{\theta} - z_{(1-\alpha/2)} SE(\hat{\theta}) \leq \theta \leq \hat{\theta} - z_{(\alpha/2)} SE(\hat{\theta})\bigg) &= 1 - \alpha\\
+\end{align}
+
+## CI for $\theta$ with bootstrap SE
+
+A 95% CI for $\theta$ would then be: $$\hat{\theta} \pm z_{(\alpha/2)} \hat{SE}^*$$
+
+
+## Bootstrapping with `map()`
 
 ::: {.panel-tabset}
 
@@ -346,8 +371,6 @@ boot_stats
 :::
 
 
-
-
 ## 95% normal CI with BS SE
 
 ```{r}
@@ -361,10 +384,31 @@ boot_stats |>
 
 
 
+# Bootstrap-t CI
 
+What if we don't believe that $\hat{\theta} \sim N$?
 
+## Double bootstrap to find the multiplier
 
-## Double bootstrapping with `map`
+\begin{align}
+T^*(b) &= \frac{\hat{\theta}^*(b) - \hat{\theta}}{\hat{SE}^*(b)}
+\end{align}
+
+(**different** $\hat{SE}^*(b)$ for every bootstrap resample!)
+
+## CI multiplier
+
+Find $\hat{t}^*_{\alpha/2}$
+
+\begin{align}
+\frac{\# \{T^*(b) \leq \hat{t}^*_{\alpha/2} \} }{B} = \alpha/2
+\end{align}
+
+## Bootstrap-t CI
+
+$(\hat{\theta} - \hat{t}^*_{1-\alpha/2}\hat{SE}^*,  \hat{\theta} - \hat{t}^*_{\alpha/2}\hat{SE}^*)$
+
+## Double bootstrapping with `map()`
 
 ::: {.panel-tabset}
 
@@ -530,7 +574,7 @@ boot_t_stats |>
 :::
 
 
-## Bootstrapping with `map`
+## Bootstrapping with `map()`
 
 ::: {.panel-tabset}
 
@@ -570,7 +614,11 @@ boot_stats
 
 
 
-## 95% Percentile CI
+# 95% Percentile CI
+
+Theoretically more sophisticated but computationally more straightforward, we can directly use the percentiles of the sampling distribution to derive a CI.
+
+## Calculating the Percentile CI
 
 ```{r}
 boot_stats |>

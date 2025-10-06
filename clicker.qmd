@@ -1205,14 +1205,14 @@ NH.means  |> select(count)  |> pull() *
 
 ---
 
-(@) In order to create a null sampling distribution, we need to calculate the statistic (difference in avereage score), which requires a `group_by()` of:[^65c]
+(@) In order to create a null sampling distribution, we need to calculate the statistic (difference in average score), which requires a `group_by()` of:[^65c]
     a. the identity variable (perceived gender)
     b. the gender variable (actual gender)
     c. both the gender variable and the permuted identity variable
-    d. the permuted identity varible
+    d. the permuted identity variable
     e. we don't need to use `group_by()`
 
-[^65c]: d. the permuted identity varible
+[^65c]: d. the permuted identity variable
 
 ---
 
@@ -1270,6 +1270,37 @@ NH.means  |> select(count)  |> pull() *
    d. bootstrap parameter
 
 [^70]: b. sample statistic
+
+---
+
+(@) In $n$ random samples, how many values for $\hat{\theta}$ do you have? How many values for $SE(\hat{\theta})$ do you have?[^70a]
+    a. 1, 1
+    b. 1, n
+    c. n, 1
+    d. n, n
+
+[^70a]: d. n, n
+
+---
+
+(@) In $B$ bootstrap re-samples, how many values for $\hat{\theta}^*(b)$ do you have? How many values for $SE^*$ do you have?[^70b]
+    a. 1, 1
+    b. 1, B
+    c. B, 1
+    d. B, B
+
+[^70b]: c. B, 1
+
+---
+
+(@) What is wrong with using $\frac{\hat{\theta}^*(b) - \hat{\theta}}{\hat{SE}^*}$ to estimate $\frac{\hat{\theta} - \theta}{SE(\hat{\theta})}?$[^70c]
+    a. bootstrap version is too variable
+    b. bootstrap version is not variable enough
+    c. bootstrap version is biased
+    d. bootstrap version measures the wrong thing entirely
+    
+
+[^70c]: b. bootstrap version is not variable enough
 
 ---
 
