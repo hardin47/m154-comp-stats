@@ -298,13 +298,11 @@ ggplot(boot_stats, aes(x=boot_tr_mean)) +
 
 
 
-# Agenda 10/6/25
+# Agenda 10/6 + 8/25
 
-0. Logic of CI
-1. Normal CI using BS SE
-2. Bootstrap-t (studentized) CIs 
-3. Percentile CIs
-4. properties / advantages / disadvantages
+1. Logic of CI
+2. Normal CI using BS SE
+3. Bootstrap-t (studentized) CIs 
 
 
 
@@ -363,15 +361,6 @@ boot_stats |>
 
 
 
-
-## 95% Percentile CI
-
-```{r}
-boot_stats |>
-  summarize(perc_CI_med = quantile(boot_med, c(0.025, 0.975)), 
-            perc_CI_tr_mean = quantile(boot_tr_mean, c(0.025, 0.975)), 
-            q = c(0.025, 0.975))
-```
 
 
 
@@ -494,10 +483,6 @@ boot_t_stats
 
 
 
-
-
-
-
 ## 95% Bootstrap-t CI
 
 
@@ -544,6 +529,55 @@ boot_t_stats |>
 
 :::
 
+
+## Bootstrapping with `map`
+
+::: {.panel-tabset}
+
+## set variables
+```{r}
+n_rep1 <- 100
+set.seed(4747)
+```
+
+## boot stat function
+```{r}
+boot_stat_func <- function(df){ 
+	df |> 
+    mutate(obs_med = median(times),
+           obs_tr_mean = mean(times, trim = 0.25)) |>
+    sample_frac(size=1, replace=TRUE) |>
+    summarize(boot_med = median(times), 
+              boot_tr_mean = mean(times, trim = 0.25),
+              obs_med = mean(obs_med),
+              obs_tr_mean = mean(obs_tr_mean))}
+```
+
+## bootstrap!
+```{r}
+boot_stats <- map(1:n_rep1, ~boot_stat_func(df = heroin)) |> 
+  list_rbind()
+
+boot_stats
+```
+
+:::
+
+
+# Agenda 10/15/25
+1. Percentile CIs
+2. properties / advantages / disadvantages
+
+
+
+## 95% Percentile CI
+
+```{r}
+boot_stats |>
+  summarize(perc_CI_med = quantile(boot_med, c(0.025, 0.975)), 
+            perc_CI_tr_mean = quantile(boot_tr_mean, c(0.025, 0.975)), 
+            q = c(0.025, 0.975))
+```
 
 
 ## Comparison of intervals

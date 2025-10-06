@@ -74,9 +74,7 @@ knitr::include_graphics("../../images/dotplot.png")
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws9_m154_f25_SE.pdf" target = "_blank">WU9 - standard errors</a>
 
-<!--
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws11_m154_f24_boot.pdf" target = "_blank">WU11 - bootstrap t</a>
--->
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws10_m154_f25_boot.pdf" target = "_blank">WU10 - bootstrap t</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

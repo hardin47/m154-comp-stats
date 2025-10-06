@@ -9251,7 +9251,7 @@
     "href": "posts/2025-10-01-bootstrap/index.html#slides",
     "title": "06. Bootstrapping",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for 10/1 + 6 + 8 + 15/25.\nWU9 - standard errors"
+    "text": "Slides \n\nIn class slides for 10/1 + 6 + 8 + 15/25.\nWU9 - standard errors\nWU10 - bootstrap t"
   },
   {
     "objectID": "posts/2025-10-01-bootstrap/index.html#additional-resources",
@@ -9259,5 +9259,12 @@
     "title": "06. Bootstrapping",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nStatKey applets which demonstrate bootstrapping.\nConfidence interval logic from the Rossman & Chance applets.\nThe Role of Statistical Learning in Applied Statistics Daniela Witten talks to Rafa Irizarry June 15, 2020.\nFive ways to fix statistics, Nature Nov 28, 2017"
+  },
+  {
+    "objectID": "slides/2025-10-01-bootstrap.html#bootstrapping-with-map-1",
+    "href": "slides/2025-10-01-bootstrap.html#bootstrapping-with-map-1",
+    "title": "Bootstrapping",
+    "section": "Bootstrapping with map",
+    "text": "Bootstrapping with map\n\nset variablesboot stat functionbootstrap!\n\n\n\nn_rep1 &lt;- 100\nset.seed(4747)\n\n\n\n\nboot_stat_func &lt;- function(df){ \n    df |&gt; \n    mutate(obs_med = median(times),\n           obs_tr_mean = mean(times, trim = 0.25)) |&gt;\n    sample_frac(size=1, replace=TRUE) |&gt;\n    summarize(boot_med = median(times), \n              boot_tr_mean = mean(times, trim = 0.25),\n              obs_med = mean(obs_med),\n              obs_tr_mean = mean(obs_tr_mean))}\n\n\n\n\nboot_stats &lt;- map(1:n_rep1, ~boot_stat_func(df = heroin)) |&gt; \n  list_rbind()\n\nboot_stats\n\n# A tibble: 100 × 4\n   boot_med boot_tr_mean obs_med obs_tr_mean\n      &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;\n 1     368          372.    368.        378.\n 2     358          363.    368.        378.\n 3     431          421.    368.        378.\n 4     332.         350.    368.        378.\n 5     310.         331.    368.        378.\n 6     376          382.    368.        378.\n 7     366          365.    368.        378.\n 8     378.         382.    368.        378.\n 9     394          386.    368.        378.\n10     392.         402.    368.        378.\n# ℹ 90 more rows"
   }
 ]
