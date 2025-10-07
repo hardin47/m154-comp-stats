@@ -1273,17 +1273,17 @@ NH.means  |> select(count)  |> pull() *
 
 ---
 
-(@) In $n$ random samples, how many values for $\hat{\theta}$ do you have? How many values for $SE(\hat{\theta})$ do you have?[^70a]
+(@) In $B$ different random samples, how many values for $\overline{X}$ do you have? How many values for $SE(\overline{X}) = s / \sqrt{n}$ do you have?[^70a]
     a. 1, 1
-    b. 1, n
-    c. n, 1
-    d. n, n
+    b. 1, B
+    c. B, 1
+    d. B, B
 
-[^70a]: d. n, n
+[^70a]: d. B, B
 
 ---
 
-(@) In $B$ bootstrap re-samples, how many values for $\hat{\theta}^*(b)$ do you have? How many values for $SE^*$ do you have?[^70b]
+(@) In $B$ bootstrap re-samples, how many values for $\hat{\theta}^*(b)$ do you have? How many values for $\hat{SE}^*$ do you have?[^70b]
     a. 1, 1
     b. 1, B
     c. B, 1

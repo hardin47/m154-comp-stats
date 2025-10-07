@@ -147,14 +147,15 @@ knitr::include_graphics(c("../images/BShesterberg1.png",
 
 ## The data
 ```{r echo = FALSE}
-heroin <- readr::read_table2("http://www.rossmanchance.com/iscam2/data/heroin.txt")
+heroin <- readr::read_table("http://www.rossmanchance.com/iscam2/data/heroin.txt")
 heroin |>
   select(-prison)
 ```
 
 
 
-## Observed Test Statistic(s)
+
+## Observed Statistic(s)
 ```{r}
 heroin |>
   summarize(obs_med = median(times), 
