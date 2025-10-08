@@ -1302,6 +1302,26 @@ NH.means  |> select(count)  |> pull() *
 
 [^70c]: b. bootstrap version is not variable enough
 
+
+---
+
+(@) Using our bootstrap information, we can estimate the $\alpha/2$ percentile of the distribution of $\frac{\hat{\theta}-\theta}{SE(\hat{\theta})}$ as $\hat{t}^*_{\alpha/2}$ using:[^70d]
+     a. $\frac{\#  \bigg\{\frac{\hat{\theta}-\theta}{SE(\hat{\theta})} \leq \ \hat{t}^*_{\alpha/2} \bigg\} }{B} = \alpha/2$
+     b. $\frac{\#  \bigg\{\frac{\hat{\theta}-\theta}{SE(\hat{\theta})} \leq \ \hat{t}^*_{\alpha/2} \bigg\} }{B} = \alpha$
+     c. $\frac{\#  \bigg\{\frac{\hat{\theta}^*(b)-\hat{\theta}}{\hat{SE}^*(b)} \ \leq \hat{t}^*_{\alpha/2} \bigg\} }{B} = \alpha/2$
+     d. $\frac{\#  \bigg\{\frac{\hat{\theta}^*(b)-\hat{\theta}}{\hat{SE}^*(b)} \ \leq \hat{t}^*_{\alpha/2} \bigg\} }{B} = \alpha$
+
+[^70d]: c. $\frac{#  \{\frac{\hat{\theta}^*(b)-\hat{\theta}}{\hat{SE}^*(b)} \leq \hat{t}^*_{\alpha/2} \} }{B} = \alpha/2$
+
+---
+
+(@) Is the bootstrap sampling distribution of $\frac{\hat{\theta}^*(b)-\hat{\theta}}{\hat{SE}^*(b)}$ symmetric? That is, does $\hat{t}^*_{\alpha/2} = -\hat{t}^*_{1 - \alpha/2}$?[^70e]
+      a. TRUE
+      b. FALSE
+
+[^70e]: b. FALSE. There is no reason to assume it would necessarily be symmetric.
+
+
 ---
 
 (@) 95% CI for the difference in proportions:[^71]
