@@ -1173,7 +1173,7 @@ NH.means  |> select(count)  |> pull() *
    a. Increases your power
    b. Decreases your power
 
-[^64]: a. Increases your power
+[^64]: b. Decreases your power
 
 ---
 
