@@ -31,12 +31,15 @@ knitr::include_graphics("../../images/dotplot.png")
 
 
 
-### October 6, 2025
+### October 6 + 8, 2025
 
 1. Normal CI using BS SE
 2. Bootstrap-t (studentized) CIs 
-3. Percentile CIs
-4. properties / advantages / disadvantages
+
+### October 15, 2025
+
+1. Percentile CIs
+2. properties / advantages / disadvantages
 
 
 ## Readings <i class="fas fa-book-open"></i> 
@@ -75,6 +78,8 @@ knitr::include_graphics("../../images/dotplot.png")
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws9_m154_f25_SE.pdf" target = "_blank">WU9 - standard errors</a>
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws10_m154_f25_boot.pdf" target = "_blank">WU10 - bootstrap t</a>
+
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws11_m154_f25_boot3.pdf" target = "_blank">WU11 - all the bootstraps</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

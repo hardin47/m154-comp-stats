@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\nExamine the reflection questions  which are provided in the daily sections.\nRecognize and contemplate the ethics considerations  which are provided in the daily sections.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n\n\n\n9.8.25\n simulating\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.17.25\n Initial Project Proposal due\nto Canvas  (Friday)\n\n\n\n10.20.25\n recipes + knn \n HW 6 - due 10.20 MONDAY!   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 7 - due 10.29\n\n\n\n10.29.25\n  Final Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 8 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 9 - due 11.12   Quiz 5 11.12 (trees + forests)\n\n\n\n11.12.25\n Project Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 10 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 11 - due 12.3.25   Quiz 6 (clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\n Group Presentations\nin class, 2-5pm\n\n\n\n12.08.25\n Final write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\nExamine the reflection questions  which are provided in the daily sections.\nRecognize and contemplate the ethics considerations  which are provided in the daily sections.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n\n\n\n9.8.25\n simulating\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.17.25\n Initial Project Proposal due\nto Canvas  (Friday)\n\n\n\n10.20.25\n recipes + knn \n HW 6 - due 10.20 MONDAY!   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 7 - due 10.29\n\n\n\n10.29.25\n  Final Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 8 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 9 - due 11.12   Quiz 5 11.12 (knn + trees + forests)\n\n\n\n11.12.25\n Project Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 10 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 11 - due 12.3.25   Quiz 6 (SVM + clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\n Group Presentations\nin class, 2-5pm\n\n\n\n12.08.25\n Final write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "daily.html",
@@ -9188,14 +9188,14 @@
     "href": "slides/2025-10-01-bootstrap.html#what-makes-a-confidence-interval-procedure-good",
     "title": "Bootstrapping",
     "section": "What makes a confidence interval procedure good?",
-    "text": "What makes a confidence interval procedure good?\n\nThat it captures the true parameter in \\(1-\\alpha \\cdot\\) 100% of the datasets.\nThat it produces narrow intervals."
+    "text": "What makes a confidence interval procedure good?\nMost Important\n\nThat it captures the true parameter in \\((1-\\alpha) \\cdot\\) 100% of the datasets.\nThat it produces narrow intervals."
   },
   {
     "objectID": "slides/2025-10-01-bootstrap.html#what-else-about-intervals",
     "href": "slides/2025-10-01-bootstrap.html#what-else-about-intervals",
     "title": "Bootstrapping",
     "section": "What else about intervals?",
-    "text": "What else about intervals?\n\n\n\n\n\n\n\n\n\n\n\n\nCI\nSymmetric\nRange Resp\nTrans Resp\nAccuracy\nNormal Samp Dist?\nOther\n\n\n\n\nBoot SE\nYes\nNo\nNo\n1st order\nYes\nParametric assumptions, \\(F(\\hat{\\theta})\\)\n\n\nBoot-t\nNo\nNo\nNo\n2nd order\nYes/No\nComputationally intensive\n\n\nperc\nNo\nYes\nYes\n1st order\nNo\nSmall \\(n \\rightarrow\\) low accuracy\n\n\nBCa\nNo\nYes\nYes\n2nd order\nNo\nLimited parametric assumptions"
+    "text": "What else about intervals?\n\n\n\n\n\n\n\n\n\n\n\n\nCI\nSymmetric\nRange Resp\nTrans Resp\nAccuracy\nNormal Samp Dist?\nOther\n\n\n\n\nBoot SE\nYes\nNo\nNo\n1st order\nYes\nParametric assumptions, \\(F(\\hat{\\theta})\\)\n\n\nBoot-t\nNo\nNo\nNo\n2nd order\nNo\nComputationally intensive\n\n\nperc\nNo\nYes\nYes\n1st order\nNo\nSmall \\(n \\rightarrow\\) low accuracy\n\n\nBCa\nNo\nYes\nYes\n2nd order\nNo\nLimited parametric assumptions"
   },
   {
     "objectID": "slides/2025-10-01-bootstrap.html#data-distributions",
@@ -9223,7 +9223,7 @@
     "href": "posts/2025-10-01-bootstrap/index.html#agenda",
     "title": "06. Bootstrapping",
     "section": "Agenda ",
-    "text": "Agenda \n\nOctober 1, 2025\n\nReview: logic of confidence intervals\nLogic of bootstrapping (resample from the sample with replacement)\nBS SE of a statistic\n\n\n\nOctober 6, 2025\n\nNormal CI using BS SE\nBootstrap-t (studentized) CIs\nPercentile CIs\nproperties / advantages / disadvantages"
+    "text": "Agenda \n\nOctober 1, 2025\n\nReview: logic of confidence intervals\nLogic of bootstrapping (resample from the sample with replacement)\nBS SE of a statistic\n\n\n\nOctober 6 + 8, 2025\n\nNormal CI using BS SE\nBootstrap-t (studentized) CIs\n\n\n\nOctober 15, 2025\n\nPercentile CIs\nproperties / advantages / disadvantages"
   },
   {
     "objectID": "posts/2025-10-01-bootstrap/index.html#readings",
@@ -9251,7 +9251,7 @@
     "href": "posts/2025-10-01-bootstrap/index.html#slides",
     "title": "06. Bootstrapping",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides for 10/1 + 6 + 8 + 15/25.\nWU9 - standard errors\nWU10 - bootstrap t"
+    "text": "Slides \n\nIn class slides for 10/1 + 6 + 8 + 15/25.\nWU9 - standard errors\nWU10 - bootstrap t\nWU11 - all the bootstraps"
   },
   {
     "objectID": "posts/2025-10-01-bootstrap/index.html#additional-resources",
@@ -9336,5 +9336,19 @@
     "title": "Bootstrapping",
     "section": "Observed Statistic(s)",
     "text": "Observed Statistic(s)\n\nheroin |&gt;\n  summarize(obs_med = median(times), \n            obs_tr_mean = mean(times, trim = 0.25))\n\n# A tibble: 1 × 2\n  obs_med obs_tr_mean\n    &lt;dbl&gt;       &lt;dbl&gt;\n1    368.        378."
+  },
+  {
+    "objectID": "slides/2025-10-01-bootstrap.html#what-makes-a-confidence-interval-procedure-good-1",
+    "href": "slides/2025-10-01-bootstrap.html#what-makes-a-confidence-interval-procedure-good-1",
+    "title": "Bootstrapping",
+    "section": "What makes a confidence interval procedure good?",
+    "text": "What makes a confidence interval procedure good?\n\nSymmetry (??): the interval is symmetric, pivotal around some value. Not necessarily a good thing. Maybe a bad thing to force?\nResistant: BS-t is particularly not resistant to outliers or skewed sampling distributions of the statistic (can make it more robust with a variance stabilizing transformation)\nRange preserving: the CI always contains only values that fall within an allowable range (\\(p, \\rho\\),…)\nTransformation respecting: for any monotone transformation, \\(\\phi = m(\\theta)\\), the interval for \\(\\theta\\) is mapped directly by \\(m(\\theta)\\). If \\([\\hat{\\theta}_{(lo)},\\hat{\\theta}_{(hi)}]\\) is a \\((1-\\alpha)100\\)% interval for \\(\\theta\\), then\n\n\\[[\\hat{\\phi}_{(lo)},\\hat{\\phi}_{(hi)}] = [m(\\hat{\\theta}_{(lo)}),m(\\hat{\\theta}_{(hi)})]\\] are exactly the same interval.\n\nLevel of confidence: A central (not symmetric) confidence interval, \\([\\hat{\\theta}_{(lo)},\\hat{\\theta}_{(hi)}]\\) should have probability \\(\\alpha/2\\) of not covering \\(\\theta\\) from above or below:\n\n\\[\\begin{align}\nP(\\theta &lt; \\hat{\\theta}_{(lo)})&=\\alpha/2\\\\\nP(\\theta &gt; \\hat{\\theta}_{(hi)})&=\\alpha/2\\\\\n\\end{align}\\]\n\nNote: all of the intervals are approximate. We judge them based on how accurately they cover \\(\\theta\\).\n\nA CI is first order accurate if: \\[\\begin{align}\nP(\\theta &lt; \\hat{\\theta}_{(lo)})&=\\alpha/2 + \\frac{const_{lo}}{\\sqrt{n}}\\\\\nP(\\theta &gt; \\hat{\\theta}_{(hi)})&=\\alpha/2+ \\frac{const_{hi}}{\\sqrt{n}}\\\\\n\\end{align}\\]\nA CI is second order accurate if: \\[\\begin{align}\nP(\\theta &lt; \\hat{\\theta}_{(lo)})&=\\alpha/2 + \\frac{const_{lo}}{n}\\\\\nP(\\theta &gt; \\hat{\\theta}_{(hi)})&=\\alpha/2+ \\frac{const_{hi}}{n}\\\\\n\\end{align}\\]"
+  },
+  {
+    "objectID": "slides/2025-10-01-bootstrap.html#advantages-and-disadvantages",
+    "href": "slides/2025-10-01-bootstrap.html#advantages-and-disadvantages",
+    "title": "Bootstrapping",
+    "section": "Advantages and Disadvantages",
+    "text": "Advantages and Disadvantages\n\nNormal Approximation\n\nAdvantages similar to the familiar parametric approach; useful with a normally distributed \\(\\hat{\\theta}\\); requires the least computation (\\(B=50-200\\))\nDisadvantages fails to use the entire \\(\\hat{F}^*(\\hat{\\theta}^*)\\); only works if \\(\\hat{\\theta}\\) is reasonably normal to start with\n\nBootstrap-t Confidence Interval\n\nAdvantages highly accurate CI in many cases; handles skewed \\(F(\\hat{\\theta})\\) better than the percentile method\nDisadvantages not invariant to transformations; computationally expensive with the double bootstrap; coverage probabilities are best if the distribution of \\(\\hat{\\theta}\\) is nice (e.g., normal)\n\nPercentile\n\nAdvantages uses the entire \\(\\hat{F}^*(\\hat{\\theta}^*)\\); allows \\(F(\\hat{\\theta})\\) to be asymmetrical; invariant to transformations; range respecting; simple to execute\nDisadvantages small samples may result in low accuracy (because of the dependence on the tail behavior); assumes \\(\\hat{F}^*(\\hat{\\theta}^*)\\) to be unbiased\n\nBCa\n\nAdvantages all of those of the percentile method; allows for bias in \\(\\hat{F}^*(\\hat{\\theta}^*)\\); \\(z_0\\) can be calculated easily from \\(\\hat{F}^*(\\hat{\\theta}^*)\\)\nDisadvantages requires a limited parametric assumption; more computational than other intervals"
   }
 ]

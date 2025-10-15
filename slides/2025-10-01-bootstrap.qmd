@@ -645,9 +645,45 @@ The first three columns  correspond to the CIs for the true median of the surviv
 
 ## What makes a confidence interval procedure good?
 
-1. That it captures the true parameter in $1-\alpha \cdot$ 100% of the datasets.
+**Most Important**
+
+1. That it captures the true parameter in $(1-\alpha) \cdot$ 100% of the datasets.
 
 2. That it produces narrow intervals.
+
+
+## What makes a confidence interval procedure good?
+
+
+* Symmetry (??): the interval is symmetric, pivotal around some value.  Not necessarily a good thing.  Maybe a bad thing to force?
+* Resistant: BS-t is particularly not resistant to outliers or skewed sampling distributions of the statistic (can make it more robust with a variance stabilizing transformation)
+* Range preserving: the CI always contains only values that fall within an allowable range ($p, \rho$,...)
+* Transformation respecting: for any monotone transformation, $\phi = m(\theta)$, the interval for $\theta$ is mapped directly by $m(\theta)$.  If $[\hat{\theta}_{(lo)},\hat{\theta}_{(hi)}]$ is a $(1-\alpha)100$% interval for $\theta$, then
+
+$$[\hat{\phi}_{(lo)},\hat{\phi}_{(hi)}] = [m(\hat{\theta}_{(lo)}),m(\hat{\theta}_{(hi)})]$$
+are exactly the same interval.
+
+* Level of confidence: A central (not symmetric) confidence interval, $[\hat{\theta}_{(lo)},\hat{\theta}_{(hi)}]$ should have probability $\alpha/2$ of not covering $\theta$ from above or below:
+
+\begin{align}
+P(\theta < \hat{\theta}_{(lo)})&=\alpha/2\\
+P(\theta > \hat{\theta}_{(hi)})&=\alpha/2\\
+\end{align}
+
+* Note:  all of the intervals are approximate.  We judge them based on how accurately they cover $\theta$.
+
+    * A CI is first order accurate if:
+\begin{align}
+P(\theta < \hat{\theta}_{(lo)})&=\alpha/2 + \frac{const_{lo}}{\sqrt{n}}\\
+P(\theta > \hat{\theta}_{(hi)})&=\alpha/2+ \frac{const_{hi}}{\sqrt{n}}\\
+\end{align}
+
+
+    * A CI is second order accurate if:
+\begin{align}
+P(\theta < \hat{\theta}_{(lo)})&=\alpha/2 + \frac{const_{lo}}{n}\\
+P(\theta > \hat{\theta}_{(hi)})&=\alpha/2+ \frac{const_{hi}}{n}\\
+\end{align}
 
 
 
@@ -656,9 +692,30 @@ The first three columns  correspond to the CIs for the true median of the surviv
 | **CI**      | **Symmetric** | **Range Resp** | **Trans Resp** | **Accuracy**  | **Normal Samp Dist?** | **Other**                              |
 |-------------|---------------|----------------|----------------|---------------|-----------------------|----------------------------------------|
 | **Boot SE** | Yes           | No             | No             | 1st order     | Yes                   | Parametric assumptions, $F(\hat{\theta})$ |
-| **Boot-t**  | No            | No             | No             | 2nd order     | Yes/No                | Computationally intensive              |
+| **Boot-t**  | No            | No             | No             | 2nd order     | No                | Computationally intensive              |
 | **perc**    | No            | Yes            | Yes            | 1st order     | No                    | Small $n \rightarrow$ low accuracy             |
 | **BCa**     | No            | Yes            | Yes            | 2nd order     | No                    | Limited parametric assumptions         |
+
+## Advantages and Disadvantages
+
+
+* Normal Approximation
+    * **Advantages** similar to the familiar parametric approach; useful with a normally distributed $\hat{\theta}$; requires the least computation ($B=50-200$)
+    * **Disadvantages** fails to use the entire $\hat{F}^*(\hat{\theta}^*)$; only works if $\hat{\theta}$ is reasonably normal to start with
+
+* Bootstrap-t Confidence Interval
+    * **Advantages**  highly accurate CI in many cases; handles skewed $F(\hat{\theta})$ better than the percentile method
+    * **Disadvantages**  not invariant to transformations; computationally expensive with the double bootstrap; coverage probabilities are best if the distribution of $\hat{\theta}$ is nice (e.g., normal)
+    
+* Percentile
+    * **Advantages**  uses the entire $\hat{F}^*(\hat{\theta}^*)$; allows $F(\hat{\theta})$ to be asymmetrical; invariant to transformations; range respecting; simple to execute
+    * **Disadvantages**  small samples may result in low accuracy (because of the dependence on the tail behavior); assumes $\hat{F}^*(\hat{\theta}^*)$ to be unbiased
+    
+* BCa
+    * **Advantages** 
+all of those of the percentile method; allows for bias in $\hat{F}^*(\hat{\theta}^*)$; $z_0$ can be calculated easily from $\hat{F}^*(\hat{\theta}^*)$
+    * **Disadvantages**  requires a limited parametric assumption; more computational than other intervals
+
 
 
 

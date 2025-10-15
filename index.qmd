@@ -88,7 +88,7 @@ schedule <- tribble(
   ' ',
 
 "11.10.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-10-svm/"><i class="fas fa-desktop" target="_blank"></i> support vector machines</a>',
-  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 9</a> - due 11.12 <br> <i class="fa-regular fa-circle-question"></i> Quiz 5 11.12 (trees + forests)',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 9</a> - due 11.12 <br> <i class="fa-regular fa-circle-question"></i> Quiz 5 11.12 (knn + trees + forests)',
   ' ',
 
   '<font color = "#114B5F"><b>11.12.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><i class="fa-solid fa-chart-column"></i> <b>Project Update</b></font></a>', 'to GitHub',
@@ -103,7 +103,7 @@ schedule <- tribble(
   ' ',
 
  "12.1.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-12-01-lda/"><i class="fas fa-desktop" target="_blank"></i> latent Dirichlet allocation +  extensions</a>',
-  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 11</a> - due 12.3.25 <br> <i class="fa-regular fa-circle-question"></i> Quiz 6 (clustering) 12.3',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 11</a> - due 12.3.25 <br> <i class="fa-regular fa-circle-question"></i> Quiz 6 (SVM + clustering) 12.3',
   ' ',
 
  '<font color = "#114B5F"><b>12.5.25 + 12.08.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><i class="fa-solid fa-chart-column"></i> <b>Group Presentations</b></font></a>', 'in class, 2-5pm',
