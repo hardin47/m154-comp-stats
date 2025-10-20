@@ -1359,6 +1359,47 @@ knitr::include_graphics("images/BShist.jpg")
 
 ---
 
+(@) Which of the following best describes feature engineering?[^73a]
+  a. The process of choosing the best machine learning algorithm for a dataset
+  b. The process of designing new variables or transforming existing ones to improve model performance
+  c. The process of tuning hyperparameters for a model
+  d. The process of splitting the data into training and testing sets
+
+[^73a]: b. The process of designing new variables or transforming existing ones to improve model performance
+
+---
+
+(@) You have a categorical variable color with three levels: "red", "blue", and "green". With dummy coding (with a reference level), how many new variables are created?[^73b]
+   a. 1
+   b. 2
+   c. 3
+   d. 4
+   
+[^73b]: b. 2  Let's say "red" is the reference level, then there are two binary variables (blue: yes/no and green: yes/no). Dummy variables are used in models like linear and logistic regression where there is a reference value and you want to be able to interpret the coefficients. Use `step_dummy()`.
+
+---
+
+
+(@) You have a categorical variable color with three levels: "red", "blue", and "green". With one-hot encoding (without a reference level), how many new variables are created?[^73c]
+   a. 1
+   b. 2
+   c. 3
+   d. 4
+   
+[^73c]: b. 3  There are thre binary variables (red: yes/no; blue: yes/no; green: yes/no). One-hot encoding is used in models where there is no reference variable and you want all categories to be represented. Use `step_dummy(..., one_hot = TRUE)`.
+
+---
+
+(@) Which of the following best describes data leakage in feature engineering?[^73d]
+   a. Using too many features in the model
+   b. Including features that are highly correlated
+   c. Using information from the test set when creating features or training the model
+   d. Not standardizing numerical variables before training
+
+[^73d]: c. Using information from the test set when creating features or training the model
+
+---
+
 (@) Small k in k-NN will help reduce the risk of overfitting.[^74]
     a. TRUE
     b. FALSE

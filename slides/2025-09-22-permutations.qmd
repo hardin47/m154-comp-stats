@@ -27,6 +27,7 @@ library(openintro)
 #devtools::install_github("statlab/permuter")
 #library(permuter)  # only need permuter for the macnell data
 library(NHANES)
+options(pillar.width = 70)
 ```
 
 
