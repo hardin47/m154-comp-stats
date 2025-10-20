@@ -168,8 +168,23 @@ penguin_recipe
 ```
 
 
+## silly recipe
 
 
+```{r}
+penguin_recipe_silly <-
+  recipe(body_mass_g ~ species + island + bill_length_mm + 
+           bill_depth_mm + flipper_length_mm + sex + year,
+         data = penguin_train) |>
+  step_log(all_numeric()) 
+```
+
+
+```{r}
+#| message: true
+
+penguin_recipe_silly
+```
 
 ## model
 

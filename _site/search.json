@@ -9784,5 +9784,12 @@
     "title": "Using recipes",
     "section": "Motivation",
     "text": "Motivation"
+  },
+  {
+    "objectID": "slides/2025-10-20-recipes.html#silly-recipe",
+    "href": "slides/2025-10-20-recipes.html#silly-recipe",
+    "title": "Using recipes",
+    "section": "silly recipe",
+    "text": "silly recipe\n\npenguin_recipe_silly &lt;-\n  recipe(body_mass_g ~ species + island + bill_length_mm + \n           bill_depth_mm + flipper_length_mm + sex + year,\n         data = penguin_train) |&gt;\n  step_log(all_numeric()) \n\n\npenguin_recipe_silly\n\n\n\n\n── Recipe ──────────────────────────────────────────────────────────────────────\n\n\n\n\n\n── Inputs \n\n\nNumber of variables by role\n\n\noutcome:   1\npredictor: 7\n\n\n\n\n\n── Operations \n\n\n• Log transformation on: all_numeric()"
   }
 ]
