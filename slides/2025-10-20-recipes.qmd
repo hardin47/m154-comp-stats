@@ -111,12 +111,13 @@ penguin_test <- testing(penguin_split)
 
 * create new variables (e.g., combine levels $\rightarrow$ from state to region)
 * transform variable (e.g., log, arcsine)
-* continuous variables $\rightarrow$ discrete (e.g., binning)
-* numerical categorical data $\rightarrow$ factors / character strings (dummy or one hot encoding)
+* continuous variables $\rightarrow$ discrete or categorical (e.g., binning)
+* numerical categorical data $\rightarrow$ factors / character strings (dummy or one hot encoding) (e.g., zipcode)
 * time $\rightarrow$ discretized time
 * missing values $\rightarrow$ imputed
 * NA $\rightarrow$ level
 * continuous variables $\rightarrow$ center & scale ("normalize")
+* date $\rightarrow$ weekday vs. weekend
 
 
 

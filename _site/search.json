@@ -9440,7 +9440,7 @@
     "href": "slides/2025-10-20-recipes.html#feature-engineering",
     "title": "Using recipes",
     "section": "feature engineering",
-    "text": "feature engineering\n\nfeature engineering is the process of transforming raw data into features (variables) that are better predictors (for the model at hand) of the response variable\n\n\ncreate new variables (e.g., combine levels \\(\\rightarrow\\) from state to region)\ntransform variable (e.g., log, arcsine)\ncontinuous variables \\(\\rightarrow\\) discrete (e.g., binning)\nnumerical categorical data \\(\\rightarrow\\) factors / character strings (dummy or one hot encoding)\ntime \\(\\rightarrow\\) discretized time\nmissing values \\(\\rightarrow\\) imputed\nNA \\(\\rightarrow\\) level\ncontinuous variables \\(\\rightarrow\\) center & scale (“normalize”)"
+    "text": "feature engineering\n\nfeature engineering is the process of transforming raw data into features (variables) that are better predictors (for the model at hand) of the response variable\n\n\ncreate new variables (e.g., combine levels \\(\\rightarrow\\) from state to region)\ntransform variable (e.g., log, arcsine)\ncontinuous variables \\(\\rightarrow\\) discrete or categorical (e.g., binning)\nnumerical categorical data \\(\\rightarrow\\) factors / character strings (dummy or one hot encoding) (e.g., zipcode)\ntime \\(\\rightarrow\\) discretized time\nmissing values \\(\\rightarrow\\) imputed\nNA \\(\\rightarrow\\) level\ncontinuous variables \\(\\rightarrow\\) center & scale (“normalize”)\ndate \\(\\rightarrow\\) weekday vs. weekend"
   },
   {
     "objectID": "slides/2025-10-20-recipes.html#step_-functions",
