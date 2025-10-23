@@ -9748,7 +9748,7 @@
     "href": "slides/2025-10-22-knn.html#we-choose-k-9-1",
     "title": "\\(k\\)-Nearest Neighbors",
     "section": "We choose \\(k\\) = 9 !",
-    "text": "We choose \\(k\\) = 9 !\n6. Validate the model\nHuh. Seems like \\(k=9\\) didn’t do as well as \\(k=7\\) (the value we tried at the very beginning before cross validating).\nWell, it turns out, that’s the nature of variability, randomness, and model building.\nWe don’t know truth, and we won’t ever find a perfect model."
+    "text": "We choose \\(k\\) = 9 !\n6. Validate the model\nHuh. Seems like \\(k=9\\) didn’t do as well (on the test data, accuracy = 0.977, see slide 24) as \\(k=7\\) (on the test data, accuracy = 0.988, see slide 20). Note, \\(k=7\\) was the value we tried at the very beginning before cross validating.\nWell, it turns out, that’s the nature of variability, randomness, and model building. We don’t know truth, and we won’t ever find a perfect model.\nWe also didn’t even try \\(k=7\\) as an option in our CV procedure. Maybe we should have been more granular in our choice of \\(k\\) (e.g., k_grid &lt;- data.frame(neighbors = seq(1, 15, by = 2))), but we usually also have to worry about computational time."
   },
   {
     "objectID": "slides/2025-10-22-knn.html#bias-variance-tradeoff",
