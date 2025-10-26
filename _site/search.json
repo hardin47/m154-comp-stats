@@ -305,7 +305,7 @@
     "href": "project.html#update",
     "title": "Semester Project",
     "section": "Update",
-    "text": "Update\nPlease respond to the following three questions (posted to your GitHub repo) by the end of the day Wednesday, November 12th.\n\nHave you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.\nWhat is the single biggest unresolved issue you are having? Please describe it briefly, and what your plan is for resolving this issue.\nWhat are the elements from outside of the course, if any, that you plan to incorporate into your project?"
+    "text": "Update\nPlease respond to the following three questions (posted to your GitHub repo) by the end of the day Wednesday, November 12th.\n\nHave you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.\nIdeally, you will include a plot or table or some kind of exploratory data analysis indicating that you have the data and understand how to work with it.\nWhat is the single biggest unresolved issue you are having? Please describe it briefly, and what your plan is for resolving this issue.\nWhat are the elements from outside of the course, if any, that you plan to incorporate into your project?"
   },
   {
     "objectID": "project.html#presentation",
