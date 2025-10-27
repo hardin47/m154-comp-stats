@@ -1,5 +1,7 @@
 .reveal ol {
   list-style-type: decimal !important;
   margin: 0 0 0 1.5em;
+  padding-left: 2em;       /* give a bit more space for 3-digit numbers */
+  overflow: visible !important;
 }
 
