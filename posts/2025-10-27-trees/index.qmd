@@ -1,0 +1,91 @@
+---
+title: "08. Trees"
+description: |
+  Trees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space.
+author:
+  - name: Johanna Hardin
+    url: https://m154-comp-stats.netlify.app/  
+date: 2025-10-27
+citation: false
+embed-resources: true
+execute: 
+  message: false
+  warning: false
+image: ../../images/dragon_predict_mlr.png
+---
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Predicting dragon weight from one continuous variable (height) and one categorical variable (whether or not the dragon is spotted).", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../../images/dragon_predict_mlr.png")
+```
+
+
+## Agenda <i class="fas fa-calendar-alt" target="_blank"></i>
+
+
+### October 27, 2025
+
+1. Decision Trees
+2. Example
+
+### October 29, 2025
+
+1. Bagging
+2. Example
+
+## Readings <i class="fas fa-book-open"></i> 
+
+
+
+* Class notes: <a href = "http://st47s.com/Math154/Notes/class.html#cart" target= "_blank">decision trees</a>
+
+* Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">k Nearest Neighbors (section 3.5) </a> Introduction to Statistical Learning.
+
+* Gareth, Witten, Hastie, and Tibshirani (2021), <a href = "https://web.stanford.edu/~hastie/ISLR2/ISLRv2_website.pdf" target = "_blank">the basics of decision trees (section 8.1) </a> Introduction to Statistical Learning.
+
+
+* Max Kuhn and Julia Silge (2021), <a href = "https://www.tmwr.org/" target = "_blank">Tidy Modeling with R</a>
+
+## Reflection questions <i class="fas fa-lightbulb"></i>
+
+* What does CART stand for?
+
+* How does CART make predictions on test data?
+
+* Can CART be used for both classification and regression or only one of the two tasks?
+
+* Can you use categorical / character predictors with CART?
+
+* How is tree depth chosen?
+
+* What does it mean for CART to be high variance? 
+
+* What are the advantages of the CART algorithm?
+
+* What are the disadvantages of the CART algorithm?
+
+## Ethics considerations <i class="fas fa-balance-scale"></i> 
+
+* What type of feature engineering is required for CART?
+
+* If the model produces near perfect predictions on the test data, what are some potential concerns about putting that model into production?
+
+
+## Slides <i class="fas fa-desktop"></i> 
+
+
+
+* <a href = "https://m154-comp-stats.netlify.app/slides/2025-10-27-cart" target = "_blank">In class slides - decision trees</a> for 10/27/25.
+
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws13_m154_f25_cart.pdf" target = "_blank">WS 13 - decision trees</a>
+
+
+## Additional Resources <i class="fas fa-laptop"></i> 
+
+
+* <a href = "http://fivethirtyeight.com/datalab/why-the-bronx-really-burned/" target = "_blank">Why the Bronx really burned</a> -- "adjusting" data to give the wrong information.  FiveThirtyEight, Jody Avirgan, 10/29/2015.
+
+> With the help of the Rand Corp., the city tried to measure fire response times, identify redundancies in service, and close or re-allocate fire stations accordingly. What resulted, though, was a perfect storm of bad data: The methodology was flawed, the analysis was rife with biases, and the results were interpreted in a way that stacked the deck against poorer neighborhoods. The slower response times allowed smaller fires to rage uncontrolled in the city’s most vulnerable communities.
+
+* <a href = "http://www.r2d3.us/visual-intro-to-machine-learning-part-1/" target = "_blank">SF vs. NYC housing</a> -- a great example of a classification tree.
+
+* Julia Silge's blog <a href = "https://juliasilge.com/blog/scooby-doo/" target="_blank">Tuning Decision Trees</a>

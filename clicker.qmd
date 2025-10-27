@@ -967,7 +967,7 @@ ifelse(data > 5, "cat", data)
 
 ---
 
-(@) What are the technical assumptions for a t-test?[^52]
+(@) What are the technical conditions for a t-test?[^52]
    a. none
    b. normal data
    c. $n \geq 30$
@@ -987,7 +987,7 @@ ifelse(data > 5, "cat", data)
    
 ---
 
-(@) Follow up to permutation test:  the assumptions change based on whether the statistic used is the mean, median, proportion, etc.[^54]
+(@) Follow up to permutation test:  the technical conditions change based on whether the statistic used is the mean, median, proportion, etc.[^54]
    a. TRUE
    b. FALSE
 
@@ -1452,11 +1452,11 @@ knitr::include_graphics("images/BShist.jpg")
 
 (@) All of the following are TRUE for the use of CART except for:[^80]
    a. Can deal with missing data
-   b. Require the assumptions of statistical models
+   b. Require the technical conditions of statistical models
    c. Variable selection is automatic
    d. Produce rules that are easy to interpret and implement
 
-[^80]: b. Require the assumptions of statistical models
+[^80]: b. Require the technical conditions of statistical models
 
 ---
 

@@ -50,11 +50,11 @@
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/clicker_slides.html</loc>
-    <lastmod>2024-10-07T15:48:00.741Z</lastmod>
+    <lastmod>2025-10-27T12:14:43.039Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/clicker.html</loc>
-    <lastmod>2025-10-20T13:11:16.473Z</lastmod>
+    <lastmod>2025-10-27T12:03:02.797Z</lastmod>
   </url>
   <url>
     <loc>https://m154-comp-stats.netlify.app/images/ma154-hwtest.html</loc>
@@ -251,5 +251,21 @@
   <url>
     <loc>https://m154-comp-stats.netlify.app/slides/2025-10-22-knn.html</loc>
     <lastmod>2025-10-23T21:34:08.239Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/slides/2025-10-27-cart.html</loc>
+    <lastmod>2025-10-27T12:15:16.935Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/posts/2025-11-03-rf/index.html</loc>
+    <lastmod>2025-10-27T12:15:32.900Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/posts/2025-10-27-trees/index.html</loc>
+    <lastmod>2025-10-27T12:15:57.779Z</lastmod>
+  </url>
+  <url>
+    <loc>https://m154-comp-stats.netlify.app/slides/2025-11-03-rf.html</loc>
+    <lastmod>2024-12-04T00:19:04.599Z</lastmod>
   </url>
 </urlset>
