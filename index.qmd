@@ -80,7 +80,7 @@ schedule <- tribble(
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 7</a> - due 10.29',
   ' ',
 
-   '<font color = "#114B5F"><b>10.29.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"> <i class="fa-solid fa-chart-column"></i> <b>Final Project Proposal due</b></font></a>', 'to GitHub',
+   '<font color = "#114B5F"><b>10.31.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"> <i class="fa-solid fa-chart-column"></i> <b>Final Project Proposal due</b></font></a>', 'to GitHub',
   ' ',
 
  "11.3.25", '<a href="posts/2025-11-03-rf"><i class="fas fa-desktop" target="_blank"></i> Random Forests</a>',

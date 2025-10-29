@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\nExamine the reflection questions  which are provided in the daily sections.\nRecognize and contemplate the ethics considerations  which are provided in the daily sections.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n\n\n\n9.8.25\n simulating\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.17.25\n Initial Project Proposal due\nto Canvas  (Friday)\n\n\n\n10.20.25\n recipes + knn \n HW 6 - due 10.20 MONDAY!   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 7 - due 10.29\n\n\n\n10.29.25\n  Final Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 8 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 9 - due 11.12   Quiz 5 11.12 (knn + trees + forests)\n\n\n\n11.12.25\n Project Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 10 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 11 - due 12.3.25   Quiz 6 (SVM + clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\n Group Presentations\nin class, 2-5pm\n\n\n\n12.08.25\n Final write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
+    "text": "Here’s your roadmap for the semester! Each week, follow the general process outlined below:\n\nEnjoy the readings \nAttend class, review slides  for anything you missed on the agenda\nHomework assignments are found at the  GitHub course organization. Due dates are provided on each assignment (roughly every other week). See the course GitHub page for more information on how to find, complete, and submit assignments.\nExamine the reflection questions  which are provided in the daily sections.\nRecognize and contemplate the ethics considerations  which are provided in the daily sections.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nweek\ntopic\ndue dates\nreading\n\n\n\n\n8.25.25\n starting with R + RStudio + Git   data viz\n\n happygitwithR\n\n\n9.1.25\n wrangling\n HW 1 - due 9.3\n\n\n\n9.8.25\n simulating\n HW 2 - due 9.10   Quiz 1 (wrangling + ggplot) 9.10\n\n\n\n9.15.25\n simulating\n HW 3 - due 9.17\n\n\n\n9.22.25\n permutation tests\n HW 4 - due 9.24   Quiz 2 (simulating) 9.24\n\n\n\n9.29.25\n permutation tests\n HW 5 - due 10.1\n\n\n\n10.6.25\n bootstrapping\n Quiz 3 (permutation tests) 10.8\n\n\n\n10.15.25\n bootstrapping\n\n\n\n\n10.17.25\n Initial Project Proposal due\nto Canvas  (Friday)\n\n\n\n10.20.25\n recipes + knn \n HW 6 - due 10.20 MONDAY!   Quiz 4 (bootstrapping) 10.22\n\n\n\n10.27.25\n trees + bagging\n HW 7 - due 10.29\n\n\n\n10.31.25\n  Final Project Proposal due\nto GitHub\n\n\n\n11.3.25\n Random Forests\n HW 8 - due 11.5\n\n\n\n11.10.25\n support vector machines\n HW 9 - due 11.12   Quiz 5 11.12 (knn + trees + forests)\n\n\n\n11.12.25\n Project Update\nto GitHub\n\n\n\n11.17.25\n clustering\n\n\n\n\n11.24.25\n clustering\n HW 10 - due 11.26\n\n\n\n12.1.25\n latent Dirichlet allocation + extensions\n HW 11 - due 12.3.25   Quiz 6 (SVM + clustering) 12.3\n\n\n\n12.5.25 + 12.08.25\n Group Presentations\nin class, 2-5pm\n\n\n\n12.08.25\n Final write-up\nto GitHub\n\n\n\n\n\n\n\n\n\n\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "daily.html",
@@ -9874,7 +9874,7 @@
     "href": "slides/2025-10-27-cart.html#a-note-on-alpha",
     "title": "Decision Trees",
     "section": "A note on \\(\\alpha\\)",
-    "text": "A note on \\(\\alpha\\)\nIn the text (Introduction to Statistical Learning) and almost everywhere else you might look, the cost complexity is defined as in previous slides.\nHowever, you might notice that in R the cost_complexity value is typically less than 1. From what I can tell, the value of the function that is being minimized in R is the average of the squared errors and the missclassification rate.\n\\[\\begin{align}\n\\mbox{numerical: } C_\\alpha(T) &= \\frac{1}{n}\\sum_{m=1}^{|T|} \\sum_{i \\in R_m} (y_i - \\overline{y}_{R_m})^2 + \\alpha \\cdot |T|\\\\\n\\mbox{categorical: } C_\\alpha(T) &= \\frac{1}{n}\\sum_{m=1}^{|T|} \\sum_{i \\in R_m} I(y_i \\ne k(m)) + \\alpha \\cdot |T|\n\\end{align}\\]"
+    "text": "A note on \\(\\alpha\\)\nIn the text (Introduction to Statistical Learning) and almost everywhere else you might look, the cost complexity is defined as in previous slides.\nHowever, you might notice that in R the cost_complexity value is typically less than 1. The value of the function that is being minimized in R is the average of the squared errors and the missclassification rate. (Allows for \\(\\alpha\\) to not depend on sample size.)\n\\[\\begin{align}\n\\mbox{numerical: } C_\\alpha(T) &= \\frac{1}{n}\\sum_{m=1}^{|T|} \\sum_{i \\in R_m} (y_i - \\overline{y}_{R_m})^2 + \\alpha \\cdot |T|\\\\\n\\mbox{categorical: } C_\\alpha(T) &= \\frac{1}{n}\\sum_{m=1}^{|T|} \\sum_{i \\in R_m} I(y_i \\ne k(m)) + \\alpha \\cdot |T|\n\\end{align}\\]"
   },
   {
     "objectID": "slides/2025-10-27-cart.html#cart-algorithm",
@@ -9888,7 +9888,7 @@
     "href": "slides/2025-10-27-cart.html#cart-example-w-defaults",
     "title": "Decision Trees",
     "section": "CART example w defaults",
-    "text": "CART example w defaults\n\nrecipemodelworkflowfitpred\n\n\n\npenguin_cart_recipe &lt;-\n  recipe(species ~ . ,\n         data = penguin_train) |&gt;\n  step_unknown(sex, new_level = \"unknown\") |&gt;\n  step_mutate(year = as.factor(year)) \n\npenguin_cart_recipe\n\n\n\n\n── Recipe ──────────────────────────────────────────────────────────────────────\n\n\n\n\n\n── Inputs \n\n\nNumber of variables by role\n\n\noutcome:   1\npredictor: 7\n\n\n\n\n\n── Operations \n\n\n• Unknown factor level assignment for: sex\n\n\n• Variable mutation for: as.factor(year)\n\n\n\n\n\npenguin_cart &lt;- decision_tree() |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart\n\nDecision Tree Model Specification (classification)\n\nComputational engine: rpart \n\n\n\n\n\npenguin_cart_wflow &lt;- workflow() |&gt;\n  add_model(penguin_cart) |&gt;\n  add_recipe(penguin_cart_recipe)\n\npenguin_cart_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: decision_tree()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nDecision Tree Model Specification (classification)\n\nComputational engine: rpart \n\n\n\n\n\npenguin_cart_fit &lt;- penguin_cart_wflow |&gt;\n  fit(data = penguin_train)\n\npenguin_cart_fit \n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: decision_tree()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nn= 258 \n\nnode), split, n, loss, yval, (yprob)\n      * denotes terminal node\n\n1) root 258 139 Adelie (0.461240310 0.189922481 0.348837209)  \n  2) flipper_length_mm&lt; 206.5 164  46 Adelie (0.719512195 0.274390244 0.006097561)  \n    4) bill_length_mm&lt; 43.15 118   3 Adelie (0.974576271 0.025423729 0.000000000) *\n    5) bill_length_mm&gt;=43.15 46   4 Chinstrap (0.065217391 0.913043478 0.021739130) *\n  3) flipper_length_mm&gt;=206.5 94   5 Gentoo (0.010638298 0.042553191 0.946808511)  \n    6) bill_depth_mm&gt;=17.15 7   3 Chinstrap (0.142857143 0.571428571 0.285714286) *\n    7) bill_depth_mm&lt; 17.15 87   0 Gentoo (0.000000000 0.000000000 1.000000000) *\n\n\n\n\n\npenguin_cart_fit |&gt;\n  predict(new_data = penguin_train) |&gt;\n  cbind(penguin_train) |&gt;\n  select(.pred_class, species) |&gt;\n  table()\n\n           species\n.pred_class Adelie Chinstrap Gentoo\n  Adelie       115         3      0\n  Chinstrap      4        46      3\n  Gentoo         0         0     87"
+    "text": "CART example w defaults\n\nrecipemodelworkflowfitpred\n\n\n\npenguin_cart_recipe &lt;-\n  recipe(species ~ . ,\n         data = penguin_train) |&gt;\n  step_unknown(sex, new_level = \"unknown\") |&gt;\n  step_mutate(year = as.factor(year)) \n\npenguin_cart_recipe\n\n\n\n\n── Recipe ──────────────────────────────────────────────────────────────────────\n\n\n\n\n\n── Inputs \n\n\nNumber of variables by role\n\n\noutcome:   1\npredictor: 7\n\n\n\n\n\n── Operations \n\n\n• Unknown factor level assignment for: sex\n\n\n• Variable mutation for: as.factor(year)\n\n\n\n\n\npenguin_cart &lt;- decision_tree() |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart\n\nDecision Tree Model Specification (classification)\n\nComputational engine: rpart \n\n\n\n\n\npenguin_cart_wflow &lt;- workflow() |&gt;\n  add_model(penguin_cart) |&gt;\n  add_recipe(penguin_cart_recipe)\n\npenguin_cart_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: decision_tree()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nDecision Tree Model Specification (classification)\n\nComputational engine: rpart \n\n\n\n\n\npenguin_cart_fit &lt;- penguin_cart_wflow |&gt;\n  fit(data = penguin_train)\n\npenguin_cart_fit \n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: decision_tree()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n2 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n\n── Model ───────────────────────────────────────────────────────────────────────\nn= 258 \n\nnode), split, n, loss, yval, (yprob)\n      * denotes terminal node\n\n1) root 258 139 Adelie (0.461240310 0.189922481 0.348837209)  \n  2) flipper_length_mm&lt; 206.5 164  46 Adelie (0.719512195 0.274390244 0.006097561)  \n    4) bill_length_mm&lt; 43.15 118   3 Adelie (0.974576271 0.025423729 0.000000000) *\n    5) bill_length_mm&gt;=43.15 46   4 Chinstrap (0.065217391 0.913043478 0.021739130) *\n  3) flipper_length_mm&gt;=206.5 94   5 Gentoo (0.010638298 0.042553191 0.946808511)  \n    6) bill_depth_mm&gt;=17.15 7   3 Chinstrap (0.142857143 0.571428571 0.285714286) *\n    7) bill_depth_mm&lt; 17.15 87   0 Gentoo (0.000000000 0.000000000 1.000000000) *\n\n\n\n\n\npenguin_cart_fit |&gt;\n  predict(new_data = penguin_train) |&gt;\n  cbind(penguin_train) |&gt;\n  select(.pred_class, species) |&gt;\n  table()\n\n           species\n.pred_class Adelie Chinstrap Gentoo\n  Adelie       115         3      0\n  Chinstrap      4        46      3\n  Gentoo         0         0     87\n\n\nNot quite ready for test data because \\(\\alpha\\) is unknown."
   },
   {
     "objectID": "slides/2025-10-27-cart.html#plotting-the-tree-not-tidy",
@@ -9902,7 +9902,7 @@
     "href": "slides/2025-10-27-cart.html#cart-example-w-cv",
     "title": "Decision Trees",
     "section": "CART example w CV",
-    "text": "CART example w CV\n\nnew recipecreating foldsalphatune wkflowtuning\n\n\n\npenguin_cart_tune_recipe &lt;-\n  recipe(sex ~ body_mass_g + bill_length_mm + species,\n         data = penguin_train)  \n\n\n\n\nset.seed(470)\npenguin_vfold &lt;- vfold_cv(penguin_train,\n                          v = 5, strata = sex)\n\n\n\n\ncart_grid &lt;- expand.grid(\n  cost_complexity = c(0, 10^(seq(-5,-1,1))),\n  tree_depth = seq(1,6, by = 1))\n\ncart_grid\n\n   cost_complexity tree_depth\n1            0e+00          1\n2            1e-05          1\n3            1e-04          1\n4            1e-03          1\n5            1e-02          1\n6            1e-01          1\n7            0e+00          2\n8            1e-05          2\n9            1e-04          2\n10           1e-03          2\n11           1e-02          2\n12           1e-01          2\n13           0e+00          3\n14           1e-05          3\n15           1e-04          3\n16           1e-03          3\n17           1e-02          3\n18           1e-01          3\n19           0e+00          4\n20           1e-05          4\n21           1e-04          4\n22           1e-03          4\n23           1e-02          4\n24           1e-01          4\n25           0e+00          5\n26           1e-05          5\n27           1e-04          5\n28           1e-03          5\n29           1e-02          5\n30           1e-01          5\n31           0e+00          6\n32           1e-05          6\n33           1e-04          6\n34           1e-03          6\n35           1e-02          6\n36           1e-01          6\n\n\n\n\n\npenguin_cart_tune &lt;- \n  decision_tree(cost_complexity = tune(),\n                tree_depth = tune()) |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart_wflow_tune &lt;- workflow() |&gt;\n  add_model(penguin_cart_tune) |&gt;\n  add_recipe(penguin_cart_tune_recipe)\n\n\n\n\npenguin_tuned &lt;- penguin_cart_wflow_tune |&gt;\n  tune_grid(resamples = penguin_vfold, \n           grid = cart_grid) \n\npenguin_tuned |&gt; collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  arrange(desc(mean))\n\n# A tibble: 36 × 8\n   cost_complexity tree_depth .metric  .estimator  mean     n std_err .config   \n             &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     \n 1         0                5 accuracy binary     0.847     5  0.0203 Preproces…\n 2         0.00001          5 accuracy binary     0.847     5  0.0203 Preproces…\n 3         0.0001           5 accuracy binary     0.847     5  0.0203 Preproces…\n 4         0.001            5 accuracy binary     0.847     5  0.0203 Preproces…\n 5         0                6 accuracy binary     0.847     5  0.0203 Preproces…\n 6         0.00001          6 accuracy binary     0.847     5  0.0203 Preproces…\n 7         0.0001           6 accuracy binary     0.847     5  0.0203 Preproces…\n 8         0.001            6 accuracy binary     0.847     5  0.0203 Preproces…\n 9         0                4 accuracy binary     0.843     5  0.0216 Preproces…\n10         0.00001          4 accuracy binary     0.843     5  0.0216 Preproces…\n# ℹ 26 more rows\n\n\n\n\n\nParameter choice\n(Hard to see because tree_depth = 6 is on top of tree_depth = 5, either would be fine to choose.)\n\npenguin_tuned |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  ggplot(aes(x = cost_complexity, y = mean, \n             color = as.factor(tree_depth))) + \n  geom_line()\n\npenguin_tuned |&gt; \n  select_best(metric = \"accuracy\")\n\n# A tibble: 1 × 3\n  cost_complexity tree_depth .config              \n            &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                \n1               0          5 Preprocessor1_Model25"
+    "text": "CART example w CV\n\nnew recipecreating foldsalphatune wkflowtuning\n\n\n\npenguin_cart_tune_recipe &lt;-\n  recipe(sex ~ body_mass_g + bill_length_mm + species,\n         data = penguin_train)  \n\n\n\n\nset.seed(470)\npenguin_vfold &lt;- vfold_cv(penguin_train,\n                          v = 5, strata = sex)\n\n\n\n\ncart_grid &lt;- expand.grid(\n  cost_complexity = c(0, 10^(seq(-5,-1,1))),\n  tree_depth = seq(1,6, by = 1))\n\ncart_grid\n\n   cost_complexity tree_depth\n1            0e+00          1\n2            1e-05          1\n3            1e-04          1\n4            1e-03          1\n5            1e-02          1\n6            1e-01          1\n7            0e+00          2\n8            1e-05          2\n9            1e-04          2\n10           1e-03          2\n11           1e-02          2\n12           1e-01          2\n13           0e+00          3\n14           1e-05          3\n15           1e-04          3\n16           1e-03          3\n17           1e-02          3\n18           1e-01          3\n19           0e+00          4\n20           1e-05          4\n21           1e-04          4\n22           1e-03          4\n23           1e-02          4\n24           1e-01          4\n25           0e+00          5\n26           1e-05          5\n27           1e-04          5\n28           1e-03          5\n29           1e-02          5\n30           1e-01          5\n31           0e+00          6\n32           1e-05          6\n33           1e-04          6\n34           1e-03          6\n35           1e-02          6\n36           1e-01          6\n\n\n\n\n\npenguin_cart_tune &lt;- \n  decision_tree(cost_complexity = tune(),\n                tree_depth = tune()) |&gt;\n  set_engine(\"rpart\") |&gt;\n  set_mode(\"classification\")\n\npenguin_cart_wflow_tune &lt;- workflow() |&gt;\n  add_model(penguin_cart_tune) |&gt;\n  add_recipe(penguin_cart_tune_recipe)\n\n\n\n\npenguin_tuned &lt;- penguin_cart_wflow_tune |&gt;\n  tune_grid(resamples = penguin_vfold, \n           grid = cart_grid) \n\npenguin_tuned |&gt; collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  arrange(desc(mean))\n\n# A tibble: 36 × 8\n   cost_complexity tree_depth .metric  .estimator  mean     n std_err\n             &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;\n 1         0                5 accuracy binary     0.847     5  0.0203\n 2         0.00001          5 accuracy binary     0.847     5  0.0203\n 3         0.0001           5 accuracy binary     0.847     5  0.0203\n 4         0.001            5 accuracy binary     0.847     5  0.0203\n 5         0                6 accuracy binary     0.847     5  0.0203\n 6         0.00001          6 accuracy binary     0.847     5  0.0203\n 7         0.0001           6 accuracy binary     0.847     5  0.0203\n 8         0.001            6 accuracy binary     0.847     5  0.0203\n 9         0                4 accuracy binary     0.843     5  0.0216\n10         0.00001          4 accuracy binary     0.843     5  0.0216\n# ℹ 26 more rows\n# ℹ 1 more variable: .config &lt;chr&gt;"
   },
   {
     "objectID": "slides/2025-10-27-cart.html#best-model-using-cv-params",
@@ -9916,14 +9916,14 @@
     "href": "slides/2025-10-27-cart.html#best-model-predictions",
     "title": "Decision Trees",
     "section": "Best Model Predictions",
-    "text": "Best Model Predictions\nYou get the same model whether you use the CV parameters that you found or whether you use finalize_model() to pull out the CV parameters.\n\nusing CV paramsusing finalize_model()\n\n\n\nworkflow() |&gt;\n  add_model(penguin_opt) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(.pred_class, sex) |&gt;\n  table()\n\n           sex\n.pred_class female male\n     female     26    5\n     male        7   47\n\n\n\n\n\nworkflow() |&gt;\n  add_model(penguin_best) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(.pred_class, sex) |&gt;\n  table()\n\n           sex\n.pred_class female male\n     female     26    5\n     male        7   47"
+    "text": "Best Model Predictions\n\n\nworkflow() |&gt;\n  add_model(penguin_opt) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  predict(new_data = penguin_test) |&gt;\n  cbind(penguin_test) |&gt;\n  select(.pred_class, sex) |&gt;\n  table()\n\n           sex\n.pred_class female male\n     female     26    5\n     male        7   47"
   },
   {
     "objectID": "slides/2025-10-27-cart.html#best-model-predictions-1",
     "href": "slides/2025-10-27-cart.html#best-model-predictions-1",
     "title": "Decision Trees",
     "section": "Best Model Predictions",
-    "text": "Best Model Predictions\n\n\n\nlibrary(rpart.plot)\npenguins_cart_plot &lt;- \nworkflow() |&gt;\n  add_model(penguin_best) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  extract_fit_parsnip()\n\nrpart.plot(\n  penguins_cart_plot$fit,\n  roundint = FALSE)"
+    "text": "Best Model Predictions\n\n\n\nlibrary(rpart.plot)\npenguins_cart_plot &lt;- \nworkflow() |&gt;\n  add_model(penguin_opt) |&gt;\n  add_recipe(penguin_cart_tune_recipe) |&gt;\n  fit(data = penguin_train) |&gt;\n  extract_fit_parsnip()\n\nrpart.plot(\n  penguins_cart_plot$fit,\n  roundint = FALSE)"
   },
   {
     "objectID": "slides/2025-10-27-cart.html#bias-variance-tradeoff",
@@ -9965,7 +9965,7 @@
     "href": "slides/2025-10-27-cart.html#reflecting-on-model-building-2",
     "title": "Decision Trees",
     "section": "Reflecting on Model Building",
-    "text": "Reflecting on Model Building\n\n\n\nImage credit: https://www.tmwr.org/"
+    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
   },
   {
     "objectID": "posts/2025-11-03-rf/index.html",
@@ -10028,7 +10028,7 @@
     "href": "posts/2025-10-27-trees/index.html#agenda",
     "title": "08. Trees",
     "section": "Agenda ",
-    "text": "Agenda \n\nOctober 27, 2025\n\nDecision Trees\nExample\n\n\n\nOctober 29, 2025\n\nBagging\nExample"
+    "text": "Agenda \n\nOctober 27, 2025\n\nDecision Trees\n\n\n\nOctober 29, 2025\n\nCross validation to choose tuning parameters\nBias-variance trade-off"
   },
   {
     "objectID": "posts/2025-10-27-trees/index.html#readings",
@@ -10056,7 +10056,7 @@
     "href": "posts/2025-10-27-trees/index.html#slides",
     "title": "08. Trees",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides - decision trees for 10/27/25.\nWS 13 - decision trees"
+    "text": "Slides \n\nIn class slides - decision trees for 10/27/25.\nWS 13 - decision trees\nWS 14 - bias-variance trade-off"
   },
   {
     "objectID": "posts/2025-10-27-trees/index.html#additional-resources",
@@ -10267,5 +10267,89 @@
     "title": "Bagging and Random Forests",
     "section": "Reflecting on Model Building",
     "text": "Reflecting on Model Building\n\n\n\n\n\nImage credit: https://www.tmwr.org/"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#parameter-choice",
+    "href": "slides/2025-10-27-cart.html#parameter-choice",
+    "title": "Decision Trees",
+    "section": "Parameter choice",
+    "text": "Parameter choice\n(Hard to see because tree_depth = 6 is on top of tree_depth = 5, either would be fine to choose.)\n\npenguin_tuned |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  ggplot(aes(x = cost_complexity, y = mean, \n             color = as.factor(tree_depth))) + \n  geom_line()\n\npenguin_tuned |&gt; \n  select_best(metric = \"accuracy\")\n\n# A tibble: 1 × 3\n  cost_complexity tree_depth .config              \n            &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;                \n1               0          5 Preprocessor1_Model25"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#why-a-forest-instead-of-a-tree",
+    "href": "slides/2025-10-27-cart.html#why-a-forest-instead-of-a-tree",
+    "title": "Decision Trees",
+    "section": "Why a forest instead of a tree?",
+    "text": "Why a forest instead of a tree?\n\nTrees suffer from very high variance\nTwo datasets will provide extremely different trees\nTo reduce variability, fit many trees and aggregate the predictions.\nNo longer reporting the tree structure, now reporting the predicted values (with hopes that predictions from one dataset will be similar to predictions from another dataset)."
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#bagging",
+    "href": "slides/2025-10-27-cart.html#bagging",
+    "title": "Decision Trees",
+    "section": "Bagging",
+    "text": "Bagging\nBagging = Bootstrap Aggregating.\n\nmultiple models aggregate together will produce a smoother model fit and better balance between\n\nbias in the fit\nvariance in the fit.\n\n\nBagging can be applied to any classifier to reduce variability.\n\nRecall that the variance of the sample mean is variance of data / n. So we’ve seen the idea that averaging an outcome gives reduced variability."
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#bagging-models",
+    "href": "slides/2025-10-27-cart.html#bagging-models",
+    "title": "Decision Trees",
+    "section": "Bagging Models",
+    "text": "Bagging Models\n\nImage credit: https://www.pluralsight.com/guides/ensemble-methods:-bagging-versus-boosting"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#bagging-trees",
+    "href": "slides/2025-10-27-cart.html#bagging-trees",
+    "title": "Decision Trees",
+    "section": "Bagging Trees",
+    "text": "Bagging Trees\n\nImage credit: https://www.analyticsvidhya.com/blog/2021/05/bagging-25-questions-to-test-your-skills-on-random-forest-algorithm/"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#algorithm-bagging-forest",
+    "href": "slides/2025-10-27-cart.html#algorithm-bagging-forest",
+    "title": "Decision Trees",
+    "section": "Algorithm: Bagging Forest",
+    "text": "Algorithm: Bagging Forest\n\nResample (bootstrap) cases (observational units, not variables).\n\nBuild a tree on each new set of (bootstrapped) training observations.\nAverage (regression) or majority vote (classification).\nNote that for every bootstrap sample, approximately 2/3 of the observations will be chosen and 1/3 of them will not be chosen."
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#observations-not-in-a-given-tree",
+    "href": "slides/2025-10-27-cart.html#observations-not-in-a-given-tree",
+    "title": "Decision Trees",
+    "section": "Observations not in a given tree",
+    "text": "Observations not in a given tree\nP(observation \\(i\\) is not in the bootstrap sample) = \\(\\bigg(1 - \\frac{1}{n} \\bigg)^n\\)\n\\[\\lim_{n \\rightarrow \\infty} \\bigg(1 - \\frac{1}{n} \\bigg)^n = \\frac{1}{e} \\approx \\frac{1}{3}\\]"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#oob-error",
+    "href": "slides/2025-10-27-cart.html#oob-error",
+    "title": "Decision Trees",
+    "section": "OOB Error",
+    "text": "OOB Error\nOut of Bag\nwith bagging, there is no need for cross-validation or a separate test set to get an unbiased estimate of the test set error. It is estimated internally for free!!!\n\nEach tree is constructed using a different bootstrap sample\nPut all of the cases left out in the construction of the \\(b^{th}\\) tree down the \\(b^{th}\\) tree to get a classification.\nAt the end of the run,\n\ntake \\(j\\) to be the class that got most of the votes every time case \\(i\\) was oob.\nThe proportion of times that \\(j\\) is not equal to the true class averaged over all cases is the oob error."
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#oob-prediction",
+    "href": "slides/2025-10-27-cart.html#oob-prediction",
+    "title": "Decision Trees",
+    "section": "OOB Prediction",
+    "text": "OOB Prediction\nLet the OOB prediction for the \\(i^{th}\\) observation to be \\(\\hat{y}_{(-i)}\\)\n\\[\\begin{eqnarray*}\n\\mbox{OOB}_{\\mbox{error}} &=& \\frac{1}{n} \\sum_{i=1}^n \\textrm{I} (y_i \\ne \\hat{y}_{(-i)}) \\ \\ \\ \\ \\ \\ \\ \\  \\mbox{classification}\\\\\n\\mbox{OOB}_{\\mbox{error}} &=& \\frac{1}{n} \\sum_{i=1}^n  (y_i - \\hat{y}_{(-i)})^2  \\ \\ \\ \\ \\ \\ \\ \\ \\mbox{regression}\\\\\n\\end{eqnarray*}\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\nobs\ntree1\ntree2\ntree3\ntree4\n\\(\\cdots\\)\ntree100\naverage\n\n\n\n\n1\n\nX\nX\n\n\n\n\\(\\sum(pred)/38\\)\n\n\n2\nX\n\n\n\n\n\n\\(\\sum(pred)/30\\)\n\n\n3\n\n\n\nX\n\nX\n\\(\\sum(pred)/33\\)\n\n\n4\nX\n\n\n\n\n\n\\(\\sum(pred)/32\\)\n\n\n5\nX\n\n\n\n\n\n\\(\\sum(pred)/39\\)\n\n\n6\n\n\nX\n\n\nX\n\\(\\sum(pred)/29\\)\n\n\n7\n\n\n\n\n\nX\n\\(\\sum(pred)/29\\)\n\n\n8\n\n\nX\nX\n\nX\n\\(\\sum(pred)/31\\)\n\n\n9\n\n\n\nX\n\n\n\\(\\sum(pred)/36\\)"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#bagging-example-w-defaults",
+    "href": "slides/2025-10-27-cart.html#bagging-example-w-defaults",
+    "title": "Decision Trees",
+    "section": "Bagging example w defaults",
+    "text": "Bagging example w defaults\n\nrecipemodelworkflowfit\n\n\n\npenguin_bag_recipe &lt;-\n  recipe(body_mass_g ~ . ,\n         data = penguin_train) |&gt;\n  step_unknown(sex, new_level = \"unknown\") |&gt;\n  step_mutate(year = as.factor(year)) |&gt;\n  step_naomit(all_predictors(), body_mass_g)\n\npenguin_bag_recipe\n\n\n\n\n── Recipe ──────────────────────────────────────────────────────────────────────\n\n\n\n\n\n── Inputs \n\n\nNumber of variables by role\n\n\noutcome:   1\npredictor: 7\n\n\n\n\n\n── Operations \n\n\n• Unknown factor level assignment for: sex\n\n\n• Variable mutation for: as.factor(year)\n\n\n• Removing rows with NA values in: all_predictors() body_mass_g\n\n\n\n\n\nnum_trees &lt;- 500\npenguin_bag &lt;- rand_forest(mtry = 7,\n                           trees = num_trees) |&gt;\n  set_engine(\"randomForest\", oob.error = TRUE) |&gt;\n  set_mode(\"regression\")\n\npenguin_bag\n\nRandom Forest Model Specification (regression)\n\nMain Arguments:\n  mtry = 7\n  trees = num_trees\n\nEngine-Specific Arguments:\n  oob.error = TRUE\n\nComputational engine: randomForest \n\n\n\n\n\npenguin_bag_wflow &lt;- workflow() |&gt;\n  add_model(penguin_bag) |&gt;\n  add_recipe(penguin_bag_recipe)\n\npenguin_bag_wflow\n\n══ Workflow ════════════════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n• step_naomit()\n\n── Model ───────────────────────────────────────────────────────────────────────\nRandom Forest Model Specification (regression)\n\nMain Arguments:\n  mtry = 7\n  trees = num_trees\n\nEngine-Specific Arguments:\n  oob.error = TRUE\n\nComputational engine: randomForest \n\n\n\n\n\n\n\npenguin_bag_fit &lt;- \n  penguin_bag_wflow |&gt;\n  fit(data = penguin_train)\n\npenguin_bag_fit \n\n\n\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n• step_naomit()\n\n── Model ───────────────────────────────────────────────────────────────────────\n\nCall:\n randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x), oob.error = ~TRUE) \n               Type of random forest: regression\n                     Number of trees: 500\nNo. of variables tried at each split: 7\n\n          Mean of squared residuals: 92247.19\n                    % Var explained: 85.06"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#fit-again",
+    "href": "slides/2025-10-27-cart.html#fit-again",
+    "title": "Decision Trees",
+    "section": "Fit again",
+    "text": "Fit again\n\n\n══ Workflow [trained] ══════════════════════════════════════════════════════════\nPreprocessor: Recipe\nModel: rand_forest()\n\n── Preprocessor ────────────────────────────────────────────────────────────────\n3 Recipe Steps\n\n• step_unknown()\n• step_mutate()\n• step_naomit()\n\n── Model ───────────────────────────────────────────────────────────────────────\n\nCall:\n randomForest(x = maybe_data_frame(x), y = y, ntree = ~num_trees,      mtry = min_cols(~7, x), oob.error = ~TRUE) \n               Type of random forest: regression\n                     Number of trees: 500\nNo. of variables tried at each split: 7\n\n          Mean of squared residuals: 92405.61\n                    % Var explained: 85.03"
+  },
+  {
+    "objectID": "slides/2025-10-27-cart.html#plotting-the-oob-not-tidy",
+    "href": "slides/2025-10-27-cart.html#plotting-the-oob-not-tidy",
+    "title": "Decision Trees",
+    "section": "Plotting the OOB (not tidy)",
+    "text": "Plotting the OOB (not tidy)\n\nplot 1plot 2\n\n\n\n\n\nrsq &lt;- penguin_bag_fit |&gt;\n  extract_fit_parsnip() |&gt;\n  pluck(\"fit\") |&gt;\n  pluck(\"rsq\")\n\n\ndata.frame(\n  trees = 1:num_trees, \n  rsq = rsq) |&gt;\n  ggplot() + \n  geom_line(\n    aes(x = trees, y = rsq)) +\n  ylab(\"\") + \n  xlab(\"Number of Trees\") + \n  ggtitle(\"OOB R-squared\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMSE &lt;- penguin_bag_fit |&gt;\n  extract_fit_parsnip() |&gt;\n  pluck(\"fit\") |&gt;\n  pluck(\"mse\")\n\ndata.frame(\n  trees = 1:num_trees, \n  MSE = MSE) |&gt;\n  ggplot() + \n  geom_line(\n    aes(x = trees, y = MSE)) +\n  ylab(\"\") + \n  xlab(\"Number of Trees\") + \n  ggtitle(\"OOB MSE\")"
   }
 ]
