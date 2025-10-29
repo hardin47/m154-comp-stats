@@ -368,15 +368,19 @@ fancyRpartPlot(
 ## new recipe
 ```{r}
 penguin_cart_tune_recipe <-
-  recipe(sex ~ body_mass_g + bill_length_mm + species,
-         data = penguin_train)  
+  recipe(body_mass_g ~ . ,
+         data = penguin_train) |>
+  step_unknown(sex, new_level = "unknown") |>
+  step_mutate(year = as.factor(year)) |>
+  step_naomit(all_predictors(), body_mass_g)
+
 ```
 
 ## creating folds
 ```{r}
 set.seed(470)
 penguin_vfold <- vfold_cv(penguin_train,
-                          v = 5, strata = sex)
+                          v = 5)
 ```
 
 ## alpha
@@ -394,7 +398,7 @@ penguin_cart_tune <-
   decision_tree(cost_complexity = tune(),
                 tree_depth = tune()) |>
   set_engine("rpart") |>
-  set_mode("classification")
+  set_mode("regression")
 
 penguin_cart_wflow_tune <- workflow() |>
   add_model(penguin_cart_tune) |>
@@ -408,8 +412,8 @@ penguin_tuned <- penguin_cart_wflow_tune |>
            grid = cart_grid) 
 
 penguin_tuned |> collect_metrics() |>
-  filter(.metric == "accuracy") |> 
-  arrange(desc(mean))
+  filter(.metric == "rmse") |>
+  arrange(mean)
 ```
 
 :::
@@ -424,13 +428,13 @@ penguin_tuned |> collect_metrics() |>
 ```{r fig.height = 3.5, fig.align='center'}
 penguin_tuned |>
   collect_metrics() |>
-  filter(.metric == "accuracy") |> 
+  filter(.metric == "rmse") |> 
   ggplot(aes(x = cost_complexity, y = mean, 
              color = as.factor(tree_depth))) + 
   geom_line()
 
 penguin_tuned |> 
-  select_best(metric = "accuracy")
+  select_best(metric = "rmse")
 ```
 
 
@@ -441,7 +445,7 @@ penguin_tuned |>
 penguin_opt <- decision_tree(cost_complexity = 0, 
                              tree_depth = 5) |>
   set_engine("rpart") |>
-  set_mode("classification")
+  set_mode("regression")
 
 penguin_opt
 
@@ -456,6 +460,7 @@ penguin_final_opt <-
 # Best model -- using `finalize_model()`
 
 ```{r}
+#| eval: false
 penguin_best <- finalize_model(
   penguin_cart_tune,
   select_best(penguin_tuned, metric = "accuracy"))
@@ -486,14 +491,16 @@ workflow() |>
   fit(data = penguin_train) |>
   predict(new_data = penguin_test) |>
   cbind(penguin_test) |>
-  select(.pred_class, sex) |>
-  table()
+  ggplot(aes(x = body_mass_g, y = .pred)) + 
+  geom_point() + 
+  geom_abline(intercept = 0, slope = 1)
 ```
 
 <!--
 ## using `finalize_model()`
 
 ```{r}
+#| eval: false
 workflow() |>
   add_model(penguin_best) |>
   add_recipe(penguin_cart_tune_recipe) |>
