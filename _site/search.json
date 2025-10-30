@@ -9881,7 +9881,7 @@
     "href": "slides/2025-10-27-cart.html#cart-algorithm",
     "title": "Decision Trees",
     "section": "CART algorithm",
-    "text": "CART algorithm\nAlgorithm: Building a Regression Tree\n\nUse recursive binary splitting to grow a large tree on the training data, stopping only when each terminal node has fewer than some minimum number of observations.\nApply cost complexity pruning to the large tree in order to obtain a sequence of best subtrees, as a function of \\(\\alpha\\).\nUse \\(V\\)-fold cross-validation to choose \\(\\alpha\\). Divide the training observations into \\(V\\) folds, then for each \\(v=1, 2, \\ldots, V\\):\n\nRepeat Steps 1 and 2 on all but the \\(v\\)th fold of the training data.\nEvaluate the mean squared prediction error on the data in the left-out \\(k\\)th fold, as a function of \\(\\alpha\\). For each value of \\(\\alpha\\), average the prediction error (either misclassification or RSS), and pick \\(\\alpha\\) to minimize the average error.\n\nReturn the subtree from Step 2 that corresponds to the chosen value of \\(\\alpha\\)."
+    "text": "CART algorithm\nAlgorithm: Building a Regression Tree\n\nUse recursive binary splitting to grow a large tree on the training data, stopping only when each terminal node has fewer than some minimum number of observations.\nApply cost complexity pruning to the large tree in order to obtain a sequence of best subtrees, as a function of \\(\\alpha\\).\nUse \\(V\\)-fold cross-validation to choose \\(\\alpha\\). Divide the training observations into \\(V\\) folds, then for each \\(v=1, 2, \\ldots, V\\):\n\nRepeat Steps 1 and 2 on all but the \\(v\\)th fold of the training data. (That is, you’ll have a set of best subtrees for the set of training data which does not contain fold \\(v\\).)\nLet’s say you are considering a set of \\(\\alpha\\) values \\((\\alpha_1, \\alpha_2, \\alpha_3, \\alpha_4)\\). For each \\(\\alpha\\) under consideration:\n\nUsing the \\(\\alpha\\) under consideration, find the subtree (from step 3a) with the lowest cost complexity.\nUse that subtree to calculate the error on the left-out \\(v^{th}\\) fold.\n\nFor each value of \\(\\alpha\\), average the error (either misclassification rate or rmse = square root of the mean squared error), and pick \\(\\alpha\\) to minimize the average error. The averaging happens over the \\(v\\) folds. You will have as many average errors as you have options for \\(\\alpha\\) values under consideration.\nChoose the value of \\(\\alpha\\) that gives the minimum average error.\n\nReturn the subtree from Step 2 that corresponds to the chosen value of \\(\\alpha\\).\nThe subtree from Step 2 can then be applied to the test data (which has been in your pocket this whole time!) as an assessment for the predictions from the tree in the wild."
   },
   {
     "objectID": "slides/2025-10-27-cart.html#cart-example-w-defaults",
@@ -9965,7 +9965,7 @@
     "href": "slides/2025-10-27-cart.html#reflecting-on-model-building-2",
     "title": "Decision Trees",
     "section": "Reflecting on Model Building",
-    "text": "Reflecting on Model Building\n\nImage credit: https://www.tmwr.org/"
+    "text": "Reflecting on Model Building\n\n\n\nImage credit: https://www.tmwr.org/"
   },
   {
     "objectID": "posts/2025-11-03-rf/index.html",
