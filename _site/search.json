@@ -9937,7 +9937,7 @@
     "href": "slides/2025-10-27-cart.html#bias-variance-tradeoff-1",
     "title": "Decision Trees",
     "section": "Bias-Variance Tradeoff",
-    "text": "Bias-Variance Tradeoff\n\n\n\n\n\n\n\n\nmodel\nhigh bias  (too simple)\nhigh variance  (overfit training data)\n\n\n\n\nlinear model\none (zero!) predictor\nmany many predictors\n\n\n\\(k\\)-NN\n\\(k = n\\)\n\\(k = 1\\)\n\n\nCART\none split\nsingle observation in every terminal node"
+    "text": "Bias-Variance Tradeoff\n\n\n\n\n\n\n\n\nmodel\nhigh bias  (too simple)\nhigh variance  (overfit training data)\n\n\n\n\nlinear model\none (zero!) predictor\nmany many predictors\n\n\n\\(k\\)-NN\n\\(k = n\\)\n\\(k = 1\\)\n\n\nCART\none split (high \\(\\alpha\\))\nsingle observation in every terminal node (\\(\\alpha = 0\\))"
   },
   {
     "objectID": "slides/2025-10-27-cart.html#bias-variance-tradeoff-2",

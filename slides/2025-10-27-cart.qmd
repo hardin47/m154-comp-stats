@@ -573,7 +573,7 @@ rpart.plot(
 | ----- | --------- | ------------- |
 | linear model | one (zero!) predictor | many many predictors |
 | $k$-NN | $k = n$ | $k = 1$ |
-| CART | one split | single observation in every terminal node |
+| CART | one split (high $\alpha$) | single observation in every terminal node ($\alpha = 0$) |
 
 ## Bias-Variance Tradeoff
 
