@@ -22,9 +22,8 @@ knitr::include_graphics("../../images/parsnip.png")
 
 ### November 3, 2025
 
-1. Redux - CART
-2. bagging process
-3. bagging error rate (OOB error)
+1. bagging process
+2. bagging error rate (OOB error)
 
 ### November 5, 2025
 
@@ -72,11 +71,10 @@ knitr::include_graphics("../../images/parsnip.png")
 ## Slides <i class="fas fa-desktop"></i> 
 
 
-* <a href = "https://m154-comp-stats.netlify.app/slides/2024-11-04-rf" target = "_blank">In class slides - bagging & random forests</a> for 11/3/25 and 11/5/25.
+* <a href = "https://m154-comp-stats.netlify.app/slides/2025-11-03-rf" target = "_blank">In class slides - bagging & random forests</a> for 11/3/25 and 11/5/25.
 
-<!--
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws14_m154_f24_bias.pdf" target = "_blank">WS14 - Bias-Variance trade-off</a>
--->
+
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws15_m154_f25_bag.pdf" target = "_blank">WS15 - Bagging</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
