@@ -1,0 +1,594 @@
+---
+title: "Clustering"
+author: "Jo Hardin"
+subtitle: "November 17 + 19 + 24, 2025"
+format:
+  revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    html-math-method: mathjax
+execute:
+  echo: true
+  warning: false
+  message: false
+bibliography: 
+  - ../slides.bib
+---
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(tidyclust)
+library(mosaic)
+library(boot)
+library(skimr)
+```
+
+
+# Agenda 11/17/25
+
+1. unsupervised learning
+2. distance metrics
+3. hierarchical clustering
+
+
+## Unsupervised learning
+
+> Grouping or categorizing observational units (objects) without any pre-assigned labels or scores (no outcome information!)
+
+
+
+## Some examples:
+
+* Latent Dirichlet Allocation:  <a href="https://ziqixiong.shinyapps.io/TopicModeling/" target = "_blank">Topic Modeling of TSL Articles</a>
+
+
+* Network & Clustering: <a href = "http://varianceexplained.org/r/love-actually-network/" target = "_blank">Characters in 'Love Actually'</a>
+
+
+
+## Distance metric (mathematically)
+
+1. $d({\textbf x}, {\textbf y}) \geq 0$
+2. $d({\textbf x}, {\textbf y}) = d({\textbf y}, {\textbf x})$
+3. $d({\textbf x}, {\textbf y}) = 0$ iff ${\textbf x} = {\textbf y}$
+4. $d({\textbf x}, {\textbf y}) \leq d({\textbf x}, {\textbf z}) + d({\textbf z}, {\textbf y})$  for all other vectors ${\textbf z}$.
+
+
+
+## Distance measures (for clustering)
+
+* Euclidean Distance
+
+$$d_E({\textbf x}, {\textbf y}) = \sqrt{\sum_{i=1}^p (x_i - y_i)^2}$$
+
+* Pearson Correlation Distance
+
+$$d_P({\textbf x}, {\textbf y}) = 1 - r_P ({\textbf x}, {\textbf y})$$
+$$\mbox{ or } d_P({\textbf x}, {\textbf y}) =  1 - |r_P ({\textbf x}, {\textbf y})|$$
+$$\mbox{ or } d_P({\textbf x}, {\textbf y}) =  1 - (r_P ({\textbf x}, {\textbf y}))^2$$
+
+
+## Correlation distance isn't a distance metric!
+
+```{r}
+x1 <- c(1,2,3)
+x2 <- c(1, 4, 10)
+x3 <- c(9, 2, 2)
+
+# d(1,2)
+1 - cor(x1, x2)
+# d(1,3)
+1 - cor(x1, x3)
+# d(2,3)
+1 - cor(x2, x3)
+
+# d(1,3) > d(1,2) + d(2,3)
+1 - cor(x1, x2) + 1 - cor(x2, x3)
+```
+
+
+## Correlation distance isn't a distance metric!
+
+Using absolute distance doesn't fix things.
+
+```{r}
+# d(1,2)
+1 - abs(cor(x1, x2))
+# d(1,3)
+1 - abs(cor(x1, x3))
+# d(2,3)
+1 - abs(cor(x2, x3))
+
+
+# d(2,3) > d(1,2) + d(1,3)
+1 - abs(cor(x1, x2)) + 1 - abs(cor(x1, x3))
+```
+
+
+
+
+
+## More distance measures
+
+*  Cosine Distance 
+
+
+$$d_C({\textbf x}, {\textbf y}) =  \frac{{\textbf x} \cdot {\textbf y}}{|| {\textbf x} ||  ||{\textbf y}||}$$
+$$= \frac{\sum_{i=1}^p x_i y_i}{\sqrt{\sum_{i=1}^p x_i^2 \sum_{i=1}^p y_i^2}}$$
+$$= 1 - r_P ({\textbf x}, {\textbf y})  \ \ \ \ \mbox{if } \overline{\textbf x} = \overline{\textbf y} = 0$$
+
+## More distance measures
+
+* Hamming Distance
+
+\begin{align}
+d_H({\textbf x}, {\textbf y}) = \sum_{i=1}^p I(x_i \ne y_i)
+\end{align}
+
+
+```{r fig.cap = "The Hamming distance across the two DNA strands is 7.", out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/hamdistGCTA.png")
+```
+
+
+
+## `dist` function in R
+
+```{r fig.cap = "The function `dist` in `R` calculates the distances given above.", out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/distR.png")
+```
+
+
+
+## String distances
+
+```{r fig.cap = "Comparison of string distance metrics from https://www.kdnuggets.com/2019/01/comparison-text-distance-metrics.html.", out.width='100%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/text-distance-infographics.png")
+```
+
+
+## Hierarchical Clustering
+
+> is a set of nested clusters that are organized as a tree.  Note that objects that belong to a child cluster also belong to the parent cluster.
+
+
+
+## Agglomerative Hierarchical Clustering Algorithm
+
+1. Begin with $n$ observations and a measure (such as Euclidean distance) of all the ${n \choose 2} = n(n-1)/2$ pairwise dissimilarities. Treat each observation as its own cluster.
+2. For $i = n, n - 1, \ldots , 2$:  
+   a. Examine all pairwise inter-cluster dissimilarities among the $i$ clusters and identify the pair of clusters that are least dissimilar (that is, most similar). Fuse these two clusters. The dissimilarity between these two clusters indicates the height in the dendrogram at which the fusion should be placed.  
+   b. Compute the new pairwise inter-cluster dissimilarities among the $i - 1$ remaining clusters.
+
+
+
+
+## Definitions
+
+**Agglomerative** methods start with each object (e.g., gene, penguin, etc.) in its own group.  Groups are merged until all objects are together in one group.
+
+**Divisive** methods start with all objects in one group and break up the groups sequentially until all objects are individuals.
+
+**Single Linkage** algorithm defines the distance between groups as that of the closest pair of individuals.
+
+**Complete Linkage** algorithm defines the distance between groups as that of the farthest pair of individuals.
+
+**Average Linkage** algorithm defines the distance between groups as the average of the distances between all pairs of individuals across the groups.
+
+
+
+## Toy example
+
+of **Single Linkage Agglomerative Hierarchical Clustering**
+
+
+|  	| A 	|  B	| C 	|  D	| E |
+|-	|--	|--	|--	|-	|-	|
+| A 	| 0 	|  	|  	|  	|  |
+| B 	| 0.2 	| 0 	|  	|  	|  |
+| C 	| 0.6 	| 0.5 	| 0  	|  	|  |
+| D 	| 1 	| 0.9 	| 0.4 	| 0 	|  |
+| E 	| 0.9 	| 0.8 	| 0.5 	| 0.3 	|  0 |
+
+
+see class notes to walk through the process.
+
+
+## Should we use hierarchical clustering?
+
+**strengths**
+
+* Provides a clustering for a range of values of $k$.
+* Can be used with any distance metric.
+
+**shortcomings**
+
+* Forces a hierarchical structure (almost always agglomerative)
+* Linkage choice can change the outcome.
+
+## Hierarchical clustering in R
+
+```{r echo = FALSE}
+library(tidyverse)
+library(tidymodels)
+library(tidyclust)
+library(palmerpenguins)
+data(penguins)
+```
+
+
+::: {.panel-tabset}
+
+## data
+```{r}
+penguins <- penguins |>
+  select(bill_length_mm, bill_depth_mm,
+         flipper_length_mm, body_mass_g,
+         island, species) |>
+  drop_na()
+```
+
+## recipe
+```{r}
+hc_rec <- recipe(~ ., data = penguins) |>
+  update_role(island, new_role = "ID") |> 
+  update_role(species, new_role = "ID") |>
+  step_rm(all_nominal()) |>
+  step_normalize(all_predictors())
+```
+
+
+## model
+```{r}
+#| message: true
+hc_model <- hier_clust(
+  num_clusters = 3,
+  linkage_method = "average") |> 
+  set_engine("stats")
+
+hc_model
+```
+
+## workflow
+
+```{r}
+hc_work <- workflow() |> 
+  add_recipe(hc_rec) |> 
+  add_model(hc_model)
+
+hc_work
+```
+
+## fit
+
+```{r}
+#| message: true
+
+hc_fit <- hc_work |>
+  fit(data = penguins)
+
+hc_fit |>
+  summary()
+```
+
+## fit
+```{r}
+hc_summary <- hc_fit |> extract_fit_summary()
+
+hc_summary |> str()
+```
+
+## centroids
+```{r}
+hc_fit |> extract_centroids()
+```
+
+
+:::
+
+
+## Prediction
+
+```{r}
+hc_preds <- hc_fit |> predict(penguins)
+
+hc_preds
+```
+
+
+It's important to note that there is no guarantee that `predict()` on the training data will produce the same results as `extract_cluster_assignments()`. The process by which clusters are created during the agglomerations results in a particular partition; but if a training observation is treated as new data, it is predicted in the same manner as truly new information.
+
+## Prediction vs. label
+
+```{r}
+bind_cols(hc_preds,
+  extract_cluster_assignment(hc_fit) ) |> 
+  select(.pred_cluster, .cluster) |> 
+  table()
+```
+
+
+```{r}
+#| echo: false
+#| eval: false
+penguins_h <- penguins |>
+  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  select(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  mutate(across(bill_length_mm:body_mass_g, scale))
+
+penguin_hclust <- penguins_h |>
+  dist() |>
+  hclust(method = "complete")
+
+penguin_hclust
+
+penguin_dend <- as.dendrogram(penguin_hclust)
+```
+
+
+
+## The basic dendrogram
+
+```{r fig.width=10}
+library(ggdendro)
+penguin_hclust <- hc_fit$fit$fit$fit
+penguin_dend <- penguin_hclust |> as.dendrogram()
+ggdendrogram(penguin_dend)
+```
+## Zooming in on a cluster
+
+::: {.panel-tabset}
+
+## left
+```{r fig.width=10}
+ggdendrogram(penguin_dend[[1]])
+```
+
+## right
+```{r fig.width=10}
+ggdendrogram(penguin_dend[[2]])
+```
+
+## left-left
+```{r fig.width=10}
+ggdendrogram(penguin_dend[[1]][[1]])
+```
+
+:::
+## Colored dendrogram
+
+
+```{r}
+library(dendextend)
+penguin_dend |>
+  set("branches_k_color", k = 3) |>  # color of the branches
+  set("labels_colors", k = 3) |>     # color of the labels
+  set("branches_lwd", 0.3) |>        # width of the branches
+  set("labels_cex", 0.3) |>          # size of the label 
+  as.ggdend() |> 
+  ggplot(horiz = TRUE)
+```
+
+## We don't usually have a way to check (i.e., "unsupervised")
+
+```{r}
+penguins |> 
+  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  select(island) |> 
+  cbind(cluster = cutree(penguin_hclust, k = 3) ) |> 
+  table()
+
+penguins |> 
+  drop_na(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g) |>
+  select(species) |> 
+  cbind(cluster = cutree(penguin_hclust, k = 3) ) |> 
+  table()
+```
+
+
+# Agenda 11/19/25
+
+1. $k$-means clustering
+2. $k$-medoids clustering
+
+
+
+## $k$-means Clustering
+
+$k$-means clustering is an unsupervised partitioning algorithm designed to find a partition of the observations such that the following objective function is minimized (find the smallest within cluster sum of squares):
+
+$$\text{arg}\,\min\limits_{C_1, \ldots, C_k} \Bigg\{ \sum_{k=1}^K \sum_{i \in C_k} \sum_{j=1}^p (x_{ij} - \overline{x}_{kj})^2 \Bigg\}$$
+
+
+# Monsters clustering
+
+```{r fig.cap = "Artwork by @allison_horst.", fig.alt = "Monsters as cluster centers moving around throughout the k-means algorithm.", preview = TRUE, echo = FALSE}
+knitr::include_graphics("../images/kmeans.gif")
+```
+
+
+
+## A fun applet!! 
+
+https://www.naftaliharris.com/blog/visualizing-k-means-clustering/
+
+
+
+
+## $k$-Means Clustering Algoritm
+
+1. Randomly assign a number, from 1 to $k$, to each of the observations.  These serve as initial cluster assignments for the observations.
+2. Iterate until the cluster assignments stop changing:  
+    (a) For each of the $k$ clusters, compute the cluster centroid. The $k^{th}$ cluster centroid is the vector of the $p$ feature means for the observations in the $k^{th}$ cluster.  
+    (b) Assign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance).
+3.  Ties?  Do something consistent:  for example, leave in the current cluster.
+
+
+
+
+## Convergence?  Yes!  (local...)
+
+1. If a point is "closer" to a different center, moving it will lower the objective function.
+
+2. Averages minimize squared differences, so taking the new average will result in a lower objective function.
+
+3. If a point is equidistant from two clusters, the point won't move.
+
+4. The algorithm must converge in finite number of steps because there are finitely many points.
+
+## Should we use $k$-means?
+
+**strengths**
+
+* No hierarchical structure / points can move from one cluster to another.
+* Can run for a range of values of $k$.
+
+**shortcomings**
+
+* $k$ has to be predefined to run the algorithm.
+* $k$-means is based on Euclidean distance (*only*).
+
+
+## $k$-means clustering in R
+
+::: {.panel-tabset}
+
+## data
+
+```{r}
+#| echo: false
+data(penguins)
+```
+
+```{r}
+library(ClusterR)
+penguins <- penguins |>
+  select(bill_length_mm, bill_depth_mm,
+         flipper_length_mm, body_mass_g,
+         island, species) |>
+  drop_na()
+```
+
+## recipe
+```{r}
+kmean_rec <- recipe(~ ., data = penguins) |>
+  update_role(island, new_role = "ID") |> 
+  update_role(species, new_role = "ID") |>
+  step_rm(all_nominal()) |>
+  step_normalize(all_predictors())
+```
+
+
+## model
+```{r}
+#| message: true
+
+kmean_model <- k_means(
+  num_clusters = 3) |> 
+  set_engine("ClusterR", initializer = "random") # need the ClusterR package
+
+kmean_model
+```
+
+## workflow
+
+```{r}
+kmean_work <- workflow() |> 
+  add_recipe(kmean_rec) |> 
+  add_model(kmean_model)
+
+kmean_work
+```
+
+## fit 1
+
+```{r}
+#| message: true
+
+kmean_fit <- kmean_work |>
+  fit(data = penguins)
+
+kmean_fit |>
+  summary()
+```
+
+## fit 2
+```{r}
+kmean_summary <- kmean_fit |> extract_fit_summary()
+
+kmean_summary |> str()
+```
+
+## centroids
+```{r}
+kmean_fit |> extract_centroids()
+```
+
+
+:::
+
+
+
+
+## Partitioning Around Medoids (PAM)
+
+Find the observations (data values!) $m_k$ that solve:
+
+$$\text{arg}\,\min\limits_{C_1, \ldots, C_k} \Bigg\{ \sum_{k=1}^K \sum_{i \in C_k}d(x_i, m_k) \Bigg\}$$
+
+Important: $m_k$ is a data point. It is not an average of points or any other summary statistic.
+
+
+## PAM algorithm
+
+1.  Randomly assign a number, from 1 to $K$, to each of the observations to serve as initial cluster assignments for the observations.
+
+2. Iterate until the cluster assignments stop changing:
+
+(a) (Repeat for $k \in \{1, 2, ...K\}$) For a given cluster, $C_k$, find the observation in the cluster minimizing total distance to other points in that cluster:
+$$i^*_k = \text{arg}\,\min\limits_{i \in C_k} \sum_{i' \in C_k} d(x_i, x_{i'})$$
+Then $m_k = x_{i^*_k}, k=1, 2, \ldots, K$ are the current estimates of the cluster centers.
+(b) Given a current set of cluster centers $\{m_1, m_2, \ldots, m_K\}$, minimize the total error by assigning each observation to the closest (current) cluster center:
+$$C_i = \text{arg}\,\min\limits_{1 \leq k \leq K} d(x_i, m_k)$$
+
+
+## Should we use PAM?
+
+**strengths**
+
+* No hierarchical structure / points can move from one cluster to another.
+* Can run for a range of values of $k$.
+* It can use any distance measure.
+
+**shortcomings**
+
+* $k$ has to be predefined to run the algorithm.
+
+
+## Evaluating clustering (which $k$?)
+
+* Silhouette Width (use $k$ with smallest silhouette width) -- good for PAM (because uses any distance)
+
+* Elbow plot (use $k$ at elbow on plot of $k$ vs. within cluster sum of squares) -- good for $k$-means (because based on Euclidean distance)
+
+
+
+## Silhouette width
+
+Consider observation $i \in$ cluster $C_1$.  Let
+
+$$d(i, C_k) = \mbox{average dissimilarity of } i \mbox{ to all objects in cluster } C_k$$
+$$a(i) =  \mbox{average dissimilarity of } i \mbox{ to all objects in } C_1.$$
+$$b(i) = \min_{C_k \ne C_1} d(i,C_k) = \mbox{distance to the next closest neighbor cluster}$$
+$$s(i) = \frac{b(i) - a(i)}{\max \{ a(i), b(i) \}}$$
+$$\mbox{average}_{i \in C_1} s(i) = \mbox{average silhouette width for cluster } C_1$$
+
+Note that if $a(i) < b(i)$ then $i$ is well classified with a maximum $s(i) = 1$.   If $a(i) > b(i)$ then $i$ is *not* well classified with a minimum of $s(i) = -1$.
+
+We are looking for a large silhouette width.
+
+
