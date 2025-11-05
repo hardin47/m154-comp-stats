@@ -10182,14 +10182,14 @@
     "href": "slides/2025-11-03-rf.html#overall-misclassification-rate",
     "title": "Bagging and Random Forests",
     "section": "Overall misclassification rate",
-    "text": "Overall misclassification rate\nThe error rate (for classification forest) is: \\[\\frac{\\# \\mbox{ misclassificiations}}{n}\\]\n\nThe prediction of an observation come in two steps. First, an observation is run down a tree until it gets to a terminal node. The majority class in that terminal node (from the training observations) provides the class for the prediction from that tree. Second, the observation goes down the relevant trees, each providing a class, and the final prediction of the observation is given by the majority class across the trees.\nEach observation will get one prediction. If the predicted class is different from the observed class, the point is considered to be misclassified.\nKeep in mind that the trees and forests that will be used are different depending on whether the error rate is calculated under OOB, CV, training, or testing scenarios."
+    "text": "Overall misclassification rate\nThe error rate (for classification forest) is: \\[\\frac{\\# \\mbox{ misclassificiations}}{n}\\]\n\nThe prediction of an observation come in two steps. First, an observation is run down a tree until it gets to a terminal node. The majority class in that terminal node (from the training observations) provides the class for the prediction from that tree. The observation goes down all the relevant trees, each providing a class. Second, the final prediction of the observation is given by the majority class across the trees.\nEach observation will get one prediction. If the predicted class is different from the observed class, the point is considered to be misclassified.\nKeep in mind that the trees and forests that will be used are different depending on whether the error rate is calculated under OOB, CV, training, or testing scenarios."
   },
   {
     "objectID": "slides/2025-11-03-rf.html#variable-importance",
     "href": "slides/2025-11-03-rf.html#variable-importance",
     "title": "Bagging and Random Forests",
     "section": "Variable Importance",
-    "text": "Variable Importance\n\nimportance = decrease in node impurity resulting from splits over that variable, averaged over all trees.\n\n\nFor each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).\nKeep the set of trees, and permute the \\(j^{th}\\) variable and recalculate the oob prediction error.\nThe difference between the two oob errors are averaged over all trees (for the \\(j^{th}\\) variable) to give the importance for the \\(j^{th}\\) variable."
+    "text": "Variable Importance\n\nimportance = decrease in node impurity resulting from splits over that variable, averaged over all trees.\n\n\nFor each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).\nKeep the set of trees, and permute the \\(j^{th}\\) variable (of the observation being predicted) and recalculate the oob prediction error.\nThe difference between the two oob errors are averaged over all trees (for the \\(j^{th}\\) variable) to give the importance for the \\(j^{th}\\) variable."
   },
   {
     "objectID": "slides/2025-11-03-rf.html#rf-technical-details",
@@ -10806,5 +10806,12 @@
     "title": "10. Support Vector Machines",
     "section": "Additional Resources ",
     "text": "Additional Resources \n\nA Shiny app which allows different linear classifiers: https://xzcai.shinyapps.io/SVM_app/\nROC curve of science\nTidymodels SVM vignette\nJulia Silge’s blog SVMs to predict if a post office is in Hawaii\nJulia Silge’s blog SVMs to predict Netflix shows as TV or movies"
+  },
+  {
+    "objectID": "slides/2025-11-03-rf.html#rf-visualized",
+    "href": "slides/2025-11-03-rf.html#rf-visualized",
+    "title": "Bagging and Random Forests",
+    "section": "RF visualized",
+    "text": "RF visualized\n\nImage credit: https://medium.com/data-science/random-forest-explained-a-visual-guide-with-code-examples-9f736a6e1b3c"
   }
 ]

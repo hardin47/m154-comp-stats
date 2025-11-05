@@ -326,12 +326,11 @@ data.frame(
 :::::
 
 
-<!--
+
 # Agenda 11/05/25
 
 1. Random Forests
 2. Example
--->
 
 ## Random Forests
 
@@ -344,7 +343,11 @@ data.frame(
 * Testing:  test data will be (average or majority vote) prediction for all the trees.
 
 
+## RF visualized
 
+```{r fig.cap = "Image credit: https://medium.com/data-science/random-forest-explained-a-visual-guide-with-code-examples-9f736a6e1b3c", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/mtry.png")
+```
 
 
 ## Algorithm:  Random Forest
@@ -363,7 +366,7 @@ data.frame(
 
 The error rate (for classification forest) is: $$\frac{\# \mbox{ misclassificiations}}{n}$$
 
-* The prediction of an observation come in two steps.  First, an observation is run down a tree until it gets to a terminal node.  The majority class in that terminal node (from the training observations) provides the class for the prediction from that tree.  Second, the observation goes down the relevant trees, each providing a class, and the final prediction of the observation is given by the majority class across the trees.
+* The prediction of an observation come in two steps.  First, an observation is run down a tree until it gets to a terminal node.  The majority class in that terminal node (from the training observations) provides the class for the prediction from that tree.  The observation goes down all the relevant trees, each providing a class.  Second, the final prediction of the observation is given by the majority class across the trees.
 
 * Each observation will get one prediction.  If the predicted class is different from the observed class, the point is considered to be misclassified.
 
@@ -378,7 +381,7 @@ The error rate (for classification forest) is: $$\frac{\# \mbox{ misclassificiat
 
 * For each tree, the prediction error on the out-of-bag portion of the data is recorded (error rate for classification, MSE for regression).  
 
-* Keep the set of trees, and **permute** the $j^{th}$ variable and recalculate the oob prediction error.  
+* Keep the set of trees, and **permute** the $j^{th}$ variable (of the observation being predicted) and recalculate the oob prediction error.  
 
 * The difference between the two oob errors are averaged over all trees (for the $j^{th}$ variable) to give the importance for the $j^{th}$ variable.
 

@@ -53,7 +53,7 @@ library(skimr)
 
 ## Deriving SVM formulation
 
-$\rightarrow$ see class notes for all technical details
+$\rightarrow$ see <a href = "https://st47s.com/Math154/Notes/08-classification.html#support-vector-machines" target = "_blank">class notes</a> for all technical details
 
 * Mathematics of the optimization to find the widest linear boundary in a space where the two groups are completely separable.
 
