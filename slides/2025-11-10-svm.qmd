@@ -1,0 +1,501 @@
+---
+title: "Support Vector Machines"
+author: "Jo Hardin"
+subtitle: "November 10 + 12, 2025"
+format:
+  revealjs:
+    incremental: false
+    scrollable: true
+    slide-number: true
+    show-slide-number: all
+    embed-resources: true
+    html-math-method: mathjax
+execute:
+  echo: true
+  warning: false
+  message: false
+bibliography: 
+  - ../slides.bib
+---
+
+
+```{r include=FALSE}
+library(tidyverse)
+library(mosaic)
+library(boot)
+library(skimr)
+```
+
+# Agenda 11/10/2025
+
+1. linearly separable
+2. dot products
+3. support vector formulation
+
+
+
+## `tidymodels` syntax
+
+1. partition the data
+2. build a recipe
+3. select a model
+4. create a workflow
+5. fit the model  
+6. validate the model
+
+
+
+## Support Vector Machines
+
+> SVMs create both linear and non-linear decision boundaries.  They are incredibly efficient because of the **kernel trick** which allows the computation to be done in a high dimension.
+
+
+
+## Deriving SVM formulation
+
+$\rightarrow$ see class notes for all technical details
+
+* Mathematics of the optimization to find the widest linear boundary in a space where the two groups are completely separable.
+
+* Note from derivation: both the optimization and the application are based on dot products.
+
+* Transform the data to a higher space so that the points are linearly separable.  Perform SVM in that space.
+
+* Recognize that "performing SVM in higher space" is exactly equivalent to using a kernel in the original dimension.
+
+* Allow for points to cross the boundary using soft margins.
+
+## SVM applet
+
+Shiny app which allows different linear classifiers: <a href = "https://xzcai.shinyapps.io/SVM_app/" target = "_blank">https://xzcai.shinyapps.io/SVM_app/</a>
+
+```{=html}
+<iframe width="1000" height="500" src="https://xzcai.shinyapps.io/SVM_app/" title="SVM applet" data-external="1"></iframe>
+```
+
+
+# Agenda 11/12/25
+
+1. not linearly separable (SVM)
+2. kernels (SVM)
+3. support vector formulation
+
+
+## What if the boundary is wiggly?
+
+If a wiggly boundary is really best, and the value of $\gamma$ should be high to represent the high model complexity.
+
+
+
+:::: {.columns}
+::: {.column width=50%}
+```{r fig.cap = "Extremely complicated boundary", fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/SVMEx1.jpg")
+```
+:::
+
+::: {.column width=50%}
+```{r fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/SVMEx1g100.jpg")
+```
+:::
+::::
+
+## What if the boundary isn't wiggly?
+
+But if the boundary has low complexity, then the best value of $\gamma$ is probably much lower.
+
+```{r fig.cap = "Simple boundary", out.width='60%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/SVMEx2.jpg")
+```
+
+:::: {.columns}
+::: {.column width=50%}
+```{r fig.cap = "Simple boundary -- reasonable gamma", fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/SVMEx2g1.jpg")
+```
+:::
+
+::: {.column width=50%}
+```{r fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/SVMEx2g10.jpg")
+```
+:::
+::::
+
+
+
+:::: {.columns}
+::: {.column width=50%}
+```{r fig.cap = "Simple decision boundary -- gamma too big", fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/SVMEx2g100.jpg")
+```
+:::
+
+::: {.column width=50%}
+```{r  fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/SVMEx2g1000.jpg")
+```
+:::
+::::
+
+
+## Examples of kernels
+
+* **linear** $$K({\bf x}, {\bf y}) = {\bf x} \cdot{\bf y}$$
+Note, the only tuning parameter is the penalty/cost parameter $C$).
+
+* **polynomial** $$K_P({\bf x}, {\bf y}) =(\gamma {\bf x}\cdot {\bf y} + r)^d = \phi_P({\bf x}) \cdot \phi_P({\bf y}) \ \ \ \ \gamma > 0$$
+Note, here $\gamma, r, d$ must be tuned using cross validation (along with the penalty/cost parameter $C$).
+
+* **RBF** $$K_{RBF}({\bf x}, {\bf y}) = e^{( - \gamma ||{\bf x} -  {\bf y}||^2)} = \phi_{RBF}({\bf x}) \cdot \phi_{RBF}({\bf y})$$
+Note, here $\gamma$ must be tuned using cross validation (along with the penalty/cost parameter $C$).
+
+* **sigmoid**^[The sigmoid kernel is not a valid kernel method for all values of $\gamma$ and $r$ (which means that for certain parameter values, the $\phi()$ function may not exist).] $$K_S({\bf x}, {\bf y}) = \tanh(\gamma {\bf x}\cdot {\bf y} + r) = \phi_S({\bf x}) \cdot \phi_S({\bf y})$$
+Note, here $\gamma, r$ must be tuned using cross validation (along with the penalty/cost parameter $C$).  One benefit of the sigmoid kernel is that it has equivalence to a two-layer perceptron neural network.
+
+
+## Big $C$ or small $C$?
+
+```{r fig.cap = "The low C value gives a large margin.  On the right, the high C value gives a small margin.  Which classifier is better?  Well, it depends on what the actual data (test, population, etc.) look like!    photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel", out.width='100%', fig.align='center', echo=FALSE,fig.show='hold'}
+knitr::include_graphics("../images/CvsM1.jpg")
+```
+
+## Big $C$ or small $C$?
+
+```{r fig.cap = "Now, the large C classifier is better.  photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel", out.width='100%', fig.align='center', echo=FALSE,fig.show='hold'}
+knitr::include_graphics("../images/CvsM2.jpg")
+```
+
+## Big $C$ or small $C$?
+
+```{r fig.cap = "Now, the small C classifier is better.  photo credit: http://stats.stackexchange.com/questions/31066/what-is-the-influence-of-c-in-svms-with-linear-kernel", out.width='100%', fig.align='center', echo=FALSE,fig.show='hold'}
+knitr::include_graphics("../images/CvsM3.jpg")
+```
+
+
+## **Algorithm**:   Support Vector Machine
+
+1. Using cross validation, find values of $C, \gamma, d, r$, etc.  (and the kernel function!)
+2. Using Lagrange multipliers (read: the computer), solve for $\alpha_i$ and $b$.
+3.  Classify an unknown observation (${\bf u}$) as "positive" if:
+$$\sum \alpha_i y_i \phi({\bf x}_i) \cdot \phi({\bf u}) + b  = \sum \alpha_i y_i K({\bf x}_i, {\bf u}) + b \geq 0$$
+
+
+## SVM example w defaults
+
+```{r echo = FALSE}
+library(tidymodels)
+library(palmerpenguins)
+
+penguins <- penguins |>
+  drop_na()
+
+set.seed(47)
+penguin_split <- initial_split(penguins)
+penguin_train <- training(penguin_split)
+penguin_test <- testing(penguin_split)
+```
+
+::::: {.panel-tabset}
+
+## recipe
+```{r}
+#| message: true
+
+penguin_svm_recipe <-
+  recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +
+           body_mass_g, data = penguin_train) |>
+  step_normalize(all_predictors())
+
+penguin_svm_recipe
+```
+
+## model
+```{r}
+penguin_svm_lin <- svm_linear() |>
+  set_engine("LiblineaR") |>
+  set_mode("classification")
+
+penguin_svm_lin
+```
+
+## workflow
+```{r}
+penguin_svm_lin_wflow <- workflow() |>
+  add_model(penguin_svm_lin) |>
+  add_recipe(penguin_svm_recipe)
+
+penguin_svm_lin_wflow
+```
+
+## fit
+
+:::: {.columns}
+
+::: {.column width=50%}
+```{r eval = FALSE}
+penguin_svm_lin_fit <- 
+  penguin_svm_lin_wflow |>
+  fit(data = penguin_train)
+
+penguin_svm_lin_fit 
+```
+:::
+
+::: {.column width=50%}
+```{r echo = FALSE}
+penguin_svm_lin_fit <- 
+  penguin_svm_lin_wflow |>
+  fit(data = penguin_train)
+
+penguin_svm_lin_fit 
+```
+
+:::
+
+::::
+
+:::::
+
+
+
+#### Fit again
+```{r echo = FALSE}
+penguin_svm_lin_fit 
+```
+
+
+
+## SVM example w CV tuning (RBF kernel)
+
+::: {.panel-tabset}
+
+## recipe
+```{r}
+#| message: true
+
+penguin_svm_recipe <-
+  recipe(sex ~ bill_length_mm + bill_depth_mm + flipper_length_mm +
+           body_mass_g, data = penguin_train) |>
+  step_normalize(all_predictors())
+
+penguin_svm_recipe
+```
+
+## model
+```{r}
+penguin_svm_rbf <- svm_rbf(cost = tune(),
+                           rbf_sigma = tune()) |>
+  set_engine("kernlab") |>
+  set_mode("classification")
+
+penguin_svm_rbf
+```
+
+## workflow
+```{r}
+penguin_svm_rbf_wflow <- workflow() |>
+  add_model(penguin_svm_rbf) |>
+  add_recipe(penguin_svm_recipe)
+
+penguin_svm_rbf_wflow
+```
+
+## CV
+```{r}
+set.seed(234)
+penguin_folds <- vfold_cv(penguin_train,
+                          v = 4)
+```
+
+## param
+```{r}
+# the tuned parameters also have default values you can use
+penguin_grid <- grid_regular(cost(),
+                             rbf_sigma(),
+                             levels = 8)
+
+penguin_grid
+```
+
+## tune
+```{r}
+# this takes a few minutes
+penguin_svm_rbf_tune <- 
+  penguin_svm_rbf_wflow |>
+  tune_grid(resamples = penguin_folds,
+            grid = penguin_grid)
+
+penguin_svm_rbf_tune 
+```
+:::
+
+
+##  SVM model output
+
+```{r fig.height = 5}
+penguin_svm_rbf_tune |>
+  collect_metrics() |>
+  filter(.metric == "accuracy") |>
+  ggplot() + 
+  geom_line(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +
+  geom_point(aes(color = as.factor(cost), y = mean, x = rbf_sigma)) +
+  labs(color = "Cost") +
+  scale_x_continuous(trans='log10')
+```
+
+
+
+
+
+## SVM model output - take two
+
+```{r fig.height = 5}
+penguin_svm_rbf_tune |>
+  collect_metrics() |>
+  filter(.metric == "accuracy") |>
+  ggplot() + 
+  geom_line(aes(color = as.factor(rbf_sigma), y = mean, x = cost)) +
+  geom_point(aes(color = as.factor(rbf_sigma), y = mean, x = cost)) +
+  labs(color = "Cost") +
+  scale_x_continuous(trans='log10')
+```
+
+## SVM model output - best CV parameters
+
+```{r}
+penguin_svm_rbf_tune |>
+  collect_metrics() |>
+  filter(.metric == "accuracy") |> 
+  arrange(desc(mean))
+```
+
+
+## SVM Final model -- using CV params
+
+```{r}
+penguin_svm_rbf_opt <- svm_rbf(cost = 0.3715,
+                           rbf_sigma = 1) |>
+  set_engine("kernlab") |>
+  set_mode("classification")
+
+penguin_svm_rbf_opt
+
+penguin_svm_rbf_final_opt <-
+  workflow() |>
+  add_model(penguin_svm_rbf_opt) |>
+  add_recipe(penguin_svm_recipe) |>
+  fit(data = penguin_train)
+```
+
+
+
+## SVM Final model -- using `finalize_model()`
+
+```{r}
+penguin_svm_rbf_best <- finalize_model(
+  penguin_svm_rbf,
+  select_best(penguin_svm_rbf_tune, metric = "accuracy"))
+
+penguin_svm_rbf_best
+
+
+penguin_svm_rbf_final_best <-
+  workflow() |>
+  add_model(penguin_svm_rbf_best) |>
+  add_recipe(penguin_svm_recipe) |>
+  fit(data = penguin_train)
+```
+
+
+
+## SVM Final model
+
+Note that pluggint in the parameter values from cross validating or using the `finalize_model()` function give you the same results.
+
+::: {.panel-tabset}
+
+
+## optimized
+```{r}
+penguin_svm_rbf_final_opt
+```
+
+## `best`
+
+```{r}
+penguin_svm_rbf_final_best
+```
+
+:::
+
+
+## Test predictions
+
+```{r fig.height = 5}
+penguin_svm_rbf_final_opt |>
+  predict(new_data = penguin_test) |>
+  cbind(penguin_test) |>
+  select(sex, .pred_class) |>
+  table()
+```
+
+```{r fig.height = 5}
+penguin_svm_rbf_final_opt |>
+  predict(new_data = penguin_test) |>
+  cbind(penguin_test) |>
+  conf_mat(sex, .pred_class)
+```
+
+
+
+## Other measures
+
+```{r fig.height = 5}
+# https://yardstick.tidymodels.org/articles/metric-types.html
+class_metrics <- metric_set(accuracy, sensitivity, 
+                            specificity, f_meas)
+
+penguin_svm_rbf_final_opt |>
+  predict(new_data = penguin_test) |>
+  cbind(penguin_test) |>
+  class_metrics(truth = sex, estimate = .pred_class)
+```
+
+
+
+
+## Bias-Variance Tradeoff
+
+```{r fig.cap = "Test and training error as a function of model complexity.  Note that the error goes down monotonically only for the training data.  Be careful not to overfit!!  image credit: ISLR", out.width='90%', fig.align='center', echo=FALSE}
+knitr::include_graphics("../images/varbias.png")
+```
+
+
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild1.png")
+```
+
+
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/"}
+knitr::include_graphics("../images/modelbuild2.png")
+```
+
+
+
+
+
+## Reflecting on Model Building
+
+```{r echo = FALSE, fig.cap = "Image credit: https://www.tmwr.org/", out.width = "70%", fig.align='center'}
+knitr::include_graphics("../images/modelbuild3.png")
+```
+
+
