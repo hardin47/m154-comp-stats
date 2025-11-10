@@ -33,8 +33,8 @@ Your task is to use data to tell us something interesting. This project is delib
 Please note that neither of the above stipulations are requirements – they are merely examples of two considerations that may make your data more challenging to work with – and thus your project more ambitious.
 
 2. Your project must tell us something. We've seen a range of projects / analyses over the course of the semester. On one extreme are visualization projects (like Snow's cholera map) that involve virtually no statistical analysis. On the other extreme are data mining projects like the KDD cup or Kaggle competitions, which involve very little visualization. Your project can be anywhere on this spectrum, but expectations may be different depending on where you are on the scale. An example of a project that doesn't tell us anything, would be something that downloads a single data source and summarizes it, with some perfunctory visualization. Make sure that your project is thought-provoking and has some underlying meaning!
-   * You could do a project that involves <a href = "https://closeread.dev/" target = "_blank">Data Scrollytelling</a> ... and you could submit your work to the <a href = "https://www.causeweb.org/cause/contests/data-scrollytelling" target = "_blank">Data Scrollytelling Contest</a>!
-   * You might also consider submitting your project to the <a href = "https://www.causeweb.org/usproc/" target = "_blank">Undergraduate Statistics Project Competition</a>.
+   * You could do a project that involves <a href = "https://closeread.dev/" target = "_blank">Data Scrollytelling</a> ... and you could submit your work to the <a href = "https://www.causeweb.org/cause/contests/data-scrollytelling" target = "_blank">Data Scrollytelling Contest</a> Deadline Friday, December 19, 2025!
+   * You might also consider submitting your project to the <a href = "https://www.causeweb.org/usproc/" target = "_blank">Undergraduate Statistics Project Competition</a> Deadline Thursday, December 18, 2025.
 
 3. To get an A, you must show something beyond what we've done in class but that you don't already know. Some examples:
 Use a new data mining technique (e.g., an artificial neural network, näive Bayes classifier -- only if the technique is a new idea for you!)
@@ -92,7 +92,7 @@ Your initial (to Canvas) and revised (to GitHub) proposals should contain the fo
 
 ## Update
 
-Please respond to the following three questions (posted to your GitHub repo) by the end of the day Wednesday, November 12th.
+Please respond to the following three questions (posted to your GitHub repo) by the end of the day Friday, November 14th.
 
 1. Have you already collected, or do you have access to, all of the data that you will need in order to complete your project? If not, please estimate the percentage of the data that you have, describe any issues that you are having, and what your plan is for getting the rest of the data.
 

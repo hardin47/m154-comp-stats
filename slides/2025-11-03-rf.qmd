@@ -336,7 +336,7 @@ data.frame(
 
 * Many trees
   - bootstrap the data before building each tree
-  - for best split look only at a random $m$ variables (different $m$ variables per split)
+  - for best split look only at a random `mtry` variables (different `mtry` variables per split)
   
 * Tuning:  look at OOB predictions -- either average or majority vote
 
@@ -354,7 +354,7 @@ knitr::include_graphics("../images/mtry.png")
 
 1. Bootstrap sample from the training set.
 2. Grow an un-pruned tree on the bootstrap sample.
-* *At each split*, select $m$ variables and determine the best split using only the $m$ predictors.
+* *At each split*, select `mtry` variables and determine the best split using only the `mtry` predictors.
 * Do *not* prune the tree.  Save the tree as is!
 3. Repeat steps 1-2 for many many trees.
 4. For each tree grown on a bootstrap sample, predict the OOB samples.  For each tree grown, $\sim 1/3$ of the training samples won't be in the bootstrap sample -- those are called out of bootstrap (OOB) samples.  OOB samples can be used as *test* data to estimate the error rate of the entire forest.
@@ -372,6 +372,15 @@ The error rate (for classification forest) is: $$\frac{\# \mbox{ misclassificiat
 
 * Keep in mind that the trees and forests that will be used are different depending on whether the error rate is calculated under OOB, CV, training, or testing scenarios.
 
+## bias-variance trade-off with `mtry`
+
+* small `mtry` (e.g., `mtry = 1`)
+   - increased bias:  when `mtry` is small, each tree has fewer options for the best splitting variable. So, the individual trees might miss important features.
+   - reduced variance: a small `mtry` increases the randomness and diversty between the individual trees in the forest. Aggregating the decorrelated trees reduces the overall variance of the forest predictions.
+   
+* big `mtry` (e.g., when `mtry = p` where `p` is the number of variables)
+   - reduced bias: when `mtry` is large, individual trees have a chance to use the important variables which reduces the bias of individual trees.
+   - increased variance: a large `mtry` means that the individual trees are more similar to each other, so aggregating over all the trees doesn't substantially reduce the variance of the entire forest prediction.
 
 
 ## Variable Importance
