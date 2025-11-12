@@ -10693,7 +10693,7 @@
     "href": "slides/2025-11-10-svm.html#svm-model-output---best-cv-parameters",
     "title": "Support Vector Machines",
     "section": "SVM model output - best CV parameters",
-    "text": "SVM model output - best CV parameters\n\npenguin_svm_rbf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  arrange(desc(mean))\n\n# A tibble: 64 × 8\n     cost rbf_sigma .metric  .estimator  mean     n std_err .config             \n    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               \n 1  0.371   1       accuracy binary     0.891     4 0.0123  Preprocessor1_Model…\n 2 32       0.00139 accuracy binary     0.884     4 0.00747 Preprocessor1_Model…\n 3  1.64    0.0373  accuracy binary     0.884     4 0.00747 Preprocessor1_Model…\n 4 32       1       accuracy binary     0.880     4 0.0207  Preprocessor1_Model…\n 5  1.64    1       accuracy binary     0.880     4 0.00791 Preprocessor1_Model…\n 6  7.25    1       accuracy binary     0.872     4 0.0168  Preprocessor1_Model…\n 7  7.25    0.0373  accuracy binary     0.872     4 0.0145  Preprocessor1_Model…\n 8  7.25    0.00139 accuracy binary     0.868     4 0.0329  Preprocessor1_Model…\n 9 32       0.0373  accuracy binary     0.868     4 0.0136  Preprocessor1_Model…\n10  0.371   0.0373  accuracy binary     0.864     4 0.0295  Preprocessor1_Model…\n# ℹ 54 more rows"
+    "text": "SVM model output - best CV parameters\n\npenguin_svm_rbf_tune |&gt;\n  collect_metrics() |&gt;\n  filter(.metric == \"accuracy\") |&gt; \n  arrange(desc(mean))\n\n# A tibble: 64 × 8\n     cost rbf_sigma .metric  .estimator  mean     n std_err .config   \n    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;     \n 1  0.371   1       accuracy binary     0.891     4 0.0123  Preproces…\n 2 32       0.00139 accuracy binary     0.884     4 0.00747 Preproces…\n 3  1.64    0.0373  accuracy binary     0.884     4 0.00747 Preproces…\n 4 32       1       accuracy binary     0.880     4 0.0207  Preproces…\n 5  1.64    1       accuracy binary     0.880     4 0.00791 Preproces…\n 6  7.25    1       accuracy binary     0.872     4 0.0168  Preproces…\n 7  7.25    0.0373  accuracy binary     0.872     4 0.0145  Preproces…\n 8  7.25    0.00139 accuracy binary     0.868     4 0.0329  Preproces…\n 9 32       0.0373  accuracy binary     0.868     4 0.0136  Preproces…\n10  0.371   0.0373  accuracy binary     0.864     4 0.0295  Preproces…\n# ℹ 54 more rows"
   },
   {
     "objectID": "slides/2025-11-10-svm.html#svm-final-model-using-cv-params",
@@ -10798,7 +10798,7 @@
     "href": "posts/2025-11-10-svm/index.html#slides",
     "title": "10. Support Vector Machines",
     "section": "Slides ",
-    "text": "Slides \n\nIn class slides - support vector machines for 11/10/25 + 11/12/25.\nWS16 - SVMs 1"
+    "text": "Slides \n\nIn class slides - support vector machines for 11/10/25 + 11/12/25.\nWS16 - SVMs 1\nWS16 - SVMs 2\nWS17 - SVMs 3"
   },
   {
     "objectID": "posts/2025-11-10-svm/index.html#additional-resources",

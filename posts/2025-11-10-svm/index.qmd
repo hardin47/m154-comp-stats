@@ -71,12 +71,10 @@ knitr::include_graphics("../../images/monster_support.jpg")
 
 * <a href = "https://m154-comp-stats.netlify.app/handout/ws16_m154_f25_svm1.pdf" target = "_blank">WS16 - SVMs 1</a>
 
-<!--
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws16_m154_f24_svm2.pdf" target = "_blank">WS16 - SVMs 2</a>
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws16_m154_f25_svm2.pdf" target = "_blank">WS16 - SVMs 2</a>
 
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws17_m154_f24_svm3.pdf" target = "_blank">WS17 - SVMs 3</a>
--->
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws17_m154_f25_svm3.pdf" target = "_blank">WS17 - SVMs 3</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 

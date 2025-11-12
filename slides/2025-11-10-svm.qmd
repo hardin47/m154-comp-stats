@@ -24,6 +24,7 @@ library(tidyverse)
 library(mosaic)
 library(boot)
 library(skimr)
+options(pillar.width = 70)
 ```
 
 # Agenda 11/10/2025
