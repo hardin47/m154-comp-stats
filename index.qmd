@@ -95,11 +95,11 @@ schedule <- tribble(
   ' ',
 
 "11.17.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-17-cluster/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
-  ' ',
+  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 10</a> - due Friday 11.21',
   ' ',
 
  "11.24.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-17-cluster/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
-  '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 10</a> - due 11.26',
+  ' ',
   ' ',
 
  "12.1.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-12-01-lda/"><i class="fas fa-desktop" target="_blank"></i> latent Dirichlet allocation +  extensions</a>',
