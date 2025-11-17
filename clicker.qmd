@@ -1589,7 +1589,7 @@ knitr::include_graphics("images/BShist.jpg")
 
 ---
 
-(@)  If the data are linearly separable, there exists a "widest street".[^95]
+(@)  If the data are linearly separable, there exists a "widest street" in an SVM classifier.[^95]
    a. yes
    b. no
    c. up to a constant
@@ -1641,7 +1641,7 @@ knitr::include_graphics("images/BShist.jpg")
 
 ---
 
-(@) For a large value of C, the model is expected to[^101]
+(@) For a large value of C in an SVM classifier, the model is expected to[^101]
      a. overfit the training data more as compared to a small C
      b. overfit the training data less as compared to a small C
      c. not related to overfitting the data
