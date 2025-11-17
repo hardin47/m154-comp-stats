@@ -11,7 +11,7 @@
     "href": "daily.html",
     "title": "Computational Statistics",
     "section": "",
-    "text": "01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 25, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nAug 27, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 3, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n04. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 8, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n05. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 22, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n06. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 1, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n07. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 20, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n08. Trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 27, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n09. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 3, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 10, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
+    "text": "01. Start with R + Git\n\n\n\n\n\nThe importance of reproducibility. Ideas of computational statistics, data science, and machine learning. Some resources for starting with R + RStudio + Git + GitHub. \n\n\n\n\n\nAug 25, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n02. Data Viz\n\n\n\n\n\nExamples, good and bad. Theory underlying what makes a viz good and bad. Tools to implement viz tasks. \n\n\n\n\n\nAug 27, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n03. Wrangling\n\n\n\n\n\nData wrangling skills are among the most important to hone. \n\n\n\n\n\nSep 3, 2025\n\n\nJo Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n04. Simulating\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 8, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n05. Permutation Tests\n\n\n\n\n\nSimulating scenarios, simulating datasets, simulating random variables. \n\n\n\n\n\nSep 22, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n06. Bootstrapping\n\n\n\n\n\nThe sample as a proxy for the unknown population. Sample from said proxy population (i.e., the sample) to generate a sampling distribution. Bootstrap. \n\n\n\n\n\nOct 1, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n07. Recipes + k-NN\n\n\n\n\n\nAnd old adage says: garbage in, garbage out. Here we avoid garbage in. k-Nearest Neighbors is a classification algorithm based on the premise that points which are close to one another (in some predictor space) are likely to be similar with respect to the outcome variable. \n\n\n\n\n\nOct 20, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n08. Trees\n\n\n\n\n\nTrees represent a set of methods where prediction is given by majority vote or average outcome based on a partition of the predictor space. \n\n\n\n\n\nOct 27, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n09. Random Forests\n\n\n\n\n\nMany trees make a forest. Bagging gives FREE independent model assessment or parameter tuning. Random Forests have a fantastic variance - bias trade-off. \n\n\n\n\n\nNov 3, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n10. Support Vector Machines\n\n\n\n\n\nHere, support vector machines will be used only to classify objects which can be categorized into one of exactly two classes. As with other classification and regression methods, support vector machines as a method can be used more generally. However, we will work to understand the mathematical derivation of the binary-classification SVM. \n\n\n\n\n\nNov 10, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\n\n\n\n\n\n\n11. Unsupervised Learning\n\n\n\n\n\nA quick dive into unsupervised methods. We cover two clutering methods: hierarchical and partitioning (k-means and k-medoids). Additionally, we discuss latent Dirichlet allocation (LDA). \n\n\n\n\n\nNov 19, 2025\n\n\nJohanna Hardin\n\n\n\n\n\n\nNo matching items\n\nReuseCC BY 4.0"
   },
   {
     "objectID": "posts/2024-08-26-getting-started/getting-started.html",
@@ -10820,5 +10820,54 @@
     "title": "Bagging and Random Forests",
     "section": "bias-variance trade-off with mtry",
     "text": "bias-variance trade-off with mtry\n\nsmall mtry (e.g., mtry = 1)\n\nincreased bias: when mtry is small, each tree has fewer options for the best splitting variable. So, the individual trees might miss important features.\nreduced variance: a small mtry increases the randomness and diversty between the individual trees in the forest. Aggregating the decorrelated trees reduces the overall variance of the forest predictions.\n\nbig mtry (e.g., when mtry = p where p is the number of variables)\n\nreduced bias: when mtry is large, individual trees have a chance to use the important variables which reduces the bias of individual trees.\nincreased variance: a large mtry means that the individual trees are more similar to each other, so aggregating over all the trees doesn’t substantially reduce the variance of the entire forest prediction."
+  },
+  {
+    "objectID": "posts/2025-11-19-unsupervised/index.html",
+    "href": "posts/2025-11-19-unsupervised/index.html",
+    "title": "11. Unsupervised Learning",
+    "section": "",
+    "text": "Artwork by @allison_horst."
+  },
+  {
+    "objectID": "posts/2025-11-19-unsupervised/index.html#agenda",
+    "href": "posts/2025-11-19-unsupervised/index.html#agenda",
+    "title": "11. Unsupervised Learning",
+    "section": "Agenda ",
+    "text": "Agenda \n\nNovember 19, 2025\n\ndistances\nhierarchical clustering\n\n\n\nNovember 24, 2025\n\nk-means clustering\nk-medoids clustering\n\n\n\nDecember 1, 2025\n\nlatent Dirichlet allocation (LDA)"
+  },
+  {
+    "objectID": "posts/2025-11-19-unsupervised/index.html#readings",
+    "href": "posts/2025-11-19-unsupervised/index.html#readings",
+    "title": "11. Unsupervised Learning",
+    "section": "Readings ",
+    "text": "Readings \n\nClass notes: Unsupervised Methods\nGareth, Witten, Hastie, and Tibshirani (2021), Unsupervised Learning (Chapter 12)  Introduction to Statistical Learning."
+  },
+  {
+    "objectID": "posts/2025-11-19-unsupervised/index.html#reflection-questions",
+    "href": "posts/2025-11-19-unsupervised/index.html#reflection-questions",
+    "title": "11. Unsupervised Learning",
+    "section": "Reflection questions ",
+    "text": "Reflection questions \n\nWhy does the plot of within-cluster sum of squares vs. \\(k\\) make an elbow-shape (hint: think about \\(k\\) as it ranges from 1 to \\(n)?\\)\nHow are the centers of the clusters in \\(k\\)-means calculated? What about in \\(k\\)-medoids?\nWill a different initialization of the cluster centers always produce the same cluster output?\nHow do distance metrics change a hierarchical clustering?\nHow can you choose \\(k\\) with hierarchical clustering?\nWhat is the difference between single, average, and complete linkage in hierarchical clustering?\nWhat is the difference between agglomerative and divisive hierarchical clustering?"
+  },
+  {
+    "objectID": "posts/2025-11-19-unsupervised/index.html#ethics-considerations",
+    "href": "posts/2025-11-19-unsupervised/index.html#ethics-considerations",
+    "title": "11. Unsupervised Learning",
+    "section": "Ethics considerations ",
+    "text": "Ethics considerations \n\nWhat type of feature engineering is required for \\(k\\)-means / hierarchical clustering?\nHow do you (can you?) know if your clustering has uncovered any real patterns in the data?"
+  },
+  {
+    "objectID": "posts/2025-11-19-unsupervised/index.html#slides",
+    "href": "posts/2025-11-19-unsupervised/index.html#slides",
+    "title": "11. Unsupervised Learning",
+    "section": "Slides ",
+    "text": "Slides \n\nIn class slides - clustering for 11/19/25 + 12/24/25.\nIn class slides - latent Dirichlet allocation for 12/1/25."
+  },
+  {
+    "objectID": "posts/2025-11-19-unsupervised/index.html#additional-resources",
+    "href": "posts/2025-11-19-unsupervised/index.html#additional-resources",
+    "title": "11. Unsupervised Learning",
+    "section": "Additional Resources ",
+    "text": "Additional Resources \n\nFantastic k-means applet by Naftali Harris.\nAnalyzing networks of characters in ‘Love Actually’"
   }
 ]
