@@ -214,8 +214,10 @@ penguin_svm_recipe
 
 ## model
 ```{r}
+library(kernlab)
+
 penguin_svm_lin <- svm_linear() |>
-  set_engine("LiblineaR") |>
+  set_engine("kernlab") |>
   set_mode("classification")
 
 penguin_svm_lin
