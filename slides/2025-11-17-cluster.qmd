@@ -31,7 +31,7 @@ library(skimr)
 # Agenda 11/19/25
 
 1. unsupervised learning
-2. distance metrics
+2. distance metrics / dissimilarity
 3. hierarchical clustering
 
 
@@ -65,14 +65,14 @@ library(skimr)
 
 $$d_E({\textbf x}, {\textbf y}) = \sqrt{\sum_{i=1}^p (x_i - y_i)^2}$$
 
-* Pearson Correlation Distance
+* Pearson Correlation Distance / Dissimilarity
 
 $$d_P({\textbf x}, {\textbf y}) = 1 - r_P ({\textbf x}, {\textbf y})$$
 $$\mbox{ or } d_P({\textbf x}, {\textbf y}) =  1 - |r_P ({\textbf x}, {\textbf y})|$$
 $$\mbox{ or } d_P({\textbf x}, {\textbf y}) =  1 - (r_P ({\textbf x}, {\textbf y}))^2$$
 
 
-## Correlation distance isn't a distance metric!
+## Correlation dissimilarity isn't a distance metric!
 
 ```{r}
 x1 <- c(1,2,3)
@@ -91,9 +91,9 @@ x3 <- c(9, 2, 2)
 ```
 
 
-## Correlation distance isn't a distance metric!
+## Correlation dissimilarity isn't a distance metric!
 
-Using absolute distance doesn't fix things.
+Using absolute value doesn't fix things.
 
 ```{r}
 # d(1,2)
@@ -112,7 +112,7 @@ Using absolute distance doesn't fix things.
 
 
 
-## More distance measures
+## More dissimilarity measures
 
 *  Cosine Distance 
 
@@ -121,7 +121,7 @@ $$d_C({\textbf x}, {\textbf y}) =  \frac{{\textbf x} \cdot {\textbf y}}{|| {\tex
 $$= \frac{\sum_{i=1}^p x_i y_i}{\sqrt{\sum_{i=1}^p x_i^2 \sum_{i=1}^p y_i^2}}$$
 $$= 1 - r_P ({\textbf x}, {\textbf y})  \ \ \ \ \mbox{if } \overline{\textbf x} = \overline{\textbf y} = 0$$
 
-## More distance measures
+## More dissimilarity measures
 
 * Hamming Distance
 
@@ -173,11 +173,11 @@ knitr::include_graphics("../images/text-distance-infographics.png")
 
 **Divisive** methods start with all objects in one group and break up the groups sequentially until all objects are individuals.
 
-**Single Linkage** algorithm defines the distance between groups as that of the closest pair of individuals.
+**Single Linkage** algorithm defines the dissimilarity between groups as that of the closest pair of individuals.
 
-**Complete Linkage** algorithm defines the distance between groups as that of the farthest pair of individuals.
+**Complete Linkage** algorithm defines the dissimilarity between groups as that of the farthest pair of individuals.
 
-**Average Linkage** algorithm defines the distance between groups as the average of the distances between all pairs of individuals across the groups.
+**Average Linkage** algorithm defines the dissimilarity between groups as the average of the dissimilarities between all pairs of individuals across the groups.
 
 
 
@@ -203,7 +203,7 @@ see class notes to walk through the process.
 **strengths**
 
 * Provides a clustering for a range of values of $k$.
-* Can be used with any distance metric.
+* Can be used with any distance metric / dissimilarity.
 
 **shortcomings**
 
@@ -292,13 +292,13 @@ To predict the cluster assignment for a new observation, we find the closest clu
 
 * **single linkage**: The new observation is assigned to the same cluster as its nearest observation from the training data.
 
-* **complete linkage**: The new observation is assigned to the cluster with the smallest maximum distances between training observations and the new observation.
+* **complete linkage**: The new observation is assigned to the cluster with the smallest maximum dissimilarities between training observations and the new observation.
 
-* **average linkage**: The new observation is assigned to the cluster with the smallest average distances between training observations and the new observation.
+* **average linkage**: The new observation is assigned to the cluster with the smallest average dissimilarities between training observations and the new observation.
 
 * **centroid method**: The new observation is assigned to the cluster with the closest centroid, as in prediction for k_means.
 
-* **Ward's method**: The new observation is assigned to the cluster with the smallest increase in error sum of squares (ESS) due to the new addition. The ESS is computed as the sum of squared distances between observations in a cluster, and the centroid of the cluster.
+* **Ward's method**: The new observation is assigned to the cluster with the smallest increase in error sum of squares (ESS) due to the new addition. The ESS is computed as the sum of squared Euclidean distances between observations in a cluster, and the centroid of the cluster.
 
 ## Prediction
 
@@ -584,7 +584,7 @@ $$C_i = \text{arg}\,\min\limits_{1 \leq k \leq K} d(x_i, m_k)$$
 
 * No hierarchical structure / points can move from one cluster to another.
 * Can run for a range of values of $k$.
-* It can use any distance measure.
+* It can use any distance / dissimilarity measure.
 
 **shortcomings**
 
@@ -593,7 +593,7 @@ $$C_i = \text{arg}\,\min\limits_{1 \leq k \leq K} d(x_i, m_k)$$
 
 ## Evaluating clustering (which $k$?)
 
-* Silhouette Width (use $k$ with smallest silhouette width) -- good for PAM (because uses any distance)
+* Silhouette Width (use $k$ with smallest silhouette width) -- good for PAM (because uses any distance / dissimilarity)
 
 * Elbow plot (use $k$ at elbow on plot of $k$ vs. within cluster sum of squares) -- good for $k$-means (because based on Euclidean distance)
 

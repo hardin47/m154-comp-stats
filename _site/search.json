@@ -10378,7 +10378,7 @@
     "href": "slides/2025-11-17-cluster.html#distance-measures-for-clustering",
     "title": "Clustering",
     "section": "Distance measures (for clustering)",
-    "text": "Distance measures (for clustering)\n\nEuclidean Distance\n\n\\[d_E({\\textbf x}, {\\textbf y}) = \\sqrt{\\sum_{i=1}^p (x_i - y_i)^2}\\]\n\nPearson Correlation Distance\n\n\\[d_P({\\textbf x}, {\\textbf y}) = 1 - r_P ({\\textbf x}, {\\textbf y})\\] \\[\\mbox{ or } d_P({\\textbf x}, {\\textbf y}) =  1 - |r_P ({\\textbf x}, {\\textbf y})|\\] \\[\\mbox{ or } d_P({\\textbf x}, {\\textbf y}) =  1 - (r_P ({\\textbf x}, {\\textbf y}))^2\\]"
+    "text": "Distance measures (for clustering)\n\nEuclidean Distance\n\n\\[d_E({\\textbf x}, {\\textbf y}) = \\sqrt{\\sum_{i=1}^p (x_i - y_i)^2}\\]\n\nPearson Correlation Distance / Dissimilarity\n\n\\[d_P({\\textbf x}, {\\textbf y}) = 1 - r_P ({\\textbf x}, {\\textbf y})\\] \\[\\mbox{ or } d_P({\\textbf x}, {\\textbf y}) =  1 - |r_P ({\\textbf x}, {\\textbf y})|\\] \\[\\mbox{ or } d_P({\\textbf x}, {\\textbf y}) =  1 - (r_P ({\\textbf x}, {\\textbf y}))^2\\]"
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#correlation-distance-isnt-a-distance-metric",
@@ -10441,7 +10441,7 @@
     "href": "slides/2025-11-17-cluster.html#definitions",
     "title": "Clustering",
     "section": "Definitions",
-    "text": "Definitions\nAgglomerative methods start with each object (e.g., gene, penguin, etc.) in its own group. Groups are merged until all objects are together in one group.\nDivisive methods start with all objects in one group and break up the groups sequentially until all objects are individuals.\nSingle Linkage algorithm defines the distance between groups as that of the closest pair of individuals.\nComplete Linkage algorithm defines the distance between groups as that of the farthest pair of individuals.\nAverage Linkage algorithm defines the distance between groups as the average of the distances between all pairs of individuals across the groups."
+    "text": "Definitions\nAgglomerative methods start with each object (e.g., gene, penguin, etc.) in its own group. Groups are merged until all objects are together in one group.\nDivisive methods start with all objects in one group and break up the groups sequentially until all objects are individuals.\nSingle Linkage algorithm defines the dissimilarity between groups as that of the closest pair of individuals.\nComplete Linkage algorithm defines the dissimilarity between groups as that of the farthest pair of individuals.\nAverage Linkage algorithm defines the dissimilarity between groups as the average of the dissimilarities between all pairs of individuals across the groups."
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#toy-example",
@@ -10455,7 +10455,7 @@
     "href": "slides/2025-11-17-cluster.html#should-we-use-hierarchical-clustering",
     "title": "Clustering",
     "section": "Should we use hierarchical clustering?",
-    "text": "Should we use hierarchical clustering?\nstrengths\n\nProvides a clustering for a range of values of \\(k\\).\nCan be used with any distance metric.\n\nshortcomings\n\nForces a hierarchical structure (almost always agglomerative)\nLinkage choice can change the outcome."
+    "text": "Should we use hierarchical clustering?\nstrengths\n\nProvides a clustering for a range of values of \\(k\\).\nCan be used with any distance metric / dissimilarity.\n\nshortcomings\n\nForces a hierarchical structure (almost always agglomerative)\nLinkage choice can change the outcome."
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#hierarchical-clustering-in-r",
@@ -10469,7 +10469,7 @@
     "href": "slides/2025-11-17-cluster.html#prediction",
     "title": "Clustering",
     "section": "Prediction",
-    "text": "Prediction\nTo predict the cluster assignment for a new observation, we find the closest cluster. How we measure “closeness” is dependent on the specified type of linkage in the model:\n\nsingle linkage: The new observation is assigned to the same cluster as its nearest observation from the training data.\ncomplete linkage: The new observation is assigned to the cluster with the smallest maximum distances between training observations and the new observation.\naverage linkage: The new observation is assigned to the cluster with the smallest average distances between training observations and the new observation.\ncentroid method: The new observation is assigned to the cluster with the closest centroid, as in prediction for k_means.\nWard’s method: The new observation is assigned to the cluster with the smallest increase in error sum of squares (ESS) due to the new addition. The ESS is computed as the sum of squared distances between observations in a cluster, and the centroid of the cluster."
+    "text": "Prediction\nTo predict the cluster assignment for a new observation, we find the closest cluster. How we measure “closeness” is dependent on the specified type of linkage in the model:\n\nsingle linkage: The new observation is assigned to the same cluster as its nearest observation from the training data.\ncomplete linkage: The new observation is assigned to the cluster with the smallest maximum dissimilarities between training observations and the new observation.\naverage linkage: The new observation is assigned to the cluster with the smallest average dissimilarities between training observations and the new observation.\ncentroid method: The new observation is assigned to the cluster with the closest centroid, as in prediction for k_means.\nWard’s method: The new observation is assigned to the cluster with the smallest increase in error sum of squares (ESS) due to the new addition. The ESS is computed as the sum of squared Euclidean distances between observations in a cluster, and the centroid of the cluster."
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#prediction-vs.-label",
@@ -10567,14 +10567,14 @@
     "href": "slides/2025-11-17-cluster.html#should-we-use-pam",
     "title": "Clustering",
     "section": "Should we use PAM?",
-    "text": "Should we use PAM?\nstrengths\n\nNo hierarchical structure / points can move from one cluster to another.\nCan run for a range of values of \\(k\\).\nIt can use any distance measure.\n\nshortcomings\n\n\\(k\\) has to be predefined to run the algorithm."
+    "text": "Should we use PAM?\nstrengths\n\nNo hierarchical structure / points can move from one cluster to another.\nCan run for a range of values of \\(k\\).\nIt can use any distance / dissimilarity measure.\n\nshortcomings\n\n\\(k\\) has to be predefined to run the algorithm."
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#evaluating-clustering-which-k",
     "href": "slides/2025-11-17-cluster.html#evaluating-clustering-which-k",
     "title": "Clustering",
     "section": "Evaluating clustering (which \\(k\\)?)",
-    "text": "Evaluating clustering (which \\(k\\)?)\n\nSilhouette Width (use \\(k\\) with smallest silhouette width) – good for PAM (because uses any distance)\nElbow plot (use \\(k\\) at elbow on plot of \\(k\\) vs. within cluster sum of squares) – good for \\(k\\)-means (because based on Euclidean distance)"
+    "text": "Evaluating clustering (which \\(k\\)?)\n\nSilhouette Width (use \\(k\\) with smallest silhouette width) – good for PAM (because uses any distance / dissimilarity)\nElbow plot (use \\(k\\) at elbow on plot of \\(k\\) vs. within cluster sum of squares) – good for \\(k\\)-means (because based on Euclidean distance)"
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#silhouette-width",
@@ -10883,5 +10883,33 @@
     "title": "Clustering",
     "section": "Prediction wonky",
     "text": "Prediction wonky\nConsider a silly example using complete linkage:\n\\[x_1 = 1, x_2 = 2, x_3 = 5, x_4 = 9, x_5 = 10, x_6 = -5\\]\n\nInitial clusers (\\(k=6\\)), each point is in their own cluster.\n\\(k = 4\\): \\(\\{x_1, x_2 \\}\\) and \\(\\{ x_3 \\}\\) and \\(\\{x_4, x_5 \\}\\) and \\(\\{x_6\\}\\)\n\\(k=3\\): \\(\\{x_1, x_2, x_3 \\}\\) and \\(\\{x_4, x_5 \\}\\) and \\(\\{x_6 \\}\\)\n\\(k=2\\): \\(\\{x_1, x_2, x_3, x_6 \\}\\) and \\(\\{x_4, x_5 \\}\\)\n\nNote, using complete linkage, \\(x_6\\) is closer to \\(\\{x_4, x_5 \\}\\) (distance = 5) than to \\(\\{x_1, x_2, x_3, x_6 \\}\\) (distance = 10)."
+  },
+  {
+    "objectID": "slides/2025-11-17-cluster.html#correlation-dissimilarity-isnt-a-distance-metric",
+    "href": "slides/2025-11-17-cluster.html#correlation-dissimilarity-isnt-a-distance-metric",
+    "title": "Clustering",
+    "section": "Correlation dissimilarity isn’t a distance metric!",
+    "text": "Correlation dissimilarity isn’t a distance metric!\n\nx1 &lt;- c(1,2,3)\nx2 &lt;- c(1, 4, 10)\nx3 &lt;- c(9, 2, 2)\n\n# d(1,2)\n1 - cor(x1, x2)\n\n[1] 0.01801949\n\n# d(1,3)\n1 - cor(x1, x3)\n\n[1] 1.866025\n\n# d(2,3)\n1 - cor(x2, x3)\n\n[1] 1.755929\n\n# d(1,3) &gt; d(1,2) + d(2,3)\n1 - cor(x1, x2) + 1 - cor(x2, x3)\n\n[1] 1.773948"
+  },
+  {
+    "objectID": "slides/2025-11-17-cluster.html#correlation-dissimilarity-isnt-a-distance-metric-1",
+    "href": "slides/2025-11-17-cluster.html#correlation-dissimilarity-isnt-a-distance-metric-1",
+    "title": "Clustering",
+    "section": "Correlation dissimilarity isn’t a distance metric!",
+    "text": "Correlation dissimilarity isn’t a distance metric!\nUsing absolute value doesn’t fix things.\n\n# d(1,2)\n1 - abs(cor(x1, x2))\n\n[1] 0.01801949\n\n# d(1,3)\n1 - abs(cor(x1, x3))\n\n[1] 0.1339746\n\n# d(2,3)\n1 - abs(cor(x2, x3))\n\n[1] 0.2440711\n\n# d(2,3) &gt; d(1,2) + d(1,3)\n1 - abs(cor(x1, x2)) + 1 - abs(cor(x1, x3))\n\n[1] 0.1519941"
+  },
+  {
+    "objectID": "slides/2025-11-17-cluster.html#more-dissimilarity-measures",
+    "href": "slides/2025-11-17-cluster.html#more-dissimilarity-measures",
+    "title": "Clustering",
+    "section": "More dissimilarity measures",
+    "text": "More dissimilarity measures\n\nCosine Distance\n\n\\[d_C({\\textbf x}, {\\textbf y}) =  \\frac{{\\textbf x} \\cdot {\\textbf y}}{|| {\\textbf x} ||  ||{\\textbf y}||}\\] \\[= \\frac{\\sum_{i=1}^p x_i y_i}{\\sqrt{\\sum_{i=1}^p x_i^2 \\sum_{i=1}^p y_i^2}}\\] \\[= 1 - r_P ({\\textbf x}, {\\textbf y})  \\ \\ \\ \\ \\mbox{if } \\overline{\\textbf x} = \\overline{\\textbf y} = 0\\]"
+  },
+  {
+    "objectID": "slides/2025-11-17-cluster.html#more-dissimilarity-measures-1",
+    "href": "slides/2025-11-17-cluster.html#more-dissimilarity-measures-1",
+    "title": "Clustering",
+    "section": "More dissimilarity measures",
+    "text": "More dissimilarity measures\n\nHamming Distance\n\n\\[\\begin{align}\nd_H({\\textbf x}, {\\textbf y}) = \\sum_{i=1}^p I(x_i \\ne y_i)\n\\end{align}\\]\n\nThe Hamming distance across the two DNA strands is 7."
   }
 ]

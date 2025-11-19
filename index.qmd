@@ -94,15 +94,15 @@ schedule <- tribble(
   '<font color = "#114B5F"><b>11.14.25</b></font>', '<a href = "https://m154-comp-stats.netlify.app/project.html"><font color = "#114B5F"><i class="fa-solid fa-chart-column"></i> <b>Project Update</b></font></a>', 'to GitHub',
   ' ',
 
-"11.17.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-19-cluster/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
+"11.17.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-19-unsupervised/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 10</a> - due Friday 11.21',
   ' ',
 
- "11.24.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-19-cluster/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
+ "11.24.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-19-unsupervised/"><i class="fas fa-desktop" target="_blank"></i> clustering</a>',
   ' ',
   ' ',
 
- "12.1.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-12-01-lda/"><i class="fas fa-desktop" target="_blank"></i> latent Dirichlet allocation +  extensions</a>',
+ "12.1.25", '<a href="https://m154-comp-stats.netlify.app/posts/2025-11-19-unsupervised/"><i class="fas fa-desktop" target="_blank"></i> latent Dirichlet allocation +  extensions</a>',
   '<a href="https://github.com/orgs/ST47S-CompStats-Fall2025/repositories" target = "_blank"><i class="fas fa-code"></i> HW 11</a> - due 12.3.25 <br> <i class="fa-regular fa-circle-question"></i> Quiz 6 (SVM + clustering) 12.3',
   ' ',
 
