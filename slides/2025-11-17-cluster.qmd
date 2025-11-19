@@ -273,14 +273,10 @@ hc_fit <- hc_work |>
 
 hc_fit |>
   summary()
+
+hc_fit |> extract_fit_summary() |> str()
 ```
 
-## fit
-```{r}
-hc_summary <- hc_fit |> extract_fit_summary()
-
-hc_summary |> str()
-```
 
 ## centroids
 ```{r}
@@ -290,6 +286,19 @@ hc_fit |> extract_centroids()
 
 :::
 
+## Prediction
+
+To predict the cluster assignment for a new observation, we find the closest cluster. How we measure "closeness" is dependent on the specified type of linkage in the model:
+
+* **single linkage**: The new observation is assigned to the same cluster as its nearest observation from the training data.
+
+* **complete linkage**: The new observation is assigned to the cluster with the smallest maximum distances between training observations and the new observation.
+
+* **average linkage**: The new observation is assigned to the cluster with the smallest average distances between training observations and the new observation.
+
+* **centroid method**: The new observation is assigned to the cluster with the closest centroid, as in prediction for k_means.
+
+* **Ward's method**: The new observation is assigned to the cluster with the smallest increase in error sum of squares (ESS) due to the new addition. The ESS is computed as the sum of squared distances between observations in a cluster, and the centroid of the cluster.
 
 ## Prediction
 
@@ -301,6 +310,19 @@ hc_preds
 
 
 It's important to note that there is no guarantee that `predict()` on the training data will produce the same results as `extract_cluster_assignments()`. The process by which clusters are created during the agglomerations results in a particular partition; but if a training observation is treated as new data, it is predicted in the same manner as truly new information.
+
+## Prediction wonky
+
+Consider a silly example using **complete** linkage:
+
+$$x_1 = 1, x_2 = 2, x_3 = 5, x_4 = 9, x_5 = 10, x_6 = -5$$
+
+* Initial clusers ($k=6$), each point is in their own cluster.
+* $k = 4$: $\{x_1, x_2 \}$ and $\{ x_3 \}$ and $\{x_4, x_5 \}$ and $\{x_6\}$
+* $k=3$: $\{x_1, x_2, x_3 \}$ and $\{x_4, x_5 \}$ and $\{x_6 \}$
+* $k=2$: $\{x_1, x_2, x_3, x_6 \}$ and $\{x_4, x_5 \}$
+
+Note, using **complete** linkage, $x_6$ is closer to $\{x_4, x_5 \}$ (distance = 5) than to $\{x_1, x_2, x_3, x_6 \}$ (distance = 10).
 
 ## Prediction vs. label
 

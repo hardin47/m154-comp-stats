@@ -72,11 +72,10 @@ knitr::include_graphics("../../images/kmeans_5.jpg")
 
 * <a href = "https://m154-comp-stats.netlify.app/slides/2025-12-01-lda" target = "_blank">In class slides - latent Dirichlet allocation</a> for 12/1/25.
 
-<!--
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws18_m154_f24_hierarch.pdf" target = "_blank">WS 18 - hierarchical clustering</a>
 
-* <a href = "https://m154-comp-stats.netlify.app/handout/ws19_m154_f24_kmeans.pdf" target = "_blank">WS 19 - k-means clustering</a>
--->
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws19_m154_f25_hierarch.pdf" target = "_blank">WS 19 - hierarchical clustering</a>
+
+* <a href = "https://m154-comp-stats.netlify.app/handout/ws20_m154_f25_kmeans.pdf" target = "_blank">WS 20 - k-means clustering</a>
 
 ## Additional Resources <i class="fas fa-laptop"></i> 
 
