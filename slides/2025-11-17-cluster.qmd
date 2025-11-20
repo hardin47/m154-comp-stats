@@ -315,14 +315,14 @@ It's important to note that there is no guarantee that `predict()` on the traini
 
 Consider a silly example using **complete** linkage:
 
-$$x_1 = 1, x_2 = 2, x_3 = 5, x_4 = 9, x_5 = 10, x_6 = -5$$
+$$x_1 = 1, x_2 = 2, x_3 = 5, x_4 = 9, x_5 = 10, x_6 = -3$$
 
 * Initial clusers ($k=6$), each point is in their own cluster.
 * $k = 4$: $\{x_1, x_2 \}$ and $\{ x_3 \}$ and $\{x_4, x_5 \}$ and $\{x_6\}$
 * $k=3$: $\{x_1, x_2, x_3 \}$ and $\{x_4, x_5 \}$ and $\{x_6 \}$
 * $k=2$: $\{x_1, x_2, x_3, x_6 \}$ and $\{x_4, x_5 \}$
 
-Note, using **complete** linkage, $x_3$ is closer to $\{x_4, x_5 \}$ (distance = 5) than to $\{x_1, x_2, x_3, x_6 \}$ (distance = 10).
+Note, using **complete** linkage, $x_3$ is closer to $\{x_4, x_5 \}$ (distance = 5) than to $\{x_1, x_2, x_3, x_6 \}$ (distance = 8).
 
 ## Prediction vs. label
 

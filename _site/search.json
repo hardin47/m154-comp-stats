@@ -10882,7 +10882,7 @@
     "href": "slides/2025-11-17-cluster.html#prediction-wonky",
     "title": "Clustering",
     "section": "Prediction wonky",
-    "text": "Prediction wonky\nConsider a silly example using complete linkage:\n\\[x_1 = 1, x_2 = 2, x_3 = 5, x_4 = 9, x_5 = 10, x_6 = -5\\]\n\nInitial clusers (\\(k=6\\)), each point is in their own cluster.\n\\(k = 4\\): \\(\\{x_1, x_2 \\}\\) and \\(\\{ x_3 \\}\\) and \\(\\{x_4, x_5 \\}\\) and \\(\\{x_6\\}\\)\n\\(k=3\\): \\(\\{x_1, x_2, x_3 \\}\\) and \\(\\{x_4, x_5 \\}\\) and \\(\\{x_6 \\}\\)\n\\(k=2\\): \\(\\{x_1, x_2, x_3, x_6 \\}\\) and \\(\\{x_4, x_5 \\}\\)\n\nNote, using complete linkage, \\(x_3\\) is closer to \\(\\{x_4, x_5 \\}\\) (distance = 5) than to \\(\\{x_1, x_2, x_3, x_6 \\}\\) (distance = 10)."
+    "text": "Prediction wonky\nConsider a silly example using complete linkage:\n\\[x_1 = 1, x_2 = 2, x_3 = 5, x_4 = 9, x_5 = 10, x_6 = -3\\]\n\nInitial clusers (\\(k=6\\)), each point is in their own cluster.\n\\(k = 4\\): \\(\\{x_1, x_2 \\}\\) and \\(\\{ x_3 \\}\\) and \\(\\{x_4, x_5 \\}\\) and \\(\\{x_6\\}\\)\n\\(k=3\\): \\(\\{x_1, x_2, x_3 \\}\\) and \\(\\{x_4, x_5 \\}\\) and \\(\\{x_6 \\}\\)\n\\(k=2\\): \\(\\{x_1, x_2, x_3, x_6 \\}\\) and \\(\\{x_4, x_5 \\}\\)\n\nNote, using complete linkage, \\(x_3\\) is closer to \\(\\{x_4, x_5 \\}\\) (distance = 5) than to \\(\\{x_1, x_2, x_3, x_6 \\}\\) (distance = 8)."
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#correlation-dissimilarity-isnt-a-distance-metric",
