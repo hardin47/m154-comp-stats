@@ -10483,7 +10483,7 @@
     "href": "slides/2025-11-17-cluster.html#the-basic-dendrogram",
     "title": "Clustering",
     "section": "The basic dendrogram",
-    "text": "The basic dendrogram\n\nlibrary(ggdendro)\npenguin_hclust &lt;- hc_fit$fit$fit$fit\npenguin_dend &lt;- penguin_hclust |&gt; as.dendrogram()\nggdendrogram(penguin_dend)"
+    "text": "The basic dendrogram\nWe have to get the hclust “object” from the fit, and transform it to make the dendrogram.\n\nlibrary(ggdendro)\n\npenguin_hclust &lt;- hc_fit |&gt; \n  extract_fit_engine()\n\npenguin_dend &lt;- penguin_hclust |&gt; \n  as.dendrogram()\n\nggdendro::ggdendrogram(penguin_dend)"
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#zooming-in-on-a-cluster",

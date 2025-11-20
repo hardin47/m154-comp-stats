@@ -355,11 +355,18 @@ penguin_dend <- as.dendrogram(penguin_hclust)
 
 ## The basic dendrogram
 
+We have to get the `hclust` "object" from the fit, and transform it to make the dendrogram.
+
 ```{r fig.width=10}
 library(ggdendro)
-penguin_hclust <- hc_fit$fit$fit$fit
-penguin_dend <- penguin_hclust |> as.dendrogram()
-ggdendrogram(penguin_dend)
+
+penguin_hclust <- hc_fit |> 
+  extract_fit_engine()
+
+penguin_dend <- penguin_hclust |> 
+  as.dendrogram()
+
+ggdendro::ggdendrogram(penguin_dend)
 ```
 ## Zooming in on a cluster
 
