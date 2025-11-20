@@ -322,7 +322,7 @@ $$x_1 = 1, x_2 = 2, x_3 = 5, x_4 = 9, x_5 = 10, x_6 = -5$$
 * $k=3$: $\{x_1, x_2, x_3 \}$ and $\{x_4, x_5 \}$ and $\{x_6 \}$
 * $k=2$: $\{x_1, x_2, x_3, x_6 \}$ and $\{x_4, x_5 \}$
 
-Note, using **complete** linkage, $x_6$ is closer to $\{x_4, x_5 \}$ (distance = 5) than to $\{x_1, x_2, x_3, x_6 \}$ (distance = 10).
+Note, using **complete** linkage, $x_3$ is closer to $\{x_4, x_5 \}$ (distance = 5) than to $\{x_1, x_2, x_3, x_6 \}$ (distance = 10).
 
 ## Prediction vs. label
 

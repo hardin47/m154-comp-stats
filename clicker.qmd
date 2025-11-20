@@ -1707,7 +1707,7 @@ iv. We are increasing the variance
 
 --- 
 
-(@) Suppose you have trained an SVM classifier with a Gaussian kernel, and it learned the following decision boundary on the training set. You suspect that the SVM is underfitting your dataset. What should you try?[^107]
+(@) Suppose you have trained an SVM classifier with a RBF kernel, and it learned the following decision boundary on the training set. You suspect that the SVM is underfitting your dataset. What should you try?[^107]
     a. decreasing C and/or decrease gamma
     b. decreasing C and/or increase gamma
     c. increasing C and/or decrease gamma
@@ -1721,7 +1721,7 @@ knitr::include_graphics("images/svm_linear.png")
 
 ---
 
-(@) Suppose you have trained an SVM classifier with a Gaussian kernel, and it learned the following decision boundary on the training set. When you measure the SVM’s performance on a cross validation set, it does poorly. What should you try?[^108]
+(@) Suppose you have trained an SVM classifier with a RBF kernel, and it learned the following decision boundary on the training set. When you measure the SVM’s performance on a cross validation set, it does poorly. What should you try?[^108]
     a. decreasing C and/or decrease gamma
     b. decreasing C and/or increase gamma
     c. increasing C and/or decrease gamma
