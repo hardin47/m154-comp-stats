@@ -562,6 +562,166 @@ kmean_fit |> extract_centroids()
 
 
 
+## Some fun plots
+
+
+::: {.panel-tabset}
+
+## code
+
+need the `stats` engine to get `glance()` options.
+```{r}
+data(penguins)  # refresh the dataset
+
+k_func <- function(k = 3, mydata = penguins) {
+  
+  workflow() |>
+    add_recipe(recipe(~ ., data = mydata) |>   # recipe
+             step_naomit(all_predictors()) |> 
+             update_role(island, new_role = "ID") |> 
+             update_role(species, new_role = "ID") |>
+             update_role(sex, new_role = "ID") |> 
+             step_rm(all_nominal()) |>
+             step_normalize(all_predictors())) |>
+    add_model(k_means(num_clusters = k) |>     # model
+              set_engine("stats")) |>
+    fit(data = mydata |> drop_na())            # fit
+}  
+
+kmax <- 9
+penguin_kclusts <- 
+  tibble(k = 1:kmax) |>
+  mutate(
+    penguin_kclust = map(k, k_func, mydata = penguins |> drop_na()),
+    tidied = map(penguin_kclust, tidy),
+    glanced = map(penguin_kclust, glance),
+    augmented = map(penguin_kclust, augment, penguins |> drop_na())
+  )
+
+assignments <- 
+  penguin_kclusts |> 
+  unnest(cols = c(augmented))
+
+clusterings <- 
+  penguin_kclusts |>
+  unnest(cols = c(glanced))
+
+```
+
+
+```{r}
+#| eval: false
+# within sum of squares
+clusterings |>
+  ggplot(aes(x = k, y = tot.withinss)) + 
+  geom_line() + 
+  geom_point() + ylab("") +
+  ggtitle("Total Within Sum of Squares")
+```
+
+```{r}
+#| eval: false
+# via variables
+assignments |>
+ ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = .pred_cluster), alpha = 0.8) + 
+  facet_wrap(~ k)
+```
+
+
+```{r}
+#| eval: false
+# via species
+assignments |>
+  group_by(k) |>
+  select(.pred_cluster, species) |>
+  table() |>
+  as.data.frame() |>
+    ggplot() +
+    geom_tile(aes(x = .pred_cluster, y = species, fill = Freq)) + 
+  facet_wrap( ~ k) + ylab("") + 
+  scale_fill_gradient(low = "white", high = "red") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+  ggtitle("Species vs cluster prediction across different values of k")
+```
+
+
+```{r}
+#| eval: false
+# via islands
+
+assignments |>
+  group_by(k) |>
+  select(.pred_cluster, island) |>
+  table() |>
+  as.data.frame() |>
+    ggplot() +
+    geom_tile(aes(x = .pred_cluster, y = island, fill = Freq)) + 
+  facet_wrap( ~ k) + ylab("") +
+  scale_fill_gradient(low = "white", high = "red") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+  ggtitle("Island vs cluster prediction across different values of k")
+```
+
+## Within SS
+
+```{r}
+#| echo: false
+clusterings |>
+  ggplot(aes(x = k, y = tot.withinss)) + 
+  geom_line() + 
+  geom_point() + ylab("") +
+  ggtitle("Total Within Sum of Squares")
+```
+
+
+## variables
+
+```{r}
+#| echo: false
+assignments |>
+ ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) +
+  geom_point(aes(color = .pred_cluster), alpha = 0.8) + 
+  facet_wrap(~ k)
+```
+
+
+## species
+
+```{r}
+#| echo: false
+assignments |>
+  group_by(k) |>
+  select(.pred_cluster, species) |>
+  table() |>
+  as.data.frame() |>
+    ggplot() +
+    geom_tile(aes(x = .pred_cluster, y = species, fill = Freq)) + 
+  facet_wrap( ~ k) + ylab("") + 
+  scale_fill_gradient(low = "white", high = "red") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+  ggtitle("Species vs cluster prediction across different values of k")
+```
+
+## islands
+
+```{r}
+#| echo: false
+
+assignments |>
+  group_by(k) |>
+  select(.pred_cluster, island) |>
+  table() |>
+  as.data.frame() |>
+    ggplot() +
+    geom_tile(aes(x = .pred_cluster, y = island, fill = Freq)) + 
+  facet_wrap( ~ k) + ylab("") +
+  scale_fill_gradient(low = "white", high = "red") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+  ggtitle("Island vs cluster prediction across different values of k")
+```
+
+:::
 
 ## Partitioning Around Medoids (PAM)
 
