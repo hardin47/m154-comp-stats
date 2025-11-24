@@ -10918,5 +10918,201 @@
     "title": "Clustering",
     "section": "Some fun plots",
     "text": "Some fun plots\n\ncodeWithin SSvariablesspeciesislands\n\n\nneed the stats engine to get glance() options.\n\ndata(penguins)  # refresh the dataset\n\nk_func &lt;- function(k = 3, mydata = penguins) {\n  \n  workflow() |&gt;\n    add_recipe(recipe(~ ., data = mydata) |&gt;   # recipe\n             step_naomit(all_predictors()) |&gt; \n             update_role(island, new_role = \"ID\") |&gt; \n             update_role(species, new_role = \"ID\") |&gt;\n             update_role(sex, new_role = \"ID\") |&gt; \n             step_rm(all_nominal()) |&gt;\n             step_normalize(all_predictors())) |&gt;\n    add_model(k_means(num_clusters = k) |&gt;     # model\n              set_engine(\"stats\")) |&gt;\n    fit(data = mydata |&gt; drop_na())            # fit\n}  \n\nkmax &lt;- 9\npenguin_kclusts &lt;- \n  tibble(k = 1:kmax) |&gt;\n  mutate(\n    penguin_kclust = map(k, k_func, mydata = penguins |&gt; drop_na()),\n    tidied = map(penguin_kclust, tidy),\n    glanced = map(penguin_kclust, glance),\n    augmented = map(penguin_kclust, augment, penguins |&gt; drop_na())\n  )\n\nassignments &lt;- \n  penguin_kclusts |&gt; \n  unnest(cols = c(augmented))\n\nclusterings &lt;- \n  penguin_kclusts |&gt;\n  unnest(cols = c(glanced))\n\n\n# within sum of squares\nclusterings |&gt;\n  ggplot(aes(x = k, y = tot.withinss)) + \n  geom_line() + \n  geom_point() + ylab(\"\") +\n  ggtitle(\"Total Within Sum of Squares\")\n\n\n# via variables\nassignments |&gt;\n ggplot(aes(x = flipper_length_mm, y = bill_length_mm)) +\n  geom_point(aes(color = .pred_cluster), alpha = 0.8) + \n  facet_wrap(~ k)\n\n\n# via species\nassignments |&gt;\n  group_by(k) |&gt;\n  select(.pred_cluster, species) |&gt;\n  table() |&gt;\n  as.data.frame() |&gt;\n    ggplot() +\n    geom_tile(aes(x = .pred_cluster, y = species, fill = Freq)) + \n  facet_wrap( ~ k) + ylab(\"\") + \n  scale_fill_gradient(low = \"white\", high = \"red\") + \n  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + \n  ggtitle(\"Species vs cluster prediction across different values of k\")\n\n\n# via islands\n\nassignments |&gt;\n  group_by(k) |&gt;\n  select(.pred_cluster, island) |&gt;\n  table() |&gt;\n  as.data.frame() |&gt;\n    ggplot() +\n    geom_tile(aes(x = .pred_cluster, y = island, fill = Freq)) + \n  facet_wrap( ~ k) + ylab(\"\") +\n  scale_fill_gradient(low = \"white\", high = \"red\") +\n  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + \n  ggtitle(\"Island vs cluster prediction across different values of k\")"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html",
+    "href": "slides/2025-12-01-lda.html",
+    "title": "latent Dirichlet allocation",
+    "section": "",
+    "text": "LDA\nwho does statistics / data science?"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#toy-example-of-lda",
+    "href": "slides/2025-12-01-lda.html#toy-example-of-lda",
+    "title": "latent Dirichlet allocation",
+    "section": "Toy example of LDA",
+    "text": "Toy example of LDA\n\nHow can we figure out (unsupervised!) the underlying topic of each of a set of documents?1"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#data",
+    "href": "slides/2025-12-01-lda.html#data",
+    "title": "latent Dirichlet allocation",
+    "section": "Data",
+    "text": "Data\nStart with documents that each contain words:"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#assign-topics",
+    "href": "slides/2025-12-01-lda.html#assign-topics",
+    "title": "latent Dirichlet allocation",
+    "section": "Assign topics",
+    "text": "Assign topics\nAs a human, assign topics: Science, Politics, Sports"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#one-potential-assignment",
+    "href": "slides/2025-12-01-lda.html#one-potential-assignment",
+    "title": "latent Dirichlet allocation",
+    "section": "One potential assignment:",
+    "text": "One potential assignment:"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#no-intuition",
+    "href": "slides/2025-12-01-lda.html#no-intuition",
+    "title": "latent Dirichlet allocation",
+    "section": "No intuition",
+    "text": "No intuition\nWhat if you don’t have any idea what the words mean (i.e., what if you are the computer)?"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#computer-assignment-of-topics",
+    "href": "slides/2025-12-01-lda.html#computer-assignment-of-topics",
+    "title": "latent Dirichlet allocation",
+    "section": "Computer assignment of topics",
+    "text": "Computer assignment of topics\nwithout using the definitions of the words:\nTopic 1 , Topic 2, Topic 3"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#assign-a-topic-to-each-word",
+    "href": "slides/2025-12-01-lda.html#assign-a-topic-to-each-word",
+    "title": "latent Dirichlet allocation",
+    "section": "Assign a topic to each word",
+    "text": "Assign a topic to each word"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#assign-a-topic-to-each-word-1",
+    "href": "slides/2025-12-01-lda.html#assign-a-topic-to-each-word-1",
+    "title": "latent Dirichlet allocation",
+    "section": "Assign a topic to each word",
+    "text": "Assign a topic to each word"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#topic-frequency",
+    "href": "slides/2025-12-01-lda.html#topic-frequency",
+    "title": "latent Dirichlet allocation",
+    "section": "Topic frequency",
+    "text": "Topic frequency"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#article-property",
+    "href": "slides/2025-12-01-lda.html#article-property",
+    "title": "latent Dirichlet allocation",
+    "section": "Article property",
+    "text": "Article property\nProperty 1: articles are as homogeneous as possible"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#what-about-the-words",
+    "href": "slides/2025-12-01-lda.html#what-about-the-words",
+    "title": "latent Dirichlet allocation",
+    "section": "What about the words?",
+    "text": "What about the words?"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#word-property",
+    "href": "slides/2025-12-01-lda.html#word-property",
+    "title": "latent Dirichlet allocation",
+    "section": "Word property",
+    "text": "Word property\nProperty 2: words are as homogeneous as possible"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#goal-of-lda",
+    "href": "slides/2025-12-01-lda.html#goal-of-lda",
+    "title": "latent Dirichlet allocation",
+    "section": "Goal of LDA:",
+    "text": "Goal of LDA:\nColor each word with red , green, blue such that\n\narticles are as homogeneous as possible\nwords are as homogeneous as possible"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#gibbs-sampling",
+    "href": "slides/2025-12-01-lda.html#gibbs-sampling",
+    "title": "latent Dirichlet allocation",
+    "section": "Gibbs Sampling",
+    "text": "Gibbs Sampling\nOrganize the words one at a time, trying to make the articles (Goal #1) and words (Goal #2) as consistent as possible.\n\\(\\Rightarrow\\) assume that all the other words are correct, and try to predict the topic of a given word."
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#predicting-the-words-topic",
+    "href": "slides/2025-12-01-lda.html#predicting-the-words-topic",
+    "title": "latent Dirichlet allocation",
+    "section": "Predicting the word’s topic",
+    "text": "Predicting the word’s topic\n\n\n\n\n\n\n\n\n\nDo we color ball red , green, or blue?"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-1",
+    "href": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-1",
+    "title": "latent Dirichlet allocation",
+    "section": "Predicting the word’s topic (Goal #1)",
+    "text": "Predicting the word’s topic (Goal #1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nDoc A: how many words in Topic 1\nDoc A: how many words in Topic 2\nDoc A: how many words in Topic 3\n\n\n2\n0\n2"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-2",
+    "href": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-2",
+    "title": "latent Dirichlet allocation",
+    "section": "Predicting the word’s topic (Goal #2)",
+    "text": "Predicting the word’s topic (Goal #2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nHow often is ball in Topic 1\nHow often is ball in Topic 2\nHow often is ball in Topic 3\n\n\n3\n1\n0"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#data-without-first-word",
+    "href": "slides/2025-12-01-lda.html#data-without-first-word",
+    "title": "latent Dirichlet allocation",
+    "section": "Data without first word",
+    "text": "Data without first word\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nDoc A: how many words in Topic 1\nDoc A: how many words in Topic 2\nDoc A: how many words in Topic 3\n\n\n2\n0\n2\n\n\nHow often is ball in Topic 1\nHow often is ball in Topic 2\nHow often is ball in Topic 3\n\n\n3\n1\n0"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#probability-of-topic",
+    "href": "slides/2025-12-01-lda.html#probability-of-topic",
+    "title": "latent Dirichlet allocation",
+    "section": "Probability of topic",
+    "text": "Probability of topic\n\\[\n\\begin{align}P(z_i = k' | z_{-i}, W) \\propto & \\frac{\\# \\mbox{ words in $d_i$ with $k'$} + \\alpha}{\\# \\mbox{ words in $d_i$ with any topic} + K \\cdot \\alpha} \\cdot \\\\\n&\\frac{\\# \\mbox{ times $i^{th}$ word is in topic $k'$} + \\beta}{\\# \\mbox{ words in topic $k'$} + V \\cdot \\beta}\n\\end{align}\n\\]\n\n\\(z_i\\) is the topic of the \\(i^{th}\\) word\n\\(z_{-i}\\) are the topics of all the words other than the \\(i^{th}\\) word\n\\(d_i\\) is the document of \\(i^{th}\\) word\n\\(W\\) represents all of the words\n\\(K\\) is the total number of topics\n\\(V\\) is the total number of words\n\\(\\alpha\\) and \\(\\beta\\) are tuning parameter"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#probability-that-ball-is-in-each-topic",
+    "href": "slides/2025-12-01-lda.html#probability-that-ball-is-in-each-topic",
+    "title": "latent Dirichlet allocation",
+    "section": "Probability that ball is in each topic",
+    "text": "Probability that ball is in each topic\n\\[\n\\begin{align}P(ball_1 = \\mbox{Topic 1} | z_{-i}, W) \\propto& \\frac{2 + \\alpha}{4 + 3 \\cdot \\alpha} \\cdot \\frac{3 + \\beta}{5 + 4 \\cdot \\beta}\n\\end{align}\n\\]\n\\[\n\\begin{align}P(ball_1 = \\mbox{Topic 2} | z_{-i}, W) \\propto& \\frac{0 + \\alpha}{4 + 3 \\cdot \\alpha} \\cdot \\frac{1 + \\beta}{5 + 4 \\cdot \\beta}\n\\end{align}\n\\]\n\\[\n\\begin{align}P(ball_1 = \\mbox{Topic 3} | z_{-i}, W) \\propto& \\frac{2 + \\alpha}{4 + 3 \\cdot \\alpha} \\cdot \\frac{0 + \\beta}{5 + 4 \\cdot \\beta}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#probability-that-ball-is-in-each-topic-1",
+    "href": "slides/2025-12-01-lda.html#probability-that-ball-is-in-each-topic-1",
+    "title": "latent Dirichlet allocation",
+    "section": "Probability that ball is in each topic",
+    "text": "Probability that ball is in each topic\n\\[\n\\require{cancel}\n\\begin{align}P(ball_1 = \\mbox{Topic 1} | z_{-i}, W) \\propto& \\frac{2 + \\cancel{\\alpha} \\overset{0.3}{}}{4 + 3 \\cdot \\cancel{\\alpha} \\overset{0.3}{}} \\cdot \\frac{3 + \\cancel{\\beta} \\overset{0.25}{}}{5 + 4 \\cdot \\cancel{\\beta} \\overset{0.25}{}} = 0.2543\n\\end{align}\n\\]\n\\[\n\\begin{align}P(ball_1 = \\mbox{Topic 2} | z_{-i}, W) \\propto& \\frac{0 + \\cancel{\\alpha} \\overset{0.3}{}}{4 + 3 \\cdot \\cancel{\\alpha} \\overset{0.3}{}} \\cdot \\frac{1 + \\cancel{\\beta} \\overset{0.25}{}}{5 + 4 \\cdot \\cancel{\\beta} \\overset{0.25}{}} = 0.0128\n\\end{align}\n\\]\n\\[\n\\begin{align}P(ball_1 = \\mbox{Topic 3} | z_{-i}, W) \\propto& \\frac{2 + \\cancel{\\alpha} \\overset{0.3}{}}{4 + 3 \\cdot \\cancel{\\alpha} \\overset{0.3}{}} \\cdot \\frac{0 + \\cancel{\\beta} \\overset{0.25}{}}{5 + 4 \\cdot \\cancel{\\beta} \\overset{0.25}{}} = 0.0196\n\\end{align}\n\\]\n\\(\\rightarrow\\) assign Topic 1 to the first instance of ball"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#next-step",
+    "href": "slides/2025-12-01-lda.html#next-step",
+    "title": "latent Dirichlet allocation",
+    "section": "Next step",
+    "text": "Next step\nUpdate the first instance of ball and move on to the second instance of ball. (Keep iterating!)"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#what-is-the-topic-of-a-training-document",
+    "href": "slides/2025-12-01-lda.html#what-is-the-topic-of-a-training-document",
+    "title": "latent Dirichlet allocation",
+    "section": "What is the topic of a training document?",
+    "text": "What is the topic of a training document?\n\\[\\mbox{Topic}(d) = \\mbox{arg} \\max_k \\theta_{d,k}\\]\nwhere \\(\\theta_{d,k}\\) is the probability of topic \\(k\\) for document \\(d\\).\n\\(\\theta_{d,k}\\) is estimated as the proportion of topic \\(k\\) in document \\(d\\)."
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#what-is-the-topic-of-a-test-document",
+    "href": "slides/2025-12-01-lda.html#what-is-the-topic-of-a-test-document",
+    "title": "latent Dirichlet allocation",
+    "section": "What is the topic of a test document?",
+    "text": "What is the topic of a test document?\n\nFor each word in the document, you get a probability for each topic, based on the learned topic-word distribution\nThe probability of a topic \\(k\\) for the new document is essentially the weighted sum of the topic probabilities for all the words in the document, considering their relative importance."
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#example-from-math-154",
+    "href": "slides/2025-12-01-lda.html#example-from-math-154",
+    "title": "latent Dirichlet allocation",
+    "section": "Example (from Math 154)",
+    "text": "Example (from Math 154)\n\n\n\n\n\n\nLDA on TSL\n\n\n\nIn fall 2015, Benji Lu, Kai Fukutaki, and Ziqi Xiong performed LDA on The Student Life articles for their computational statistics project: https://ziqixiong.shinyapps.io/TopicModeling/"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#statisticians-data-scientists",
+    "href": "slides/2025-12-01-lda.html#statisticians-data-scientists",
+    "title": "latent Dirichlet allocation",
+    "section": "Statisticians & Data Scientists",
+    "text": "Statisticians & Data Scientists\nWho does statistics?\nconnecting, uplifting, and recognizing voices – a database of statisticians and data scientists."
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#footnotes",
+    "href": "slides/2025-12-01-lda.html#footnotes",
+    "title": "latent Dirichlet allocation",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nHeavily inspired by Luis Serrano’s youtube video. Also note his other educational materials↩︎"
   }
 ]
