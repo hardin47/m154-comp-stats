@@ -10553,7 +10553,7 @@
     "href": "slides/2025-11-17-cluster.html#partitioning-around-medoids-pam",
     "title": "Clustering",
     "section": "Partitioning Around Medoids (PAM)",
-    "text": "Partitioning Around Medoids (PAM)\nFind the observations (data values!) \\(m_k\\) that solve:\n\\[\\text{arg}\\,\\min\\limits_{C_1, \\ldots, C_k} \\Bigg\\{ \\sum_{k=1}^K \\sum_{i \\in C_k}d(x_i, m_k) \\Bigg\\}\\]\nImportant: \\(m_k\\) is a data point. It is not an average of points or any other summary statistic."
+    "text": "Partitioning Around Medoids (PAM)\nFind the observations (data values!) \\(m_k\\) that solve (note, we have a new objective function!):\n\\[\\text{arg}\\,\\min\\limits_{C_1, \\ldots, C_k} \\Bigg\\{ \\sum_{k=1}^K \\sum_{i \\in C_k}d(x_i, m_k) \\Bigg\\}\\]\nImportant: \\(m_k\\) is a data point. It is not an average of points or any other summary statistic."
   },
   {
     "objectID": "slides/2025-11-17-cluster.html#pam-algorithm",

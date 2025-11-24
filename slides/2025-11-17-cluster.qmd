@@ -725,7 +725,7 @@ assignments |>
 
 ## Partitioning Around Medoids (PAM)
 
-Find the observations (data values!) $m_k$ that solve:
+Find the observations (data values!) $m_k$ that solve (note, we have a new objective function!):
 
 $$\text{arg}\,\min\limits_{C_1, \ldots, C_k} \Bigg\{ \sum_{k=1}^K \sum_{i \in C_k}d(x_i, m_k) \Bigg\}$$
 
