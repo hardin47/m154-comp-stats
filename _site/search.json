@@ -10931,7 +10931,7 @@
     "href": "slides/2025-12-01-lda.html#toy-example-of-lda",
     "title": "latent Dirichlet allocation",
     "section": "Toy example of LDA",
-    "text": "Toy example of LDA\n\nHow can we figure out (unsupervised!) the underlying topic of each of a set of documents?1"
+    "text": "Toy example of LDA\n\nHow can we figure out (unsupervised!) the underlying topic of each of a set of documents?1\nHeavily inspired by Luis Serrano’s youtube video. Also note his other educational materials"
   },
   {
     "objectID": "slides/2025-12-01-lda.html#data",
@@ -11029,21 +11029,21 @@
     "href": "slides/2025-12-01-lda.html#predicting-the-words-topic",
     "title": "latent Dirichlet allocation",
     "section": "Predicting the word’s topic",
-    "text": "Predicting the word’s topic\n\n\n\n\n\n\n\n\n\nDo we color ball red , green, or blue?"
+    "text": "Predicting the word’s topic\n\nDo we color ball red , green, or blue?"
   },
   {
     "objectID": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-1",
     "href": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-1",
     "title": "latent Dirichlet allocation",
     "section": "Predicting the word’s topic (Goal #1)",
-    "text": "Predicting the word’s topic (Goal #1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nDoc A: how many words in Topic 1\nDoc A: how many words in Topic 2\nDoc A: how many words in Topic 3\n\n\n2\n0\n2"
+    "text": "Predicting the word’s topic (Goal #1)\n\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nDoc A: how many words in Topic 1\nDoc A: how many words in Topic 2\nDoc A: how many words in Topic 3\n\n\n2\n0\n2"
   },
   {
     "objectID": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-2",
     "href": "slides/2025-12-01-lda.html#predicting-the-words-topic-goal-2",
     "title": "latent Dirichlet allocation",
     "section": "Predicting the word’s topic (Goal #2)",
-    "text": "Predicting the word’s topic (Goal #2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nHow often is ball in Topic 1\nHow often is ball in Topic 2\nHow often is ball in Topic 3\n\n\n3\n1\n0"
+    "text": "Predicting the word’s topic (Goal #2)\n\n\n\n\n\n\n\n\n\nTopic 1\nTopic 2\nTopic 3\n\n\n\n\nHow often is ball in Topic 1\nHow often is ball in Topic 2\nHow often is ball in Topic 3\n\n\n3\n1\n0"
   },
   {
     "objectID": "slides/2025-12-01-lda.html#data-without-first-word",
@@ -11085,7 +11085,7 @@
     "href": "slides/2025-12-01-lda.html#what-is-the-topic-of-a-training-document",
     "title": "latent Dirichlet allocation",
     "section": "What is the topic of a training document?",
-    "text": "What is the topic of a training document?\n\\[\\mbox{Topic}(d) = \\mbox{arg} \\max_k \\theta_{d,k}\\]\nwhere \\(\\theta_{d,k}\\) is the probability of topic \\(k\\) for document \\(d\\).\n\\(\\theta_{d,k}\\) is estimated as the proportion of topic \\(k\\) in document \\(d\\)."
+    "text": "What is the topic of a training document?\n\\[\\mbox{Topic}(d) = \\mbox{arg} \\max_k \\theta_{d,k}\\]\nwhere \\(\\theta_{d,k}\\) is the probability of topic \\(k\\) for document \\(d\\) and estimated as the proportion of topic \\(k\\) in document \\(d\\)."
   },
   {
     "objectID": "slides/2025-12-01-lda.html#what-is-the-topic-of-a-test-document",
@@ -11099,7 +11099,7 @@
     "href": "slides/2025-12-01-lda.html#example-from-math-154",
     "title": "latent Dirichlet allocation",
     "section": "Example (from Math 154)",
-    "text": "Example (from Math 154)\n\n\n\n\n\n\nLDA on TSL\n\n\n\nIn fall 2015, Benji Lu, Kai Fukutaki, and Ziqi Xiong performed LDA on The Student Life articles for their computational statistics project: https://ziqixiong.shinyapps.io/TopicModeling/"
+    "text": "Example (from Math 154)\n\n\n\nLDA on TSL\n\n\nIn fall 2015, Benji Lu, Kai Fukutaki, and Ziqi Xiong performed LDA on The Student Life articles for their computational statistics project: https://ziqixiong.shinyapps.io/TopicModeling/"
   },
   {
     "objectID": "slides/2025-12-01-lda.html#statisticians-data-scientists",
@@ -11114,5 +11114,12 @@
     "title": "latent Dirichlet allocation",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nHeavily inspired by Luis Serrano’s youtube video. Also note his other educational materials↩︎"
+  },
+  {
+    "objectID": "slides/2025-12-01-lda.html#tuning-parameters",
+    "href": "slides/2025-12-01-lda.html#tuning-parameters",
+    "title": "latent Dirichlet allocation",
+    "section": "Tuning parameters",
+    "text": "Tuning parameters\n\n\\(\\alpha\\) controls the document-topic density\n\nsmall \\(\\alpha\\) is used if documents are sparse in topics \\(\\rightarrow\\) puts most probability on only a few topics\nlarge \\(\\alpha\\) is used if documents mix many topics \\(\\rightarrow\\) spreads probability across many topics\n\n\\(\\beta\\) controls the topic-word density\n\nsmall \\(\\beta\\) means topics are sparse, with few high-probability words \\(\\rightarrow\\) puts most probability on a few words\nlarge \\(\\beta\\) means topics are smoother, lots of words with small but non-zero probability \\(\\rightarrow\\) spreads probability across more words"
   }
 ]

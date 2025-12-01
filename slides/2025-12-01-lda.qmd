@@ -1,7 +1,7 @@
 ---
 title: "latent Dirichlet allocation"
 author: "Jo Hardin"
-subtitle: "December 4, 2024"
+subtitle: "December 1, 2025"
 format:
   revealjs:
     html-math-method: mathjax
@@ -25,7 +25,7 @@ editor:
 library(tidyverse)
 ```
 
-# Agenda 12/04/24
+# Agenda 12/01/25
 
 1.  LDA
 2.  who does statistics / data science?
@@ -307,7 +307,9 @@ Property 1: articles are as homogeneous as possible
 ggplot() +
   geom_text(data = words, 
             aes(x = x2, y = y2, 
-                label = words2, color = topic2), size = 8) +
+                label = words2, 
+                color = factor(topic2, levels = c("T3", "T2", "T1"))), 
+            size = 8) +
   coord_fixed() +  
   theme_void() + 
   theme(legend.position = "none")
@@ -323,7 +325,9 @@ Property 2: words are as homogeneous as possible
 ggplot() +
   geom_text(data = words, 
             aes(x = x2, y = y2, 
-                label = words2, color = topic2), size = 8) +
+                label = words2, 
+                color = factor(topic2, levels = c("T3", "T2", "T1"))),
+            size = 8) +
   coord_fixed() +  
   theme_void() + 
   theme(legend.position = "none")
@@ -497,6 +501,16 @@ $$
 
 $\rightarrow$ assign [Topic 1]{style="color:#f47c70"}  to the first instance of **ball**
 
+## Tuning parameters
+
+* $\alpha$ controls the document-topic density
+   - small $\alpha$ is used if documents are sparse in topics $\rightarrow$ puts most probability on only a few topics
+   - large $\alpha$ is used if documents mix many topics $\rightarrow$ spreads probability across many topics
+   
+* $\beta$ controls the topic-word density
+   - small $\beta$ means topics are sparse, with few high-probability words $\rightarrow$ puts most probability on a few words
+   - large $\beta$ means topics are smoother, lots of words with small but non-zero probability $\rightarrow$ spreads probability across more words
+
 ## Next step
 
 Update the first instance of **[ball]{style="color:#f47c70"}** and move on to the second instance of **ball**. (Keep iterating!)
@@ -531,9 +545,7 @@ ggplot() +
 
 $$\mbox{Topic}(d) = \mbox{arg} \max_k \theta_{d,k}$$
 
-where $\theta_{d,k}$ is the probability of topic $k$ for document $d$. 
-
-$\theta_{d,k}$ is estimated as the proportion of topic $k$ in document $d$.
+where $\theta_{d,k}$ is the probability of topic $k$ for document $d$ and estimated as the proportion of topic $k$ in document $d$.
 
 ## What is the topic of a test document?
 
