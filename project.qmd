@@ -141,7 +141,7 @@ Watch the videos on this site to identify some common mistakes. Here is some gen
 
 ## Write-Up
 
-Your write-up will be similar to a report to client crafted in Quarto, compiled to a pdf, due on Thursday, December 12th by midnight. 
+Your write-up will be similar to a report to client crafted in Quarto, compiled to a pdf, due on Monday, December 8th by midnight. 
 
 In your write-up, you should tell a data science audience about your project, why they should care about it, and what you have discovered. Your audience will be people like you – current or aspiring data scientists. Keep in mind that this audience is extraordinarily diverse in terms of skills and abilities, so you should assume very little about what they might know. However, your audience is reasonably tech-savvy, so you need not "dumb-down" your analysis.
 
